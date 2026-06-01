@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KuyénDev</title>
+<meta name="description" content="KuyénDev - Soporte informático profesional en Osorno. Formateo de computadores, instalación de Windows y Office, eliminación de virus, optimización de rendimiento y talleres de ciberseguridad para colegios.">
+<meta name="keywords" content="técnico informático Osorno, formateo computadores Osorno, instalación Office Osorno, optimización PC Osorno, eliminación virus Osorno, soporte informático Osorno, talleres ciberseguridad colegios, capacitaciones tecnológicas docentes">
+<meta property="og:title" content="KuyénDev | Soporte Informático Profesional Osorno">
+<meta property="og:description" content="Recuperamos el rendimiento de tus equipos y solucionamos problemas de software. Atención personalizada en Osorno.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="icon" type="image/x-icon" href="icons/KuyenDev_logo_cuadrado_transparente.ico">
+</head>
+<body>
+
+<canvas id="bgCanvas"></canvas>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-icon" style="width: 160px; height: 45px;">
+      <div style="width: 100%; height: 100%; background-image: url('images/Logo KuyénDev para la Web (recortado).png'); background-size: contain; background-repeat: no-repeat; background-position: left center;" aria-label="KuyénDev Logo" role="img"></div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">Nosotros</a></li>
+    <li><a href="#services">Servicios</a></li>
+    <li><a href="#education">Educación</a></li>
+    <li><a href="#process">Proceso</a></li>
+    <li><a href="#instagram">Instagram</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact" class="nav-cta">Contactar</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="toggleMenu()">Nosotros</a>
+  <a href="#services" onclick="toggleMenu()">Servicios</a>
+  <a href="#education" onclick="toggleMenu()">Educación</a>
+  <a href="#process" onclick="toggleMenu()">Proceso</a>
+  <a href="#instagram" onclick="toggleMenu()">Instagram</a>
+  <a href="#faq" onclick="toggleMenu()">Preguntas frecuentes</a>
+  <a href="#contact" onclick="toggleMenu()" style="color: var(--cyan); font-weight:600;">Contactar</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Osorno, Región de Los Lagos</div>
+    <div class="hero-logo">
+      <div style="width: 100%; height: 100%; background-image: url('images/LogoSinFondo (recortado).png'); background-size: contain; background-repeat: no-repeat; background-position: center;" aria-label="KuyénDev Logo" role="img"></div>
+    </div>
+    <h1 class="hero-title">KuyénDev</h1>
+    <p class="hero-subtitle">Soluciones que optimizan tu mundo</p>
+    <p class="hero-desc">Recuperamos el rendimiento de tus equipos, solucionamos problemas de software y ayudamos a personas e instituciones a aprovechar al máximo su tecnología.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary"><span>🔍 Solicitar diagnóstico</span></a>
+      <a href="https://wa.me/56942513730?text=Hola%20KuyénDev,%20necesito%20soporte%20para%20mi%20equipo." target="_blank" class="btn-secondary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Hablar por WhatsApp
+      </a>
+    </div>
+    <!-- HEARTBEAT SVG -->
+    <div class="hero-wave">
+      <svg viewBox="0 0 600 80" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="rgba(0,217,255,0)"/>
+            <stop offset="20%" stop-color="#00D9FF"/>
+            <stop offset="80%" stop-color="#007BFF"/>
+            <stop offset="100%" stop-color="rgba(0,217,255,0)"/>
+          </linearGradient>
+        </defs>
+        <polyline points="0,40 80,40 120,40 140,10 155,65 170,5 185,55 200,40 280,40 300,40 330,40 345,15 360,60 375,8 390,52 405,40 480,40 600,40"
+          stroke="url(#waveGrad)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <animate attributeName="stroke-dasharray" from="0,1000" to="1000,0" dur="3s" fill="freeze"/>
+        </polyline>
+        <circle r="4" fill="#00D9FF" opacity="0.8">
+          <animateMotion dur="3s" path="M0,40 L80,40 L120,40 L140,10 L155,65 L170,5 L185,55 L200,40 L280,40 L300,40 L330,40 L345,15 L360,60 L375,8 L390,52 L405,40 L480,40 L600,40" fill="freeze"/>
+        </circle>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-grid">
+    <div class="stat-item">
+      <span class="stat-num" data-target="2022">2022</span>
+      <span class="stat-label">Fundado desde</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="20">20+</span>
+      <span class="stat-label">Servicios disponibles</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">100%</span>
+      <span class="stat-label">Atención personalizada</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">∞</span>
+      <span class="stat-label">Optimización primero</span>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT (Loaded dynamically) -->
+<div id="section-about"></div>
+
+<!-- SERVICES (Loaded dynamically) -->
+<div id="section-services"></div>
+
+<!-- EDUCATION (Loaded dynamically) -->
+<div id="section-education"></div>
+
+<!-- PROBLEMS (Loaded dynamically) -->
+<div id="section-problems"></div>
+
+<!-- PROCESS (Loaded dynamically) -->
+<div id="section-process"></div>
+
+<!-- INSTAGRAM (Loaded dynamically) -->
+<div id="section-instagram"></div>
+
+<!-- TESTIMONIALS (Loaded dynamically) - COMMENTED OUT -->
+<!-- <div id="section-testimonios"></div> -->
+
+<!-- FAQ (Loaded dynamically) -->
+<div id="section-faq"></div>
+
+<!-- CTA BANNER -->
+<div class="cta-banner reveal">
+  <h2>¿Tu computador está lento o presenta problemas?</h2>
+  <p>Recuperemos su rendimiento y aprovecha al máximo tu tecnología. Diagnóstico inicial sin compromiso.</p>
+  <div class="cta-btns">
+    <a href="#contact" class="btn-primary"><span>🔍 Solicitar diagnóstico</span></a>
+    <a href="https://wa.me/56942513730?text=Hola%20KuyénDev,%20quiero%20consultar%20sobre%20un%20servicio." target="_blank" class="btn-secondary">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp directo
+    </a>
+  </div>
+</div>
+
+<!-- CONTACT (Loaded dynamically) -->
+<div id="section-contact"></div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">KuyénDev</div>
+    <div class="footer-text">© 2026 KuyénDev · Franco Luna · Osorno, Chile · Soporte informático profesional</div>
+    <div class="footer-social">
+      <a href="https://instagram.com/kuyendev" target="_blank">Instagram</a>
+      <a href="https://wa.me/56942513730" target="_blank">WhatsApp</a>
+      <a href="mailto:fa.lunangulo@outlook.com">Email</a>
+      <a href="pages/terminos.html" target="_blank">Términos y Políticas</a>
+    </div>
+  </div>
+</footer>
+
+<!-- WA FLOAT -->
+<a href="https://wa.me/56942513730?text=Hola%20KuyénDev,%20necesito%20ayuda%20con%20mi%20computador." target="_blank" class="wa-float" title="Chatear por WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+<script src="js/script.js"></script>
+</body>
+</html>
