@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Optimización Integral: Colegio Bertoldo Hofmann Kahler | KuyénDev
+    </title>
+    <meta
+      name="description"
+      content="Caso de estudio: Optimización y aseguramiento de 30 equipos computacionales en el Colegio Bertoldo Hofmann Kahler en Purranque."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../css/styles.css" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="../../icons/KuyenDev_logo_cuadrado_transparente.ico"
+    />
+    <style>
+      .article-container {
+        padding: 8rem 1.5rem 4rem;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .article-header {
+        margin-bottom: 4rem;
+        text-align: center;
+      }
+
+      .article-date {
+        display: block;
+        font-size: 0.875rem;
+        color: var(--accent-primary);
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 1rem;
+      }
+
+      .article-title {
+        font-size: clamp(2rem, 5vw, 3rem);
+        font-weight: 800;
+        line-height: 1.1;
+        color: var(--text-primary);
+        margin-bottom: 1.5rem;
+        letter-spacing: -0.02em;
+      }
+
+      .article-subtitle {
+        font-size: 1.125rem;
+        color: var(--text-secondary);
+        line-height: 1.6;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .article-hero-img {
+        width: 100%;
+        height: 420px;
+        background-color: var(--bg-surface);
+        border-radius: var(--radius-lg);
+        background-size: cover;
+        background-position: center;
+        margin-bottom: 4rem;
+        border: 1px solid var(--border-strong);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      }
+
+      .article-img {
+        width: 100%;
+        border-radius: var(--radius-md);
+        margin: 2rem 0;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        border: 1px solid var(--border-subtle);
+        display: block;
+      }
+
+      .img-caption {
+        text-align: center;
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        margin-top: -1rem;
+        margin-bottom: 2rem;
+        font-style: italic;
+      }
+
+      .article-content {
+        font-size: 1.125rem;
+        line-height: 1.8;
+        color: var(--text-secondary);
+      }
+
+      .article-content h2 {
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-top: 3rem;
+        margin-bottom: 1rem;
+        letter-spacing: -0.01em;
+      }
+
+      .article-content h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .article-content p {
+        margin-bottom: 1.5rem;
+      }
+
+      .article-content ul {
+        margin-bottom: 1.5rem;
+        padding-left: 1.5rem;
+      }
+
+      .article-content li {
+        margin-bottom: 0.5rem;
+      }
+
+      .article-content strong {
+        color: var(--text-primary);
+        font-weight: 600;
+      }
+
+      .article-stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 1rem;
+        margin: 3rem 0;
+      }
+
+      .stat-box {
+        background: var(--bg-surface);
+        border: 1px solid var(--border-strong);
+        border-radius: var(--radius-md);
+        padding: 1.5rem;
+        text-align: center;
+      }
+
+      .stat-box .num {
+        display: block;
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: var(--accent-cyan);
+        margin-bottom: 0.25rem;
+        line-height: 1;
+      }
+
+      .stat-box .label {
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+        font-weight: 500;
+      }
+
+      .nav-legal {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+      }
+
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--text-secondary);
+        transition: color 0.2s;
+      }
+      .back-link:hover {
+        color: var(--text-primary);
+      }
+
+      .share-bar {
+        margin-top: 4rem;
+        padding-top: 2rem;
+        border-top: 1px solid var(--border-subtle);
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+    </style>
+  </head>
+  <body class="theme-dark antialiased">
+    <div class="mesh-bg"></div>
+
+    <!-- NAV -->
+    <nav class="nav-glass">
+      <div class="nav-container nav-legal">
+        <a href="../../index.html" class="nav-logo-link">
+          <div
+            class="nav-logo-img"
+            style="
+              background-image: url(&quot;../../images/Logo KuyénDev para la Web (recortado).png&quot;);
+            "
+          ></div>
+        </a>
+        <a href="../noticias.html" class="back-link">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M19 12H5M12 19l-7-7 7-7" />
+          </svg>
+          Volver a Casos de Éxito
+        </a>
+      </div>
+    </nav>
+
+    <main class="article-container">
+      <header class="article-header reveal-fade">
+        <span class="article-date">Caso de Estudio · Purranque</span>
+        <h1 class="article-title">
+          Optimización Integral: Colegio Bertoldo Hofmann Kahler
+        </h1>
+        <p class="article-subtitle">
+          Aseguramiento, optimización y estructuración de 30 equipos
+          computacionales para mejorar radicalmente la experiencia educativa.
+        </p>
+      </header>
+
+      <!-- IMAGEN PORTADA (laboratorio/computadores) -->
+      <div
+        class="article-hero-img reveal-fade delay-100"
+        style="
+          background-image: url(&quot;BertoldoHofmannKahler/BHKportada.png&quot;);
+        "
+      ></div>
+
+      <article class="article-content reveal-fade delay-200">
+        <h2>El Requerimiento</h2>
+        <p>
+          El Colegio Bertoldo Hofmann Kahler, ubicado en la ciudad de Purranque,
+          nos solicitó una intervención masiva y estructurada para su flota de
+          ordenadores. El objetivo era revitalizar el rendimiento tecnológico
+          tanto para los docentes como para los estudiantes en el laboratorio de
+          computación.
+        </p>
+        <p>
+          Se nos encomendó el formateo, particionamiento y configuración de un
+          total de <strong>30 computadores</strong>, divididos estratégicamente
+          entre <strong>23 equipos de laboratorio</strong> (uso intensivo por
+          estudiantes) y
+          <strong>7 laptops exclusivas para los profesores</strong>.
+        </p>
+
+        <!-- IMAGEN DEL COLEGIO (prueba social) -->
+        <img
+          src="BertoldoHofmannKahler/BHKcolegio.png"
+          alt="Colegio Bertoldo Hofmann Kahler, Purranque"
+          class="article-img"
+        />
+        <p class="img-caption">
+          Colegio Bertoldo Hofmann Kahler · Purranque, Región de Los Lagos
+        </p>
+
+        <h2>La Solución KuyénDev</h2>
+        <p>
+          Ejecutamos un trabajo estandarizado bajo protocolos estrictos para
+          garantizar durabilidad y seguridad. Todas las terminales recibieron
+          una optimización base orientada a alargar la vida útil del hardware y
+          hacerlos notoriamente más rápidos.
+        </p>
+
+        <h3>Intervención General — 30 Equipos</h3>
+        <ul>
+          <li>
+            <strong>Formateo y Particionamiento:</strong> Instalación de sistema
+            operativo limpio con partición del disco duro configurada según los
+            requerimientos solicitados por la dirección del colegio.
+          </li>
+          <li>
+            <strong>Despliegue de Software Base:</strong> Instalación de
+            utilidades esenciales y <strong>Microsoft Office 2024</strong> con
+            activación permanente para asegurar la continuidad del trabajo
+            administrativo y pedagógico.
+          </li>
+          <li>
+            <strong>Optimización de Rendimiento:</strong> Aplicación de ajustes
+            a nivel de sistema operativo para maximizar la velocidad de
+            respuesta, prolongando la vida útil de los equipos.
+          </li>
+        </ul>
+
+        <h3>Seguridad Avanzada en Laboratorio — 23 Equipos</h3>
+        <p>
+          Para el laboratorio utilizado constantemente por los alumnos, la
+          seguridad y el mantenimiento a largo plazo son críticos. Implementamos
+          medidas adicionales para evitar daños por mal uso:
+        </p>
+        <ul>
+          <li>
+            <strong>Congelamiento del Sistema:</strong> Configuramos un software
+            que restablece el equipo a un punto seguro predefinido cada vez que
+            se reinicia. Esto hace imposible el corrompimiento del sistema
+            operativo por la instalación accidental o intencionada de virus o
+            malware por parte de los estudiantes.
+          </li>
+          <li>
+            <strong>Filtro de Contenido:</strong> Implementación de bloqueo
+            estricto de páginas con contenido para mayores de 18 años (+18) a
+            nivel de sistema.
+          </li>
+        </ul>
+
+        <h2>El Resultado</h2>
+        <p>
+          Entregamos 30 equipos que no solo funcionan más rápido, sino que
+          poseen una estructura a prueba de fallos en el área estudiantil. Los
+          profesores ahora cuentan con las herramientas modernas necesarias para
+          su labor, y la institución se ahorra cientos de horas en soporte
+          técnico correctivo gracias a la protección por congelamiento.
+        </p>
+
+        <!-- SCREENSHOT DEL TRABAJO TERMINADO -->
+        <img
+          src="BertoldoHofmannKahler/BHKscreenshot.png"
+          alt="Trabajo terminado — Sistema optimizado y configurado"
+          class="article-img"
+        />
+        <p class="img-caption">
+          Vista del sistema finalizado tras la optimización y configuración
+          completa
+        </p>
+
+        <div class="article-stats">
+          <div class="stat-box">
+            <span class="num">30</span>
+            <span class="label">Equipos Optimizados</span>
+          </div>
+          <div class="stat-box">
+            <span class="num">23</span>
+            <span class="label">Con Deep Freeze y Bloqueo +18</span>
+          </div>
+          <div class="stat-box">
+            <span class="num">100%</span>
+            <span class="label">Inmunidad ante Corrupción de OS</span>
+          </div>
+        </div>
+
+        <div class="share-bar">
+          <a
+            href="../../index.html#contact"
+            class="btn-primary"
+            style="padding: 0.5rem 1.25rem"
+            >Solicitar Evaluación Institucional</a
+          >
+        </div>
+      </article>
+    </main>
+
+    <footer class="footer" style="margin-top: 4rem">
+      <div class="container footer-container">
+        <div class="footer-logo-area">
+          <span class="footer-logo">KuyénDev</span>
+          <span class="footer-year">© 2026</span>
+        </div>
+        <div class="footer-links">
+          <a href="https://instagram.com/kuyendev" target="_blank">Instagram</a>
+          <a href="https://wa.me/56942513730" target="_blank">WhatsApp</a>
+          <a href="../terminos.html">Términos y Condiciones</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../../js/script.js"></script>
+  </body>
+</html>

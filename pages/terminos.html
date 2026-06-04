@@ -1,185 +1,179 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Términos y Políticas de Servicio | KuyénDev Osorno</title>
 <meta name="description" content="Conoce las condiciones, limitaciones, garantías y responsabilidades legales que aplican a nuestros servicios de soporte informático en Osorno.">
-<meta name="keywords" content="técnico informático Osorno, formateo computadores Osorno, soporte informático Osorno, términos de servicio KuyénDev, garantía soporte técnico">
-<meta property="og:title" content="Términos y Políticas de Servicio | KuyénDev">
-<meta property="og:description" content="Conoce las condiciones, limitaciones, garantías y responsabilidades que aplican a nuestros servicios de soporte informático.">
-<meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/styles.css">
 <link rel="icon" type="image/x-icon" href="../icons/KuyenDev_logo_cuadrado_transparente.ico">
+<style>
+  .legal-section { padding: 8rem 0 4rem; }
+  .legal-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-md);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .legal-num {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 3rem;
+    height: 3rem;
+    background: var(--bg-base);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    color: var(--accent-primary);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.2rem;
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.1);
+  }
+  .legal-card h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+    color: var(--text-primary);
+    padding-left: 1.5rem;
+  }
+  .legal-card p, .legal-card li {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 0.75rem;
+  }
+  .legal-card ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .legal-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    transition: color 0.2s;
+  }
+  .back-link:hover {
+    color: var(--text-primary);
+  }
+</style>
 </head>
-<body>
+<body class="theme-dark antialiased">
 
-<canvas id="bgCanvas"></canvas>
+<div class="mesh-bg"></div>
 
 <!-- NAV -->
-<nav id="mainNav" style="justify-content: center;">
-    <a href="../index.html" class="nav-logo" style="position: absolute; left: 2rem;">
-  <div class="nav-logo-icon" style="width: 160px; height: 45px;">
-    <div
-      style="
-        width: 100%;
-        height: 100%;
-        background-image: url('../images/Logo KuyénDev para la Web (recortado).png');
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center center;
-      "
-      aria-label="KuyénDev Logo"
-      role="img">
-    </div>
-  </div>
-</a>
-  <div class="footer-logo">Términos y Políticas</div>
-  <div class="hamburger" id="hamburger" onclick="toggleMenu()" style="position: absolute; right: 2rem;">
-    <span></span><span></span><span></span>
+<nav class="nav-glass">
+  <div class="nav-container legal-nav">
+    <a href="../index.html" class="nav-logo-link">
+      <div class="nav-logo-img" style="background-image: url('../images/Logo KuyénDev para la Web (recortado).png');"></div>
+    </a>
+    <a href="../index.html" class="back-link">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Volver al Inicio
+    </a>
   </div>
 </nav>
 
-<main>
-<!-- HERO -->
-<section class="hero" style="min-height: auto; padding-top: 8rem; padding-bottom: 3rem; background: linear-gradient(135deg, rgba(0,123,255,0.1), rgba(0,217,255,0.05));">
-  <div class="container" style="text-align: center;">
-    
-    <div class="section-tag" style="justify-content: center; display: flex; margin-bottom: 1rem;">🔒 LEGAL</div>
+<main class="legal-section">
+  <div class="container max-w-3xl">
+    <div class="text-center mb-12 reveal-fade">
+      <div class="section-tag mx-auto">Legal</div>
+      <h1 class="section-title">Términos y <span class="text-gradient">Políticas</span></h1>
+      <p class="section-desc max-w-2xl mx-auto">Condiciones, limitaciones y garantías que aplican a nuestros servicios de soporte técnico.</p>
+    </div>
 
-    <h1 class="hero-title" style="font-size: 2.5rem; margin-bottom: 1rem;">
-      Términos y <span style="background:linear-gradient(135deg,var(--electric),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Políticas de Servicio</span>
-    </h1>
+    <div class="legal-card reveal-fade delay-100">
+      <div class="legal-num">1</div>
+      <h2>Exclusión Absoluta de Responsabilidad por Hardware</h2>
+      <p>KuyénDev se dedica exclusivamente al soporte, optimización, configuración e instalación de software. No realiza reparaciones físicas de hardware ni se hace responsable por fallas preexistentes, latentes u ocultas en los componentes físicos del equipo (como discos duros, sectores defectuosos, sobrecalentamiento, degradación de placa madre o RAM), aun cuando estas fallas se manifiesten de forma evidente durante el proceso de testeo o ejecución del servicio lógico.</p>
+    </div>
 
-    <p class="hero-subtitle" style="font-size: 1rem; color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto;">
-      Conoce las condiciones, limitations, garantías y responsabilidades que aplican a nuestros servicios de soporte informático.
-    </p>
-  </div>
-</section>
+    <div class="legal-card reveal-fade delay-200">
+      <div class="legal-num">2</div>
+      <h2>Responsabilidad Exclusiva del Respaldo de Datos (Back-Up)</h2>
+      <p>Es obligación única, exclusiva y previa del cliente realizar un respaldo completo de su información. KuyénDev no se hace responsable bajo ninguna circunstancia por la pérdida parcial o total de datos, archivos, licencias o borrados necesarios para la correcta prestación del servicio. El cliente asume plenamente este riesgo.</p>
+    </div>
 
-<!-- CONTENIDO LEGAL -->
-<section class="section" style="padding: 4rem 0;">
-  <div class="container" style="max-width: 800px; margin: 0 auto; padding: 0 1.5rem;">
+    <div class="legal-card reveal-fade">
+      <div class="legal-num">3</div>
+      <h2>Plazos de Retiro y Multas por Bodegaje</h2>
+      <p>El cliente acepta expresamente el correo electrónico y teléfono declarados como los canales válidos para recibir notificaciones de entrega.</p>
+      <p>Una vez notificado, dispone de un plazo de gracia de <strong>14 días corridos</strong> para retirar su equipo sin costo adicional.</p>
+      <p>Desde el día 15 se aplicará una multa de <strong>$2.000 CLP diarios</strong> por concepto de almacenamiento y custodia, la cual deberá ser cancelada antes de la devolución del equipo.</p>
+    </div>
 
-    <article class="glass-card" style="border-left: 3px solid var(--cyan); margin-bottom: 1.5rem;">
-      <h2 style="color: var(--cyan); font-size: 1.2rem; margin-bottom: 0.5rem;">1. Exclusión Absoluta de Responsabilidad por Hardware</h2>
-      <p>
-        KuyénDev se dedica exclusivamente al soporte, optimización, configuración e instalación de software. No realiza reparaciones físicas de hardware ni se hace responsable por fallas preexistentes, latentes u ocultas en los componentes físicos del equipo (como discos duros, sectores defectuosos, sobrecalentamiento, degradación de placa madre o RAM), aun cuando estas fallas se manifiesten de forma evidente durante el proceso de testeo o ejecución del servicio lógico.
-      </p>
-    </article>
+    <div class="legal-card reveal-fade">
+      <div class="legal-num">4</div>
+      <h2>Cláusula de Abandono</h2>
+      <p>Transcurridos <strong>60 días corridos</strong> desde la primera notificación de entrega sin que el cliente retire el equipo ni regularice los pagos pendientes, el equipo será considerado legalmente abandonado.</p>
+      <p>El cliente faculta expresamente a KuyénDev para vender, enajenar o disponer del bien con el fin de cubrir los costos del servicio y bodegaje acumulado, sin derecho a indemnización ni reclamos posteriores.</p>
+    </div>
 
-    <article class="glass-card" style="border-left: 3px solid var(--electric); margin-bottom: 1.5rem;">
-      <h2 style="color: var(--electric); font-size: 1.2rem; margin-bottom: 0.5rem;">2. Responsabilidad Exclusiva del Respaldo de Datos (Back-Up)</h2>
-      <p>
-        Es obligación única, exclusiva y previa del cliente realizar un respaldo completo de su información. KuyénDev no se hace responsable bajo ninguna circunstancia por la pérdida parcial o total de datos, archivos, licencias o borrados necesarios para la correcta prestación del servicio. El cliente asume plenamente este riesgo.
-      </p>
-    </article>
+    <div class="legal-card reveal-fade">
+      <div class="legal-num">5</div>
+      <h2>Licenciamiento, Activaciones y Versiones de Software</h2>
+      <p>La provisión de licencias oficiales es responsabilidad exclusiva del cliente.</p>
+      <p>Cuando el usuario lo solicite expresamente, o cuando las limitaciones técnicas del hardware impidan utilizar software moderno estándar, KuyénDev podrá implementar métodos de activación externos u optimizaciones mediante sistemas operativos modificados para extender la vida útil del equipo.</p>
+      <p>El cliente declara conocer y aceptar este procedimiento, liberando a KuyénDev de cualquier responsabilidad legal, técnica o penal derivada de incompatibilidades, bloqueos, fallas o consecuencias futuras asociadas a dichos métodos.</p>
+    </div>
 
-    <article class="glass-card" style="border-left: 3px solid var(--cyan); margin-bottom: 1.5rem;">
-      <h2 style="color: var(--cyan); font-size: 1.2rem; margin-bottom: 0.5rem;">3. Canales Oficiales, Plazos de Retiro y Multas por Bodegaje</h2>
-      <p style="margin-bottom: 1rem;">
-        El cliente acepta expresamente el correo electrónico y teléfono declarados como los canales válidos para recibir notificaciones de entrega.
-      </p>
-      <p style="margin-bottom: 1rem;">
-        Una vez notificado, dispone de un plazo de gracia de <strong>14 días corridos</strong> para retirar su equipo sin costo adicional.
-      </p>
-      <p>
-        Desde el día 15 se aplicará una multa de <strong>$2.000 CLP diarios</strong> por concepto de almacenamiento y custodia, la cual deberá ser cancelada antes de la devolución del equipo.
-      </p>
-    </article>
-
-    <article class="glass-card" style="border-left: 3px solid var(--electric); margin-bottom: 1.5rem;">
-      <h2 style="color: var(--electric); font-size: 1.2rem; margin-bottom: 0.5rem;">4. Cláusula de Abandono</h2>
-      <p style="margin-bottom: 1rem;">
-        Transcurridos <strong>60 días corridos</strong> desde la primera notificación de entrega sin que el cliente retire el equipo ni regularice los pagos pendientes, el equipo será considerado legalmente abandonado.
-      </p>
-      <p>
-        El cliente faculta expresamente a KuyénDev para vender, enajenar o disponer del bien con el fin de cubrir los costos del servicio y bodegaje acumulado, sin derecho a indemnización ni reclamos posteriores.
-      </p>
-    </article>
-
-    <article class="glass-card" style="border-left: 3px solid var(--cyan); margin-bottom: 1.5rem;">
-      <h2 style="color: var(--cyan); font-size: 1.2rem; margin-bottom: 0.5rem;">5. Licenciamiento, Activaciones Externas y Versiones de Software</h2>
-      <p style="margin-bottom: 1rem;">
-        La provisión de licencias oficiales es responsabilidad exclusiva del cliente.
-      </p>
-      <p style="margin-bottom: 1rem;">
-        Cuando el usuario lo solicite expresamente, o cuando las limitaciones técnicas del hardware impidan utilizar software moderno estándar, KuyénDev podrá implementar métodos de activación externos u optimizaciones mediante sistemas operativos modificados para extender la vida útil del equipo.
-      </p>
-      <p>
-        El cliente declara conocer y aceptar este procedimiento, liberando a KuyénDev de cualquier responsabilidad legal, técnica o penal derivada de incompatibilidades, bloqueos, fallas o consecuencias futuras asociadas a dichos métodos.
-      </p>
-    </article>
-
-    <article class="glass-card" style="border-left: 3px solid var(--electric); margin-bottom: 1.5rem;">
-      <h2 style="color: var(--electric); font-size: 1.2rem; margin-bottom: 0.5rem;">6. Garantías del Servicio y Limitaciones</h2>
-
-      <h3 style="color: var(--electric); font-size: 1rem; margin-top: 1rem; margin-bottom: 0.5rem;">Garantía otorgada</h3>
-      <ul style="margin-bottom: 1rem; padding-left: 1.2rem;">
+    <div class="legal-card reveal-fade">
+      <div class="legal-num">6</div>
+      <h2>Garantías del Servicio y Limitaciones</h2>
+      <p style="color:var(--text-primary); font-weight: 500;">Garantía otorgada:</p>
+      <ul>
         <li><strong>30 días corridos</strong> para formateo de sistema operativo.</li>
         <li><strong>15 días corridos</strong> para optimizaciones y otros servicios de software.</li>
       </ul>
-
-      <h3 style="color: var(--cyan); font-size: 1rem; margin-top: 1rem; margin-bottom: 0.5rem;">Causales de anulación de garantía</h3>
-      <ul style="padding-left: 1.2rem;">
+      <p style="color:var(--text-primary); font-weight: 500;">Causales de anulación de garantía:</p>
+      <ul>
         <li>Modificación de configuraciones críticas por parte del usuario o terceros.</li>
         <li>Infección por virus o malware posterior al servicio.</li>
         <li>Instalación de software incompatible.</li>
         <li>Golpes, daños físicos o derrame de líquidos.</li>
         <li>Problemas derivados de métodos de activación externa mencionados en la cláusula quinta.</li>
       </ul>
-    </article>
-
-    <article class="glass-card" style="border-left: 3px solid var(--cyan); margin-bottom: 1.5rem;">
-      <h2 style="color: var(--cyan); font-size: 1.2rem; margin-bottom: 0.5rem;">7. Compromiso de Transparencia en la Entrega</h2>
-      <p style="margin-bottom: 0.5rem;">
-        Al finalizar el servicio, KuyénDev entregará un reporte técnico con:
-      </p>
-      <ul style="padding-left: 1.2rem;">
-        <li>Intervenciones lógicas realizadas.</li>
-        <li>Configuraciones modificadas.</li>
-        <li>Versión exacta del sistema operativo instalado.</li>
-        <li>Listado de programas y controladores instalados.</li>
-        <li>Recomendaciones para el cuidado preventivo del software.</li>
-      </ul>
-    </article>
-
-    <!-- CARD DE ACTUALIZACIÓN -->
-    <div class="glass-card" style="text-align:center; border-left: 3px solid rgba(0,217,255,0.3); background: rgba(0,217,255,0.03);">
-      <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem; margin-bottom: 0.5rem;"><strong>Última actualización:</strong> 1 de junio de 2026</p>
-      <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem;">
-        Consultas legales: <a href="mailto:fa.lunangulo@outlook.com" style="color: var(--cyan); text-decoration: none;">fa.lunangulo@outlook.com</a>
-      </p>
-      <p style="color: rgba(255,255,255,0.4); font-size: 0.8rem; margin-top: 1rem;">
-        <a href="../index.html" style="color: var(--electric); text-decoration: none;">← Volver al sitio principal</a>
-      </p>
     </div>
-
+    
+    <div class="text-center mt-12 mb-8 reveal-fade">
+      <p class="text-muted" style="font-size:0.875rem;">Última actualización: 1 de junio de 2026</p>
+      <p class="text-muted" style="font-size:0.875rem;">Consultas legales: <span style="color:var(--text-primary);">fa.lunangulo@outlook.com</span></p>
+    </div>
   </div>
-</section>
 </main>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-logo">KuyénDev</div>
-    <div class="footer-text">© 2026 KuyénDev · Franco Luna · Osorno, Chile · Soporte informático profesional</div>
-    <div class="footer-social">
-      <a href="https://instagram.com/kuyendev" target="_blank" rel="noopener">Instagram</a>
-      <a href="https://wa.me/56942513730" target="_blank" rel="noopener">WhatsApp</a>
-      <a href="mailto:fa.lunangulo@outlook.com">Email</a>
-      <a href="../pages/terminos.html">Términos y Políticas</a>
+<footer class="footer">
+  <div class="container footer-container">
+    <div class="footer-logo-area">
+      <span class="footer-logo">KuyénDev</span>
+      <span class="footer-year">© 2026</span>
+    </div>
+    <div class="footer-links">
+      <a href="https://instagram.com/kuyendev" target="_blank">Instagram</a>
+      <a href="https://wa.me/56942513730" target="_blank">WhatsApp</a>
+      <a href="#">Términos y Condiciones</a>
     </div>
   </div>
 </footer>
-
-<!-- WA FLOAT -->
-<a href="https://wa.me/56942513730?text=Hola%20KuyénDev,%20necesito%20ayuda%20con%20mi%20computador." target="_blank" rel="noopener" class="wa-float" title="Chatear por WhatsApp" aria-label="Chatear por WhatsApp">
-  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-</a>
 
 <script src="../js/script.js"></script>
 </body>
