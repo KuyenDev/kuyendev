@@ -1,180 +1,593 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es" class="scroll-smooth">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Términos y Políticas de Servicio | KuyénDev Osorno</title>
-<meta name="description" content="Conoce las condiciones, limitaciones, garantías y responsabilidades legales que aplican a nuestros servicios de soporte informático en Osorno.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/styles.css">
-<link rel="icon" type="image/x-icon" href="../icons/KuyenDev_logo_cuadrado_transparente.ico">
-<style>
-  .legal-section { padding: 8rem 0 4rem; }
-  .legal-card {
-    background: var(--bg-surface);
-    border: 1px solid var(--border-strong);
-    border-radius: var(--radius-md);
-    padding: 2rem;
-    margin-bottom: 2rem;
-    position: relative;
-    overflow: hidden;
-  }
-  .legal-num {
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    width: 3rem;
-    height: 3rem;
-    background: var(--bg-base);
-    border: 1px solid rgba(99, 102, 241, 0.3);
-    color: var(--accent-primary);
-    border-radius: var(--radius-full);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 800;
-    font-size: 1.2rem;
-    box-shadow: 0 0 15px rgba(99, 102, 241, 0.1);
-  }
-  .legal-card h2 {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    margin-top: 0.5rem;
-    color: var(--text-primary);
-    padding-left: 1.5rem;
-  }
-  .legal-card p, .legal-card li {
-    font-size: 0.875rem;
-    color: var(--text-secondary);
-    line-height: 1.7;
-    margin-bottom: 0.75rem;
-  }
-  .legal-card ul {
-    padding-left: 1.5rem;
-    margin-bottom: 1rem;
-  }
-  .legal-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-  }
-  .back-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: var(--text-secondary);
-    transition: color 0.2s;
-  }
-  .back-link:hover {
-    color: var(--text-primary);
-  }
-</style>
-</head>
-<body class="theme-dark antialiased">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Términos y Políticas de Servicio | KuyénDev Osorno</title>
+    <meta
+      name="description"
+      content="Conoce las condiciones, limitaciones, garantías y responsabilidades legales que aplican a nuestros servicios de soporte informático en Osorno."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="../icons/KuyenDev_logo_cuadrado_transparente.ico"
+    />
+    <style>
+      .legal-section {
+        padding: 8rem 0 4rem;
+      }
+      .legal-card {
+        background: var(--bg-surface);
+        border: 1px solid var(--border-strong);
+        border-radius: var(--radius-md);
+        padding: 2rem;
+        margin-bottom: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .legal-num {
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        width: 3rem;
+        height: 3rem;
+        background: var(--bg-base);
+        border: 1px solid rgba(99, 102, 241, 0.3);
+        color: var(--accent-primary);
+        border-radius: var(--radius-full);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+        font-size: 1.2rem;
+        box-shadow: 0 0 15px rgba(99, 102, 241, 0.1);
+      }
+      .legal-card h2 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        margin-top: 0.5rem;
+        color: var(--text-primary);
+        padding-left: 1.5rem;
+      }
+      .legal-card p,
+      .legal-card li {
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+        line-height: 1.7;
+        margin-bottom: 0.75rem;
+      }
+      .legal-card ul {
+        padding-left: 1.5rem;
+        margin-bottom: 1rem;
+      }
+      .legal-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+      }
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--text-secondary);
+        transition: color 0.2s;
+      }
+      .back-link:hover {
+        color: var(--text-primary);
+      }
+    </style>
+  </head>
+  <body class="theme-dark antialiased">
+    <div class="mesh-bg"></div>
 
-<div class="mesh-bg"></div>
+    <!-- NAV -->
+    <nav class="nav-glass">
+      <div class="nav-container legal-nav">
+        <a href="../index.html" class="nav-logo-link">
+          <div
+            class="nav-logo-img"
+            style="
+              background-image: url(&quot;../images/Logo KuyénDev para la Web (recortado).png&quot;);
+            "
+          ></div>
+        </a>
+        <a href="../index.html" class="back-link">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M19 12H5M12 19l-7-7 7-7" />
+          </svg>
+          Volver al Inicio
+        </a>
+      </div>
+    </nav>
 
-<!-- NAV -->
-<nav class="nav-glass">
-  <div class="nav-container legal-nav">
-    <a href="../index.html" class="nav-logo-link">
-      <div class="nav-logo-img" style="background-image: url('../images/Logo KuyénDev para la Web (recortado).png');"></div>
-    </a>
-    <a href="../index.html" class="back-link">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-      Volver al Inicio
-    </a>
-  </div>
-</nav>
+    <main class="legal-section">
+      <div class="container max-w-3xl">
+        <div class="text-center mb-12 reveal-fade">
+          <div class="section-tag mx-auto">Legal</div>
+          <h1 class="section-title">
+            Términos y <span class="text-gradient">Políticas</span>
+          </h1>
+          <p class="section-desc max-w-2xl mx-auto">
+            Condiciones, limitaciones y garantías que aplican a nuestros
+            servicios de soporte técnico.
+          </p>
+        </div>
 
-<main class="legal-section">
-  <div class="container max-w-3xl">
-    <div class="text-center mb-12 reveal-fade">
-      <div class="section-tag mx-auto">Legal</div>
-      <h1 class="section-title">Términos y <span class="text-gradient">Políticas</span></h1>
-      <p class="section-desc max-w-2xl mx-auto">Condiciones, limitaciones y garantías que aplican a nuestros servicios de soporte técnico.</p>
-    </div>
+        <div class="legal-card reveal-fade delay-100">
+          <div class="legal-num">1</div>
+          <h2>Exclusión Absoluta de Responsabilidad por Hardware</h2>
+          <p>
+            KuyénDev se dedica exclusivamente al soporte, optimización,
+            configuración e instalación de software. No realiza reparaciones
+            físicas de hardware ni se hace responsable por fallas preexistentes,
+            latentes u ocultas en los componentes físicos del equipo (como
+            discos duros, sectores defectuosos, sobrecalentamiento, degradación
+            de placa madre o RAM), aun cuando estas fallas se manifiesten de
+            forma evidente durante el proceso de testeo o ejecución del servicio
+            lógico.
+          </p>
+        </div>
 
-    <div class="legal-card reveal-fade delay-100">
-      <div class="legal-num">1</div>
-      <h2>Exclusión Absoluta de Responsabilidad por Hardware</h2>
-      <p>KuyénDev se dedica exclusivamente al soporte, optimización, configuración e instalación de software. No realiza reparaciones físicas de hardware ni se hace responsable por fallas preexistentes, latentes u ocultas en los componentes físicos del equipo (como discos duros, sectores defectuosos, sobrecalentamiento, degradación de placa madre o RAM), aun cuando estas fallas se manifiesten de forma evidente durante el proceso de testeo o ejecución del servicio lógico.</p>
-    </div>
+        <div class="legal-card reveal-fade delay-200">
+          <div class="legal-num">2</div>
+          <h2>Responsabilidad Exclusiva del Respaldo de Datos (Back-Up)</h2>
+          <p>
+            Es obligación única, exclusiva y previa del cliente realizar un
+            respaldo completo de su información. KuyénDev no se hace responsable
+            bajo ninguna circunstancia por la pérdida parcial o total de datos,
+            archivos, licencias o borrados necesarios para la correcta
+            prestación del servicio. El cliente asume plenamente este riesgo.
+          </p>
+        </div>
 
-    <div class="legal-card reveal-fade delay-200">
-      <div class="legal-num">2</div>
-      <h2>Responsabilidad Exclusiva del Respaldo de Datos (Back-Up)</h2>
-      <p>Es obligación única, exclusiva y previa del cliente realizar un respaldo completo de su información. KuyénDev no se hace responsable bajo ninguna circunstancia por la pérdida parcial o total de datos, archivos, licencias o borrados necesarios para la correcta prestación del servicio. El cliente asume plenamente este riesgo.</p>
-    </div>
+        <div class="legal-card reveal-fade">
+          <div class="legal-num">3</div>
+          <h2>Plazos de Retiro y Multas por Bodegaje</h2>
+          <p>
+            El cliente acepta expresamente el correo electrónico y teléfono
+            declarados como los canales válidos para recibir notificaciones de
+            entrega.
+          </p>
+          <p>
+            Una vez notificado, dispone de un plazo de gracia de
+            <strong>14 días corridos</strong> para retirar su equipo sin costo
+            adicional.
+          </p>
+          <p>
+            Desde el día 15 se aplicará una multa de
+            <strong>$2.000 CLP diarios</strong> por concepto de almacenamiento y
+            custodia, la cual deberá ser cancelada antes de la devolución del
+            equipo.
+          </p>
+        </div>
 
-    <div class="legal-card reveal-fade">
-      <div class="legal-num">3</div>
-      <h2>Plazos de Retiro y Multas por Bodegaje</h2>
-      <p>El cliente acepta expresamente el correo electrónico y teléfono declarados como los canales válidos para recibir notificaciones de entrega.</p>
-      <p>Una vez notificado, dispone de un plazo de gracia de <strong>14 días corridos</strong> para retirar su equipo sin costo adicional.</p>
-      <p>Desde el día 15 se aplicará una multa de <strong>$2.000 CLP diarios</strong> por concepto de almacenamiento y custodia, la cual deberá ser cancelada antes de la devolución del equipo.</p>
-    </div>
+        <div class="legal-card reveal-fade">
+          <div class="legal-num">4</div>
+          <h2>Cláusula de Abandono</h2>
+          <p>
+            Transcurridos <strong>60 días corridos</strong> desde la primera
+            notificación de entrega sin que el cliente retire el equipo ni
+            regularice los pagos pendientes, el equipo será considerado
+            legalmente abandonado.
+          </p>
+          <p>
+            El cliente faculta expresamente a KuyénDev para vender, enajenar o
+            disponer del bien con el fin de cubrir los costos del servicio y
+            bodegaje acumulado, sin derecho a indemnización ni reclamos
+            posteriores.
+          </p>
+        </div>
 
-    <div class="legal-card reveal-fade">
-      <div class="legal-num">4</div>
-      <h2>Cláusula de Abandono</h2>
-      <p>Transcurridos <strong>60 días corridos</strong> desde la primera notificación de entrega sin que el cliente retire el equipo ni regularice los pagos pendientes, el equipo será considerado legalmente abandonado.</p>
-      <p>El cliente faculta expresamente a KuyénDev para vender, enajenar o disponer del bien con el fin de cubrir los costos del servicio y bodegaje acumulado, sin derecho a indemnización ni reclamos posteriores.</p>
-    </div>
+        <div class="legal-card reveal-fade">
+          <div class="legal-num">5</div>
+          <h2>Licenciamiento, Activaciones y Versiones de Software</h2>
+          <p>
+            La provisión de licencias oficiales es responsabilidad exclusiva del
+            cliente.
+          </p>
+          <p>
+            Cuando el usuario lo solicite expresamente, o cuando las
+            limitaciones técnicas del hardware impidan utilizar software moderno
+            estándar, KuyénDev podrá implementar métodos de activación externos
+            u optimizaciones mediante sistemas operativos modificados para
+            extender la vida útil del equipo.
+          </p>
+          <p>
+            El cliente declara conocer y aceptar este procedimiento, liberando a
+            KuyénDev de cualquier responsabilidad legal, técnica o penal
+            derivada de incompatibilidades, bloqueos, fallas o consecuencias
+            futuras asociadas a dichos métodos.
+          </p>
+        </div>
 
-    <div class="legal-card reveal-fade">
-      <div class="legal-num">5</div>
-      <h2>Licenciamiento, Activaciones y Versiones de Software</h2>
-      <p>La provisión de licencias oficiales es responsabilidad exclusiva del cliente.</p>
-      <p>Cuando el usuario lo solicite expresamente, o cuando las limitaciones técnicas del hardware impidan utilizar software moderno estándar, KuyénDev podrá implementar métodos de activación externos u optimizaciones mediante sistemas operativos modificados para extender la vida útil del equipo.</p>
-      <p>El cliente declara conocer y aceptar este procedimiento, liberando a KuyénDev de cualquier responsabilidad legal, técnica o penal derivada de incompatibilidades, bloqueos, fallas o consecuencias futuras asociadas a dichos métodos.</p>
-    </div>
+        <div class="legal-card reveal-fade">
+          <div class="legal-num">6</div>
+          <h2>Garantías del Servicio y Limitaciones</h2>
+          <p style="color: var(--text-primary); font-weight: 500">
+            Garantía otorgada:
+          </p>
+          <ul>
+            <li>
+              <strong>30 días corridos</strong> para formateo de sistema
+              operativo.
+            </li>
+            <li>
+              <strong>15 días corridos</strong> para optimizaciones y otros
+              servicios de software.
+            </li>
+          </ul>
+          <p style="color: var(--text-primary); font-weight: 500">
+            Causales de anulación de garantía:
+          </p>
+          <ul>
+            <li>
+              Modificación de configuraciones críticas por parte del usuario o
+              terceros.
+            </li>
+            <li>Infección por virus o malware posterior al servicio.</li>
+            <li>Instalación de software incompatible.</li>
+            <li>Golpes, daños físicos o derrame de líquidos.</li>
+            <li>
+              Problemas derivados de métodos de activación externa mencionados
+              en la cláusula quinta.
+            </li>
+          </ul>
+        </div>
 
-    <div class="legal-card reveal-fade">
-      <div class="legal-num">6</div>
-      <h2>Garantías del Servicio y Limitaciones</h2>
-      <p style="color:var(--text-primary); font-weight: 500;">Garantía otorgada:</p>
-      <ul>
-        <li><strong>30 días corridos</strong> para formateo de sistema operativo.</li>
-        <li><strong>15 días corridos</strong> para optimizaciones y otros servicios de software.</li>
-      </ul>
-      <p style="color:var(--text-primary); font-weight: 500;">Causales de anulación de garantía:</p>
-      <ul>
-        <li>Modificación de configuraciones críticas por parte del usuario o terceros.</li>
-        <li>Infección por virus o malware posterior al servicio.</li>
-        <li>Instalación de software incompatible.</li>
-        <li>Golpes, daños físicos o derrame de líquidos.</li>
-        <li>Problemas derivados de métodos de activación externa mencionados en la cláusula quinta.</li>
-      </ul>
-    </div>
-    
-    <div class="text-center mt-12 mb-8 reveal-fade">
-      <p class="text-muted" style="font-size:0.875rem;">Última actualización: 1 de junio de 2026</p>
-      <p class="text-muted" style="font-size:0.875rem;">Consultas legales: <span style="color:var(--text-primary);">fa.lunangulo@outlook.com</span></p>
-    </div>
-  </div>
-</main>
+        <div class="legal-card reveal-fade">
+          <div class="legal-num">7</div>
+          <h2>Diagnóstico Técnico y Presupuestos</h2>
+          <p>
+            Todo diagnóstico técnico realizado por KuyénDev constituye una
+            evaluación basada en el estado observable del equipo al momento de
+            su recepción.
+          </p>
+          <p>
+            La detección de una falla no excluye la existencia de otras fallas
+            relacionadas o independientes que puedan manifestarse posteriormente
+            durante el proceso de revisión, reparación, actualización o uso
+            normal del equipo.
+          </p>
+          <p>
+            Los presupuestos entregados tienen carácter estimativo y podrán ser
+            modificados cuando se detecten problemas adicionales no visibles
+            durante la inspección inicial, previa comunicación al cliente.
+          </p>
+        </div>
 
-<footer class="footer">
-  <div class="container footer-container">
-    <div class="footer-logo-area">
-      <span class="footer-logo">KuyénDev</span>
-      <span class="footer-year">© 2026</span>
-    </div>
-    <div class="footer-links">
-      <a href="https://instagram.com/kuyendev" target="_blank">Instagram</a>
-      <a href="https://wa.me/56942513730" target="_blank">WhatsApp</a>
-      <a href="#">Términos y Condiciones</a>
-    </div>
-  </div>
-</footer>
+        <div class="legal-card reveal-fade">
+          <div class="legal-num">8</div>
+          <h2>Equipos con Daños Previos o Manipulación de Terceros</h2>
+          <p>
+            KuyénDev no será responsable por consecuencias derivadas de
+            reparaciones, intervenciones, modificaciones, configuraciones,
+            instalaciones o manipulaciones realizadas previamente por terceros o
+            por el propio cliente.
+          </p>
+          <p>
+            Cuando se detecten sellos rotos, componentes faltantes, piezas
+            incompatibles o alteraciones no informadas, KuyénDev podrá rechazar
+            el servicio o limitar las garantías aplicables.
+          </p>
+        </div>
 
-<script src="../js/script.js"></script>
-</body>
+        <div class="legal-card reveal-fade">
+          <div class="legal-num">9</div>
+          <h2>Limitación de Responsabilidad Económica</h2>
+          <p>
+            En ningún caso la responsabilidad total de KuyénDev por cualquier
+            reclamo relacionado con el servicio prestado excederá el monto
+            efectivamente pagado por dicho servicio.
+          </p>
+          <p>
+            Quedan excluidos daños indirectos, lucro cesante, pérdida de
+            productividad, pérdida de oportunidades comerciales, pérdida de
+            información o cualquier perjuicio económico derivado del uso o
+            imposibilidad de uso del equipo intervenido.
+          </p>
+        </div>
+
+        <div class="legal-card reveal-fade">
+          <div class="legal-num">10</div>
+          <h2>Servicios de Terceros</h2>
+          <p>
+            KuyénDev podrá utilizar software, herramientas, plataformas en
+            línea, controladores, servicios en la nube o recursos proporcionados
+            por terceros cuando ello resulte necesario para la prestación del
+            servicio.
+          </p>
+          <p>
+            No se garantiza la disponibilidad permanente de dichos servicios
+            externos ni se asume responsabilidad por interrupciones,
+            modificaciones de políticas, bloqueos, errores o decisiones
+            adoptadas por sus respectivos proveedores.
+          </p>
+        </div>
+
+        <div class="legal-card reveal-fade">
+          <div class="legal-num">11</div>
+          <h2>Actualizaciones Posteriores al Servicio</h2>
+          <p>
+            KuyénDev no será responsable por fallas originadas por
+            actualizaciones automáticas o manuales de sistemas operativos,
+            controladores, aplicaciones o servicios instalados después de la
+            entrega del equipo.
+          </p>
+          <p>
+            La garantía cubre únicamente el estado funcional del servicio al
+            momento de la entrega y durante el plazo indicado en la cláusula
+            sexta.
+          </p>
+        </div>
+
+        <div class="legal-card reveal-fade">
+          <div class="legal-num">12</div>
+          <h2>Confidencialidad y Acceso a Información</h2>
+          <p>
+            KuyénDev procurará mantener absoluta reserva respecto de la
+            información visible durante la prestación del servicio.
+          </p>
+          <p>
+            No obstante, el cliente entiende que ciertos procedimientos técnicos
+            pueden requerir acceso temporal a perfiles de usuario, archivos de
+            sistema, configuraciones o aplicaciones instaladas.
+          </p>
+          <p>
+            Salvo obligación legal, ninguna información observada durante el
+            servicio será divulgada a terceros.
+          </p>
+        </div>
+
+        <div class="legal-card reveal-fade">
+          <div class="legal-num">13</div>
+          <h2>Recepción Conforme del Servicio</h2>
+          <p>
+            La recepción del equipo por parte del cliente constituye aceptación
+            expresa de que el servicio fue entregado conforme a lo acordado,
+            salvo observaciones manifestadas inmediatamente al momento de la
+            entrega.
+          </p>
+          <p>
+            Posteriormente sólo podrán hacerse valer las garantías expresamente
+            indicadas en estos términos y condiciones.
+          </p>
+        </div>
+
+        <div class="legal-card reveal-fade">
+          <div class="legal-num">14</div>
+          <h2>Fuerza Mayor y Casos Fortuitos</h2>
+          <p>
+            KuyénDev no será responsable por retrasos, incumplimientos o
+            imposibilidad temporal de prestar servicios derivados de hechos
+            ajenos a su control razonable, incluyendo desastres naturales,
+            incendios, fallas eléctricas masivas, interrupciones de internet,
+            actos de autoridad, robos, conflictos laborales o eventos similares.
+          </p>
+        </div>
+
+        <div class="legal-card reveal-fade">
+          <div class="legal-num">15</div>
+          <h2>Aceptación de los Términos y Condiciones</h2>
+          <p>
+            La contratación de cualquier servicio, la entrega de un equipo para
+            diagnóstico o intervención, el pago de un presupuesto o la solicitud
+            expresa de asistencia técnica implican la aceptación íntegra de los
+            presentes términos y condiciones.
+          </p>
+          <p>
+            El cliente declara haber leído, comprendido y aceptado todas las
+            cláusulas aquí establecidas antes de la prestación del servicio.
+          </p>
+        </div>
+
+        <div class="legal-card reveal-fade">
+          <div class="legal-num">16</div>
+          <h2>Alcance de la Garantía</h2>
+          <p>
+            La garantía otorgada por KuyénDev cubre exclusivamente el servicio
+            específico realizado y no constituye una garantía general sobre el
+            funcionamiento integral del equipo.
+          </p>
+          <p>
+            La aparición de nuevas fallas no relacionadas con la intervención
+            efectuada no generará obligación de reparación gratuita ni extensión
+            automática de la garantía originalmente otorgada.
+          </p>
+        </div>
+
+        <div class="legal-card reveal-fade">
+          <div class="legal-num">17</div>
+          <h2>
+            Unidades de Almacenamiento con Desgaste o Fallas Preexistentes
+          </h2>
+          <p>
+            Cuando un disco duro (HDD), unidad de estado sólido (SSD), memoria
+            eMMC u otro dispositivo de almacenamiento presente sectores
+            defectuosos, errores SMART, desgaste avanzado, ciclos de escritura
+            excesivos o cualquier indicador de degradación, KuyénDev podrá
+            advertir dicha situación al cliente.
+          </p>
+          <p>
+            La continuidad operativa de estas unidades no puede garantizarse,
+            por lo que cualquier falla posterior, pérdida de datos o daño
+            derivado de su estado preexistente quedará excluido de toda garantía
+            y responsabilidad.
+          </p>
+        </div>
+
+        <div class="legal-card reveal-fade">
+          <div class="legal-num">18</div>
+          <h2>Equipos con Daño por Temperatura, Humedad o Electricidad</h2>
+          <p>
+            Los equipos que presenten signos de sobrecalentamiento, oxidación,
+            corrosión, sulfatación, humedad, derrames de líquidos, daño
+            eléctrico o fluctuaciones de voltaje pueden contener fallas ocultas
+            imposibles de detectar durante una revisión inicial.
+          </p>
+          <p>
+            KuyénDev no será responsable por desperfectos adicionales que se
+            manifiesten posteriormente como consecuencia de dichas condiciones
+            preexistentes.
+          </p>
+        </div>
+
+        <div class="legal-card reveal-fade">
+          <div class="legal-num">19</div>
+          <h2>Software Solicitado por el Cliente</h2>
+          <p>
+            Cuando el cliente solicite expresamente la instalación de software
+            específico, versiones antiguas, sistemas operativos modificados,
+            aplicaciones descontinuadas o herramientas de terceros, dicha
+            instalación se realizará bajo su exclusiva responsabilidad.
+          </p>
+          <p>
+            KuyénDev no garantiza compatibilidad futura, soporte del fabricante,
+            actualizaciones, estabilidad permanente ni funcionamiento posterior
+            frente a cambios tecnológicos o de seguridad.
+          </p>
+        </div>
+
+        <div class="legal-card reveal-fade">
+          <div class="legal-num">20</div>
+          <h2>Credenciales y Accesos</h2>
+          <p>
+            El cliente es responsable de proporcionar las credenciales
+            necesarias para la correcta ejecución del servicio cuando estas sean
+            requeridas.
+          </p>
+          <p>
+            Finalizada la intervención, KuyénDev podrá eliminar cualquier
+            contraseña, cuenta temporal, acceso remoto o dato de autenticación
+            facilitado durante el proceso técnico.
+          </p>
+          <p>
+            La custodia y recuperación posterior de dichas credenciales será
+            responsabilidad exclusiva del cliente.
+          </p>
+        </div>
+
+        <div class="legal-card reveal-fade">
+          <div class="legal-num">21</div>
+          <h2>Equipos No Aptos para Reparación u Optimización</h2>
+          <p>
+            KuyénDev se reserva el derecho de rechazar servicios cuando el
+            estado técnico del equipo haga inviable una reparación, optimización
+            o intervención razonablemente segura.
+          </p>
+          <p>
+            La negativa a realizar un servicio no generará obligación de
+            reparación ni responsabilidad alguna para KuyénDev.
+          </p>
+        </div>
+
+        <div class="legal-card reveal-fade">
+          <div class="legal-num">22</div>
+          <h2>Retrasos por Factores Externos</h2>
+          <p>
+            Los plazos informados al cliente constituyen estimaciones basadas en
+            condiciones normales de trabajo.
+          </p>
+          <p>
+            KuyénDev no será responsable por retrasos ocasionados por
+            proveedores, servicios en línea, fabricantes, disponibilidad de
+            licencias, actualizaciones de software, cortes de energía, problemas
+            de conectividad o cualquier circunstancia ajena a su control
+            razonable.
+          </p>
+        </div>
+
+        <div class="legal-card reveal-fade">
+          <div class="legal-num">23</div>
+          <h2>Equipos Entregados para Evaluación</h2>
+          <p>
+            La sola recepción de un equipo no implica la aceptación automática
+            de un presupuesto ni garantiza la posibilidad técnica de ejecutar el
+            servicio solicitado.
+          </p>
+          <p>
+            En aquellos casos donde no sea posible completar la intervención, el
+            cliente deberá retirar el equipo dentro de los plazos establecidos
+            en estos términos y condiciones.
+          </p>
+        </div>
+
+        <div class="legal-card reveal-fade">
+          <div class="legal-num">24</div>
+          <h2>Registro Técnico del Servicio</h2>
+          <p>
+            Con fines de respaldo, control de calidad y resolución de
+            controversias, KuyénDev podrá mantener registros internos
+            relacionados con el servicio realizado, incluyendo fotografías del
+            equipo, reportes de diagnóstico, capturas de pruebas técnicas y
+            antecedentes administrativos asociados a la orden de trabajo.
+          </p>
+          <p>
+            Dichos registros serán utilizados exclusivamente para fines
+            operativos y de respaldo documental.
+          </p>
+        </div>
+
+        <div class="legal-card reveal-fade">
+          <div class="legal-num">25</div>
+          <h2>Modificación de los Términos y Condiciones</h2>
+          <p>
+            KuyénDev se reserva el derecho de actualizar, modificar o
+            complementar estos términos y condiciones cuando resulte necesario
+            para adecuarlos a cambios operativos, técnicos o legales.
+          </p>
+          <p>
+            La versión vigente será aquella publicada en el sitio web al momento
+            de la contratación del servicio.
+          </p>
+        </div>
+
+        <div class="text-center mt-12 mb-8 reveal-fade">
+          <p class="text-muted" style="font-size: 0.875rem">
+            Última actualización: 4 de junio de 2026
+          </p>
+          <p class="text-muted" style="font-size: 0.875rem">
+            Consultas legales:
+            <span style="color: var(--text-primary)"
+              >fa.lunangulo@outlook.com</span
+            >
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-container">
+        <div class="footer-logo-area">
+          <span class="footer-logo">KuyénDev</span>
+          <span class="footer-year">© 2026</span>
+        </div>
+        <div class="footer-links">
+          <a href="https://instagram.com/kuyendev" target="_blank">Instagram</a>
+          <a href="https://wa.me/56942513730" target="_blank">WhatsApp</a>
+          <a href="#">Términos y Condiciones</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+  </body>
 </html>

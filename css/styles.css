@@ -52,6 +52,15 @@
     color: inherit;
     text-decoration: none;
   }
+
+  /* Protección de imágenes: sin arrastre ni copia */
+  img {
+    -webkit-user-drag: none; /* Chrome / Safari */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    pointer-events: none;
+  }
   
   button {
     background: none;
