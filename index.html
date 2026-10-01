@@ -1,376 +1,875 @@
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KuyénDev | Soluciones y Soporte Tecnológico Premium en Osorno</title>
-<meta name="description" content="Soporte informático corporativo y particular en Osorno. Formateo de computadores, optimización avanzada, ciberseguridad y licenciamiento de software.">
-<meta name="keywords" content="técnico informático Osorno, soporte IT Osorno, formateo computadores, optimización PC, eliminación virus, ciberseguridad colegios">
-<meta property="og:title" content="KuyénDev | Soporte Informático Premium Osorno">
-<meta property="og:description" content="Recuperamos el rendimiento de tus equipos. Soluciones IT avanzadas para personas e instituciones.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Primary Meta Tags -->
+  <title>KuyénDev | Soporte Informático, Formateo y Optimización en Osorno</title>
+  <meta name="title" content="KuyénDev | Soporte Informático, Formateo y Optimización en Osorno">
+  <meta name="description" content="Servicio técnico informático profesional en Osorno, Chile. Formateo de computadores y laptops, Windows 10/11, Linux, Office y optimización de rendimiento con 1 mes de garantía.">
+  <meta name="keywords" content="formateo computadores Osorno, servicio técnico PC Osorno, formateo laptops, instalar Windows 11 Osorno, soporte informático Franco Luna, KuyénDev">
+  <meta name="author" content="Franco Luna · KuyénDev">
+  <meta name="robots" content="index, follow">
 
-<!-- Tipografía Premium: Inter -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kuyendev.cl/">
+  <meta property="og:title" content="KuyénDev | Soluciones y Soporte Tecnológico en Osorno">
+  <meta property="og:description" content="Recuperamos la fluidez y rendimiento de tus equipos. Formateo, sistemas operativos y soporte técnico profesional con 1 mes de garantía.">
+  <meta property="og:image" content="https://kuyendev.cl/images/LogoSinFondo.png">
 
-<link rel="stylesheet" href="css/styles.css">
-<link rel="icon" type="image/x-icon" href="icons/KuyenDev_logo_cuadrado_transparente.ico">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="KuyénDev | Soporte Informático Profesional">
+  <meta name="twitter:description" content="Formateo de PC y laptops, instalación de Windows, Linux, Office y soporte remoto en Osorno, Chile.">
+
+  <!-- Favicon Oficial -->
+  <link rel="icon" type="image/x-icon" href="icons/KuyenDev_logo_cuadrado_transparente.ico">
+
+  <!-- Tipografía Oficial: Inter de Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Hoja de Estilos Principal -->
+  <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="theme-dark antialiased">
+<body>
 
-<!-- Background Mesh Effect (Puro CSS) -->
-<div class="mesh-bg"></div>
+  <!-- Fondos de Ambiente Sutil -->
+  <div class="mesh-bg" aria-hidden="true"></div>
+  <div class="grid-overlay" aria-hidden="true"></div>
 
-<!-- NAV -->
-<nav id="mainNav" class="nav-glass">
-  <div class="nav-container">
-    <a href="#" class="nav-logo-link">
-      <div class="nav-logo-img" style="background-image: url('images/Logo KuyénDev para la Web (recortado).png');"></div>
+  <!-- NAVEGACIÓN PRINCIPAL -->
+  <header>
+    <nav id="mainNav" class="nav-glass">
+      <div class="nav-container">
+        <a href="#" class="nav-brand" aria-label="KuyénDev Inicio">
+          <img 
+            src="images/Logo KuyénDev para la Web (recortado).png" 
+            alt="KuyénDev" 
+            class="nav-brand-logo" 
+            width="140" 
+            height="39"
+          >
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="#servicios" class="nav-link">Servicios</a></li>
+          <li><a href="#garantia" class="nav-link">Garantía</a></li>
+          <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
+          <li><a href="#proceso" class="nav-link">Metodología</a></li>
+          <li><a href="pages/noticias.html" class="nav-link">Casos de Éxito</a></li>
+          <li><a href="#faq" class="nav-link">FAQ</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <a 
+            href="https://wa.me/56922231780?text=Hola%20Franco,%20necesito%20consultar%20por%20un%20servicio%20t%C3%A9cnico%20para%20mi%20equipo." 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="btn btn-whatsapp btn-sm"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Contactar
+          </a>
+
+          <!-- Botón Menú Móvil -->
+          <button 
+            id="hamburgerBtn" 
+            class="hamburger" 
+            aria-label="Abrir menú de navegación" 
+            aria-expanded="false" 
+            aria-controls="mobileMenu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- MENÚ MÓVIL DESPLEGABLE -->
+  <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
+    <a href="#servicios" class="mobile-nav-link">Servicios</a>
+    <a href="#garantia" class="mobile-nav-link">Garantía</a>
+    <a href="#nosotros" class="mobile-nav-link">Nosotros</a>
+    <a href="#proceso" class="mobile-nav-link">Metodología</a>
+    <a href="pages/noticias.html" class="mobile-nav-link">Casos de Éxito</a>
+    <a href="#faq" class="mobile-nav-link">Preguntas Frecuentes</a>
+    <a 
+      href="https://wa.me/56922231780?text=Hola%20Franco,%20necesito%20asistencia%20t%C3%A9cnica%20de%20Kuy%C3%A9nDev." 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      class="btn btn-whatsapp" 
+      style="margin-top: 1rem;"
+    >
+      Hablar por WhatsApp
     </a>
-    <ul class="nav-links">
-      <li><a href="#about">Nosotros</a></li>
-      <li><a href="#services">Servicios</a></li>
-      <li><a href="#education">Educación</a></li>
-      <li><a href="#process">Proceso</a></li>
-      <li><a href="pages/noticias.html">Casos de Éxito</a></li>
-      <li><a href="#faq">FAQ</a></li>
-    </ul>
-    <div class="nav-cta-wrapper">
-      <a href="#contact" class="btn-primary">Solicitar Diagnóstico</a>
-    </div>
-    <!-- Mobile Hamburger -->
-    <button id="hamburger" class="hamburger" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
   </div>
-</nav>
 
-<!-- Mobile Menu -->
-<div id="mobileMenu" class="mobile-menu">
-  <a href="#about">Nosotros</a>
-  <a href="#services">Servicios</a>
-  <a href="#education">Educación</a>
-  <a href="#process">Proceso</a>
-  <a href="pages/noticias.html">Casos de Éxito</a>
-  <a href="#faq">FAQ</a>
-  <a href="#contact" class="btn-primary mt-4">Contactar</a>
-</div>
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-grid">
+          
+          <div class="hero-content reveal-fade">
+            <div class="hero-badge">
+              <span class="badge-dot" aria-hidden="true"></span>
+              Soporte Informático · Osorno y Asistencia Remota
+            </div>
 
-<!-- HERO -->
-<section class="hero-section">
-  <div class="hero-content">
-    <div class="hero-badge reveal-fade">
-      <span class="badge-dot"></span>
-      Soporte IT en Osorno
-    </div>
-    <h1 class="hero-title reveal-fade delay-100">
-      El rendimiento que <br> tu equipo <span class="text-gradient">merece.</span>
-    </h1>
-    <p class="hero-desc reveal-fade delay-200">
-      Soluciones informáticas corporativas y particulares. Recuperamos la fluidez de tus sistemas, garantizamos tu seguridad digital y optimizamos tus recursos.
-    </p>
-    <div class="hero-actions reveal-fade delay-300">
-      <a href="#contact" class="btn-primary">Diagnóstico Inicial</a>
-      <a href="#services" class="btn-secondary">Ver Servicios</a>
-    </div>
-  </div>
-</section>
+            <h1 class="hero-title">
+              El rendimiento y estabilidad que tu computador <span class="text-gradient">merece.</span>
+            </h1>
 
-<!-- STATS -->
-<section class="stats-section">
-  <div class="stats-container">
-    <div class="stats-grid">
-      <div class="stat-item reveal-fade">
-        <div class="stat-num">2022</div>
-        <div class="stat-label">Fundación</div>
-      </div>
-      <div class="stat-item reveal-fade delay-100">
-        <div class="stat-num">20+</div>
-        <div class="stat-label">Servicios Especializados</div>
-      </div>
-      <div class="stat-item reveal-fade delay-200">
-        <div class="stat-num">100%</div>
-        <div class="stat-label">Atención Personalizada</div>
-      </div>
-      <div class="stat-item reveal-fade delay-300">
-        <div class="stat-num">AAA</div>
-        <div class="stat-label">Estándar de Seguridad</div>
-      </div>
-    </div>
-  </div>
-</section>
+            <p class="hero-description">
+              Servicios informáticos profesionales para particulares e instituciones. Formateo limpio de computadores y laptops, instalación de sistemas operativos, puesta a punto y soporte técnico con respaldo real.
+            </p>
 
-<!-- ABOUT -->
-<section id="about" class="about-section">
-  <div class="container">
-    <div class="about-grid">
-      <div class="reveal-fade">
-        <div class="about-card spotlight-card">
-          <div class="about-card-inner">
-            <img src="images/LogoSinFondo (recortado).png" alt="KuyénDev Logo" class="about-logo-img">
-            <h3 class="about-card-title">KuyénDev</h3>
-            <p class="about-card-subtitle">por Franco Luna · Osorno, Chile</p>
-            <div class="about-pills">
-              <span class="pill">Soporte IT</span>
-              <span class="pill">Ciberseguridad</span>
-              <span class="pill">Educación</span>
+            <div class="hero-actions">
+              <a 
+                href="https://wa.me/56922231780?text=Hola%20Franco,%20quiero%20solicitar%20un%20servicio%20para%20mi%20equipo." 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="btn btn-whatsapp"
+              >
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+                Solicitar Servicio
+              </a>
+              <a href="#servicios" class="btn btn-secondary">
+                Ver Catálogo de Servicios
+              </a>
+            </div>
+
+            <div class="hero-guarantee-note">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <path d="m9 12 2 2 4-4"/>
+              </svg>
+              <span><strong>1 Mes de garantía</strong> en formateos y soporte remoto post-servicio.</span>
+            </div>
+          </div>
+
+          <!-- Elemento Visual: Consola de Diagnóstico & Puesta a Punto -->
+          <div class="hero-visual reveal-fade delay-150">
+            <div class="tech-console-card">
+              <div class="console-header">
+                <div class="console-dots" aria-hidden="true">
+                  <span class="console-dot dot-red"></span>
+                  <span class="console-dot dot-amber"></span>
+                  <span class="console-dot dot-green"></span>
+                </div>
+                <span class="console-title">KUYENDEV · SYSTEM DIAGNOSTIC</span>
+                <span class="console-badge">Activo</span>
+              </div>
+
+              <div class="console-body">
+                <div class="system-row">
+                  <div class="system-info">
+                    <div class="system-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                        <line x1="8" y1="21" x2="16" y2="21"/>
+                        <line x1="12" y1="17" x2="12" y2="21"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <div class="system-label">Sistema Operativo</div>
+                      <div class="system-sub">Windows 10 / 11 · Linux</div>
+                    </div>
+                  </div>
+                  <span class="system-status">Instalación Limpia</span>
+                </div>
+
+                <div class="system-row">
+                  <div class="system-info">
+                    <div class="system-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <div class="system-label">Rendimiento & Drivers</div>
+                      <div class="system-sub">Configuración de fábrica</div>
+                    </div>
+                  </div>
+                  <span class="system-status">100% Optimizado</span>
+                </div>
+
+                <div class="system-row">
+                  <div class="system-info">
+                    <div class="system-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                        <line x1="16" y1="13" x2="8" y2="13"/>
+                        <line x1="16" y1="17" x2="8" y2="17"/>
+                        <polyline points="10 9 9 9 8 9"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <div class="system-label">Productividad</div>
+                      <div class="system-sub">Microsoft Office / 365</div>
+                    </div>
+                  </div>
+                  <span class="system-status">Configurado</span>
+                </div>
+
+                <div class="optimization-meter">
+                  <div class="meter-header">
+                    <span>Estado del equipo</span>
+                    <span>Listo para el usuario</span>
+                  </div>
+                  <div class="meter-track">
+                    <div class="meter-fill" style="width: 100%;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- BARRA DE CONFIANZA Y GARANTÍA -->
+    <section id="garantia" class="trust-section">
+      <div class="container">
+        <div class="trust-grid">
+          
+          <div class="trust-item reveal-fade">
+            <div class="trust-icon-box emerald" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <path d="m9 12 2 2 4-4"/>
+              </svg>
+            </div>
+            <div class="trust-content">
+              <h3>1 Mes de Garantía</h3>
+              <p>30 días corridos de respaldo técnico en formateos e instalaciones de sistema operativo.</p>
+            </div>
+          </div>
+
+          <div class="trust-item reveal-fade delay-100">
+            <div class="trust-icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                <line x1="8" y1="21" x2="16" y2="21"/>
+                <line x1="12" y1="17" x2="12" y2="21"/>
+              </svg>
+            </div>
+            <div class="trust-content">
+              <h3>Soporte Remoto Post-Servicio</h3>
+              <p>Asistencia técnica a distancia disponible para resolver cualquier duda o ajuste posterior.</p>
+            </div>
+          </div>
+
+          <div class="trust-item reveal-fade delay-200">
+            <div class="trust-icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+            </div>
+            <div class="trust-content">
+              <h3>Diagnóstico Honesto</h3>
+              <p>Evaluación rigurosa de tu hardware y software. Sin costos ocultos ni servicios innecesarios.</p>
+            </div>
+          </div>
+
+          <div class="trust-item reveal-fade delay-300">
+            <div class="trust-icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+            </div>
+            <div class="trust-content">
+              <h3>Respaldo y Seguridad</h3>
+              <p>Prioridad absoluta al cuidado de tus datos personales antes de cualquier intervención técnica.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE NOSOTROS & FILOSOFÍA -->
+    <section id="nosotros" class="about-section section-padding">
+      <div class="container">
+        <div class="about-grid">
+          
+          <div class="reveal-fade">
+            <div class="about-visual-card">
+              <div class="about-logo-wrapper">
+                <img 
+                  src="images/LogoSinFondo (recortado).png" 
+                  alt="KuyénDev Logo" 
+                  class="about-logo-img"
+                  width="90" 
+                  height="72"
+                  loading="lazy"
+                >
+              </div>
+              <h2 class="about-brand-name">KuyénDev</h2>
+              <p class="about-brand-meta">por Franco Luna · Osorno, Chile</p>
+              <div class="about-pills">
+                <span class="about-pill">Técnico Informático</span>
+                <span class="about-pill">Soporte Presencial</span>
+                <span class="about-pill">Soporte Remoto</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-text-content reveal-fade delay-150">
+            <span class="section-tag">Identidad & Enfoque</span>
+            <h2 class="section-title">Tecnología eficiente.<br><span class="text-gradient">Criterio profesional.</span></h2>
+            <p class="section-desc">
+              KuyénDev nació para brindar un servicio informático claro, transparente y de confianza en Osorno y sus alrededores. Atiendo personalmente cada caso para asegurar que tu computador de escritorio o laptop funcione exactamente como lo necesitas.
+            </p>
+            <p class="section-desc">
+              No fomento la obsolescencia programada ni recomiendo cambios costosos cuando un equipo puede volver a operar con total rapidez y estabilidad mediante un trabajo de software meticuloso.
+            </p>
+            <blockquote class="about-quote">
+              "Recuperar y optimizar antes de reemplazar. Tu equipo posee más potencial del que crees."
+              <span class="about-author">— Franco Luna, Fundador de KuyénDev</span>
+            </blockquote>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CATÁLOGO DE SERVICIOS -->
+    <section id="servicios" class="services-section section-padding">
+      <div class="container">
+        <div class="section-header text-center reveal-fade">
+          <span class="section-tag mx-auto">Servicios Informáticos</span>
+          <h2 class="section-title">Soluciones Claras y Especializadas</h2>
+          <p class="section-subtitle mx-auto">
+            Intervenciones precisas en hardware compatible y software para restablecer la fluidez, seguridad y productividad de tus dispositivos.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          
+          <!-- Servicio 1: Formateo de Computadores y Laptops -->
+          <article class="service-card highlight reveal-fade">
+            <span class="service-badge-flag">Principal</span>
+            <div class="service-icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                <line x1="8" y1="21" x2="16" y2="21"/>
+                <line x1="12" y1="17" x2="12" y2="21"/>
+              </svg>
+            </div>
+            <h3 class="service-card-title">Formateo de PC y Laptops</h3>
+            <p class="service-card-desc">
+              Reinstalación limpia y exhaustiva desde cero para eliminar lentitud acumulada, virus y archivos residuales. Deja tu equipo listo para trabajar como nuevo.
+            </p>
+            <ul class="service-feature-list">
+              <li class="service-feature-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Instalación de controladores oficiales
+              </li>
+              <li class="service-feature-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Particionado y configuración base
+              </li>
+              <li class="service-feature-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                1 mes de garantía incluido
+              </li>
+            </ul>
+            <div class="service-tags">
+              <span class="service-tag">Laptops</span>
+              <span class="service-tag">Desktop</span>
+              <span class="service-tag">SSD/HDD</span>
+            </div>
+          </article>
+
+          <!-- Servicio 2: Instalación de Windows 10 y Windows 11 -->
+          <article class="service-card reveal-fade delay-100">
+            <div class="service-icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 3h8v8H3z"/>
+                <path d="M13 3h8v8h-8z"/>
+                <path d="M3 13h8v8H3z"/>
+                <path d="M13 13h8v8h-8z"/>
+              </svg>
+            </div>
+            <h3 class="service-card-title">Instalación de Windows</h3>
+            <p class="service-card-desc">
+              Despliegue de Windows 10 y Windows 11 en sus versiones Home y Pro según las especificaciones técnicas y requerimientos de tu equipo.
+            </p>
+            <ul class="service-feature-list">
+              <li class="service-feature-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Windows 10 / Windows 11
+              </li>
+              <li class="service-feature-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Ediciones Home y Professional
+              </li>
+              <li class="service-feature-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Activación y licenciamiento correspondiente
+              </li>
+            </ul>
+            <div class="service-tags">
+              <span class="service-tag">Windows 11</span>
+              <span class="service-tag">Windows 10</span>
+              <span class="service-tag">Home / Pro</span>
+            </div>
+          </article>
+
+          <!-- Servicio 3: Instalación de Linux y Cambio de SO -->
+          <article class="service-card reveal-fade delay-200">
+            <div class="service-icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="4 17 10 11 4 5"/>
+                <line x1="12" y1="19" x2="20" y2="19"/>
+              </svg>
+            </div>
+            <h3 class="service-card-title">Linux & Cambio de Sistema</h3>
+            <p class="service-card-desc">
+              Instalación de distribuciones Linux ligeras o avanzadas para revivir computadores antiguos o para usuarios que prefieren entornos de código abierto estables.
+            </p>
+            <ul class="service-feature-list">
+              <li class="service-feature-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Cambio de sistema operativo completo
+              </li>
+              <li class="service-feature-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Configuración de entorno amigable
+              </li>
+              <li class="service-feature-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Ideal para equipos de bajos recursos
+              </li>
+            </ul>
+            <div class="service-tags">
+              <span class="service-tag">Linux</span>
+              <span class="service-tag">Ubuntu/Mint</span>
+              <span class="service-tag">Migración</span>
+            </div>
+          </article>
+
+          <!-- Servicio 4: Microsoft Office y Microsoft 365 -->
+          <article class="service-card reveal-fade">
+            <div class="service-icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="16" y1="13" x2="8" y2="13"/>
+                <line x1="16" y1="17" x2="8" y2="17"/>
+              </svg>
+            </div>
+            <h3 class="service-card-title">Microsoft Office & 365</h3>
+            <p class="service-card-desc">
+              Instalación, configuración y puesta en marcha de la suite ofimática completa (Word, Excel, PowerPoint, Outlook) para trabajo o estudio sin interrupciones.
+            </p>
+            <ul class="service-feature-list">
+              <li class="service-feature-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Word, Excel, PowerPoint y Outlook
+              </li>
+              <li class="service-feature-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Activación y configuración funcional
+              </li>
+              <li class="service-feature-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Resolución de errores de apertura
+              </li>
+            </ul>
+            <div class="service-tags">
+              <span class="service-tag">Office 365</span>
+              <span class="service-tag">Word/Excel</span>
+              <span class="service-tag">Productividad</span>
+            </div>
+          </article>
+
+          <!-- Servicio 5: Optimización Avanzada -->
+          <article class="service-card reveal-fade delay-100">
+            <div class="service-icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+              </svg>
+            </div>
+            <h3 class="service-card-title">Optimización Avanzada</h3>
+            <p class="service-card-desc">
+              Ajustes de servicios en segundo plano, eliminación de bloatware, depuración de inicio y puesta a punto integral para reducir el consumo innecesario de RAM y CPU.
+            </p>
+            <ul class="service-feature-list">
+              <li class="service-feature-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Desactivación de telemetría pesada
+              </li>
+              <li class="service-feature-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Arranque del sistema acelerado
+              </li>
+              <li class="service-feature-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Garantía de 15 días en optimizaciones
+              </li>
+            </ul>
+            <div class="service-tags">
+              <span class="service-tag">Velocidad</span>
+              <span class="service-tag">Limpieza</span>
+              <span class="service-tag">RAM/CPU</span>
+            </div>
+          </article>
+
+          <!-- Servicio 6: Soporte Técnico Presencial & Remoto -->
+          <article class="service-card reveal-fade delay-200">
+            <div class="service-icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+              </svg>
+            </div>
+            <h3 class="service-card-title">Soporte Técnico Informático</h3>
+            <p class="service-card-desc">
+              Asistencia personalizada para resolver problemas de software, eliminación de malware, fallos de conectividad y soporte técnico remoto post-servicio.
+            </p>
+            <ul class="service-feature-list">
+              <li class="service-feature-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Atención presencial en Osorno
+              </li>
+              <li class="service-feature-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Conexión remota segura
+              </li>
+              <li class="service-feature-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Trato cercano y directo con el técnico
+              </li>
+            </ul>
+            <div class="service-tags">
+              <span class="service-tag">Presencial</span>
+              <span class="service-tag">Remoto</span>
+              <span class="service-tag">Asistencia</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- METODOLOGÍA / PROCESO DE TRABAJO -->
+    <section id="proceso" class="process-section section-padding">
+      <div class="container">
+        <div class="section-header text-center reveal-fade">
+          <span class="section-tag mx-auto">Flujo de Trabajo</span>
+          <h2 class="section-title">¿Cómo trabajamos?</h2>
+          <p class="section-subtitle mx-auto">
+            Un proceso directo, sin rodeos y transparente desde el primer contacto hasta el soporte posterior.
+          </p>
+        </div>
+
+        <div class="process-grid">
+          
+          <div class="process-card reveal-fade">
+            <div class="process-num" aria-hidden="true">01</div>
+            <h3>Contáctame</h3>
+            <p>Escríbeme por WhatsApp contándome qué le ocurre a tu computador o qué servicio necesitas.</p>
+          </div>
+
+          <div class="process-card reveal-fade delay-100">
+            <div class="process-num" aria-hidden="true">02</div>
+            <h3>Evaluación</h3>
+            <p>Revisamos el estado de tu equipo y definimos la alternativa más conveniente con claridad.</p>
+          </div>
+
+          <div class="process-card reveal-fade delay-200">
+            <div class="process-num" aria-hidden="true">03</div>
+            <h3>Servicio Técnico</h3>
+            <p>Se realiza el formateo, instalación o configuración acordada con máximos estándares de prolijidad.</p>
+          </div>
+
+          <div class="process-card reveal-fade delay-300">
+            <div class="process-num" aria-hidden="true">04</div>
+            <h3>Entrega & Garantía</h3>
+            <p>Recibes tu equipo listo para trabajar, respaldado por 1 mes de garantía y soporte remoto.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CASO DE ÉXITO DESTACADO -->
+    <section class="spotlight-section section-padding">
+      <div class="container">
+        <div class="case-banner reveal-fade">
+          <div class="case-content">
+            <span class="section-tag section-tag-emerald">Caso de Estudio Real</span>
+            <h3>Optimización Integral: Colegio Bertoldo Hofmann Kahler</h3>
+            <p>
+              Caso institucional en Purranque: optimización, particionamiento y aseguramiento de 30 equipos computacionales, incluyendo congelamiento Deep Freeze en laboratorio para inmunidad total ante virus y fallas de software.
+            </p>
+            <div class="case-stats">
+              <div class="case-stat-item">
+                <div class="num">30</div>
+                <div class="label">Equipos Optimizados</div>
+              </div>
+              <div class="case-stat-item">
+                <div class="num">100%</div>
+                <div class="label">Operatividad Lograda</div>
+              </div>
+            </div>
+            <a href="pages/content/bertoldo_hofmann.html" class="btn btn-secondary btn-sm">
+              Leer Caso Completo
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+          <div class="case-preview">
+            <img 
+              src="pages/content/BertoldoHofmannKahler/BHKportada.png" 
+              alt="Caso Colegio Bertoldo Hofmann Kahler" 
+              class="case-preview-img" 
+              loading="lazy"
+              width="450" 
+              height="240"
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PREGUNTAS FRECUENTES (FAQ) -->
+    <section id="faq" class="faq-section section-padding">
+      <div class="container container-narrow">
+        <div class="section-header text-center reveal-fade">
+          <span class="section-tag mx-auto">Dudas Habituales</span>
+          <h2 class="section-title">Preguntas Frecuentes</h2>
+          <p class="section-subtitle mx-auto">
+            Respuestas claras y directas a las consultas más comunes antes de solicitar un servicio.
+          </p>
+        </div>
+
+        <div class="faq-list">
+          
+          <div class="faq-item reveal-fade">
+            <button class="faq-trigger" aria-expanded="false" aria-controls="faq-1">
+              <span>¿Se pierden mis archivos o fotos durante un formateo?</span>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </button>
+            <div id="faq-1" class="faq-content">
+              <div class="faq-body">
+                <p>
+                  No tiene por qué ser así si se coordina previamente. Siempre recomendamos que el cliente mantenga una copia previa de su información sensible. Si lo requieres, podemos respaldar tus fotos, documentos y carpetas clave antes de ejecutar la instalación limpia del sistema operativo.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item reveal-fade delay-100">
+            <button class="faq-trigger" aria-expanded="false" aria-controls="faq-2">
+              <span>¿En qué consiste el mes de garantía?</span>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </button>
+            <div id="faq-2" class="faq-content">
+              <div class="faq-body">
+                <p>
+                  El formateo e instalación de sistema operativo incluye 30 días corridos de garantía. Si durante ese período se presenta cualquier inconveniente atribuible al software configurado o los drivers entregados, se revisa y corrige sin costo adicional (siempre que el problema no sea provocado por golpes físicos, daño de hardware o reinfección voluntaria de malware).
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item reveal-fade delay-150">
+            <button class="faq-trigger" aria-expanded="false" aria-controls="faq-3">
+              <span>¿Atiendes tanto computadores de escritorio como laptops?</span>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </button>
+            <div id="faq-3" class="faq-content">
+              <div class="faq-body">
+                <p>
+                  Sí, trabajo con computadores de escritorio (PCs armados y de marca), computadores All-in-One y laptops de todas las marcas (HP, Lenovo, Dell, Asus, Acer, etc.) que cuenten con hardware compatible para los sistemas solicitados.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item reveal-fade delay-200">
+            <button class="faq-trigger" aria-expanded="false" aria-controls="faq-4">
+              <span>¿Cómo funciona el soporte técnico remoto?</span>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </button>
+            <div id="faq-4" class="faq-content">
+              <div class="faq-body">
+                <p>
+                  Para dudas menores, configuración de impresoras, ajustes de Office o revisiones puntuales tras el servicio, nos conectamos a tu pantalla mediante herramientas de conexión segura y encriptada, resolviendo la situación en minutos sin que tengas que trasladar tu equipo.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item reveal-fade delay-250">
+            <button class="faq-trigger" aria-expanded="false" aria-controls="faq-5">
+              <span>¿Qué pasa si mi equipo es antiguo o tiene poca memoria RAM?</span>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </button>
+            <div id="faq-5" class="faq-content">
+              <div class="faq-body">
+                <p>
+                  Precisamente es una de nuestras especialidades: evaluar si conviene optimizar Windows, utilizar una versión más ligera o migrar a una distribución de Linux orientada a revivir equipos con especificaciones modestas, extendiendo su vida útil sin necesidad de gastar en un equipo nuevo.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO / LLAMADA A LA ACCIÓN FINAL -->
+    <section id="contacto" class="contact-section section-padding">
+      <div class="container container-narrow">
+        <div class="contact-card reveal-fade">
+          <span class="section-tag section-tag-emerald mx-auto">Contacto Directo</span>
+          <h2 class="section-title">Inicia tu consulta técnica hoy</h2>
+          <p class="section-subtitle mx-auto">
+            Cuéntame qué necesita tu computador o laptop y evaluaremos la solución más eficiente para dejarlo como nuevo.
+          </p>
+
+          <div class="contact-channels">
+            <a 
+              href="https://wa.me/56922231780?text=Hola%20Franco,%20solicito%20asistencia%20t%C3%A9cnica%20de%20Kuy%C3%A9nDev." 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="btn btn-whatsapp"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+              Hablar por WhatsApp (+56 9 2223 1780)
+            </a>
+
+            <a 
+              href="mailto:fa.lunangulo@kuyendev.cl" 
+              class="btn btn-secondary"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+              Enviar Correo Electrónico
+            </a>
+          </div>
+
+          <div class="contact-meta-info">
+            <div class="meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              <span>Osorno, Región de Los Lagos, Chile</span>
+            </div>
+            <div class="meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+              <span>Atención Rápida y Personalizada</span>
             </div>
           </div>
         </div>
       </div>
-      <div class="about-text-content reveal-fade delay-200">
-        <div class="section-tag">Sobre Nosotros</div>
-        <h2 class="section-title">Tecnología eficiente.<br><span class="text-muted">Resultados tangibles.</span></h2>
-        <p class="section-desc">KuyénDev nació con una misión clara: elevar el estándar del soporte tecnológico en la Región de Los Lagos. Creemos que las empresas y particulares merecen una infraestructura digital robusta, segura y ágil.</p>
-        <p class="section-desc">No vendemos soluciones innecesarias ni promovemos la obsolescencia programada. Analizamos exhaustivamente cada caso para diagnosticar, reparar y optimizar con precisión quirúrgica.</p>
-        <blockquote class="about-quote">
-          "Recuperar y optimizar antes de reemplazar. Tu equipo posee más potencial del que crees."
-        </blockquote>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
+  </main>
 
-<!-- SERVICES -->
-<section id="services" class="services-section">
-  <div class="container">
-    <div class="section-header text-center reveal-fade">
-      <div class="section-tag mx-auto">Nuestros Servicios</div>
-      <h2 class="section-title">Arquitectura de Soluciones</h2>
-      <p class="section-desc max-w-2xl mx-auto">Cubrimos el espectro completo del soporte informático corporativo y particular con los más altos estándares técnicos.</p>
-    </div>
-    
-    <div class="services-grid">
-      <!-- Service 1 -->
-      <div class="service-card spotlight-card reveal-fade">
-        <div class="service-icon icon-blue">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-        </div>
-        <h3 class="service-title">Formateo Profesional</h3>
-        <p class="service-desc">Instalación limpia y optimizada de sistemas operativos (Windows 10/11) con despliegue de drivers y configuraciones base corporativas.</p>
-        <div class="service-tags">
-          <span class="tag">Windows</span><span class="tag">Drivers</span>
-        </div>
-      </div>
+  <!-- BOTÓN FLOTANTE DISCRETO DE WHATSAPP -->
+  <a 
+    href="https://wa.me/56922231780?text=Hola%20Franco,%20necesito%20asistencia%20t%C3%A9cnica%20de%20Kuy%C3%A9nDev." 
+    target="_blank" 
+    rel="noopener noreferrer" 
+    class="whatsapp-float" 
+    aria-label="Contactar por WhatsApp"
+  >
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+    <span class="whatsapp-float-label">WhatsApp</span>
+  </a>
 
-      <!-- Service 2 -->
-      <div class="service-card spotlight-card featured reveal-fade delay-100">
-        <div class="featured-badge">Destacado</div>
-        <div class="service-icon icon-blue">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <img 
+            src="images/Logo KuyénDev para la Web (recortado).png" 
+            alt="KuyénDev" 
+            class="footer-brand-logo"
+            width="140"
+            height="39"
+            loading="lazy"
+          >
+          <p class="footer-desc">
+            Soporte informático profesional para computadores de escritorio y laptops en Osorno, Chile.
+          </p>
         </div>
-        <h3 class="service-title">Licenciamiento Office</h3>
-        <p class="service-desc">Despliegue y activación permanente de la suite Microsoft Office completa para continuidad operativa sin interrupciones.</p>
-        <div class="service-tags">
-          <span class="tag">Word/Excel</span><span class="tag">Activación</span>
-        </div>
-      </div>
 
-      <!-- Service 3 -->
-      <div class="service-card spotlight-card reveal-fade delay-200">
-        <div class="service-icon icon-blue">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+        <div class="footer-col">
+          <h4>Navegación</h4>
+          <ul class="footer-nav">
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#garantia">Garantía</a></li>
+            <li><a href="#nosotros">Nosotros</a></li>
+            <li><a href="#proceso">Metodología</a></li>
+            <li><a href="pages/noticias.html">Casos de Éxito</a></li>
+            <li><a href="#faq">Preguntas Frecuentes</a></li>
+          </ul>
         </div>
-        <h3 class="service-title">Optimización Avanzada</h3>
-        <p class="service-desc">Ajustes a nivel de kernel, servicios de Windows y limpieza de registro para devolver la máxima velocidad a su hardware.</p>
-        <div class="service-tags">
-          <span class="tag">Rendimiento</span><span class="tag">RAM/SSD</span>
+
+        <div class="footer-col">
+          <h4>Contacto & Redes</h4>
+          <ul class="footer-nav">
+            <li><a href="https://wa.me/56922231780" target="_blank" rel="noopener noreferrer">WhatsApp: +56 9 2223 1780</a></li>
+            <li><a href="mailto:fa.lunangulo@kuyendev.cl">fa.lunangulo@kuyendev.cl</a></li>
+            <li><a href="https://instagram.com/kuyendev" target="_blank" rel="noopener noreferrer">Instagram: @kuyendev</a></li>
+            <li><a href="pages/terminos.html">Términos y Condiciones</a></li>
+          </ul>
         </div>
       </div>
 
-      <!-- Service 4 -->
-      <div class="service-card spotlight-card reveal-fade">
-        <div class="service-icon icon-red">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-        </div>
-        <h3 class="service-title">Ciberseguridad</h3>
-        <p class="service-desc">Análisis forense de amenazas, eliminación de malware/ransomware y endurecimiento (hardening) de políticas de seguridad.</p>
-        <div class="service-tags">
-          <span class="tag">Malware</span><span class="tag">Hardening</span>
-        </div>
-      </div>
-
-      <!-- Service 5 -->
-      <div class="service-card spotlight-card reveal-fade delay-100">
-        <div class="service-icon icon-blue">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-        </div>
-        <h3 class="service-title">Mantención Preventiva</h3>
-        <p class="service-desc">Revisiones periódicas estructuradas para mitigar fallas de hardware y asegurar disponibilidad máxima de los equipos.</p>
-        <div class="service-tags">
-          <span class="tag">Preventiva</span><span class="tag">SLA</span>
-        </div>
-      </div>
-
-      <!-- Service 6 -->
-      <div class="service-card spotlight-card reveal-fade delay-200">
-        <div class="service-icon icon-emerald">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path></svg>
-        </div>
-        <h3 class="service-title">Soporte Dedicado</h3>
-        <p class="service-desc">Asistencia técnica remota y presencial con métricas claras y trazabilidad de incidentes para empresas y particulares.</p>
-        <div class="service-tags">
-          <span class="tag">Presencial</span><span class="tag">Remoto</span>
+      <div class="footer-bottom">
+        <span>© 2026 KuyénDev · Desarrollado por Franco Luna. Todos los derechos reservados.</span>
+        <div class="footer-bottom-links">
+          <a href="pages/terminos.html">Políticas y Garantías</a>
+          <a href="https://instagram.com/kuyendev" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://wa.me/56922231780" target="_blank" rel="noopener noreferrer">WhatsApp</a>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </footer>
 
-<!-- EDUCATION -->
-<section id="education" class="education-section">
-  <div class="container">
-    <div class="edu-grid">
-      <div class="edu-text reveal-fade">
-        <h2 class="section-title">Soluciones para el <br><span class="text-gradient">Sector Educativo</span></h2>
-        
-        <div class="edu-features">
-          <div class="edu-feature">
-            <div class="edu-feature-icon"></div>
-            <div class="edu-feature-content">
-              <h4>Optimización de Laboratorios</h4>
-              <p>Auditoría, estructuración y recuperación de rendimiento masivo en salas de enlace y laboratorios computacionales.</p>
-            </div>
-          </div>
-          <div class="edu-feature">
-            <div class="edu-feature-icon"></div>
-            <div class="edu-feature-content">
-              <h4>Capacitación Docente</h4>
-              <p>Talleres de Inteligencia Artificial aplicada al aula, prevención de Phishing y uso seguro de herramientas digitales institucionales.</p>
-            </div>
-          </div>
-          <div class="edu-feature">
-            <div class="edu-feature-icon"></div>
-            <div class="edu-feature-content">
-              <h4>Ciberseguridad Estudiantil</h4>
-              <p>Charlas de concientización sobre identidad digital, protección de credenciales y prevención de riesgos en redes sociales.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="edu-visual reveal-fade delay-200">
-        <div class="edu-visual-inner">
-           <img src="images/SSE.png" alt="Soluciones Sector Educativo" style="width: 80%; height: 80%; object-fit: contain;">
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROCESS -->
-<section id="process" class="process-section">
-  <div class="container">
-    <div class="section-header text-center reveal-fade">
-      <div class="section-tag mx-auto">Metodología</div>
-      <h2 class="section-title">Framework de Trabajo</h2>
-      <p class="section-desc max-w-2xl mx-auto">Nuestro proceso garantiza trazabilidad, transparencia técnica y resolución definitiva del incidente.</p>
-    </div>
-    
-    <div class="process-grid">
-      <div class="process-card reveal-fade">
-        <div class="process-num">01</div>
-        <h4>Diagnóstico</h4>
-        <p>Análisis forense y evaluación de estado de hardware/software.</p>
-      </div>
-      <div class="process-card reveal-fade delay-100">
-        <div class="process-num">02</div>
-        <h4>Propuesta</h4>
-        <p>Presentación de alternativas técnicas y presupuesto cerrado.</p>
-      </div>
-      <div class="process-card reveal-fade delay-200">
-        <div class="process-num">03</div>
-        <h4>Ejecución</h4>
-        <p>Despliegue de soluciones con protocolos de seguridad de datos.</p>
-      </div>
-      <div class="process-card reveal-fade delay-300">
-        <div class="process-num">04</div>
-        <h4>Validación</h4>
-        <p>Stress testing y auditoría de calidad post-intervención.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section id="faq" class="faq-section">
-  <div class="container max-w-3xl">
-    <div class="section-header text-center reveal-fade">
-      <h2 class="section-title">Preguntas Frecuentes</h2>
-    </div>
-    
-    <div class="faq-list">
-      <div class="faq-item reveal-fade">
-        <button class="faq-btn">
-          <span>¿Atienden requerimientos de empresas?</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-        </button>
-        <div class="faq-content">
-          <p>Sí, proveemos soporte IT corporativo, mantenimiento de infraestructura y asesoría en ciberseguridad para PYMEs, colegios e instituciones en la Región de Los Lagos.</p>
-        </div>
-      </div>
-      
-      <div class="faq-item reveal-fade delay-100">
-        <button class="faq-btn">
-          <span>¿La reinstalación del sistema implica pérdida de datos?</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-        </button>
-        <div class="faq-content">
-          <p>No. Ejecutamos protocolos estrictos de backup (copias de seguridad) antes de cualquier intervención destructiva en las unidades de almacenamiento, garantizando la integridad de su información.</p>
-        </div>
-      </div>
-      
-      <div class="faq-item reveal-fade delay-200">
-        <button class="faq-btn">
-          <span>¿Realizan soporte remoto?</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-        </button>
-        <div class="faq-content">
-          <p>Sí, para incidentes a nivel de software implementamos asistencia remota segura mediante herramientas de conexión encriptadas, resolviendo problemas críticos con tiempos de respuesta mínimos.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT CTA -->
-<section id="contact" class="contact-section">
-  <div class="container max-w-4xl text-center">
-    <div class="contact-wrapper reveal-fade">
-      <div class="contact-inner">
-        <h2 class="section-title">Inicie una solicitud técnica</h2>
-        <p class="section-desc mx-auto">Seleccione la vía de contacto de su preferencia. Nuestro equipo evaluará su caso y le proporcionará una respuesta inmediata.</p>
-        
-        <div class="contact-actions">
-          <a href="https://wa.me/56942513730?text=Hola,%20solicito%20asistencia%20técnica%20por%20parte%20de%20KuyénDev." target="_blank" class="btn-whatsapp">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            Soporte vía WhatsApp
-          </a>
-          <a href="mailto:fa.lunangulo@outlook.com" class="btn-email">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-            Enviar Email
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="container footer-container">
-    <div class="footer-logo-area">
-      <span class="footer-logo">KuyénDev</span>
-      <span class="footer-year">© 2026</span>
-    </div>
-    <div class="footer-links">
-      <a href="https://instagram.com/kuyendev" target="_blank">Instagram</a>
-      <a href="https://wa.me/56942513730" target="_blank">WhatsApp</a>
-      <a href="pages/terminos.html">Términos y Condiciones</a>
-    </div>
-  </div>
-</footer>
-
-<script src="js/script.js"></script>
+  <!-- Scripts -->
+  <script src="js/script.js"></script>
 </body>
 </html>

@@ -1,97 +1,168 @@
+/**
+ * KuyénDev · Script de Interacciones y Experiencia de Usuario
+ * Rendimiento nativo, accesibilidad ARIA y microinteracciones
+ */
+
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Intersection Observer para animaciones Reveal
-  const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.15
-  };
+  // 1. Detección de reducción de movimiento
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        obs.unobserve(entry.target); // Animamos solo una vez
-      }
-    });
-  }, observerOptions);
-
-  document.querySelectorAll('.reveal-fade').forEach(el => {
-    observer.observe(el);
-  });
-
-  // 2. Efecto Spotlight para Tarjetas Premium
-  const spotlightCards = document.querySelectorAll('.spotlight-card');
+  // 2. IntersectionObserver para Revelado Progresivo (.reveal-fade)
+  const revealElements = document.querySelectorAll('.reveal-fade');
   
-  spotlightCards.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      
-      card.style.setProperty('--mouse-x', `${x}px`);
-      card.style.setProperty('--mouse-y', `${y}px`);
+  if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+    revealElements.forEach(el => el.classList.add('is-visible'));
+  } else {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      root: null,
+      rootMargin: '0px 0px -40px 0px',
+      threshold: 0.1
     });
-  });
 
-  // 3. Menú Móvil (Hamburger)
-  const hamburger = document.getElementById('hamburger');
-  const mobileMenu = document.getElementById('mobileMenu');
-  const mobileLinks = mobileMenu.querySelectorAll('a');
-
-  function toggleMenu() {
-    mobileMenu.classList.toggle('active');
-    
-    // Animar las barras del hamburger
-    const spans = hamburger.querySelectorAll('span');
-    if (mobileMenu.classList.contains('active')) {
-      spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-      spans[1].style.opacity = '0';
-      spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
-    } else {
-      spans[0].style.transform = 'none';
-      spans[1].style.opacity = '1';
-      spans[2].style.transform = 'none';
-    }
+    revealElements.forEach(el => revealObserver.observe(el));
   }
 
-  hamburger.addEventListener('click', toggleMenu);
+  // 3. Menú Móvil Accesible (Hamburger Drawer)
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
 
-  mobileLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      if(mobileMenu.classList.contains('active')) {
-        toggleMenu();
+  if (hamburgerBtn && mobileMenu) {
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+
+    const openMenu = () => {
+      hamburgerBtn.classList.add('is-active');
+      hamburgerBtn.setAttribute('aria-expanded', 'true');
+      mobileMenu.classList.add('is-active');
+      mobileMenu.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('menu-open');
+    };
+
+    const closeMenu = () => {
+      hamburgerBtn.classList.remove('is-active');
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
+      mobileMenu.classList.remove('is-active');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('menu-open');
+    };
+
+    hamburgerBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = hamburgerBtn.classList.contains('is-active');
+      if (isOpen) {
+        closeMenu();
+      } else {
+        openMenu();
       }
     });
-  });
 
-  // 4. FAQ Accordion
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        closeMenu();
+      });
+    });
+
+    // Cerrar con tecla Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('is-active')) {
+        closeMenu();
+        hamburgerBtn.focus();
+      }
+    });
+  }
+
+  // 4. Acordeón de Preguntas Frecuentes (FAQ Accesible)
   const faqItems = document.querySelectorAll('.faq-item');
-  
+
   faqItems.forEach(item => {
-    const btn = item.querySelector('.faq-btn');
-    btn.addEventListener('click', () => {
-      const isActive = item.classList.contains('active');
-      
-      // Cerrar todos
-      faqItems.forEach(i => i.classList.remove('active'));
-      
-      // Si no estaba activo, abrirlo
-      if (!isActive) {
-        item.classList.add('active');
+    const trigger = item.querySelector('.faq-trigger');
+    if (!trigger) return;
+
+    trigger.addEventListener('click', () => {
+      const isOpen = item.classList.contains('is-open');
+
+      // Cerrar otros acordeones abiertos para mantener orden y foco
+      faqItems.forEach(otherItem => {
+        if (otherItem !== item && otherItem.classList.contains('is-open')) {
+          otherItem.classList.remove('is-open');
+          const otherTrigger = otherItem.querySelector('.faq-trigger');
+          if (otherTrigger) {
+            otherTrigger.setAttribute('aria-expanded', 'false');
+          }
+        }
+      });
+
+      // Alternar el actual
+      if (isOpen) {
+        item.classList.remove('is-open');
+        trigger.setAttribute('aria-expanded', 'false');
+      } else {
+        item.classList.add('is-open');
+        trigger.setAttribute('aria-expanded', 'true');
       }
     });
   });
 
-  // 5. Scroll de Navegación (Blur y Fondo)
-  const nav = document.getElementById('mainNav');
-  
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-      nav.style.background = 'rgba(9, 9, 11, 0.85)';
-      nav.style.borderBottomColor = 'rgba(255, 255, 255, 0.1)';
-    } else {
-      nav.style.background = 'rgba(9, 9, 11, 0.5)';
-      nav.style.borderBottomColor = 'rgba(255, 255, 255, 0.05)';
+  // 5. Navbar Sticky con Fondo Dinámico al Scroll
+  const mainNav = document.getElementById('mainNav');
+  if (mainNav) {
+    let ticking = false;
+
+    const updateNav = () => {
+      if (window.scrollY > 40) {
+        mainNav.classList.add('scrolled');
+      } else {
+        mainNav.classList.remove('scrolled');
+      }
+      ticking = false;
+    };
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateNav);
+        ticking = true;
+      }
+    }, { passive: true });
+
+    // Ejecución inicial por si la página carga con scroll previo
+    updateNav();
+  }
+
+  // 6. Protección de Contenido: Bloqueo de Copia, Menú Contextual y Arrastre
+  // Bloquear clic derecho (menú contextual)
+  document.addEventListener('contextmenu', (e) => {
+    e.preventDefault();
+  });
+
+  // Bloquear arrastre de imágenes y enlaces
+  document.addEventListener('dragstart', (e) => {
+    e.preventDefault();
+  });
+
+  // Bloquear eventos de copia y corte
+  document.addEventListener('copy', (e) => {
+    e.preventDefault();
+  });
+
+  document.addEventListener('cut', (e) => {
+    e.preventDefault();
+  });
+
+  // Bloquear atajos de teclado de copia, guardado y visualización de código
+  document.addEventListener('keydown', (e) => {
+    const isCtrlOrMeta = e.ctrlKey || e.metaKey;
+    if (isCtrlOrMeta) {
+      const key = e.key.toLowerCase();
+      // 'c' = copiar, 'u' = ver código fuente, 's' = guardar página, 'a' = seleccionar todo
+      if (key === 'c' || key === 'u' || key === 's' || key === 'a') {
+        e.preventDefault();
+      }
     }
   });
 });

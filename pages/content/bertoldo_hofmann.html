@@ -193,35 +193,40 @@
       }
     </style>
   </head>
-  <body class="theme-dark antialiased">
-    <div class="mesh-bg"></div>
+  <body>
+    <div class="mesh-bg" aria-hidden="true"></div>
+    <div class="grid-overlay" aria-hidden="true"></div>
 
     <!-- NAV -->
-    <nav class="nav-glass">
-      <div class="nav-container nav-legal">
-        <a href="../../index.html" class="nav-logo-link">
-          <div
-            class="nav-logo-img"
-            style="
-              background-image: url(&quot;../../images/Logo KuyénDev para la Web (recortado).png&quot;);
-            "
-          ></div>
-        </a>
-        <a href="../noticias.html" class="back-link">
-          <svg
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path d="M19 12H5M12 19l-7-7 7-7" />
-          </svg>
-          Volver a Casos de Éxito
-        </a>
-      </div>
-    </nav>
+    <header>
+      <nav class="nav-glass">
+        <div class="nav-container">
+          <a href="../../index.html" class="nav-brand" aria-label="Volver al Inicio">
+            <img 
+              src="../../images/Logo KuyénDev para la Web (recortado).png" 
+              alt="KuyénDev" 
+              class="nav-brand-logo"
+              width="140"
+              height="39"
+            >
+          </a>
+          <a href="../noticias.html" class="back-link">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              aria-hidden="true"
+            >
+              <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+            Volver a Casos de Éxito
+          </a>
+        </div>
+      </nav>
+    </header>
 
     <main class="article-container">
       <header class="article-header reveal-fade">
@@ -356,25 +361,24 @@
 
         <div class="share-bar">
           <a
-            href="../../index.html#contact"
-            class="btn-primary"
-            style="padding: 0.5rem 1.25rem"
-            >Solicitar Evaluación Institucional</a
+            href="../../index.html#contacto"
+            class="btn btn-primary"
+            >Solicitar Evaluación Técnica</a
           >
         </div>
       </article>
     </main>
 
-    <footer class="footer" style="margin-top: 4rem">
-      <div class="container footer-container">
-        <div class="footer-logo-area">
-          <span class="footer-logo">KuyénDev</span>
-          <span class="footer-year">© 2026</span>
-        </div>
-        <div class="footer-links">
-          <a href="https://instagram.com/kuyendev" target="_blank">Instagram</a>
-          <a href="https://wa.me/56942513730" target="_blank">WhatsApp</a>
-          <a href="../terminos.html">Términos y Condiciones</a>
+    <footer class="footer" style="margin-top: 5rem;">
+      <div class="container">
+        <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+          <span>© 2026 KuyénDev · Soporte Informático Profesional en Osorno, Chile.</span>
+          <div class="footer-bottom-links">
+            <a href="../../index.html">Inicio</a>
+            <a href="../noticias.html">Casos de Éxito</a>
+            <a href="../terminos.html">Términos y Condiciones</a>
+            <a href="https://wa.me/56922231780" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          </div>
         </div>
       </div>
     </footer>

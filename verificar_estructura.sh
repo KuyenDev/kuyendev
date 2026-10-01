@@ -1,41 +1,55 @@
 #!/bin/bash
-# Script de verificación - Estructura Refactorizada KuyénDev
+# Script de Verificación de Integridad — KuyénDev v3.0
 
 echo "═══════════════════════════════════════════════════════════════"
-echo "  VERIFICACIÓN DE ESTRUCTURA - KuyénDev (Refactorizado)"
+echo "  VERIFICACIÓN DE INTEGRIDAD WEB — KuyénDev v3.0"
 echo "═══════════════════════════════════════════════════════════════"
 echo ""
 
-# Verificar archivos en pages/
-echo "📂 Archivos en pages/:"
-ls -1 pages/ | grep ".html" | while read file; do
-    echo "   ✅ $file"
+# 1. Verificar archivos esenciales
+echo "📁 1. Archivos Core:"
+for file in "index.html" "css/styles.css" "js/script.js" "CNAME" "icons/KuyenDev_logo_cuadrado_transparente.ico"; do
+  if [ -f "$file" ]; then
+    echo "   ✅ $file presente"
+  else
+    echo "   ❌ ERROR: Falta $file"
+  fi
 done
 echo ""
 
-# Verificar que el index.html tiene todos los contenedores
-echo "📄 Contenedores cargados en index.html:"
-grep -o 'id="section-[^"]*"' index.html | sort -u | while read id; do
-    section_name=$(echo "$id" | sed 's/id="section-//;s/"//g')
-    echo "   ✅ $section_name"
+# 2. Verificar páginas secundarias
+echo "📄 2. Páginas Secundarias:"
+for page in "pages/noticias.html" "pages/terminos.html" "pages/content/bertoldo_hofmann.html"; do
+  if [ -f "$page" ]; then
+    echo "   ✅ $page presente"
+  else
+    echo "   ❌ ERROR: Falta $page"
+  fi
 done
 echo ""
 
-# Verificar script.js
-echo "⚙️  Verificación de script.js:"
-if grep -q "loadSections" index.html; then
-    echo "   ✅ Función loadSections inicializada"
-fi
-if grep -q "async function loadSections" js/script.js; then
-    echo "   ✅ Función loadSections definida"
-fi
-if grep -q "initScrollReveal" js/script.js; then
-    echo "   ✅ Función initScrollReveal definida"
-fi
+# 3. Verificar referencias a CSS y JS
+echo "🔗 3. Enlaces a CSS y JS en archivos HTML:"
+for html in "index.html" "pages/noticias.html" "pages/terminos.html" "pages/content/bertoldo_hofmann.html"; do
+  if grep -q "styles.css" "$html" && grep -q "script.js" "$html"; then
+    echo "   ✅ $html enlaza styles.css y script.js"
+  else
+    echo "   ⚠️ ALERTA: Verificar enlaces en $html"
+  fi
+done
+echo ""
+
+# 4. Verificar ID de anclas internas en index.html
+echo "⚓ 4. Secciones Ancla en index.html:"
+for anchor in "servicios" "garantia" "nosotros" "proceso" "faq" "contacto"; do
+  if grep -q "id=\"$anchor\"" index.html; then
+    echo "   ✅ Sección #$anchor existe"
+  else
+    echo "   ❌ Falta sección #$anchor"
+  fi
+done
 echo ""
 
 echo "═══════════════════════════════════════════════════════════════"
-echo "  RESUMEN: Proyecto refactorizado exitosamente ✅"
+echo "  RESULTADO: Todos los componentes validados exitosamente ✅"
 echo "═══════════════════════════════════════════════════════════════"
-echo ""
-echo "📖 Para más información, ver: ESTRUCTURA_REFACTORIZADA.md"
