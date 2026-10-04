@@ -943,6 +943,462 @@ button {
   color: var(--text-muted);
 }
 
+/* Acción Contextual en Card de Servicio */
+.service-card-action {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.btn-card-consult {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.65rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  background: rgba(37, 99, 235, 0.08);
+  border: 1px solid rgba(37, 99, 235, 0.25);
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.btn-card-consult:hover {
+  background: var(--accent-whatsapp);
+  color: #070a12;
+  border-color: var(--accent-whatsapp);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+}
+
+.btn-card-consult svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  color: var(--accent-whatsapp);
+  transition: color var(--transition-fast);
+}
+
+.btn-card-consult:hover svg {
+  color: #070a12;
+}
+
+/* ==========================================================================
+   BANNER DE DIFERENCIACIÓN CLARA: FORMATEO vs OPTIMIZACIÓN vs WINDOWS
+   ========================================================================== */
+.service-diff-banner {
+  background: rgba(12, 18, 32, 0.7);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  margin-bottom: 2.5rem;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.diff-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.diff-header-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-xs);
+  background: rgba(37, 99, 235, 0.15);
+  color: var(--accent-cyan-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.diff-header-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.diff-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.diff-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+
+.diff-col {
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  transition: border-color var(--transition-fast);
+}
+
+.diff-col:hover {
+  border-color: rgba(37, 99, 235, 0.3);
+}
+
+.diff-badge {
+  display: inline-block;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-xs);
+  margin-bottom: 0.5rem;
+}
+
+.diff-badge.formateo {
+  background: rgba(56, 189, 248, 0.12);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.25);
+}
+
+.diff-badge.optimizacion {
+  background: rgba(16, 185, 129, 0.12);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.diff-badge.windows-opt {
+  background: rgba(245, 158, 11, 0.12);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+.diff-col h4 {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.35rem;
+}
+
+.diff-col p {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ==========================================================================
+   ASISTENTE INTERACTIVO 4.0 ("¿QUÉ SERVICIO NECESITO?")
+   ========================================================================== */
+.assistant-section {
+  position: relative;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  background: linear-gradient(180deg, rgba(7, 10, 18, 0.7) 0%, rgba(12, 18, 32, 0.85) 100%);
+}
+
+.assistant-card {
+  background: rgba(12, 18, 32, 0.95);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-lg), 0 0 35px rgba(37, 99, 235, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.assistant-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.assistant-step-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent-cyan-light);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.assistant-dots {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.assistant-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  transition: all var(--transition-normal);
+}
+
+.assistant-dot.is-active {
+  background: var(--accent-primary);
+  box-shadow: 0 0 8px var(--accent-primary);
+  width: 20px;
+  border-radius: var(--radius-full);
+}
+
+.assistant-dot.is-completed {
+  background: var(--accent-emerald);
+}
+
+.assistant-step-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.assistant-step-subtitle {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.75rem;
+}
+
+.assistant-options-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.assistant-opt-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  padding: 1.25rem 1.35rem;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  position: relative;
+  min-height: 100px;
+}
+
+.assistant-opt-btn:hover,
+.assistant-opt-btn:focus-visible {
+  background: rgba(37, 99, 235, 0.08);
+  border-color: rgba(37, 99, 235, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.assistant-opt-title {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
+}
+
+.assistant-opt-title svg {
+  width: 18px;
+  height: 18px;
+  color: var(--accent-cyan-light);
+  flex-shrink: 0;
+}
+
+.assistant-opt-desc {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+/* Caja de Resultado Orientativo */
+.assistant-result-box {
+  background: rgba(17, 26, 46, 0.85);
+  border: 1px solid rgba(37, 99, 235, 0.35);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.result-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: var(--accent-emerald);
+  margin-bottom: 1rem;
+}
+
+.result-title {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.result-explanation {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+  max-width: 720px;
+}
+
+.result-explanation strong {
+  color: var(--text-primary);
+}
+
+.result-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* ==========================================================================
+   GUÍA / CHECKLIST PRE-FORMATEO ("Antes de formatear tu computador")
+   ========================================================================== */
+.checklist-section {
+  position: relative;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.checklist-card {
+  background: rgba(12, 18, 32, 0.9);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.checklist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.checklist-item {
+  display: flex;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.checklist-item:hover {
+  background: rgba(255, 255, 255, 0.035);
+  border-color: rgba(37, 99, 235, 0.3);
+  transform: translateY(-2px);
+}
+
+.checklist-icon-box {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-xs);
+  background: rgba(37, 99, 235, 0.12);
+  border: 1px solid rgba(37, 99, 235, 0.25);
+  color: var(--accent-cyan-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.checklist-icon-box svg {
+  width: 18px;
+  height: 18px;
+}
+
+.checklist-item-content h4 {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.35rem;
+}
+
+.checklist-item-content p {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.checklist-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1.15rem 1.35rem;
+  background: rgba(37, 99, 235, 0.06);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  border-radius: var(--radius-md);
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+.checklist-notice svg {
+  width: 20px;
+  height: 20px;
+  color: var(--accent-cyan-light);
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.checklist-notice strong {
+  color: var(--text-primary);
+}
+
+/* Breadcrumb Navigation */
+.breadcrumb-nav {
+  margin-bottom: 1.5rem;
+}
+
+.breadcrumb-list {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  list-style: none;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.breadcrumb-list a {
+  color: var(--text-secondary);
+  transition: color var(--transition-fast);
+}
+
+.breadcrumb-list a:hover {
+  color: var(--accent-cyan-light);
+}
+
+.breadcrumb-list [aria-current="page"] {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
 /* ==========================================================================
    SECCIÓN DEDICADA: 1 MES DE GARANTÍA & SOPORTE POST-SERVICIO
    ========================================================================== */
@@ -1588,9 +2044,9 @@ button {
    ========================================================================== */
 .reveal-fade {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(14px);
+  transition: opacity 0.48s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.48s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal-fade.is-visible {
