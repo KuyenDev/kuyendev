@@ -15,14 +15,13 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../css/styles.css" />
-    <link
-      rel="icon"
-      type="image/x-icon"
-      href="../icons/KuyenDev_logo_cuadrado_transparente.ico"
-    />
+    <link rel="icon" type="image/x-icon" href="../icons/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../icons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../icons/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../icons/apple-touch-icon.png" />
     <style>
       .legal-section {
-        padding: 7.5rem 0 4rem;
+        padding: 8rem 0 4rem;
         min-height: 80vh;
       }
       .legal-card {
@@ -37,7 +36,7 @@
         transition: border-color var(--transition-fast);
       }
       .legal-card:hover {
-        border-color: rgba(99, 102, 241, 0.3);
+        border-color: rgba(37, 99, 235, 0.35);
       }
       .legal-num {
         position: absolute;
@@ -49,7 +48,7 @@
         border-bottom-right-radius: var(--radius-sm);
         border-right: 1px solid var(--border-medium);
         border-bottom: 1px solid var(--border-medium);
-        color: var(--accent-primary);
+        color: #60a5fa;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -93,20 +92,22 @@
   </head>
   <body>
     <div class="mesh-bg" aria-hidden="true"></div>
-    <div class="grid-overlay" aria-hidden="true"></div>
 
     <!-- NAV -->
     <header>
       <nav class="nav-glass">
         <div class="nav-container">
           <a href="../index.html" class="nav-brand" aria-label="Volver al Inicio">
-            <img 
-              src="../images/Logo KuyénDev para la Web (recortado).png" 
-              alt="KuyénDev" 
-              class="nav-brand-logo"
-              width="140"
-              height="39"
-            >
+            <picture>
+              <source srcset="../images/logo-kuyendev-horizontal.webp" type="image/webp">
+              <img 
+                src="../images/logo-kuyendev-horizontal.png" 
+                alt="KuyénDev" 
+                class="nav-brand-logo" 
+                width="170" 
+                height="34"
+              >
+            </picture>
           </a>
           <a href="../index.html" class="back-btn">
             <svg

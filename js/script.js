@@ -134,35 +134,14 @@ document.addEventListener('DOMContentLoaded', () => {
     updateNav();
   }
 
-  // 6. Protección de Contenido: Bloqueo de Copia, Menú Contextual y Arrastre
-  // Bloquear clic derecho (menú contextual)
-  document.addEventListener('contextmenu', (e) => {
-    e.preventDefault();
-  });
-
-  // Bloquear arrastre de imágenes y enlaces
-  document.addEventListener('dragstart', (e) => {
-    e.preventDefault();
-  });
-
-  // Bloquear eventos de copia y corte
-  document.addEventListener('copy', (e) => {
-    e.preventDefault();
-  });
-
-  document.addEventListener('cut', (e) => {
-    e.preventDefault();
-  });
-
-  // Bloquear atajos de teclado de copia, guardado y visualización de código
-  document.addEventListener('keydown', (e) => {
-    const isCtrlOrMeta = e.ctrlKey || e.metaKey;
-    if (isCtrlOrMeta) {
-      const key = e.key.toLowerCase();
-      // 'c' = copiar, 'u' = ver código fuente, 's' = guardar página, 'a' = seleccionar todo
-      if (key === 'c' || key === 'u' || key === 's' || key === 'a') {
-        e.preventDefault();
-      }
+  // 6. Cierre de menú móvil al redimensionar a desktop (>768px)
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768 && mobileMenu && mobileMenu.classList.contains('is-active')) {
+      hamburgerBtn.classList.remove('is-active');
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
+      mobileMenu.classList.remove('is-active');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('menu-open');
     }
   });
 });
