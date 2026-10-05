@@ -111,7 +111,7 @@
             "name": "¿Cómo funciona el soporte técnico remoto?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Para dudas menores, configuración de impresoras, ajustes de Office o revisiones puntuales tras el servicio, nos conectamos a tu pantalla mediante herramientas de conexión segura y encriptada, resolviendo la situación en minutos sin que tengas que trasladar tu equipo."
+              "text": "Para incidencias menores que puedan resolverse a distancia —como controladores, ajustes de Windows, Office o dudas tras el servicio— nos conectamos mediante RustDesk según cada caso. Si el problema es mayor, coordinamos atención presencial."
             }
           },
           {
@@ -138,6 +138,9 @@
 </head>
 <body>
 
+  <!-- Barra de Progreso de Scroll Discreta (2.5px) -->
+  <div id="scrollProgressBar" class="scroll-progress-bar" aria-hidden="true"></div>
+
   <!-- Fondo de Ambiente Sutil -->
   <div class="mesh-bg" aria-hidden="true"></div>
 
@@ -162,7 +165,7 @@
           <li><a href="#servicios" class="nav-link">Servicios</a></li>
           <li><a href="#asistente" class="nav-link">Asistente</a></li>
           <li><a href="pages/empresas.html" class="nav-link">Empresas</a></li>
-          <li><a href="pages/noticias.html" class="nav-link">Casos Reales</a></li>
+          <li><a href="pages/publicaciones.html" class="nav-link">Publicaciones</a></li>
           <li><a href="#garantia" class="nav-link">Garantía</a></li>
           <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
           <li><a href="#faq" class="nav-link">FAQ</a></li>
@@ -203,7 +206,7 @@
     <a href="#servicios" class="mobile-nav-link">Servicios</a>
     <a href="#asistente" class="mobile-nav-link">¿Qué servicio necesito?</a>
     <a href="pages/empresas.html" class="mobile-nav-link">Empresas e Instituciones</a>
-    <a href="pages/noticias.html" class="mobile-nav-link">Casos Reales</a>
+    <a href="pages/publicaciones.html" class="mobile-nav-link">Publicaciones</a>
     <a href="#garantia" class="mobile-nav-link">Garantía</a>
     <a href="#nosotros" class="mobile-nav-link">Nosotros</a>
     <a href="#faq" class="mobile-nav-link">Preguntas Frecuentes</a>
@@ -283,7 +286,7 @@
                   <span class="status-dot-emerald" aria-hidden="true"></span>
                   <span class="console-title">KUYÉNDEV · PROTOCOLO DE PUESTA A PUNTO</span>
                 </div>
-                <span class="console-badge">Estándar 4.0</span>
+                <span class="console-badge">Protocolo Técnico</span>
               </div>
 
               <div class="console-body">
@@ -298,7 +301,7 @@
                     </div>
                     <div>
                       <div class="system-label">Instalación Limpia de SO</div>
-                      <div class="system-sub">Windows 10 / 11 · Linux (Sin bloatware)</div>
+                      <div class="system-sub">Windows · Linux según compatibilidad</div>
                     </div>
                   </div>
                   <span class="system-status">Configurado</span>
@@ -448,7 +451,7 @@
           </p>
         </div>
 
-        <!-- BANNER DE DIFERENCIACIÓN ESTRATÉGICA 4.0 -->
+        <!-- BANNER DE DIFERENCIACIÓN ESTRATÉGICA 3.0 -->
         <div class="service-diff-banner reveal-fade delay-100">
           <div class="diff-header">
             <div class="diff-header-icon" aria-hidden="true">
@@ -500,7 +503,7 @@
             </div>
             <h3 class="service-card-title">Formateo de PC y Laptops</h3>
             <p class="service-card-desc">
-              Reinstalación limpia y exhaustiva desde cero para eliminar lentitud acumulada, virus y archivos residuales. Deja tu equipo listo para trabajar como nuevo.
+              Reinstalación limpia del sistema operativo para eliminar archivos residuales e incidencias de software. Deja tu equipo con una base limpia y funcional.
             </p>
             <ul class="service-feature-list">
               <li class="service-feature-item">
@@ -509,7 +512,7 @@
               </li>
               <li class="service-feature-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                Particionado y configuración base
+                Instalación limpia de sistema base
               </li>
               <li class="service-feature-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
@@ -521,9 +524,29 @@
               <span class="service-tag">Desktop</span>
               <span class="service-tag">SSD/HDD</span>
             </div>
+
+            <!-- Detalles Desplegables (Progressive Disclosure) -->
+            <button type="button" class="btn-service-details" aria-expanded="false" aria-controls="details-formateo">
+              <span>Qué incluye y alcance</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </button>
+            <div id="details-formateo" class="service-details-panel" hidden>
+              <div class="service-details-section-title">Alcance del servicio:</div>
+              <ul class="service-details-list">
+                <li>Instalación limpia del sistema operativo</li>
+                <li>Despliegue de drivers oficiales específicos para la placa y componentes</li>
+                <li>Configuración de almacenamiento para el sistema</li>
+                <li>1 mes de garantía técnica con soporte post-servicio</li>
+              </ul>
+              <div class="service-details-section-title" style="margin-top: 0.6rem;">Modalidad:</div>
+              <p style="font-size: 0.75rem; margin: 0; color: var(--text-muted);">Modalidad coordinada según el caso en Osorno. Respaldo de archivos disponible previa solicitud.</p>
+            </div>
+
             <div class="service-card-action">
               <a 
-                href="https://wa.me/56922231780?text=Hola%20Franco,%20quisiera%20consultar%20por%20el%20servicio%20de%20formateo%20para%20mi%20computador." 
+                href="https://wa.me/56922231780?text=Hola,%20quisiera%20consultar%20por%20el%20servicio%20de%20formateo%20para%20mi%20computador." 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 class="btn-card-consult"
@@ -568,9 +591,29 @@
               <span class="service-tag">Windows 10</span>
               <span class="service-tag">Home / Pro / LTSC</span>
             </div>
+
+            <!-- Detalles Desplegables -->
+            <button type="button" class="btn-service-details" aria-expanded="false" aria-controls="details-windows">
+              <span>Qué incluye y alcance</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </button>
+            <div id="details-windows" class="service-details-panel" hidden>
+              <div class="service-details-section-title">Alcance del servicio:</div>
+              <ul class="service-details-list">
+                <li>Instalación de la edición adecuada al hardware (Home, Pro o LTSC)</li>
+                <li>Windows LTSC disponible para equipos donde se priorice ligereza y estabilidad</li>
+                <li>Activación oficial y configuración de actualizaciones controladas</li>
+                <li>Soporte técnico y garantía post-instalación de 30 días</li>
+              </ul>
+              <div class="service-details-section-title" style="margin-top: 0.6rem;">Orientación técnica:</div>
+              <p style="font-size: 0.75rem; margin: 0; color: var(--text-muted);">Evaluamos procesador y memoria RAM para recomendar la versión que ofrezca mayor estabilidad.</p>
+            </div>
+
             <div class="service-card-action">
               <a 
-                href="https://wa.me/56922231780?text=Hola%20Franco,%20quisiera%20consultar%20qu%C3%A9%20versi%C3%B3n/configuraci%C3%B3n%20de%20Windows%20conviene%20para%20mi%20equipo." 
+                href="https://wa.me/56922231780?text=Hola,%20quisiera%20consultar%20qu%C3%A9%20versi%C3%B3n%20o%20configuraci%C3%B3n%20de%20Windows%20conviene%20para%20mi%20equipo." 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 class="btn-card-consult"
@@ -613,9 +656,29 @@
               <span class="service-tag">Distribuciones Ligeras</span>
               <span class="service-tag">Migración</span>
             </div>
+
+            <!-- Detalles Desplegables -->
+            <button type="button" class="btn-service-details" aria-expanded="false" aria-controls="details-linux">
+              <span>Qué incluye y alcance</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </button>
+            <div id="details-linux" class="service-details-panel" hidden>
+              <div class="service-details-section-title">Alcance del servicio:</div>
+              <ul class="service-details-list">
+                <li>Selección de distribución según uso (Linux Mint, Ubuntu, Zorin OS u otras)</li>
+                <li>Configuración de software de oficina equivalente y navegadores</li>
+                <li>Controladores de red, sonido y gráficos compatibles incluidos</li>
+                <li>Inducción básica de uso para asegurar una transición cómoda</li>
+              </ul>
+              <div class="service-details-section-title" style="margin-top: 0.6rem;">Ideal para:</div>
+              <p style="font-size: 0.75rem; margin: 0; color: var(--text-muted);">Equipos que ya no mueven Windows con fluidez y necesitan navegación, estudio y oficina ágil.</p>
+            </div>
+
             <div class="service-card-action">
               <a 
-                href="https://wa.me/56922231780?text=Hola%20Franco,%20quisiera%20consultar%20si%20Linux%20ser%C3%ADa%20una%20buena%20opci%C3%B3n%20para%20mi%20computador." 
+                href="https://wa.me/56922231780?text=Hola,%20quisiera%20consultar%20si%20Linux%20ser%C3%ADa%20una%20buena%20opci%C3%B3n%20para%20mi%20computador." 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 class="btn-card-consult"
@@ -627,7 +690,7 @@
             </div>
           </article>
 
-          <!-- Servicio 4: Microsoft Office & 365 -->
+          <!-- Servicio 4: Microsoft Office -->
           <article class="service-card reveal-fade">
             <div class="service-icon-box" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -637,7 +700,7 @@
                 <line x1="16" y1="17" x2="8" y2="17"/>
               </svg>
             </div>
-            <h3 class="service-card-title">Microsoft Office & 365</h3>
+            <h3 class="service-card-title">Microsoft Office</h3>
             <p class="service-card-desc">
               Instalación, configuración y puesta en marcha de la suite ofimática completa (Word, Excel, PowerPoint, Outlook) para trabajo o estudio sin interrupciones.
             </p>
@@ -656,13 +719,33 @@
               </li>
             </ul>
             <div class="service-tags">
-              <span class="service-tag">Office 365</span>
+              <span class="service-tag">Office</span>
               <span class="service-tag">Word / Excel</span>
               <span class="service-tag">Productividad</span>
             </div>
+
+            <!-- Detalles Desplegables -->
+            <button type="button" class="btn-service-details" aria-expanded="false" aria-controls="details-office">
+              <span>Qué incluye y alcance</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </button>
+            <div id="details-office" class="service-details-panel" hidden>
+              <div class="service-details-section-title">Alcance del servicio:</div>
+              <ul class="service-details-list">
+                <li>Instalación y despliegue funcional de aplicaciones base de Office</li>
+                <li>Comprobación de licencias y activación correspondiente</li>
+                <li>Reparación de archivos corruptos o incidencias de apertura</li>
+                <li>Asistencia disponible mediante conexión remota (RustDesk)</li>
+              </ul>
+              <div class="service-details-section-title" style="margin-top: 0.6rem;">Modalidad:</div>
+              <p style="font-size: 0.75rem; margin: 0; color: var(--text-muted);">Soporte remoto en minutos para fallos simples o atención integrada con formateo.</p>
+            </div>
+
             <div class="service-card-action">
               <a 
-                href="https://wa.me/56922231780?text=Hola%20Franco,%20quisiera%20consultar%20por%20instalaci%C3%B3n/activaci%C3%B3n%20de%20Microsoft%20Office." 
+                href="https://wa.me/56922231780?text=Hola,%20quisiera%20consultar%20por%20Microsoft%20Office." 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 class="btn-card-consult"
@@ -704,9 +787,29 @@
               <span class="service-tag">Limpieza</span>
               <span class="service-tag">RAM / CPU</span>
             </div>
+
+            <!-- Detalles Desplegables -->
+            <button type="button" class="btn-service-details" aria-expanded="false" aria-controls="details-optimizacion">
+              <span>Qué incluye y alcance</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </button>
+            <div id="details-optimizacion" class="service-details-panel" hidden>
+              <div class="service-details-section-title">Alcance del servicio:</div>
+              <ul class="service-details-list">
+                <li>Desactivación de telemetría y servicios innecesarios que consumen ciclos de CPU</li>
+                <li>Depuración profunda de software que inicia automáticamente con el equipo</li>
+                <li>Limpieza de caché y archivos temporales residuales del sistema</li>
+                <li>Ajustes finos para maximizar la respuesta sin perder compatibilidad</li>
+              </ul>
+              <div class="service-details-section-title" style="margin-top: 0.6rem;">Diferencia clave con Formateo:</div>
+              <p style="font-size: 0.75rem; margin: 0; color: var(--text-muted);">Conserva tus programas y archivos actuales; no borra el sistema operativo.</p>
+            </div>
+
             <div class="service-card-action">
               <a 
-                href="https://wa.me/56922231780?text=Hola%20Franco,%20quisiera%20consultar%20por%20optimizaci%C3%B3n.%20Mi%20computador%20est%C3%A1%20funcionando%20lento%20y%20quisiera%20saber%20qu%C3%A9%20se%20puede%20mejorar." 
+                href="https://wa.me/56922231780?text=Hola,%20quisiera%20consultar%20por%20optimizaci%C3%B3n.%20Mi%20computador%20est%C3%A1%20funcionando%20lento%20y%20quisiera%20saber%20qu%C3%A9%20se%20puede%20mejorar." 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 class="btn-card-consult"
@@ -727,7 +830,7 @@
             </div>
             <h3 class="service-card-title">Soporte Técnico Informático</h3>
             <p class="service-card-desc">
-              Asistencia personalizada para resolver fallos de software, eliminación de malware, configuración de impresoras y soporte técnico post-servicio.
+              Asistencia personalizada para resolver fallos de software, configuración del sistema, drivers y soporte técnico post-servicio.
             </p>
             <ul class="service-feature-list">
               <li class="service-feature-item">
@@ -736,7 +839,7 @@
               </li>
               <li class="service-feature-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                Conexión remota rápida y encriptada (RustDesk)
+                Soporte remoto mediante RustDesk
               </li>
               <li class="service-feature-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
@@ -748,9 +851,29 @@
               <span class="service-tag">RustDesk</span>
               <span class="service-tag">Asistencia</span>
             </div>
+
+            <!-- Detalles Desplegables -->
+            <button type="button" class="btn-service-details" aria-expanded="false" aria-controls="details-soporte">
+              <span>Qué incluye y alcance</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </button>
+            <div id="details-soporte" class="service-details-panel" hidden>
+              <div class="service-details-section-title">Alcance del servicio:</div>
+              <ul class="service-details-list">
+                <li>Diagnóstico y resolución de errores de sistema o controladores</li>
+                <li>Asistencia a distancia mediante RustDesk para problemas compatibles</li>
+                <li>Ajustes de software, sistema operativo y resolución de conflictos</li>
+                <li>Atención presencial coordinada según la gravedad del problema</li>
+              </ul>
+              <div class="service-details-section-title" style="margin-top: 0.6rem;">Modalidad:</div>
+              <p style="font-size: 0.75rem; margin: 0; color: var(--text-muted);">Remota o presencial según el caso. Se cotiza de acuerdo a la incidencia.</p>
+            </div>
+
             <div class="service-card-action">
               <a 
-                href="https://wa.me/56922231780?text=Hola%20Franco,%20tengo%20un%20problema%20de%20software%20y%20quisiera%20saber%20si%20puede%20resolverse%20mediante%20soporte%20remoto." 
+                href="https://wa.me/56922231780?text=Hola,%20tengo%20un%20problema%20de%20software%20y%20quisiera%20saber%20si%20puede%20resolverse%20mediante%20soporte%20remoto." 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 class="btn-card-consult"
@@ -782,7 +905,7 @@
       </div>
     </section>
 
-    <!-- ASISTENTE INTERACTIVO 4.0: ¿QUÉ SERVICIO NECESITO? -->
+    <!-- ASISTENTE INTERACTIVO 3.0: ¿QUÉ SERVICIO NECESITO? -->
     <section id="asistente" class="assistant-section section-padding">
       <div class="container container-narrow">
         <div class="section-header text-center reveal-fade">
@@ -815,67 +938,110 @@
     <section id="checklist-previa" class="checklist-section section-padding">
       <div class="container">
         <div class="checklist-card reveal-fade">
-          <div class="section-header text-center" style="margin-bottom: 1.5rem;">
-            <span class="section-tag mx-auto">Guía de Prevención</span>
+          <div class="section-header text-center" style="margin-bottom: 1.25rem;">
+            <span class="section-tag mx-auto">Guía de Prevención Interactiva</span>
             <h2 class="section-title">Antes de formatear tu computador</h2>
             <p class="section-subtitle mx-auto">
               Una pequeña lista práctica para que revises y no olvides respaldar información sensible antes de cualquier reinstalación limpia.
             </p>
           </div>
 
-          <div class="checklist-grid">
-            <div class="checklist-item">
-              <div class="checklist-icon-box" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                  <polyline points="14 2 14 8 20 8"/>
+          <div id="preformatChecklist">
+            <div class="checklist-progress-bar-container">
+              <div class="checklist-progress-text">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M9 11l3 3L22 4"/>
+                  <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
                 </svg>
+                <span>Progreso de verificación previa:</span>
               </div>
-              <div class="checklist-item-content">
-                <h4>1. Documentos y Fotos</h4>
-                <p>Revisa las carpetas Documentos, Imágenes, Descargas y los archivos que guardas directamente en el Escritorio.</p>
-              </div>
+              <span id="checklistProgressBadge" class="checklist-progress-badge">0 de 4 verificados</span>
             </div>
 
-            <div class="checklist-item">
-              <div class="checklist-icon-box" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="12" cy="12" r="10"/>
-                  <line x1="2" y1="12" x2="22" y2="12"/>
-                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-                </svg>
+            <div class="checklist-grid">
+              
+              <div class="checklist-item" role="checkbox" tabindex="0" aria-checked="false" aria-label="1. Documentos y Fotos">
+                <div class="checklist-icon-box" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14 2 14 8 20 8"/>
+                  </svg>
+                </div>
+                <div class="checklist-item-content">
+                  <h4>1. Documentos y Fotos</h4>
+                  <p>Revisa las carpetas Documentos, Imágenes, Descargas y los archivos guardados en el Escritorio.</p>
+                </div>
+                <div class="checklist-checkbox-wrapper">
+                  <span class="checklist-custom-checkbox" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                      <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                  </span>
+                </div>
               </div>
-              <div class="checklist-item-content">
-                <h4>2. Navegador y Contraseñas</h4>
-                <p>Comprueba que tu cuenta de Google o Microsoft esté sincronizada o exporta tus marcadores y contraseñas importantes.</p>
-              </div>
-            </div>
 
-            <div class="checklist-item">
-              <div class="checklist-icon-box" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                </svg>
+              <div class="checklist-item" role="checkbox" tabindex="0" aria-checked="false" aria-label="2. Navegador y Contraseñas">
+                <div class="checklist-icon-box" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <line x1="2" y1="12" x2="22" y2="12"/>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                  </svg>
+                </div>
+                <div class="checklist-item-content">
+                  <h4>2. Navegador y Contraseñas</h4>
+                  <p>Comprueba que tu cuenta de Google o Microsoft esté sincronizada o exporta tus marcadores y contraseñas.</p>
+                </div>
+                <div class="checklist-checkbox-wrapper">
+                  <span class="checklist-custom-checkbox" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                      <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                  </span>
+                </div>
               </div>
-              <div class="checklist-item-content">
-                <h4>3. Licencias y Programas</h4>
-                <p>Ten a mano nombres de software específico que utilices para trabajar (gestión, diseño, contabilidad) y sus claves de acceso.</p>
-              </div>
-            </div>
 
-            <div class="checklist-item">
-              <div class="checklist-icon-box" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/>
-                  <rect x="2" y="14" width="20" height="8" rx="2" ry="2"/>
-                  <line x1="6" y1="6" x2="6.01" y2="6"/>
-                  <line x1="6" y1="18" x2="6.01" y2="18"/>
-                </svg>
+              <div class="checklist-item" role="checkbox" tabindex="0" aria-checked="false" aria-label="3. Licencias y Programas">
+                <div class="checklist-icon-box" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  </svg>
+                </div>
+                <div class="checklist-item-content">
+                  <h4>3. Licencias y Programas</h4>
+                  <p>Ten a mano nombres de software específico que utilices para trabajar (gestión, diseño, contabilidad) y sus claves.</p>
+                </div>
+                <div class="checklist-checkbox-wrapper">
+                  <span class="checklist-custom-checkbox" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                      <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                  </span>
+                </div>
               </div>
-              <div class="checklist-item-content">
-                <h4>4. Discos y Particiones</h4>
-                <p>Identifica qué archivos están en la unidad de sistema (C:) y cuáles en discos secundarios o particiones de datos (D: u otros).</p>
+
+              <div class="checklist-item" role="checkbox" tabindex="0" aria-checked="false" aria-label="4. Discos y Particiones">
+                <div class="checklist-icon-box" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/>
+                    <rect x="2" y="14" width="20" height="8" rx="2" ry="2"/>
+                    <line x1="6" y1="6" x2="6.01" y2="6"/>
+                    <line x1="6" y1="18" x2="6.01" y2="18"/>
+                  </svg>
+                </div>
+                <div class="checklist-item-content">
+                  <h4>4. Discos y Particiones</h4>
+                  <p>Identifica qué archivos están en la unidad de sistema (C:) y cuáles en discos secundarios o particiones de datos (D: u otros).</p>
+                </div>
+                <div class="checklist-checkbox-wrapper">
+                  <span class="checklist-custom-checkbox" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                      <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                  </span>
+                </div>
               </div>
+
             </div>
           </div>
 
@@ -886,7 +1052,7 @@
               <line x1="12" y1="16" x2="12.01" y2="16"/>
             </svg>
             <div>
-              <strong>Recomendación preventiva:</strong> Esta checklist te ayuda a cuidar tu información antes de entregar tu computador. Si necesitas que nosotros realicemos el <strong>respaldo seguro</strong> de tus datos antes de iniciar el formateo, indícalo al coordinar tu servicio.
+              <strong>Recomendación preventiva:</strong> Esta checklist es una guía práctica para que asegures tu información antes de entregar tu computador. Si necesitas que nosotros realicemos el <strong>respaldo de tus datos</strong> antes de iniciar el formateo, infórmalo al coordinar tu servicio.
             </div>
           </div>
         </div>
@@ -937,7 +1103,7 @@
                 </div>
                 <div class="guarantee-feature-text">
                   <h4>Asistencia Remota con RustDesk</h4>
-                  <p>Resolución rápida de drivers, dudas de Office o ajustes menores sin necesidad de traslado inmediato.</p>
+                  <p>Resolución de drivers, dudas de Office o ajustes menores mediante conexión remota.</p>
                 </div>
               </div>
 
@@ -960,7 +1126,7 @@
       </div>
     </section>
 
-    <!-- METODOLOGÍA / PROCESO DE TRABAJO -->
+    <!-- METODOLOGÍA / PROCESO DE TRABAJO (Timeline Conectado) -->
     <section id="proceso" class="process-section section-padding">
       <div class="container">
         <div class="section-header text-center reveal-fade">
@@ -971,44 +1137,66 @@
           </p>
         </div>
 
-        <div class="process-grid">
-          
-          <div class="process-card reveal-fade">
-            <div class="process-num" aria-hidden="true">01</div>
-            <h3>Consulta</h3>
-            <p>Escríbeme por WhatsApp o correo contándome qué le ocurre a tu computador o qué servicio necesitas.</p>
-          </div>
+        <div class="process-timeline-wrapper">
+          <div class="timeline-line" aria-hidden="true"></div>
 
-          <div class="process-card reveal-fade delay-100">
-            <div class="process-num" aria-hidden="true">02</div>
-            <h3>Evaluación</h3>
-            <p>Revisamos el estado de tu equipo y definimos la alternativa más conveniente con total honestidad.</p>
-          </div>
+          <div class="process-grid">
+            
+            <div class="process-card reveal-fade delay-50">
+              <div class="process-num">
+                <span>01</span>
+                <span class="process-step-badge">Contacto</span>
+              </div>
+              <h3>Consulta</h3>
+              <p>Escríbeme por WhatsApp o correo contándome qué le ocurre a tu computador o qué servicio necesitas.</p>
+            </div>
 
-          <div class="process-card reveal-fade delay-150">
-            <div class="process-num" aria-hidden="true">03</div>
-            <h3>Respaldo</h3>
-            <p>Si lo requieres, respaldamos de forma segura tus archivos y carpetas clave antes de cualquier cambio.</p>
-          </div>
+            <div class="process-card reveal-fade delay-100">
+              <div class="process-num">
+                <span>02</span>
+                <span class="process-step-badge">Diagnóstico</span>
+              </div>
+              <h3>Evaluación</h3>
+              <p>Revisamos el estado de tu equipo y definimos la alternativa más conveniente con total honestidad.</p>
+            </div>
 
-          <div class="process-card reveal-fade delay-200">
-            <div class="process-num" aria-hidden="true">04</div>
-            <h3>Servicio Técnico</h3>
-            <p>Se realiza el formateo limpio, particionado o configuración acordada bajo estándares rigurosos.</p>
-          </div>
+            <div class="process-card reveal-fade delay-150">
+              <div class="process-num">
+                <span>03</span>
+                <span class="process-step-badge">Prevención</span>
+              </div>
+              <h3>Respaldo</h3>
+              <p>Si lo requieres, respaldamos de forma segura tus archivos y carpetas clave antes de cualquier cambio.</p>
+            </div>
 
-          <div class="process-card reveal-fade delay-250">
-            <div class="process-num" aria-hidden="true">05</div>
-            <h3>Verificación & Entrega</h3>
-            <p>Comprobamos drivers, conectividad y estabilidad para entregarte el equipo listo para su uso diario.</p>
-          </div>
+            <div class="process-card reveal-fade delay-200">
+              <div class="process-num">
+                <span>04</span>
+                <span class="process-step-badge">Puesta a punto</span>
+              </div>
+              <h3>Servicio Técnico</h3>
+              <p>Se realiza el formateo, optimización o configuración acordada según lo coordinado para el equipo.</p>
+            </div>
 
-          <div class="process-card reveal-fade delay-300">
-            <div class="process-num" aria-hidden="true">06</div>
-            <h3>Soporte & Garantía</h3>
-            <p>Cuentas con 1 mes de respaldo técnico y atención a distancia para cualquier ajuste posterior.</p>
-          </div>
+            <div class="process-card reveal-fade delay-250">
+              <div class="process-num">
+                <span>05</span>
+                <span class="process-step-badge">Control</span>
+              </div>
+              <h3>Verificación & Entrega</h3>
+              <p>Comprobamos drivers, conectividad y estabilidad para entregarte el equipo listo para su uso diario.</p>
+            </div>
 
+            <div class="process-card reveal-fade delay-300">
+              <div class="process-num">
+                <span>06</span>
+                <span class="process-step-badge">Garantía</span>
+              </div>
+              <h3>Soporte & Respaldo</h3>
+              <p>Cuentas con 1 mes de respaldo técnico y atención a distancia para cualquier ajuste posterior.</p>
+            </div>
+
+          </div>
         </div>
       </div>
     </section>
@@ -1021,7 +1209,7 @@
             <span class="section-tag section-tag-emerald">Caso de Estudio Real</span>
             <h3>Optimización Integral: Colegio Bertoldo Hofmann Kahler</h3>
             <p>
-              Caso institucional en Purranque: optimización, particionamiento y aseguramiento de 30 equipos computacionales, incluyendo congelamiento Deep Freeze en laboratorio para inmunidad total ante virus y fallas de software.
+              Caso institucional en Purranque: optimización y configuración de 30 equipos computacionales, incluyendo congelamiento Deep Freeze en laboratorio estudiantil para restauración limpia en cada reinicio.
             </p>
             <div class="case-stats">
               <div class="case-stat-item">
@@ -1029,8 +1217,8 @@
                 <div class="label">Equipos Optimizados</div>
               </div>
               <div class="case-stat-item">
-                <div class="num">100%</div>
-                <div class="label">Operatividad Lograda</div>
+                <div class="num">Reinicio</div>
+                <div class="label">Restauración Preventiva</div>
               </div>
             </div>
             <a href="pages/content/bertoldo_hofmann.html" class="btn btn-secondary btn-sm">
@@ -1172,7 +1360,7 @@
             <div id="faq-4" class="faq-content">
               <div class="faq-body">
                 <p>
-                  Para incidencias menores —como configuración de controladores, errores puntuales de Windows, ajustes de Office o dudas tras el servicio— nos conectamos de forma segura mediante <strong>RustDesk</strong> (encriptado de extremo a extremo), resolviendo el problema a distancia sin necesidad de traslados inmediatos. Si el fallo es mayor o no puede solventarse remotamente con seguridad, coordinamos la atención presencial o recepción del equipo según el caso.
+                  Para incidencias menores que puedan resolverse a distancia —como controladores, ajustes de Windows, Office o dudas tras el servicio— brindamos soporte remoto mediante <strong>RustDesk</strong> según cada caso. Si el fallo es mayor o no puede solventarse remotamente, coordinamos la atención presencial o recepción del equipo según corresponda.
                 </p>
               </div>
             </div>
@@ -1315,7 +1503,7 @@
             <li><a href="#garantia">Garantía</a></li>
             <li><a href="#proceso">Metodología</a></li>
             <li><a href="#nosotros">Nosotros</a></li>
-            <li><a href="pages/noticias.html">Casos Reales</a></li>
+            <li><a href="pages/publicaciones.html">Publicaciones</a></li>
             <li><a href="#faq">Preguntas Frecuentes</a></li>
           </ul>
         </div>

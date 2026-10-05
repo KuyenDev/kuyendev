@@ -19,7 +19,7 @@ echo ""
 
 # 2. Verificar páginas secundarias
 echo "📄 2. Páginas Secundarias:"
-for page in "pages/empresas.html" "pages/noticias.html" "pages/terminos.html" "pages/content/bertoldo_hofmann.html"; do
+for page in "pages/empresas.html" "pages/publicaciones.html" "pages/noticias.html" "pages/terminos.html" "pages/content/bertoldo_hofmann.html"; do
   if [ -f "$page" ]; then
     echo "   ✅ $page presente"
   else
@@ -30,7 +30,7 @@ echo ""
 
 # 3. Verificar referencias a CSS y JS
 echo "🔗 3. Enlaces a CSS y JS en archivos HTML:"
-for html in "index.html" "pages/empresas.html" "pages/noticias.html" "pages/terminos.html" "pages/content/bertoldo_hofmann.html"; do
+for html in "index.html" "pages/empresas.html" "pages/publicaciones.html" "pages/terminos.html" "pages/content/bertoldo_hofmann.html"; do
   if grep -q "styles.css" "$html" && grep -q "script.js" "$html"; then
     echo "   ✅ $html enlaza styles.css y script.js"
   else
