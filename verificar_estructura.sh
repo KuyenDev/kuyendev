@@ -1,55 +1,90 @@
 #!/bin/bash
-# Script de Verificación de Integridad — KuyénDev v3.0
+# Script de Verificación de Integridad — KuyénDev Next v4.0
 
 echo "═══════════════════════════════════════════════════════════════"
-echo "  VERIFICACIÓN DE INTEGRIDAD WEB — KuyénDev v3.0"
+echo "  VERIFICACIÓN DE INTEGRIDAD WEB — KuyénDev Next v4.0"
+echo "  Estudio Tecnológico: Desarrollo Web & Servicios Informáticos"
 echo "═══════════════════════════════════════════════════════════════"
 echo ""
 
+ERRORS=0
+
 # 1. Verificar archivos esenciales
-echo "📁 1. Archivos Core & SEO:"
-for file in "index.html" "css/styles.css" "js/script.js" "sitemap.xml" "robots.txt" "CNAME" "icons/KuyenDev_logo_cuadrado_transparente.ico"; do
+echo "📁 1. Archivos Core & Configuración:"
+for file in "index.html" "css/styles.css" "js/config/plans.js" "js/script.js" "sitemap.xml" "robots.txt" "CNAME" "icons/favicon.ico"; do
   if [ -f "$file" ]; then
     echo "   ✅ $file presente"
   else
     echo "   ❌ ERROR: Falta $file"
+    ERRORS=$((ERRORS + 1))
   fi
 done
 echo ""
 
-# 2. Verificar páginas secundarias
-echo "📄 2. Páginas Secundarias:"
-for page in "pages/empresas.html" "pages/publicaciones.html" "pages/noticias.html" "pages/terminos.html" "pages/content/bertoldo_hofmann.html"; do
+# 2. Verificar páginas principales y secundarias
+echo "📄 2. Páginas de la Plataforma (11 Rutas Oficiales):"
+for page in "index.html" \
+            "pages/desarrollo-web.html" \
+            "pages/planes-web.html" \
+            "pages/servicios-informaticos.html" \
+            "pages/empresas.html" \
+            "pages/proyectos.html" \
+            "pages/nosotros.html" \
+            "pages/contacto.html" \
+            "pages/publicaciones.html" \
+            "pages/terminos.html" \
+            "pages/content/bertoldo_hofmann.html" \
+            "pages/noticias.html"; do
   if [ -f "$page" ]; then
     echo "   ✅ $page presente"
   else
     echo "   ❌ ERROR: Falta $page"
+    ERRORS=$((ERRORS + 1))
   fi
 done
 echo ""
 
 # 3. Verificar referencias a CSS y JS
 echo "🔗 3. Enlaces a CSS y JS en archivos HTML:"
-for html in "index.html" "pages/empresas.html" "pages/publicaciones.html" "pages/terminos.html" "pages/content/bertoldo_hofmann.html"; do
+for html in "index.html" \
+            "pages/desarrollo-web.html" \
+            "pages/planes-web.html" \
+            "pages/servicios-informaticos.html" \
+            "pages/empresas.html" \
+            "pages/proyectos.html" \
+            "pages/nosotros.html" \
+            "pages/contacto.html" \
+            "pages/publicaciones.html" \
+            "pages/terminos.html" \
+            "pages/content/bertoldo_hofmann.html"; do
   if grep -q "styles.css" "$html" && grep -q "script.js" "$html"; then
     echo "   ✅ $html enlaza styles.css y script.js"
   else
     echo "   ⚠️ ALERTA: Verificar enlaces en $html"
+    ERRORS=$((ERRORS + 1))
   fi
 done
 echo ""
 
-# 4. Verificar ID de anclas internas en index.html
+# 4. Verificar ID de anclas en index.html
 echo "⚓ 4. Secciones Ancla en index.html:"
-for anchor in "servicios" "asistente" "checklist-previa" "garantia" "proceso" "nosotros" "faq" "contacto"; do
+for anchor in "servicios" "planes" "proceso" "faq" "contacto"; do
   if grep -q "id=\"$anchor\"" index.html; then
     echo "   ✅ Sección #$anchor existe"
   else
     echo "   ❌ Falta sección #$anchor"
+    ERRORS=$((ERRORS + 1))
   fi
 done
 echo ""
 
+# 5. Resumen Final
 echo "═══════════════════════════════════════════════════════════════"
-echo "  RESULTADO: Todos los componentes validados exitosamente ✅"
+if [ $ERRORS -eq 0 ]; then
+  echo "  RESULTADO: 100% de los componentes y páginas validados exitosamente ✅"
+else
+  echo "  RESULTADO: Se detectaron $ERRORS advertencias/errores ⚠️"
+fi
 echo "═══════════════════════════════════════════════════════════════"
+
+exit $ERRORS

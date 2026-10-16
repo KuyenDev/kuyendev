@@ -1,374 +1,353 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>
-    Optimización Integral: Colegio Bertoldo Hofmann Kahler | KuyénDev
-  </title>
-  <meta name="description"
-    content="Caso de estudio: Optimización y aseguramiento de 30 equipos computacionales en el Colegio Bertoldo Hofmann Kahler en Purranque." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../../css/styles.css" />
-  <link rel="icon" type="image/x-icon" href="../../icons/favicon.ico" />
-  <link rel="icon" type="image/png" sizes="32x32" href="../../icons/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="../../icons/favicon-16x16.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="../../icons/apple-touch-icon.png" />
-  <style>
-    .article-container {
-      padding: 8rem 1.5rem 4rem;
-      max-width: 800px;
-      margin: 0 auto;
-    }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Primary Meta Tags -->
+  <title>Caso de Estudio: Colegio Bertoldo Hofmann Kahler | KuyénDev · Purranque</title>
+  <meta name="title" content="Caso de Estudio: Colegio Bertoldo Hofmann Kahler | KuyénDev · Purranque">
+  <meta name="description" content="Caso documentado: Optimización integral, despliegue de Windows LTSC y aseguramiento con Deep Freeze en 30 computadores del Colegio Bertoldo Hofmann Kahler en Purranque.">
+  <meta name="keywords" content="Colegio Bertoldo Hofmann Kahler, Deep Freeze colegios, soporte computacional Purranque, optimizacion computadores laboratorios, KuyénDev">
+  <meta name="author" content="Franco Luna · KuyénDev">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://kuyendev.cl/pages/content/bertoldo_hofmann.html">
 
-    .article-header {
-      margin-bottom: 4rem;
-      text-align: center;
-    }
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://kuyendev.cl/pages/content/bertoldo_hofmann.html">
+  <meta property="og:title" content="Caso de Estudio: Colegio Bertoldo Hofmann Kahler | KuyénDev">
+  <meta property="og:description" content="Optimización y aseguramiento de 30 equipos computacionales en Purranque, Región de Los Lagos.">
+  <meta property="og:image" content="https://kuyendev.cl/pages/content/BertoldoHofmannKahler/BHKportada.png">
+  <meta property="og:locale" content="es_CL">
 
-    .article-date {
-      display: block;
-      font-size: 0.875rem;
-      color: var(--accent-primary);
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 1rem;
-    }
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Caso de Estudio: Colegio Bertoldo Hofmann Kahler | KuyénDev">
+  <meta name="twitter:description" content="Optimización y aseguramiento de 30 equipos computacionales en Purranque.">
+  <meta name="twitter:image" content="https://kuyendev.cl/pages/content/BertoldoHofmannKahler/BHKportada.png">
 
-    .article-title {
-      font-size: clamp(2rem, 5vw, 3rem);
-      font-weight: 800;
-      line-height: 1.1;
-      color: var(--text-primary);
-      margin-bottom: 1.5rem;
-      letter-spacing: -0.02em;
-    }
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="../../icons/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../icons/apple-touch-icon.png">
 
-    .article-subtitle {
-      font-size: 1.125rem;
-      color: var(--text-secondary);
-      line-height: 1.6;
-      max-width: 600px;
-      margin: 0 auto;
-    }
+  <!-- Tipografías Oficiales: Plus Jakarta Sans + Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
 
-    .article-hero-img {
-      width: 100%;
-      height: 420px;
-      background-color: var(--bg-surface);
-      border-radius: var(--radius-lg);
-      background-size: cover;
-      background-position: center;
-      margin-bottom: 4rem;
-      border: 1px solid var(--border-strong);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-    }
+  <!-- Hoja de Estilos del Design System v4.0 -->
+  <link rel="stylesheet" href="../../css/styles.css">
 
-    .article-img {
-      width: 100%;
-      border-radius: var(--radius-md);
-      margin: 2rem 0;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-      border: 1px solid var(--border-subtle);
-      display: block;
-    }
-
-    .img-caption {
-      text-align: center;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-top: -1rem;
-      margin-bottom: 2rem;
-      font-style: italic;
-    }
-
-    .article-content {
-      font-size: 1.125rem;
-      line-height: 1.8;
-      color: var(--text-secondary);
-    }
-
-    .article-content h2 {
-      font-size: 1.75rem;
-      font-weight: 700;
-      color: var(--text-primary);
-      margin-top: 3rem;
-      margin-bottom: 1rem;
-      letter-spacing: -0.01em;
-    }
-
-    .article-content h3 {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--text-primary);
-      margin-top: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    .article-content p {
-      margin-bottom: 1.5rem;
-    }
-
-    .article-content ul {
-      margin-bottom: 1.5rem;
-      padding-left: 1.5rem;
-    }
-
-    .article-content li {
-      margin-bottom: 0.5rem;
-    }
-
-    .article-content strong {
-      color: var(--text-primary);
-      font-weight: 600;
-    }
-
-    .article-stats {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1rem;
-      margin: 3rem 0;
-    }
-
-    .stat-box {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-strong);
-      border-radius: var(--radius-md);
-      padding: 1.5rem;
-      text-align: center;
-    }
-
-    .stat-box .num {
-      display: block;
-      font-size: 2.5rem;
-      font-weight: 800;
-      color: var(--accent-cyan);
-      margin-bottom: 0.25rem;
-      line-height: 1;
-    }
-
-    .stat-box .label {
-      font-size: 0.875rem;
-      color: var(--text-secondary);
-      font-weight: 500;
-    }
-
-    .nav-legal {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-    }
-
-    .back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: var(--text-secondary);
-      transition: color 0.2s;
-    }
-
-    .back-link:hover {
-      color: var(--text-primary);
-    }
-
-    .share-bar {
-      margin-top: 4rem;
-      padding-top: 2rem;
-      border-top: 1px solid var(--border-subtle);
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-  </style>
+  <!-- Schema.org Datos Estructurados JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "Optimización Integral: Colegio Bertoldo Hofmann Kahler",
+        "image": "https://kuyendev.cl/pages/content/BertoldoHofmannKahler/BHKportada.png",
+        "datePublished": "2026-06-04",
+        "author": {
+          "@type": "Person",
+          "name": "Franco Luna"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "KuyénDev",
+          "url": "https://kuyendev.cl"
+        },
+        "description": "Intervención técnica en 30 equipos computacionales: formateo estandarizado, Windows LTSC y protección con Deep Freeze en Purranque."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Inicio",
+            "item": "https://kuyendev.cl/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Proyectos",
+            "item": "https://kuyendev.cl/pages/proyectos.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Colegio Bertoldo Hofmann",
+            "item": "https://kuyendev.cl/pages/content/bertoldo_hofmann.html"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
-
 <body>
+
+  <!-- Barra Superior de Progreso de Lectura -->
   <div id="scrollProgressBar" class="scroll-progress-bar" aria-hidden="true"></div>
+
+  <!-- Malla de Fondo Sutil -->
   <div class="mesh-bg" aria-hidden="true"></div>
 
-  <!-- NAV -->
+  <!-- NAVEGACIÓN PRINCIPAL -->
   <header>
-    <nav class="nav-glass">
-      <div class="nav-container">
-        <a href="../../index.html" class="nav-brand" aria-label="Volver al Inicio">
+    <div class="container">
+      <nav id="mainNav" class="nav-glass">
+        <a href="../../index.html" class="nav-brand" aria-label="KuyénDev Inicio">
           <picture>
             <source srcset="../../images/logo-kuyendev-horizontal.webp" type="image/webp">
-            <img 
-              src="../../images/logo-kuyendev-horizontal.png" 
-              alt="KuyénDev" 
-              class="nav-brand-logo" 
-              width="170" 
-              height="34"
-              draggable="false"
-            >
+            <img src="../../images/logo-kuyendev-horizontal.png" alt="KuyénDev" class="nav-brand-logo" width="160" height="32">
           </picture>
         </a>
-        <a href="../publicaciones.html" class="back-link">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-            aria-hidden="true">
-            <path d="M19 12H5M12 19l-7-7 7-7" />
-          </svg>
-          Volver a Publicaciones
-        </a>
-      </div>
-    </nav>
+
+        <ul class="nav-links">
+          <li><a href="../desarrollo-web.html" class="nav-link">Desarrollo Web</a></li>
+          <li><a href="../planes-web.html" class="nav-link">Planes Mensuales</a></li>
+          <li><a href="../servicios-informaticos.html" class="nav-link">Servicios Informáticos</a></li>
+          <li><a href="../empresas.html" class="nav-link">Empresas & Colegios</a></li>
+          <li><a href="../proyectos.html" class="nav-link is-active">Proyectos</a></li>
+          <li><a href="../nosotros.html" class="nav-link">Nosotros</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <a href="../contacto.html" class="btn-kd btn-kd-primary btn-kd-sm">
+            Cotizar Proyecto
+          </a>
+
+          <!-- Botón Menú Móvil -->
+          <button id="hamburgerBtn" class="hamburger" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobileMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </nav>
+    </div>
   </header>
 
-  <main class="article-container">
-    <header class="article-header reveal-fade">
-      <span class="article-date">
-        <time datetime="2026-06-04">4 de junio de 2026</time> · Caso de Estudio · Purranque
-      </span>
-      <h1 class="article-title">
-        Optimización Integral: Colegio Bertoldo Hofmann Kahler
-      </h1>
-      <p class="article-subtitle">
-        Aseguramiento, optimización y estructuración de 30 equipos
-        computacionales para mejorar radicalmente la experiencia educativa.
-      </p>
-    </header>
+  <!-- MENÚ MÓVIL DESPLEGABLE -->
+  <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
+    <a href="../../index.html" class="mobile-nav-link">Inicio</a>
+    <a href="../desarrollo-web.html" class="mobile-nav-link">Desarrollo Web</a>
+    <a href="../planes-web.html" class="mobile-nav-link">Planes Mensuales</a>
+    <a href="../servicios-informaticos.html" class="mobile-nav-link">Servicios Informáticos</a>
+    <a href="../empresas.html" class="mobile-nav-link">Empresas e Instituciones</a>
+    <a href="../proyectos.html" class="mobile-nav-link is-active">Proyectos & Casos</a>
+    <a href="../nosotros.html" class="mobile-nav-link">Sobre KuyénDev</a>
+    <a href="../publicaciones.html" class="mobile-nav-link">Publicaciones & Guías</a>
+    <a href="../contacto.html" class="btn-kd btn-kd-primary" style="margin-top: 1.5rem;">Iniciar Consulta</a>
+  </div>
 
-    <!-- IMAGEN PORTADA (laboratorio/computadores) -->
-    <div class="article-hero-img reveal-fade delay-100" style="
-          background-image: url(&quot;BertoldoHofmannKahler/BHKportada.webp&quot;);
-        "></div>
+  <main style="padding-top: 8.5rem; padding-bottom: 5rem;">
+    <div class="container" style="max-width: 840px;">
+      
+      <!-- ENLACE DE RETORNO -->
+      <div style="margin-bottom: 2rem;" class="reveal-fade">
+        <a href="../proyectos.html" style="display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; color: var(--kd-text-muted); transition: color var(--kd-ease-fast);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px;"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Volver a Proyectos & Casos
+        </a>
+      </div>
 
-    <article class="article-content reveal-fade delay-200">
-      <h2>El Requerimiento</h2>
-      <p>
-        El Colegio Bertoldo Hofmann Kahler, ubicado en la ciudad de Purranque,
-        nos solicitó una intervención masiva y estructurada para su flota de
-        ordenadores. El objetivo era revitalizar el rendimiento tecnológico
-        tanto para los docentes como para los estudiantes en el laboratorio de
-        computación.
-      </p>
-      <p>
-        Se nos encomendó el formateo y configuración de un
-        total de <strong>30 computadores</strong>, divididos estratégicamente
-        entre <strong>23 equipos de laboratorio</strong> (uso intensivo por
-        estudiantes) y
-        <strong>7 laptops exclusivas para los profesores</strong>.
-      </p>
-
-      <!-- IMAGEN DEL COLEGIO (prueba social) -->
-      <img src="BertoldoHofmannKahler/BHKcolegio.png" alt="Colegio Bertoldo Hofmann Kahler, Purranque"
-        class="article-img" />
-      <p class="img-caption">
-        Colegio Bertoldo Hofmann Kahler · Purranque, Región de Los Lagos
-      </p>
-
-      <h2>La Solución KuyénDev</h2>
-      <p>
-        Ejecutamos un trabajo estandarizado bajo protocolos estrictos para
-        garantizar durabilidad y seguridad. Todas las terminales recibieron
-        una optimización base orientada a alargar la vida útil del hardware y
-        hacerlos notoriamente más rápidos.
-      </p>
-
-      <h3>Intervención General — 30 Equipos</h3>
-      <ul>
-        <li>
-          <strong>Formateo y Configuración Base:</strong> Instalación de sistema
-          operativo limpio con estructuración del almacenamiento según los
-          requerimientos solicitados por la dirección del colegio.
-        </li>
-        <li>
-          <strong>Despliegue de Software Base:</strong> Instalación de
-          utilidades esenciales y <strong>Microsoft Office 2024</strong> con
-          activación permanente para asegurar la continuidad del trabajo
-          administrativo y pedagógico.
-        </li>
-        <li>
-          <strong>Optimización de Rendimiento:</strong> Aplicación de ajustes
-          a nivel de sistema operativo para maximizar la velocidad de
-          respuesta, prolongando la vida útil de los equipos.
-        </li>
-      </ul>
-
-      <h3>Seguridad Avanzada en Laboratorio — 23 Equipos</h3>
-      <p>
-        Para el laboratorio utilizado constantemente por los alumnos, la
-        seguridad y el mantenimiento a largo plazo son críticos. Implementamos
-        medidas adicionales para evitar daños por mal uso:
-      </p>
-      <ul>
-        <li>
-          <strong>Congelamiento del Sistema:</strong> Configuramos un software
-          que restablece el equipo a un punto seguro predefinido cada vez que
-          se reinicia. Esto hace imposible el corrompimiento del sistema
-          operativo por la instalación accidental o intencionada de virus o
-          malware por parte de los estudiantes.
-        </li>
-        <li>
-          <strong>Filtro de Contenido:</strong> Implementación de bloqueo
-          estricto de páginas con contenido para mayores de 18 años (+18) a
-          nivel de sistema.
-        </li>
-      </ul>
-
-      <h2>El Resultado</h2>
-      <p>
-        Entregamos 30 equipos que no solo funcionan más rápido, sino que
-        poseen una estructura a prueba de fallos en el área estudiantil. Los
-        profesores ahora cuentan con las herramientas modernas necesarias para
-        su labor, y la institución se ahorra cientos de horas en soporte
-        técnico correctivo gracias a la protección por congelamiento.
-      </p>
-
-      <!-- SCREENSHOT DEL TRABAJO TERMINADO -->
-      <img src="BertoldoHofmannKahler/BHKscreenshot.png" alt="Trabajo terminado — Sistema optimizado y configurado"
-        class="article-img" />
-      <p class="img-caption">
-        Vista del sistema finalizado tras la optimización y configuración
-        completa
-      </p>
-
-      <div class="article-stats">
-        <div class="stat-box">
-          <span class="num">30</span>
-          <span class="label">Equipos Optimizados</span>
+      <!-- CABECERA DEL CASO -->
+      <header style="text-align: center; margin-bottom: 3.5rem;" class="reveal-fade">
+        <div style="display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
+          <span class="badge-kd badge-kd-emerald">Caso Real Verificado</span>
+          <span style="font-size: 0.8rem; color: var(--kd-text-dim);">· Purranque, Región de Los Lagos</span>
         </div>
-        <div class="stat-box">
-          <span class="num">23</span>
-          <span class="label">Con Deep Freeze y Bloqueo +18</span>
-        </div>
-        <div class="stat-box">
-          <span class="num">Reinicio</span>
-          <span class="label">Restauración Limpia tras cada Sesión</span>
+
+        <h1 style="font-size: clamp(2rem, 4vw, 3.2rem); letter-spacing: -0.025em; line-height: 1.15; margin-bottom: 1.25rem;">
+          Optimización Integral: Colegio Bertoldo Hofmann Kahler
+        </h1>
+
+        <p style="font-size: 1.15rem; color: var(--kd-text-secondary); line-height: 1.7; max-width: 680px; margin: 0 auto;">
+          Aseguramiento, optimización de software y estructuración de 30 equipos computacionales para mejorar radicalmente la experiencia educativa y la continuidad pedagógica.
+        </p>
+      </header>
+
+      <!-- FOTOGRAFÍA HERO PORTADA -->
+      <div class="reveal-fade" style="margin-bottom: 3.5rem; border-radius: var(--kd-radius-lg); overflow: hidden; border: 1px solid var(--kd-border-strong); box-shadow: var(--kd-shadow-lg);">
+        <picture>
+          <source srcset="BertoldoHofmannKahler/BHKportada.webp" type="image/webp">
+          <img src="BertoldoHofmannKahler/BHKportada.png" alt="Sala de computación del Colegio Bertoldo Hofmann Kahler optimizada por KuyénDev" width="840" height="460" style="width: 100%; height: auto; display: block;">
+        </picture>
+        <div style="padding: 1rem; background: var(--kd-bg-surface-elevated); font-size: 0.8rem; color: var(--kd-text-muted); text-align: center; border-top: 1px solid var(--kd-border-subtle);">
+          Laboratorio de computación tras la intervención técnica integral de KuyénDev en Purranque
         </div>
       </div>
 
-      <div class="share-bar">
-        <a href="../../index.html#contacto" class="btn btn-primary">Solicitar Evaluación Técnica</a>
+      <!-- CONTENIDO EDITORIAL ENRIQUECIDO -->
+      <article class="prose-kd reveal-fade">
+        <h2>El Requerimiento Institucional</h2>
+        <p>
+          El Colegio Bertoldo Hofmann Kahler, ubicado en la ciudad de Purranque, enfrentaba problemas crónicos de rendimiento en su infraestructura computacional. Las quejas de los docentes se multiplicaban por la lentitud extrema de los equipos, mientras que en la sala de computación escolar los computadores sufrían constantes caídas por desconfiguraciones y virus introducidos mediante memorias USB por los estudiantes.
+        </p>
+        <p>
+          La dirección del establecimiento nos encomendó una intervención estructurada y completa sobre un total de <strong>30 computadores</strong>, divididos en:
+        </p>
+        <ul>
+          <li><strong>23 equipos de laboratorio:</strong> Destinados al uso intensivo de estudiantes de enseñanza básica y media.</li>
+          <li><strong>7 laptops de uso docente:</strong> Equipos portátiles utilizados por los profesores para planificaciones, notas y proyección en sala.</li>
+        </ul>
+
+        <!-- FOTO DEL COLEGIO -->
+        <div style="margin: 2.5rem 0; border-radius: var(--kd-radius-md); overflow: hidden; border: 1px solid var(--kd-border-subtle); box-shadow: var(--kd-shadow-md);">
+          <img src="BertoldoHofmannKahler/BHKcolegio.png" alt="Fachada del Colegio Bertoldo Hofmann Kahler en Purranque" width="800" height="420" loading="lazy" style="width: 100%; height: auto; display: block;">
+          <div style="padding: 0.75rem; background: var(--kd-bg-surface); font-size: 0.8rem; color: var(--kd-text-dim); text-align: center;">
+            Establecimiento Educativo Colegio Bertoldo Hofmann Kahler · Purranque, Chile
+          </div>
+        </div>
+
+        <h2>La Solución Técnica KuyénDev</h2>
+        <p>
+          En lugar de aplicar soluciones temporales o antivirus que consumen valiosos recursos de hardware, diseñamos un protocolo en dos capas para responder a las necesidades específicas de cada grupo de usuarios:
+        </p>
+
+        <h3>1. Estandarización General (30 Equipos)</h3>
+        <ul>
+          <li><strong>Formateo y Limpieza Profunda:</strong> Borrado completo de archivos basura acumulados, particionado óptimo y reinstalación de sistema operativo limpio.</li>
+          <li><strong>Microsoft Office & Herramientas de Trabajo:</strong> Despliegue de suite ofimática completa con activación permanente para asegurar la continuidad de clases y tareas pedagógicas.</li>
+          <li><strong>Optimización de Recursos:</strong> Desactivación de telemetría de Windows, eliminación de bloatware promocional y ajuste de servicios en segundo plano para maximizar la fluidez.</li>
+        </ul>
+
+        <h3>2. Seguridad Inmune para el Laboratorio (23 Equipos)</h3>
+        <p>
+          Para los computadores utilizados diariamente por los estudiantes, la prioridad era eliminar por completo las paradas técnicas por mal uso:
+        </p>
+        <ul>
+          <li><strong>Congelamiento de Sistema (Deep Freeze):</strong> Configuramos una partición protegida que restablece el equipo a su estado inicial perfecto con cada reinicio. Si un alumno borra un archivo del sistema, descarga un malware o cambia la configuración de pantalla, basta con apagar o reiniciar el computador para que vuelva al 100% de su estado óptimo.</li>
+          <li><strong>Filtro de Contenido a Nivel de Sistema:</strong> Bloqueo estricto de páginas no aptas para menores (+18) y restricciones de seguridad para garantizar un entorno educativo sano.</li>
+        </ul>
+
+        <!-- SCREENSHOT DEL TRABAJO TERMINADO -->
+        <div style="margin: 2.5rem 0; border-radius: var(--kd-radius-md); overflow: hidden; border: 1px solid var(--kd-border-subtle); box-shadow: var(--kd-shadow-md);">
+          <img src="BertoldoHofmannKahler/BHKscreenshot.png" alt="Captura de pantalla del sistema operativo optimizado y configurado" width="800" height="450" loading="lazy" style="width: 100%; height: auto; display: block;">
+          <div style="padding: 0.75rem; background: var(--kd-bg-surface); font-size: 0.8rem; color: var(--kd-text-dim); text-align: center;">
+            Inspección de software finalizada: entorno ágil, protegido y listo para la jornada docente
+          </div>
+        </div>
+
+        <h2>El Resultado Verificable</h2>
+        <p>
+          Entregamos 30 computadores que responden con velocidad inmediata. El colegio redujo a cero las horas perdidas por mantenimiento correctivo de emergencia en la sala de computación, y los docentes cuentan con equipos confiables que encienden en segundos al iniciar sus clases.
+        </p>
+      </article>
+
+      <!-- CUADRÍCULA DE MÉTRICAS DEL CASO -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.25rem; margin: 3.5rem 0;" class="reveal-fade">
+        <div class="card-kd" style="text-align: center; padding: 1.75rem;">
+          <div style="font-family: var(--kd-font-display); font-size: 2.5rem; font-weight: 800; color: var(--kd-cyan); margin-bottom: 0.25rem;">30</div>
+          <div style="font-size: 0.85rem; color: var(--kd-text-secondary); font-weight: 600;">Equipos Optimizados</div>
+          <div style="font-size: 0.75rem; color: var(--kd-text-muted);">23 laboratorio + 7 docentes</div>
+        </div>
+
+        <div class="card-kd" style="text-align: center; padding: 1.75rem;">
+          <div style="font-family: var(--kd-font-display); font-size: 2.5rem; font-weight: 800; color: var(--kd-emerald); margin-bottom: 0.25rem;">100%</div>
+          <div style="font-size: 0.85rem; color: var(--kd-text-secondary); font-weight: 600;">Inmunidad a Malware</div>
+          <div style="font-size: 0.75rem; color: var(--kd-text-muted);">Mediante Deep Freeze</div>
+        </div>
+
+        <div class="card-kd" style="text-align: center; padding: 1.75rem;">
+          <div style="font-family: var(--kd-font-display); font-size: 2.5rem; font-weight: 800; color: var(--kd-indigo-light); margin-bottom: 0.25rem;">0</div>
+          <div style="font-size: 0.85rem; color: var(--kd-text-secondary); font-weight: 600;">Caídas de Sistema</div>
+          <div style="font-size: 0.75rem; color: var(--kd-text-muted);">Continuidad asegurada</div>
+        </div>
       </div>
-    </article>
+
+      <!-- LLAMADO A LA ACCIÓN DEL CASO -->
+      <div class="card-kd reveal-fade" style="text-align: center; padding: 3.5rem 2rem; border-color: rgba(6, 182, 212, 0.4);">
+        <h3 style="font-size: 1.65rem; margin-bottom: 0.75rem;">¿Necesitas una solución similar para tu colegio o empresa?</h3>
+        <p style="font-size: 0.95rem; color: var(--kd-text-secondary); max-width: 580px; margin: 0 auto 2rem; line-height: 1.6;">
+          Realizamos levantamientos técnicos en terreno en Osorno, Purranque y comunas aledañas para diseñar la configuración exacta de tus computadores.
+        </p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="../empresas.html" class="btn-kd btn-kd-primary">Ver Soluciones para Empresas</a>
+          <a href="https://wa.me/56922231780?text=Hola%20Franco,%20leí%20el%20caso%20del%20Colegio%20Bertoldo%20Hofmann%20y%20quisiera%20cotizar%20un%20servicio%20similar." target="_blank" rel="noopener noreferrer" class="btn-kd btn-kd-whatsapp">
+            <svg viewBox="0 0 24 24" fill="currentColor" style="width: 18px; height: 18px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Consultar por WhatsApp
+          </a>
+        </div>
+      </div>
+
+    </div>
   </main>
 
-  <footer class="footer" style="margin-top: 5rem;">
+  <!-- BOTÓN FLOTANTE DE WHATSAPP -->
+  <a href="https://wa.me/56922231780?text=Hola%20Franco,%20quisiera%20hacerte%20una%20consulta%20técnica." target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Contactar directamente por WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span class="whatsapp-float-label">WhatsApp</span>
+  </a>
+
+  <!-- FOOTER UNIFICADO -->
+  <footer class="footer-next">
     <div class="container">
-      <div class="footer-bottom" style="border-top: none; padding-top: 0;">
-        <span>© 2026 KuyénDev · Soporte Informático Profesional en Osorno, Chile.</span>
+      <div class="footer-grid">
+        <div>
+          <picture>
+            <source srcset="../../images/logo-kuyendev-horizontal.webp" type="image/webp">
+            <img src="../../images/logo-kuyendev-horizontal.png" alt="KuyénDev" width="160" height="32" loading="lazy">
+          </picture>
+          <p class="footer-brand-desc">
+            Estudio tecnológico especializado en desarrollo web profesional y soporte de sistemas en Osorno, Chile y asistencia digital remota.
+          </p>
+          <div style="font-size: 0.8rem; color: var(--kd-text-dim);">
+            <em>"Recuperar y optimizar antes de reemplazar."</em>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Desarrollo Web</h4>
+          <ul class="footer-nav">
+            <li><a href="../desarrollo-web.html">Servicio de Páginas Web</a></li>
+            <li><a href="../planes-web.html">Planes Mensuales</a></li>
+            <li><a href="../proyectos.html">Portafolio Web</a></li>
+            <li><a href="../contacto.html">Cotizar Sitio</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Servicios Informáticos</h4>
+          <ul class="footer-nav">
+            <li><a href="../servicios-informaticos.html">Formateo & Sistemas</a></li>
+            <li><a href="../servicios-informaticos.html#asistente">¿Qué servicio necesito?</a></li>
+            <li><a href="../empresas.html">Empresas & Colegios</a></li>
+            <li><a href="bertoldo_hofmann.html">Caso Bertoldo Hofmann</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Estudio & Contacto</h4>
+          <ul class="footer-nav">
+            <li><a href="../nosotros.html">Sobre KuyénDev</a></li>
+            <li><a href="../publicaciones.html">Publicaciones & Guías</a></li>
+            <li><a href="https://wa.me/56922231780" target="_blank" rel="noopener noreferrer">WhatsApp: +56 9 2223 1780</a></li>
+            <li><a href="mailto:fa.lunangulo@kuyendev.cl">fa.lunangulo@kuyendev.cl</a></li>
+            <li><a href="../terminos.html">Términos & Políticas (25 Cláusulas)</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 KuyénDev · Fundado por Franco Luna. Osorno, Región de Los Lagos, Chile.</div>
         <div class="footer-bottom-links">
-          <a href="../../index.html">Inicio</a>
-          <a href="../empresas.html">Empresas</a>
-          <a href="../publicaciones.html">Publicaciones</a>
-          <a href="../terminos.html">Términos y Condiciones</a>
+          <a href="../terminos.html">Marco Legal</a>
+          <a href="https://instagram.com/kuyendev" target="_blank" rel="noopener noreferrer">Instagram</a>
           <a href="https://wa.me/56922231780" target="_blank" rel="noopener noreferrer">WhatsApp</a>
         </div>
       </div>
     </div>
   </footer>
 
+  <!-- Scripts: Configuración de Planes + Lógica UI -->
+  <script src="../../js/config/plans.js"></script>
   <script src="../../js/script.js"></script>
 </body>
-
 </html>
