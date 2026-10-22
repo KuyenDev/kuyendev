@@ -1,5 +1,5 @@
 /**
- * KUYÉNDEV NEXT · CONFIGURACIÓN CENTRALIZADA DE PLANES WEB
+ * KUYÉNDEV · CONFIGURACIÓN CENTRALIZADA DE PLANES WEB
  * Este archivo centraliza la estructura, características, opciones de precios
  * y mensajes preconfigurados para WhatsApp de los planes mensuales de desarrollo web.
  * Permite actualizar ofertas comerciales en un solo lugar sin modificar el marcado HTML.

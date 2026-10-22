@@ -188,24 +188,24 @@
 
   <main>
     <!-- HERO DE NOTICIAS -->
-    <section class="section-padding" style="padding-top: 8.5rem; padding-bottom: 3.5rem;">
+    <section class="page-hero">
       <div class="container">
-        <div style="max-width: 820px; margin: 0 auto; text-align: center;" class="reveal-fade">
-          <div class="section-tag tag-cyan">
+        <div class="page-hero-container reveal-fade">
+          <div class="page-hero-tag tag-cyan">
             <span class="pulse-dot" aria-hidden="true"></span>
             Centro de Noticias & Publicaciones
           </div>
 
-          <h1 class="hero-title" style="font-size: clamp(2.35rem, 4.5vw, 3.8rem); line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -0.035em;">
+          <h1 class="page-hero-title">
             Noticias y <span class="text-gradient">publicaciones</span>.
           </h1>
 
-          <p style="font-size: 1.15rem; color: var(--kd-text-secondary); line-height: 1.7; margin-bottom: 2rem; max-width: 680px; margin-left: auto; margin-right: auto;">
+          <p class="page-hero-desc" style="max-width: 640px;">
             Novedades oficiales de KuyénDev, anuncios de nuevos servicios, actualizaciones tecnológicas y casos reales de trabajo documentados con total transparencia.
           </p>
 
           <!-- Filtros de Categoría -->
-          <div class="filter-tabs" role="tablist" aria-label="Filtrar publicaciones por categoría">
+          <div class="filter-tabs" role="tablist" aria-label="Filtrar publicaciones por categoría" style="margin-bottom: 0; margin-top: 0.5rem;">
             <button class="filter-tab-btn filter-btn is-active" data-filter="all" role="tab" aria-selected="true">Todas las Noticias</button>
             <button class="filter-tab-btn filter-btn" data-filter="novedades" role="tab" aria-selected="false">Novedades</button>
             <button class="filter-tab-btn filter-btn" data-filter="casos" role="tab" aria-selected="false">Casos Reales</button>
@@ -216,7 +216,7 @@
     </section>
 
     <!-- LISTADO DE PUBLICACIONES EN ORDEN CRONOLÓGICO -->
-    <section class="section-padding" style="padding-top: 1rem;">
+    <section class="section-padding" style="padding-top: 2.5rem;">
       <div class="container">
         <div class="grid-2" id="newsGrid" style="gap: 2.5rem;">
           

@@ -1,5 +1,5 @@
 /**
- * KUYÉNDEV NEXT · SCRIPT DE INTERACCIONES Y EXPERIENCIA DE USUARIO v4.0
+ * KUYÉNDEV · SCRIPT DE INTERACCIONES Y EXPERIENCIA DE USUARIO v4.0
  * Estudio Tecnológico: Desarrollo Web & Servicios Informáticos
  * Osorno, Región de Los Lagos, Chile · Asistencia Remota
  */
@@ -365,4 +365,35 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   }
+
+  /* ==========================================================================
+     PROTECCIÓN DE CONTENIDO: PREVENIR ARRASTRE, COPIA Y SELECCIÓN NO DESEADA
+     ========================================================================== */
+  // 1. Evitar arrastrar imágenes y gráficos
+  document.addEventListener('dragstart', (e) => {
+    if (e.target.tagName === 'IMG' || e.target.closest('img, picture, svg')) {
+      e.preventDefault();
+      return false;
+    }
+  });
+
+  // 2. Prevenir menú contextual sobre imágenes (evita "Guardar imagen como..." y "Copiar imagen")
+  document.addEventListener('contextmenu', (e) => {
+    if (e.target.tagName === 'IMG' || e.target.closest('img, picture, svg')) {
+      e.preventDefault();
+    }
+  });
+
+  // 3. Prevenir copia indebida de texto fuera de campos de formulario
+  document.addEventListener('copy', (e) => {
+    const active = document.activeElement;
+    const isInputField = active && (
+      active.tagName === 'INPUT' || 
+      active.tagName === 'TEXTAREA' || 
+      active.isContentEditable
+    );
+    if (!isInputField) {
+      e.preventDefault();
+    }
+  });
 });

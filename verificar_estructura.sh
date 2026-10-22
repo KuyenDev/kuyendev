@@ -1,9 +1,9 @@
 #!/bin/bash
-# Script de Verificación de Integridad — KuyénDev Next v4.1
+# Script de Verificación de Integridad — KuyénDev v4.1
 # Validación de Rutas, Noticias, Servicios Web y Enlaces
 
 echo "═══════════════════════════════════════════════════════════════"
-echo "  VERIFICACIÓN DE INTEGRIDAD WEB — KuyénDev Next"
+echo "  VERIFICACIÓN DE INTEGRIDAD WEB — KuyénDev"
 echo "  Estudio Tecnológico: Desarrollo Web, Servicios & Noticias"
 echo "═══════════════════════════════════════════════════════════════"
 echo ""
