@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     window.addEventListener('resize', () => {
-      if (window.innerWidth > 768 && mobileMenu.classList.contains('is-active')) {
+      if (window.innerWidth > 960 && mobileMenu.classList.contains('is-active')) {
         closeMenu();
       }
     });

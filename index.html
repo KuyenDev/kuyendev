@@ -180,16 +180,85 @@
     </div>
   </header>
 
-  <!-- MENÚ MÓVIL DESPLEGABLE -->
+  <!-- MENÚ MÓVIL DESPLEGABLE PREMIUM (AURORA DRAWER) -->
   <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
-    <a href="index.html" class="mobile-nav-link is-active">Inicio</a>
-    <a href="pages/desarrollo-web.html" class="mobile-nav-link">Desarrollo Web</a>
-    <a href="pages/planes-web.html" class="mobile-nav-link">Planes Mensuales</a>
-    <a href="pages/servicios-informaticos.html" class="mobile-nav-link">Servicios Informáticos</a>
-    <a href="pages/empresas.html" class="mobile-nav-link">Empresas e Instituciones</a>
-    <a href="pages/noticias.html" class="mobile-nav-link">Noticias & Publicaciones</a>
-    <a href="pages/nosotros.html" class="mobile-nav-link">Sobre KuyénDev</a>
-    <a href="pages/contacto.html" class="btn-kd btn-kd-primary" style="margin-top: 1.5rem;">Iniciar Consulta</a>
+    <div class="mobile-menu-inner">
+      <div class="mobile-menu-header">
+        <div class="section-tag tag-cyan" style="margin-bottom: 0;">
+          <span class="pulse-dot" aria-hidden="true"></span>
+          KuyénDev · Menú
+        </div>
+        <span style="font-size: 0.8rem; color: var(--kd-text-muted);">Osorno, Chile</span>
+      </div>
+
+      <nav class="mobile-nav-group" aria-label="Navegación móvil">
+        <a href="index.html" class="mobile-nav-link is-active">
+          <div>
+            <span class="mobile-nav-title">Inicio</span>
+            <span class="mobile-nav-sub">Portada & resumen del estudio</span>
+          </div>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </a>
+
+        <a href="pages/desarrollo-web.html" class="mobile-nav-link">
+          <div>
+            <span class="mobile-nav-title">Desarrollo Web</span>
+            <span class="mobile-nav-sub">Sitios a medida y alto rendimiento</span>
+          </div>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </a>
+
+        <a href="pages/planes-web.html" class="mobile-nav-link">
+          <div>
+            <span class="mobile-nav-title">Planes Mensuales</span>
+            <span class="mobile-nav-sub">Web como servicio con soporte incluido</span>
+          </div>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </a>
+
+        <a href="pages/servicios-informaticos.html" class="mobile-nav-link">
+          <div>
+            <span class="mobile-nav-title">Servicios Informáticos</span>
+            <span class="mobile-nav-sub">Soporte técnico, mantención y software</span>
+          </div>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </a>
+
+        <a href="pages/empresas.html" class="mobile-nav-link">
+          <div>
+            <span class="mobile-nav-title">Empresas e Instituciones</span>
+            <span class="mobile-nav-sub">Estandarización, Deep Freeze y redes</span>
+          </div>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </a>
+
+        <a href="pages/noticias.html" class="mobile-nav-link">
+          <div>
+            <span class="mobile-nav-title">Noticias & Artículos</span>
+            <span class="mobile-nav-sub">Publicaciones técnicas y novedades</span>
+          </div>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </a>
+
+        <a href="pages/nosotros.html" class="mobile-nav-link">
+          <div>
+            <span class="mobile-nav-title">Sobre KuyénDev</span>
+            <span class="mobile-nav-sub">Filosofía, experiencia y contacto directo</span>
+          </div>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </a>
+      </nav>
+
+      <div class="mobile-menu-footer">
+        <a href="pages/contacto.html" class="btn-kd btn-kd-primary" style="width: 100%;">
+          Cotizar Proyecto o Soporte
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="https://wa.me/56922231780?text=Hola%20Franco,%20quisiera%20consultar%20sobre%20los%20servicios%20de%20Kuy%C3%A9nDev" target="_blank" rel="noopener noreferrer" class="btn-kd btn-kd-secondary" style="width: 100%; border-color: rgba(39, 199, 212, 0.3);">
+          WhatsApp Directo (+569 2223 1780)
+        </a>
+      </div>
+    </div>
   </div>
 
   <main>
@@ -209,16 +278,16 @@
               </div>
             </div>
 
-            <h1 class="hero-title" style="font-size: clamp(2.35rem, 4.5vw, 3.65rem); line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -0.035em;">
-              Creamos experiencias digitales.<br>
-              <span class="text-gradient">Optimizamos tu tecnología.</span>
+            <h1 class="hero-title" style="font-size: clamp(2.25rem, 4.2vw, 3.5rem); line-height: 1.15; margin-bottom: 1.35rem; letter-spacing: -0.03em;">
+              Desarrollo web a medida.<br>
+              <span class="text-gradient">Soporte informático integral.</span>
             </h1>
 
-            <p style="font-size: 1.15rem; color: var(--kd-text-secondary); line-height: 1.7; margin-bottom: 2rem; max-width: 560px;">
-              Diseñamos páginas web profesionales con planes mensuales de mantenimiento continuo, y brindamos soporte informático especializado para que tu negocio nunca se detenga.
+            <p style="font-size: 1.125rem; color: var(--kd-text-secondary); line-height: 1.7; margin-bottom: 2rem; max-width: 550px;">
+              Diseñamos páginas web profesionales de alto rendimiento con planes mensuales de mantención continua, y brindamos soporte informático especializado para empresas y particulares en Osorno.
             </p>
 
-            <div class="hero-actions" style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem;">
+            <div class="hero-actions" style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.25rem;">
               <a href="pages/desarrollo-web.html" class="btn-kd btn-kd-primary btn-kd-lg">
                 Desarrollo Web Profesional
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -239,65 +308,74 @@
               </div>
               <div style="display: flex; align-items: center; gap: 0.4rem;">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--kd-emerald)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                <span>1 Mes de garantía técnica</span>
+                <span>30 Días de garantía técnica</span>
               </div>
             </div>
           </div>
 
-          <!-- COMPOSICIÓN VISUAL PROTAGONISTA: MOCKUP DE INTERFAZ DE ESTUDIO -->
+          <!-- COMPOSICIÓN VISUAL PROTAGONISTA: PANEL TECNOLÓGICO DE ESTUDIO -->
           <div class="hero-media reveal-fade delay-150" style="position: relative;">
-            <div style="position: absolute; top: -15%; right: -15%; width: 340px; height: 340px; background: radial-gradient(circle, rgba(39, 199, 212, 0.22) 0%, rgba(112, 88, 184, 0.15) 45%, transparent 70%); filter: blur(40px); pointer-events: none; z-index: 0;" aria-hidden="true"></div>
-            <div class="card-kd card-spotlight" style="position: relative; z-index: 1; padding: 1.25rem; border-color: var(--kd-border-strong); background: rgba(16, 28, 45, 0.88); box-shadow: var(--kd-shadow-lg);">
-              
+            <div style="position: absolute; top: -12%; right: -12%; width: 360px; height: 360px; background: radial-gradient(circle, rgba(39, 199, 212, 0.18) 0%, rgba(112, 88, 184, 0.12) 40%, transparent 70%); filter: blur(48px); pointer-events: none; z-index: 0;" aria-hidden="true"></div>
+            
+            <div class="hero-tech-panel card-spotlight">
               <!-- Ventana Superior de Control -->
-              <div style="display: flex; align-items: center; justify-content: space-between; padding-bottom: 1rem; border-bottom: 1px solid var(--kd-border-subtle); margin-bottom: 1.25rem;">
-                <div style="display: flex; gap: 6px;">
-                  <span style="width: 10px; height: 10px; border-radius: 50%; background: #ef4444; display: inline-block;"></span>
-                  <span style="width: 10px; height: 10px; border-radius: 50%; background: #f59e0b; display: inline-block;"></span>
-                  <span style="width: 10px; height: 10px; border-radius: 50%; background: #10b981; display: inline-block;"></span>
+              <div class="tech-panel-header">
+                <div class="tech-panel-dots">
+                  <span class="tech-dot" style="background: #ef4444;"></span>
+                  <span class="tech-dot" style="background: #f59e0b;"></span>
+                  <span class="tech-dot" style="background: #10b981;"></span>
                 </div>
-                <div style="font-family: var(--kd-font-mono); font-size: 0.75rem; color: var(--kd-text-muted); background: rgba(0,0,0,0.3); padding: 0.2rem 0.65rem; border-radius: var(--kd-radius-sm); border: 1px solid var(--kd-border-subtle);">
-                  kuyendev.cl · core-platform v4.0
+                <div style="font-family: var(--kd-font-mono); font-size: 0.75rem; color: var(--kd-text-muted); background: rgba(0,0,0,0.35); padding: 0.2rem 0.65rem; border-radius: var(--kd-radius-sm); border: 1px solid var(--kd-border-subtle);">
+                  kuyendev.cl · panel operativo
                 </div>
-                <span class="badge-kd badge-kd-emerald" style="font-size: 0.7rem;">Operativo</span>
+                <span class="badge-kd badge-kd-emerald" style="font-size: 0.7rem;">
+                  <span class="pulse-dot" style="width: 6px; height: 6px;" aria-hidden="true"></span>
+                  Disponible en Osorno
+                </span>
               </div>
 
               <!-- Bloques de Interfaz Representativos de Ambas Líneas -->
-              <div style="display: flex; flex-direction: column; gap: 1rem;">
+              <div style="display: flex; flex-direction: column; gap: 0.85rem;">
                 
-                <!-- Tarjeta Preview: Desarrollo Web -->
-                <div style="background: rgba(21, 29, 48, 0.75); border: 1px solid var(--kd-border-subtle); border-radius: var(--kd-radius-md); padding: 1.25rem;">
-                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-                    <span style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--kd-indigo-light);">Línea Web Activa</span>
-                    <span style="font-family: var(--kd-font-mono); font-size: 0.75rem; color: var(--kd-cyan-light);">99.9% Uptime</span>
+                <!-- Tarjeta Interactiva: Desarrollo Web -->
+                <a href="pages/desarrollo-web.html" class="tech-card-item" title="Ver detalles de Desarrollo Web">
+                  <div class="tech-card-item-header">
+                    <span class="tech-card-tag" style="color: var(--kd-cyan-light);">Línea Web · Código Nativo</span>
+                    <span class="tech-card-badge">HTML · CSS · JS Puro</span>
                   </div>
-                  <div style="font-family: var(--kd-font-display); font-weight: 700; font-size: 1.05rem; margin-bottom: 0.35rem;">Arquitectura Web de Alto Rendimiento</div>
-                  <p style="font-size: 0.825rem; color: var(--kd-text-muted); margin: 0;">Sitios ultra veloces (< 0.5s), diseño a medida para negocios y planes mensuales con soporte continuo.</p>
-                </div>
+                  <div class="tech-card-title">
+                    Páginas Web como Servicio
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </div>
+                  <p class="tech-card-desc">Construidas a medida sin plantillas pesadas. Carga instantánea y planes mensuales que resuelven mantención, dominio y actualizaciones continuas.</p>
+                </a>
 
-                <!-- Tarjeta Preview: Servicios Informáticos & Caso Real -->
-                <div style="background: rgba(21, 29, 48, 0.75); border: 1px solid var(--kd-border-subtle); border-radius: var(--kd-radius-md); padding: 1.25rem;">
-                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-                    <span style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--kd-emerald-light);">Soporte de Sistemas</span>
-                    <span style="font-family: var(--kd-font-mono); font-size: 0.75rem; color: var(--kd-text-muted);">Purranque · 30 PCs</span>
+                <!-- Tarjeta Interactiva: Servicios Informáticos & Caso Real BHK -->
+                <a href="pages/content/bertoldo_hofmann.html" class="tech-card-item" title="Ver caso real Colegio Bertoldo Hofmann">
+                  <div class="tech-card-item-header">
+                    <span class="tech-card-tag" style="color: var(--kd-emerald-light);">Sistemas & Soporte IT</span>
+                    <span class="tech-card-badge">Caso Real · Purranque</span>
                   </div>
-                  <div style="font-family: var(--kd-font-display); font-weight: 700; font-size: 1.05rem; margin-bottom: 0.35rem;">Estandarización & Deep Freeze</div>
-                  <p style="font-size: 0.825rem; color: var(--kd-text-muted); margin: 0;">Caso institucional Colegio Bertoldo Hofmann: restauración limpia en cada reinicio y cero virus.</p>
-                </div>
+                  <div class="tech-card-title">
+                    Estandarización & Deep Freeze
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </div>
+                  <p class="tech-card-desc">Implementación probada en Colegio Bertoldo Hofmann (30 equipos): sistema blindado que restaura su estado óptimo en cada reinicio, eliminando virus y desconfiguraciones.</p>
+                </a>
 
-                <!-- Fila de Estado Rápido -->
-                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; font-size: 0.8rem; text-align: center;">
-                  <div style="background: rgba(0,0,0,0.3); padding: 0.65rem 0.5rem; border-radius: var(--kd-radius-sm); border: 1px solid var(--kd-border-subtle);">
-                    <div style="font-weight: 800; font-size: 1.15rem; color: var(--kd-text-primary);">0%</div>
-                    <div style="font-size: 0.7rem; color: var(--kd-text-dim);">Bloatware</div>
+                <!-- Fila de Estado y Garantías Verificadas -->
+                <div class="tech-stat-grid">
+                  <div class="tech-stat-pill">
+                    <div class="tech-stat-val" style="color: var(--kd-text-primary);">100%</div>
+                    <div class="tech-stat-label">Código Propio</div>
                   </div>
-                  <div style="background: rgba(0,0,0,0.3); padding: 0.65rem 0.5rem; border-radius: var(--kd-radius-sm); border: 1px solid var(--kd-border-subtle);">
-                    <div style="font-weight: 800; font-size: 1.15rem; color: var(--kd-cyan-light);">30 Días</div>
-                    <div style="font-size: 0.7rem; color: var(--kd-text-dim);">Garantía Real</div>
+                  <div class="tech-stat-pill">
+                    <div class="tech-stat-val" style="color: var(--kd-cyan-light);">30 Días</div>
+                    <div class="tech-stat-label">Garantía Software</div>
                   </div>
-                  <div style="background: rgba(0,0,0,0.3); padding: 0.65rem 0.5rem; border-radius: var(--kd-radius-sm); border: 1px solid var(--kd-border-subtle);">
-                    <div style="font-weight: 800; font-size: 1.15rem; color: var(--kd-emerald-light);">1 a 1</div>
-                    <div style="font-size: 0.7rem; color: var(--kd-text-dim);">Trato Directo</div>
+                  <div class="tech-stat-pill">
+                    <div class="tech-stat-val" style="color: var(--kd-emerald-light);">1 a 1</div>
+                    <div class="tech-stat-label">Trato Directo</div>
                   </div>
                 </div>
 
