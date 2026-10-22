@@ -902,134 +902,160 @@ header.scrolled .nav-glass {
 }
 
 /* ==========================================================================
-   HERO ADAPTABLE AL VIEWPORT (100dvh / 100svh · PRESENTACIÓN COMPLETA SIN SCROLL)
+   HERO PRINCIPAL · PROPORCIONES PREMIUM Y JERARQUÍA TIPOGRÁFICA
    ========================================================================== */
 
 .hero-next {
   position: relative;
-  min-height: 100dvh;
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  /* Separación moderada y continua bajo la navegación fija */
+  padding-top: calc(76px + clamp(1.75rem, 3.2vw, 2.75rem));
+  padding-bottom: clamp(2.5rem, 4vw, 3.75rem);
   box-sizing: border-box;
-  padding-top: calc(72px + clamp(0.6rem, 2.2vh, 1.85rem));
-  padding-bottom: clamp(0.75rem, 2vh, 1.85rem);
   overflow: visible;
 }
 
+/* Distribución 58% Columna Izquierda / 42% Panel Derecho */
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.06fr 0.94fr;
+  grid-template-columns: 1.15fr 0.85fr;
   align-items: center;
-  gap: clamp(1.25rem, 3vw, 2.75rem);
+  gap: clamp(2rem, 3.8vw, 3.5rem);
   width: 100%;
 }
 
 .hero-copy {
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
 .hero-badges {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.55rem;
   flex-wrap: wrap;
-  margin-bottom: clamp(0.45rem, 1.2vh, 0.95rem);
+  margin-bottom: 1.25rem;
 }
 
+/* Titular Principal Imponente y Contundente */
 .hero-title {
-  font-size: clamp(1.85rem, min(3.8vw, 4.8vh), 3.25rem);
-  line-height: 1.14;
-  margin-bottom: clamp(0.55rem, 1.35vh, 1.15rem);
-  letter-spacing: -0.03em;
+  font-family: var(--kd-font-display);
+  font-size: clamp(2.35rem, 4.3vw, 3.75rem);
+  line-height: 1.12;
+  margin-bottom: 1.35rem;
+  letter-spacing: -0.035em;
+  font-weight: 800;
+  color: var(--kd-text-primary);
+  max-width: 660px;
 }
 
 .hero-desc {
-  font-size: clamp(0.9rem, min(1.05vw, 1.85vh), 1.05rem);
+  font-size: clamp(1.05rem, 1.2vw, 1.18rem);
   color: var(--kd-text-secondary);
-  line-height: 1.55;
-  margin-bottom: clamp(0.7rem, 1.65vh, 1.45rem);
-  max-width: 530px;
+  line-height: 1.65;
+  margin-bottom: 2rem;
+  max-width: 560px;
 }
 
 .hero-actions {
   display: flex;
-  gap: 0.75rem;
+  gap: 1rem;
   flex-wrap: wrap;
-  margin-bottom: clamp(0.7rem, 1.65vh, 1.55rem);
+  align-items: center;
 }
 
 .hero-actions .btn-kd {
-  padding: clamp(0.5rem, 1.1vh, 0.75rem) clamp(1.1rem, 1.5vw, 1.5rem);
-  font-size: clamp(0.85rem, 0.95vw, 0.925rem);
+  font-size: 0.95rem;
+  padding: 0.8rem 1.65rem;
 }
 
-.hero-trust-points {
+/* Franja de Confianza Técnica (Debajo de la Composición) */
+.hero-trust-strip {
   display: flex;
   align-items: center;
-  gap: clamp(0.75rem, 1.4vw, 1.25rem);
+  justify-content: flex-start;
+  gap: 1.75rem;
   flex-wrap: wrap;
-  font-size: clamp(0.75rem, 0.82vw, 0.825rem);
+  margin-top: clamp(2.5rem, 4.5vw, 3.5rem);
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--kd-border-subtle);
+  font-size: 0.875rem;
   color: var(--kd-text-muted);
 }
 
+.hero-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hero-trust-item svg {
+  flex-shrink: 0;
+}
+
+.hero-trust-sep {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--kd-border-strong);
+}
+
+/* Columna Derecha (Panel Tecnológico Compacto y Elegante) */
 .hero-media {
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  max-width: 475px;
+  width: 100%;
+  margin-left: auto;
 }
 
 .hero-ambient-glow {
   position: absolute;
   top: -12%;
   right: -12%;
-  width: clamp(240px, 28vw, 360px);
-  height: clamp(240px, 28vw, 360px);
+  width: clamp(280px, 30vw, 380px);
+  height: clamp(280px, 30vw, 380px);
   background: radial-gradient(circle, rgba(39, 199, 212, 0.18) 0%, rgba(112, 88, 184, 0.12) 40%, transparent 70%);
-  filter: blur(44px);
+  filter: blur(48px);
   pointer-events: none;
   z-index: 0;
 }
 
-/* PANEL TECNOLÓGICO HERO (AURORA UI · FLUID VIEWPORT FIT) */
 .hero-tech-panel {
   position: relative;
   z-index: 1;
-  padding: clamp(0.85rem, 1.7vh, 1.25rem);
+  padding: 1.25rem 1.35rem;
   border-radius: var(--kd-radius-lg);
   border: 1px solid var(--kd-border-strong);
-  background: rgba(16, 28, 45, 0.88);
+  background: rgba(16, 28, 45, 0.9);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  box-shadow: var(--kd-shadow-lg), 0 0 32px rgba(39, 199, 212, 0.1);
+  box-shadow: var(--kd-shadow-lg), 0 0 36px rgba(39, 199, 212, 0.12);
   transition: border-color var(--kd-ease-normal), box-shadow var(--kd-ease-normal);
 }
 
 .hero-tech-panel:hover {
   border-color: rgba(39, 199, 212, 0.35);
-  box-shadow: var(--kd-shadow-lg), 0 0 40px rgba(39, 199, 212, 0.18);
+  box-shadow: var(--kd-shadow-lg), 0 0 44px rgba(39, 199, 212, 0.18);
 }
 
 .tech-panel-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: clamp(0.4rem, 0.85vh, 0.75rem);
+  padding-bottom: 0.85rem;
   border-bottom: 1px solid var(--kd-border-subtle);
-  margin-bottom: clamp(0.5rem, 1vh, 0.85rem);
+  margin-bottom: 1rem;
 }
 
 .tech-panel-dots {
   display: flex;
-  gap: 5px;
+  gap: 6px;
 }
 
 .tech-dot {
-  width: 8px;
-  height: 8px;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
   display: inline-block;
 }
@@ -1037,14 +1063,14 @@ header.scrolled .nav-glass {
 .tech-panel-content {
   display: flex;
   flex-direction: column;
-  gap: clamp(0.45rem, 0.95vh, 0.75rem);
+  gap: 0.85rem;
 }
 
 .tech-card-item {
-  background: rgba(21, 29, 48, 0.7);
+  background: rgba(21, 29, 48, 0.75);
   border: 1px solid var(--kd-border-subtle);
   border-radius: var(--kd-radius-md);
-  padding: clamp(0.6rem, 1.2vh, 0.95rem);
+  padding: 1rem 1.15rem;
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
   position: relative;
   text-decoration: none;
@@ -1063,11 +1089,11 @@ header.scrolled .nav-glass {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: clamp(0.18rem, 0.35vh, 0.3rem);
+  margin-bottom: 0.35rem;
 }
 
 .tech-card-tag {
-  font-size: clamp(0.68rem, 0.76vw, 0.75rem);
+  font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -1075,8 +1101,8 @@ header.scrolled .nav-glass {
 
 .tech-card-badge {
   font-family: var(--kd-font-mono);
-  font-size: clamp(0.68rem, 0.74vw, 0.725rem);
-  padding: 0.12rem 0.45rem;
+  font-size: 0.725rem;
+  padding: 0.15rem 0.5rem;
   border-radius: var(--kd-radius-sm);
   background: rgba(0, 0, 0, 0.35);
   border: 1px solid var(--kd-border-subtle);
@@ -1086,32 +1112,32 @@ header.scrolled .nav-glass {
 .tech-card-title {
   font-family: var(--kd-font-display);
   font-weight: 700;
-  font-size: clamp(0.9rem, 0.98vw, 1.025rem);
+  font-size: 1.05rem;
   color: var(--kd-text-primary);
-  margin-bottom: clamp(0.12rem, 0.3vh, 0.25rem);
+  margin-bottom: 0.3rem;
   display: flex;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.4rem;
 }
 
 .tech-card-desc {
-  font-size: clamp(0.75rem, 0.82vw, 0.815rem);
+  font-size: 0.825rem;
   color: var(--kd-text-muted);
-  line-height: 1.45;
+  line-height: 1.5;
   margin: 0;
 }
 
 .tech-stat-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: clamp(0.4rem, 0.8vw, 0.65rem);
+  gap: 0.75rem;
   font-size: 0.8rem;
   text-align: center;
 }
 
 .tech-stat-pill {
   background: rgba(0, 0, 0, 0.32);
-  padding: clamp(0.35rem, 0.75vh, 0.55rem) 0.3rem;
+  padding: 0.65rem 0.4rem;
   border-radius: var(--kd-radius-sm);
   border: 1px solid var(--kd-border-subtle);
   transition: border-color 0.25s ease, background 0.25s ease;
@@ -1124,102 +1150,60 @@ header.scrolled .nav-glass {
 
 .tech-stat-val {
   font-weight: 800;
-  font-size: clamp(0.925rem, 1.1vw, 1.1rem);
+  font-size: 1.15rem;
   line-height: 1.15;
 }
 
 .tech-stat-label {
-  font-size: clamp(0.62rem, 0.7vw, 0.685rem);
+  font-size: 0.7rem;
   color: var(--kd-text-dim);
-  margin-top: 0.12rem;
+  margin-top: 0.2rem;
 }
 
-/* OPTIMIZACIÓN ULTRA-FINA PARA PANTALLAS BAJAS (Laptops 1366x768, 1280x720, Zoom 125%) */
-@media (min-width: 961px) and (max-height: 760px) {
-  .hero-next {
-    padding-top: calc(66px + 0.75rem);
-    padding-bottom: 0.75rem;
-  }
-  .hero-badges {
-    margin-bottom: 0.45rem;
+/* Tablet y Portátil Compacto (961px - 1180px) */
+@media (min-width: 961px) and (max-width: 1180px) {
+  .hero-grid {
+    gap: 2rem;
+    grid-template-columns: 1.1fr 0.9fr;
   }
   .hero-title {
-    font-size: clamp(1.75rem, 4.2vh, 2.35rem);
-    margin-bottom: 0.5rem;
-  }
-  .hero-desc {
-    font-size: 0.875rem;
-    line-height: 1.5;
-    margin-bottom: 0.7rem;
-  }
-  .hero-actions {
-    margin-bottom: 0.7rem;
-  }
-  .hero-actions .btn-kd {
-    padding: 0.5rem 1.15rem;
-    font-size: 0.85rem;
-  }
-  .tech-card-item {
-    padding: 0.55rem 0.85rem;
-  }
-  .tech-card-desc {
-    font-size: 0.75rem;
-    line-height: 1.4;
-  }
-  .tech-stat-pill {
-    padding: 0.35rem 0.25rem;
+    font-size: clamp(2.2rem, 3.8vw, 3rem);
   }
 }
 
-@media (min-width: 961px) and (max-height: 660px) {
-  .hero-next {
-    padding-top: calc(62px + 0.4rem);
-    padding-bottom: 0.4rem;
-  }
-  .hero-title {
-    font-size: 1.65rem;
-    line-height: 1.12;
-    margin-bottom: 0.35rem;
-  }
-  .hero-desc {
-    margin-bottom: 0.5rem;
-    font-size: 0.825rem;
-  }
-  .hero-actions {
-    margin-bottom: 0.5rem;
-  }
-  .tech-panel-header {
-    margin-bottom: 0.4rem;
-    padding-bottom: 0.35rem;
-  }
-  .tech-panel-content {
-    gap: 0.4rem;
-  }
-}
-
-/* MÓVIL Y TABLET VERTICAL (<= 960px): FLUJO NATURAL CON SCROLL */
+/* Móvil y Tablet Vertical (<= 960px) */
 @media (max-width: 960px) {
   .hero-next {
-    min-height: auto;
     padding-top: 6.5rem;
     padding-bottom: 3.5rem;
   }
   .hero-grid {
     grid-template-columns: 1fr;
-    gap: 2.25rem;
+    gap: 2.5rem;
   }
   .hero-title {
-    font-size: clamp(2rem, 6vw, 2.65rem);
-    margin-bottom: 1rem;
+    font-size: clamp(2.2rem, 7vw, 2.85rem);
+    margin-bottom: 1.15rem;
   }
   .hero-desc {
-    font-size: 1rem;
+    font-size: 1.05rem;
     line-height: 1.6;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.75rem;
     max-width: 100%;
   }
-  .hero-actions {
-    margin-bottom: 1.5rem;
+  .hero-media {
+    max-width: 100%;
+    margin-left: 0;
+  }
+  .hero-trust-strip {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.85rem;
+    margin-top: 2rem;
+    padding-top: 1.25rem;
+  }
+  .hero-trust-sep {
+    display: none;
   }
 }
 
