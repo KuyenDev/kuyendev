@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VITALIS · Centro Odontológico Avanzado & Estética Facial | Osorno</title>
+  <meta name="description" content="Clínica dental de alta complejidad en Osorno. Escáner 3D intraoral, implantes en un día, ortodoncia invisible y sedación consciente. Agenda tu evaluación.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-base: #070d17;
+      --bg-surface: #0e1726;
+      --bg-card: rgba(18, 29, 47, 0.75);
+      --bg-card-hover: rgba(24, 39, 64, 0.9);
+      --cyan-primary: #0ea5e9;
+      --cyan-light: #38bdf8;
+      --cyan-glow: rgba(14, 165, 233, 0.2);
+      --emerald: #10b981;
+      --emerald-light: #34d399;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-cyan: rgba(14, 165, 233, 0.3);
+      --font-display: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 22px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; color-scheme: dark; }
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1220px;
+      margin: 0 auto;
+    }
+
+    /* TOP BAR MEDICA */
+    .top-bar {
+      background: #050911;
+      border-bottom: 1px solid var(--border-subtle);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      padding: 0.5rem 0;
+    }
+    .top-bar-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .top-badge-emergency {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--emerald-light);
+      font-weight: 600;
+    }
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--emerald);
+      box-shadow: 0 0 8px var(--emerald);
+    }
+
+    /* HEADER */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(7, 13, 23, 0.88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .nav-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+    }
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--text-main);
+    }
+    .logo-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius-sm);
+      background: linear-gradient(135deg, var(--cyan-primary) 0%, #2563eb 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 800;
+      font-size: 1.2rem;
+      box-shadow: 0 4px 14px var(--cyan-glow);
+    }
+    .brand-logo .title {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+    .brand-logo .tag {
+      font-size: 0.65rem;
+      color: var(--cyan-light);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-weight: 600;
+      display: block;
+      margin-top: 3px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+    .nav-links a:hover { color: var(--cyan-light); }
+
+    .btn-cyan {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, var(--cyan-primary) 0%, #0284c7 100%);
+      color: #fff;
+      padding: 0.75rem 1.6rem;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.88rem;
+      text-decoration: none;
+      box-shadow: 0 4px 18px var(--cyan-glow);
+      transition: all 0.2s ease;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-cyan:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(14, 165, 233, 0.4);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-main);
+      padding: 0.75rem 1.6rem;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.88rem;
+      text-decoration: none;
+      border: 1px solid var(--border-subtle);
+      transition: all 0.2s ease;
+    }
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--cyan-light);
+    }
+
+    /* HERO */
+    .hero-section {
+      padding: 90px 0 100px;
+      position: relative;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      background: rgba(14, 165, 233, 0.1);
+      border: 1px solid var(--border-cyan);
+      color: var(--cyan-light);
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.6rem, 5vw, 4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.03em;
+    }
+    .hero-title span {
+      background: linear-gradient(135deg, var(--cyan-light) 0%, #38bdf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-desc {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 2.2rem;
+      max-width: 560px;
+    }
+    .hero-badges-row {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-subtle);
+      flex-wrap: wrap;
+    }
+    .badge-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.85rem;
+      color: #e2e8f0;
+    }
+    .badge-item svg {
+      color: var(--emerald-light);
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    .hero-card-visual {
+      position: relative;
+    }
+    .hero-img-box {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 24px 50px rgba(0, 0, 0, 0.6);
+    }
+    .hero-img-box img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      display: block;
+    }
+    .floating-medical-card {
+      position: absolute;
+      bottom: -20px;
+      left: -20px;
+      background: rgba(14, 23, 38, 0.95);
+      border: 1px solid var(--border-cyan);
+      backdrop-filter: blur(12px);
+      padding: 1.25rem 1.5rem;
+      border-radius: var(--radius-md);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
+    }
+    .floating-medical-card .title {
+      font-weight: 700;
+      font-size: 1rem;
+      color: #fff;
+    }
+    .floating-medical-card .sub {
+      font-size: 0.8rem;
+      color: var(--cyan-light);
+    }
+
+    /* SECTION */
+    section { padding: 90px 0; }
+    .section-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 50px;
+    }
+    .section-tag {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--cyan-light);
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      display: inline-block;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+    .section-desc {
+      font-size: 1rem;
+      color: var(--text-muted);
+    }
+
+    /* SPECIALTIES GRID */
+    .specialties-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.75rem;
+    }
+    .spec-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 2.2rem;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .spec-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-cyan);
+      transform: translateY(-4px);
+    }
+    .spec-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-sm);
+      background: rgba(14, 165, 233, 0.12);
+      border: 1px solid var(--border-cyan);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+      color: var(--cyan-light);
+    }
+    .spec-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+    .spec-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+    .spec-link {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--cyan-light);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* TECHNOLOGY PILLARS */
+    .tech-box {
+      background: linear-gradient(135deg, rgba(14, 23, 38, 0.9) 0%, rgba(7, 13, 23, 0.95) 100%);
+      border: 1px solid var(--border-cyan);
+      border-radius: var(--radius-lg);
+      padding: 3.5rem;
+    }
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2.5rem;
+      margin-top: 2.5rem;
+    }
+    .tech-item h4 {
+      font-size: 1.15rem;
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+    .tech-item p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    /* DOCTORS */
+    .doctors-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .doctor-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+    .doctor-img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+    }
+    .doctor-body {
+      padding: 1.5rem;
+    }
+    .doctor-name {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.15rem;
+      margin-bottom: 0.25rem;
+    }
+    .doctor-role {
+      font-size: 0.8rem;
+      color: var(--cyan-light);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+    .doctor-rnpi {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 0.75rem;
+    }
+
+    /* APPOINTMENT BANNER */
+    .appointment-banner {
+      background: linear-gradient(135deg, #0369a1 0%, #0f172a 100%);
+      border-radius: var(--radius-lg);
+      padding: 4rem 3rem;
+      text-align: center;
+      border: 1px solid var(--border-cyan);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border-subtle);
+      background: #05080f;
+      padding: 70px 0 110px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* KUYENDEV DEMO BANNER */
+    .kuyendev-demo-badge {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 9999;
+      width: 90%;
+      max-width: 640px;
+      background: rgba(14, 20, 34, 0.95);
+      border: 1px solid rgba(6, 182, 212, 0.4);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.7), 0 0 20px rgba(6, 182, 212, 0.25);
+      border-radius: 999px;
+      padding: 0.75rem 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .kuyendev-demo-badge .left-box {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .kuyendev-demo-badge .pulse {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #06b6d4;
+      box-shadow: 0 0 10px #06b6d4;
+      animation: demoPulse 1.8s infinite;
+    }
+    .kuyendev-demo-badge .text {
+      font-size: 0.85rem;
+      color: #e2e8f0;
+      line-height: 1.3;
+    }
+    .kuyendev-demo-badge .text strong {
+      color: #38bdf8;
+      display: block;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .kuyendev-demo-cta {
+      background: #06b6d4;
+      color: #080c14;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.8rem;
+      padding: 0.5rem 1.1rem;
+      border-radius: 999px;
+      white-space: nowrap;
+      transition: background 0.2s ease;
+    }
+    .kuyendev-demo-cta:hover { background: #38bdf8; }
+
+    @keyframes demoPulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.2); }
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
+      .hero-desc { margin-left: auto; margin-right: auto; }
+      .hero-badges-row { justify-content: center; }
+      .nav-links { display: none; }
+      .tech-box { padding: 2rem 1.5rem; }
+      .kuyendev-demo-badge {
+        flex-direction: column;
+        border-radius: var(--radius-md);
+        text-align: center;
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="container top-bar-content">
+      <div class="top-badge-emergency">
+        <span class="pulse-dot"></span>
+        <span>Urgencias Dentales Osorno · WhatsApp Prioritario</span>
+      </div>
+      <div>
+        <span>Resolución SEREMI de Salud N° 20491 · Convenios Isapres & Seguros</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVEGACIÓN -->
+  <header>
+    <div class="container">
+      <div class="nav-wrapper">
+        <a href="#inicio" class="brand-logo">
+          <div class="logo-icon">+</div>
+          <div>
+            <span class="title">VITALIS</span>
+            <span class="tag">Odontología Digital & Estética</span>
+          </div>
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="#especialidades">Especialidades</a></li>
+          <li><a href="#tecnologia">Tecnología 3D</a></li>
+          <li><a href="#equipo">Especialistas</a></li>
+          <li><a href="#testimonios">Pacientes</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+
+        <a href="https://wa.me/56922231780?text=Hola%20Cl%C3%ADnica%20Vitalis,%20quisiera%20agendar%20una%20hora%20de%20evaluaci%C3%B3n." target="_blank" rel="noopener noreferrer" class="btn-cyan">
+          Agendar Evaluación
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section id="inicio" class="hero-section">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="hero-tag">
+            <span>🛡️</span> Centro Odontológico de Alta Complejidad
+          </div>
+
+          <h1 class="hero-title">
+            Tu sonrisa en manos de especialistas con <span>tecnología digital 3D</span>.
+          </h1>
+
+          <p class="hero-desc">
+            En VITALIS combinamos escáner intraoral sin moldes, sedación consciente y odontología mínimamente invasiva. Diagnósticos exactos y tratamientos confortables en Osorno.
+          </p>
+
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="https://wa.me/56922231780?text=Hola%20Vitalis,%20solicito%20evaluaci%C3%B3n%20dental." target="_blank" rel="noopener noreferrer" class="btn-cyan">
+              Reservar Hora Online
+            </a>
+            <a href="#especialidades" class="btn-secondary">
+              Conocer Tratamientos
+            </a>
+          </div>
+
+          <div class="hero-badges-row">
+            <div class="badge-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Escaneo 3D Sin Moldes</span>
+            </div>
+            <div class="badge-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Sedación Sin Dolor</span>
+            </div>
+            <div class="badge-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Garantía Médica Escrita</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-card-visual">
+          <div class="hero-img-box">
+            <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=800&q=80" alt="Consulta odontológica de última tecnología">
+          </div>
+          <div class="floating-medical-card">
+            <div class="title">+3.500 Pacientes</div>
+            <div class="sub">Sonrisas rehabilitadas con éxito</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ESPECIALIDADES -->
+  <section id="especialidades" style="background: var(--bg-surface); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Nuestras Áreas Clínicas</span>
+        <h2 class="section-title">Especialidades Odontológicas</h2>
+        <p class="section-desc">Atención integral en un solo centro clínico con equipamiento de nivel hospitalario.</p>
+      </div>
+
+      <div class="specialties-grid">
+        <!-- Esp 1 -->
+        <div class="spec-card">
+          <div class="spec-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 24px; height: 24px;"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <h3>Implantología & Carga Inmediata</h3>
+          <p>Recupera tus dientes fijos en un solo día con implantes de titanio bio-compatibles y cirugía guiada por computador en 3D.</p>
+          <a href="#contacto" class="spec-link">Consultar Implantes &rarr;</a>
+        </div>
+
+        <!-- Esp 2 -->
+        <div class="spec-card">
+          <div class="spec-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 24px; height: 24px;"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/></svg>
+          </div>
+          <h3>Ortodoncia Invisible</h3>
+          <p>Alineadores transparentes removibles. Corrige tu mordida y alineación de forma discreta, cómoda y sin brackets metálicos.</p>
+          <a href="#contacto" class="spec-link">Consultar Alineadores &rarr;</a>
+        </div>
+
+        <!-- Esp 3 -->
+        <div class="spec-card">
+          <div class="spec-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 24px; height: 24px;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <h3>Diseño de Sonrisa & Carillas</h3>
+          <p>Carillas de porcelana ultra finas y resina estratificada. Planificación digital para ver el resultado antes de tocar tus dientes.</p>
+          <a href="#contacto" class="spec-link">Ver Casos Reales &rarr;</a>
+        </div>
+
+        <!-- Esp 4 -->
+        <div class="spec-card">
+          <div class="spec-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 24px; height: 24px;"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <h3>Estética Facial & Armonización</h3>
+          <p>Aplicación de toxina botulínica para bruxismo y arrugas de expresión, más bioestimuladores de colágeno por cirujanos certificados.</p>
+          <a href="#contacto" class="spec-link">Consultar Facial &rarr;</a>
+        </div>
+
+        <!-- Esp 5 -->
+        <div class="spec-card">
+          <div class="spec-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 24px; height: 24px;"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+          </div>
+          <h3>Blanqueamiento Láser In-Office</h3>
+          <p>Aclara hasta 4 tonos en una sesión clínica de 60 minutos con protección del esmalte y sin sensibilidad molesta.</p>
+          <a href="#contacto" class="spec-link">Agendar Sesión &rarr;</a>
+        </div>
+
+        <!-- Esp 6 -->
+        <div class="spec-card">
+          <div class="spec-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 24px; height: 24px;"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 12h6M12 9v6"/></svg>
+          </div>
+          <h3>Endodoncia Mecanizada</h3>
+          <p>Tratamiento de conducto en una sola sesión con microscopio óptico y localizador apical electrónico. Adiós al dolor dental.</p>
+          <a href="#contacto" class="spec-link">Urgencia Endodoncia &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECNOLOGÍA -->
+  <section id="tecnologia">
+    <div class="container">
+      <div class="tech-box">
+        <span class="section-tag">Infraestructura Digital</span>
+        <h2 class="section-title">El estándar VITALIS: Precisión sin traumas</h2>
+        <p class="section-desc">Invertimos en tecnología alemana y suiza para brindarte máxima comodidad y seguridad clínica.</p>
+
+        <div class="tech-grid">
+          <div class="tech-item">
+            <h4>Escáner Intraoral iTero</h4>
+            <p>Olvídate de las pastas y moldes nauseabundos. Creamos un modelo tridimensional exacto de tu boca en 3 minutos.</p>
+          </div>
+          <div class="tech-item">
+            <h4>Sedación Consciente</h4>
+            <p>Para pacientes con fobia o ansiedad dental. Te relajas plácidamente durante todo el procedimiento mientras estás consciente.</p>
+          </div>
+          <div class="tech-item">
+            <h4>Radiografía Panorámica Digital</h4>
+            <p>Diagnóstico inmediato en el mismo box clínico con 90% menos radiación que los sistemas convencionales.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EQUIPO MEDICO -->
+  <section id="equipo" style="background: var(--bg-surface);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Staff Profesional</span>
+        <h2 class="section-title">Cirujanos Dentistas Especialistas</h2>
+        <p class="section-desc">Especialistas acreditados en la Superintendencia de Salud con formación continua de postgrado.</p>
+      </div>
+
+      <div class="doctors-grid">
+        <div class="doctor-card">
+          <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=600&q=80" alt="Dr. Rodrigo Valenzuela" class="doctor-img">
+          <div class="doctor-body">
+            <h3 class="doctor-name">Dr. Rodrigo Valenzuela M.</h3>
+            <div class="doctor-role">Cirujano Dentista · Esp. Implantología Oral</div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem;">Universidad de Chile. Fellow en Cirugía Guiada en Suiza.</p>
+            <div class="doctor-rnpi">Registro SIS: 294810</div>
+          </div>
+        </div>
+
+        <div class="doctor-card">
+          <img src="https://images.unsplash.com/photo-1594824813590-48e025ecb1f5?auto=format&fit=crop&w=600&q=80" alt="Dra. Constanza Becker" class="doctor-img">
+          <div class="doctor-body">
+            <h3 class="doctor-name">Dra. Constanza Becker H.</h3>
+            <div class="doctor-role">Especialista en Ortodoncia & Ortopedia</div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem;">Universidad de Concepción. Certificada en Alineadores Transparentes.</p>
+            <div class="doctor-rnpi">Registro SIS: 318492</div>
+          </div>
+        </div>
+
+        <div class="doctor-card">
+          <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=600&q=80" alt="Dra. Javiera Soto" class="doctor-img">
+          <div class="doctor-body">
+            <h3 class="doctor-name">Dra. Javiera Soto C.</h3>
+            <div class="doctor-role">Rehabilitación Oral & Estética Dental</div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem;">Universidad Austral de Chile. Experta en Carillas y Estética Facial.</p>
+            <div class="doctor-rnpi">Registro SIS: 401823</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIOS -->
+  <section id="testimonios">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Testimonios Verificados</span>
+        <h2 class="section-title">Pacientes felices en Osorno</h2>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+        <div style="background: var(--bg-card); padding: 2rem; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+          <div style="color: #f59e0b; margin-bottom: 0.75rem;">★★★★★</div>
+          <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.25rem;">"Le tenía pánico al dentista desde niño. En Vitalis me hicieron una extracción y dos implantes con sedación consciente y no sentí absolutamente nada. La atención es de otro planeta."</p>
+          <strong>Héctor Mansilla</strong> · <span style="font-size: 0.8rem; color: var(--cyan-light);">Implantes Dentales</span>
+        </div>
+
+        <div style="background: var(--bg-card); padding: 2rem; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+          <div style="color: #f59e0b; margin-bottom: 0.75rem;">★★★★★</div>
+          <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.25rem;">"Terminé mi tratamiento de alineadores invisibles en 9 meses. Pude trabajar y asistir a reuniones sin que nadie notara que los tenía puestos. Mis dientes quedaron perfectos."</p>
+          <strong>Lorena Pavez</strong> · <span style="font-size: 0.8rem; color: var(--cyan-light);">Ortodoncia Invisible</span>
+        </div>
+
+        <div style="background: var(--bg-card); padding: 2rem; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+          <div style="color: #f59e0b; margin-bottom: 0.75rem;">★★★★★</div>
+          <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.25rem;">"Las instalaciones son impecables, todo digital. Me mostraron en una pantalla 3D cómo quedaría mi boca antes de empezar las carillas. Muy transparentes con los presupuestos."</p>
+          <strong>Cristián Ruiz</strong> · <span style="font-size: 0.8rem; color: var(--cyan-light);">Diseño de Sonrisa</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section id="contacto" style="padding-bottom: 120px;">
+    <div class="container">
+      <div class="appointment-banner">
+        <span class="section-tag" style="color: #fff;">Agenda Inmediata</span>
+        <h2 class="section-title" style="margin-bottom: 1.25rem; color: #fff;">¿Listo para sonreír con total seguridad?</h2>
+        <p style="max-width: 600px; margin: 0 auto 2.5rem; color: #e0f2fe; font-size: 1.1rem;">
+          Pide tu hora de evaluación clínica con escaneo 3D. Nuestro equipo te entregará un plan claro, por escrito y con facilidades de pago.
+        </p>
+        <a href="https://wa.me/56922231780?text=Hola%20Vitalis,%20quisiera%20agendar%20mi%20hora%20de%20evaluaci%C3%B3n." target="_blank" rel="noopener noreferrer" class="btn-cyan" style="font-size: 1.05rem; padding: 1rem 2.2rem; background: #fff; color: #0369a1;">
+          Agendar por WhatsApp Directo
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;">
+      <div>
+        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem;">
+          <div class="logo-icon" style="width: 24px; height: 24px; font-size: 0.8rem;">+</div>
+          <strong style="color: #fff; font-size: 1.1rem;">VITALIS</strong>
+        </div>
+        <p style="font-size: 0.8rem;">Edificio Bicentenario, Piso 5, Osorno · Tel: (64) 222 3178</p>
+      </div>
+      <div>
+        &copy; 2026 Clínica Dental Vitalis. Todos los derechos reservados.
+      </div>
+    </div>
+  </footer>
+
+  <!-- BANNER FLOTANTE DEMO DE KUYÉNDEV -->
+  <aside class="kuyendev-demo-badge" role="complementary" aria-label="Aviso de Sitio Web Demostrativo">
+    <div class="left-box">
+      <span class="pulse" aria-hidden="true"></span>
+      <div class="text">
+        <strong>Demo Web Diseñada por KuyénDev</strong>
+        <span>¿Tienes una clínica, centro médico o consulta dental? Creamos tu web profesional con plan mensual.</span>
+      </div>
+    </div>
+    <a href="https://wa.me/56922231780?text=Hola%20Franco,%20estoy%20viendo%20la%20demo%20de%20Cl%C3%ADnica%20Dental%20y%20me%20gustar%C3%ADa%20cotizar%20un%20sitio%20web%20similar%20para%20mi%20centro%20m%C3%A9dico." target="_blank" rel="noopener noreferrer" class="kuyendev-demo-cta">
+      Cotizar esta Web
+    </a>
+  </aside>
+
+</body>
+</html>

@@ -45,10 +45,13 @@ Actualmente en `js/config/plans.js` los precios están definidos como `null` con
 
 ---
 
-### Decisión 4: Dominio .CL (Inclusión o Gestión por el Cliente)
-- **Pregunta:** ¿El costo anual del dominio .CL (aproximadamente $10.950 CLP en NIC Chile) estará incluido en el plan, o el cliente debe comprarlo directamente?
-- **Recomendación de transparencia:** Recomendamos enfáticamente que el cliente registre el dominio a su propio nombre en [nic.cl](https://www.nic.cl) y te otorgue contacto técnico. Esto le da 100% de tranquilidad sobre su propiedad intelectual y te libera de responsabilidades sobre la renovación legal de su marca.
-- **Estado actual en la web:** Indicado como *"El cliente es dueño del dominio en NIC Chile y nosotros configuramos los DNS sin costo adicional"*.
+### Decisión 4: Dominio, Alojamiento & Enfoque de Servicio (RESUELTO)
+- **Decisión del Propietario (Franco Luna):** 
+  - **Dominio:** KuyénDev paga y gestiona el dominio del cliente directamente, simplificándole la vida para que no tenga que lidiar con trámites en NIC Chile ni paneles técnicos.
+  - **Alojamiento:** Incluido y resuelto sin costo adicional para el cliente, asegurando que la página funcione sin problemas y sin prometer infraestructuras exageradas.
+  - **Enfoque Comercial:** Orientado a **pymes, profesionales y emprendimientos a bajo costo**, accesible y con trato privado.
+  - **Estándar Técnico:** **100% código puro (HTML, CSS, JS nativo)**, cero WordPress, cero plugins pesados ni programas que ralenticen la web.
+- **Estado en la web:** Aplicado en `index.html`, `pages/planes-web.html` y `js/config/plans.js`.
 
 ---
 

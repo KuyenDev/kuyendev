@@ -29,7 +29,7 @@ En cumplimiento estricto con la directriz de **no inventar datos, clientes, test
 | **Filosofía Anti-Obsolescencia** | Todas las páginas y footers | Lema fundacional: *"Recuperar y optimizar antes de reemplazar."* |
 | **Caso Colegio Bertoldo Hofmann Kahler** | `pages/content/bertoldo_hofmann.html`, `pages/proyectos.html`, `pages/empresas.html` | 30 equipos en Purranque (23 laboratorio + 7 docentes), Deep Freeze, Windows LTSC, 0 caídas post-servicio. Se preservaron las 3 fotografías reales. |
 | **25 Cláusulas Contractuales** | `pages/terminos.html` | Preservación del 100% del texto legal original (exclusión de hardware, 14 días bodegaje, 60 días abandono, 30 días garantía, etc.) con índice interactivo. |
-| **Canales de Contacto** | Header, Footer, `pages/contacto.html` | WhatsApp `+56 9 2223 1780`, Correo `fa.lunangulo@kuyendev.cl`, Instagram `@kuyendev`. |
+| **Canales de Contacto** | Header, Footer, `pages/contacto.html` | WhatsApp `+56 9 2223 1780`, Correo `fa.lunangulo@outlook.com`, Instagram `@kuyendev`. |
 | **Geolocalización Real** | Metadatos Schema.org y textos | Osorno, Puyehue, Purranque, Río Negro, Región de Los Lagos y asistencia remota para todo Chile. |
 
 ---

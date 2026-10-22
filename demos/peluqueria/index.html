@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AURA Studio · Salón de Belleza & Alta Peluquería | Osorno</title>
+  <meta name="description" content="Salón de belleza boutique en Osorno. Especialistas en balayage, colorimetría avanzada, cortes de autor y tratamientos capilares de lujo. Reserva tu cita online.">
+  
+  <!-- Tipografías de Alta Gama -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-base: #0b090d;
+      --bg-surface: #141018;
+      --bg-card: rgba(26, 20, 31, 0.75);
+      --bg-card-hover: rgba(36, 28, 44, 0.9);
+      --gold-primary: #dcb382;
+      --gold-light: #f4d8b6;
+      --gold-dark: #b88a55;
+      --rose-accent: #e0929f;
+      --text-main: #fbf9f6;
+      --text-muted: #a39aa9;
+      --border-subtle: rgba(220, 179, 130, 0.18);
+      --border-gold: rgba(220, 179, 130, 0.4);
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 24px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; color-scheme: dark; }
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Ambient background glow */
+    .ambient-glow {
+      position: fixed;
+      top: -150px;
+      right: -100px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(220, 179, 130, 0.12) 0%, rgba(11, 9, 13, 0) 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* HEADER & NAV */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(11, 9, 13, 0.85);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-subtle);
+      transition: all 0.3s ease;
+    }
+
+    .nav-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+    }
+
+    .brand-logo {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: var(--text-main);
+    }
+    .brand-logo .title {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      letter-spacing: 0.15em;
+      font-weight: 700;
+      line-height: 1;
+      background: linear-gradient(135deg, #fff 0%, var(--gold-light) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .brand-logo .tag {
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      color: var(--gold-primary);
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      transition: color 0.25s ease;
+    }
+    .nav-links a:hover { color: var(--gold-light); }
+
+    .btn-gold {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, var(--gold-primary) 0%, var(--gold-dark) 100%);
+      color: #110d14;
+      padding: 0.75rem 1.6rem;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 0.875rem;
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      box-shadow: 0 4px 18px rgba(220, 179, 130, 0.25);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(220, 179, 130, 0.4);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: var(--gold-light);
+      padding: 0.75rem 1.6rem;
+      border-radius: var(--radius-sm);
+      font-weight: 500;
+      font-size: 0.875rem;
+      text-decoration: none;
+      border: 1px solid var(--border-gold);
+      transition: all 0.25s ease;
+    }
+    .btn-outline:hover {
+      background: rgba(220, 179, 130, 0.1);
+      border-color: var(--gold-light);
+    }
+
+    /* HERO SECTION */
+    .hero-section {
+      padding: 160px 0 100px;
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.45rem 1rem;
+      background: rgba(220, 179, 130, 0.1);
+      border: 1px solid var(--border-gold);
+      border-radius: 999px;
+      font-size: 0.8rem;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1.5rem;
+    }
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.8rem, 5.5vw, 4.4rem);
+      font-weight: 600;
+      line-height: 1.08;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.01em;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold-light);
+      font-weight: 400;
+    }
+    .hero-desc {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 2.2rem;
+      max-width: 540px;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 1.25rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .hero-social-proof {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+    .rating-stars {
+      color: var(--gold-primary);
+      font-size: 1rem;
+      letter-spacing: 2px;
+    }
+    .proof-item strong {
+      font-size: 1.25rem;
+      color: var(--gold-light);
+      font-family: var(--font-serif);
+      display: block;
+    }
+    .proof-item span {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .hero-visual {
+      position: relative;
+    }
+    .hero-img-box {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+    }
+    .hero-img-box img {
+      width: 100%;
+      height: 540px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+    .hero-img-box:hover img {
+      transform: scale(1.03);
+    }
+    .floating-seal {
+      position: absolute;
+      bottom: -20px;
+      left: -20px;
+      background: rgba(20, 16, 24, 0.95);
+      border: 1px solid var(--border-gold);
+      backdrop-filter: blur(10px);
+      padding: 1.2rem 1.5rem;
+      border-radius: var(--radius-md);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    }
+    .floating-seal .num {
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      color: var(--gold-primary);
+      font-weight: 700;
+      line-height: 1;
+    }
+    .floating-seal .label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    /* SECTION BASICS */
+    section { padding: 90px 0; }
+    .section-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 50px;
+    }
+    .section-tag {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: var(--gold-primary);
+      margin-bottom: 0.75rem;
+      display: inline-block;
+    }
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+    .section-desc {
+      font-size: 1rem;
+      color: var(--text-muted);
+    }
+
+    /* SERVICES MENU */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+    .service-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 2.2rem;
+      transition: all 0.3s ease;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .service-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-gold);
+      transform: translateY(-4px);
+    }
+    .service-card.highlight {
+      border-color: var(--gold-primary);
+      box-shadow: 0 12px 40px rgba(220, 179, 130, 0.15);
+    }
+    .service-badge {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      font-size: 0.7rem;
+      padding: 0.25rem 0.7rem;
+      background: rgba(220, 179, 130, 0.15);
+      border-radius: 999px;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .service-name {
+      font-family: var(--font-serif);
+      font-size: 1.7rem;
+      color: var(--gold-light);
+      margin-bottom: 0.6rem;
+    }
+    .service-desc {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+    .service-specs {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      border-top: 1px solid var(--border-subtle);
+      margin-bottom: 1.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    .service-specs .price {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      color: var(--text-main);
+      font-weight: 700;
+    }
+
+    /* LOOKBOOK / GALLERY */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+    .gallery-item {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      aspect-ratio: 3/4;
+      border: 1px solid var(--border-subtle);
+      group: hover;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .gallery-item:hover img {
+      transform: scale(1.08);
+    }
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 40%, rgba(11, 9, 13, 0.9) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.5rem;
+      opacity: 0.9;
+      transition: opacity 0.3s ease;
+    }
+    .gallery-overlay h4 {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      color: var(--gold-light);
+    }
+    .gallery-overlay span {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* REVIEWS */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    .review-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+    }
+    .review-stars {
+      color: var(--gold-primary);
+      margin-bottom: 1rem;
+    }
+    .review-text {
+      font-size: 0.95rem;
+      color: var(--text-main);
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+    .reviewer-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .reviewer-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid var(--border-gold);
+      object-fit: cover;
+    }
+    .reviewer-name {
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .reviewer-service {
+      font-size: 0.75rem;
+      color: var(--gold-primary);
+    }
+
+    /* BOOKING BANNER */
+    .booking-card {
+      background: linear-gradient(135deg, rgba(36, 28, 44, 0.9) 0%, rgba(20, 16, 24, 0.95) 100%);
+      border: 1px solid var(--border-gold);
+      border-radius: var(--radius-lg);
+      padding: 4rem 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border-subtle);
+      background: #08060a;
+      padding: 60px 0 100px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    /* FLOATING DEMO NOTICE FOR KUYÉNDEV */
+    .kuyendev-demo-badge {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 9999;
+      width: 90%;
+      max-width: 640px;
+      background: rgba(14, 20, 34, 0.95);
+      border: 1px solid rgba(6, 182, 212, 0.4);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.7), 0 0 20px rgba(6, 182, 212, 0.25);
+      border-radius: 999px;
+      padding: 0.75rem 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      animation: floatSlideUp 0.8s ease-out;
+    }
+    .kuyendev-demo-badge .left-box {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .kuyendev-demo-badge .pulse {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #06b6d4;
+      box-shadow: 0 0 10px #06b6d4;
+      animation: demoPulse 1.8s infinite;
+    }
+    .kuyendev-demo-badge .text {
+      font-size: 0.85rem;
+      color: #e2e8f0;
+      line-height: 1.3;
+    }
+    .kuyendev-demo-badge .text strong {
+      color: #38bdf8;
+      display: block;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .kuyendev-demo-cta {
+      background: #06b6d4;
+      color: #080c14;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.8rem;
+      padding: 0.5rem 1.1rem;
+      border-radius: 999px;
+      white-space: nowrap;
+      transition: background 0.2s ease;
+    }
+    .kuyendev-demo-cta:hover {
+      background: #38bdf8;
+    }
+
+    @keyframes demoPulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.2); }
+    }
+    @keyframes floatSlideUp {
+      from { opacity: 0; transform: translate(-50%, 40px); }
+      to { opacity: 1; transform: translate(-50%, 0); }
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
+      .hero-desc { margin-left: auto; margin-right: auto; }
+      .hero-actions { justify-content: center; }
+      .hero-social-proof { justify-content: center; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .nav-links { display: none; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .kuyendev-demo-badge {
+        flex-direction: column;
+        border-radius: var(--radius-md);
+        text-align: center;
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Aura Background Glow -->
+  <div class="ambient-glow" aria-hidden="true"></div>
+
+  <!-- NAVEGACIÓN -->
+  <header>
+    <div class="container">
+      <div class="nav-wrapper">
+        <a href="#inicio" class="brand-logo">
+          <span class="title">AURA</span>
+          <span class="tag">Studio · Haute Coiffure</span>
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="#experiencia">Filosofía</a></li>
+          <li><a href="#servicios">Servicios & Tarifas</a></li>
+          <li><a href="#lookbook">Lookbook</a></li>
+          <li><a href="#testimonios">Opiniones</a></li>
+          <li><a href="#contacto">Ubicación</a></li>
+        </ul>
+
+        <a href="https://wa.me/56922231780?text=Hola%20AURA%20Studio,%20quisiera%20reservar%20una%20hora%20para%20atenci%C3%B3n." target="_blank" rel="noopener noreferrer" class="btn-gold">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Reservar Cita
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section id="inicio" class="hero-section">
+    <div class="container">
+      <div class="hero-grid">
+        
+        <div>
+          <div class="hero-badge">
+            <span>✨</span> Alta Peluquería & Cuidado Capilar de Autor
+          </div>
+          <h1 class="hero-title">
+            El arte de revelar la <em>belleza auténtica</em> de tu cabello.
+          </h1>
+          <p class="hero-desc">
+            En AURA Studio combinamos diagnóstico capilar científico, colorimetría francesa y una experiencia sensorial de relajación total en el corazón de Osorno.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#servicios" class="btn-gold">Explorar Carta de Servicios</a>
+            <a href="#lookbook" class="btn-outline">Ver Transformaciones</a>
+          </div>
+
+          <div class="hero-social-proof">
+            <div class="proof-item">
+              <div class="rating-stars">★★★★★</div>
+              <strong>4.9 / 5.0</strong>
+              <span>Más de 140 reseñas en Google</span>
+            </div>
+            <div style="width: 1px; height: 40px; background: var(--border-subtle);"></div>
+            <div class="proof-item">
+              <strong>100% Orgánicos</strong>
+              <span>Tratamientos sin formol ni sulfatos</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-img-box">
+            <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=800&q=80" alt="Estilista trabajando en salón de lujo">
+          </div>
+          <div class="floating-seal">
+            <div class="num">+8 Años</div>
+            <div class="label">Creando estilos únicos</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FILOSOFÍA / PILARES -->
+  <section id="experiencia" style="background: var(--bg-surface); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">La Experiencia AURA</span>
+        <h2 class="section-title">No es solo un corte, es un ritual</h2>
+        <p class="section-desc">Diseñado para que desconectes del estrés mientras cuidamos la salud integral de tu fibra capilar.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+        <div style="background: var(--bg-card); padding: 2.2rem; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+          <div style="font-size: 2rem; margin-bottom: 1rem;">🔬</div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.5rem; color: var(--gold-light); margin-bottom: 0.75rem;">Diagnóstico Microscópico</h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">Evaluamos la porosidad, elasticidad y salud de tu cuero cabelludo antes de aplicar cualquier químico.</p>
+        </div>
+        <div style="background: var(--bg-card); padding: 2.2rem; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+          <div style="font-size: 2rem; margin-bottom: 1rem;">🌿</div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.5rem; color: var(--gold-light); margin-bottom: 0.75rem;">Botánica de Vanguardia</h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">Trabajamos con líneas veganas europeas libres de crueldad animal, amoníaco y parabenos.</p>
+        </div>
+        <div style="background: var(--bg-card); padding: 2.2rem; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+          <div style="font-size: 2rem; margin-bottom: 1rem;">☕</div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.5rem; color: var(--gold-light); margin-bottom: 0.75rem;">Hospitalidad Boutique</h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">Disfruta de café de especialidad, infusión de hierbas andinas y música ambiental relajante durante tu sesión.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS Y TARIFAS -->
+  <section id="servicios">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Carta de Servicios</span>
+        <h2 class="section-title">Especialidades de Autor</h2>
+        <p class="section-desc">Valores transparentes con insumos premium y garantía de satisfacción.</p>
+      </div>
+
+      <div class="services-grid">
+        
+        <!-- Servicio 1 -->
+        <article class="service-card highlight">
+          <span class="service-badge">Firma del Salón</span>
+          <div>
+            <h3 class="service-name">Balayage Soleil & Babylights</h3>
+            <p class="service-desc">Aclarado progresivo con efecto degradé natural sin marcas de crecimiento. Incluye matización personalizada y baño de brillo de keratina.</p>
+          </div>
+          <div>
+            <div class="service-specs">
+              <span>Duración aprox: 3.5 hrs</span>
+              <span class="price">$75.000+</span>
+            </div>
+            <a href="https://wa.me/56922231780?text=Hola,%20quisiera%20agendar%20un%20Balayage%20en%20AURA." target="_blank" rel="noopener noreferrer" class="btn-gold" style="width: 100%; justify-content: center;">
+              Agendar Balayage
+            </a>
+          </div>
+        </article>
+
+        <!-- Servicio 2 -->
+        <article class="service-card">
+          <div>
+            <h3 class="service-name">Corte Visagista & Peinado</h3>
+            <p class="service-desc">Diseño de corte según la morfología de tu rostro, textura del cabello y rutina diaria. Incluye lavado relajante con masaje craneal y peinado final.</p>
+          </div>
+          <div>
+            <div class="service-specs">
+              <span>Duración aprox: 60 min</span>
+              <span class="price">$22.000</span>
+            </div>
+            <a href="https://wa.me/56922231780?text=Hola,%20quisiera%20agendar%20un%20Corte%20en%20AURA." target="_blank" rel="noopener noreferrer" class="btn-outline" style="width: 100%; justify-content: center;">
+              Agendar Corte
+            </a>
+          </div>
+        </article>
+
+        <!-- Servicio 3 -->
+        <article class="service-card">
+          <div>
+            <h3 class="service-name">Botox Capilar & Cauterización</h3>
+            <p class="service-desc">Nutrición profunda con colágeno vegetal y ácido hialurónico. Elimina el frizz en un 90% devolviendo la elasticidad y suavidad extrema.</p>
+          </div>
+          <div>
+            <div class="service-specs">
+              <span>Duración aprox: 2 hrs</span>
+              <span class="price">$42.000</span>
+            </div>
+            <a href="https://wa.me/56922231780?text=Hola,%20quisiera%20agendar%20un%20Botox%20Capilar%20en%20AURA." target="_blank" rel="noopener noreferrer" class="btn-outline" style="width: 100%; justify-content: center;">
+              Agendar Tratamiento
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- LOOKBOOK GALLERY -->
+  <section id="lookbook" style="background: var(--bg-surface);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Portafolio</span>
+        <h2 class="section-title">El Lookbook de Nuestras Clientas</h2>
+        <p class="section-desc">Resultados reales logrados día a día en nuestro estudio.</p>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80" alt="Rubio Balayage Perla">
+          <div class="gallery-overlay">
+            <h4>Balayage Perla & Vainilla</h4>
+            <span>Colorimetría Avanzada</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=600&q=80" alt="Corte Bob Francés">
+          <div class="gallery-overlay">
+            <h4>Bob Texturizado</h4>
+            <span>Corte Visagista</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=600&q=80" alt="Tratamiento Brillo Espejo">
+          <div class="gallery-overlay">
+            <h4>Cauterización de Seda</h4>
+            <span>Spa Capilar</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=600&q=80" alt="Morena Iluminada Cacao">
+          <div class="gallery-overlay">
+            <h4>Morena Iluminada</h4>
+            <span>Tonos Caramelo</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIOS -->
+  <section id="testimonios">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Opiniones Reales</span>
+        <h2 class="section-title">Lo que dicen nuestras clientas</h2>
+        <p class="section-desc">La confianza y satisfacción son nuestro mayor orgullo profesional.</p>
+      </div>
+
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Tenía miedo de decolorar mi cabello porque lo tenía muy fino. El equipo de Aura me hizo un diagnóstico sincero y el balayage quedó soñado, suave y sin daños. Volveré siempre."</p>
+          <div class="reviewer-meta">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="Camila Valenzuela" class="reviewer-avatar">
+            <div>
+              <div class="reviewer-name">Camila Valenzuela</div>
+              <div class="reviewer-service">Balayage & Tratamiento</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"La atención es maravillosa. Te reciben con un café exquisito y se toman el tiempo de escucharte. El corte visagista me cambió la cara por completo. 10 de 10."</p>
+          <div class="reviewer-meta">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&q=80" alt="Paulina Morales" class="reviewer-avatar">
+            <div>
+              <div class="reviewer-name">Paulina Morales</div>
+              <div class="reviewer-service">Corte Visagista & Styling</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Recuperaron mi cabello después de un desastre químico que me hicieron en otro salón. La cauterización y los productos orgánicos fueron un milagro."</p>
+          <div class="reviewer-meta">
+            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=120&q=80" alt="Francisca Alarcón" class="reviewer-avatar">
+            <div>
+              <div class="reviewer-name">Francisca Alarcón</div>
+              <div class="reviewer-service">Terapia de Recuperación</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL RESERVAS -->
+  <section id="contacto" style="padding-bottom: 120px;">
+    <div class="container">
+      <div class="booking-card">
+        <span class="section-tag">Agenda tu momento</span>
+        <h2 class="section-title" style="margin-bottom: 1.25rem;">¿Lista para renovar tu imagen?</h2>
+        <p style="color: var(--text-muted); max-width: 580px; margin: 0 auto 2.5rem; font-size: 1.05rem;">
+          Atendemos con reserva previa para asegurar exclusividad y el tiempo que tu cabello merece. Escríbenos directamente a WhatsApp.
+        </p>
+
+        <a href="https://wa.me/56922231780?text=Hola%20AURA%20Studio,%20quisiera%20agendar%20mi%20cita." target="_blank" rel="noopener noreferrer" class="btn-gold" style="font-size: 1.05rem; padding: 1rem 2.2rem;">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width: 20px; height: 20px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Agendar Cita por WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand-logo" style="margin-bottom: 1rem;">
+            <span class="title">AURA</span>
+            <span class="tag">Studio · Haute Coiffure</span>
+          </div>
+          <p style="max-width: 380px; line-height: 1.6;">
+            Salón de belleza y alta peluquería en Osorno. Dedicados a la salud capilar y la personalización estética desde 2018.
+          </p>
+        </div>
+        <div>
+          <h4 style="color: var(--gold-light); margin-bottom: 1rem; font-family: var(--font-serif); font-size: 1.2rem;">Horarios</h4>
+          <p>Martes a Sábado: 10:00 - 19:30</p>
+          <p>Domingo y Lunes: Cerrado</p>
+        </div>
+        <div>
+          <h4 style="color: var(--gold-light); margin-bottom: 1rem; font-family: var(--font-serif); font-size: 1.2rem;">Dirección</h4>
+          <p>Av. Juan Mackenna 940, Of. 302</p>
+          <p>Osorno, Región de Los Lagos</p>
+        </div>
+      </div>
+      <div style="text-align: center; padding-top: 2rem; border-top: 1px solid var(--border-subtle); font-size: 0.8rem;">
+        &copy; 2026 AURA Studio. Todos los derechos reservados.
+      </div>
+    </div>
+  </footer>
+
+  <!-- BANNER FLOTANTE DEMO DE KUYÉNDEV -->
+  <aside class="kuyendev-demo-badge" role="complementary" aria-label="Aviso de Sitio Web Demostrativo">
+    <div class="left-box">
+      <span class="pulse" aria-hidden="true"></span>
+      <div class="text">
+        <strong>Demo Web Diseñada por KuyénDev</strong>
+        <span>¿Tienes un salón o peluquería? Creamos una web como esta con plan mensual.</span>
+      </div>
+    </div>
+    <a href="https://wa.me/56922231780?text=Hola%20Franco,%20estoy%20viendo%20la%20demo%20de%20Peluquer%C3%ADa%20y%20me%20gustar%C3%ADa%20cotizar%20una%20web%20similar%20para%20mi%20negocio." target="_blank" rel="noopener noreferrer" class="kuyendev-demo-cta">
+      Cotizar esta Web
+    </a>
+  </aside>
+
+</body>
+</html>

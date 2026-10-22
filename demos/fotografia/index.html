@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LUMEN · Fotografía de Autor & Cinematografía | Sur de Chile</title>
+  <meta name="description" content="Estudio de fotografía documental y bodas de destino en la Patagonia y Sur de Chile. Narrativa visual emotiva, honesta y sin artificios.">
+  
+  <!-- Tipografías Vanguardistas: Syne + Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-base: #09090b;
+      --bg-surface: #121216;
+      --bg-card: rgba(22, 22, 28, 0.7);
+      --bg-card-hover: rgba(30, 30, 38, 0.9);
+      --accent-warm: #d4a373;
+      --accent-warm-light: #faedcd;
+      --text-main: #f4f4f6;
+      --text-muted: #9e9ea7;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-accent: rgba(212, 163, 115, 0.3);
+      --font-display: 'Syne', sans-serif;
+      --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; color-scheme: dark; }
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1240px;
+      margin: 0 auto;
+    }
+
+    /* HEADER */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(9, 9, 11, 0.82);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .nav-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 84px;
+    }
+    .brand-logo {
+      text-decoration: none;
+      color: var(--text-main);
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+    }
+    .brand-logo .title {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+    }
+    .brand-logo .dot {
+      color: var(--accent-warm);
+      font-size: 1.5rem;
+    }
+    .brand-logo .tag {
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: color 0.2s ease;
+    }
+    .nav-links a:hover { color: var(--accent-warm-light); }
+
+    .btn-lumen {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--text-main);
+      color: #09090b;
+      padding: 0.75rem 1.6rem;
+      border-radius: 999px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: all 0.25s ease;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-lumen:hover {
+      background: var(--accent-warm);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(212, 163, 115, 0.35);
+    }
+
+    .btn-outline-lumen {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: var(--text-main);
+      padding: 0.75rem 1.6rem;
+      border-radius: 999px;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      border: 1px solid var(--border-subtle);
+      transition: all 0.25s ease;
+    }
+    .btn-outline-lumen:hover {
+      border-color: var(--accent-warm);
+      color: var(--accent-warm-light);
+    }
+
+    /* HERO FULLSCREEN EDITORIAL */
+    .hero-editorial {
+      position: relative;
+      min-height: 94vh;
+      display: flex;
+      align-items: flex-end;
+      padding-bottom: 90px;
+      padding-top: 140px;
+      overflow: hidden;
+    }
+    .hero-bg-media {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero-bg-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.45) contrast(1.1);
+      transform: scale(1.02);
+      transition: transform 10s ease;
+    }
+    .hero-bg-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(9, 9, 11, 0.4) 0%, rgba(9, 9, 11, 0.95) 100%);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 880px;
+    }
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(8px);
+      border-radius: 999px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--accent-warm-light);
+      margin-bottom: 1.5rem;
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 6.5vw, 5.5rem);
+      font-weight: 800;
+      line-height: 1.04;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+    }
+    .hero-title span {
+      font-style: italic;
+      color: var(--accent-warm);
+      font-weight: 500;
+    }
+    .hero-desc {
+      font-size: 1.15rem;
+      color: #d1d1d6;
+      max-width: 620px;
+      line-height: 1.7;
+      margin-bottom: 2.2rem;
+    }
+    .hero-meta {
+      display: flex;
+      gap: 3rem;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      flex-wrap: wrap;
+    }
+    .meta-box strong {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      display: block;
+      color: var(--accent-warm);
+    }
+    .meta-box span {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* SECTION BASICS */
+    section { padding: 110px 0; }
+    .section-header {
+      margin-bottom: 60px;
+    }
+    .section-tag {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: var(--accent-warm);
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 4vw, 3.8rem);
+      font-weight: 700;
+      line-height: 1.1;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+    }
+
+    /* MASONRY / EDITORIAL GALLERY */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 1.75rem;
+    }
+    .gallery-card {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .gallery-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.7s ease, filter 0.7s ease;
+      filter: grayscale(15%);
+    }
+    .gallery-card:hover img {
+      transform: scale(1.05);
+      filter: grayscale(0%);
+    }
+    .gallery-card .card-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 2rem 1.5rem 1.5rem;
+      background: linear-gradient(180deg, transparent 0%, rgba(9, 9, 11, 0.95) 100%);
+      transform: translateY(10px);
+      opacity: 0.9;
+      transition: all 0.3s ease;
+    }
+    .gallery-card:hover .card-info {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .card-info h3 {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      color: var(--text-main);
+      margin-bottom: 0.25rem;
+    }
+    .card-info span {
+      font-size: 0.75rem;
+      color: var(--accent-warm);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .col-7 { grid-column: span 7; height: 500px; }
+    .col-5 { grid-column: span 5; height: 500px; }
+    .col-4 { grid-column: span 4; height: 420px; }
+    .col-8 { grid-column: span 8; height: 420px; }
+
+    /* MANIFIESTO */
+    .manifesto-box {
+      border: 1px solid var(--border-subtle);
+      background: linear-gradient(135deg, rgba(22, 22, 28, 0.6) 0%, rgba(14, 14, 18, 0.9) 100%);
+      padding: 5rem 4rem;
+      border-radius: var(--radius-lg);
+      position: relative;
+    }
+    .manifesto-quote {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      line-height: 1.3;
+      color: var(--text-main);
+      margin-bottom: 2rem;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .manifesto-quote mark {
+      background: none;
+      color: var(--accent-warm);
+    }
+
+    /* COLECCIONES / PRECIOS */
+    .collections-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+    .collection-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 3rem 2.2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.3s ease;
+    }
+    .collection-card:hover {
+      border-color: var(--accent-warm);
+      transform: translateY(-4px);
+    }
+    .collection-card.featured {
+      background: linear-gradient(180deg, rgba(30, 30, 38, 0.8) 0%, rgba(18, 18, 22, 0.95) 100%);
+      border-color: var(--accent-warm);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+    }
+    .collection-name {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+    .collection-price {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      color: var(--accent-warm);
+      margin: 1.5rem 0;
+      font-weight: 700;
+    }
+    .collection-features {
+      list-style: none;
+      margin-bottom: 2.5rem;
+    }
+    .collection-features li {
+      padding: 0.65rem 0;
+      border-bottom: 1px solid var(--border-subtle);
+      font-size: 0.9rem;
+      color: #c8c8cf;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .collection-features li svg {
+      width: 16px;
+      height: 16px;
+      color: var(--accent-warm);
+      flex-shrink: 0;
+    }
+
+    /* REVIEWS */
+    .reviews-editorial {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    .review-item {
+      padding: 2.2rem;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      background: var(--bg-surface);
+    }
+    .review-item p {
+      font-size: 0.95rem;
+      color: #d1d1d6;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+    .review-author {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+    }
+    .review-type {
+      font-size: 0.75rem;
+      color: var(--accent-warm);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* FORMULARIO DE CONSULTA DE FECHA */
+    .inquiry-section {
+      background: #060608;
+      border-top: 1px solid var(--border-subtle);
+    }
+    .inquiry-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    .form-label {
+      display: block;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+    .form-control {
+      width: 100%;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      padding: 0.9rem 1.2rem;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+    .form-control:focus {
+      border-color: var(--accent-warm);
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 80px 0 110px;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* KUYENDEV DEMO BANNER */
+    .kuyendev-demo-badge {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 9999;
+      width: 90%;
+      max-width: 640px;
+      background: rgba(14, 20, 34, 0.95);
+      border: 1px solid rgba(6, 182, 212, 0.4);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.7), 0 0 20px rgba(6, 182, 212, 0.25);
+      border-radius: 999px;
+      padding: 0.75rem 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .kuyendev-demo-badge .left-box {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .kuyendev-demo-badge .pulse {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #06b6d4;
+      box-shadow: 0 0 10px #06b6d4;
+      animation: demoPulse 1.8s infinite;
+    }
+    .kuyendev-demo-badge .text {
+      font-size: 0.85rem;
+      color: #e2e8f0;
+      line-height: 1.3;
+    }
+    .kuyendev-demo-badge .text strong {
+      color: #38bdf8;
+      display: block;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .kuyendev-demo-cta {
+      background: #06b6d4;
+      color: #080c14;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.8rem;
+      padding: 0.5rem 1.1rem;
+      border-radius: 999px;
+      white-space: nowrap;
+      transition: background 0.2s ease;
+    }
+    .kuyendev-demo-cta:hover { background: #38bdf8; }
+
+    @keyframes demoPulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.2); }
+    }
+
+    @media (max-width: 900px) {
+      .col-7, .col-5, .col-4, .col-8 { grid-column: span 12; height: 360px; }
+      .nav-links { display: none; }
+      .inquiry-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .manifesto-box { padding: 3rem 1.5rem; }
+      .kuyendev-demo-badge {
+        flex-direction: column;
+        border-radius: var(--radius-md);
+        text-align: center;
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVEGACIÓN -->
+  <header>
+    <div class="container">
+      <div class="nav-wrapper">
+        <a href="#inicio" class="brand-logo">
+          <span class="title">LUMEN</span>
+          <span class="dot">•</span>
+          <span class="tag">Atelier Visual</span>
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="#portafolio">Portafolio</a></li>
+          <li><a href="#filosofia">Enfoque</a></li>
+          <li><a href="#colecciones">Colecciones</a></li>
+          <li><a href="#historias">Testimonios</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+
+        <a href="#contacto" class="btn-lumen">
+          Consultar Fecha
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION EDITORIAL -->
+  <section id="inicio" class="hero-editorial">
+    <div class="hero-bg-media">
+      <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1800&q=85" alt="Pareja de boda en lago patagónico">
+    </div>
+    <div class="hero-bg-overlay"></div>
+
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-pill">
+          <span>📷</span> Cobertura de Bodas de Destino · Patagonia & Chile
+        </div>
+
+        <h1 class="hero-title">
+          Capturamos instantes <span>irrepetibles</span>, no poses forzadas.
+        </h1>
+
+        <p class="hero-desc">
+          Documentamos la belleza cruda, la emoción sincera y la luz del sur de Chile. Una mirada cinematográfica para parejas que celebran su amor sin protocolos artificiales.
+        </p>
+
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <a href="#portafolio" class="btn-lumen">Explorar Portafolio</a>
+          <a href="#colecciones" class="btn-outline-lumen">Ver Colecciones</a>
+        </div>
+
+        <div class="hero-meta">
+          <div class="meta-box">
+            <strong>+160</strong>
+            <span>Bodas Documentadas</span>
+          </div>
+          <div class="meta-box">
+            <strong>Patagonia</strong>
+            <span>Osorno · Llanquihue · Torres del Paine</span>
+          </div>
+          <div class="meta-box">
+            <strong>WPJA</strong>
+            <span>Fotoperiodismo Premiado</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTAFOLIO MASONRY EDITORIAL -->
+  <section id="portafolio">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Galería Selecta</span>
+        <h2 class="section-title">Historias Recientes</h2>
+      </div>
+
+      <div class="gallery-grid">
+        <!-- Foto 1 -->
+        <div class="gallery-card col-7">
+          <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1000&q=80" alt="Boda en la Patagonia">
+          <div class="card-info">
+            <h3>Matías & Sofía</h3>
+            <span>Lago Ranco · Ceremonia al Atardecer</span>
+          </div>
+        </div>
+
+        <!-- Foto 2 -->
+        <div class="gallery-card col-5">
+          <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80" alt="Retrato Íntimo">
+          <div class="card-info">
+            <h3>Detalles & Luz Natural</h3>
+            <span>Preparativos en Cabaña Austral</span>
+          </div>
+        </div>
+
+        <!-- Foto 3 -->
+        <div class="gallery-card col-4">
+          <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=800&q=80" alt="Votos en el bosque">
+          <div class="card-info">
+            <h3>Elopement en Bosque Nativo</h3>
+            <span>Volcán Osorno · Ceremonia Íntima</span>
+          </div>
+        </div>
+
+        <!-- Foto 4 -->
+        <div class="gallery-card col-8">
+          <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1200&q=80" alt="Celebración fiesta">
+          <div class="card-info">
+            <h3>La Fiesta & Catarsis</h3>
+            <span>Puyehue · Celebración nocturna</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MANIFIESTO -->
+  <section id="filosofia" style="padding-top: 0;">
+    <div class="container">
+      <div class="manifesto-box">
+        <span class="section-tag">Nuestro Manifiesto</span>
+        <div class="manifesto-quote">
+          "El 95% de nuestras fotografías son momentos <mark>espontáneos</mark>. No interrumpimos tu fiesta ni te pedimos sonreír a la cámara. Queremos que cuando mires tu álbum en 20 años, <mark>vuelvas a sentir</mark> el abrazo de tu abuela y la risa con tus amigos."
+        </div>
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" alt="Lucas Silva" style="width: 52px; height: 52px; border-radius: 50%; object-fit: cover; border: 1px solid var(--accent-warm);">
+          <div>
+            <div style="font-family: var(--font-display); font-weight: 700; text-transform: uppercase;">Lucas Silva & Elena Vera</div>
+            <div style="font-size: 0.8rem; color: var(--accent-warm);">Fundadores & Directores de Fotografía</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLECCIONES & INVERSIÓN -->
+  <section id="colecciones" style="background: var(--bg-surface);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Inversión Transparente</span>
+        <h2 class="section-title">Colecciones de Boda</h2>
+      </div>
+
+      <div class="collections-grid">
+        <!-- Colección 1 -->
+        <div class="collection-card">
+          <div>
+            <h3 class="collection-name">Elopement & Civil</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">Ideal para bodas íntimas, firmas de libreta o sesiones en la naturaleza.</p>
+            <div class="collection-price">$450.000</div>
+            <ul class="collection-features">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Hasta 4 horas de cobertura</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> +200 fotografías en alta resolución</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Galería privada en línea protegida</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Entrega express de 10 fotos en 48 hrs</li>
+            </ul>
+          </div>
+          <a href="#contacto" class="btn-outline-lumen" style="width: 100%; justify-content: center;">Consultar Fecha</a>
+        </div>
+
+        <!-- Colección 2 Destacada -->
+        <div class="collection-card featured">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <span style="font-size: 0.7rem; color: var(--accent-warm); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700;">Más Elegida</span>
+            </div>
+            <h3 class="collection-name">Boda Completa</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">Desde los preparativos matutinos hasta el fin de la fiesta.</p>
+            <div class="collection-price">$890.000</div>
+            <ul class="collection-features">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Hasta 10 horas de cobertura integral</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> 2 Fotógrafos en el evento</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> +500 fotos editadas tono cinematográfico</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Sesión Pre-Boda de regalo</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Caja de madera con 30 impresiones fine-art</li>
+            </ul>
+          </div>
+          <a href="#contacto" class="btn-lumen" style="width: 100%; justify-content: center;">Reservar Fecha</a>
+        </div>
+
+        <!-- Colección 3 -->
+        <div class="collection-card">
+          <div>
+            <h3 class="collection-name">Destino Austral & Cine</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">Fotografía documental y cápsula de video cinematográfico 4K.</p>
+            <div class="collection-price">$1.350.000</div>
+            <ul class="collection-features">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Cobertura sin límite de horario</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Equipo de 3 profesionales (Foto + Video)</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Film cinematográfico de 5 a 8 minutos</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Tomas aéreas con Drone 4K</li>
+            </ul>
+          </div>
+          <a href="#contacto" class="btn-outline-lumen" style="width: 100%; justify-content: center;">Consultar Fecha</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIOS -->
+  <section id="historias">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Palabras Sinceras</span>
+        <h2 class="section-title">Lo que sienten nuestras parejas</h2>
+      </div>
+
+      <div class="reviews-editorial">
+        <div class="review-item">
+          <p>"Ver nuestras fotos nos hizo llorar de nuevo. Captaron miradas de las que ni nos dimos cuenta durante la fiesta. No tuvimos que posar tiesos ni un segundo. Fueron invisibles y a la vez mágicos."</p>
+          <div class="review-author">Catalina & Diego</div>
+          <div class="review-type">Boda en Frutillar · Enero 2026</div>
+        </div>
+
+        <div class="review-item">
+          <p>"Viajamos desde Santiago a casarnos en Puyehue y Lucas nos guió en todo. La luz que logran en el bosque nativo parece de una película de cine. Valió cada peso invertido."</p>
+          <div class="review-author">Ignacio & Valentina</div>
+          <div class="review-type">Elopement Termas · Marzo 2026</div>
+        </div>
+
+        <div class="review-item">
+          <p>"La entrega express a los dos días nos permitió compartir fotos hermosas con la familia que no pudo viajar. Y la caja de madera con las copias impresas es una joya familiar."</p>
+          <div class="review-author">Mariana & Sebastián</div>
+          <div class="review-type">Boda en Lago Ranco · Diciembre 2025</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMULARIO DE CONSULTA DIRECTO -->
+  <section id="contacto" class="inquiry-section">
+    <div class="container">
+      <div class="inquiry-grid">
+        <div>
+          <span class="section-tag">Agenda 2026 - 2027</span>
+          <h2 class="section-title" style="margin-bottom: 1.5rem;">Conversemos sobre tu fecha</h2>
+          <p style="color: var(--text-muted); line-height: 1.8; margin-bottom: 2rem;">
+            Tomamos un número limitado de bodas por año para dedicar tiempo exclusivo al diseño y edición de cada historia. Cuéntanos qué tienen en mente y te responderemos en menos de 24 horas.
+          </p>
+          <div style="font-size: 0.9rem; color: #c8c8cf;">
+            <p><strong>Base:</strong> Osorno, Los Lagos, Chile</p>
+            <p><strong>Disponibilidad:</strong> Todo Chile y Destinos Internacionales</p>
+            <p><strong>WhatsApp:</strong> +56 9 2223 1780</p>
+          </div>
+        </div>
+
+        <div style="background: var(--bg-surface); padding: 3rem 2.5rem; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+          <form onsubmit="event.preventDefault(); window.open('https://wa.me/56922231780?text=' + encodeURIComponent('Hola LUMEN, quisiera consultar disponibilidad para mi evento: ' + document.getElementById('eventName').value + ' en fecha: ' + document.getElementById('eventDate').value), '_blank');">
+            <div class="form-group">
+              <label class="form-label" for="eventName">Nombres de la Pareja / Contacto</label>
+              <input type="text" id="eventName" class="form-control" placeholder="Ej: Marcela & Felipe" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="eventDate">Fecha Estimada del Evento</label>
+              <input type="date" id="eventDate" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="eventLocation">Lugar / Ciudad de la Celebración</label>
+              <input type="text" id="eventLocation" class="form-control" placeholder="Ej: Puerto Varas, Lago Ranco, etc.">
+            </div>
+            <button type="submit" class="btn-lumen" style="width: 100%; justify-content: center; margin-top: 1rem;">
+              Consultar Disponibilidad por WhatsApp
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: gap;">
+      <div>
+        <span style="font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; letter-spacing: 0.1em;">LUMEN</span>
+        <p style="font-size: 0.75rem; margin-top: 0.25rem;">Fotografía Documental & Narrativa de Destino</p>
+      </div>
+      <div>
+        &copy; 2026 LUMEN Atelier Visual · Todos los derechos reservados.
+      </div>
+    </div>
+  </footer>
+
+  <!-- BANNER FLOTANTE DEMO DE KUYÉNDEV -->
+  <aside class="kuyendev-demo-badge" role="complementary" aria-label="Aviso de Sitio Web Demostrativo">
+    <div class="left-box">
+      <span class="pulse" aria-hidden="true"></span>
+      <div class="text">
+        <strong>Demo Web Diseñada por KuyénDev</strong>
+        <span>¿Eres fotógrafo o productor audiovisual? Creamos tu portafolio premium con plan mensual.</span>
+      </div>
+    </div>
+    <a href="https://wa.me/56922231780?text=Hola%20Franco,%20estoy%20viendo%20la%20demo%20de%20Fotograf%C3%ADa%20y%20me%20gustar%C3%ADa%20cotizar%20un%20sitio%20web%20similar%20para%20mi%20marca." target="_blank" rel="noopener noreferrer" class="kuyendev-demo-cta">
+      Cotizar esta Web
+    </a>
+  </aside>
+
+</body>
+</html>

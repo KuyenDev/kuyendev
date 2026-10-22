@@ -56,7 +56,7 @@
         "image": "https://kuyendev.cl/images/kuyendev-og.jpg",
         "description": "Estudio tecnológico especializado en diseño y desarrollo web profesional con planes de mantenimiento, y servicios informáticos de software en Osorno, Chile y asistencia remota.",
         "telephone": "+56922231780",
-        "email": "fa.lunangulo@kuyendev.cl",
+        "email": "fa.lunangulo@outlook.com",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Osorno",
@@ -98,18 +98,75 @@
           </picture>
         </a>
 
-        <ul class="nav-links">
-          <li><a href="pages/desarrollo-web.html" class="nav-link">Desarrollo Web</a></li>
-          <li><a href="pages/planes-web.html" class="nav-link">Planes Mensuales</a></li>
-          <li><a href="pages/servicios-informaticos.html" class="nav-link">Servicios Informáticos</a></li>
-          <li><a href="pages/empresas.html" class="nav-link">Empresas & Colegios</a></li>
-          <li><a href="pages/proyectos.html" class="nav-link">Proyectos</a></li>
-          <li><a href="pages/nosotros.html" class="nav-link">Nosotros</a></li>
-        </ul>
+        <!-- DOCK DE NAVEGACIÓN RESORTE (AURORA CAPSULE DOCK) -->
+        <div class="nav-dock-container" role="menubar" aria-label="Navegación principal">
+          <!-- 01. Inicio (Activo) -->
+          <a href="index.html" class="nav-dock-item is-active" role="menuitem" aria-current="page" title="Inicio">
+            <svg class="nav-dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/>
+            </svg>
+            <span class="nav-dock-label">Inicio</span>
+          </a>
+
+          <!-- 02. Desarrollo Web -->
+          <a href="pages/desarrollo-web.html" class="nav-dock-item" role="menuitem" title="Desarrollo Web Profesional">
+            <svg class="nav-dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+            </svg>
+            <span class="nav-dock-label">Desarrollo Web</span>
+          </a>
+
+          <!-- 03. Planes Mensuales -->
+          <a href="pages/planes-web.html" class="nav-dock-item" role="menuitem" title="Planes Mensuales">
+            <svg class="nav-dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+            </svg>
+            <span class="nav-dock-label">Planes Web</span>
+          </a>
+
+          <!-- 04. Soporte PC & Sistemas -->
+          <a href="pages/servicios-informaticos.html" class="nav-dock-item" role="menuitem" title="Servicios Informáticos">
+            <svg class="nav-dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+            </svg>
+            <span class="nav-dock-label">Servicios PC</span>
+          </a>
+
+          <!-- 05. Empresas & Colegios -->
+          <a href="pages/empresas.html" class="nav-dock-item" role="menuitem" title="Empresas & Colegios">
+            <svg class="nav-dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+            </svg>
+            <span class="nav-dock-label">Empresas</span>
+          </a>
+
+          <!-- 06. Noticias -->
+          <a href="pages/noticias.html" class="nav-dock-item" role="menuitem" title="Noticias & Artículos">
+            <svg class="nav-dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 20H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v1m2 13a2 2 0 0 1-2-2V7m2 13a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+            </svg>
+            <span class="nav-dock-label">Noticias</span>
+          </a>
+
+          <!-- 07. Nosotros -->
+          <a href="pages/nosotros.html" class="nav-dock-item" role="menuitem" title="Sobre KuyénDev">
+            <svg class="nav-dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+            </svg>
+            <span class="nav-dock-label">Nosotros</span>
+          </a>
+        </div>
 
         <div class="nav-actions">
-          <a href="pages/contacto.html" class="btn-kd btn-kd-primary btn-kd-sm">
-            Cotizar Proyecto
+          <!-- Botón Circular Blanco Luminoso (Chat Directo) según referencia del usuario -->
+          <a href="https://wa.me/56922231780?text=Hola%20Franco,%20quisiera%20consultar%20sobre%20los%20servicios%20de%20Kuy%C3%A9nDev" target="_blank" rel="noopener noreferrer" class="nav-action-chat-circle" aria-label="Abrir chat directo de WhatsApp con Franco Luna" title="Chatear con Franco Luna (+569 2223 1780)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+            </svg>
+          </a>
+
+          <a href="pages/contacto.html" class="btn-kd btn-kd-primary btn-kd-sm nav-cta-btn">
+            Cotizar
           </a>
 
           <!-- Botón Menú Móvil -->
@@ -130,9 +187,8 @@
     <a href="pages/planes-web.html" class="mobile-nav-link">Planes Mensuales</a>
     <a href="pages/servicios-informaticos.html" class="mobile-nav-link">Servicios Informáticos</a>
     <a href="pages/empresas.html" class="mobile-nav-link">Empresas e Instituciones</a>
-    <a href="pages/proyectos.html" class="mobile-nav-link">Proyectos & Casos</a>
+    <a href="pages/noticias.html" class="mobile-nav-link">Noticias & Publicaciones</a>
     <a href="pages/nosotros.html" class="mobile-nav-link">Sobre KuyénDev</a>
-    <a href="pages/publicaciones.html" class="mobile-nav-link">Publicaciones & Guías</a>
     <a href="pages/contacto.html" class="btn-kd btn-kd-primary" style="margin-top: 1.5rem;">Iniciar Consulta</a>
   </div>
 
@@ -143,9 +199,14 @@
         <div class="grid-2" style="align-items: center; gap: 3rem;">
           
           <div class="hero-copy reveal-fade">
-            <div class="section-tag tag-cyan">
-              <span class="pulse-dot" aria-hidden="true"></span>
-              Estudio Tecnológico · Osorno & Asistencia Digital
+            <div style="display: flex; gap: 0.65rem; flex-wrap: wrap; margin-bottom: 1.25rem;">
+              <div class="section-tag tag-cyan" style="margin-bottom: 0;">
+                <span class="pulse-dot" aria-hidden="true"></span>
+                Estudio Tecnológico · Osorno & Asistencia Digital
+              </div>
+              <div class="section-tag" style="margin-bottom: 0; background: rgba(39, 199, 212, 0.08); border-color: rgba(39, 199, 212, 0.22); color: var(--kd-cyan-light); font-style: italic;">
+                "Recuperar y optimizar antes de reemplazar"
+              </div>
             </div>
 
             <h1 class="hero-title" style="font-size: clamp(2.35rem, 4.5vw, 3.65rem); line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -0.035em;">
@@ -184,8 +245,9 @@
           </div>
 
           <!-- COMPOSICIÓN VISUAL PROTAGONISTA: MOCKUP DE INTERFAZ DE ESTUDIO -->
-          <div class="hero-media reveal-fade delay-150">
-            <div class="card-kd card-spotlight" style="padding: 1.25rem; border-color: var(--kd-border-strong); background: rgba(14, 20, 34, 0.85); box-shadow: var(--kd-shadow-lg);">
+          <div class="hero-media reveal-fade delay-150" style="position: relative;">
+            <div style="position: absolute; top: -15%; right: -15%; width: 340px; height: 340px; background: radial-gradient(circle, rgba(39, 199, 212, 0.22) 0%, rgba(112, 88, 184, 0.15) 45%, transparent 70%); filter: blur(40px); pointer-events: none; z-index: 0;" aria-hidden="true"></div>
+            <div class="card-kd card-spotlight" style="position: relative; z-index: 1; padding: 1.25rem; border-color: var(--kd-border-strong); background: rgba(16, 28, 45, 0.88); box-shadow: var(--kd-shadow-lg);">
               
               <!-- Ventana Superior de Control -->
               <div style="display: flex; align-items: center; justify-content: space-between; padding-bottom: 1rem; border-bottom: 1px solid var(--kd-border-subtle); margin-bottom: 1.25rem;">
@@ -338,28 +400,212 @@
       </div>
     </section>
 
-    <!-- SECCIÓN PLANES WEB DESTACADOS -->
+    <!-- SECCIÓN PLANES WEB: MODELO WEB COMO SERVICIO (WaaS) & DEMOS EN VIVO -->
     <section id="planes" class="section-padding">
       <div class="container">
+        
+        <!-- Encabezado de Sección -->
         <div class="section-header text-center reveal-fade">
-          <span class="section-tag tag-cyan mx-auto">Planes de Continuidad</span>
-          <h2 class="section-title">Tu Página Web con Mantenimiento Incluido</h2>
+          <span class="section-tag tag-cyan mx-auto">Web como Servicio · Trato Directo & Accesible</span>
+          <h2 class="section-title">Páginas Web en Código Puro para Pymes: Creación a Medida + Gestión Mes a Mes</h2>
           <p class="section-subtitle mx-auto">
-            Sin costos sorpresa ni páginas desactualizadas. Un plan mensual transparente que cubre diseño, alojamiento y cambios periódicos.
+            Hacemos desarrollo web profesional y accesible para emprendimientos y pymes. Todo programado en código nativo (sin WordPress ni constructores lentos). Dominio propio, alojamiento y gestión técnica integral incluidos en el servicio para que tu página funcione siempre sin inconvenientes.
           </p>
         </div>
 
-        <!-- Contenedor Dinámico alimentado desde js/config/plans.js -->
-        <div id="plansDynamicContainer" class="pricing-grid">
-          <!-- Renderizado automático por script.js -->
+        <!-- EXPLICACIÓN DEL MODELO DE NEGOCIO EN 2 FASES -->
+        <div class="waas-model-grid reveal-fade">
+          
+          <!-- Fase 1: Setup Inicial Fuerte -->
+          <article class="card-kd" style="border-top: 3px solid var(--kd-cyan);">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+              <span class="badge-kd badge-kd-cyan">Fase 1 · Puesta en Marcha</span>
+              <span style="font-size: 0.8rem; color: var(--kd-cyan-light); font-weight: 700;">Inversión Inicial Accesible</span>
+            </div>
+            <h3 style="font-size: 1.6rem; margin-bottom: 0.75rem;">Desarrollo en Código Puro (100% a Medida)</h3>
+            <p style="font-size: 0.925rem; color: var(--kd-text-muted); line-height: 1.6;">
+              Inversión inicial pensada para pymes y emprendedores. Programamos todo en código limpio a mano (HTML, CSS y JavaScript), sin usar WordPress, plugins pesados ni programas lentos que ralenticen tu web o la hagan vulnerable. Una web ligera, rápida y moderna que te pertenece por completo.
+            </p>
+
+            <ul class="waas-feature-list">
+              <li class="waas-feature-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>100% Código a mano:</strong> Cero WordPress ni constructores pesados que frenen la web</span>
+              </li>
+              <li class="waas-feature-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>Carga instantánea (&lt; 1s)</strong> para no perder visitas en celulares</span>
+              </li>
+              <li class="waas-feature-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>Integración de WhatsApp directa</strong> para recibir consultas y ventas de inmediato</span>
+              </li>
+              <li class="waas-feature-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>Propiedad 100% garantizada</strong> de tus textos, fotos, código y marca</span>
+              </li>
+            </ul>
+          </article>
+
+          <!-- Fase 2: Cuota Mensual Continua -->
+          <article class="card-kd" style="border-top: 3px solid var(--kd-indigo-light);">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+              <span class="badge-kd badge-kd-indigo">Fase 2 · Operación Continua</span>
+              <span style="font-size: 0.8rem; color: var(--kd-indigo-light); font-weight: 700;">Mensualidad Accesible</span>
+            </div>
+            <h3 style="font-size: 1.6rem; margin-bottom: 0.75rem;">Gestión Técnica & Acompañamiento Mes a Mes</h3>
+            <p style="font-size: 0.925rem; color: var(--kd-text-muted); line-height: 1.6;">
+              Dominio propio y alojamiento incluidos en el plan. Aseguramos la continuidad operativa y el soporte técnico permanente, resolviendo toda la infraestructura para que tú solo te concentres en atender a tus clientes.
+            </p>
+
+            <ul class="waas-feature-list">
+              <li class="waas-feature-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>Dominio propio y alojamiento incluidos:</strong> gestión técnica integral y renovación resuelta</span>
+              </li>
+              <li class="waas-feature-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>Certificado de seguridad SSL (HTTPS)</strong> activo y sitio siempre protegido</span>
+              </li>
+              <li class="waas-feature-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>Rondas mensuales de cambios</strong> de fotos, textos, promociones y novedades</span>
+              </li>
+              <li class="waas-feature-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>Trato directo 1 a 1</strong> por WhatsApp con Franco Luna para cualquier consulta</span>
+              </li>
+            </ul>
+          </article>
+
         </div>
 
-        <div style="text-align: center; margin-top: 3rem;">
+        <!-- BLOQUE DE TRANSPARENCIA: POR QUÉ NO PONEMOS PRECIOS PÚBLICOS -->
+        <div class="card-kd reveal-fade" style="background: linear-gradient(135deg, rgba(21, 29, 48, 0.7) 0%, rgba(14, 20, 34, 0.9) 100%); border: 1px solid rgba(6, 182, 212, 0.3); padding: 2.5rem; margin-bottom: 4rem;">
+          <div style="display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;">
+            <div style="width: 56px; height: 56px; border-radius: var(--kd-radius-sm); background: rgba(6, 182, 212, 0.12); border: 1px solid var(--kd-cyan); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--kd-cyan-light)" stroke-width="2" style="width: 28px; height: 28px;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <div style="flex: 1; min-width: 280px;">
+              <h3 style="font-size: 1.35rem; margin-bottom: 0.5rem; color: var(--kd-text-primary);">
+                ¿Por qué no publicamos precios fijos? Cada presupuesto se evalúa y conversa en privado
+              </h3>
+              <p style="font-size: 0.925rem; color: var(--kd-text-secondary); line-height: 1.6; margin: 0;">
+                No creemos en "paquetes enlatados". Una peluquería necesita agendamiento ágil; un fotógrafo un portafolio cinematográfico de alta definición; una clínica dental requiere fichas de especialidades y urgencias. Poner precios genéricos suele significar pagar de más por cosas que no usas o recibir un trabajo deficiente. Evaluamos tu caso en una <strong>conversación privada y transparente</strong>, entregándote una cotización justa para tu volumen de negocio.
+              </p>
+            </div>
+            <div>
+              <a href="https://wa.me/56922231780?text=Hola%20Franco,%20quisiera%20conversar%20en%20privado%20sobre%20un%20proyecto%20web%20para%20mi%20negocio." target="_blank" rel="noopener noreferrer" class="btn-kd btn-kd-primary">
+                Conversar Cotización en Privado
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- SHOWCASE DE SITIOS WEB DE EJEMPLO (DEMOS EN VIVO) -->
+        <div class="reveal-fade">
+          <div class="section-header text-center" style="margin-bottom: 1.5rem;">
+            <span class="section-tag tag-cyan mx-auto">Vitrina de Demostraciones Reales</span>
+            <h2 class="section-title" style="font-size: clamp(1.8rem, 3.5vw, 2.5rem);">Explora Sitios Web de Ejemplo Creados por KuyénDev</h2>
+            <p class="section-subtitle mx-auto">
+              Diseñamos demostraciones completas y 100% interactivas para rubros reales. Haz clic en cualquiera de ellas para <strong>abrirla en una nueva pestaña como un sitio web independiente</strong> y comprobar la velocidad, estética y experiencia de usuario:
+            </p>
+          </div>
+
+          <div class="demo-showcase-grid">
+            
+            <!-- Demo 1: Peluquería / Salón de Belleza -->
+            <article class="demo-preview-card">
+              <div>
+                <div class="demo-preview-thumb">
+                  <span class="badge-kd badge-kd-amber demo-preview-badge">Belleza & Estética</span>
+                  <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=700&q=80" alt="Vista previa web AURA Studio Peluquería" loading="lazy">
+                </div>
+                <div class="demo-preview-body">
+                  <div>
+                    <h3 style="font-size: 1.35rem; margin-bottom: 0.5rem; color: var(--kd-text-primary);">AURA Studio · Alta Peluquería</h3>
+                    <p style="font-size: 0.875rem; color: var(--kd-text-muted); line-height: 1.5; margin-bottom: 1.25rem;">
+                      Diseñado para salones boutique, barberías y centros de estética. Incluye carta de servicios con tiempos y valores, lookbook interactivo de transformaciones y reservas directas a WhatsApp.
+                    </p>
+                    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+                      <span class="badge-kd badge-kd-cyan" style="font-size: 0.7rem;">Carta de Servicios</span>
+                      <span class="badge-kd badge-kd-cyan" style="font-size: 0.7rem;">Lookbook</span>
+                      <span class="badge-kd badge-kd-cyan" style="font-size: 0.7rem;">Reserva WhatsApp</span>
+                    </div>
+                  </div>
+                  <a href="demos/peluqueria/index.html" target="_blank" rel="noopener noreferrer" class="btn-kd btn-kd-primary btn-kd-sm" style="width: 100%; justify-content: center;">
+                    Explorar Sitio Web en Vivo
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 15px; height: 15px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Demo 2: Fotografía / Producción Audiovisual -->
+            <article class="demo-preview-card">
+              <div>
+                <div class="demo-preview-thumb">
+                  <span class="badge-kd badge-kd-indigo demo-preview-badge">Fotografía & Producción</span>
+                  <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=700&q=80" alt="Vista previa web LUMEN Fotografía de Autor" loading="lazy">
+                </div>
+                <div class="demo-preview-body">
+                  <div>
+                    <h3 style="font-size: 1.35rem; margin-bottom: 0.5rem; color: var(--kd-text-primary);">LUMEN · Atelier de Fotografía</h3>
+                    <p style="font-size: 0.875rem; color: var(--kd-text-muted); line-height: 1.5; margin-bottom: 1.25rem;">
+                      Diseñado para fotógrafos de bodas, documentalistas y productoras. Enfoque editorial cinematográfico, portafolio masonry en alta resolución, colecciones de inversión y cotizador interactivo de fechas.
+                    </p>
+                    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+                      <span class="badge-kd badge-kd-indigo" style="font-size: 0.7rem;">Portafolio 4K</span>
+                      <span class="badge-kd badge-kd-indigo" style="font-size: 0.7rem;">Estilo Editorial</span>
+                      <span class="badge-kd badge-kd-indigo" style="font-size: 0.7rem;">Consulta de Fecha</span>
+                    </div>
+                  </div>
+                  <a href="demos/fotografia/index.html" target="_blank" rel="noopener noreferrer" class="btn-kd btn-kd-primary btn-kd-sm" style="width: 100%; justify-content: center;">
+                    Explorar Sitio Web en Vivo
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 15px; height: 15px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Demo 3: Salud & Clínica Dental -->
+            <article class="demo-preview-card">
+              <div>
+                <div class="demo-preview-thumb">
+                  <span class="badge-kd badge-kd-emerald demo-preview-badge">Salud & Clínicas</span>
+                  <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=700&q=80" alt="Vista previa web VITALIS Clínica Dental" loading="lazy">
+                </div>
+                <div class="demo-preview-body">
+                  <div>
+                    <h3 style="font-size: 1.35rem; margin-bottom: 0.5rem; color: var(--kd-text-primary);">VITALIS · Centro Odontológico</h3>
+                    <p style="font-size: 0.875rem; color: var(--kd-text-muted); line-height: 1.5; margin-bottom: 1.25rem;">
+                      Diseñado para centros médicos, clínicas dentales y profesionales de la salud. Proyecta máxima autoridad, catálogo de especialidades con iconos, tecnología 3D, staff médico acreditado y urgencias.
+                    </p>
+                    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+                      <span class="badge-kd badge-kd-emerald" style="font-size: 0.7rem;">Especialidades 3D</span>
+                      <span class="badge-kd badge-kd-emerald" style="font-size: 0.7rem;">Staff SIS</span>
+                      <span class="badge-kd badge-kd-emerald" style="font-size: 0.7rem;">Urgencias 24/7</span>
+                    </div>
+                  </div>
+                  <a href="demos/clinica-dental/index.html" target="_blank" rel="noopener noreferrer" class="btn-kd btn-kd-primary btn-kd-sm" style="width: 100%; justify-content: center;">
+                    Explorar Sitio Web en Vivo
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 15px; height: 15px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3.5rem;">
           <a href="pages/planes-web.html" class="btn-kd btn-kd-secondary">
-            Ver Comparativa Completa de Planes y Preguntas Frecuentes
+            Conoce el Detalle Técnico y Preguntas Frecuentes de Nuestros Planes
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </div>
+
       </div>
     </section>
 
@@ -564,7 +810,6 @@
           <ul class="footer-nav">
             <li><a href="pages/desarrollo-web.html">Servicio de Páginas Web</a></li>
             <li><a href="pages/planes-web.html">Planes Mensuales</a></li>
-            <li><a href="pages/proyectos.html">Portafolio Web</a></li>
             <li><a href="pages/contacto.html">Cotizar Sitio</a></li>
           </ul>
         </div>
@@ -583,9 +828,9 @@
           <h4 class="footer-col-title">Estudio & Contacto</h4>
           <ul class="footer-nav">
             <li><a href="pages/nosotros.html">Sobre KuyénDev</a></li>
-            <li><a href="pages/publicaciones.html">Publicaciones & Guías</a></li>
+            <li><a href="pages/noticias.html">Noticias & Publicaciones</a></li>
             <li><a href="https://wa.me/56922231780" target="_blank" rel="noopener noreferrer">WhatsApp: +56 9 2223 1780</a></li>
-            <li><a href="mailto:fa.lunangulo@kuyendev.cl">fa.lunangulo@kuyendev.cl</a></li>
+            <li><a href="mailto:fa.lunangulo@outlook.com">fa.lunangulo@outlook.com</a></li>
             <li><a href="pages/terminos.html">Términos & Políticas (25 Cláusulas)</a></li>
           </ul>
         </div>

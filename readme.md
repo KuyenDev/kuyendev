@@ -143,7 +143,7 @@ git push origin main
 | Canal | Detalle |
 |---|---|
 | 💬 **WhatsApp** | [+56 9 2223 1780](https://wa.me/56922231780) |
-| 📧 **Email** | [fa.lunangulo@kuyendev.cl](mailto:fa.lunangulo@kuyendev.cl) |
+| 📧 **Email** | [fa.lunangulo@outlook.com](mailto:fa.lunangulo@outlook.com) |
 | 📸 **Instagram** | [@kuyendev](https://instagram.com/kuyendev) |
 | 🌐 **Sitio Web** | [kuyendev.cl](https://kuyendev.cl) |
 | 📍 **Ubicación** | Osorno, Región de Los Lagos, Chile |
