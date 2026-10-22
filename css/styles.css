@@ -919,7 +919,7 @@ header.scrolled .nav-glass {
 .hero-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-  align-items: center;
+  align-items: start;
   gap: clamp(1.75rem, 3.2vw, 3rem);
   width: 100%;
 }
@@ -1029,16 +1029,18 @@ header.scrolled .nav-glass {
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   max-width: 460px;
   width: 100%;
   margin-left: auto;
+  /* Desplazamiento vertical equilibrado: ~45px - 60px alineado con el contenido izquierdo */
+  padding-top: clamp(2.75rem, 3.8vw, 3.75rem);
 }
 
 .hero-ambient-glow {
   position: absolute;
-  top: -12%;
-  right: -12%;
+  top: 5%;
+  right: -10%;
   width: clamp(280px, 30vw, 380px);
   height: clamp(280px, 30vw, 380px);
   background: radial-gradient(circle, rgba(39, 199, 212, 0.18) 0%, rgba(112, 88, 184, 0.12) 40%, transparent 70%);
@@ -1170,6 +1172,9 @@ header.scrolled .nav-glass {
     padding-top: calc(62px + clamp(0.5rem, 1.2vw, 0.85rem));
     padding-bottom: 1.25rem;
   }
+  .hero-media {
+    padding-top: clamp(1.5rem, 2.2vw, 2.25rem);
+  }
   .hero-title {
     font-size: clamp(2.15rem, 3.8vw, 3.15rem);
     margin-bottom: 0.75rem;
@@ -1198,6 +1203,9 @@ header.scrolled .nav-glass {
   .hero-next {
     padding-top: calc(58px + 0.4rem);
     padding-bottom: 0.75rem;
+  }
+  .hero-media {
+    padding-top: 1rem;
   }
   .hero-title {
     font-size: clamp(1.95rem, 3.4vw, 2.65rem);
@@ -1237,6 +1245,7 @@ header.scrolled .nav-glass {
   .hero-media {
     max-width: 100%;
     margin-left: 0;
+    padding-top: 0;
   }
   .hero-benefits-strip {
     grid-template-columns: 1fr;
