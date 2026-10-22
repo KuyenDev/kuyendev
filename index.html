@@ -263,12 +263,13 @@
 
   <main>
     <!-- HERO PRINCIPAL DE ALTO IMPACTO -->
-    <section class="hero-next section-padding" style="padding-top: 8.5rem; padding-bottom: 5rem;">
+    <!-- HERO PRINCIPAL ADAPTABLE AL VIEWPORT (100dvh / 100svh · SIN SCROLL EN ESCRITORIO) -->
+    <section class="hero-next">
       <div class="container">
-        <div class="grid-2" style="align-items: center; gap: 3rem;">
+        <div class="hero-grid">
           
           <div class="hero-copy reveal-fade">
-            <div style="display: flex; gap: 0.65rem; flex-wrap: wrap; margin-bottom: 1.25rem;">
+            <div class="hero-badges">
               <div class="section-tag tag-cyan" style="margin-bottom: 0;">
                 <span class="pulse-dot" aria-hidden="true"></span>
                 Estudio Tecnológico · Osorno & Asistencia Digital
@@ -278,16 +279,16 @@
               </div>
             </div>
 
-            <h1 class="hero-title" style="font-size: clamp(2.25rem, 4.2vw, 3.5rem); line-height: 1.15; margin-bottom: 1.35rem; letter-spacing: -0.03em;">
+            <h1 class="hero-title">
               Desarrollo web a medida.<br>
               <span class="text-gradient">Soporte informático integral.</span>
             </h1>
 
-            <p style="font-size: 1.125rem; color: var(--kd-text-secondary); line-height: 1.7; margin-bottom: 2rem; max-width: 550px;">
+            <p class="hero-desc">
               Diseñamos páginas web profesionales de alto rendimiento con planes mensuales de mantención continua, y brindamos soporte informático especializado para empresas y particulares en Osorno.
             </p>
 
-            <div class="hero-actions" style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.25rem;">
+            <div class="hero-actions">
               <a href="pages/desarrollo-web.html" class="btn-kd btn-kd-primary btn-kd-lg">
                 Desarrollo Web Profesional
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -297,7 +298,7 @@
               </a>
             </div>
 
-            <div style="display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; font-size: 0.85rem; color: var(--kd-text-muted);">
+            <div class="hero-trust-points">
               <div style="display: flex; align-items: center; gap: 0.4rem;">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--kd-emerald)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                 <span>Trato directo con el especialista</span>
@@ -314,8 +315,8 @@
           </div>
 
           <!-- COMPOSICIÓN VISUAL PROTAGONISTA: PANEL TECNOLÓGICO DE ESTUDIO -->
-          <div class="hero-media reveal-fade delay-150" style="position: relative;">
-            <div style="position: absolute; top: -12%; right: -12%; width: 360px; height: 360px; background: radial-gradient(circle, rgba(39, 199, 212, 0.18) 0%, rgba(112, 88, 184, 0.12) 40%, transparent 70%); filter: blur(48px); pointer-events: none; z-index: 0;" aria-hidden="true"></div>
+          <div class="hero-media reveal-fade delay-150">
+            <div class="hero-ambient-glow" aria-hidden="true"></div>
             
             <div class="hero-tech-panel card-spotlight">
               <!-- Ventana Superior de Control -->
@@ -325,17 +326,17 @@
                   <span class="tech-dot" style="background: #f59e0b;"></span>
                   <span class="tech-dot" style="background: #10b981;"></span>
                 </div>
-                <div style="font-family: var(--kd-font-mono); font-size: 0.75rem; color: var(--kd-text-muted); background: rgba(0,0,0,0.35); padding: 0.2rem 0.65rem; border-radius: var(--kd-radius-sm); border: 1px solid var(--kd-border-subtle);">
+                <div style="font-family: var(--kd-font-mono); font-size: 0.72rem; color: var(--kd-text-muted); background: rgba(0,0,0,0.35); padding: 0.15rem 0.55rem; border-radius: var(--kd-radius-sm); border: 1px solid var(--kd-border-subtle);">
                   kuyendev.cl · panel operativo
                 </div>
-                <span class="badge-kd badge-kd-emerald" style="font-size: 0.7rem;">
-                  <span class="pulse-dot" style="width: 6px; height: 6px;" aria-hidden="true"></span>
+                <span class="badge-kd badge-kd-emerald" style="font-size: 0.68rem; padding: 0.2rem 0.5rem;">
+                  <span class="pulse-dot" style="width: 5px; height: 5px;" aria-hidden="true"></span>
                   Disponible en Osorno
                 </span>
               </div>
 
               <!-- Bloques de Interfaz Representativos de Ambas Líneas -->
-              <div style="display: flex; flex-direction: column; gap: 0.85rem;">
+              <div class="tech-panel-content">
                 
                 <!-- Tarjeta Interactiva: Desarrollo Web -->
                 <a href="pages/desarrollo-web.html" class="tech-card-item" title="Ver detalles de Desarrollo Web">
