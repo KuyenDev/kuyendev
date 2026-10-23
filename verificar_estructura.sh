@@ -37,7 +37,8 @@ for page in "index.html" \
             "pages/publicaciones.html" \
             "pages/proyectos.html" \
             "pages/content/bertoldo_hofmann.html" \
-            "pages/content/lanzamiento-desarrollo-web-planes-mensuales.html"; do
+            "pages/content/lanzamiento-desarrollo-web-planes-mensuales.html" \
+            "pages/content/kuyendev-3-0-nueva-etapa-digital.html"; do
   if [ -f "$page" ]; then
     echo "   ✅ $page presente"
   else
@@ -60,7 +61,8 @@ for html in "index.html" \
             "pages/contacto.html" \
             "pages/terminos.html" \
             "pages/content/bertoldo_hofmann.html" \
-            "pages/content/lanzamiento-desarrollo-web-planes-mensuales.html"; do
+            "pages/content/lanzamiento-desarrollo-web-planes-mensuales.html" \
+            "pages/content/kuyendev-3-0-nueva-etapa-digital.html"; do
   if grep -q "styles.css" "$html" && grep -q "script.js" "$html"; then
     echo "   ✅ $html enlaza styles.css y script.js"
   else

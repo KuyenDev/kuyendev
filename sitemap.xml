@@ -32,7 +32,7 @@
   </url>
   <url>
     <loc>https://kuyendev.cl/pages/noticias.html</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -45,6 +45,12 @@
   <url>
     <loc>https://kuyendev.cl/pages/contacto.html</loc>
     <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://kuyendev.cl/pages/content/kuyendev-3-0-nueva-etapa-digital.html</loc>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
