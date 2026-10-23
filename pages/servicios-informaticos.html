@@ -195,53 +195,92 @@
   </div>
 
   <main>
-    <!-- HERO DE SERVICIOS INFORMÁTICOS -->
-    <section class="page-hero">
+    <!-- HERO SERVICIOS INFORMÁTICOS: STUDIO 2-COLUMNAS -->
+    <section class="studio-hero">
       <div class="container">
-        <div class="page-hero-container reveal-fade">
-          <div class="section-tag tag-cyan page-hero-tag">
-            <span class="pulse-dot" aria-hidden="true"></span>
-            Sistemas & Soporte Especializado · Osorno & Asistencia Remota
-          </div>
-
-          <h1 class="page-hero-title">
-            Optimizamos tu computador.<br>
-            <span class="text-gradient">Recuperamos su máxima velocidad.</span>
-          </h1>
-
-          <p class="page-hero-desc">
-            Formateo profesional con respaldo de datos, instalación de Windows LTSC sin software basura, migración a Linux y optimización avanzada de software con garantía formal de 30 días.
-          </p>
-
-          <div class="page-hero-actions">
-            <a href="https://wa.me/56922231780?text=Hola%20Franco,%20quisiera%20consultar%20por%20servicio%20técnico%20para%20mi%20computador." target="_blank" rel="noopener noreferrer" class="btn-kd btn-kd-primary btn-kd-lg">
-              Coordinar Servicio por WhatsApp
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-            <a href="#asistente" class="btn-kd btn-kd-secondary btn-kd-lg">
-              ¿Qué servicio necesita mi equipo?
-            </a>
-          </div>
-
-          <!-- Credenciales Clave de Soporte -->
-          <div class="page-hero-trust-bar">
-            <div class="page-hero-trust-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="var(--kd-emerald)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Respaldo de Datos Seguro</span>
+        <div class="studio-hero-grid">
+          
+          <div class="studio-hero-copy reveal-fade">
+            <div class="studio-hero-tag">
+              <span class="pulse-dot" aria-hidden="true"></span>
+              Sistemas & Soporte Especializado · Osorno & Asistencia Remota
             </div>
-            <div class="page-hero-trust-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="var(--kd-emerald)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Windows LTSC (Cero Bloatware)</span>
+
+            <h1 class="studio-hero-title">
+              Optimizamos tu computador y <span class="text-gradient">recuperamos su máxima velocidad</span>
+            </h1>
+
+            <p class="studio-hero-desc">
+              Formateo profesional con respaldo seguro de datos, instalación de Windows LTSC sin software basura, migración a Linux y optimización avanzada de software con garantía formal de 30 días.
+            </p>
+
+            <div class="studio-hero-actions">
+              <a href="https://wa.me/56922231780?text=Hola%20Franco,%20quisiera%20consultar%20por%20servicio%20técnico%20para%20mi%20computador." target="_blank" rel="noopener noreferrer" class="btn-kd btn-kd-primary btn-kd-lg">
+                Coordinar Servicio por WhatsApp
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+              <a href="#asistente" class="btn-kd btn-kd-secondary btn-kd-lg">
+                ¿Qué servicio necesita mi equipo?
+              </a>
             </div>
-            <div class="page-hero-trust-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="var(--kd-emerald)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Garantía de Software 30 Días</span>
-            </div>
-            <div class="page-hero-trust-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="var(--kd-emerald)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Atención Presencial en Osorno & Remota</span>
+
+            <div class="studio-hero-trust">
+              <div class="studio-trust-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Respaldo de Datos Seguro</span>
+              </div>
+              <div class="studio-trust-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Windows LTSC sin Bloatware</span>
+              </div>
+              <div class="studio-trust-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Garantía Técnica 30 Días</span>
+              </div>
             </div>
           </div>
+
+          <!-- COLUMNA DERECHA: FOTOGRAFÍA ESTACIÓN DE TRABAJO TÉCNICA -->
+          <div class="studio-hero-visual reveal-fade delay-150">
+            <div class="studio-ambient-glow" aria-hidden="true"></div>
+            
+            <div class="studio-visual-frame aspect-4-3">
+              <picture>
+                <source srcset="../images/servicios-workstation.webp" type="image/webp">
+                <img 
+                  src="../images/servicios-workstation.webp" 
+                  alt="Estación de trabajo técnica y banco de pruebas computacional KuyénDev" 
+                  class="studio-visual-img"
+                  width="1448" 
+                  height="1086"
+                  fetchpriority="high"
+                >
+              </picture>
+            </div>
+
+            <!-- Chips Flotantes Glassmórficos -->
+            <div class="studio-floating-chip chip-top-right">
+              <div class="chip-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              </div>
+              <div>
+                <div class="chip-title">Formateo & Windows LTSC</div>
+                <div class="chip-sub">Sistemas Limpios sin Telemetría</div>
+              </div>
+            </div>
+
+            <div class="studio-floating-chip chip-bottom-left">
+              <div class="chip-icon-box icon-emerald">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+              </div>
+              <div>
+                <div class="chip-title">Asistencia Remota Segura</div>
+                <div class="chip-sub">Conexión Cifrada vía RustDesk</div>
+              </div>
+            </div>
+
+          </div>
+
         </div>
       </div>
     </section>

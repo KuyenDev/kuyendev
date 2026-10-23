@@ -188,7 +188,7 @@
 
   <main>
     <!-- HERO DE NOTICIAS -->
-    <section class="page-hero">
+    <section class="page-hero page-hero-editorial">
       <div class="container">
         <div class="page-hero-container reveal-fade">
           <div class="page-hero-tag tag-cyan">
@@ -197,7 +197,7 @@
           </div>
 
           <h1 class="page-hero-title">
-            Noticias y <span class="text-gradient">publicaciones</span>.
+            Noticias y <span class="text-gradient">publicaciones</span>
           </h1>
 
           <p class="page-hero-desc" style="max-width: 640px;">
@@ -205,7 +205,7 @@
           </p>
 
           <!-- Filtros de Categoría -->
-          <div class="filter-tabs" role="tablist" aria-label="Filtrar publicaciones por categoría" style="margin-bottom: 0; margin-top: 0.5rem;">
+          <div class="filter-tabs" role="tablist" aria-label="Filtrar publicaciones por categoría">
             <button class="filter-tab-btn filter-btn is-active" data-filter="all" role="tab" aria-selected="true">Todas las Noticias</button>
             <button class="filter-tab-btn filter-btn" data-filter="novedades" role="tab" aria-selected="false">Novedades</button>
             <button class="filter-tab-btn filter-btn" data-filter="casos" role="tab" aria-selected="false">Casos Reales</button>
@@ -216,9 +216,9 @@
     </section>
 
     <!-- LISTADO DE PUBLICACIONES EN ORDEN CRONOLÓGICO -->
-    <section class="section-padding" style="padding-top: 2.5rem;">
+    <section class="section-padding news-section-editorial">
       <div class="container">
-        <div class="grid-2" id="newsGrid" style="gap: 2.5rem;">
+        <div class="grid-2" id="newsGrid" style="gap: 2rem;">
           
           <!-- PUBLICACIÓN 1 (MÁS RECIENTE): NUEVO SERVICIO WEB Y PLANES MENSUALES -->
           <article class="project-card project-card-item reveal-fade" data-category="novedades">
@@ -227,7 +227,7 @@
                 <source srcset="../images/noticias/lanzamiento-desarrollo-web.webp" type="image/webp">
                 <img src="../images/noticias/lanzamiento-desarrollo-web.jpg" alt="KuyénDev amplía sus servicios con desarrollo web y planes mensuales" width="600" height="330" loading="eager">
               </picture>
-              <div style="position: absolute; top: 1rem; left: 1rem;">
+              <div class="project-card-badge-wrap">
                 <span class="badge-kd badge-kd-cyan">Novedad Oficial</span>
               </div>
             </div>
@@ -258,7 +258,7 @@
                 <source srcset="content/BertoldoHofmannKahler/BHKportada.webp" type="image/webp">
                 <img src="content/BertoldoHofmannKahler/BHKportada.png" alt="Colegio Bertoldo Hofmann Kahler optimizado por KuyénDev" width="600" height="330" loading="lazy">
               </picture>
-              <div style="position: absolute; top: 1rem; left: 1rem;">
+              <div class="project-card-badge-wrap">
                 <span class="badge-kd badge-kd-emerald">Caso Real Verificado</span>
               </div>
             </div>

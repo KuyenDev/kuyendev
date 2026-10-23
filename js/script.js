@@ -105,31 +105,62 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 5. Revelado Progresivo con IntersectionObserver
-  const revealElements = document.querySelectorAll('.reveal-fade');
-  if (prefersReducedMotion || !('IntersectionObserver' in window)) {
-    revealElements.forEach(el => el.classList.add('is-visible'));
-  } else {
-    const revealObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, {
-      root: null,
-      rootMargin: '0px 0px -40px 0px',
-      threshold: 0.08
-    });
+  // 5. Sistema Reutilizable de Revelado Progresivo (IntersectionObserver)
+  let revealObserver = null;
+  const observeRevealElements = (targetRoot = document) => {
+    const selector = '.reveal-fade';
+    const elements = targetRoot.querySelectorAll ? Array.from(targetRoot.querySelectorAll(selector)) : [];
+    if (targetRoot.classList && targetRoot.classList.contains('reveal-fade')) {
+      elements.unshift(targetRoot);
+    }
 
-    revealElements.forEach(el => revealObserver.observe(el));
-  }
+    if (elements.length === 0) return;
+
+    if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+      elements.forEach(el => el.classList.add('is-visible'));
+      return;
+    }
+
+    if (!revealObserver) {
+      revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        root: null,
+        rootMargin: '0px 0px -40px 0px',
+        threshold: 0.08
+      });
+    }
+
+    elements.forEach(el => {
+      if (!el.classList.contains('is-visible')) {
+        // Chequeo de visibilidad inmediata si el elemento ya está dentro de la ventana
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          el.classList.add('is-visible');
+        } else {
+          revealObserver.observe(el);
+        }
+      }
+    });
+  };
 
   // 6. Micro-Iluminación Spotlight por Ratón (Desktop)
-  if (isFinePointer && !prefersReducedMotion) {
-    const spotlightCards = document.querySelectorAll('.card-kd, .card-spotlight, .plan-card');
-    spotlightCards.forEach(card => {
+  const initSpotlight = (targetRoot = document) => {
+    if (!isFinePointer || prefersReducedMotion) return;
+    const selector = '.card-kd, .card-spotlight, .plan-card';
+    const cards = targetRoot.querySelectorAll ? Array.from(targetRoot.querySelectorAll(selector)) : [];
+    if (targetRoot.classList && (targetRoot.classList.contains('card-kd') || targetRoot.classList.contains('plan-card'))) {
+      cards.unshift(targetRoot);
+    }
+
+    cards.forEach(card => {
+      if (card.dataset.spotlightInit) return;
+      card.dataset.spotlightInit = 'true';
       card.addEventListener('mousemove', (e) => {
         const rect = card.getBoundingClientRect();
         const x = e.clientX - rect.left;
@@ -138,51 +169,21 @@ document.addEventListener('DOMContentLoaded', () => {
         card.style.setProperty('--mouse-y', `${y}px`);
       }, { passive: true });
     });
-  }
+  };
 
-  // 7. Acordeones Accesibles (FAQs)
-  const accordionItems = document.querySelectorAll('.accordion-item');
-  accordionItems.forEach(item => {
-    const trigger = item.querySelector('.accordion-trigger');
-    if (!trigger) return;
-
-    trigger.addEventListener('click', () => {
-      const isOpen = item.classList.contains('is-open');
-
-      // Cerrar otros acordeones si se desea comportamiento exclusivo
-      const container = item.closest('.accordion-group');
-      if (container && container.getAttribute('data-exclusive') !== 'false') {
-        container.querySelectorAll('.accordion-item').forEach(other => {
-          if (other !== item) {
-            other.classList.remove('is-open');
-            const otherTrigger = other.querySelector('.accordion-trigger');
-            if (otherTrigger) otherTrigger.setAttribute('aria-expanded', 'false');
-          }
-        });
-      }
-
-      if (isOpen) {
-        item.classList.remove('is-open');
-        trigger.setAttribute('aria-expanded', 'false');
-      } else {
-        item.classList.add('is-open');
-        trigger.setAttribute('aria-expanded', 'true');
-      }
-    });
-  });
-
-  // 8. Renderizado Dinámico de Planes Web (si existe contenedor)
+  // 7. Renderizado Dinámico de Planes Web (si existe contenedor)
   const plansContainer = document.getElementById('plansDynamicContainer');
   if (plansContainer && window.KUYENDEV_PLANS_CONFIG) {
     const config = window.KUYENDEV_PLANS_CONFIG;
     let html = '';
 
-    config.plans.forEach(plan => {
+    config.plans.forEach((plan, idx) => {
       const waLink = `https://wa.me/${config.supportPhone}?text=${encodeURIComponent(plan.waMessage)}`;
       const isHigh = plan.highlighted;
+      const delayClass = idx === 1 ? 'delay-100' : idx === 2 ? 'delay-200' : '';
 
       html += `
-        <article class="card-kd plan-card ${isHigh ? 'card-kd-highlight' : ''} reveal-fade">
+        <article class="card-kd plan-card ${isHigh ? 'card-kd-highlight' : ''} reveal-fade ${delayClass}">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem;">
               <span class="badge-kd ${isHigh ? 'badge-kd-indigo' : 'badge-kd-cyan'}">${plan.badge}</span>
@@ -221,6 +222,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
     plansContainer.innerHTML = html;
   }
+
+  // Inicializar observador y spotlight en todo el DOM (incluyendo los planes ya inyectados)
+  observeRevealElements(document);
+  initSpotlight(document);
+
+  // 8. Acordeones Accesibles (FAQs)
+  const accordionItems = document.querySelectorAll('.accordion-item');
+  accordionItems.forEach(item => {
+    const trigger = item.querySelector('.accordion-trigger');
+    if (!trigger) return;
+
+    trigger.addEventListener('click', () => {
+      const isOpen = item.classList.contains('is-open');
+
+      // Cerrar otros acordeones si se desea comportamiento exclusivo
+      const container = item.closest('.accordion-group');
+      if (container && container.getAttribute('data-exclusive') !== 'false') {
+        container.querySelectorAll('.accordion-item').forEach(other => {
+          if (other !== item) {
+            other.classList.remove('is-open');
+            const otherTrigger = other.querySelector('.accordion-trigger');
+            if (otherTrigger) otherTrigger.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
+
+      if (isOpen) {
+        item.classList.remove('is-open');
+        trigger.setAttribute('aria-expanded', 'false');
+      } else {
+        item.classList.add('is-open');
+        trigger.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
 
   // 9. Formulario Inteligente de Cotización Web (Generador a WhatsApp / Email)
   const quoteForm = document.getElementById('quoteSmartForm');

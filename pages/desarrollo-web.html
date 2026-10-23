@@ -199,53 +199,92 @@
   </div>
 
   <main>
-    <!-- HERO DE LA PÁGINA COMERCIAL DE DESARROLLO WEB -->
-    <section class="page-hero">
+    <!-- HERO DESARROLLO WEB: STUDIO 2-COLUMNAS -->
+    <section class="studio-hero">
       <div class="container">
-        <div class="page-hero-container reveal-fade">
-          <div class="section-tag tag-indigo page-hero-tag">
-            <span class="pulse-dot" aria-hidden="true"></span>
-            Línea Comercial Estrella · Estudio Frontend
-          </div>
-
-          <h1 class="page-hero-title">
-            Tu negocio merece una presencia digital<br>
-            <span class="text-gradient">a otro nivel</span>.
-          </h1>
-
-          <p class="page-hero-desc">
-            Diseñamos y programamos páginas web profesionales con código limpio, tiempos de carga instantáneos y planes mensuales de mantenimiento integral para que nunca te preocupes por la técnica.
-          </p>
-
-          <div class="page-hero-actions">
-            <a href="contacto.html" class="btn-kd btn-kd-primary btn-kd-lg">
-              Cotizar Mi Sitio Web
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-            <a href="planes-web.html" class="btn-kd btn-kd-secondary btn-kd-lg">
-              Ver Planes Mensuales
-            </a>
-          </div>
-
-          <!-- Credenciales Técnicas Clave -->
-          <div class="page-hero-trust-bar">
-            <div class="page-hero-trust-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="var(--kd-emerald)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>100% Responsive & Móvil</span>
+        <div class="studio-hero-grid">
+          
+          <div class="studio-hero-copy reveal-fade">
+            <div class="studio-hero-tag">
+              <span class="pulse-dot" aria-hidden="true"></span>
+              Línea Comercial Estrella · Estudio Frontend
             </div>
-            <div class="page-hero-trust-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="var(--kd-emerald)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Carga Ultra Rápida (&lt; 1s)</span>
+
+            <h1 class="studio-hero-title">
+              Tu negocio merece una presencia digital <span class="text-gradient">a otro nivel</span>
+            </h1>
+
+            <p class="studio-hero-desc">
+              Diseñamos y programamos páginas web a medida con código nativo, tiempos de carga instantáneos y planes mensuales de mantención integral para que nunca te preocupes por la parte técnica.
+            </p>
+
+            <div class="studio-hero-actions">
+              <a href="contacto.html" class="btn-kd btn-kd-primary btn-kd-lg">
+                Cotizar Mi Sitio Web
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+              <a href="planes-web.html" class="btn-kd btn-kd-secondary btn-kd-lg">
+                Ver Planes Mensuales
+              </a>
             </div>
-            <div class="page-hero-trust-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="var(--kd-emerald)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>SEO Técnico Nativo</span>
-            </div>
-            <div class="page-hero-trust-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="var(--kd-emerald)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Atención Directa en Osorno</span>
+
+            <div class="studio-hero-trust">
+              <div class="studio-trust-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>100% Responsive & Móvil</span>
+              </div>
+              <div class="studio-trust-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Carga Ultrarrápida (&lt;1s)</span>
+              </div>
+              <div class="studio-trust-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>SEO Técnico Nativo</span>
+              </div>
             </div>
           </div>
+
+          <!-- COLUMNA DERECHA: MOCKUP CONCEPTUAL RESPONSIVE DESKTOP & MOBILE -->
+          <div class="studio-hero-visual reveal-fade delay-150">
+            <div class="studio-ambient-glow" aria-hidden="true"></div>
+            
+            <div class="studio-visual-frame aspect-4-3">
+              <picture>
+                <source srcset="../images/desarrollo-web-showcase.webp" type="image/webp">
+                <img 
+                  src="../images/desarrollo-web-showcase.webp" 
+                  alt="Demostración visual conceptual de diseño web responsive escritorio y móvil" 
+                  class="studio-visual-img"
+                  width="1448" 
+                  height="1086"
+                  fetchpriority="high"
+                >
+              </picture>
+            </div>
+
+            <!-- Chips Flotantes Glassmórficos -->
+            <div class="studio-floating-chip chip-top-right">
+              <div class="chip-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              </div>
+              <div>
+                <div class="chip-title">Diseño Multi-Dispositivo</div>
+                <div class="chip-sub">Escritorio, Tablet y Smartphone</div>
+              </div>
+            </div>
+
+            <div class="studio-floating-chip chip-bottom-left">
+              <div class="chip-icon-box icon-emerald">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              </div>
+              <div>
+                <div class="chip-title">Carga Rápida & Código Nativo</div>
+                <div class="chip-sub">HTML, CSS y JS sin Bloatware</div>
+              </div>
+            </div>
+
+          </div>
+
         </div>
       </div>
     </section>

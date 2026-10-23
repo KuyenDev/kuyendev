@@ -41,6 +41,16 @@
   <!-- Hoja de Estilos del Design System v4.0 -->
   <link rel="stylesheet" href="../css/styles.css">
 
+  <!-- Respaldo de Accesibilidad para Entornos sin JavaScript -->
+  <noscript>
+    <style>
+      .reveal-fade {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    </style>
+  </noscript>
+
   <!-- Schema.org Datos Estructurados JSON-LD -->
   <script type="application/ld+json">
   {
@@ -196,46 +206,113 @@
   </div>
 
   <main>
-    <!-- HERO DE PLANES MENSUALES -->
-    <section class="page-hero">
+    <!-- HERO PLANES WEB: STUDIO 2-COLUMNAS -->
+    <section class="studio-hero">
       <div class="container">
-        <div class="page-hero-container reveal-fade">
-          <div class="section-tag tag-cyan page-hero-tag">
-            <span class="pulse-dot" aria-hidden="true"></span>
-            Continuidad & Tranquilidad Digital · Web como Servicio
+        <div class="studio-hero-grid">
+          
+          <div class="studio-hero-copy reveal-fade">
+            <div class="studio-hero-tag">
+              <span class="pulse-dot" aria-hidden="true"></span>
+              Continuidad & Tranquilidad Digital · Web como Servicio
+            </div>
+
+            <h1 class="studio-hero-title">
+              Páginas web profesionales a medida: <span class="text-gradient">código nativo y soporte continuo</span>
+            </h1>
+
+            <p class="studio-hero-desc">
+              Un servicio integral para emprendedores y pymes. Programamos tu sitio web desde cero en código nativo de alto rendimiento, sin plantillas lentas ni constructores pesados. Dominio propio, hosting ultrarrápido y mantención continua incluidos en un plan mensual transparente.
+            </p>
+
+            <div class="studio-hero-actions">
+              <a href="#planes" class="btn-kd btn-kd-primary btn-kd-lg">
+                Ver Planes Disponibles
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+              </a>
+              <a href="#modelo-waas" class="btn-kd btn-kd-secondary btn-kd-lg">
+                ¿Cómo funciona el servicio?
+              </a>
+            </div>
+
+            <div class="studio-hero-trust">
+              <div class="studio-trust-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Cero Plantillas Lentas</span>
+              </div>
+              <div class="studio-trust-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Dominio y Hosting Incluidos</span>
+              </div>
+              <div class="studio-trust-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Mantención Continua 1 a 1</span>
+              </div>
+            </div>
+
+            <!-- Nota de Transparencia Comercial Integrada -->
+            <div class="hero-notice-pill" style="margin-top: 1.25rem;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 15px; height: 15px; flex-shrink: 0;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+              Presupuestos personalizados evaluados en privado según el alcance de tu rubro · Sin costos ocultos
+            </div>
           </div>
 
-          <h1 class="page-hero-title">
-            Páginas web a medida para pymes:<br>
-            <span class="text-gradient">código nativo + gestión mes a mes</span>.
-          </h1>
+          <!-- COLUMNA DERECHA: MOCKUP MONITOR + SMARTPHONE CON DESARROLLO A MEDIDA -->
+          <div class="studio-hero-visual reveal-fade delay-150">
+            <div class="studio-ambient-glow" aria-hidden="true"></div>
+            
+            <div class="studio-visual-frame aspect-4-3">
+              <picture>
+                <source srcset="../images/planes-web-showcase.webp" type="image/webp">
+                <img 
+                  src="../images/planes-web-showcase.webp" 
+                  alt="Página web profesional en monitor de alta gama y smartphone con desarrollo a medida y mantenimiento continuo" 
+                  class="studio-visual-img"
+                  width="1200" 
+                  height="896"
+                  fetchpriority="high"
+                >
+              </picture>
+            </div>
 
-          <p class="page-hero-desc">
-            Un servicio integral para emprendedores y empresas. Programamos tu sitio en código nativo de alto rendimiento, sin plantillas pesadas. Dominio, alojamiento y mantención continua incluidos en un plan mensual transparente.
-          </p>
+            <!-- Chips Flotantes Glassmórficos con los Pilares del Servicio -->
+            <div class="studio-floating-chip chip-top-right">
+              <div class="chip-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              </div>
+              <div>
+                <div class="chip-title">Desarrollo a Medida</div>
+                <div class="chip-sub">Código Nativo sin Bloatware</div>
+              </div>
+            </div>
 
-          <div class="page-hero-actions">
-            <a href="#planes" class="btn-kd btn-kd-primary btn-kd-lg">
-              Ver Planes Disponibles
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
-            </a>
-            <a href="#modelo-waas" class="btn-kd btn-kd-secondary btn-kd-lg">
-              ¿Cómo funciona el servicio?
-            </a>
+            <div class="studio-floating-chip chip-bottom-left">
+              <div class="chip-icon-box icon-emerald">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div>
+                <div class="chip-title">Dominio, Hosting & SSL</div>
+                <div class="chip-sub">Mantención Continua y Soporte</div>
+              </div>
+            </div>
+
           </div>
 
-          <!-- Nota de Transparencia Comercial Integrada -->
-          <div style="display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.5rem 1.15rem; background: rgba(6, 182, 212, 0.08); border: 1px solid rgba(6, 182, 212, 0.22); border-radius: var(--kd-radius-full); font-size: 0.825rem; color: var(--kd-cyan-light); margin-top: 1.75rem;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 15px; height: 15px; flex-shrink: 0;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-            Presupuestos personalizados evaluados en privado según el alcance de tu rubro · Sin costos ocultos
-          </div>
         </div>
       </div>
     </section>
 
     <!-- EXPLICACIÓN DEL MODELO DE NEGOCIO EN 2 FASES -->
-    <section id="modelo-waas" class="section-padding" style="padding-top: 1.5rem; padding-bottom: 2.5rem;">
+    <section id="modelo-waas" class="section-padding" style="padding-top: 3.5rem; padding-bottom: 3.5rem;">
       <div class="container">
+        <div style="max-width: 680px; margin: 0 auto 2.25rem; text-align: center;" class="reveal-fade">
+          <div class="section-tag tag-cyan">Arquitectura del Servicio</div>
+          <h2 class="section-title">El modelo en 2 fases: puesta en marcha y continuidad</h2>
+          <p class="section-desc">
+            Pensado para que pymes y profesionales cuenten con un sitio de estándar técnico superior sin descapitalizarse ni asumir la carga técnica operativa.
+          </p>
+        </div>
+
         <div class="waas-model-grid reveal-fade">
           
           <!-- Fase 1: Setup Inicial Fuerte -->
@@ -301,131 +378,11 @@
           </article>
 
         </div>
-
-        <!-- BLOQUE DE TRANSPARENCIA: POR QUÉ SE COTIZA EN PRIVADO -->
-        <div class="card-kd reveal-fade" style="background: linear-gradient(135deg, rgba(21, 29, 48, 0.7) 0%, rgba(14, 20, 34, 0.9) 100%); border: 1px solid rgba(6, 182, 212, 0.3); padding: 2.5rem; margin-bottom: 3.5rem;">
-          <div style="display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;">
-            <div style="width: 56px; height: 56px; border-radius: var(--kd-radius-sm); background: rgba(6, 182, 212, 0.12); border: 1px solid var(--kd-cyan); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-              <svg viewBox="0 0 24 24" fill="none" stroke="var(--kd-cyan-light)" stroke-width="2" style="width: 28px; height: 28px;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            </div>
-            <div style="flex: 1; min-width: 280px;">
-              <h3 style="font-size: 1.35rem; margin-bottom: 0.5rem; color: var(--kd-text-primary);">
-                ¿Por qué no mostramos precios fijos? Cada cotización es personalizada y en privado
-              </h3>
-              <p style="font-size: 0.925rem; color: var(--kd-text-secondary); line-height: 1.6; margin: 0;">
-                No creemos en cobrarle lo mismo a un profesional independiente que busca una landing page para WhatsApp que a una empresa consolidada que requiere un catálogo multipágina extenso. Publicar precios rígidos obliga a inflar tarifas o a limitar la calidad del trabajo. Evaluamos tu requerimiento en una <strong>conversación directa y privada</strong> para ofrecerte una cotización justa, detallada y acorde a tu realidad.
-              </p>
-            </div>
-            <div>
-              <a href="https://wa.me/56922231780?text=Hola%20Franco,%20quisiera%20conversar%20en%20privado%20sobre%20los%20planes%20mensuales%20web%20para%20mi%20negocio." target="_blank" rel="noopener noreferrer" class="btn-kd btn-kd-primary">
-                Cotizar Proyecto en Privado
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- VITRINA DE DEMOSTRACIONES REALES -->
-        <div class="reveal-fade" style="margin-bottom: 3.5rem;">
-          <div class="section-header text-center" style="margin-bottom: 2rem;">
-            <span class="section-tag tag-cyan mx-auto">Demostraciones Reales</span>
-            <h2 class="section-title">Explora Sitios Web de Ejemplo</h2>
-            <p class="section-desc">
-              Páginas web completas y 100% funcionales desarrolladas por KuyénDev para diversos rubros. Haz clic en cualquiera de ellas para <strong>abrirla en una nueva pestaña como un sitio web independiente</strong>:
-            </p>
-          </div>
-
-          <div class="demo-showcase-grid">
-            
-            <!-- Demo 1: Peluquería -->
-            <article class="demo-preview-card">
-              <div>
-                <div class="demo-preview-thumb">
-                  <span class="badge-kd badge-kd-amber demo-preview-badge">Belleza & Estética</span>
-                  <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=700&q=80" alt="Demo AURA Studio Peluquería" loading="lazy">
-                </div>
-                <div class="demo-preview-body">
-                  <div>
-                    <h3 style="font-size: 1.35rem; margin-bottom: 0.5rem; color: var(--kd-text-primary);">AURA Studio · Alta Peluquería</h3>
-                    <p style="font-size: 0.875rem; color: var(--kd-text-muted); line-height: 1.5; margin-bottom: 1.25rem;">
-                      Para salones, barberías y estética. Incluye carta de servicios con duraciones y valores, lookbook interactivo de transformaciones y reservas directas a WhatsApp.
-                    </p>
-                    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
-                      <span class="badge-kd badge-kd-cyan" style="font-size: 0.7rem;">Carta de Servicios</span>
-                      <span class="badge-kd badge-kd-cyan" style="font-size: 0.7rem;">Lookbook</span>
-                      <span class="badge-kd badge-kd-cyan" style="font-size: 0.7rem;">Reserva WhatsApp</span>
-                    </div>
-                  </div>
-                  <a href="../demos/peluqueria/index.html" target="_blank" rel="noopener noreferrer" class="btn-kd btn-kd-primary btn-kd-sm" style="width: 100%; justify-content: center;">
-                    Explorar Sitio Web en Vivo
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 15px; height: 15px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
-                  </a>
-                </div>
-              </div>
-            </article>
-
-            <!-- Demo 2: Fotografía -->
-            <article class="demo-preview-card">
-              <div>
-                <div class="demo-preview-thumb">
-                  <span class="badge-kd badge-kd-indigo demo-preview-badge">Fotografía & Producción</span>
-                  <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=700&q=80" alt="Demo LUMEN Fotografía" loading="lazy">
-                </div>
-                <div class="demo-preview-body">
-                  <div>
-                    <h3 style="font-size: 1.35rem; margin-bottom: 0.5rem; color: var(--kd-text-primary);">LUMEN · Atelier de Fotografía</h3>
-                    <p style="font-size: 0.875rem; color: var(--kd-text-muted); line-height: 1.5; margin-bottom: 1.25rem;">
-                      Para fotógrafos de bodas y productoras. Enfoque editorial cinematográfico, portafolio visual en alta definición, colecciones de inversión y cotizador interactivo de fechas.
-                    </p>
-                    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
-                      <span class="badge-kd badge-kd-indigo" style="font-size: 0.7rem;">Portafolio 4K</span>
-                      <span class="badge-kd badge-kd-indigo" style="font-size: 0.7rem;">Estilo Editorial</span>
-                      <span class="badge-kd badge-kd-indigo" style="font-size: 0.7rem;">Consulta de Fecha</span>
-                    </div>
-                  </div>
-                  <a href="../demos/fotografia/index.html" target="_blank" rel="noopener noreferrer" class="btn-kd btn-kd-primary btn-kd-sm" style="width: 100%; justify-content: center;">
-                    Explorar Sitio Web en Vivo
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 15px; height: 15px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
-                  </a>
-                </div>
-              </div>
-            </article>
-
-            <!-- Demo 3: Clínica Dental -->
-            <article class="demo-preview-card">
-              <div>
-                <div class="demo-preview-thumb">
-                  <span class="badge-kd badge-kd-emerald demo-preview-badge">Salud & Clínicas</span>
-                  <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=700&q=80" alt="Demo VITALIS Clínica Dental" loading="lazy">
-                </div>
-                <div class="demo-preview-body">
-                  <div>
-                    <h3 style="font-size: 1.35rem; margin-bottom: 0.5rem; color: var(--kd-text-primary);">VITALIS · Centro Odontológico</h3>
-                    <p style="font-size: 0.875rem; color: var(--kd-text-muted); line-height: 1.5; margin-bottom: 1.25rem;">
-                      Para centros de salud y consultas odontológicas. Proyecta autoridad clínica, catálogo de especialidades con iconos, tecnología 3D, staff médico acreditado y urgencias.
-                    </p>
-                    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
-                      <span class="badge-kd badge-kd-emerald" style="font-size: 0.7rem;">Especialidades 3D</span>
-                      <span class="badge-kd badge-kd-emerald" style="font-size: 0.7rem;">Staff SIS</span>
-                      <span class="badge-kd badge-kd-emerald" style="font-size: 0.7rem;">Urgencias 24/7</span>
-                    </div>
-                  </div>
-                  <a href="../demos/clinica-dental/index.html" target="_blank" rel="noopener noreferrer" class="btn-kd btn-kd-primary btn-kd-sm" style="width: 100%; justify-content: center;">
-                    Explorar Sitio Web en Vivo
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 15px; height: 15px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
-                  </a>
-                </div>
-              </div>
-            </article>
-
-          </div>
-        </div>
-
       </div>
     </section>
 
     <!-- NIVELES DE ALCANCE Y COTIZACIÓN EN PRIVADO -->
-    <section id="planes" class="section-padding" style="padding-top: 1rem;">
+    <section id="planes" class="section-padding" style="padding-top: 3.5rem; padding-bottom: 3.5rem;">
       <div class="container">
         <div style="max-width: 680px; margin: 0 auto 2.5rem; text-align: center;" class="reveal-fade">
           <div class="section-tag tag-indigo">Niveles de Servicio</div>
@@ -435,45 +392,202 @@
           </p>
         </div>
 
-        <!-- Contenedor inyectado dinámicamente desde js/config/plans.js -->
+        <!-- Contenedor inyectado dinámicamente desde js/config/plans.js (con estructura inicial completa) -->
         <div id="plansDynamicContainer" class="pricing-grid">
-          <!-- Fallback semántico mientras carga el script -->
+          <!-- Plan Esencial -->
           <article class="card-kd plan-card reveal-fade">
-            <span class="badge-kd badge-kd-cyan">Emprendimientos</span>
-            <h3 style="font-size: 1.5rem; margin: 0.75rem 0;">Plan Esencial</h3>
-            <p style="font-size: 0.875rem; color: var(--kd-text-muted);">Presencia profesional compacta para profesionales y marcas que dan sus primeros pasos.</p>
-            <div class="plan-price-box">
-              <div class="plan-price-val">Presupuesto en privado</div>
-              <span style="font-size: 0.8rem; color: var(--kd-text-dim);">Modalidad mensual</span>
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem;">
+                <span class="badge-kd badge-kd-cyan">Emprendedores & Profesionales</span>
+              </div>
+              <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Plan Esencial</h3>
+              <p style="font-size: 0.875rem; color: var(--kd-text-muted); line-height: 1.5; margin-bottom: 1.5rem;">
+                Presencia digital clara, rápida y profesional para captar clientes por WhatsApp.
+              </p>
+
+              <div class="plan-price-box">
+                <div class="plan-price-val">Presupuesto en privado</div>
+                <span style="font-size: 0.8rem; color: var(--kd-text-dim); text-transform: uppercase; font-weight: 600;">Modalidad mensual</span>
+              </div>
+
+              <div style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--kd-text-primary); margin-bottom: 1rem;">
+                ¿Qué incluye este plan?
+              </div>
+
+              <ul class="plan-features-list">
+                <li class="plan-feature-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span style="font-weight: 600; color: var(--kd-text-primary);">Landing page o sitio compacto (1 a 3 secciones)</span>
+                </li>
+                <li class="plan-feature-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span style="font-weight: 600; color: var(--kd-text-primary);">100% Código a mano (cero WordPress ni constructores lentos)</span>
+                </li>
+                <li class="plan-feature-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span style="font-weight: 600; color: var(--kd-text-primary);">Dominio propio y alojamiento seguro incluidos</span>
+                </li>
+                <li class="plan-feature-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Certificado de seguridad SSL HTTPS activo</span>
+                </li>
+                <li class="plan-feature-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span style="font-weight: 600; color: var(--kd-text-primary);">Integración directa con WhatsApp para ventas y consultas</span>
+                </li>
+                <li class="plan-feature-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Optimización de carga instantánea (&lt; 1s) para móviles</span>
+                </li>
+                <li class="plan-feature-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span style="font-weight: 600; color: var(--kd-text-primary);">1 ronda mensual de actualización de textos o fotos</span>
+                </li>
+                <li class="plan-feature-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Copias de seguridad mensuales de respaldo</span>
+                </li>
+              </ul>
             </div>
-            <a href="https://wa.me/56922231780?text=Hola%20Franco,%20quisiera%20cotizar%20en%20privado%20el%20Plan%20Esencial%20web." target="_blank" rel="noopener noreferrer" class="btn-kd btn-kd-secondary" style="width: 100%;">Cotizar Plan en Privado</a>
+
+            <div style="margin-top: 1.5rem;">
+              <a href="https://wa.me/56922231780?text=Hola%20Franco,%20quisiera%20cotizar%20en%20privado%20el%20Plan%20Esencial%20de%20desarrollo%20web%20para%20mi%20negocio%20o%20profesi%C3%B3n." target="_blank" rel="noopener noreferrer" class="btn-kd btn-kd-secondary" style="width: 100%;">
+                Cotizar en Privado
+              </a>
+            </div>
           </article>
+
+          <!-- Plan Profesional (Destacado) -->
           <article class="card-kd plan-card card-kd-highlight reveal-fade delay-100">
-            <span class="badge-kd badge-kd-indigo">Más Solicitado</span>
-            <h3 style="font-size: 1.5rem; margin: 0.75rem 0;">Plan Profesional</h3>
-            <p style="font-size: 0.875rem; color: var(--kd-text-muted);">Sitio web completo multipágina para empresas que requieren posicionar servicios y ventas.</p>
-            <div class="plan-price-box">
-              <div class="plan-price-val">Presupuesto en privado</div>
-              <span style="font-size: 0.8rem; color: var(--kd-text-dim);">Modalidad mensual</span>
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem;">
+                <span class="badge-kd badge-kd-indigo">Más Solicitado · Recomendado</span>
+              </div>
+              <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Plan Profesional</h3>
+              <p style="font-size: 0.875rem; color: var(--kd-text-muted); line-height: 1.5; margin-bottom: 1.5rem;">
+                Sitio corporativo multipágina para empresas y pymes que buscan máxima autoridad y ventas.
+              </p>
+
+              <div class="plan-price-box">
+                <div class="plan-price-val">Presupuesto en privado</div>
+                <span style="font-size: 0.8rem; color: var(--kd-text-dim); text-transform: uppercase; font-weight: 600;">Modalidad mensual</span>
+              </div>
+
+              <div style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--kd-text-primary); margin-bottom: 1rem;">
+                Todo lo del Plan Esencial, más:
+              </div>
+
+              <ul class="plan-features-list">
+                <li class="plan-feature-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span style="font-weight: 600; color: var(--kd-text-primary);">Sitio corporativo multipágina completo (4 a 6 páginas)</span>
+                </li>
+                <li class="plan-feature-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span style="font-weight: 600; color: var(--kd-text-primary);">100% Código a medida con identidad visual de tu marca</span>
+                </li>
+                <li class="plan-feature-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span style="font-weight: 600; color: var(--kd-text-primary);">Dominio propio y gestión técnica integral incluida</span>
+                </li>
+                <li class="plan-feature-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span style="font-weight: 600; color: var(--kd-text-primary);">Cero WordPress ni plugins pesados que ralenticen la web</span>
+                </li>
+                <li class="plan-feature-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>SEO técnico avanzado con Schema.org y Open Graph</span>
+                </li>
+                <li class="plan-feature-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Formulario de cotización detallado según tu rubro</span>
+                </li>
+                <li class="plan-feature-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span style="font-weight: 600; color: var(--kd-text-primary);">Hasta 3 rondas mensuales de cambios y nuevas secciones</span>
+                </li>
+                <li class="plan-feature-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Copias de seguridad periódicas y monitoreo continuo</span>
+                </li>
+                <li class="plan-feature-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span style="font-weight: 600; color: var(--kd-text-primary);">Soporte prioritario directo con Franco Luna vía WhatsApp</span>
+                </li>
+              </ul>
             </div>
-            <a href="https://wa.me/56922231780?text=Hola%20Franco,%20quisiera%20cotizar%20en%20privado%20el%20Plan%20Profesional%20web." target="_blank" rel="noopener noreferrer" class="btn-kd btn-kd-primary" style="width: 100%;">Cotizar Plan en Privado</a>
+
+            <div style="margin-top: 1.5rem;">
+              <a href="https://wa.me/56922231780?text=Hola%20Franco,%20me%20interesa%20cotizar%20en%20privado%20el%20Plan%20Profesional%20para%20la%20p%C3%A1gina%20web%20de%20mi%20empresa%20o%20negocio." target="_blank" rel="noopener noreferrer" class="btn-kd btn-kd-primary" style="width: 100%;">
+                Cotizar en Privado
+              </a>
+            </div>
           </article>
+
+          <!-- Plan Avanzado -->
           <article class="card-kd plan-card reveal-fade delay-200">
-            <span class="badge-kd badge-kd-amber">Empresas & Catálogos</span>
-            <h3 style="font-size: 1.5rem; margin: 0.75rem 0;">Plan Avanzado</h3>
-            <p style="font-size: 0.875rem; color: var(--kd-text-muted);">Desarrollo a medida con mayor volumen de contenidos, integraciones y soporte prioritario.</p>
-            <div class="plan-price-box">
-              <div class="plan-price-val">Presupuesto en privado</div>
-              <span style="font-size: 0.8rem; color: var(--kd-text-dim);">Modalidad mensual</span>
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem;">
+                <span class="badge-kd badge-kd-cyan">Solución a Medida</span>
+              </div>
+              <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Plan Avanzado</h3>
+              <p style="font-size: 0.875rem; color: var(--kd-text-muted); line-height: 1.5; margin-bottom: 1.5rem;">
+                Para organizaciones con requerimientos digitales específicos, catálogos o integraciones.
+              </p>
+
+              <div class="plan-price-box">
+                <div class="plan-price-val">Presupuesto en privado</div>
+                <span style="font-size: 0.8rem; color: var(--kd-text-dim); text-transform: uppercase; font-weight: 600;">Modalidad mensual</span>
+              </div>
+
+              <div style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--kd-text-primary); margin-bottom: 1rem;">
+                Todo lo del Plan Profesional, más:
+              </div>
+
+              <ul class="plan-features-list">
+                <li class="plan-feature-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span style="font-weight: 600; color: var(--kd-text-primary);">Arquitectura en código nativo sin límite estricto de páginas</span>
+                </li>
+                <li class="plan-feature-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span style="font-weight: 600; color: var(--kd-text-primary);">Catálogo de servicios/productos o módulos de contenido a medida</span>
+                </li>
+                <li class="plan-feature-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span style="font-weight: 600; color: var(--kd-text-primary);">Dominio propio, alojamiento seguro y gestión técnica total</span>
+                </li>
+                <li class="plan-feature-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Estrategia de posicionamiento SEO multisección</span>
+                </li>
+                <li class="plan-feature-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span style="font-weight: 600; color: var(--kd-text-primary);">Gestión mensual activa de publicaciones y novedades</span>
+                </li>
+                <li class="plan-feature-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Monitoreo preventivo y copias de seguridad continuas</span>
+                </li>
+                <li class="plan-feature-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span style="font-weight: 600; color: var(--kd-text-primary);">Soporte técnico preferencial directo en el día</span>
+                </li>
+              </ul>
             </div>
-            <a href="https://wa.me/56922231780?text=Hola%20Franco,%20quisiera%20cotizar%20en%20privado%20el%20Plan%20Avanzado%20web." target="_blank" rel="noopener noreferrer" class="btn-kd btn-kd-secondary" style="width: 100%;">Cotizar Plan en Privado</a>
+
+            <div style="margin-top: 1.5rem;">
+              <a href="https://wa.me/56922231780?text=Hola%20Franco,%20quisiera%20cotizar%20en%20privado%20un%20proyecto%20web%20Plan%20Avanzado%20a%20la%20medida%20de%20mi%20empresa." target="_blank" rel="noopener noreferrer" class="btn-kd btn-kd-secondary" style="width: 100%;">
+                Cotizar en Privado
+              </a>
+            </div>
           </article>
         </div>
       </div>
     </section>
 
     <!-- TABLA COMPARATIVA RESPONSIVE COMPLETA -->
-    <section class="section-padding" style="background: var(--kd-bg-surface); border-top: 1px solid var(--kd-border-subtle); border-bottom: 1px solid var(--kd-border-subtle);">
+    <section class="section-padding" style="padding-top: 3.5rem; padding-bottom: 4.5rem; background: var(--kd-bg-surface); border-top: 1px solid var(--kd-border-subtle); border-bottom: 1px solid var(--kd-border-subtle);">
       <div class="container">
         <div style="max-width: 680px; margin: 0 auto 2.5rem; text-align: center;" class="reveal-fade">
           <div class="section-tag tag-indigo">Comparativa Detallada</div>
@@ -618,6 +732,128 @@
             </tbody>
           </table>
         </div>
+      </div>
+    </section>
+
+    <!-- VITRINA DE DEMOSTRACIONES REALES -->
+    <section class="section-padding" style="background: var(--kd-bg-surface-elevated); border-bottom: 1px solid var(--kd-border-subtle);">
+      <div class="container">
+        <div class="section-header text-center reveal-fade" style="margin-bottom: 2.5rem;">
+          <span class="section-tag tag-cyan mx-auto">Demostraciones Reales</span>
+          <h2 class="section-title">Explora Sitios Web de Ejemplo</h2>
+          <p class="section-desc">
+            Páginas web completas y 100% funcionales desarrolladas por KuyénDev para diversos rubros. Haz clic en cualquiera de ellas para <strong>abrirla en una nueva pestaña como un sitio web independiente</strong>:
+          </p>
+        </div>
+
+        <div class="demo-showcase-grid reveal-fade">
+          
+          <!-- Demo 1: Peluquería -->
+          <article class="demo-preview-card">
+            <div>
+              <div class="demo-preview-thumb">
+                <span class="badge-kd badge-kd-amber demo-preview-badge">Belleza & Estética</span>
+                <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=700&q=80" alt="Demo AURA Studio Peluquería" loading="lazy">
+              </div>
+              <div class="demo-preview-body">
+                <div>
+                  <h3 style="font-size: 1.35rem; margin-bottom: 0.5rem; color: var(--kd-text-primary);">AURA Studio · Alta Peluquería</h3>
+                  <p style="font-size: 0.875rem; color: var(--kd-text-muted); line-height: 1.5; margin-bottom: 1.25rem;">
+                    Para salones, barberías y estética. Incluye carta de servicios con duraciones y valores, lookbook interactivo de transformaciones y reservas directas a WhatsApp.
+                  </p>
+                  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+                    <span class="badge-kd badge-kd-cyan" style="font-size: 0.7rem;">Carta de Servicios</span>
+                    <span class="badge-kd badge-kd-cyan" style="font-size: 0.7rem;">Lookbook</span>
+                    <span class="badge-kd badge-kd-cyan" style="font-size: 0.7rem;">Reserva WhatsApp</span>
+                  </div>
+                </div>
+                <a href="../demos/peluqueria/index.html" target="_blank" rel="noopener noreferrer" class="btn-kd btn-kd-primary btn-kd-sm" style="width: 100%; justify-content: center;">
+                  Explorar Sitio Web en Vivo
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 15px; height: 15px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Demo 2: Fotografía -->
+          <article class="demo-preview-card">
+            <div>
+              <div class="demo-preview-thumb">
+                <span class="badge-kd badge-kd-indigo demo-preview-badge">Fotografía & Producción</span>
+                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=700&q=80" alt="Demo LUMEN Fotografía" loading="lazy">
+              </div>
+              <div class="demo-preview-body">
+                <div>
+                  <h3 style="font-size: 1.35rem; margin-bottom: 0.5rem; color: var(--kd-text-primary);">LUMEN · Atelier de Fotografía</h3>
+                  <p style="font-size: 0.875rem; color: var(--kd-text-muted); line-height: 1.5; margin-bottom: 1.25rem;">
+                    Para fotógrafos de bodas y productoras. Enfoque editorial cinematográfico, portafolio visual en alta definición, colecciones de inversión y cotizador interactivo de fechas.
+                  </p>
+                  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+                    <span class="badge-kd badge-kd-indigo" style="font-size: 0.7rem;">Portafolio 4K</span>
+                    <span class="badge-kd badge-kd-indigo" style="font-size: 0.7rem;">Estilo Editorial</span>
+                    <span class="badge-kd badge-kd-indigo" style="font-size: 0.7rem;">Consulta de Fecha</span>
+                  </div>
+                </div>
+                <a href="../demos/fotografia/index.html" target="_blank" rel="noopener noreferrer" class="btn-kd btn-kd-primary btn-kd-sm" style="width: 100%; justify-content: center;">
+                  Explorar Sitio Web en Vivo
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 15px; height: 15px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Demo 3: Clínica Dental -->
+          <article class="demo-preview-card">
+            <div>
+              <div class="demo-preview-thumb">
+                <span class="badge-kd badge-kd-emerald demo-preview-badge">Salud & Clínicas</span>
+                <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=700&q=80" alt="Demo VITALIS Clínica Dental" loading="lazy">
+              </div>
+              <div class="demo-preview-body">
+                <div>
+                  <h3 style="font-size: 1.35rem; margin-bottom: 0.5rem; color: var(--kd-text-primary);">VITALIS · Centro Odontológico</h3>
+                  <p style="font-size: 0.875rem; color: var(--kd-text-muted); line-height: 1.5; margin-bottom: 1.25rem;">
+                    Para centros de salud y consultas odontológicas. Proyecta autoridad clínica, catálogo de especialidades con iconos, tecnología 3D, staff médico acreditado y urgencias.
+                  </p>
+                  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+                    <span class="badge-kd badge-kd-emerald" style="font-size: 0.7rem;">Especialidades 3D</span>
+                    <span class="badge-kd badge-kd-emerald" style="font-size: 0.7rem;">Staff SIS</span>
+                    <span class="badge-kd badge-kd-emerald" style="font-size: 0.7rem;">Urgencias 24/7</span>
+                  </div>
+                </div>
+                <a href="../demos/clinica-dental/index.html" target="_blank" rel="noopener noreferrer" class="btn-kd btn-kd-primary btn-kd-sm" style="width: 100%; justify-content: center;">
+                  Explorar Sitio Web en Vivo
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 15px; height: 15px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- BLOQUE DE TRANSPARENCIA: POR QUÉ SE COTIZA EN PRIVADO -->
+        <div class="card-kd reveal-fade" style="background: linear-gradient(135deg, rgba(21, 29, 48, 0.7) 0%, rgba(14, 20, 34, 0.9) 100%); border: 1px solid rgba(6, 182, 212, 0.3); padding: 2.5rem; margin-top: 3.5rem;">
+          <div style="display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;">
+            <div style="width: 56px; height: 56px; border-radius: var(--kd-radius-sm); background: rgba(6, 182, 212, 0.12); border: 1px solid var(--kd-cyan); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--kd-cyan-light)" stroke-width="2" style="width: 28px; height: 28px;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <div style="flex: 1; min-width: 280px;">
+              <h3 style="font-size: 1.35rem; margin-bottom: 0.5rem; color: var(--kd-text-primary);">
+                ¿Por qué cotizamos en privado? Presupuesto exacto a tu necesidad real
+              </h3>
+              <p style="font-size: 0.925rem; color: var(--kd-text-secondary); line-height: 1.6; margin: 0;">
+                No creemos en cobrarle lo mismo a un profesional independiente que busca una landing page para WhatsApp que a una empresa consolidada que requiere un catálogo multipágina extenso. Evaluamos tu requerimiento en una <strong>conversación directa y privada</strong> para ofrecerte una cotización justa, detallada y acorde a tu realidad.
+              </p>
+            </div>
+            <div>
+              <a href="https://wa.me/56922231780?text=Hola%20Franco,%20quisiera%20conversar%20en%20privado%20sobre%20los%20planes%20mensuales%20web%20para%20mi%20negocio." target="_blank" rel="noopener noreferrer" class="btn-kd btn-kd-primary">
+                Cotizar Proyecto en Privado
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
