@@ -104,6 +104,11 @@ html {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   color-scheme: dark;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
@@ -111,7 +116,9 @@ body {
   background-color: var(--kd-bg-base);
   color: var(--kd-text-primary);
   line-height: 1.65;
-  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
   overflow-wrap: break-word;
   position: relative;
   min-height: 100vh;
@@ -302,8 +309,9 @@ h6 {
   max-width: 1240px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: clamp(1.5rem, 4vw, 4.5rem);
-  padding-right: clamp(1.5rem, 4vw, 4.5rem);
+  padding-left: clamp(1rem, 3.5vw, 2.5rem);
+  padding-right: clamp(1rem, 3.5vw, 2.5rem);
+  box-sizing: border-box;
 }
 
 .container-narrow {
@@ -823,8 +831,13 @@ header.scrolled .nav-glass {
   font-weight: 600;
   padding: 0.75rem 1.5rem;
   border-radius: var(--kd-radius-full);
-  line-height: 1;
-  white-space: nowrap;
+  line-height: 1.35;
+  white-space: normal;
+  text-align: center;
+  max-width: 100%;
+  word-break: normal;
+  overflow-wrap: break-word;
+  box-sizing: border-box;
   transition: transform var(--kd-ease-fast), box-shadow var(--kd-ease-fast), background var(--kd-ease-fast), border-color var(--kd-ease-fast), color var(--kd-ease-fast);
 }
 
@@ -954,6 +967,7 @@ header.scrolled .nav-glass {
 /* Tarjeta con Spotlight por Ratón */
 .card-spotlight {
   position: relative;
+  overflow: hidden;
 }
 
 .card-spotlight::before {
@@ -1014,14 +1028,16 @@ header.scrolled .nav-glass {
 /* Titular Principal Imponente y Contundente */
 .hero-title {
   font-family: var(--kd-font-display);
-  font-size: clamp(2.35rem, 4.3vw, 3.75rem);
-  line-height: 1.12;
+  font-size: clamp(2rem, 4.3vw, 3.75rem);
+  line-height: 1.15;
   margin-bottom: clamp(0.85rem, 1.4vw, 1.2rem);
   letter-spacing: -0.035em;
   font-weight: 800;
   color: var(--kd-text-primary);
   max-width: 660px;
   text-wrap: balance;
+  overflow-wrap: break-word;
+  word-break: normal;
 }
 
 .hero-desc {
@@ -1030,6 +1046,7 @@ header.scrolled .nav-glass {
   line-height: 1.6;
   margin-bottom: clamp(1.25rem, 2vw, 1.75rem);
   max-width: 560px;
+  overflow-wrap: break-word;
 }
 
 .hero-actions {
@@ -1115,11 +1132,12 @@ header.scrolled .nav-glass {
 .hero-ambient-glow {
   position: absolute;
   top: 5%;
-  right: -10%;
-  width: clamp(280px, 30vw, 380px);
-  height: clamp(280px, 30vw, 380px);
+  right: 0;
+  max-width: 100%;
+  width: clamp(240px, 30vw, 360px);
+  height: clamp(240px, 30vw, 360px);
   background: radial-gradient(circle, rgba(39, 199, 212, 0.18) 0%, rgba(112, 88, 184, 0.12) 40%, transparent 70%);
-  filter: blur(48px);
+  filter: blur(36px);
   pointer-events: none;
   z-index: 0;
 }
@@ -1594,13 +1612,15 @@ header.scrolled .nav-glass {
 
 .studio-hero-title {
   font-family: var(--kd-font-display);
-  font-size: clamp(1.85rem, 2.75vw, 2.5rem);
+  font-size: clamp(1.75rem, 2.75vw, 2.5rem);
   line-height: 1.18;
   letter-spacing: -0.028em;
   font-weight: 800;
   color: var(--kd-text-primary);
   margin-bottom: clamp(0.7rem, 1.1vw, 1rem);
   text-wrap: balance;
+  overflow-wrap: break-word;
+  word-break: normal;
   max-width: 100%;
 }
 
@@ -1611,6 +1631,7 @@ header.scrolled .nav-glass {
   max-width: 520px;
   margin-bottom: clamp(1.15rem, 1.8vw, 1.5rem);
   text-wrap: pretty;
+  overflow-wrap: break-word;
 }
 
 .studio-hero-actions {
@@ -1653,12 +1674,17 @@ header.scrolled .nav-glass {
   justify-content: center;
   align-items: center;
   width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: var(--kd-radius-xl);
   padding: 0.5rem 0.25rem;
+  box-sizing: border-box;
 }
 
 .studio-visual-frame {
   position: relative;
   width: 100%;
+  max-width: 100%;
   border-radius: var(--kd-radius-xl);
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -1678,6 +1704,7 @@ header.scrolled .nav-glass {
 
 .studio-visual-img {
   width: 100%;
+  max-width: 100%;
   height: auto;
   aspect-ratio: 16 / 10;
   object-fit: cover;
@@ -1691,9 +1718,10 @@ header.scrolled .nav-glass {
 /* Halo ambiental detrás de la imagen */
 .studio-ambient-glow {
   position: absolute;
-  inset: -10%;
+  inset: 0;
+  max-width: 100%;
   background: radial-gradient(circle at center, rgba(39, 199, 212, 0.18) 0%, rgba(79, 70, 229, 0.12) 45%, transparent 70%);
-  filter: blur(36px);
+  filter: blur(28px);
   z-index: -1;
   pointer-events: none;
 }
@@ -1907,6 +1935,11 @@ header.scrolled .nav-glass {
   border: 1px solid var(--kd-border-subtle);
   background: rgba(255, 255, 255, 0.05);
   color: var(--kd-text-secondary);
+  max-width: 100%;
+  white-space: normal;
+  line-height: 1.35;
+  text-align: left;
+  box-sizing: border-box;
 }
 
 .badge-kd-indigo {
@@ -2312,11 +2345,13 @@ header.scrolled .nav-glass {
 .footer-bottom-links {
   display: flex;
   gap: 1.5rem;
+  flex-wrap: wrap;
 }
 
 /* 15.1. TABLA COMPARATIVA RESPONSIVE */
 .comparison-table-wrapper {
   width: 100%;
+  max-width: 100%;
   overflow-x: auto;
   border: 1px solid var(--kd-border-subtle);
   border-radius: var(--kd-radius-lg);
@@ -3079,9 +3114,60 @@ header.scrolled .nav-glass {
     grid-template-columns: 1fr 1fr;
     gap: 2.5rem;
   }
+
+  .legal-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .legal-toc {
+    position: static;
+    max-height: none;
+    margin-bottom: 1.5rem;
+  }
 }
 
 @media (max-width: 960px) {
+  body > header {
+    padding: 0.5rem 0;
+    padding-top: max(0.4rem, env(safe-area-inset-top, 0.4rem));
+  }
+
+  header .container {
+    padding-left: clamp(0.75rem, 3vw, 1.25rem);
+    padding-right: clamp(0.75rem, 3vw, 1.25rem);
+  }
+
+  .nav-glass {
+    padding: 0.35rem 0.65rem 0.35rem 0.85rem;
+    border-radius: var(--kd-radius-full);
+  }
+
+  .nav-brand-logo {
+    height: clamp(23px, 5.5vw, 26px);
+    max-width: 135px;
+    width: auto;
+  }
+
+  .nav-actions {
+    gap: 0.5rem;
+  }
+
+  .nav-action-chat-circle {
+    width: 38px;
+    height: 38px;
+  }
+
+  .nav-action-chat-circle svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .hamburger {
+    width: 38px;
+    height: 38px;
+    padding: 8px 7px;
+  }
 
   .nav-dock-container,
   .nav-links,
@@ -3096,8 +3182,8 @@ header.scrolled .nav-glass {
 
 @media (max-width: 768px) {
   .section-padding {
-    padding-top: 4.5rem;
-    padding-bottom: 4.5rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
   }
 
   .grid-2,
@@ -3106,7 +3192,13 @@ header.scrolled .nav-glass {
   }
 
   .pricing-grid {
+    max-width: 100%;
     gap: 1.5rem;
+  }
+
+  .demo-showcase-grid,
+  .waas-model-grid {
+    max-width: 100%;
   }
 
   .footer-grid {
@@ -3118,6 +3210,46 @@ header.scrolled .nav-glass {
     flex-direction: column;
     gap: 1rem;
     text-align: center;
+  }
+
+  .footer-bottom-links {
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .hero-title,
+  .studio-hero-title,
+  .page-hero-title {
+    font-size: clamp(1.6rem, 5.5vw, 2.15rem);
+    line-height: 1.2;
+  }
+
+  .hero-actions,
+  .studio-hero-actions,
+  .page-hero-actions {
+    flex-direction: column;
+    width: 100%;
+    align-items: stretch;
+  }
+
+  .hero-actions .btn-kd,
+  .studio-hero-actions .btn-kd,
+  .page-hero-actions .btn-kd {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .card-kd {
+    padding: 1.75rem 1.35rem;
+  }
+
+  .assistant-panel,
+  .checklist-card {
+    padding: 1.75rem 1.35rem;
+  }
+
+  .demo-preview-body {
+    padding: 1.35rem;
   }
 
   .whatsapp-float-label {
@@ -3135,38 +3267,102 @@ header.scrolled .nav-glass {
 
 @media (max-width: 480px) {
   .container {
-    padding-left: 1.15rem;
-    padding-right: 1.15rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
   .pricing-grid {
-    max-width: 100%;
     gap: 1.25rem;
   }
 
+  .hero-title,
+  .studio-hero-title,
+  .page-hero-title {
+    font-size: clamp(1.45rem, 6.2vw, 1.85rem);
+    line-height: 1.22;
+  }
+
   .section-title {
-    font-size: 1.85rem;
+    font-size: clamp(1.5rem, 5.5vw, 1.85rem);
   }
 
   .card-kd {
-    padding: 1.5rem;
+    padding: 1.35rem 1rem;
+  }
+
+  .assistant-panel,
+  .checklist-card {
+    padding: 1.25rem 0.95rem;
+  }
+
+  .assistant-option-card {
+    padding: 1rem;
+  }
+
+  .demo-preview-body {
+    padding: 1.15rem 1rem;
   }
 
   .btn-kd {
     width: 100%;
+    padding: 0.75rem 1.15rem;
+    font-size: 0.885rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .container {
+    padding-left: 0.85rem;
+    padding-right: 0.85rem;
   }
 
-  .hero-actions,
-  .studio-hero-actions,
-  .page-hero-actions {
-    flex-direction: column;
-    width: 100%;
+  header .container {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
   }
 
-  .studio-hero-actions .btn-kd,
-  .page-hero-actions .btn-kd {
-    width: 100%;
-    justify-content: center;
+  .nav-glass {
+    padding: 0.3rem 0.5rem 0.3rem 0.65rem;
+  }
+
+  .nav-brand-logo {
+    height: 22px;
+    max-width: 115px;
+  }
+
+  .nav-actions {
+    gap: 0.35rem;
+  }
+
+  .nav-action-chat-circle {
+    width: 35px;
+    height: 35px;
+  }
+
+  .nav-action-chat-circle svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .hamburger {
+    width: 35px;
+    height: 35px;
+    padding: 7px 6px;
+  }
+
+  .card-kd {
+    padding: 1.15rem 0.85rem;
+  }
+
+  .btn-kd {
+    padding: 0.7rem 0.95rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .card-spotlight::before {
+    display: none !important;
   }
 }
 

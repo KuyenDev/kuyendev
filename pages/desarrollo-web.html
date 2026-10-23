@@ -186,16 +186,85 @@
     </div>
   </header>
 
-  <!-- MENÚ MÓVIL DESPLEGABLE -->
+  <!-- MENÚ MÓVIL DESPLEGABLE (Aurora Drawer v4) -->
   <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
-    <a href="../index.html" class="mobile-nav-link">Inicio</a>
-    <a href="desarrollo-web.html" class="mobile-nav-link is-active">Desarrollo Web</a>
-    <a href="planes-web.html" class="mobile-nav-link">Planes Mensuales</a>
-    <a href="servicios-informaticos.html" class="mobile-nav-link">Servicios Informáticos</a>
-    <a href="empresas.html" class="mobile-nav-link">Empresas e Instituciones</a>
-    <a href="noticias.html" class="mobile-nav-link">Noticias & Publicaciones</a>
-    <a href="nosotros.html" class="mobile-nav-link">Sobre KuyénDev</a>
-    <a href="contacto.html" class="btn-kd btn-kd-primary" style="margin-top: 1.5rem;">Iniciar Consulta</a>
+    <div class="mobile-menu-inner">
+      <div class="mobile-menu-header">
+        <div style="display: flex; align-items: center; gap: 0.5rem; font-family: var(--kd-font-display); font-weight: 700; font-size: 0.95rem; color: var(--kd-text-primary);">
+          <span class="pulse-dot" aria-hidden="true"></span>
+          KuyénDev · Menú
+        </div>
+        <span style="font-size: 0.8rem; color: var(--kd-text-muted);">Osorno, Chile</span>
+      </div>
+
+      <nav class="mobile-nav-group" aria-label="Navegación móvil">
+        <a href="../index.html" class="mobile-nav-link">
+          <div>
+            <span class="mobile-nav-title">Inicio</span>
+            <span class="mobile-nav-sub">Portada & resumen del estudio</span>
+          </div>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </a>
+
+        <a href="desarrollo-web.html" class="mobile-nav-link is-active">
+          <div>
+            <span class="mobile-nav-title">Desarrollo Web</span>
+            <span class="mobile-nav-sub">Sitios a medida y alto rendimiento</span>
+          </div>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </a>
+
+        <a href="planes-web.html" class="mobile-nav-link">
+          <div>
+            <span class="mobile-nav-title">Planes Mensuales</span>
+            <span class="mobile-nav-sub">Web como servicio con soporte incluido</span>
+          </div>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </a>
+
+        <a href="servicios-informaticos.html" class="mobile-nav-link">
+          <div>
+            <span class="mobile-nav-title">Servicios Informáticos</span>
+            <span class="mobile-nav-sub">Soporte técnico, mantención y software</span>
+          </div>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </a>
+
+        <a href="empresas.html" class="mobile-nav-link">
+          <div>
+            <span class="mobile-nav-title">Empresas e Instituciones</span>
+            <span class="mobile-nav-sub">Estandarización, Deep Freeze y redes</span>
+          </div>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </a>
+
+        <a href="noticias.html" class="mobile-nav-link">
+          <div>
+            <span class="mobile-nav-title">Noticias & Artículos</span>
+            <span class="mobile-nav-sub">Publicaciones técnicas y novedades</span>
+          </div>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </a>
+
+        <a href="nosotros.html" class="mobile-nav-link">
+          <div>
+            <span class="mobile-nav-title">Sobre KuyénDev</span>
+            <span class="mobile-nav-sub">Filosofía, experiencia y contacto directo</span>
+          </div>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </a>
+      </nav>
+
+      <div class="mobile-menu-footer">
+        <a href="contacto.html" class="btn-kd btn-kd-primary" style="width: 100%;">
+          Cotizar Proyecto o Soporte
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="https://wa.me/56922231780?text=Hola%20Franco,%20quisiera%20consultar%20sobre%20los%20servicios%20de%20Kuy%C3%A9nDev" target="_blank" rel="noopener noreferrer" class="btn-kd btn-kd-secondary" style="width: 100%; border-color: rgba(39, 199, 212, 0.3);">
+          WhatsApp Directo (+569 2223 1780)
+        </a>
+      </div>
+    </div>
   </div>
 
   <main>
@@ -460,7 +529,7 @@
           </p>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 1.5rem;">
           <div class="card-kd reveal-fade">
             <span class="badge-kd badge-kd-indigo" style="margin-bottom: 1rem;">Etapa 01</span>
             <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem;">Conversación Inicial & Diagnóstico</h3>
