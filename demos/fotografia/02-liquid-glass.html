@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PRISMA LAB · Dirección de Arte & Fotografía Futurista | Liquid Glass</title>
+  <meta name="description" content="Estudio de fotografía creativa, dirección de arte cromática y retratos futuristas con iluminación de neón refractada y estética Liquid Glass." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-deep: #0D1117;
+      --glass-surface: rgba(255, 255, 255, 0.08);
+      --glass-surface-strong: rgba(255, 255, 255, 0.13);
+      --glass-border: rgba(255, 255, 255, 0.22);
+      --glass-blur: 24px;
+      --accent-cyan: #27C7D4;
+      --accent-violet: #7058B8;
+      --ambient-hue: 0deg;
+      --text-bright: #F4F8FC;
+      --text-soft: #9FB1C6;
+      --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-display: 'Syne', sans-serif;
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-pill: 999px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      color-scheme: dark;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-deep);
+      color: var(--text-bright);
+      line-height: 1.65;
+      overflow-x: hidden;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    /* Orbes de Aurora Ambiental Detrás del Vidrio */
+    .aurora-canvas {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      overflow: hidden;
+      pointer-events: none;
+      background: radial-gradient(circle at 50% 0%, #141C2B 0%, #0D1117 70%);
+      filter: hue-rotate(var(--ambient-hue));
+      transition: filter 0.3s ease;
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(95px);
+      opacity: 0.55;
+      animation: floatOrb 18s ease-in-out infinite alternate;
+    }
+
+    .orb-1 {
+      width: 520px;
+      height: 520px;
+      background: radial-gradient(circle, var(--accent-cyan), transparent 70%);
+      top: -120px;
+      left: -100px;
+    }
+
+    .orb-2 {
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, var(--accent-violet), transparent 70%);
+      top: 28%;
+      right: -160px;
+      animation-delay: -6s;
+    }
+
+    .orb-3 {
+      width: 460px;
+      height: 460px;
+      background: radial-gradient(circle, #38BDF8, #7058B8 70%);
+      bottom: -80px;
+      left: 22%;
+      animation-delay: -11s;
+    }
+
+    @keyframes floatOrb {
+      0% { transform: translate3d(0, 0, 0) scale(1); }
+      50% { transform: translate3d(40px, -35px, 0) scale(1.08); }
+      100% { transform: translate3d(-30px, 30px, 0) scale(0.95); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .orb { animation: none !important; }
+      *, *::before, *::after {
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    .container {
+      width: min(1240px, 92vw);
+      margin: 0 auto;
+    }
+
+    /* Superficie Liquid Glass Universal */
+    .glass-panel {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, var(--glass-surface) 100%);
+      backdrop-filter: blur(var(--glass-blur)) saturate(160%);
+      -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(160%);
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.28);
+      border-radius: var(--radius-xl);
+    }
+
+    /* Barra de Navegación Flotante de Cristal */
+    .floating-header {
+      position: fixed;
+      top: 18px;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: center;
+      padding: 0 1rem;
+    }
+
+    .glass-nav {
+      width: min(1140px, 96vw);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1.4rem;
+      border-radius: var(--radius-pill);
+      background: rgba(13, 17, 23, 0.58);
+      backdrop-filter: blur(22px) saturate(180%);
+      -webkit-backdrop-filter: blur(22px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    }
+
+    .logo {
+      text-decoration: none;
+      color: var(--text-bright);
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: 0.08em;
+    }
+
+    .logo-prism {
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-violet));
+      box-shadow: 0 0 18px rgba(39, 199, 212, 0.6);
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 1.8rem;
+      list-style: none;
+    }
+
+    .nav-menu a {
+      color: var(--text-soft);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .nav-menu a:hover {
+      color: #FFFFFF;
+    }
+
+    .btn-glass-cta {
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #061017;
+      background: linear-gradient(135deg, #65E0DD 0%, var(--accent-cyan) 100%);
+      padding: 0.6rem 1.3rem;
+      border-radius: var(--radius-pill);
+      box-shadow: 0 0 24px rgba(39, 199, 212, 0.4);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-glass-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 32px rgba(39, 199, 212, 0.7);
+    }
+
+    .mobile-btn {
+      display: none;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #fff;
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      cursor: pointer;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 9.5rem 0 5rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1rem;
+      border-radius: var(--radius-pill);
+      background: rgba(39, 199, 212, 0.14);
+      border: 1px solid rgba(39, 199, 212, 0.4);
+      color: #7CE8F2;
+      font-size: 0.76rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 4.8vw, 4.1rem);
+      line-height: 1.06;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.3rem;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(90deg, #FFFFFF 0%, #65E0DD 50%, #C4B5FD 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      color: var(--text-soft);
+      font-size: 1.05rem;
+      max-width: 48ch;
+      margin-bottom: 2rem;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .stat-glass {
+      padding: 1.1rem;
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      backdrop-filter: blur(16px);
+    }
+
+    .stat-glass strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      color: #fff;
+    }
+
+    .stat-glass span {
+      font-size: 0.76rem;
+      color: var(--text-soft);
+    }
+
+    .hero-showcase {
+      position: relative;
+      padding: 1.25rem;
+    }
+
+    .hero-showcase img {
+      width: 100%;
+      aspect-ratio: 4 / 4.6;
+      object-fit: cover;
+      border-radius: 20px;
+      display: block;
+    }
+
+    .floating-lens-card {
+      position: absolute;
+      bottom: 28px;
+      left: -18px;
+      right: 28px;
+      padding: 1.1rem 1.35rem;
+      border-radius: 18px;
+      background: rgba(13, 17, 23, 0.72);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    /* CONTROLADOR DE REFRACCIÓN INTERACTIVO */
+    .section {
+      padding: 5.5rem 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .section-head h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+      margin-top: 0.4rem;
+    }
+
+    .lab-controller {
+      padding: 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .slider-group {
+      margin-bottom: 1.4rem;
+    }
+
+    .slider-group label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--text-bright);
+    }
+
+    .slider-group input[type="range"] {
+      width: 100%;
+      accent-color: var(--accent-cyan);
+      cursor: pointer;
+    }
+
+    .preview-refraction-card {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      padding: 2rem;
+      min-height: 320px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      background: url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+    }
+
+    .refraction-overlay {
+      padding: 1.5rem;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(var(--glass-blur));
+      -webkit-backdrop-filter: blur(var(--glass-blur));
+      border: 1px solid var(--glass-border);
+      transition: all 0.15s ease;
+    }
+
+    /* PORTAFOLIO DE CÁPSULAS DE CRISTAL */
+    .filter-pills {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .glass-filter-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: var(--text-soft);
+      padding: 0.55rem 1.2rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .glass-filter-btn.is-active,
+    .glass-filter-btn:hover {
+      background: rgba(39, 199, 212, 0.22);
+      border-color: var(--accent-cyan);
+      color: #fff;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+    }
+
+    .glass-work-card {
+      padding: 1rem;
+      cursor: pointer;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+    }
+
+    .glass-work-card.is-hidden {
+      display: none;
+    }
+
+    .glass-work-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(39, 199, 212, 0.55);
+    }
+
+    .glass-work-img {
+      border-radius: 18px;
+      overflow: hidden;
+      aspect-ratio: 4 / 5;
+      margin-bottom: 1rem;
+    }
+
+    .glass-work-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+
+    .glass-work-card:hover .glass-work-img img {
+      transform: scale(1.05);
+    }
+
+    .glass-work-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 0.35rem 0.25rem;
+    }
+
+    .glass-work-meta h3 {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+    }
+
+    .glass-tag {
+      font-size: 0.72rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      background: rgba(112, 88, 184, 0.28);
+      border: 1px solid rgba(167, 139, 250, 0.4);
+      color: #DDD6FE;
+    }
+
+    /* FAQ ACORDEÓN DE CRISTAL & TESTIMONIOS */
+    .dual-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .faq-item {
+      margin-bottom: 1rem;
+      border-radius: 18px;
+      overflow: hidden;
+    }
+
+    .faq-trigger {
+      width: 100%;
+      background: transparent;
+      border: none;
+      color: var(--text-bright);
+      padding: 1.25rem 1.5rem;
+      text-align: left;
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: 0.96rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .faq-content {
+      padding: 0 1.5rem 1.25rem;
+      color: var(--text-soft);
+      font-size: 0.9rem;
+      display: none;
+    }
+
+    .faq-item.is-open .faq-content {
+      display: block;
+    }
+
+    .testimonial-glass {
+      padding: 1.8rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .demo-badge {
+      display: inline-block;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      background: rgba(39, 199, 212, 0.16);
+      color: #7CE8F2;
+      margin-bottom: 0.85rem;
+    }
+
+    /* RESERVA GLASS FORM */
+    .booking-panel {
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 2.5rem;
+    }
+
+    .glass-input-group {
+      margin-bottom: 1.15rem;
+    }
+
+    .glass-input-group label {
+      display: block;
+      font-size: 0.78rem;
+      color: var(--text-soft);
+      margin-bottom: 0.4rem;
+    }
+
+    .glass-input-group input,
+    .glass-input-group select,
+    .glass-input-group textarea {
+      width: 100%;
+      padding: 0.85rem 1.1rem;
+      border-radius: 14px;
+      background: rgba(13, 17, 23, 0.55);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: #fff;
+      font-family: var(--font-sans);
+      font-size: 0.92rem;
+      outline: none;
+    }
+
+    .glass-input-group input:focus,
+    .glass-input-group select:focus,
+    .glass-input-group textarea:focus {
+      border-color: var(--accent-cyan);
+      box-shadow: 0 0 0 3px rgba(39, 199, 212, 0.2);
+    }
+
+    .glass-toast {
+      margin-top: 1rem;
+      padding: 1rem 1.2rem;
+      border-radius: 14px;
+      background: rgba(39, 199, 212, 0.18);
+      border: 1px solid var(--accent-cyan);
+      color: #E0F2FE;
+      font-size: 0.86rem;
+      display: none;
+    }
+
+    .glass-toast.is-visible {
+      display: block;
+    }
+
+    /* LIGHTBOX DE CRISTAL */
+    .glass-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 1200;
+      background: rgba(8, 12, 18, 0.82);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .glass-lightbox.is-open {
+      display: flex;
+    }
+
+    .glass-lb-card {
+      max-width: 880px;
+      width: 100%;
+      padding: 1.5rem;
+    }
+
+    .glass-lb-card img {
+      width: 100%;
+      max-height: 70vh;
+      object-fit: contain;
+      border-radius: 16px;
+      display: block;
+    }
+
+    footer {
+      padding: 3.5rem 0 7rem;
+      text-align: center;
+      color: var(--text-soft);
+      font-size: 0.82rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .lab-controller,
+      .portfolio-grid,
+      .dual-section,
+      .booking-panel {
+        grid-template-columns: 1fr;
+      }
+      .nav-menu {
+        display: none;
+        position: absolute;
+        top: 66px;
+        left: 1rem;
+        right: 1rem;
+        flex-direction: column;
+        background: rgba(13, 17, 23, 0.94);
+        backdrop-filter: blur(24px);
+        padding: 1.25rem;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+      }
+      .nav-menu.is-open {
+        display: flex;
+      }
+      .mobile-btn {
+        display: inline-block;
+      }
+      .floating-lens-card {
+        position: static;
+        margin-top: 1rem;
+      }
+    }
+  </style>
+</head>
+<body data-rubro-id="fotografia" data-style-id="liquid-glass">
+
+  <!-- Orbes Dinámicos de Fondo -->
+  <div class="aurora-canvas" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <!-- Navegación Flotante Liquid Glass -->
+  <header class="floating-header">
+    <nav class="glass-nav" aria-label="Navegación principal">
+      <a href="#inicio" class="logo">
+        <span class="logo-prism"></span>
+        <span>PRISMA LAB</span>
+      </a>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#portafolio">Portafolio</a></li>
+        <li><a href="#refraccion">Simulador Óptico</a></li>
+        <li><a href="#preguntas">Proceso & Testimonios</a></li>
+        <li><a href="#reservar">Cotizar Sesión</a></li>
+      </ul>
+      <div style="display:flex;align-items:center;gap:0.6rem;">
+        <a href="#reservar" class="btn-glass-cta">Reservar Set</a>
+        <button type="button" class="mobile-btn" id="mobileBtn">Menú</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero" id="inicio">
+      <div class="hero-grid">
+        <div>
+          <span class="badge-pill">Estilo #02 · Liquid Glass & Refracción Óptica</span>
+          <h1>Fotografía que atraviesa el <span>cristal y el espectro</span>.</h1>
+          <p>En PRISMA LAB fusionamos retratos de alta moda tecnológica, campañas de producto especular y dirección de arte lumínica con filtros de vidrio esmerilado y geles dicroicos reales en estudio.</p>
+          <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+            <a href="#portafolio" class="btn-glass-cta">Explorar Galería Cristalina</a>
+            <a href="#refraccion" style="color:#fff;text-decoration:none;padding:0.6rem 1.2rem;border-radius:999px;border:1px solid rgba(255,255,255,0.22);font-size:0.84rem;">Probar Laboratorio de Luz</a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat-glass">
+              <strong>8K RAW</strong>
+              <span>Captura Fase Óptica</span>
+            </div>
+            <div class="stat-glass">
+              <strong>24px</strong>
+              <span>Capas Translúcidas</span>
+            </div>
+            <div class="stat-glass">
+              <strong>100%</strong>
+              <span>Luz Dicroica en Set</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-panel hero-showcase">
+          <img
+            src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1200&q=85"
+            alt="Retrato futurista iluminado con destellos cian y violeta a través de cristal"
+            onerror="this.onerror=null;this.src='../../images/demos/fotografia/02-liquid-glass.jpg'"
+          />
+          <div class="floating-lens-card">
+            <div>
+              <strong style="font-size:0.9rem;display:block;">Serie: Prisma Cian #04</strong>
+              <span style="font-size:0.76rem;color:var(--text-soft);">Lente Anamórfico 50mm · Filtro Cristal Esmerilado</span>
+            </div>
+            <span class="glass-tag">Editorial 2026</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LABORATORIO INTERACTIVO DE REFRACCIÓN -->
+    <section class="section" id="refraccion">
+      <div class="section-head">
+        <div>
+          <span class="badge-pill">Interactivo en Tiempo Real</span>
+          <h2>Calibrador de Atmósfera Liquid Glass</h2>
+        </div>
+        <p style="color:var(--text-soft);max-width:44ch;font-size:0.92rem;">Ajusta los controles para comprobar cómo el desenfoque gaussiano y la luz ambiental transforman la interfaz completa en vivo.</p>
+      </div>
+
+      <div class="glass-panel lab-controller">
+        <div>
+          <div class="slider-group">
+            <label for="blurSlider">
+              <span>Desenfoque de Vidrio (Backdrop Blur)</span>
+              <span id="blurVal">24px</span>
+            </label>
+            <input type="range" id="blurSlider" min="4" max="44" value="24" />
+          </div>
+
+          <div class="slider-group">
+            <label for="borderSlider">
+              <span>Brillo Especular del Borde</span>
+              <span id="borderVal">22%</span>
+            </label>
+            <input type="range" id="borderSlider" min="8" max="60" value="22" />
+          </div>
+
+          <div class="slider-group">
+            <label for="hueSlider">
+              <span>Rotación Cromática de Aurora</span>
+              <span id="hueVal">0°</span>
+            </label>
+            <input type="range" id="hueSlider" min="0" max="180" value="0" />
+          </div>
+
+          <p style="font-size:0.82rem;color:var(--text-soft);margin-top:1rem;">Los cambios se aplican inmediatamente a todos los paneles translúcidos de esta página.</p>
+        </div>
+
+        <div class="preview-refraction-card">
+          <div class="refraction-overlay">
+            <span class="glass-tag">Muestra de Refracción en Vivo</span>
+            <h3 style="font-family:var(--font-display);font-size:1.3rem;margin:0.6rem 0 0.35rem;">Profundidad en Capas Translúcidas</h3>
+            <p style="font-size:0.86rem;color:var(--text-soft);">Las fotografías destacan con nitidez mientras los paneles informativos flotan como láminas de cuarzo óptico sobre la escena.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTAFOLIO DE CÁPSULAS -->
+    <section class="section" id="portafolio">
+      <div class="section-head">
+        <div>
+          <span class="badge-pill">Archivo Visual</span>
+          <h2>Producciones Recientes</h2>
+        </div>
+        <div class="filter-pills" role="tablist">
+          <button type="button" class="glass-filter-btn is-active" data-filter="all">Todas (06)</button>
+          <button type="button" class="glass-filter-btn" data-filter="cyber-editorial">Retrato Cromático</button>
+          <button type="button" class="glass-filter-btn" data-filter="producto">Producto Especular</button>
+          <button type="button" class="glass-filter-btn" data-filter="arquitectura">Espacios Neón</button>
+        </div>
+      </div>
+
+      <div class="portfolio-grid">
+        <article class="glass-panel glass-work-card" data-cat="cyber-editorial" data-title="Aura Iridiscente · Campaña Sintética">
+          <div class="glass-work-img">
+            <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=900&q=80" alt="Iluminación iridiscente sobre retrato" onerror="this.onerror=null;this.src='../../images/demos/fotografia/02-liquid-glass.jpg'" />
+          </div>
+          <div class="glass-work-meta">
+            <h3>Aura Iridiscente</h3>
+            <span class="glass-tag">Retrato</span>
+          </div>
+        </article>
+
+        <article class="glass-panel glass-work-card" data-cat="producto" data-title="Fragancia Cuarzo Líquido">
+          <div class="glass-work-img">
+            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=80" alt="Fotografía de producto minimalista y futurista" onerror="this.onerror=null;this.src='../../images/demos/fotografia/02-liquid-glass.jpg'" />
+          </div>
+          <div class="glass-work-meta">
+            <h3>Cuarzo Líquido</h3>
+            <span class="glass-tag">Producto</span>
+          </div>
+        </article>
+
+        <article class="glass-panel glass-work-card" data-cat="arquitectura" data-title="Túnel Fotónico Tokio-SCL">
+          <div class="glass-work-img">
+            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=900&q=80" alt="Instalación lumínica futurista" onerror="this.onerror=null;this.src='../../images/demos/fotografia/02-liquid-glass.jpg'" />
+          </div>
+          <div class="glass-work-meta">
+            <h3>Túnel Fotónico</h3>
+            <span class="glass-tag">Espacios</span>
+          </div>
+        </article>
+
+        <article class="glass-panel glass-work-card" data-cat="cyber-editorial" data-title="Refracción Retinal 09">
+          <div class="glass-work-img">
+            <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=900&q=80" alt="Retrato artístico con geles cian y violeta" onerror="this.onerror=null;this.src='../../images/demos/fotografia/02-liquid-glass.jpg'" />
+          </div>
+          <div class="glass-work-meta">
+            <h3>Refracción Retinal</h3>
+            <span class="glass-tag">Retrato</span>
+          </div>
+        </article>
+
+        <article class="glass-panel glass-work-card" data-cat="producto" data-title="Cristal Acústico Pro">
+          <div class="glass-work-img">
+            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=80" alt="Auriculares en iluminación de estudio futurista" onerror="this.onerror=null;this.src='../../images/demos/fotografia/02-liquid-glass.jpg'" />
+          </div>
+          <div class="glass-work-meta">
+            <h3>Cristal Acústico</h3>
+            <span class="glass-tag">Producto</span>
+          </div>
+        </article>
+
+        <article class="glass-panel glass-work-card" data-cat="arquitectura" data-title="Domo Holográfico">
+          <div class="glass-work-img">
+            <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&w=900&q=80" alt="Arquitectura nocturna con reflejos cian" onerror="this.onerror=null;this.src='../../images/demos/fotografia/02-liquid-glass.jpg'" />
+          </div>
+          <div class="glass-work-meta">
+            <h3>Domo Holográfico</h3>
+            <span class="glass-tag">Espacios</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- PREGUNTAS FRECUENTES & TESTIMONIOS DEMO -->
+    <section class="section" id="preguntas">
+      <div class="dual-section">
+        <div>
+          <span class="badge-pill">Metodología</span>
+          <h2 style="font-family:var(--font-display);font-size:2rem;margin:0.5rem 0 1.5rem;">Preguntas Frecuentes</h2>
+
+          <div class="glass-panel faq-item is-open">
+            <button type="button" class="faq-trigger">
+              <span>¿Los efectos de vidrio y color se hacen en cámara o postproducción?</span>
+              <span>+</span>
+            </button>
+            <div class="faq-content">
+              Utilizamos prismas ópticos reales, láminas acrílicas curvadas e iluminación LED RGBWW frente al lente, complementados con revelado de 16 bits para conservar reflejos orgánicos.
+            </div>
+          </div>
+
+          <div class="glass-panel faq-item">
+            <button type="button" class="faq-trigger">
+              <span>¿Qué incluye una dirección de arte completa en PRISMA LAB?</span>
+              <span>+</span>
+            </button>
+            <div class="faq-content">
+              Incluye diseño de set lumínico, estilismo cromático, captura tethered en tiempo real para cliente y entrega en formatos web optimizados y master impreso.
+            </div>
+          </div>
+
+          <div class="glass-panel faq-item">
+            <button type="button" class="faq-trigger">
+              <span>¿Realizan producciones para marcas tecnológicas y música?</span>
+              <span>+</span>
+            </button>
+            <div class="faq-content">
+              Sí, nos especializamos en portadas conceptuales, lanzamientos de hardware, cosmética de vanguardia y retratos de artistas electrónicos.
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <span class="badge-pill">Experiencias</span>
+          <h2 style="font-family:var(--font-display);font-size:2rem;margin:0.5rem 0 1.5rem;">Voces Creativas</h2>
+
+          <article class="glass-panel testimonial-glass">
+            <span class="demo-badge">[Testimonio de Demostración]</span>
+            <p style="font-size:0.95rem;margin-bottom:0.9rem;">“Necesitábamos que nuestra línea de cosmética botánica pareciera suspendida en agua luminosa. El equipo de PRISMA LAB logró texturas de cristal que triplicaron la conversión de nuestra campaña.”</p>
+            <strong style="font-size:0.82rem;color:#7CE8F2;">Camila R. · Directora Creativa en Aura Skincare (Ejemplo Ficticio)</strong>
+          </article>
+
+          <article class="glass-panel testimonial-glass">
+            <span class="demo-badge">[Testimonio de Demostración]</span>
+            <p style="font-size:0.95rem;margin-bottom:0.9rem;">“La estética Liquid Glass nos dio exactamente el sello futurista y limpio que buscábamos para el arte visual de nuestra gira electrónica.”</p>
+            <strong style="font-size:0.82rem;color:#7CE8F2;">Lucas V. · Productor Musical & Artista Visual (Ejemplo Ficticio)</strong>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMULARIO DE RESERVA -->
+    <section class="section" id="reservar">
+      <div class="glass-panel booking-panel">
+        <div>
+          <span class="badge-pill">Agenda Abierta 2026</span>
+          <h2 style="font-family:var(--font-display);font-size:2.2rem;margin:0.5rem 0 1rem;">Reserva tu Sesión en el Set Prisma</h2>
+          <p style="color:var(--text-soft);font-size:0.95rem;margin-bottom:1.5rem;">Cuéntanos qué atmósfera visual deseas construir. Respondemos en menos de 24 horas con un moodboard lumínico personalizado.</p>
+          <div style="font-size:0.85rem;color:var(--text-soft);">
+            <p>📍 Estudio Distrito Creativo Italia, Santiago (Demostración)</p>
+            <p>⚡ Captura en directo con monitores calibrados HDR</p>
+          </div>
+        </div>
+
+        <form id="glassBookingForm">
+          <div class="glass-input-group">
+            <label for="gName">Nombre o Agencia</label>
+            <input type="text" id="gName" required placeholder="Ej. Valentina Mora / Estudio Kinetik" />
+          </div>
+          <div class="glass-input-group">
+            <label for="gEmail">Correo de Contacto</label>
+            <input type="email" id="gEmail" required placeholder="valentina@agencia.cl" />
+          </div>
+          <div class="glass-input-group">
+            <label for="gPack">Modalidad de Producción</label>
+            <select id="gPack">
+              <option value="Campaña Editorial Liquid Glass">Campaña Editorial Liquid Glass</option>
+              <option value="Fotografía de Producto Especular">Fotografía de Producto Especular</option>
+              <option value="Retrato Artístico & Press Kit">Retrato Artístico & Press Kit</option>
+            </select>
+          </div>
+          <div class="glass-input-group">
+            <label for="gMsg">Concepto o Referencias Visuales</label>
+            <textarea id="gMsg" rows="3" placeholder="Describe colores, texturas o fechas estimadas..."></textarea>
+          </div>
+          <button type="submit" class="btn-glass-cta" style="border:none;cursor:pointer;width:100%;padding:0.95rem;">Enviar Brief al Laboratorio</button>
+          <div class="glass-toast" id="glassToast" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div class="glass-lightbox" id="glassLightbox" role="dialog" aria-modal="true" aria-label="Visor de imagen">
+    <div class="glass-panel glass-lb-card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
+        <strong id="glassLbTitle" style="font-family:var(--font-display);">Obra</strong>
+        <button type="button" id="glassLbClose" class="glass-filter-btn">Cerrar ✕</button>
+      </div>
+      <img id="glassLbImg" src="" alt="" onerror="this.onerror=null;this.src='../../images/demos/fotografia/02-liquid-glass.jpg'" />
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 PRISMA LAB · Demostración Interactiva Estilo #02 Liquid Glass / Glassmorphism para KuyénDev</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      // Menú móvil
+      const mobileBtn = document.getElementById('mobileBtn');
+      const navMenu = document.getElementById('navMenu');
+      if (mobileBtn && navMenu) {
+        mobileBtn.addEventListener('click', () => navMenu.classList.toggle('is-open'));
+      }
+
+      // Controlador en vivo de Liquid Glass
+      const root = document.documentElement;
+      const blurSlider = document.getElementById('blurSlider');
+      const borderSlider = document.getElementById('borderSlider');
+      const hueSlider = document.getElementById('hueSlider');
+      const blurVal = document.getElementById('blurVal');
+      const borderVal = document.getElementById('borderVal');
+      const hueVal = document.getElementById('hueVal');
+
+      blurSlider.addEventListener('input', (e) => {
+        const v = e.target.value;
+        root.style.setProperty('--glass-blur', `${v}px`);
+        blurVal.textContent = `${v}px`;
+      });
+
+      borderSlider.addEventListener('input', (e) => {
+        const v = e.target.value;
+        root.style.setProperty('--glass-border', `rgba(255, 255, 255, ${v / 100})`);
+        borderVal.textContent = `${v}%`;
+      });
+
+      hueSlider.addEventListener('input', (e) => {
+        const v = e.target.value;
+        root.style.setProperty('--ambient-hue', `${v}deg`);
+        hueVal.textContent = `${v}°`;
+      });
+
+      // Filtros de portafolio
+      const filterBtns = document.querySelectorAll('.glass-filter-btn[data-filter]');
+      const cards = document.querySelectorAll('.glass-work-card');
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const f = btn.getAttribute('data-filter');
+          filterBtns.forEach(b => b.classList.toggle('is-active', b === btn));
+          cards.forEach(c => {
+            const show = f === 'all' || c.getAttribute('data-cat') === f;
+            c.classList.toggle('is-hidden', !show);
+          });
+        });
+      });
+
+      // Lightbox
+      const lb = document.getElementById('glassLightbox');
+      const lbImg = document.getElementById('glassLbImg');
+      const lbTitle = document.getElementById('glassLbTitle');
+      const lbClose = document.getElementById('glassLbClose');
+
+      cards.forEach(card => {
+        card.addEventListener('click', () => {
+          const img = card.querySelector('img');
+          lbImg.src = img.src;
+          lbImg.alt = img.alt;
+          lbTitle.textContent = card.getAttribute('data-title');
+          lb.classList.add('is-open');
+        });
+      });
+
+      lbClose.addEventListener('click', () => lb.classList.remove('is-open'));
+      lb.addEventListener('click', (e) => {
+        if (e.target === lb) lb.classList.remove('is-open');
+      });
+
+      // Acordeón FAQ
+      document.querySelectorAll('.faq-trigger').forEach(btn => {
+        btn.addEventListener('click', () => {
+          btn.parentElement.classList.toggle('is-open');
+        });
+      });
+
+      // Formulario Demo
+      const form = document.getElementById('glassBookingForm');
+      const toast = document.getElementById('glassToast');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('gName').value.trim();
+        const pack = document.getElementById('gPack').value;
+        toast.textContent = `[Demostración Interactiva] ¡Hola ${name}! Tu solicitud para "${pack}" fue simulada con éxito. En tu sitio web final de KuyénDev, recibirás este brief al instante.`;
+        toast.classList.add('is-visible');
+        form.reset();
+      });
+    })();
+  </script>
+
+  <script src="../../js/config/rubros.js"></script>
+  <script src="../../js/demo-viewer-bar.js"></script>
+</body>
+</html>

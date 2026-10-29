@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ATELIER VANDERBILT — Bodas de Destino, Alta Joyería & Retrato Privado</title>
+  <meta name="description" content="Maison de fotografía de lujo para bodas de destino, campañas de alta relojería y colecciones privadas. Demostración Modern Luxury Photography por KuyénDev." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --obsidian: #0B0A09;
+      --obsidian-soft: #141311;
+      --obsidian-elevated: #1C1A17;
+      --ivory: #F5F2EB;
+      --ivory-muted: #B8B2A6;
+      --champagne: #C8A97E;
+      --champagne-dim: rgba(200, 169, 126, 0.28);
+      --champagne-hairline: rgba(200, 169, 126, 0.22);
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--obsidian);
+      color: var(--ivory);
+      font-family: var(--font-sans);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+      padding-bottom: 90px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(1280px, 90%);
+      margin: 0 auto;
+    }
+
+    /* Marco arquitectónico de hilo dorado */
+    .luxury-frame {
+      border-left: 1px solid var(--champagne-hairline);
+      border-right: 1px solid var(--champagne-hairline);
+    }
+
+    /* Header Monograma */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(11, 10, 9, 0.88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--champagne-hairline);
+    }
+
+    .header-inner {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      padding: 20px 0;
+    }
+
+    .nav-group {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--ivory-muted);
+    }
+
+    .nav-group.right {
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .nav-group a {
+      transition: color 0.3s ease;
+    }
+
+    .nav-group a:hover {
+      color: var(--champagne);
+    }
+
+    .crest-brand {
+      text-align: center;
+    }
+
+    .crest-monogram {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border: 1px solid var(--champagne);
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      letter-spacing: 0.08em;
+      color: var(--champagne);
+      margin-bottom: 4px;
+    }
+
+    .crest-title {
+      display: block;
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .btn-luxury {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 13px 28px;
+      border: 1px solid var(--champagne);
+      background: transparent;
+      color: var(--ivory);
+      font-family: var(--font-sans);
+      font-size: 0.74rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.35s ease;
+    }
+
+    .btn-luxury:hover,
+    .btn-luxury.is-active {
+      background: var(--champagne);
+      color: var(--obsidian);
+    }
+
+    .btn-luxury-solid {
+      background: var(--champagne);
+      color: var(--obsidian);
+      font-weight: 500;
+    }
+
+    .btn-luxury-solid:hover {
+      background: #dbbe94;
+    }
+
+    /* Hero Editorial */
+    .hero {
+      padding: 72px 0 64px;
+      border-bottom: 1px solid var(--champagne-hairline);
+    }
+
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .eyebrow-gold {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.28em;
+      color: var(--champagne);
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      font-size: clamp(2.8rem, 5.2vw, 4.7rem);
+      line-height: 1.04;
+      margin-bottom: 26px;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--champagne);
+    }
+
+    .hero-lead {
+      font-size: 1.02rem;
+      color: var(--ivory-muted);
+      max-width: 50ch;
+      margin-bottom: 36px;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-bottom: 48px;
+    }
+
+    .hero-footnote {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--champagne-hairline);
+      padding-top: 24px;
+      gap: 20px;
+    }
+
+    .hero-footnote div span {
+      display: block;
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      color: var(--champagne);
+    }
+
+    .hero-footnote div small {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ivory-muted);
+    }
+
+    .hero-portrait-frame {
+      position: relative;
+      padding: 22px;
+      border: 1px solid var(--champagne-dim);
+      background: var(--obsidian-soft);
+    }
+
+    .hero-portrait-frame::before {
+      content: 'MONOGRAFÍA N° XIV · LAGO DI COMO';
+      position: absolute;
+      top: -10px;
+      left: 28px;
+      background: var(--obsidian);
+      padding: 0 12px;
+      font-size: 0.66rem;
+      letter-spacing: 0.24em;
+      color: var(--champagne);
+    }
+
+    .hero-portrait-frame img {
+      width: 100%;
+      height: 540px;
+      object-fit: cover;
+      filter: contrast(104%) sepia(8%);
+    }
+
+    .portrait-caption {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 14px;
+      font-size: 0.75rem;
+      color: var(--ivory-muted);
+      letter-spacing: 0.08em;
+    }
+
+    /* Secciones */
+    section {
+      padding: 84px 0;
+      border-bottom: 1px solid var(--champagne-hairline);
+    }
+
+    .section-heading {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 24px;
+      margin-bottom: 52px;
+    }
+
+    .section-heading h2 {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      font-size: clamp(2.1rem, 3.8vw, 3.3rem);
+      line-height: 1.1;
+    }
+
+    .section-heading h2 em {
+      color: var(--champagne);
+      font-style: italic;
+    }
+
+    /* Selector Interactivo: Private Monograph & Lookbook */
+    .lookbook-Interactive {
+      display: grid;
+      grid-template-columns: 0.38fr 0.62fr;
+      border: 1px solid var(--champagne-hairline);
+      background: var(--obsidian-soft);
+    }
+
+    .lookbook-tabs {
+      border-right: 1px solid var(--champagne-hairline);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .chapter-btn {
+      text-align: left;
+      padding: 28px 30px;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--champagne-hairline);
+      color: var(--ivory);
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .chapter-btn:hover,
+    .chapter-btn.is-active {
+      background: var(--obsidian-elevated);
+    }
+
+    .chapter-btn small {
+      display: block;
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--champagne);
+      margin-bottom: 6px;
+    }
+
+    .chapter-btn h3 {
+      font-family: var(--font-serif);
+      font-size: 1.55rem;
+      font-weight: 400;
+      margin-bottom: 6px;
+    }
+
+    .chapter-btn p {
+      font-size: 0.84rem;
+      color: var(--ivory-muted);
+    }
+
+    .lookbook-stage {
+      padding: 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .stage-image-wrap {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--champagne-hairline);
+    }
+
+    .stage-image-wrap img {
+      width: 100%;
+      height: 410px;
+      object-fit: cover;
+      transition: transform 0.6s ease, opacity 0.35s ease;
+    }
+
+    .stage-details {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      align-items: center;
+      padding-top: 12px;
+      border-top: 1px solid var(--champagne-hairline);
+    }
+
+    .stage-specs {
+      list-style: none;
+      font-size: 0.8rem;
+      color: var(--ivory-muted);
+      border-left: 1px solid var(--champagne);
+      padding-left: 16px;
+    }
+
+    /* Galería Curada */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .gallery-card {
+      background: var(--obsidian-soft);
+      border: 1px solid var(--champagne-hairline);
+      padding: 18px;
+      cursor: pointer;
+      transition: border-color 0.35s ease, transform 0.35s ease;
+    }
+
+    .gallery-card:hover {
+      border-color: var(--champagne);
+      transform: translateY(-4px);
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 360px;
+      object-fit: cover;
+      margin-bottom: 18px;
+    }
+
+    .gallery-meta small {
+      display: block;
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--champagne);
+      margin-bottom: 4px;
+    }
+
+    .gallery-meta h3 {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      font-weight: 400;
+    }
+
+    /* Garantía de Discreción & Archivo Físico */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 1px solid var(--champagne-hairline);
+    }
+
+    .pillar-box {
+      padding: 40px 32px;
+      border-right: 1px solid var(--champagne-hairline);
+      background: var(--obsidian-soft);
+    }
+
+    .pillar-box:last-child {
+      border-right: none;
+    }
+
+    .pillar-num {
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      color: var(--champagne);
+      display: block;
+      margin-bottom: 14px;
+    }
+
+    .pillar-box h3 {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 12px;
+    }
+
+    .pillar-box p {
+      font-size: 0.9rem;
+      color: var(--ivory-muted);
+    }
+
+    /* Testimonios */
+    .testimonials-luxury {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+
+    .quote-luxury {
+      padding: 38px;
+      border: 1px solid var(--champagne-hairline);
+      background: var(--obsidian-soft);
+    }
+
+    .demo-badge {
+      display: inline-block;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--champagne);
+      border: 1px solid var(--champagne-dim);
+      padding: 4px 12px;
+      margin-bottom: 18px;
+    }
+
+    .quote-luxury blockquote {
+      font-family: var(--font-serif);
+      font-size: 1.38rem;
+      font-style: italic;
+      line-height: 1.45;
+      margin-bottom: 20px;
+    }
+
+    .quote-luxury cite {
+      font-style: normal;
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ivory-muted);
+    }
+
+    /* Concierge Form */
+    .concierge-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .concierge-form {
+      padding: 40px;
+      border: 1px solid var(--champagne-hairline);
+      background: var(--obsidian-soft);
+    }
+
+    .field-row {
+      margin-bottom: 22px;
+    }
+
+    .field-row label {
+      display: block;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--champagne);
+      margin-bottom: 8px;
+    }
+
+    .luxury-input {
+      width: 100%;
+      padding: 14px 16px;
+      background: var(--obsidian);
+      border: 1px solid var(--champagne-hairline);
+      color: var(--ivory);
+      font-family: var(--font-sans);
+      font-size: 0.92rem;
+      outline: none;
+    }
+
+    .luxury-input:focus {
+      border-color: var(--champagne);
+    }
+
+    .concierge-notice {
+      display: none;
+      margin-top: 18px;
+      padding: 16px;
+      border: 1px solid var(--champagne);
+      color: var(--champagne);
+      font-size: 0.85rem;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(11, 10, 9, 0.94);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      padding: 28px;
+    }
+
+    .lightbox.is-open {
+      display: flex;
+    }
+
+    .lightbox-inner {
+      max-width: 880px;
+      width: 100%;
+      border: 1px solid var(--champagne);
+      background: var(--obsidian-soft);
+      padding: 24px;
+    }
+
+    .lightbox-inner img {
+      width: 100%;
+      max-height: 68vh;
+      object-fit: cover;
+      margin-bottom: 18px;
+    }
+
+    .site-footer {
+      padding: 48px 0;
+      text-align: center;
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ivory-muted);
+    }
+
+    @media (max-width: 960px) {
+      .header-inner {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+      .nav-group {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .hero-layout,
+      .lookbook-Interactive,
+      .stage-details,
+      .gallery-grid,
+      .pillars-grid,
+      .testimonials-luxury,
+      .concierge-grid {
+        grid-template-columns: 1fr;
+      }
+      .pillar-box {
+        border-right: none;
+        border-bottom: 1px solid var(--champagne-hairline);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        transition: none !important;
+        animation: none !important;
+      }
+    }
+  </style>
+</head>
+<body data-rubro-id="fotografia" data-style-id="modern-luxury-photography">
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <ul class="nav-group">
+        <li><a href="#monografias">Monografías</a></li>
+        <li><a href="#coleccion">Alta Joyería</a></li>
+        <li><a href="#protocolo">Discreción</a></li>
+      </ul>
+
+      <a href="#" class="crest-brand">
+        <span class="crest-monogram">AV</span>
+        <span class="crest-title">Atelier Vanderbilt</span>
+      </a>
+
+      <div class="nav-group right">
+        <a href="#concierge" class="btn-luxury">Cita Privada</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container luxury-frame">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-layout">
+        <div>
+          <span class="eyebrow-gold">PARIS · LAGO DI COMO · PATAGONIA · SANTIAGO</span>
+          <h1>El Arte del Legado Visual y la <em>Elegancia Silenciosa</em>.</h1>
+          <p class="hero-lead">
+            Aceptamos únicamente doce comisiones anuales de bodas de destino, retratos dinásticos y campañas de alta relojería. Capturado en formato medio digital Leica S y película analógica Kodak Portra de 120mm.
+          </p>
+          <div class="hero-cta-row">
+            <a href="#monografias" class="btn-luxury btn-luxury-solid">Explorar Monografías</a>
+            <a href="#concierge" class="btn-luxury">Solicitar Dossier Privado</a>
+          </div>
+          <div class="hero-footnote">
+            <div>
+              <span>12 / Año</span>
+              <small>Comisiones Exclusivas</small>
+            </div>
+            <div>
+              <span>100% NDA</span>
+              <small>Confidencialidad Total</small>
+            </div>
+            <div>
+              <span>Museo</span>
+              <small>Álbumes en Lino Belga</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-portrait-frame">
+          <img
+            src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=85"
+            alt="Editorial nupcial de alta costura en villa histórica europea"
+            onerror="this.onerror=null;this.src='../../images/demos/fotografia/17-modern-luxury-photography.jpg'"
+          />
+          <div class="portrait-caption">
+            <span>VILLA BALBIANELLO, ITALIA</span>
+            <span>HASSELBLAD H6D-100C · 80MM F/2.8</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MONOGRAFÍAS PRIVADAS INTERACTIVAS -->
+    <section id="monografias">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow-gold">Archivos Seleccionados</span>
+          <h2>Crónicas de <em>Destino &amp; Haute Couture</em></h2>
+        </div>
+        <p style="color: var(--ivory-muted); max-width: 44ch; font-size: 0.9rem;">
+          Selecciona un capítulo para inspeccionar la dirección de arte, locación y formato óptico empleado en cada producción.
+        </p>
+      </div>
+
+      <div class="lookbook-Interactive">
+        <div class="lookbook-tabs" role="tablist">
+          <button type="button" class="chapter-btn is-active" data-chapter="como">
+            <small>Capítulo I · Bodas de Destino</small>
+            <h3>Sinfonía en Lago di Como</h3>
+            <p>Tres días de celebración privada entre jardines renacentistas y navegación clásica en Riva Aquarama.</p>
+          </button>
+
+          <button type="button" class="chapter-btn" data-chapter="vendome">
+            <small>Capítulo II · Alta Relojería &amp; Joyería</small>
+            <h3>Maison Place Vendôme</h3>
+            <p>Macro-fotografía de diamantes talla esmeralda y calibres mecánicos con iluminación de fibra óptica.</p>
+          </button>
+
+          <button type="button" class="chapter-btn" data-chapter="patagonia">
+            <small>Capítulo III · Retrato Arquitectónico</small>
+            <h3>Estancia Privada en Torres del Paine</h3>
+            <p>Editorial íntima con luz crepuscular austral y película de medio formato revelada a mano.</p>
+          </button>
+        </div>
+
+        <div class="lookbook-stage">
+          <div class="stage-image-wrap">
+            <img
+              id="chapterImg"
+              src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=85"
+              alt="Celebración privada de destino"
+              onerror="this.onerror=null;this.src='../../images/demos/fotografia/17-modern-luxury-photography.jpg'"
+            />
+          </div>
+          <div class="stage-details">
+            <div>
+              <span class="eyebrow-gold" id="chapterLoc" style="margin-bottom: 6px;">LOMBARDÍA, ITALIA · OTOÑO</span>
+              <h3 id="chapterTitle" style="font-family: var(--font-serif); font-size: 1.85rem; font-weight: 400; margin-bottom: 8px;">
+                Sinfonía en Lago di Como
+              </h3>
+              <p id="chapterDesc" style="color: var(--ivory-muted); font-size: 0.9rem;">
+                Cobertura documental y editorial con equipo bilingüe de cuatro especialistas, entrega de cofre artesanal encuadernado en Florencia.
+              </p>
+            </div>
+            <ul class="stage-specs" id="chapterSpecs">
+              <li>Óptica: Leica Summilux 50mm f/1.4</li>
+              <li>Soporte: Digital 16-bit + 120mm Film</li>
+              <li>Edición: Impresión Giclée en Algodón</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COLECCIÓN CURADA -->
+    <section id="coleccion">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow-gold">Portafolio Permanente</span>
+          <h2>Estética Atemporal en <em>Cada Encuadre</em></h2>
+        </div>
+      </div>
+
+      <div class="gallery-grid">
+        <article class="gallery-card" data-title="Gala Privada en Château de Vaux" data-sub="Editorial Nupcial · Francia">
+          <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=900&q=80" alt="Retrato de novia en salón clásico" onerror="this.onerror=null;this.src='../../images/demos/fotografia/17-modern-luxury-photography.jpg'" />
+          <div class="gallery-meta">
+            <small>Haute Couture</small>
+            <h3>Gala Privada en Château de Vaux</h3>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-title="Colección Solitaire Diamant" data-sub="Alta Joyería · Ginebra">
+          <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=900&q=80" alt="Collar de alta joyería sobre terciopelo oscuro" onerror="this.onerror=null;this.src='../../images/demos/fotografia/17-modern-luxury-photography.jpg'" />
+          <div class="gallery-meta">
+            <small>Haute Joaillerie</small>
+            <h3>Colección Solitaire Diamant</h3>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-title="Retrato de Familia en Vitacura" data-sub="Colección Privada · Chile">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=80" alt="Retrato privado de estilo editorial clásico" onerror="this.onerror=null;this.src='../../images/demos/fotografia/17-modern-luxury-photography.jpg'" />
+          <div class="gallery-meta">
+            <small>Retrato Privado</small>
+            <h3>Retrato de Familia &amp; Legado</h3>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- PROTOCOLO DE DISCRECIÓN -->
+    <section id="protocolo">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow-gold">Estándares de la Maison</span>
+          <h2>Garantía de <em>Privacidad &amp; Excelencia</em></h2>
+        </div>
+      </div>
+
+      <div class="pillars-grid">
+        <div class="pillar-box">
+          <span class="pillar-num">I.</span>
+          <h3>Acuerdo de Reserva Absoluta</h3>
+          <p>Ninguna fotografía de eventos privados es publicada en redes sociales o prensa sin autorización expresa por escrito de nuestros comitentes.</p>
+        </div>
+        <div class="pillar-box">
+          <span class="pillar-num">II.</span>
+          <h3>Custodia Cifrada por 25 Años</h3>
+          <p>Sus negativos digitales RAW y escaneos de medio formato se resguardan en bóvedas digitales redundantes en Suiza con acceso hereditario.</p>
+        </div>
+        <div class="pillar-box">
+          <span class="pillar-num">III.</span>
+          <h3>Encuadernación de Archivo</h3>
+          <p>Cada comisión culmina con una edición física cosida a mano sobre papel Hahnemühle Photo Rag de 308 g/m² libre de ácido.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIOS DE DEMOSTRACIÓN -->
+    <section>
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow-gold">Cartas de Agradecimiento</span>
+          <h2>Voces de <em>Nuestros Clientes</em></h2>
+        </div>
+      </div>
+
+      <div class="testimonials-luxury">
+        <div class="quote-luxury">
+          <span class="demo-badge">[Testimonio de Demostración]</span>
+          <blockquote>
+            "Atelier Vanderbilt logró documentar tres días de celebración en Atacama con una delicadeza cinematográfica extraordinaria, pasando completamente inadvertidos entre nuestros invitados."
+          </blockquote>
+          <cite>— Familia Montt &amp; De la Fontaine · Boda de Destino (Ficticio)</cite>
+        </div>
+
+        <div class="quote-luxury">
+          <span class="demo-badge">[Testimonio de Demostración]</span>
+          <blockquote>
+            "El manejo de los reflejos sobre oro rosa y zafiros superó los estándares de nuestra casa matriz en Ginebra. Un rigor técnico difícil de encontrar."
+          </blockquote>
+          <cite>— Henri Laurent, Director de Imagen en Maison Horlogère (Ficticio)</cite>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONCIERGE PRIVADO -->
+    <section id="concierge">
+      <div class="concierge-grid">
+        <div>
+          <span class="eyebrow-gold">Atención Personalizada</span>
+          <h2 style="font-family: var(--font-serif); font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 400; margin-bottom: 18px;">
+            Solicitar Entrevista con <em>Nuestro Director</em>
+          </h2>
+          <p style="color: var(--ivory-muted); margin-bottom: 28px;">
+            Atendemos exclusivamente con cita previa en nuestro salón de Nueva Costanera (Santiago) o mediante videoconferencia privada para clientes internacionales.
+          </p>
+          <div style="border-left: 1px solid var(--champagne); padding-left: 20px; color: var(--ivory-muted); font-size: 0.88rem;">
+            <p><strong style="color: var(--ivory);">Disponibilidad 2026 / 2027:</strong> 3 cupos restantes para bodas de destino en Europa y Sudamérica.</p>
+          </div>
+        </div>
+
+        <form class="concierge-form" id="conciergeForm">
+          <div class="field-row">
+            <label for="luxName">Nombre Completo o Wedding Planner</label>
+            <input type="text" id="luxName" class="luxury-input" placeholder="Ej. Isidora Subercaseaux" required />
+          </div>
+          <div class="field-row">
+            <label for="luxType">Naturaleza de la Comisión</label>
+            <select id="luxType" class="luxury-input">
+              <option>Boda de Destino / Celebración Privada</option>
+              <option>Campaña de Alta Joyería &amp; Relojería</option>
+              <option>Retrato Privado &amp; Monografía Familiar</option>
+            </select>
+          </div>
+          <div class="field-row">
+            <label for="luxDate">Locación y Fecha Estimada</label>
+            <input type="text" id="luxDate" class="luxury-input" placeholder="Ej. Viña Vik, Noviembre 2026" required />
+          </div>
+          <div class="field-row">
+            <label for="luxEmail">Correo Electrónico Confidencial</label>
+            <input type="email" id="luxEmail" class="luxury-input" placeholder="isidora@dominio.com" required />
+          </div>
+          <button type="submit" class="btn-luxury btn-luxury-solid" style="width: 100%;">
+            Solicitar Dossier &amp; Entrevista (Demostración)
+          </button>
+          <div class="concierge-notice" id="conciergeNotice" role="status">
+            ✦ Solicitud de demostración registrada. En un sitio web real, nuestro Concierge Privado respondería dentro de 4 horas hábiles bajo protocolo de confidencialidad.
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="luxLightbox" role="dialog" aria-modal="true" aria-label="Inspección de obra">
+    <div class="lightbox-inner">
+      <img id="luxLbImg" src="" alt="" />
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: 16px;">
+        <div>
+          <span class="eyebrow-gold" id="luxLbSub" style="margin-bottom: 4px;"></span>
+          <h3 id="luxLbTitle" style="font-family: var(--font-serif); font-size: 1.5rem; font-weight: 400;"></h3>
+        </div>
+        <button type="button" class="btn-luxury" id="luxLbClose">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer container">
+    <p>ATELIER VANDERBILT · Demostración de Estilo #17 (Modern Luxury Photography) para el catálogo KuyénDev.</p>
+  </footer>
+
+  <script>
+    (function () {
+      const chapters = {
+        como: {
+          img: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=85',
+          loc: 'LOMBARDÍA, ITALIA · OTOÑO',
+          title: 'Sinfonía en Lago di Como',
+          desc: 'Cobertura documental y editorial con equipo bilingüe de cuatro especialistas, entrega de cofre artesanal encuadernado en Florencia.',
+          specs: ['Óptica: Leica Summilux 50mm f/1.4', 'Soporte: Digital 16-bit + 120mm Film', 'Edición: Impresión Giclée en Algodón']
+        },
+        vendome: {
+          img: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1200&q=85',
+          loc: 'PLACE VENDÔME, PARÍS · CAMPAÑA ANUAL',
+          title: 'Maison Place Vendôme',
+          desc: 'Control micro-especular para alta joyería y guardatiempos complicados, resaltando el fuego natural de cada gema sin artificios digitales.',
+          specs: ['Óptica: Rodenstock HR Digaron Macro', 'Soporte: Phase One IQ4 150MP', 'Edición: Separación de frecuencias 16-bit']
+        },
+        patagonia: {
+          img: 'https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&w=1200&q=85',
+          loc: 'TORRES DEL PAINE, CHILE · INVIERNO AUSTRAL',
+          title: 'Estancia Privada en la Patagonia',
+          desc: 'Producción íntima en reserva privada rodeada de macizos graníticos, aprovechando la hora azul austral y película Kodak Portra 400.',
+          specs: ['Óptica: Hasselblad XCD 90mm f/2.5', 'Soporte: Híbrido Medio Formato', 'Edición: Monografía en Cuero Toscano']
+        }
+      };
+
+      const btns = document.querySelectorAll('.chapter-btn');
+      const cImg = document.getElementById('chapterImg');
+      const cLoc = document.getElementById('chapterLoc');
+      const cTitle = document.getElementById('chapterTitle');
+      const cDesc = document.getElementById('chapterDesc');
+      const cSpecs = document.getElementById('chapterSpecs');
+
+      btns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          btns.forEach(b => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+          const data = chapters[btn.dataset.chapter];
+          if (data) {
+            cImg.src = data.img;
+            cLoc.textContent = data.loc;
+            cTitle.textContent = data.title;
+            cDesc.textContent = data.desc;
+            cSpecs.innerHTML = data.specs.map(s => `<li>${s}</li>`).join('');
+          }
+        });
+      });
+
+      // Lightbox
+      const cards = document.querySelectorAll('.gallery-card');
+      const lb = document.getElementById('luxLightbox');
+      const lbImg = document.getElementById('luxLbImg');
+      const lbTitle = document.getElementById('luxLbTitle');
+      const lbSub = document.getElementById('luxLbSub');
+      const lbClose = document.getElementById('luxLbClose');
+
+      cards.forEach(card => {
+        card.addEventListener('click', () => {
+          const img = card.querySelector('img');
+          lbImg.src = img.src;
+          lbTitle.textContent = card.dataset.title;
+          lbSub.textContent = card.dataset.sub;
+          lb.classList.add('is-open');
+        });
+      });
+
+      lbClose.addEventListener('click', () => lb.classList.remove('is-open'));
+      lb.addEventListener('click', (e) => {
+        if (e.target === lb) lb.classList.remove('is-open');
+      });
+
+      // Formulario
+      const form = document.getElementById('conciergeForm');
+      const notice = document.getElementById('conciergeNotice');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        notice.style.display = 'block';
+        form.reset();
+      });
+    })();
+  </script>
+  <script src="../../js/config/rubros.js"></script>
+  <script src="../../js/demo-viewer-bar.js"></script>
+</body>
+</html>

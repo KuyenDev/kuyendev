@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BITÁCORA NÓMADA · Diario Visual, Viajes & Fotografía Espontánea</title>
+  <meta name="description" content="Portafolio creativo estilo scrapbook y bitácora de viaje con fotografía documental espontánea, retratos lifestyle y crónicas visuales." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Karla:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --paper-craft: #F7F3E9;
+      --paper-warm: #EFE8D8;
+      --paper-white: #FFFDF9;
+      --ink-charcoal: #2E2D2B;
+      --ink-pencil: #5C5954;
+      --terracotta: #E28743;
+      --sage-green: #87A96B;
+      --stamp-red: #C84B31;
+      --font-hand: 'Caveat', cursive;
+      --font-body: 'Karla', -apple-system, BlinkMacSystemFont, sans-serif;
+      --polaroid-shadow: 0 14px 28px rgba(46, 45, 43, 0.14), 0 4px 10px rgba(46, 45, 43, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--paper-craft);
+      color: var(--ink-charcoal);
+      font-family: var(--font-body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    body {
+      background-color: var(--paper-craft);
+      color: var(--ink-charcoal);
+      line-height: 1.6;
+      overflow-x: hidden;
+      padding-bottom: 90px;
+      /* Subtle notebook dot-grid + craft paper feel */
+      background-image: radial-gradient(rgba(46, 45, 43, 0.12) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+
+    /* Top Notebook Margin Strip */
+    .notebook-top-strip {
+      background: var(--ink-charcoal);
+      color: var(--paper-craft);
+      padding: 9px 24px;
+      font-size: 0.78rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .hand-highlight {
+      font-family: var(--font-hand);
+      font-size: 1.15rem;
+      color: var(--terracotta);
+    }
+
+    /* Header Navigation */
+    .scrap-header {
+      position: sticky;
+      top: 0;
+      z-index: 90;
+      background: rgba(247, 243, 233, 0.94);
+      backdrop-filter: blur(8px);
+      border-bottom: 2px dashed rgba(46, 45, 43, 0.2);
+    }
+
+    .scrap-nav {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .scrap-brand {
+      text-decoration: none;
+      color: var(--ink-charcoal);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .stamp-badge {
+      background: var(--terracotta);
+      color: #FFF;
+      font-family: var(--font-hand);
+      font-size: 1.25rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      transform: rotate(-3deg);
+      box-shadow: 2px 3px 0 var(--ink-charcoal);
+    }
+
+    .brand-title-wrap strong {
+      display: block;
+      font-size: 1.15rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .brand-title-wrap span {
+      font-family: var(--font-hand);
+      font-size: 1.1rem;
+      color: var(--ink-pencil);
+    }
+
+    .scrap-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .scrap-links a {
+      text-decoration: none;
+      color: var(--ink-charcoal);
+      font-weight: 700;
+      font-size: 0.9rem;
+      position: relative;
+    }
+
+    .scrap-links a:hover {
+      color: var(--terracotta);
+    }
+
+    .btn-craft {
+      background: var(--terracotta);
+      color: #FFFFFF;
+      border: 2px solid var(--ink-charcoal);
+      padding: 10px 22px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-decoration: none;
+      box-shadow: 4px 4px 0 var(--ink-charcoal);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    .btn-craft:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0 var(--ink-charcoal);
+    }
+
+    .btn-craft-sage {
+      background: var(--sage-green);
+      color: var(--ink-charcoal);
+    }
+
+    /* Washi Tape Utility */
+    .washi-tape {
+      position: absolute;
+      width: 115px;
+      height: 30px;
+      background: rgba(226, 135, 67, 0.62);
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-3deg);
+      z-index: 5;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+      border-left: 2px dotted rgba(255,255,255,0.6);
+      border-right: 2px dotted rgba(255,255,255,0.6);
+    }
+
+    .washi-tape.sage {
+      background: rgba(135, 169, 107, 0.68);
+      transform: translateX(-50%) rotate(2.5deg);
+    }
+
+    /* Hero Scrapbook Spread */
+    .hero-scrapbook {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 64px 32px 88px;
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .hand-kicker {
+      font-family: var(--font-hand);
+      font-size: 1.75rem;
+      color: var(--terracotta);
+      display: block;
+      margin-bottom: 6px;
+      transform: rotate(-1.5deg);
+    }
+
+    .hero-scrap-title {
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      font-weight: 700;
+      line-height: 1.12;
+      margin-bottom: 20px;
+      color: var(--ink-charcoal);
+    }
+
+    .marker-underline {
+      background: linear-gradient(180deg, transparent 62%, rgba(226, 135, 67, 0.45) 62%);
+      padding: 0 4px;
+    }
+
+    .hero-scrap-lead {
+      font-size: 1.05rem;
+      color: var(--ink-pencil);
+      margin-bottom: 28px;
+      max-width: 520px;
+    }
+
+    .passport-stamps-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .passport-stamp {
+      border: 2px dashed var(--sage-green);
+      background: var(--paper-white);
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-family: var(--font-hand);
+      font-size: 1.2rem;
+      color: var(--ink-charcoal);
+      transform: rotate(-2deg);
+    }
+
+    .passport-stamp:nth-child(2) {
+      border-color: var(--terracotta);
+      transform: rotate(2deg);
+    }
+
+    /* Hero Layered Polaroid Stack */
+    .hero-collage-cluster {
+      position: relative;
+      min-height: 460px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .polaroid-frame {
+      background: var(--paper-white);
+      padding: 16px 16px 52px;
+      box-shadow: var(--polaroid-shadow);
+      border: 1px solid rgba(46, 45, 43, 0.12);
+      position: relative;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .polaroid-frame img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+    }
+
+    .polaroid-caption {
+      position: absolute;
+      bottom: 12px;
+      left: 18px;
+      right: 18px;
+      font-family: var(--font-hand);
+      font-size: 1.45rem;
+      color: var(--ink-charcoal);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .hero-pol-main {
+      width: 78%;
+      transform: rotate(-2.5deg);
+      z-index: 3;
+    }
+
+    .hero-pol-secondary {
+      position: absolute;
+      right: 0;
+      bottom: -18px;
+      width: 50%;
+      transform: rotate(4.5deg);
+      z-index: 4;
+    }
+
+    .sticky-field-note {
+      position: absolute;
+      top: -12px;
+      left: 0;
+      background: #FFF3B0;
+      padding: 14px 18px;
+      max-width: 200px;
+      font-family: var(--font-hand);
+      font-size: 1.25rem;
+      line-height: 1.25;
+      color: var(--ink-charcoal);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+      transform: rotate(-5deg);
+      z-index: 5;
+    }
+
+    /* Section Containers */
+    .scrap-section {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 84px 32px;
+      border-top: 2px dashed rgba(46, 45, 43, 0.16);
+    }
+
+    .scrap-sec-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 48px;
+    }
+
+    /* INTERACTIVE "MESA DE COLLAGE" WORKBENCH */
+    .collage-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 36px;
+      background: var(--paper-warm);
+      padding: 16px 22px;
+      border: 2px solid var(--ink-charcoal);
+      box-shadow: 4px 4px 0 var(--ink-charcoal);
+    }
+
+    .journal-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .journal-tab-btn {
+      background: var(--paper-white);
+      border: 1.5px solid var(--ink-charcoal);
+      padding: 8px 16px;
+      font-weight: 700;
+      font-size: 0.82rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .journal-tab-btn.active,
+    .journal-tab-btn:hover {
+      background: var(--terracotta);
+      color: #FFF;
+    }
+
+    .collage-desk-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 42px;
+      padding: 20px 10px;
+    }
+
+    .scrap-card {
+      background: var(--paper-white);
+      padding: 16px 16px 58px;
+      box-shadow: var(--polaroid-shadow);
+      border: 1px solid rgba(46, 45, 43, 0.15);
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+    }
+
+    .scrap-card:nth-child(odd) {
+      transform: rotate(-2deg);
+    }
+
+    .scrap-card:nth-child(even) {
+      transform: rotate(2.2deg);
+    }
+
+    .scrap-card.hidden {
+      display: none;
+    }
+
+    .scrap-card:hover,
+    .scrap-card.active-front {
+      box-shadow: 0 24px 48px rgba(46, 45, 43, 0.28);
+    }
+
+    .scrap-card img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+    }
+
+    .scrap-hand-note {
+      position: absolute;
+      bottom: 12px;
+      left: 16px;
+      right: 16px;
+      font-family: var(--font-hand);
+      font-size: 1.45rem;
+      color: var(--ink-charcoal);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .scrap-date-tag {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 700;
+      background: var(--paper-warm);
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    /* Travel Field Gear & Analog Spirit */
+    .notebook-spread {
+      background: var(--paper-white);
+      border: 2px solid var(--ink-charcoal);
+      box-shadow: 8px 8px 0 var(--ink-charcoal);
+      padding: 48px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      position: relative;
+    }
+
+    .spread-item h3 {
+      font-family: var(--font-hand);
+      font-size: 1.9rem;
+      color: var(--terracotta);
+      margin-bottom: 8px;
+    }
+
+    .spread-item p {
+      font-size: 0.94rem;
+      color: var(--ink-pencil);
+    }
+
+    /* Testimonials (Pinned Postcards) */
+    .postcards-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .pinned-note-card {
+      background: var(--paper-white);
+      border: 1.5px solid var(--ink-charcoal);
+      padding: 32px 26px;
+      position: relative;
+      box-shadow: var(--polaroid-shadow);
+      transform: rotate(-1deg);
+    }
+
+    .pinned-note-card:nth-child(2) {
+      transform: rotate(1.5deg);
+      background: #FCF9F0;
+    }
+
+    .demo-scrap-badge {
+      display: inline-block;
+      background: var(--paper-warm);
+      border: 1px dashed var(--ink-charcoal);
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      margin-bottom: 14px;
+    }
+
+    .pinned-quote {
+      font-family: var(--font-hand);
+      font-size: 1.45rem;
+      line-height: 1.35;
+      color: var(--ink-charcoal);
+      margin-bottom: 18px;
+    }
+
+    /* Postcard Contact Form */
+    .airmail-postcard {
+      max-width: 940px;
+      margin: 0 auto;
+      background: var(--paper-white);
+      padding: 14px;
+      border: 2px solid var(--ink-charcoal);
+      box-shadow: 8px 8px 0 var(--ink-charcoal);
+      background-image: repeating-linear-gradient(
+        45deg,
+        #E28743 0px,
+        #E28743 14px,
+        #FFFDF9 14px,
+        #FFFDF9 28px,
+        #87A96B 28px,
+        #87A96B 42px,
+        #FFFDF9 42px,
+        #FFFDF9 56px
+      );
+    }
+
+    .airmail-inner {
+      background: var(--paper-white);
+      padding: 44px;
+      border: 1px solid var(--ink-charcoal);
+    }
+
+    .postcard-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+      margin-bottom: 32px;
+      border-bottom: 2px dashed rgba(46, 45, 43, 0.2);
+      padding-bottom: 20px;
+    }
+
+    .postage-stamp-box {
+      width: 84px;
+      height: 96px;
+      border: 2px dotted var(--terracotta);
+      background: var(--paper-warm);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-family: var(--font-hand);
+      font-size: 1.05rem;
+      padding: 8px;
+      flex-shrink: 0;
+      transform: rotate(3deg);
+    }
+
+    .scrap-form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .scrap-field {
+      margin-bottom: 20px;
+    }
+
+    .scrap-field label {
+      display: block;
+      font-family: var(--font-hand);
+      font-size: 1.35rem;
+      color: var(--ink-charcoal);
+      margin-bottom: 4px;
+    }
+
+    .scrap-field input,
+    .scrap-field select,
+    .scrap-field textarea {
+      width: 100%;
+      padding: 12px 14px;
+      background: var(--paper-craft);
+      border: 1.5px solid var(--ink-charcoal);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--ink-charcoal);
+    }
+
+    .scrap-feedback {
+      display: none;
+      margin-top: 20px;
+      padding: 16px 20px;
+      background: #E9F3E1;
+      border: 2px solid var(--sage-green);
+      font-weight: 500;
+    }
+
+    /* Lightbox */
+    .scrap-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(46, 45, 43, 0.85);
+      backdrop-filter: blur(5px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .scrap-lightbox.open {
+      display: flex;
+    }
+
+    .scrap-lb-polaroid {
+      background: var(--paper-white);
+      padding: 22px 22px 32px;
+      max-width: 680px;
+      width: 100%;
+      position: relative;
+      transform: rotate(-1deg);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+    }
+
+    .scrap-lb-polaroid img {
+      width: 100%;
+      max-height: 60vh;
+      object-fit: cover;
+      margin-bottom: 16px;
+    }
+
+    .scrap-lb-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: var(--terracotta);
+      color: #FFF;
+      border: 2px solid var(--ink-charcoal);
+      width: 36px;
+      height: 36px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .scrap-footer {
+      text-align: center;
+      padding: 44px 24px;
+      border-top: 2px dashed rgba(46, 45, 43, 0.2);
+      font-size: 0.85rem;
+      color: var(--ink-pencil);
+    }
+
+    @media (max-width: 1024px) {
+      .hero-scrapbook {
+        grid-template-columns: 1fr;
+      }
+      .collage-desk-grid,
+      .notebook-spread,
+      .postcards-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .scrap-links {
+        display: none;
+      }
+      .collage-desk-grid,
+      .notebook-spread,
+      .postcards-row,
+      .scrap-form-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-scrapbook,
+      .scrap-section {
+        padding: 52px 20px;
+      }
+      .airmail-inner,
+      .notebook-spread {
+        padding: 26px 20px;
+      }
+    }
+  </style>
+</head>
+<body data-rubro-id="fotografia" data-style-id="scrapbook-collage">
+
+  <div class="notebook-top-strip">
+    <span>✈ BITÁCORA ACTUAL: Cuaderno #19 · Carretera Austral &amp; Chiloé</span>
+    <span class="hand-highlight">«Las mejores fotos ocurren cuando guardas el mapa...»</span>
+  </div>
+
+  <header class="scrap-header">
+    <nav class="scrap-nav">
+      <a href="#" class="scrap-brand">
+        <span class="stamp-badge">NÓMADA</span>
+        <div class="brand-title-wrap">
+          <strong>Bitácora Nómada</strong>
+          <span>Diario Visual, Viajes &amp; Fotografía Espontánea</span>
+        </div>
+      </a>
+
+      <ul class="scrap-links">
+        <li><a href="#mesa-collage">Mesa de Recortes</a></li>
+        <li><a href="#filosofia">Mochila &amp; Rollo</a></li>
+        <li><a href="#postales">Postales</a></li>
+        <li><a href="#escribir" class="btn-craft">Enviar Postal</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Scrapbook -->
+    <section class="hero-scrapbook">
+      <div>
+        <span class="hand-kicker">¡Hola! Soy Mateo, fotógrafo documental y viajero →</span>
+        <h1 class="hero-scrap-title">
+          Colecciono historias reales con <span class="marker-underline">cinta adhesiva</span>, barro en las botas y luz de tarde.
+        </h1>
+        <p class="hero-scrap-lead">
+          Huyo de los estudios fríos y las sonrisas de catálogo. Trabajo con marcas de aventura, proyectos hoteleros de autor, revistas de viaje y familias que quieren un álbum vivo, imperfecto y profundamente humano.
+        </p>
+
+        <div style="display:flex; flex-wrap:wrap; gap:14px;">
+          <a href="#mesa-collage" class="btn-craft">Revolver la Mesa de Fotos</a>
+          <a href="#escribir" class="btn-craft btn-craft-sage">Armar una Expedición</a>
+        </div>
+
+        <div class="passport-stamps-row">
+          <span class="passport-stamp">✦ 28 Países en Mochila</span>
+          <span class="passport-stamp">✦ 35mm &amp; Medio Formato</span>
+          <span class="passport-stamp">✦ Crónicas para Editoriales</span>
+        </div>
+      </div>
+
+      <!-- Layered Polaroid Collage -->
+      <div class="hero-collage-cluster">
+        <div class="sticky-field-note">
+          Nota de campo:<br />
+          Lluvia recién caída en el muelle de Castro, 07:40 AM ☕
+        </div>
+
+        <div class="polaroid-frame hero-pol-main">
+          <div class="washi-tape"></div>
+          <img
+            src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1000&q=85"
+            alt="Lago y montañas en bitácora de viaje"
+            onerror="this.onerror=null;this.src='../../images/demos/fotografia/15-scrapbook-collage.jpg'"
+          />
+          <div class="polaroid-caption">
+            <span>Lago General Carrera · Rollo #04</span>
+            <span style="font-size:0.95rem; color:var(--terracotta);">46°30'S</span>
+          </div>
+        </div>
+
+        <div class="polaroid-frame hero-pol-secondary">
+          <div class="washi-tape sage"></div>
+          <img
+            src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=700&q=85"
+            alt="Viajera con cámara analógica"
+            onerror="this.onerror=null;this.src='../../images/demos/fotografia/15-scrapbook-collage.jpg'"
+          />
+          <div class="polaroid-caption">
+            <span>Ruta Costera ☼</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE "MESA DE COLLAGE" -->
+    <section class="scrap-section" id="mesa-collage">
+      <div class="scrap-sec-header">
+        <div>
+          <span class="hand-kicker">Interactúa con los recortes ↓</span>
+          <h2 style="font-size: 2.2rem;">Mesa de Collage &amp; Cuadernos de Campo</h2>
+        </div>
+        <p style="color: var(--ink-pencil); max-width: 440px;">
+          Haz clic en cualquier Polaroid para traerla al frente y leer la historia escrita al reverso, o presiona «Revolver Mesa» para barajar los ángulos.
+        </p>
+      </div>
+
+      <div class="collage-toolbar">
+        <div class="journal-tabs">
+          <button class="journal-tab-btn active" data-journal="all">Todos los Cuadernos (6)</button>
+          <button class="journal-tab-btn" data-journal="patagonia">Cuaderno Sur / Patagonia</button>
+          <button class="journal-tab-btn" data-journal="oficios">Retratos &amp; Oficios</button>
+          <button class="journal-tab-btn" data-journal="costa">Bitácora del Pacífico</button>
+        </div>
+
+        <button class="btn-craft btn-craft-sage" id="shuffleDeskBtn">
+          ↻ Revolver / Barajar Mesa de Recortes
+        </button>
+      </div>
+
+      <div class="collage-desk-grid" id="collageDesk">
+        <!-- Cutout 1 -->
+        <article class="scrap-card" data-journal="patagonia" data-note="Amanecer helado frente a los cuernos de granito. El termo de mate nos salvó los dedos antes de disparar esta placa." data-loc="Parque Torres del Paine · Octubre">
+          <div class="washi-tape"></div>
+          <img
+            src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=85"
+            alt="Cumbre patagónica"
+            loading="lazy"
+            onerror="this.onerror=null;this.src='../../images/demos/fotografia/15-scrapbook-collage.jpg'"
+          />
+          <div class="scrap-hand-note">
+            <span>Amanecer en la Estepa</span>
+            <span class="scrap-date-tag">14 OCT</span>
+          </div>
+        </article>
+
+        <!-- Cutout 2 -->
+        <article class="scrap-card" data-journal="oficios" data-note="Don Efraín lleva cuarenta años tostando café en la sierra. Me invitó a pasar antes de que abriera el mercado." data-loc="Oaxaca, México · Cuaderno #12">
+          <div class="washi-tape sage"></div>
+          <img
+            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=85"
+            alt="Retrato espontáneo de artesano"
+            loading="lazy"
+            onerror="this.onerror=null;this.src='../../images/demos/fotografia/15-scrapbook-collage.jpg'"
+          />
+          <div class="scrap-hand-note">
+            <span>El Tostador de la Sierra</span>
+            <span class="scrap-date-tag">03 NOV</span>
+          </div>
+        </article>
+
+        <!-- Cutout 3 -->
+        <article class="scrap-card" data-journal="costa" data-note="Combi amarilla estacionada frente a las olas de Punta de Lobos. Sesiones lifestyle para marcas de surf y outdoor." data-loc="Pichilemu, Chile · Verano">
+          <div class="washi-tape"></div>
+          <img
+            src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=85"
+            alt="Playa al atardecer en viaje"
+            loading="lazy"
+            onerror="this.onerror=null;this.src='../../images/demos/fotografia/15-scrapbook-collage.jpg'"
+          />
+          <div class="scrap-hand-note">
+            <span>Salitre y Viento Sur</span>
+            <span class="scrap-date-tag">22 ENE</span>
+          </div>
+        </article>
+
+        <!-- Cutout 4 -->
+        <article class="scrap-card" data-journal="patagonia" data-note="Cruzando en barcaza hacia Chaitén entre fiordos cubiertos de alerces milenarios." data-loc="Carretera Austral · Km 410">
+          <div class="washi-tape sage"></div>
+          <img
+            src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=85"
+            alt="Fiordo austral"
+            loading="lazy"
+            onerror="this.onerror=null;this.src='../../images/demos/fotografia/15-scrapbook-collage.jpg'"
+          />
+          <div class="scrap-hand-note">
+            <span>Barcaza del Fiordo</span>
+            <span class="scrap-date-tag">09 FEB</span>
+          </div>
+        </article>
+
+        <!-- Cutout 5 -->
+        <article class="scrap-card" data-journal="oficios" data-note="Taller de cerámica gres en el valle: manos con arcilla húmeda y luz entrando por el techo de caña." data-loc="Valle del Elqui · Otoño">
+          <div class="washi-tape"></div>
+          <img
+            src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=85"
+            alt="Retrato cálido en taller"
+            loading="lazy"
+            onerror="this.onerror=null;this.src='../../images/demos/fotografia/15-scrapbook-collage.jpg'"
+          />
+          <div class="scrap-hand-note">
+            <span>Manos de Barro y Sol</span>
+            <span class="scrap-date-tag">19 ABR</span>
+          </div>
+        </article>
+
+        <!-- Cutout 6 -->
+        <article class="scrap-card" data-journal="costa" data-note="Cuaderno de ruta desde caletas pesqueras al amanecer cuando regresan los botes artesanales." data-loc="Caleta Quintay · Invierno">
+          <div class="washi-tape sage"></div>
+          <img
+            src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=800&q=85"
+            alt="Crónica de viaje en costa"
+            loading="lazy"
+            onerror="this.onerror=null;this.src='../../images/demos/fotografia/15-scrapbook-collage.jpg'"
+          />
+          <div class="scrap-hand-note">
+            <span>Niebla en la Caleta</span>
+            <span class="scrap-date-tag">30 JUL</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- What's in the Backpack -->
+    <section class="scrap-section" id="filosofia">
+      <div class="notebook-spread">
+        <div class="washi-tape"></div>
+        <div class="spread-item">
+          <h3>1. Fotografía sin Guion</h3>
+          <p>Documentamos hoteles boutique, expediciones, oficios artesanales y familias conviviendo con el entorno sin interrumpir lo que sucede de verdad.</p>
+        </div>
+        <div class="spread-item">
+          <h3>2. Textura Analógica &amp; Papel</h3>
+          <p>Entregamos tanto galerías digitales listas para web como cajas de copias estilo Polaroid y fotolibros encuadernados en papel reciclado de alto gramaje.</p>
+        </div>
+        <div class="spread-item">
+          <h3>3. Crónicas Editoriales</h3>
+          <p>No solo tomamos fotografías: redactamos las notas de viaje y micro-historias que acompañan la campaña de tu marca o proyecto turístico.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials (Postcards) -->
+    <section class="scrap-section" id="postales">
+      <div class="scrap-sec-header">
+        <div>
+          <span class="hand-kicker">Recortes que nos han dejado ↓</span>
+          <h2 style="font-size: 2.2rem;">Notas de Compañeros de Ruta</h2>
+        </div>
+      </div>
+
+      <div class="postcards-row">
+        <article class="pinned-note-card">
+          <div class="washi-tape"></div>
+          <span class="demo-scrap-badge">[Testimonio de Demostración]</span>
+          <p class="pinned-quote">
+            «Mateo pasó cuatro días en nuestro lodge en la Patagonia. Las fotos que capturó junto al fogón y en los senderos transmiten exactamente el calor de hogar que queríamos mostrar al mundo.»
+          </p>
+          <strong>— Florencia &amp; Martín, Refugio Río Baker</strong>
+        </article>
+
+        <article class="pinned-note-card">
+          <div class="washi-tape sage"></div>
+          <span class="demo-scrap-badge">[Testimonio de Demostración]</span>
+          <p class="pinned-quote">
+            «Contratamos a Bitácora Nómada para fotografiar a los artesanos detrás de nuestra marca de lana merino. El resultado parece un reportaje de revista internacional.»
+          </p>
+          <strong>— Cooperativa Textil Austral</strong>
+        </article>
+
+        <article class="pinned-note-card">
+          <div class="washi-tape"></div>
+          <span class="demo-scrap-badge">[Testimonio de Demostración]</span>
+          <p class="pinned-quote">
+            «En vez de una sesión familiar posada en un parque, nos fuimos de camping a la costa y Mateo documentó todo. Nuestros hijos ni notaron la cámara.»
+          </p>
+          <strong>— Familia Subercaseaux-Ríos</strong>
+        </article>
+      </div>
+    </section>
+
+    <!-- Postcard Contact Form -->
+    <section class="scrap-section" id="escribir">
+      <div class="airmail-postcard">
+        <div class="airmail-inner">
+          <div class="postcard-header">
+            <div>
+              <span class="demo-scrap-badge">[Postal Interactiva de Demostración]</span>
+              <h2 style="font-size: 2rem; margin-bottom: 6px;">Escríbeme una Postal de Proyecto</h2>
+              <p style="color: var(--ink-pencil);">
+                Cuéntame a dónde vamos, qué historia quieres contar o qué marca necesitas documentar.
+              </p>
+            </div>
+            <div class="postage-stamp-box">
+              <span>CORREO AÉREO</span>
+              <strong style="color:var(--terracotta);">CHILE · 2026</strong>
+            </div>
+          </div>
+
+          <form id="postcardForm">
+            <div class="scrap-form-grid">
+              <div class="scrap-field" style="margin-bottom:0;">
+                <label for="senderName">Tu Nombre o Proyecto:</label>
+                <input type="text" id="senderName" required placeholder="Ej. Laura · Hotel Casa Bosque" />
+              </div>
+              <div class="scrap-field" style="margin-bottom:0;">
+                <label for="senderEmail">Tu Correo de Respuesta:</label>
+                <input type="email" id="senderEmail" required placeholder="laura@casabosque.cl" />
+              </div>
+            </div>
+
+            <div class="scrap-form-grid">
+              <div class="scrap-field" style="margin-bottom:0;">
+                <label for="tripType">Tipo de Bitácora:</label>
+                <select id="tripType">
+                  <option value="Campaña Lifestyle / Marca Outdoor o Artesanal">Campaña Lifestyle / Marca Outdoor o Artesanal</option>
+                  <option value="Documentación de Hotel Boutique / Turismo">Documentación de Hotel Boutique / Turismo</option>
+                  <option value="Sesión Documental de Familia o Pareja en Ruta">Sesión Documental de Familia o Pareja en Ruta</option>
+                  <option value="Reportaje Editorial / Revista">Reportaje Editorial / Revista</option>
+                </select>
+              </div>
+              <div class="scrap-field" style="margin-bottom:0;">
+                <label for="tripDest">Destino o Coordenadas:</label>
+                <input type="text" id="tripDest" required placeholder="Ej. Valdivia / Puerto Varas" />
+              </div>
+            </div>
+
+            <div class="scrap-field">
+              <label for="postcardMsg">Historia que te gustaría capturar:</label>
+              <textarea id="postcardMsg" rows="3" placeholder="Cuéntame fechas aproximadas y la atmósfera que buscas..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-craft" style="width: 100%; font-size: 1rem; padding: 14px;">
+              ✉ Timbrar y Enviar Postal
+            </button>
+
+            <div class="scrap-feedback" id="scrapFeedback"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="scrap-footer">
+    <p>© 2026 BITÁCORA NÓMADA · Hecho con papel craft, washi tape y café de filtro · Demostración Estilo <strong>15. Scrapbook / Collage Creativo</strong> por KuyénDev</p>
+  </footer>
+
+  <!-- Lightbox Modal -->
+  <div class="scrap-lightbox" id="scrapLightbox" role="dialog" aria-modal="true">
+    <div class="scrap-lb-polaroid">
+      <div class="washi-tape"></div>
+      <button class="scrap-lb-close" id="scrapLbClose" aria-label="Cerrar">X</button>
+      <img
+        id="scrapLbImg"
+        src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=85"
+        alt="Recorte ampliado"
+        onerror="this.onerror=null;this.src='../../images/demos/fotografia/15-scrapbook-collage.jpg'"
+      />
+      <h3 id="scrapLbLoc" style="font-family: var(--font-hand); font-size: 2rem; color: var(--terracotta); margin-bottom: 6px;">Parque Torres del Paine</h3>
+      <p id="scrapLbNote" style="font-size: 1rem; color: var(--ink-charcoal);"></p>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      // Journal Filter Tabs
+      const tabBtns = document.querySelectorAll('.journal-tab-btn');
+      const scrapCards = document.querySelectorAll('.scrap-card');
+
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          tabBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const j = btn.getAttribute('data-journal');
+          scrapCards.forEach(card => {
+            if (j === 'all' || card.getAttribute('data-journal') === j) {
+              card.classList.remove('hidden');
+            } else {
+              card.classList.add('hidden');
+            }
+          });
+        });
+      });
+
+      // Shuffle / Barajar Mesa de Collage + Z-index Interactive Stack
+      const shuffleDeskBtn = document.getElementById('shuffleDeskBtn');
+      let topZ = 10;
+
+      if (shuffleDeskBtn) {
+        shuffleDeskBtn.addEventListener('click', () => {
+          scrapCards.forEach(card => {
+            const randomDeg = (Math.random() * 8 - 4).toFixed(2);
+            const randomY = Math.round(Math.random() * 10 - 5);
+            card.style.transform = `rotate(${randomDeg}deg) translateY(${randomY}px)`;
+          });
+        });
+      }
+
+      // Lightbox & Z-index bring to front
+      const scrapLightbox = document.getElementById('scrapLightbox');
+      const scrapLbClose = document.getElementById('scrapLbClose');
+      const scrapLbImg = document.getElementById('scrapLbImg');
+      const scrapLbLoc = document.getElementById('scrapLbLoc');
+      const scrapLbNote = document.getElementById('scrapLbNote');
+
+      scrapCards.forEach(card => {
+        card.addEventListener('click', () => {
+          topZ += 1;
+          card.style.zIndex = topZ;
+          const img = card.querySelector('img');
+          scrapLbImg.src = img ? img.src : '';
+          scrapLbLoc.textContent = card.getAttribute('data-loc');
+          scrapLbNote.textContent = `«${card.getAttribute('data-note')}»`;
+          scrapLightbox.classList.add('open');
+        });
+      });
+
+      if (scrapLbClose) {
+        scrapLbClose.addEventListener('click', () => scrapLightbox.classList.remove('open'));
+      }
+      if (scrapLightbox) {
+        scrapLightbox.addEventListener('click', (e) => {
+          if (e.target === scrapLightbox) scrapLightbox.classList.remove('open');
+        });
+      }
+
+      // Postcard Form Demo
+      const postcardForm = document.getElementById('postcardForm');
+      const scrapFeedback = document.getElementById('scrapFeedback');
+      if (postcardForm) {
+        postcardForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const name = document.getElementById('senderName').value;
+          const dest = document.getElementById('tripDest').value;
+          scrapFeedback.style.display = 'block';
+          scrapFeedback.innerHTML = `<strong>✈ [Postal de Demostración Timbrada]</strong> ¡Gracias, ${name}! Tu postal rumbo a <strong>${dest}</strong> ha sido registrada. En la web real de Bitácora Nómada, Mateo respondería desde la ruta para planificar la sesión.`;
+          postcardForm.reset();
+        });
+      }
+    })();
+  </script>
+  <script src="../../js/config/rubros.js"></script>
+  <script src="../../js/demo-viewer-bar.js"></script>
+</body>
+</html>

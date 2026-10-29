@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HORIZONTE AUSTRAL · Fotografía Aérea, Expediciones & Paisaje Monumental | Demo KuyénDev</title>
+  <meta name="description" content="Demostración interactiva estilo Fullscreen Immersive para fotografía de naturaleza, expediciones aéreas y paisaje monumental. Lienzos 100vw/100vh sin bordes con HUD translúcido." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-void: #000000;
+      --bg-hud: rgba(10, 10, 12, 0.52);
+      --border-hud: rgba(255, 255, 255, 0.16);
+      --border-hud-strong: rgba(255, 255, 255, 0.38);
+      --text-pure: #FFFFFF;
+      --text-dim: rgba(255, 255, 255, 0.68);
+      --text-muted: #737373;
+      --font-display: 'Plus Jakarta Sans', sans-serif;
+      --font-sans: 'Inter', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg-void);
+      color: var(--text-pure);
+    }
+
+    body {
+      background-color: var(--bg-void);
+      color: var(--text-pure);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* HUD Flotante Superior Minimalista */
+    .hud-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 80;
+      padding: 20px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+
+    body.pure-view-mode .hud-hideable {
+      opacity: 0;
+      pointer-events: none !important;
+    }
+
+    .hud-pill {
+      pointer-events: auto;
+      background: var(--bg-hud);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid var(--border-hud);
+      border-radius: 999px;
+      padding: 10px 22px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .hud-brand {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.92rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-pure);
+      text-decoration: none;
+    }
+
+    .hud-nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      list-style: none;
+    }
+
+    .hud-nav a {
+      color: var(--text-dim);
+      text-decoration: none;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: color 0.2s ease;
+    }
+
+    .hud-nav a:hover {
+      color: var(--text-pure);
+    }
+
+    .hud-btn {
+      pointer-events: auto;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border-hud-strong);
+      color: var(--text-pure);
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 10px 18px;
+      border-radius: 999px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+
+    .hud-btn:hover,
+    .hud-btn.active {
+      background: var(--text-pure);
+      color: var(--bg-void);
+    }
+
+    /* Escenario Inmersivo 100vw x 100vh */
+    .immersive-stage {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      min-height: 680px;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .stage-bg-layer {
+      position: absolute;
+      inset: 0;
+    }
+
+    .stage-bg-layer img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.02);
+      transition: opacity 0.65s ease, transform 1.2s ease;
+    }
+
+    .stage-vignette {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.55) 0%, transparent 28%, transparent 55%, rgba(0, 0, 0, 0.88) 100%);
+      pointer-events: none;
+    }
+
+    /* Telemetría GPS y Cámara en Pantalla */
+    .stage-hud-overlay {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      height: 100%;
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 110px 36px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: opacity 0.4s ease;
+    }
+
+    .telemetry-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .telemetry-chip {
+      background: var(--bg-hud);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border-hud);
+      padding: 7px 14px;
+      border-radius: 6px;
+      font-size: 0.74rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+
+    .telemetry-chip strong {
+      color: var(--text-pure);
+      font-weight: 600;
+    }
+
+    .stage-bottom-row {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 36px;
+      align-items: flex-end;
+    }
+
+    .chapter-counter {
+      font-size: 0.78rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .stage-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5.2vw, 4.8rem);
+      font-weight: 800;
+      line-height: 1.04;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+
+    .stage-desc {
+      font-size: 1.08rem;
+      color: var(--text-dim);
+      max-width: 600px;
+      margin-bottom: 24px;
+    }
+
+    /* Selector de Capítulos de Expedición */
+    .chapter-switcher {
+      background: var(--bg-hud);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border-hud);
+      border-radius: 16px;
+      padding: 18px;
+    }
+
+    .switcher-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      font-size: 0.74rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+
+    .chapter-thumbs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .chapter-thumb-btn {
+      position: relative;
+      aspect-ratio: 16 / 10;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border-hud);
+      background: #111;
+      cursor: pointer;
+      padding: 0;
+      opacity: 0.55;
+      transition: all 0.25s ease;
+    }
+
+    .chapter-thumb-btn.active,
+    .chapter-thumb-btn:hover {
+      opacity: 1;
+      border-color: var(--text-pure);
+      transform: translateY(-2px);
+    }
+
+    .chapter-thumb-btn img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Capítulos Monumentales a Sangre Completa (Scroll Vertical) */
+    .monumental-series {
+      width: 100%;
+    }
+
+    .fullbleed-panel {
+      position: relative;
+      width: 100vw;
+      min-height: 92vh;
+      display: flex;
+      align-items: flex-end;
+      padding: 64px 36px;
+      overflow: hidden;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .fullbleed-panel img.bg-pan {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+      transition: transform 0.9s ease;
+    }
+
+    .fullbleed-panel:hover img.bg-pan {
+      transform: scale(1.03);
+    }
+
+    .fullbleed-panel::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0.18) 55%, rgba(0, 0, 0, 0.4) 100%);
+      z-index: 2;
+    }
+
+    .panel-hud-card {
+      position: relative;
+      z-index: 5;
+      max-width: 680px;
+      background: rgba(8, 8, 10, 0.62);
+      backdrop-filter: blur(18px);
+      border: 1px solid var(--border-hud);
+      padding: 36px;
+      border-radius: 16px;
+    }
+
+    .panel-meta {
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .panel-hud-card h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.9rem, 3.2vw, 2.8rem);
+      margin-bottom: 12px;
+      line-height: 1.1;
+    }
+
+    .panel-hud-card p {
+      color: var(--text-dim);
+      margin-bottom: 22px;
+    }
+
+    /* Servicios de Expedición & Fine Art Prints */
+    .dark-section {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 110px 32px;
+    }
+
+    .section-eyebrow {
+      font-size: 0.76rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .section-heading {
+      font-family: var(--font-display);
+      font-size: clamp(2.1rem, 3.8vw, 3.2rem);
+      font-weight: 700;
+      margin-bottom: 48px;
+    }
+
+    .expedition-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-hud);
+      border-radius: 16px;
+      padding: 36px 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: border-color 0.25s ease, background 0.25s ease;
+    }
+
+    .glass-card:hover {
+      border-color: var(--border-hud-strong);
+      background: rgba(255, 255, 255, 0.055);
+    }
+
+    .glass-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      margin: 10px 0 12px;
+    }
+
+    .glass-price {
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      font-weight: 700;
+      margin: 18px 0;
+      padding-top: 18px;
+      border-top: 1px solid var(--border-hud);
+    }
+
+    .demo-pill {
+      display: inline-block;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border: 1px solid var(--border-hud-strong);
+      border-radius: 999px;
+      color: var(--text-dim);
+      margin-bottom: 16px;
+      width: fit-content;
+    }
+
+    /* Formulario de Comisión & Licencias */
+    .commission-box {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 48px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-hud);
+      border-radius: 20px;
+      padding: 48px;
+    }
+
+    .hud-input {
+      width: 100%;
+      padding: 14px 16px;
+      background: rgba(0, 0, 0, 0.65);
+      border: 1px solid var(--border-hud);
+      border-radius: 8px;
+      color: var(--text-pure);
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      margin-top: 6px;
+      margin-bottom: 18px;
+    }
+
+    .hud-input:focus {
+      outline: none;
+      border-color: var(--text-pure);
+    }
+
+    /* Lightbox Pantalla Completa */
+    .fs-lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.96);
+      z-index: 220;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .fs-lightbox.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .fs-lightbox img {
+      max-width: 94vw;
+      max-height: 80vh;
+      object-fit: contain;
+      border: 1px solid var(--border-hud);
+    }
+
+    .fs-lightbox-bar {
+      margin-top: 18px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    @media (max-width: 980px) {
+      .stage-bottom-row,
+      .expedition-grid,
+      .commission-box {
+        grid-template-columns: 1fr;
+      }
+      .hud-nav {
+        display: none;
+      }
+      .hud-header {
+        padding: 14px 18px;
+      }
+      .stage-hud-overlay {
+        padding: 88px 20px 32px;
+      }
+      .commission-box {
+        padding: 28px 20px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body data-rubro-id="fotografia" data-style-id="fullscreen-immersive">
+
+  <!-- Barra Flotante HUD -->
+  <header class="hud-header">
+    <div class="hud-pill hud-hideable">
+      <a href="#" class="hud-brand">HORIZONTE AUSTRAL</a>
+      <ul class="hud-nav">
+        <li><a href="#visor">Visor 100vw</a></li>
+        <li><a href="#expediciones">Series a Sangre</a></li>
+        <li><a href="#licencias">Obra & Dron</a></li>
+        <li><a href="#comision">Encargos</a></li>
+      </ul>
+    </div>
+
+    <div style="display: flex; gap: 10px; pointer-events: auto;">
+      <button type="button" class="hud-btn" id="togglePureModeBtn" title="Ocultar interfaz para contemplar la fotografía a pantalla completa">
+        👁️ Modo Lienzo Puro
+      </button>
+      <a href="#comision" class="hud-btn hud-hideable">Licenciar Obra</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Visor Principal 100vw x 100vh con Cambio de Capítulo -->
+    <section class="immersive-stage" id="visor" aria-label="Visor de expedición a pantalla completa">
+      <div class="stage-bg-layer">
+        <img
+          id="stageMainImage"
+          src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1800&q=85"
+          onerror="this.onerror=null;this.src='../../images/demos/fotografia/08-fullscreen-immersive.jpg'"
+          alt="Paisaje monumental de montaña y niebla al amanecer"
+        />
+        <div class="stage-vignette"></div>
+      </div>
+
+      <div class="stage-hud-overlay hud-hideable">
+        <div class="telemetry-bar">
+          <div class="telemetry-chip">LAT/LON: <strong id="hudCoords">50°56'S 73°24'W · PATAGONIA</strong></div>
+          <div class="telemetry-chip">ALTITUD: <strong id="hudElevation">2.480 MSNM</strong></div>
+          <div class="telemetry-chip">ÓPTICA: <strong id="hudOptics">PHASE ONE IQ4 150MP · 28MM F/8</strong></div>
+        </div>
+
+        <div class="stage-bottom-row">
+          <div>
+            <span class="chapter-counter" id="hudChapterIndex">EXPEDICIÓN 01 / 04 · ARCHIVO MONUMENTAL</span>
+            <h1 class="stage-title" id="hudTitle">Silencio Granítico en Campo de Hielo</h1>
+            <p class="stage-desc" id="hudDesc">
+              Capturas de ultra-alta definición donde la fotografía ocupa el 100% del campo visual sin márgenes ni distracciones. Diseñado para exhibición museográfica y campañas de territorio.
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+              <button type="button" class="hud-btn" id="openStageLightboxBtn">⤢ Ampliar Fotograma 100%</button>
+              <a href="#expediciones" class="hud-btn">Explorar Capítulos ↓</a>
+            </div>
+          </div>
+
+          <div class="chapter-switcher" role="region" aria-label="Selector de capítulos de expedición">
+            <div class="switcher-header">
+              <span>CAMBIAR LOCACIÓN (← / →)</span>
+              <span id="hudTime">05:42 AM · LUZ BOREAL</span>
+            </div>
+            <div class="chapter-thumbs">
+              <button type="button" class="chapter-thumb-btn active"
+                      data-index="01 / 04"
+                      data-title="Silencio Granítico en Campo de Hielo"
+                      data-desc="Capturas de ultra-alta definición donde la fotografía ocupa el 100% del campo visual sin márgenes ni distracciones."
+                      data-coords="50°56'S 73°24'W · PATAGONIA"
+                      data-elev="2.480 MSNM"
+                      data-optics="PHASE ONE IQ4 150MP · 28MM F/8"
+                      data-time="05:42 AM · LUZ AUSTRAL"
+                      data-img="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1800&q=85">
+                <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=400&q=70" onerror="this.onerror=null;this.src='../../images/demos/fotografia/08-fullscreen-immersive.jpg'" alt="Miniatura Capítulo 1" />
+              </button>
+
+              <button type="button" class="chapter-thumb-btn"
+                      data-index="02 / 04"
+                      data-title="Geometría Salina del Altiplano"
+                      data-desc="Vuelo cenital a 4.200 metros de altura sobre lagunas altiplánicas y costras de litio al amanecer."
+                      data-coords="23°52'S 67°45'W · ATACAMA"
+                      data-elev="4.210 MSNM"
+                      data-optics="DJI INSPIRE 3 · ZENMUSE X9 8K"
+                      data-time="06:18 AM · HORA DORADA"
+                      data-img="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1800&q=85">
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=70" onerror="this.onerror=null;this.src='../../images/demos/fotografia/08-fullscreen-immersive.jpg'" alt="Miniatura Capítulo 2" />
+              </button>
+
+              <button type="button" class="chapter-thumb-btn"
+                      data-index="03 / 04"
+                      data-title="Tormenta en los Fiordos del Sur"
+                      data-desc="Exposición prolongada desde embarcación estabilizada frente a ventisqueros milenarios."
+                      data-coords="48°12'S 74°09'W · CANAL MESSIER"
+                      data-elev="0015 MSNM"
+                      data-optics="LEICA SL2-S · 50MM APO-SUMMICRON"
+                      data-time="18:50 PM · CREPÚSCULO"
+                      data-img="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1800&q=85">
+                <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=400&q=70" onerror="this.onerror=null;this.src='../../images/demos/fotografia/08-fullscreen-immersive.jpg'" alt="Miniatura Capítulo 3" />
+              </button>
+
+              <button type="button" class="chapter-thumb-btn"
+                      data-index="04 / 04"
+                      data-title="Bosque Templado Lluvioso"
+                      data-desc="Inmersión en reservas de alerces milenarios bajo neblina cerrada y lluvia austral."
+                      data-coords="41°29'S 72°33'W · ALERCE ANDINO"
+                      data-elev="0890 MSNM"
+                      data-optics="HASSELBLAD X2D · 38MM F/2.5"
+                      data-time="07:30 AM · NIEBLA DENSA"
+                      data-img="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1800&q=85">
+                <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=400&q=70" onerror="this.onerror=null;this.src='../../images/demos/fotografia/08-fullscreen-immersive.jpg'" alt="Miniatura Capítulo 4" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Capítulos Full-Bleed en Scroll Vertical -->
+    <section class="monumental-series" id="expediciones" aria-label="Series fotográficas a pantalla completa">
+      <article class="fullbleed-panel">
+        <img
+          class="bg-pan"
+          src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1800&q=85"
+          onerror="this.onerror=null;this.src='../../images/demos/fotografia/08-fullscreen-immersive.jpg'"
+          alt="Espejo de agua monumental entre montañas"
+          loading="lazy"
+        />
+        <div class="panel-hud-card">
+          <span class="panel-meta">SERIE I · CARTOGRAFÍA AÉREA & HELICÓPTERO</span>
+          <h2>Territorios Inexplorados desde el Aire</h2>
+          <p>
+            Operamos con sistemas girostabilizados desde helicópteros y drones de cine autorizados para documentar proyectos de conservación, arquitectura remota, energía renovable y hotelería de exploración.
+          </p>
+          <button type="button" class="hud-btn lightbox-trigger"
+                  data-img="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1800&q=85"
+                  data-caption="Serie I · Cartografía Aérea en la Patagonia · 150 Megapíxeles">
+            Ver en Pantalla Completa ⤢
+          </button>
+        </div>
+      </article>
+
+      <article class="fullbleed-panel" style="justify-content: flex-end;">
+        <img
+          class="bg-pan"
+          src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1800&q=85"
+          onerror="this.onerror=null;this.src='../../images/demos/fotografia/08-fullscreen-immersive.jpg'"
+          alt="Cumbres nevadas bajo cielo estrellado"
+          loading="lazy"
+        />
+        <div class="panel-hud-card">
+          <span class="panel-meta">SERIE II · ASTROFOTOGRAFÍA & ALTA MONTAÑA</span>
+          <h2>Cielos Australes de Escala Museográfica</h2>
+          <p>
+            Campamentos autónomos en cumbres sobre los 4.000 metros para registrar los cielos más limpios del planeta. Archivos nativos de 16 bits capaces de imprimirse en murales de hasta 4 metros de ancho sin pérdida de detalle.
+          </p>
+          <button type="button" class="hud-btn lightbox-trigger"
+                  data-img="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1800&q=85"
+                  data-caption="Serie II · Cumbres Nocturnas · Exposición de 45 segundos con montura ecuatorial">
+            Ver en Pantalla Completa ⤢
+          </button>
+        </div>
+      </article>
+    </section>
+
+    <!-- Servicios, Ediciones Limitadas y Testimonios -->
+    <section class="dark-section" id="licencias">
+      <span class="section-eyebrow">PRODUCCIÓN EN TERRENO & OBRA FINE ART</span>
+      <h2 class="section-heading">Producciones de Escala Monumental</h2>
+
+      <div class="expedition-grid" style="margin-bottom: 84px;">
+        <div class="glass-card">
+          <div>
+            <span class="section-eyebrow">01 · EDICIONES NUMERADAS</span>
+            <h3>Obra Fine-Art para Arquitectura</h3>
+            <p style="color: var(--text-dim);">
+              Impresiones de gran formato en papel Hahnemühle Photo Rag Metallic con montaje en Diasec acrílico anti-reflejo para lobbies corporativos, hoteles y coleccionistas.
+            </p>
+          </div>
+          <div>
+            <div class="glass-price">Desde $380.000 CLP</div>
+            <a href="#comision" class="hud-btn" style="display: inline-block;">Solicitar Catálogo de Obra</a>
+          </div>
+        </div>
+
+        <div class="glass-card">
+          <div>
+            <span class="section-eyebrow">02 · PRODUCCIÓN EN LOCACIÓN REMOTA</span>
+            <h3>Expedición Comercial & Aérea</h3>
+            <p style="color: var(--text-dim);">
+              Despliegue autónomo en cualquier región de Chile para lodges, parques nacionales, proyectos de infraestructura o campañas outdoor con fotografía 150MP y cine aéreo 8K.
+            </p>
+          </div>
+          <div>
+            <div class="glass-price">Desde $950.000 CLP</div>
+            <a href="#comision" class="hud-btn" style="display: inline-block;">Planificar Expedición</a>
+          </div>
+        </div>
+
+        <div class="glass-card">
+          <div>
+            <span class="section-eyebrow">03 · BANCO DE IMÁGENES EXCLUSIVO</span>
+            <h3>Licencias Globales en 16-Bit RAW</h3>
+            <p style="color: var(--text-dim);">
+              Acceso inmediato a nuestro archivo de más de 4.000 fotografías de alta resolución de desierto, glaciares, océano y cordillera para campañas internacionales.
+            </p>
+          </div>
+          <div>
+            <div class="glass-price">Licencia a Medida</div>
+            <a href="#comision" class="hud-btn" style="display: inline-block;">Consultar Archivo</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonios de Demostración -->
+      <span class="section-eyebrow">RECEPCIÓN DE COLECCIONISTAS & DIRECTORES DE ARTE</span>
+      <h2 class="section-heading" style="font-size: 2.1rem; margin-bottom: 32px;">Impacto en Sala y Pantallas</h2>
+
+      <div class="expedition-grid">
+        <div class="glass-card">
+          <div>
+            <span class="demo-pill">[Testimonio de Demostración]</span>
+            <p style="color: var(--text-pure); font-size: 1.02rem; margin-bottom: 18px;">
+              "Comisionamos tres murales retroiluminados de 2.8 metros para la recepción de nuestro hotel en Puerto Natales. La nitidez del hielo milenario hipnotiza a cada huésped que entra."
+            </p>
+          </div>
+          <div style="font-size: 0.82rem; color: var(--text-dim);">
+            <strong>Estudio Nómade Arquitectos</strong> · Interiorismo Hotelero
+          </div>
+        </div>
+
+        <div class="glass-card">
+          <div>
+            <span class="demo-pill">[Testimonio de Demostración]</span>
+            <p style="color: var(--text-pure); font-size: 1.02rem; margin-bottom: 18px;">
+              "El diseño web a pantalla completa nos permitió presentar nuestra memoria anual de sostenibilidad con fotografías aéreas que hablan por sí solas."
+            </p>
+          </div>
+          <div style="font-size: 0.82rem; color: var(--text-dim);">
+            <strong>Fundación Conservación Austral</strong> · Memoria Anual
+          </div>
+        </div>
+
+        <div class="glass-card">
+          <div>
+            <span class="demo-pill">[Testimonio de Demostración]</span>
+            <p style="color: var(--text-pure); font-size: 1.02rem; margin-bottom: 18px;">
+              "Su equipo operó a -12°C en la cordillera con autonomía total de energía y respaldos satelitales. Entregaron material que superó estándares internacionales."
+            </p>
+          </div>
+          <div style="font-size: 0.82rem; color: var(--text-dim);">
+            <strong>Martín Krauss</strong> · Productor Ejecutivo Outdoor
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Formulario de Comisión -->
+    <section class="dark-section" id="comision" style="padding-top: 20px; padding-bottom: 110px;">
+      <div class="commission-box">
+        <div>
+          <span class="section-eyebrow">CONTACTO DIRECTO CON EXPEDICIÓN</span>
+          <h2 style="font-family: var(--font-display); font-size: 2.3rem; margin-bottom: 16px;">Coordina una Comisión o Impresión</h2>
+          <p style="color: var(--text-dim); margin-bottom: 28px;">
+            Indícanos las coordenadas de tu proyecto, las dimensiones del muro donde instalarás la obra o los requerimientos de licencia comercial.
+          </p>
+          <div class="telemetry-chip" style="display: inline-block;">
+            SATCOM BASE: <strong>PUERTO VARAS & SANTIAGO · CHILE</strong>
+          </div>
+        </div>
+
+        <form id="fsCommissionForm">
+          <label for="fsName" class="section-eyebrow">Nombre / Estudio / Agencia</label>
+          <input type="text" id="fsName" class="hud-input" placeholder="Ej. Catalina Ossandón · Arquitecta" required />
+
+          <label for="fsEmail" class="section-eyebrow">Correo Electrónico</label>
+          <input type="email" id="fsEmail" class="hud-input" placeholder="catalina@estudio.cl" required />
+
+          <label for="fsType" class="section-eyebrow">Tipo de Requerimiento</label>
+          <select id="fsType" class="hud-input">
+            <option value="Obra Fine-Art Gran Formato">Obra Fine-Art en Gran Formato</option>
+            <option value="Expedición Fotográfica / Aérea">Expedición Fotográfica / Aérea a Medida</option>
+            <option value="Licencia de Archivo 150MP">Licencia Comercial de Archivo</option>
+          </select>
+
+          <label for="fsMessage" class="section-eyebrow">Detalles del Proyecto</label>
+          <textarea id="fsMessage" rows="3" class="hud-input" placeholder="Dimensiones requeridas, locación o fechas de rodaje..." required></textarea>
+
+          <button type="submit" class="hud-btn" style="width: 100%; padding: 14px;">
+            Transmitir Solicitud (Demo Interactiva)
+          </button>
+          <div id="fsFormStatus" style="display: none; margin-top: 16px; padding: 14px; border: 1px solid var(--border-hud-strong); border-radius: 8px; font-size: 0.86rem; color: var(--text-pure);"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Lightbox Pantalla Completa -->
+  <div class="fs-lightbox" id="fsLightbox" role="dialog" aria-modal="true" aria-label="Vista a pantalla completa">
+    <img src="" alt="" id="fsLightboxImg" />
+    <div class="fs-lightbox-bar">
+      <span id="fsLightboxCaption" style="font-size: 0.88rem; letter-spacing: 0.08em; text-transform: uppercase;"></span>
+      <button type="button" class="hud-btn" id="fsLightboxClose">Cerrar [ESC]</button>
+    </div>
+  </div>
+
+  <footer class="dark-section" style="padding-top: 32px; padding-bottom: 96px; border-top: 1px solid var(--border-hud); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; font-size: 0.8rem; color: var(--text-dim);">
+    <div><strong>HORIZONTE AUSTRAL</strong> · Demostración Interactiva #08 (Fullscreen Immersive) · Catálogo Fotografía KuyénDev.</div>
+    <div>Presiona las flechas ← / → para cambiar el capítulo en el visor superior.</div>
+  </footer>
+
+  <script>
+    (function () {
+      // Modo Lienzo Puro (Ocultar HUD)
+      const pureBtn = document.getElementById('togglePureModeBtn');
+      pureBtn.addEventListener('click', () => {
+        const active = document.body.classList.toggle('pure-view-mode');
+        pureBtn.classList.toggle('active', active);
+        pureBtn.textContent = active ? '👁️ Mostrar HUD Telemetría' : '👁️ Modo Lienzo Puro';
+      });
+
+      // Selector de Capítulos 100vw
+      const thumbBtns = Array.from(document.querySelectorAll('.chapter-thumb-btn'));
+      const mainImg = document.getElementById('stageMainImage');
+      const hudIndex = document.getElementById('hudChapterIndex');
+      const hudTitle = document.getElementById('hudTitle');
+      const hudDesc = document.getElementById('hudDesc');
+      const hudCoords = document.getElementById('hudCoords');
+      const hudElev = document.getElementById('hudElevation');
+      const hudOptics = document.getElementById('hudOptics');
+      const hudTime = document.getElementById('hudTime');
+      let currentIdx = 0;
+
+      function activateChapter(idx) {
+        currentIdx = (idx + thumbBtns.length) % thumbBtns.length;
+        const btn = thumbBtns[currentIdx];
+        thumbBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        mainImg.src = btn.getAttribute('data-img');
+        hudIndex.textContent = `EXPEDICIÓN ${btn.getAttribute('data-index')} · ARCHIVO MONUMENTAL`;
+        hudTitle.textContent = btn.getAttribute('data-title');
+        hudDesc.textContent = btn.getAttribute('data-desc');
+        hudCoords.textContent = btn.getAttribute('data-coords');
+        hudElev.textContent = btn.getAttribute('data-elev');
+        hudOptics.textContent = btn.getAttribute('data-optics');
+        hudTime.textContent = btn.getAttribute('data-time');
+      }
+
+      thumbBtns.forEach((btn, i) => {
+        btn.addEventListener('click', () => activateChapter(i));
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') activateChapter(currentIdx + 1);
+        if (e.key === 'ArrowLeft') activateChapter(currentIdx - 1);
+      });
+
+      // Lightbox
+      const fsLightbox = document.getElementById('fsLightbox');
+      const fsLightboxImg = document.getElementById('fsLightboxImg');
+      const fsLightboxCaption = document.getElementById('fsLightboxCaption');
+      const fsLightboxClose = document.getElementById('fsLightboxClose');
+      const openStageLightboxBtn = document.getElementById('openStageLightboxBtn');
+
+      function openLightbox(src, caption) {
+        fsLightboxImg.src = src;
+        fsLightboxImg.alt = caption;
+        fsLightboxCaption.textContent = caption;
+        fsLightbox.classList.add('open');
+      }
+
+      openStageLightboxBtn.addEventListener('click', () => {
+        openLightbox(mainImg.src, `${hudTitle.textContent} · ${hudCoords.textContent}`);
+      });
+
+      document.querySelectorAll('.lightbox-trigger').forEach(btn => {
+        btn.addEventListener('click', () => {
+          openLightbox(btn.getAttribute('data-img'), btn.getAttribute('data-caption'));
+        });
+      });
+
+      const closeLb = () => fsLightbox.classList.remove('open');
+      fsLightboxClose.addEventListener('click', closeLb);
+      fsLightbox.addEventListener('click', (e) => {
+        if (e.target === fsLightbox) closeLb();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeLb();
+      });
+
+      // Formulario Demo
+      const form = document.getElementById('fsCommissionForm');
+      const status = document.getElementById('fsFormStatus');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('fsName').value;
+        const type = document.getElementById('fsType').value;
+        status.style.display = 'block';
+        status.textContent = `✓ TRANSMISIÓN CONFIRMADA (MODO DEMO): Gracias, ${name}. Tu requerimiento de "${type}" ha sido registrado por el productor de expedición.`;
+        form.reset();
+      });
+    })();
+  </script>
+  <script src="../../js/config/rubros.js"></script>
+  <script src="../../js/demo-viewer-bar.js"></script>
+</body>
+</html>

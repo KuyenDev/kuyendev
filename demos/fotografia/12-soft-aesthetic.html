@@ -1,0 +1,1612 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CLARA & CO. · Bodas Boutique, Maternidad & Historias de Amor</title>
+  <meta name="description" content="Fotografía romántica de luz natural para bodas boutique, maternidad y retratos íntimos de familia." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-cream: #FDF8F5;
+      --bg-blush: #F8EDE8;
+      --bg-card: #FFFFFF;
+      --accent-peach: #E8C5B8;
+      --accent-rose: #9E7777;
+      --ink-espresso: #4E3636;
+      --ink-soft: #755858;
+      --ink-whisper: #A38686;
+      --border-delicate: #EDD8CF;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+      --arch-radius: 200px 200px 12px 12px;
+      --pill-radius: 999px;
+      --soft-shadow: 0 24px 48px -12px rgba(78, 54, 54, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-cream);
+      color: var(--ink-espresso);
+      font-family: var(--font-sans);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    body {
+      background-color: var(--bg-cream);
+      color: var(--ink-espresso);
+      line-height: 1.7;
+      overflow-x: hidden;
+      padding-bottom: 90px;
+      background-image:
+        radial-gradient(circle at 12% 8%, rgba(232, 197, 184, 0.25) 0%, transparent 40%),
+        radial-gradient(circle at 88% 35%, rgba(158, 119, 119, 0.1) 0%, transparent 45%);
+    }
+
+    /* Subtle Top Ribbon */
+    .whisper-ribbon {
+      background: var(--bg-blush);
+      color: var(--ink-soft);
+      text-align: center;
+      padding: 10px 20px;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--border-delicate);
+    }
+
+    /* Navigation */
+    .soft-header {
+      position: sticky;
+      top: 0;
+      z-index: 90;
+      background: rgba(253, 248, 245, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-delicate);
+    }
+
+    .nav-inner {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 20px 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .nav-group {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-group a {
+      text-decoration: none;
+      color: var(--ink-soft);
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+    }
+
+    .nav-group a:hover {
+      color: var(--ink-espresso);
+    }
+
+    .brand-emblem {
+      text-align: center;
+      text-decoration: none;
+      color: var(--ink-espresso);
+    }
+
+    .brand-emblem .studio-name {
+      font-family: var(--font-serif);
+      font-size: 1.85rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      display: block;
+      line-height: 1.1;
+    }
+
+    .brand-emblem .studio-sub {
+      font-size: 0.64rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent-rose);
+      display: block;
+      margin-top: 3px;
+    }
+
+    .btn-petal {
+      background: var(--accent-rose);
+      color: #FFFFFF;
+      border: 1px solid var(--accent-rose);
+      padding: 11px 24px;
+      border-radius: var(--pill-radius);
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.35s ease;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    .btn-petal:hover {
+      background: var(--ink-espresso);
+      border-color: var(--ink-espresso);
+      transform: translateY(-1px);
+    }
+
+    .btn-petal-outline {
+      background: transparent;
+      color: var(--ink-espresso);
+      border: 1px solid var(--accent-rose);
+      padding: 11px 24px;
+      border-radius: var(--pill-radius);
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.35s ease;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    .btn-petal-outline:hover {
+      background: var(--accent-peach);
+      border-color: var(--accent-peach);
+    }
+
+    .mobile-toggle {
+      display: none;
+      background: transparent;
+      border: 1px solid var(--border-delicate);
+      color: var(--ink-espresso);
+      padding: 8px 14px;
+      border-radius: var(--pill-radius);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    /* Hero Section with Arched Editorial Frames */
+    .hero-dreamy {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 72px 36px 96px;
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .botanical-flourish {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.73rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent-rose);
+      margin-bottom: 18px;
+    }
+
+    .hero-headline {
+      font-family: var(--font-serif);
+      font-size: clamp(2.6rem, 4.5vw, 4.1rem);
+      font-weight: 400;
+      line-height: 1.12;
+      color: var(--ink-espresso);
+      margin-bottom: 24px;
+    }
+
+    .hero-headline em {
+      font-style: italic;
+      color: var(--accent-rose);
+    }
+
+    .hero-prose {
+      font-size: 0.96rem;
+      font-weight: 300;
+      color: var(--ink-soft);
+      line-height: 1.85;
+      margin-bottom: 36px;
+      max-width: 520px;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 44px;
+    }
+
+    .hero-whisper-stats {
+      display: flex;
+      gap: 40px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border-delicate);
+    }
+
+    .stat-petal strong {
+      font-family: var(--font-serif);
+      font-size: 1.65rem;
+      font-weight: 500;
+      color: var(--ink-espresso);
+      display: block;
+      line-height: 1.1;
+    }
+
+    .stat-petal span {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-whisper);
+    }
+
+    /* Arched Duo Composition */
+    .hero-arch-composition {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      padding: 16px;
+    }
+
+    .arch-main-frame {
+      width: 78%;
+      border-radius: var(--arch-radius);
+      padding: 12px;
+      background: #FFFFFF;
+      border: 1px solid var(--border-delicate);
+      box-shadow: var(--soft-shadow);
+      position: relative;
+      z-index: 2;
+    }
+
+    .arch-main-frame img {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      border-radius: 190px 190px 8px 8px;
+      display: block;
+    }
+
+    .arch-secondary-frame {
+      position: absolute;
+      bottom: -24px;
+      left: 0;
+      width: 44%;
+      border-radius: 140px 140px 10px 10px;
+      padding: 8px;
+      background: var(--bg-blush);
+      border: 1px solid var(--border-delicate);
+      box-shadow: var(--soft-shadow);
+      z-index: 3;
+    }
+
+    .arch-secondary-frame img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border-radius: 132px 132px 6px 6px;
+      display: block;
+    }
+
+    .floating-poetic-note {
+      position: absolute;
+      top: 24px;
+      right: 0;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--border-delicate);
+      padding: 16px 22px;
+      border-radius: 16px;
+      max-width: 210px;
+      z-index: 4;
+      box-shadow: var(--soft-shadow);
+    }
+
+    .floating-poetic-note p {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 0.98rem;
+      line-height: 1.4;
+      color: var(--ink-espresso);
+    }
+
+    .floating-poetic-note span {
+      display: block;
+      margin-top: 6px;
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-rose);
+    }
+
+    /* Section Containers */
+    .soft-section {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 96px 36px;
+    }
+
+    .section-center-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 64px;
+    }
+
+    .section-eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent-rose);
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .section-title-serif {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 3.3vw, 2.9rem);
+      font-weight: 400;
+      color: var(--ink-espresso);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .section-title-serif em {
+      font-style: italic;
+      color: var(--accent-rose);
+    }
+
+    .section-subtitle {
+      font-size: 0.92rem;
+      font-weight: 300;
+      color: var(--ink-soft);
+    }
+
+    /* INTERACTIVE "CAPÍTULOS DE UNA BODA" STORY TIMELINE */
+    .chapters-wrapper {
+      background: var(--bg-blush);
+      border-top: 1px solid var(--border-delicate);
+      border-bottom: 1px solid var(--border-delicate);
+      padding: 96px 36px;
+    }
+
+    .chapters-inner {
+      max-width: 1320px;
+      margin: 0 auto;
+    }
+
+    .chapter-stepper {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 52px;
+    }
+
+    .chapter-tab {
+      background: rgba(255, 255, 255, 0.65);
+      border: 1px solid var(--border-delicate);
+      border-radius: 18px;
+      padding: 20px 22px;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.35s ease;
+    }
+
+    .chapter-tab:hover {
+      background: #FFFFFF;
+    }
+
+    .chapter-tab.active {
+      background: #FFFFFF;
+      border-color: var(--accent-rose);
+      box-shadow: var(--soft-shadow);
+      transform: translateY(-3px);
+    }
+
+    .chapter-roman {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--accent-rose);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .chapter-tab strong {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--ink-espresso);
+      display: block;
+    }
+
+    .chapter-tab span {
+      font-size: 0.72rem;
+      color: var(--ink-whisper);
+      letter-spacing: 0.08em;
+    }
+
+    .chapter-display-stage {
+      background: var(--bg-cream);
+      border: 1px solid var(--border-delicate);
+      border-radius: 28px;
+      padding: 48px;
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 56px;
+      align-items: center;
+      box-shadow: var(--soft-shadow);
+      transition: opacity 0.35s ease;
+    }
+
+    .chapter-narrative h3 {
+      font-family: var(--font-serif);
+      font-size: 2.1rem;
+      font-weight: 400;
+      margin-bottom: 16px;
+      color: var(--ink-espresso);
+    }
+
+    .chapter-poem {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--accent-rose);
+      border-left: 2px solid var(--accent-peach);
+      padding-left: 18px;
+      margin-bottom: 22px;
+    }
+
+    .chapter-body {
+      font-size: 0.92rem;
+      font-weight: 300;
+      color: var(--ink-soft);
+      margin-bottom: 28px;
+      line-height: 1.85;
+    }
+
+    .chapter-meta-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .soft-pill {
+      background: var(--bg-blush);
+      border: 1px solid var(--border-delicate);
+      padding: 7px 16px;
+      border-radius: var(--pill-radius);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+
+    .chapter-visual-duo {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .chapter-arch-img {
+      border-radius: var(--arch-radius);
+      overflow: hidden;
+      border: 8px solid #FFFFFF;
+      box-shadow: var(--soft-shadow);
+    }
+
+    .chapter-arch-img img {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      display: block;
+      transition: opacity 0.4s ease;
+    }
+
+    .chapter-oval-img {
+      border-radius: 120px;
+      overflow: hidden;
+      border: 8px solid #FFFFFF;
+      box-shadow: var(--soft-shadow);
+    }
+
+    .chapter-oval-img img {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* PORTFOLIO GALLERY WITH ARCHED CARDS */
+    .filter-pills-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 52px;
+    }
+
+    .filter-pill-btn {
+      background: #FFFFFF;
+      border: 1px solid var(--border-delicate);
+      color: var(--ink-soft);
+      padding: 10px 24px;
+      border-radius: var(--pill-radius);
+      font-size: 0.74rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .filter-pill-btn:hover,
+    .filter-pill-btn.active {
+      background: var(--accent-rose);
+      color: #FFFFFF;
+      border-color: var(--accent-rose);
+    }
+
+    .arched-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 36px;
+    }
+
+    .story-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-delicate);
+      border-radius: 210px 210px 18px 18px;
+      padding: 14px 14px 28px;
+      text-align: center;
+      box-shadow: var(--soft-shadow);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      cursor: pointer;
+    }
+
+    .story-card.hidden {
+      display: none;
+    }
+
+    .story-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .story-arch-photo {
+      border-radius: 196px 196px 10px 10px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+
+    .story-arch-photo img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+
+    .story-card:hover .story-arch-photo img {
+      transform: scale(1.04);
+    }
+
+    .story-card-tag {
+      font-size: 0.66rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-rose);
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .story-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.45rem;
+      font-weight: 500;
+      color: var(--ink-espresso);
+      margin-bottom: 6px;
+    }
+
+    .story-card p {
+      font-size: 0.82rem;
+      color: var(--ink-soft);
+      padding: 0 12px;
+    }
+
+    /* INTERACTIVE WEDDING COLLECTION BUILDER */
+    .builder-container {
+      background: #FFFFFF;
+      border: 1px solid var(--border-delicate);
+      border-radius: 32px;
+      padding: 56px;
+      box-shadow: var(--soft-shadow);
+      display: grid;
+      grid-template-columns: 1.3fr 0.9fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    .tier-selector-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+
+    .tier-btn {
+      background: var(--bg-cream);
+      border: 1px solid var(--border-delicate);
+      border-radius: 18px;
+      padding: 20px 16px;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .tier-btn.active {
+      background: var(--bg-blush);
+      border-color: var(--accent-rose);
+      box-shadow: 0 10px 24px rgba(158, 119, 119, 0.14);
+    }
+
+    .tier-btn strong {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      color: var(--ink-espresso);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .tier-btn span {
+      font-size: 0.75rem;
+      color: var(--ink-soft);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .tier-btn em {
+      font-style: normal;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--accent-rose);
+    }
+
+    .addons-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .addon-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      background: var(--bg-cream);
+      border: 1px solid var(--border-delicate);
+      border-radius: 14px;
+      padding: 14px 18px;
+      cursor: pointer;
+      font-size: 0.82rem;
+      color: var(--ink-espresso);
+      transition: all 0.25s ease;
+    }
+
+    .addon-toggle.selected {
+      background: var(--accent-peach);
+      border-color: var(--accent-rose);
+    }
+
+    .addon-price {
+      font-family: var(--font-serif);
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--ink-espresso);
+      flex-shrink: 0;
+    }
+
+    .collection-summary-card {
+      background: var(--bg-cream);
+      border: 1px solid var(--border-delicate);
+      border-radius: 24px;
+      padding: 36px;
+    }
+
+    .summary-total {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      color: var(--ink-espresso);
+      margin: 12px 0 20px;
+      line-height: 1;
+    }
+
+    .summary-items-list {
+      list-style: none;
+      margin-bottom: 28px;
+      border-top: 1px solid var(--border-delicate);
+      padding-top: 16px;
+    }
+
+    .summary-items-list li {
+      font-size: 0.84rem;
+      color: var(--ink-soft);
+      padding: 6px 0;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* Testimonials */
+    .love-notes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .love-note-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-delicate);
+      border-radius: 24px;
+      padding: 36px;
+      box-shadow: var(--soft-shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .demo-tag-soft {
+      display: inline-block;
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      background: var(--bg-blush);
+      color: var(--accent-rose);
+      padding: 5px 12px;
+      border-radius: var(--pill-radius);
+      margin-bottom: 18px;
+      align-self: flex-start;
+    }
+
+    .love-quote {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.12rem;
+      line-height: 1.7;
+      color: var(--ink-espresso);
+      margin-bottom: 24px;
+    }
+
+    .love-couple strong {
+      display: block;
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-espresso);
+    }
+
+    .love-couple span {
+      font-size: 0.76rem;
+      color: var(--ink-whisper);
+    }
+
+    /* Inquiry Form */
+    .inquiry-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-delicate);
+      border-radius: 32px;
+      padding: 56px;
+      box-shadow: var(--soft-shadow);
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    .soft-form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      margin-bottom: 22px;
+    }
+
+    .soft-field {
+      margin-bottom: 22px;
+    }
+
+    .soft-field label {
+      display: block;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      margin-bottom: 8px;
+    }
+
+    .soft-field input,
+    .soft-field select,
+    .soft-field textarea {
+      width: 100%;
+      padding: 14px 18px;
+      border: 1px solid var(--border-delicate);
+      border-radius: 14px;
+      background: var(--bg-cream);
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      color: var(--ink-espresso);
+    }
+
+    .soft-field input:focus,
+    .soft-field select:focus,
+    .soft-field textarea:focus {
+      outline: none;
+      border-color: var(--accent-rose);
+      background: #FFFFFF;
+    }
+
+    .soft-feedback {
+      display: none;
+      margin-top: 22px;
+      padding: 18px 24px;
+      background: var(--bg-blush);
+      border-radius: 16px;
+      border: 1px solid var(--accent-peach);
+      font-size: 0.88rem;
+      color: var(--ink-espresso);
+    }
+
+    /* Lightbox */
+    .soft-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(78, 54, 54, 0.84);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 28px;
+    }
+
+    .soft-lightbox.open {
+      display: flex;
+    }
+
+    .soft-lightbox-box {
+      background: var(--bg-cream);
+      border-radius: 28px;
+      padding: 32px;
+      max-width: 720px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+    }
+
+    .soft-lightbox-box img {
+      width: 100%;
+      max-height: 64vh;
+      object-fit: cover;
+      border-radius: 18px;
+      margin-bottom: 18px;
+    }
+
+    .soft-lightbox-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid var(--border-delicate);
+      background: #FFFFFF;
+      color: var(--ink-espresso);
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+
+    .soft-footer {
+      text-align: center;
+      padding: 48px 24px;
+      border-top: 1px solid var(--border-delicate);
+      font-size: 0.78rem;
+      color: var(--ink-whisper);
+    }
+
+    @media (max-width: 1024px) {
+      .hero-dreamy,
+      .chapter-display-stage,
+      .builder-container {
+        grid-template-columns: 1fr;
+      }
+      .chapter-stepper {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .arched-gallery-grid,
+      .love-notes-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-group {
+        display: none;
+      }
+      .mobile-toggle {
+        display: inline-block;
+      }
+      .arched-gallery-grid,
+      .love-notes-grid,
+      .tier-selector-grid,
+      .addons-list,
+      .soft-form-grid,
+      .chapter-stepper {
+        grid-template-columns: 1fr;
+      }
+      .hero-dreamy,
+      .soft-section,
+      .chapters-wrapper {
+        padding: 56px 20px;
+      }
+      .builder-container,
+      .inquiry-card {
+        padding: 32px 20px;
+      }
+    }
+  </style>
+</head>
+<body data-rubro-id="fotografia" data-style-id="soft-aesthetic">
+
+  <div class="whisper-ribbon">
+    Temporada de Bodas &amp; Retratos 2026–2027 · Aceptamos un máximo de 18 bodas al año para un cuidado artesanal
+  </div>
+
+  <header class="soft-header">
+    <div class="nav-inner">
+      <ul class="nav-group">
+        <li><a href="#capitulos">Capítulos de Amor</a></li>
+        <li><a href="#historias">Galería Etérea</a></li>
+      </ul>
+
+      <a href="#" class="brand-emblem">
+        <span class="studio-name">CLARA &amp; CO.</span>
+        <span class="studio-sub">Bodas Boutique · Maternidad · Luz Natural</span>
+      </a>
+
+      <ul class="nav-group">
+        <li><a href="#colecciones">Colecciones</a></li>
+        <li><a href="#testimonios">Cartas</a></li>
+        <li><a href="#reserva" class="btn-petal">Consultar Fecha</a></li>
+      </ul>
+
+      <a href="#reserva" class="mobile-toggle">Reservar</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Dreamy -->
+    <section class="hero-dreamy">
+      <div>
+        <span class="botanical-flourish">✦ Fotografía Poética &amp; Atemporal</span>
+        <h1 class="hero-headline">Guardamos la ternura de lo que dura un <em>suspiro</em>.</h1>
+        <p class="hero-prose">
+          En Clara &amp; Co. fotografiamos el amor sin poses rígidas: el roce de unas manos antes del altar, la brisa dorada entre los olivos y la dulce espera de una nueva vida. Mezclamos formato digital luminoso con película analógica de 35mm.
+        </p>
+
+        <div class="hero-cta-row">
+          <a href="#historias" class="btn-petal">Explorar Historias Reales</a>
+          <a href="#colecciones" class="btn-petal-outline">Diseñar Mi Colección</a>
+        </div>
+
+        <div class="hero-whisper-stats">
+          <div class="stat-petal">
+            <strong>100% Luz Natural</strong>
+            <span>Edición Cálida &amp; Pastel</span>
+          </div>
+          <div class="stat-petal">
+            <strong>Híbrido 35mm</strong>
+            <span>Digital + Kodak Portra 400</span>
+          </div>
+          <div class="stat-petal">
+            <strong>Álbumes en Lino</strong>
+            <span>Encuadernación Artesanal</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Arched Editorial Composition -->
+      <div class="hero-arch-composition">
+        <div class="arch-main-frame">
+          <img
+            src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=85"
+            alt="Novios al atardecer con luz suave"
+            onerror="this.onerror=null;this.src='../../images/demos/fotografia/12-soft-aesthetic.jpg'"
+          />
+        </div>
+        <div class="arch-secondary-frame">
+          <img
+            src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=700&q=85"
+            alt="Ramo de flores silvestres en tonos pastel"
+            onerror="this.onerror=null;this.src='../../images/demos/fotografia/12-soft-aesthetic.jpg'"
+          />
+        </div>
+        <div class="floating-poetic-note">
+          <p>«La luz de las seis de la tarde no se repite jamás, pero permanece viva en el papel.»</p>
+          <span>— Clara Montalbán, Directora</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE "CAPÍTULOS DE UNA BODA" STORY TIMELINE -->
+    <section class="chapters-wrapper" id="capitulos">
+      <div class="chapters-inner">
+        <div class="section-center-header">
+          <span class="section-eyebrow">Narrativa en Cuatro Tiempos</span>
+          <h2 class="section-title-serif">Los Capítulos de una <em>Celebración Íntima</em></h2>
+          <p class="section-subtitle">
+            Haz clic en cada momento del día para descubrir cómo acompañamos la atmósfera y la luz desde la mañana hasta el baile bajo las estrellas.
+          </p>
+        </div>
+
+        <div class="chapter-stepper" role="tablist">
+          <button class="chapter-tab active" data-chapter="0">
+            <span class="chapter-roman">Capítulo I</span>
+            <strong>Preparativos de Alba</strong>
+            <span>11:30 hrs · Luz de Ventana</span>
+          </button>
+          <button class="chapter-tab" data-chapter="1">
+            <span class="chapter-roman">Capítulo II</span>
+            <strong>Los Votos en el Jardín</strong>
+            <span>17:15 hrs · Emoción Pura</span>
+          </button>
+          <button class="chapter-tab" data-chapter="2">
+            <span class="chapter-roman">Capítulo III</span>
+            <strong>Hora Dorada a Solas</strong>
+            <span>19:00 hrs · Sol Poniente</span>
+          </button>
+          <button class="chapter-tab" data-chapter="3">
+            <span class="chapter-roman">Capítulo IV</span>
+            <strong>Cena Bajo Guirnaldas</strong>
+            <span>21:30 hrs · Velas &amp; Brillo</span>
+          </button>
+        </div>
+
+        <div class="chapter-display-stage" id="chapterStage">
+          <div class="chapter-narrative">
+            <h3 id="chapTitle">I. El silencio luminoso de los preparativos</h3>
+            <p class="chapter-poem" id="chapPoem">
+              «El vestido de seda descansando junto al ventanal, el perfume de peonías frescas y las cartas escritas a mano.»
+            </p>
+            <p class="chapter-body" id="chapBody">
+              Comenzamos la jornada con calma absoluta, fotografiando los detalles heredados, el velo, la papelería caligráfica y los abrazos con quienes más quieres antes de partir hacia la ceremonia.
+            </p>
+            <div class="chapter-meta-pills" id="chapPills">
+              <span class="soft-pill">Luz Difusa de Cortina</span>
+              <span class="soft-pill">Lente 50mm f/1.2</span>
+              <span class="soft-pill">Retratos de Calma</span>
+            </div>
+          </div>
+
+          <div class="chapter-visual-duo">
+            <div class="chapter-arch-img">
+              <img
+                id="chapImg1"
+                src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=85"
+                alt="Capítulo principal boda"
+                onerror="this.onerror=null;this.src='../../images/demos/fotografia/12-soft-aesthetic.jpg'"
+              />
+            </div>
+            <div class="chapter-oval-img">
+              <img
+                id="chapImg2"
+                src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=700&q=85"
+                alt="Detalle floral capítulo"
+                onerror="this.onerror=null;this.src='../../images/demos/fotografia/12-soft-aesthetic.jpg'"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO GALLERY -->
+    <section class="soft-section" id="historias">
+      <div class="section-center-header">
+        <span class="section-eyebrow">Archivo de Historias</span>
+        <h2 class="section-title-serif">Instantes bañados en <em>luz de ensueño</em></h2>
+        <p class="section-subtitle">
+          Filtra por tipo de sesión o haz clic sobre cualquier fotografía en arco para abrir la nota editorial.
+        </p>
+      </div>
+
+      <div class="filter-pills-row">
+        <button class="filter-pill-btn active" data-filter="all">Todas las Historias (6)</button>
+        <button class="filter-pill-btn" data-filter="bodas">Bodas Boutique</button>
+        <button class="filter-pill-btn" data-filter="maternidad">Dulce Espera &amp; Maternidad</button>
+        <button class="filter-pill-btn" data-filter="parejas">Elopements &amp; Parejas</button>
+      </div>
+
+      <div class="arched-gallery-grid">
+        <article class="story-card" data-cat="bodas" data-title="Camila &amp; Sebastián · Viña Mar" data-caption="Boda íntima al atardecer entre viñedos orgánicos en el Valle de Casablanca.">
+          <div class="story-arch-photo">
+            <img
+              src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=85"
+              alt="Camila y Sebastián en Viña Mar"
+              loading="lazy"
+              onerror="this.onerror=null;this.src='../../images/demos/fotografia/12-soft-aesthetic.jpg'"
+            />
+          </div>
+          <span class="story-card-tag">Boda Boutique</span>
+          <h3>Camila &amp; Sebastián</h3>
+          <p>Viñedos de Casablanca · Luz de Octubre</p>
+        </article>
+
+        <article class="story-card" data-cat="maternidad" data-title="Julieta · Esperando a Amalia" data-caption="Sesión de maternidad en estudio con luz de mañana, lino crudo y flores secas.">
+          <div class="story-arch-photo">
+            <img
+              src="https://images.unsplash.com/photo-1544126592-807ade215a0b?auto=format&fit=crop&w=800&q=85"
+              alt="Sesión de maternidad delicada"
+              loading="lazy"
+              onerror="this.onerror=null;this.src='../../images/demos/fotografia/12-soft-aesthetic.jpg'"
+            />
+          </div>
+          <span class="story-card-tag">Dulce Espera</span>
+          <h3>Julieta · 34 Semanas</h3>
+          <p>Estudio Luz de Mañana · Lino &amp; Algodón</p>
+        </article>
+
+        <article class="story-card" data-cat="parejas" data-title="Martina &amp; Lucas · Elopement en la Costa" data-caption="Promesas frente al mar calmo con viento suave y tonos arena.">
+          <div class="story-arch-photo">
+            <img
+              src="https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac?auto=format&fit=crop&w=800&q=85"
+              alt="Elopement en la costa al atardecer"
+              loading="lazy"
+              onerror="this.onerror=null;this.src='../../images/demos/fotografia/12-soft-aesthetic.jpg'"
+            />
+          </div>
+          <span class="story-card-tag">Elopement</span>
+          <h3>Martina &amp; Lucas</h3>
+          <p>Acantilados de Zapallar · 35mm Portra</p>
+        </article>
+
+        <article class="story-card" data-cat="bodas" data-title="Valentina &amp; Tomás · Invernadero Histórico" data-caption="Ceremonia botánica rodeada de helechos, cristales antiguos y velas.">
+          <div class="story-arch-photo">
+            <img
+              src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=85"
+              alt="Boda en invernadero botánico"
+              loading="lazy"
+              onerror="this.onerror=null;this.src='../../images/demos/fotografia/12-soft-aesthetic.jpg'"
+            />
+          </div>
+          <span class="story-card-tag">Boda Boutique</span>
+          <h3>Valentina &amp; Tomás</h3>
+          <p>Invernadero Botánico · Primavera</p>
+        </article>
+
+        <article class="story-card" data-cat="maternidad" data-title="Familia Río · Primeros Días en Casa" data-caption="Fotografía documental de recién nacido en la calidez de su propio hogar.">
+          <div class="story-arch-photo">
+            <img
+              src="https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=800&q=85"
+              alt="Maternidad y recién nacido en casa"
+              loading="lazy"
+              onerror="this.onerror=null;this.src='../../images/demos/fotografia/12-soft-aesthetic.jpg'"
+            />
+          </div>
+          <span class="story-card-tag">Newborn &amp; Maternidad</span>
+          <h3>Bienvenida de Gael</h3>
+          <p>Sesión en Hogar · Ternura Cotidiana</p>
+        </article>
+
+        <article class="story-card" data-cat="parejas" data-title="Isidora &amp; Mateo · Tardes de Lavanda" data-caption="Sesión de compromiso al caer el sol con estética editorial romántica.">
+          <div class="story-arch-photo">
+            <img
+              src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=800&q=85"
+              alt="Sesión preboda romántica"
+              loading="lazy"
+              onerror="this.onerror=null;this.src='../../images/demos/fotografia/12-soft-aesthetic.jpg'"
+            />
+          </div>
+          <span class="story-card-tag">Pre-Boda</span>
+          <h3>Isidora &amp; Mateo</h3>
+          <p>Campos de Cuarzo · Hora Dorada</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE WEDDING & MATERNITY COLLECTION BUILDER -->
+    <section class="soft-section" id="colecciones">
+      <div class="section-center-header">
+        <span class="section-eyebrow">Inversión &amp; Recuerdos Táctiles</span>
+        <h2 class="section-title-serif">Personaliza tu <em>Colección a Medida</em></h2>
+        <p class="section-subtitle">
+          Elige la cobertura principal y añade los tesoros artesanales que deseas conservar para siempre.
+        </p>
+      </div>
+
+      <div class="builder-container">
+        <div>
+          <p style="font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-rose); margin-bottom: 12px;">
+            1. Selecciona tu Cobertura Base
+          </p>
+          <div class="tier-selector-grid" id="tierSelector">
+            <button class="tier-btn" data-tier-name="Sesión Maternidad / Pareja" data-tier-price="420" data-tier-desc="2 horas en locación natural · 90 fotografías editadas">
+              <strong>Dulce Espera / Pareja</strong>
+              <span>2 Horas · 90 Fotos</span>
+              <em>USD $420</em>
+            </button>
+            <button class="tier-btn active" data-tier-name="Colección Boda Boutique" data-tier-price="1450" data-tier-desc="8 horas de cobertura continua · 550 fotografías en galería privada">
+              <strong>Boda Boutique</strong>
+              <span>8 Horas · 550 Fotos</span>
+              <em>USD $1,450</em>
+            </button>
+            <button class="tier-btn" data-tier-name="Colección Fin de Semana" data-tier-price="2100" data-tier-desc="12 horas + Cena de Bienvenida · 800 fotografías + Caja de copias Fine Art">
+              <strong>Fin de Semana</strong>
+              <span>12 Horas · 800 Fotos</span>
+              <em>USD $2,100</em>
+            </button>
+          </div>
+
+          <p style="font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-rose); margin-bottom: 12px;">
+            2. Añade Detalles Artesanales (Opcional)
+          </p>
+          <div class="addons-list" id="addonsList">
+            <div class="addon-toggle selected" data-addon-name="Álbum en Lino Belga 30×30cm" data-addon-price="340">
+              <span>✦ Álbum Artesanal en Lino Belga</span>
+              <span class="addon-price">+$340</span>
+            </div>
+            <div class="addon-toggle" data-addon-name="Rollo Analógico 35mm Kodak Portra" data-addon-price="190">
+              <span>✦ Pack Película 35mm Kodak Portra</span>
+              <span class="addon-price">+$190</span>
+            </div>
+            <div class="addon-toggle" data-addon-name="Sesión Pre-Boda al Atardecer" data-addon-price="280">
+              <span>✦ Sesión Pre-Boda al Atardecer</span>
+              <span class="addon-price">+$280</span>
+            </div>
+            <div class="addon-toggle" data-addon-name="Segundo Fotógrafo Documental" data-addon-price="320">
+              <span>✦ Segundo Fotógrafo Documental</span>
+              <span class="addon-price">+$320</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="collection-summary-card">
+          <span class="section-eyebrow">Resumen de tu Experiencia</span>
+          <h3 id="sumTierTitle" style="font-family: var(--font-serif); font-size: 1.65rem; font-weight: 500;">Colección Boda Boutique</h3>
+          <div class="summary-total" id="sumTotalPrice">USD $1,790</div>
+
+          <ul class="summary-items-list" id="sumItemsList">
+            <li><span>Cobertura Base</span><strong>USD $1,450</strong></li>
+            <li><span>Álbum en Lino Belga 30×30cm</span><strong>+USD $340</strong></li>
+          </ul>
+
+          <button class="btn-petal" id="applyCollectionBtn" style="width: 100%; text-align: center;">
+            Incluir Esta Colección en Mi Consulta
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS (DEMO MARKED) -->
+    <section class="soft-section" id="testimonios">
+      <div class="section-center-header">
+        <span class="section-eyebrow">Palabras desde el Corazón</span>
+        <h2 class="section-title-serif">Cartas de nuestras <em>familias y parejas</em></h2>
+      </div>
+
+      <div class="love-notes-grid">
+        <article class="love-note-card">
+          <div>
+            <span class="demo-tag-soft">[Testimonio de Demostración]</span>
+            <p class="love-quote">
+              «Cuando abrimos nuestra galería sentimos que volvíamos a respirar el aire de esa tarde. Clara logró que nos olvidáramos por completo de la cámara; cada foto parece una pintura llena de paz.»
+            </p>
+          </div>
+          <div class="love-couple">
+            <strong>Camila &amp; Sebastián</strong>
+            <span>Boda en Casablanca</span>
+          </div>
+        </article>
+
+        <article class="love-note-card">
+          <div>
+            <span class="demo-tag-soft">[Testimonio de Demostración]</span>
+            <p class="love-quote">
+              «Hicimos nuestra sesión de maternidad y luego los primeros días de nuestra hija en casa. La delicadeza con la que cuidan la luz natural y los tonos pastel es simplemente mágica.»
+            </p>
+          </div>
+          <div class="love-couple">
+            <strong>Julieta &amp; Andrés</strong>
+            <span>Sesión Dulce Espera &amp; Recién Nacido</span>
+          </div>
+        </article>
+
+        <article class="love-note-card">
+          <div>
+            <span class="demo-tag-soft">[Testimonio de Demostración]</span>
+            <p class="love-quote">
+              «El álbum en lino rosa empolvado es hoy el tesoro más valioso de nuestra sala. Las fotografías en película 35mm tienen una textura nostálgica que nos emociona cada vez que lo abrimos.»
+            </p>
+          </div>
+          <div class="love-couple">
+            <strong>Martina &amp; Lucas</strong>
+            <span>Elopement en la Costa</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- DATE INQUIRY FORM -->
+    <section class="soft-section" id="reserva">
+      <div class="inquiry-card">
+        <div class="section-center-header" style="margin-bottom: 40px;">
+          <span class="demo-tag-soft" style="margin: 0 auto 12px;">[Formulario Interactivo de Demostración]</span>
+          <h2 class="section-title-serif">Cuéntanos vuestra <em>historia</em></h2>
+          <p class="section-subtitle">
+            Verifiquemos la disponibilidad de tu fecha en nuestro calendario 2026–2027. Respondemos cada mensaje en menos de 24 horas con nuestra guía editorial completa.
+          </p>
+        </div>
+
+        <form id="softInquiryForm">
+          <div class="soft-form-grid">
+            <div class="soft-field" style="margin-bottom:0;">
+              <label for="coupleNames">Nombres</label>
+              <input type="text" id="coupleNames" required placeholder="Ej. Emilia & Nicolás" />
+            </div>
+            <div class="soft-field" style="margin-bottom:0;">
+              <label for="coupleEmail">Correo Electrónico</label>
+              <input type="email" id="coupleEmail" required placeholder="hola@ejemplo.com" />
+            </div>
+          </div>
+
+          <div class="soft-form-grid">
+            <div class="soft-field" style="margin-bottom:0;">
+              <label for="eventDate">Fecha Estimada &amp; Lugar</label>
+              <input type="text" id="eventDate" required placeholder="Ej. 14 de Noviembre 2026 · Pirque" />
+            </div>
+            <div class="soft-field" style="margin-bottom:0;">
+              <label for="sessionType">Tipo de Recuerdo</label>
+              <select id="sessionType">
+                <option value="Colección Boda Boutique">Colección Boda Boutique</option>
+                <option value="Colección Fin de Semana">Colección Fin de Semana</option>
+                <option value="Sesión Maternidad / Pareja">Sesión Maternidad / Pareja</option>
+                <option value="Elopement Íntimo">Elopement Íntimo</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="soft-field">
+            <label for="loveStoryMsg">Vuestros sueños para ese día</label>
+            <textarea id="loveStoryMsg" rows="4" placeholder="Contadnos qué es lo que más os ilusiona de la celebración o de la sesión..."></textarea>
+          </div>
+
+          <button type="submit" class="btn-petal" style="width: 100%; padding: 15px;">Enviar Carta &amp; Consultar Disponibilidad</button>
+
+          <div class="soft-feedback" id="softFeedback"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="soft-footer">
+    <p>© 2026 CLARA &amp; CO. · Bodas Boutique, Maternidad &amp; Historias de Amor · Demostración Estilo <strong>12. Soft Aesthetic / Dreamy</strong> por KuyénDev</p>
+  </footer>
+
+  <!-- Lightbox Modal -->
+  <div class="soft-lightbox" id="softLightbox" role="dialog" aria-modal="true">
+    <div class="soft-lightbox-box">
+      <button class="soft-lightbox-close" id="softLightboxClose" aria-label="Cerrar">×</button>
+      <img
+        id="lbSoftImg"
+        src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=85"
+        alt="Historia ampliada"
+        onerror="this.onerror=null;this.src='../../images/demos/fotografia/12-soft-aesthetic.jpg'"
+      />
+      <h3 id="lbSoftTitle" style="font-family: var(--font-serif); font-size: 1.6rem; margin-bottom: 6px;">Camila &amp; Sebastián</h3>
+      <p id="lbSoftCaption" style="font-size: 0.9rem; color: var(--ink-soft);">Boda íntima al atardecer entre viñedos orgánicos.</p>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      // Interactive Wedding Chapters Data
+      const chaptersData = [
+        {
+          title: 'I. El silencio luminoso de los preparativos',
+          poem: '«El vestido de seda descansando junto al ventanal, el perfume de peonías frescas y las cartas escritas a mano.»',
+          body: 'Comenzamos la jornada con calma absoluta, fotografiando los detalles heredados, el velo, la papelería caligráfica y los abrazos con quienes más quieres antes de partir hacia la ceremonia.',
+          pills: ['Luz Difusa de Cortina', 'Lente 50mm f/1.2', 'Retratos de Calma'],
+          img1: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=85',
+          img2: 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=700&q=85'
+        },
+        {
+          title: 'II. Los votos pronunciados entre lágrimas y sonrisas',
+          poem: '«Mirarse por primera vez al final del pasillo mientras el viento mueve las ramas de los olivos.»',
+          body: 'Trabajamos de manera silenciosa e invisible para capturar cada mirada cómplice de vuestros padres, las manos entrelazadas y la lluvia de pétalos naturales al salir.',
+          pills: ['Cobertura Documental', 'Doble Ángulo Sincero', 'Pétalos & Luz Natural'],
+          img1: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=85',
+          img2: 'https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac?auto=format&fit=crop&w=700&q=85'
+        },
+        {
+          title: 'III. Veinte minutos a solas en la hora dorada',
+          poem: '«Cuando el sol roza el horizonte y todo el universo parece detenerse solo para vosotros dos.»',
+          body: 'Nos escapamos brevemente mientras comienza el cóctel para caminar sin poses forzadas. Es el momento donde disparamos nuestros rollos analógicos Kodak Portra 400.',
+          pills: ['Película 35mm Analógica', 'Contraluz Cálido', 'Dirección Orgánica'],
+          img1: 'https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac?auto=format&fit=crop&w=800&q=85',
+          img2: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=700&q=85'
+        },
+        {
+          title: 'IV. Brindis, velas encendidas y baile bajo guirnaldas',
+          poem: '«El tintineo de las copas, los discursos que abrazan el alma y el primer baile rodeados de bengalas.»',
+          body: 'Conservamos la atmósfera cálida de las velas y las guirnaldas sin flashes invasivos que rompan la magia de vuestra cena al aire libre.',
+          pills: ['Atmósfera de Velas', 'Bengalas & Primer Baile', 'Emoción Nocturna'],
+          img1: 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=800&q=85',
+          img2: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=700&q=85'
+        }
+      ];
+
+      const chapterTabs = document.querySelectorAll('.chapter-tab');
+      const chapTitle = document.getElementById('chapTitle');
+      const chapPoem = document.getElementById('chapPoem');
+      const chapBody = document.getElementById('chapBody');
+      const chapPills = document.getElementById('chapPills');
+      const chapImg1 = document.getElementById('chapImg1');
+      const chapImg2 = document.getElementById('chapImg2');
+
+      chapterTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          chapterTabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          const c = chaptersData[parseInt(tab.getAttribute('data-chapter'), 10)];
+          if (!c) return;
+          chapTitle.textContent = c.title;
+          chapPoem.textContent = c.poem;
+          chapBody.textContent = c.body;
+          chapImg1.src = c.img1;
+          chapImg2.src = c.img2;
+          chapPills.innerHTML = c.pills.map(p => `<span class="soft-pill">${p}</span>`).join('');
+        });
+      });
+
+      // Portfolio Filter & Lightbox
+      const filterBtns = document.querySelectorAll('.filter-pill-btn');
+      const storyCards = document.querySelectorAll('.story-card');
+      const softLightbox = document.getElementById('softLightbox');
+      const softLightboxClose = document.getElementById('softLightboxClose');
+      const lbSoftImg = document.getElementById('lbSoftImg');
+      const lbSoftTitle = document.getElementById('lbSoftTitle');
+      const lbSoftCaption = document.getElementById('lbSoftCaption');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const cat = btn.getAttribute('data-filter');
+          storyCards.forEach(card => {
+            if (cat === 'all' || card.getAttribute('data-cat') === cat) {
+              card.classList.remove('hidden');
+            } else {
+              card.classList.add('hidden');
+            }
+          });
+        });
+      });
+
+      storyCards.forEach(card => {
+        card.addEventListener('click', () => {
+          const img = card.querySelector('img');
+          lbSoftImg.src = img ? img.src : '';
+          lbSoftTitle.textContent = card.getAttribute('data-title');
+          lbSoftCaption.textContent = card.getAttribute('data-caption');
+          softLightbox.classList.add('open');
+        });
+      });
+
+      if (softLightboxClose) {
+        softLightboxClose.addEventListener('click', () => softLightbox.classList.remove('open'));
+      }
+      if (softLightbox) {
+        softLightbox.addEventListener('click', (e) => {
+          if (e.target === softLightbox) softLightbox.classList.remove('open');
+        });
+      }
+
+      // Wedding Collection Builder
+      const tierBtns = document.querySelectorAll('.tier-btn');
+      const addonToggles = document.querySelectorAll('.addon-toggle');
+      const sumTierTitle = document.getElementById('sumTierTitle');
+      const sumTotalPrice = document.getElementById('sumTotalPrice');
+      const sumItemsList = document.getElementById('sumItemsList');
+      const applyCollectionBtn = document.getElementById('applyCollectionBtn');
+
+      let currentTierName = 'Colección Boda Boutique';
+      let currentTierPrice = 1450;
+
+      function recalculateCollection() {
+        let total = currentTierPrice;
+        let html = `<li><span>${currentTierName}</span><strong>USD $${currentTierPrice.toLocaleString('en-US')}</strong></li>`;
+        addonToggles.forEach(addon => {
+          if (addon.classList.contains('selected')) {
+            const name = addon.getAttribute('data-addon-name');
+            const price = parseInt(addon.getAttribute('data-addon-price'), 10);
+            total += price;
+            html += `<li><span>${name}</span><strong>+USD $${price}</strong></li>`;
+          }
+        });
+        sumTierTitle.textContent = currentTierName;
+        sumTotalPrice.textContent = `USD $${total.toLocaleString('en-US')}`;
+        sumItemsList.innerHTML = html;
+      }
+
+      tierBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          tierBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentTierName = btn.getAttribute('data-tier-name');
+          currentTierPrice = parseInt(btn.getAttribute('data-tier-price'), 10);
+          recalculateCollection();
+        });
+      });
+
+      addonToggles.forEach(addon => {
+        addon.addEventListener('click', () => {
+          addon.classList.toggle('selected');
+          recalculateCollection();
+        });
+      });
+
+      if (applyCollectionBtn) {
+        applyCollectionBtn.addEventListener('click', () => {
+          const selectedAddons = Array.from(addonToggles)
+            .filter(a => a.classList.contains('selected'))
+            .map(a => a.getAttribute('data-addon-name'));
+          const sessionSelect = document.getElementById('sessionType');
+          const msgArea = document.getElementById('loveStoryMsg');
+          if (sessionSelect) sessionSelect.value = currentTierName;
+          if (msgArea) {
+            msgArea.value = `Hola Clara, hemos configurado la «${currentTierName}» (${sumTotalPrice.textContent}) con: ${selectedAddons.length ? selectedAddons.join(', ') : 'sin adicionales'}. Nos encantaría conocer si nuestra fecha está disponible.`;
+          }
+          document.getElementById('reserva').scrollIntoView({ behavior: 'smooth' });
+        });
+      }
+
+      // Form Submission Demo
+      const softInquiryForm = document.getElementById('softInquiryForm');
+      const softFeedback = document.getElementById('softFeedback');
+      if (softInquiryForm) {
+        softInquiryForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const names = document.getElementById('coupleNames').value;
+          const date = document.getElementById('eventDate').value;
+          softFeedback.style.display = 'block';
+          softFeedback.innerHTML = `<strong>✦ [Demostración Interactiva]</strong> ¡Gracias, ${names}! Hemos recibido vuestra consulta para el <strong>${date}</strong>. En el sitio real de Clara &amp; Co., recibiríais ahora mismo el dossier de colecciones y una invitación para tomar un café o videollamada.`;
+          softInquiryForm.reset();
+        });
+      }
+    })();
+  </script>
+  <script src="../../js/config/rubros.js"></script>
+  <script src="../../js/demo-viewer-bar.js"></script>
+</body>
+</html>

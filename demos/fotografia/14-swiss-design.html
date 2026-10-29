@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BAUHAUS & ZÜRICH · Fotografía Arquitectónica, Industrial & Diseño</title>
+  <meta name="description" content="Estudio de fotografía arquitectónica, ingeniería civil y diseño industrial bajo los principios del Estilo Tipográfico Internacional Suizo." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --swiss-white: #FFFFFF;
+      --swiss-black: #0A0A0A;
+      --swiss-red: #E11D48;
+      --swiss-slate: #F1F5F9;
+      --swiss-gray: #52525B;
+      --swiss-line: #0A0A0A;
+      --swiss-hairline: #CBD5E1;
+      --font-grotesk: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--swiss-white);
+      color: var(--swiss-black);
+      font-family: var(--font-grotesk);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    body {
+      background-color: var(--swiss-white);
+      color: var(--swiss-black);
+      line-height: 1.45;
+      overflow-x: hidden;
+      padding-bottom: 90px;
+    }
+
+    /* Interactive 12-Column Swiss Overlay */
+    .swiss-grid-overlay {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 150;
+      max-width: 1440px;
+      margin: 0 auto;
+      display: none;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 0;
+      border-left: 1px dashed rgba(225, 29, 72, 0.35);
+      border-right: 1px dashed rgba(225, 29, 72, 0.35);
+    }
+
+    body.show-swiss-grid .swiss-grid-overlay {
+      display: grid;
+    }
+
+    .swiss-grid-overlay div {
+      border-right: 1px dashed rgba(225, 29, 72, 0.28);
+      background: rgba(225, 29, 72, 0.025);
+      position: relative;
+    }
+
+    .swiss-grid-overlay div::before {
+      content: attr(data-col);
+      position: absolute;
+      top: 72px;
+      left: 6px;
+      font-size: 0.62rem;
+      font-weight: 700;
+      color: var(--swiss-red);
+      letter-spacing: 0.08em;
+    }
+
+    /* Main 12-Column Structural Container */
+    .swiss-wrapper {
+      max-width: 1440px;
+      margin: 0 auto;
+      border-left: 1px solid var(--swiss-line);
+      border-right: 1px solid var(--swiss-line);
+    }
+
+    /* Header Bar */
+    .swiss-header {
+      position: sticky;
+      top: 0;
+      z-index: 90;
+      background: var(--swiss-white);
+      border-bottom: 2px solid var(--swiss-line);
+    }
+
+    .header-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      align-items: stretch;
+    }
+
+    .header-cell {
+      padding: 18px 20px;
+      border-right: 1px solid var(--swiss-line);
+      display: flex;
+      align-items: center;
+    }
+
+    .header-cell:last-child {
+      border-right: none;
+    }
+
+    .brand-cell {
+      grid-column: span 4;
+      text-decoration: none;
+      color: var(--swiss-black);
+      justify-content: space-between;
+    }
+
+    .brand-mark {
+      font-weight: 900;
+      font-size: 1.15rem;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .red-cross {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      background: var(--swiss-red);
+    }
+
+    .nav-cell {
+      grid-column: span 5;
+      gap: 28px;
+    }
+
+    .nav-cell a {
+      text-decoration: none;
+      color: var(--swiss-black);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .nav-cell a:hover {
+      color: var(--swiss-red);
+    }
+
+    .tools-cell {
+      grid-column: span 3;
+      justify-content: space-between;
+      gap: 12px;
+      background: var(--swiss-slate);
+    }
+
+    .grid-toggle-btn {
+      background: var(--swiss-white);
+      border: 1px solid var(--swiss-black);
+      color: var(--swiss-black);
+      padding: 8px 12px;
+      font-size: 0.7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+    }
+
+    .grid-toggle-btn.active {
+      background: var(--swiss-red);
+      border-color: var(--swiss-red);
+      color: var(--swiss-white);
+    }
+
+    .btn-swiss-solid {
+      background: var(--swiss-black);
+      color: var(--swiss-white);
+      border: 1px solid var(--swiss-black);
+      padding: 10px 16px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      cursor: pointer;
+      display: inline-block;
+      transition: background 0.15s ease;
+    }
+
+    .btn-swiss-solid:hover {
+      background: var(--swiss-red);
+      border-color: var(--swiss-red);
+    }
+
+    /* Hero 12-Column Mathematical Layout */
+    .hero-swiss-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      border-bottom: 2px solid var(--swiss-line);
+    }
+
+    .hero-index-col {
+      grid-column: span 2;
+      border-right: 1px solid var(--swiss-line);
+      padding: 32px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: var(--swiss-slate);
+    }
+
+    .big-index-num {
+      font-size: 3.8rem;
+      font-weight: 900;
+      letter-spacing: -0.05em;
+      line-height: 0.9;
+      color: var(--swiss-red);
+    }
+
+    .index-coords {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      line-height: 1.6;
+    }
+
+    .hero-main-col {
+      grid-column: span 5;
+      border-right: 1px solid var(--swiss-line);
+      padding: 48px 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .swiss-kicker {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--swiss-red);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .swiss-h1 {
+      font-size: clamp(2.4rem, 4.2vw, 4rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 0.98;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+
+    .swiss-lead {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--swiss-gray);
+      line-height: 1.55;
+      margin-bottom: 36px;
+    }
+
+    .hero-spec-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--swiss-line);
+      padding-top: 20px;
+      gap: 16px;
+    }
+
+    .spec-unit span {
+      display: block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--swiss-gray);
+    }
+
+    .spec-unit strong {
+      font-size: 1.05rem;
+      font-weight: 900;
+    }
+
+    .hero-visual-col {
+      grid-column: span 5;
+      position: relative;
+      background: var(--swiss-black);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .hero-visual-col img {
+      width: 100%;
+      height: 100%;
+      min-height: 460px;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(100%) contrast(1.15);
+      transition: filter 0.3s ease;
+    }
+
+    body.color-mode-active .hero-visual-col img,
+    body.color-mode-active .work-thumb img {
+      filter: grayscale(0%) contrast(1.05);
+    }
+
+    .visual-caption-bar {
+      background: var(--swiss-white);
+      border-top: 1px solid var(--swiss-line);
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    /* Section Header Row */
+    .swiss-section-bar {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      border-bottom: 1px solid var(--swiss-line);
+      background: var(--swiss-slate);
+    }
+
+    .sec-num-cell {
+      grid-column: span 2;
+      padding: 24px 20px;
+      border-right: 1px solid var(--swiss-line);
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: var(--swiss-red);
+    }
+
+    .sec-title-cell {
+      grid-column: span 6;
+      padding: 24px 28px;
+      border-right: 1px solid var(--swiss-line);
+    }
+
+    .sec-title-cell h2 {
+      font-size: 1.65rem;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+    }
+
+    .sec-controls-cell {
+      grid-column: span 4;
+      padding: 24px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .swiss-filter-btn {
+      background: var(--swiss-white);
+      border: 1px solid var(--swiss-line);
+      padding: 7px 12px;
+      font-size: 0.68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .swiss-filter-btn.active,
+    .swiss-filter-btn:hover {
+      background: var(--swiss-black);
+      color: var(--swiss-white);
+    }
+
+    /* Architectural Project Matrix (Grid + Interactive Index) */
+    .projects-matrix {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-bottom: 2px solid var(--swiss-line);
+    }
+
+    .project-cell {
+      border-right: 1px solid var(--swiss-line);
+      border-bottom: 1px solid var(--swiss-line);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+      background: var(--swiss-white);
+      transition: background 0.15s ease;
+    }
+
+    .project-cell:nth-child(3n) {
+      border-right: none;
+    }
+
+    .project-cell.hidden {
+      display: none;
+    }
+
+    .project-cell:hover {
+      background: var(--swiss-slate);
+    }
+
+    .project-cell-top {
+      padding: 18px 22px;
+      border-bottom: 1px solid var(--swiss-line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.74rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .project-index-badge {
+      background: var(--swiss-red);
+      color: var(--swiss-white);
+      padding: 2px 8px;
+    }
+
+    .work-thumb {
+      overflow: hidden;
+      border-bottom: 1px solid var(--swiss-line);
+    }
+
+    .work-thumb img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(100%) contrast(1.12);
+      transition: transform 0.35s ease, filter 0.35s ease;
+    }
+
+    .project-cell:hover .work-thumb img {
+      transform: scale(1.03);
+      filter: grayscale(0%) contrast(1.05);
+    }
+
+    .project-cell-body {
+      padding: 22px;
+    }
+
+    .project-cell-body h3 {
+      font-size: 1.2rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .project-meta-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.76rem;
+      margin-top: 12px;
+    }
+
+    .project-meta-table td {
+      padding: 5px 0;
+      border-top: 1px solid var(--swiss-hairline);
+    }
+
+    .project-meta-table td:first-child {
+      font-weight: 700;
+      color: var(--swiss-gray);
+      text-transform: uppercase;
+    }
+
+    .project-meta-table td:last-child {
+      text-align: right;
+      font-weight: 600;
+    }
+
+    /* Technical Precision & Tilt-Shift Methodology */
+    .methodology-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      border-bottom: 2px solid var(--swiss-line);
+    }
+
+    .method-card {
+      grid-column: span 4;
+      padding: 40px 32px;
+      border-right: 1px solid var(--swiss-line);
+    }
+
+    .method-card:last-child {
+      border-right: none;
+    }
+
+    .method-num {
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--swiss-red);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .method-card h3 {
+      font-size: 1.2rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .method-card p {
+      font-size: 0.9rem;
+      color: var(--swiss-gray);
+      line-height: 1.6;
+    }
+
+    /* Testimonials Row */
+    .swiss-testimonials {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      border-bottom: 2px solid var(--swiss-line);
+    }
+
+    .swiss-quote-cell {
+      grid-column: span 4;
+      padding: 36px 28px;
+      border-right: 1px solid var(--swiss-line);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .swiss-quote-cell:last-child {
+      border-right: none;
+    }
+
+    .swiss-demo-flag {
+      display: inline-block;
+      background: var(--swiss-slate);
+      border: 1px solid var(--swiss-line);
+      padding: 3px 8px;
+      font-size: 0.65rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      align-self: flex-start;
+    }
+
+    /* Brief Form Section */
+    .swiss-brief-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+    }
+
+    .brief-info-col {
+      grid-column: span 5;
+      padding: 48px 36px;
+      border-right: 1px solid var(--swiss-line);
+      background: var(--swiss-slate);
+    }
+
+    .brief-form-col {
+      grid-column: span 7;
+      padding: 48px 40px;
+    }
+
+    .swiss-form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .swiss-input-group {
+      margin-bottom: 20px;
+    }
+
+    .swiss-input-group label {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+    }
+
+    .swiss-input-group input,
+    .swiss-input-group select,
+    .swiss-input-group textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid var(--swiss-line);
+      background: var(--swiss-white);
+      font-family: var(--font-grotesk);
+      font-size: 0.92rem;
+      font-weight: 500;
+    }
+
+    .swiss-input-group input:focus,
+    .swiss-input-group select:focus,
+    .swiss-input-group textarea:focus {
+      outline: 2px solid var(--swiss-red);
+      outline-offset: -2px;
+    }
+
+    .swiss-form-status {
+      display: none;
+      margin-top: 20px;
+      padding: 16px;
+      background: var(--swiss-black);
+      color: var(--swiss-white);
+      font-size: 0.85rem;
+      border-left: 6px solid var(--swiss-red);
+    }
+
+    /* Lightbox Modal */
+    .swiss-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(10, 10, 10, 0.86);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .swiss-modal.open {
+      display: flex;
+    }
+
+    .swiss-modal-box {
+      background: var(--swiss-white);
+      border: 2px solid var(--swiss-black);
+      max-width: 900px;
+      width: 100%;
+      position: relative;
+    }
+
+    .swiss-modal-top {
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--swiss-black);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 800;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      background: var(--swiss-slate);
+    }
+
+    .swiss-modal-close {
+      background: var(--swiss-red);
+      color: var(--swiss-white);
+      border: none;
+      padding: 6px 12px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .swiss-modal-body {
+      padding: 24px;
+    }
+
+    .swiss-modal-body img {
+      width: 100%;
+      max-height: 60vh;
+      object-fit: cover;
+      border: 1px solid var(--swiss-black);
+      margin-bottom: 16px;
+    }
+
+    .swiss-footer {
+      max-width: 1440px;
+      margin: 0 auto;
+      border: 1px solid var(--swiss-line);
+      border-top: 2px solid var(--swiss-line);
+      padding: 24px 28px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 1024px) {
+      .brand-cell,
+      .nav-cell,
+      .tools-cell,
+      .hero-index-col,
+      .hero-main-col,
+      .hero-visual-col,
+      .sec-num-cell,
+      .sec-title-cell,
+      .sec-controls-cell,
+      .method-card,
+      .swiss-quote-cell,
+      .brief-info-col,
+      .brief-form-col {
+        grid-column: span 12;
+        border-right: none;
+        border-bottom: 1px solid var(--swiss-line);
+      }
+      .projects-matrix {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .projects-matrix,
+      .swiss-form-row {
+        grid-template-columns: 1fr;
+      }
+      .nav-cell {
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+    }
+  </style>
+</head>
+<body data-rubro-id="fotografia" data-style-id="swiss-design">
+
+  <!-- Interactive 12-Column Swiss Typographic Grid Overlay -->
+  <div class="swiss-grid-overlay" aria-hidden="true">
+    <div data-col="C01"></div>
+    <div data-col="C02"></div>
+    <div data-col="C03"></div>
+    <div data-col="C04"></div>
+    <div data-col="C05"></div>
+    <div data-col="C06"></div>
+    <div data-col="C07"></div>
+    <div data-col="C08"></div>
+    <div data-col="C09"></div>
+    <div data-col="C10"></div>
+    <div data-col="C11"></div>
+    <div data-col="C12"></div>
+  </div>
+
+  <div class="swiss-wrapper">
+    <!-- Header -->
+    <header class="swiss-header">
+      <div class="header-grid">
+        <a href="#" class="header-cell brand-cell">
+          <span class="brand-mark"><span class="red-cross"></span> BAUHAUS &amp; ZÜRICH</span>
+          <span style="font-size: 0.68rem; font-weight: 700; color: var(--swiss-gray);">ARCH. PHOTOGRAPHY</span>
+        </a>
+
+        <nav class="header-cell nav-cell" aria-label="Navegación principal">
+          <a href="#indice">01. Índice de Obra</a>
+          <a href="#metodo">02. Rigor Óptico</a>
+          <a href="#referencias">03. Estudios</a>
+          <a href="#encargo">04. Encargo Técnico</a>
+        </nav>
+
+        <div class="header-cell tools-cell">
+          <button class="grid-toggle-btn" id="toggleGridBtn" title="Mostrar u ocultar retícula matemática de 12 columnas">
+            ⊞ Retícula 12-Col: OFF
+          </button>
+          <button class="grid-toggle-btn" id="toggleColorBtn" title="Alternar entre blanco y negro técnico y color">
+            ◐ Modo: B&amp;N
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="hero-swiss-grid">
+        <div class="hero-index-col">
+          <div>
+            <span class="big-index-num">14</span>
+            <p style="font-size: 0.72rem; font-weight: 800; text-transform: uppercase; margin-top: 8px;">
+              International Typographic &amp; Architectural Archive
+            </p>
+          </div>
+          <div class="index-coords">
+            ZÜRICH · SANTIAGO · SÃO PAULO<br />
+            ESCALA: 1:100<br />
+            CAMBO WIDE DS // 100MP<br />
+            SHIFT: +15MM VERTICAL
+          </div>
+        </div>
+
+        <div class="hero-main-col">
+          <div>
+            <span class="swiss-kicker">Documentación Racional del Espacio Construido</span>
+            <h1 class="swiss-h1">Forma, Estructura y Luz Exacta.</h1>
+            <p class="swiss-lead">
+              Fotografía técnica para oficinas de arquitectura, ingeniería estructural, bienales de urbanismo y diseño industrial. Eliminamos toda distorsión de paralaje mediante cámaras técnicas de respaldo digital de 100 megapíxeles.
+            </p>
+            <div style="display:flex; gap:12px; flex-wrap:wrap;">
+              <a href="#indice" class="btn-swiss-solid">Examinar Índice Catalogado →</a>
+              <a href="#encargo" class="grid-toggle-btn" style="padding: 10px 16px; text-decoration:none;">Solicitar Presupuesto de Obra</a>
+            </div>
+          </div>
+
+          <div class="hero-spec-strip">
+            <div class="spec-unit">
+              <span>Resolución Nativa</span>
+              <strong>100 MP · 16-Bit</strong>
+            </div>
+            <div class="spec-unit">
+              <span>Paralelismo Vertical</span>
+              <strong>0.0° Desviación</strong>
+            </div>
+            <div class="spec-unit">
+              <span>Archivo Documentado</span>
+              <strong>+340 Obras</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual-col">
+          <img
+            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=85"
+            alt="Geometría arquitectónica en hormigón armado"
+            onerror="this.onerror=null;this.src='../../images/demos/fotografia/14-swiss-design.jpg'"
+          />
+          <div class="visual-caption-bar">
+            <span>FIG 00 · PABELLÓN HELVETIA IV (HORMIGÓN POSTENSADO)</span>
+            <span style="color: var(--swiss-red);">RODENSTOCK 32MM F/8</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 01. Catalog Matrix -->
+      <section id="indice">
+        <div class="swiss-section-bar">
+          <div class="sec-num-cell">01</div>
+          <div class="sec-title-cell">
+            <h2>Índice Sistemático de Obras Registradas</h2>
+          </div>
+          <div class="sec-controls-cell">
+            <button class="swiss-filter-btn active" data-filter="all">Todos (6)</button>
+            <button class="swiss-filter-btn" data-filter="institucional">Público &amp; Museos</button>
+            <button class="swiss-filter-btn" data-filter="residencial">Hormigón Residencial</button>
+            <button class="swiss-filter-btn" data-filter="industrial">Industrial</button>
+          </div>
+        </div>
+
+        <div class="projects-matrix">
+          <!-- Work 01 -->
+          <article class="project-cell" data-cat="institucional" data-title="01 / CENTRO CULTURAL KUNSTHALLE SUR" data-spec="Arquitectos: Herzog & Partner · Lente: Rodenstock HR 32mm Shift +12mm · Orientación: Sur-Poniente">
+            <div class="project-cell-top">
+              <span class="project-index-badge">CAT. 01</span>
+              <span>47°22'N 8°32'E</span>
+            </div>
+            <div class="work-thumb">
+              <img
+                src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=900&q=85"
+                alt="Centro Cultural Kunsthalle"
+                loading="lazy"
+                onerror="this.onerror=null;this.src='../../images/demos/fotografia/14-swiss-design.jpg'"
+              />
+            </div>
+            <div class="project-cell-body">
+              <h3>Centro Cultural Kunsthalle Sur</h3>
+              <table class="project-meta-table">
+                <tr><td>Tipología</td><td>Infraestructura Cultural</td></tr>
+                <tr><td>Materialidad</td><td>Hormigón Visto / Acero</td></tr>
+                <tr><td>Óptica</td><td>32mm Tilt-Shift (+12mm)</td></tr>
+              </table>
+            </div>
+          </article>
+
+          <!-- Work 02 -->
+          <article class="project-cell" data-cat="residencial" data-title="02 / CASA EN EL ACANTILADO H9" data-spec="Arquitectos: Estudio Klotz-Maler · Lente: Schneider 43mm · Luz Cenital 13:00 hrs">
+            <div class="project-cell-top">
+              <span class="project-index-badge">CAT. 02</span>
+              <span>33°21'S 71°39'W</span>
+            </div>
+            <div class="work-thumb">
+              <img
+                src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=85"
+                alt="Casa Monolítica en Hormigón"
+                loading="lazy"
+                onerror="this.onerror=null;this.src='../../images/demos/fotografia/14-swiss-design.jpg'"
+              />
+            </div>
+            <div class="project-cell-body">
+              <h3>Casa Monolítica H9</h3>
+              <table class="project-meta-table">
+                <tr><td>Tipología</td><td>Vivienda Unifamiliar</td></tr>
+                <tr><td>Materialidad</td><td>Concreto Pigmentado</td></tr>
+                <tr><td>Óptica</td><td>43mm Asférico</td></tr>
+              </table>
+            </div>
+          </article>
+
+          <!-- Work 03 -->
+          <article class="project-cell" data-cat="industrial" data-title="03 / PLANTA SOLAR & SUBESTACIÓN NORTINA" data-spec="Ingeniería: Altiplano Grid Corp · Lente: 24mm TS-E · Fotogrametría Aérea + Nivel Tierra">
+            <div class="project-cell-top">
+              <span class="project-index-badge">CAT. 03</span>
+              <span>22°54'S 68°12'W</span>
+            </div>
+            <div class="work-thumb">
+              <img
+                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=85"
+                alt="Torre corporativa e ingeniería"
+                loading="lazy"
+                onerror="this.onerror=null;this.src='../../images/demos/fotografia/14-swiss-design.jpg'"
+              />
+            </div>
+            <div class="project-cell-body">
+              <h3>Torre &amp; Matriz Estructural T-12</h3>
+              <table class="project-meta-table">
+                <tr><td>Tipología</td><td>Ingeniería / Corporativo</td></tr>
+                <tr><td>Materialidad</td><td>Muro Cortina Modular</td></tr>
+                <tr><td>Óptica</td><td>24mm TS-E (+14mm)</td></tr>
+              </table>
+            </div>
+          </article>
+
+          <!-- Work 04 -->
+          <article class="project-cell" data-cat="institucional" data-title="04 / BIBLIOTECA POLITÉCNICA FEDERAL" data-spec="Arquitectos: Weber & Söhne · Lente: 50mm Planar · Control de Simetría Axial">
+            <div class="project-cell-top">
+              <span class="project-index-badge">CAT. 04</span>
+              <span>46°12'N 6°08'E</span>
+            </div>
+            <div class="work-thumb">
+              <img
+                src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=900&q=85"
+                alt="Interior de biblioteca minimalista"
+                loading="lazy"
+                onerror="this.onerror=null;this.src='../../images/demos/fotografia/14-swiss-design.jpg'"
+              />
+            </div>
+            <div class="project-cell-body">
+              <h3>Biblioteca Politécnica Federal</h3>
+              <table class="project-meta-table">
+                <tr><td>Tipología</td><td>Educación Superior</td></tr>
+                <tr><td>Materialidad</td><td>Acero Anodizado &amp; Roble</td></tr>
+                <tr><td>Óptica</td><td>50mm Simétrico</td></tr>
+              </table>
+            </div>
+          </article>
+
+          <!-- Work 05 -->
+          <article class="project-cell" data-cat="industrial" data-title="05 / SISTEMA MODULAR CRONO-09" data-spec="Diseño Industrial: Atelier Braun-Vogel · Iluminación Colimada de Estudio">
+            <div class="project-cell-top">
+              <span class="project-index-badge">CAT. 05</span>
+              <span>ESTUDIO LAB 02</span>
+            </div>
+            <div class="work-thumb">
+              <img
+                src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=900&q=85"
+                alt="Objeto de diseño industrial"
+                loading="lazy"
+                onerror="this.onerror=null;this.src='../../images/demos/fotografia/14-swiss-design.jpg'"
+              />
+            </div>
+            <div class="project-cell-body">
+              <h3>Mobiliario &amp; Objeto Industrial</h3>
+              <table class="project-meta-table">
+                <tr><td>Tipología</td><td>Diseño Industrial</td></tr>
+                <tr><td>Materialidad</td><td>Aluminio Fresado CNC</td></tr>
+                <tr><td>Óptica</td><td>120mm Macro Apocromático</td></tr>
+              </table>
+            </div>
+          </article>
+
+          <!-- Work 06 -->
+          <article class="project-cell" data-cat="residencial" data-title="06 / PABELLÓN DE VIDRIO Y TRAVERTINO" data-spec="Arquitectos: M. Rossi & Asociados · Hora Azul Crepuscular · Equilibrio Interior/Exterior">
+            <div class="project-cell-top">
+              <span class="project-index-badge">CAT. 06</span>
+              <span>34°36'S 58°22'W</span>
+            </div>
+            <div class="work-thumb">
+              <img
+                src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=900&q=85"
+                alt="Pabellón contemporáneo"
+                loading="lazy"
+                onerror="this.onerror=null;this.src='../../images/demos/fotografia/14-swiss-design.jpg'"
+              />
+            </div>
+            <div class="project-cell-body">
+              <h3>Pabellón de Travertino IV</h3>
+              <table class="project-meta-table">
+                <tr><td>Tipología</td><td>Pabellón Privado</td></tr>
+                <tr><td>Materialidad</td><td>Travertino / Cristal Low-E</td></tr>
+                <tr><td>Óptica</td><td>35mm Shift +8mm</td></tr>
+              </table>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 02. Technical Methodology -->
+      <section id="metodo">
+        <div class="swiss-section-bar">
+          <div class="sec-num-cell">02</div>
+          <div class="sec-title-cell" style="grid-column: span 10; border-right: none;">
+            <h2>Metodología de Precisión Geométrica</h2>
+          </div>
+        </div>
+
+        <div class="methodology-grid">
+          <div class="method-card">
+            <span class="method-num">02.1</span>
+            <h3>Cálculo de Azimut Solar</h3>
+            <p>Antes de asistir a la obra, modelamos la trayectoria solar exacta del edificio para capturar cada fachada en el minuto exacto de incidencia rasante.</p>
+          </div>
+          <div class="method-card">
+            <span class="method-num">02.2</span>
+            <h3>Corrección Óptica Tilt-Shift</h3>
+            <p>Las verticales paralelas se corrigen directamente en el plano óptico mediante descentramiento mecánico del lente, conservando el 100% de los píxeles sin interpolación.</p>
+          </div>
+          <div class="method-card">
+            <span class="method-num">02.3</span>
+            <h3>Licenciamiento Multi-Editorial</h3>
+            <p>Gestionamos derechos de uso claros y compartidos entre la oficina de arquitectura, la empresa constructora, los proveedores de materiales y revistas como ArchDaily o Domus.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 03. Testimonials -->
+      <section id="referencias">
+        <div class="swiss-section-bar">
+          <div class="sec-num-cell">03</div>
+          <div class="sec-title-cell" style="grid-column: span 10; border-right: none;">
+            <h2>Referencias de Estudios de Arquitectura</h2>
+          </div>
+        </div>
+
+        <div class="swiss-testimonials">
+          <div class="swiss-quote-cell">
+            <div>
+              <span class="swiss-demo-flag">[Testimonio de Demostración]</span>
+              <p style="font-size: 0.96rem; font-weight: 500; margin-bottom: 20px;">
+                «La exactitud con la que registraron los encuentros de hormigón y acero fue determinante para que nuestro proyecto fuera seleccionado en la Bienal de Arquitectura de Venecia.»
+              </p>
+            </div>
+            <div>
+              <strong style="display:block; font-size:0.82rem; text-transform:uppercase;">ARQ. KASPAR LINDEMANN</strong>
+              <span style="font-size:0.75rem; color:var(--swiss-gray);">Socio Director · Lindemann Architekten ETH</span>
+            </div>
+          </div>
+
+          <div class="swiss-quote-cell">
+            <div>
+              <span class="swiss-demo-flag">[Testimonio de Demostración]</span>
+              <p style="font-size: 0.96rem; font-weight: 500; margin-bottom: 20px;">
+                «Entienden el lenguaje del plano y del corte arquitectónico. No hacen fotografías decorativas, sino documentos visuales rigurosos que explican cómo funciona el edificio.»
+              </p>
+            </div>
+            <div>
+              <strong style="display:block; font-size:0.82rem; text-transform:uppercase;">ARQ. ANTONIA VERGARA</strong>
+              <span style="font-size:0.75rem; color:var(--swiss-gray);">Premio Nacional de Diseño Urbano</span>
+            </div>
+          </div>
+
+          <div class="swiss-quote-cell">
+            <div>
+              <span class="swiss-demo-flag">[Testimonio de Demostración]</span>
+              <p style="font-size: 0.96rem; font-weight: 500; margin-bottom: 20px;">
+                «El esquema de costos compartidos entre nuestra oficina de arquitectura y el fabricante de fachadas hizo que una producción de nivel internacional fuera totalmente viable.»
+              </p>
+            </div>
+            <div>
+              <strong style="display:block; font-size:0.82rem; text-transform:uppercase;">ING. ROBERTO STEIN</strong>
+              <span style="font-size:0.75rem; color:var(--swiss-gray);">Director Técnico · Alukönig Sudamérica</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 04. Project Brief Form -->
+      <section id="encargo">
+        <div class="swiss-section-bar">
+          <div class="sec-num-cell">04</div>
+          <div class="sec-title-cell" style="grid-column: span 10; border-right: none;">
+            <h2>Formulario de Especificación de Encargo</h2>
+          </div>
+        </div>
+
+        <div class="swiss-brief-grid">
+          <div class="brief-info-col">
+            <span class="swiss-kicker">Protocolo de Cotización</span>
+            <h3 style="font-size: 1.5rem; font-weight: 900; text-transform: uppercase; margin-bottom: 16px;">
+              Documentación de Obra Terminada o en Ejecución
+            </h3>
+            <p style="font-size: 0.9rem; color: var(--swiss-gray); margin-bottom: 24px;">
+              Adjunte las coordenadas o ubicación de la obra, superficie construida en m² y número estimado de vistas diurnas y crepusculares requeridas.
+            </p>
+            <div style="border-top: 1px solid var(--swiss-line); padding-top: 16px; font-size: 0.8rem; font-weight: 700;">
+              <p>ESTUDIO CENTRAL: AV. PROVIDENCIA 2653, OF. 1402</p>
+              <p>CORREO TÉCNICO: ARCHIVO@BAUHAUS-ZURICH.CL</p>
+              <p>ACTIVAR RETÍCULA ARRIBA PARA VERIFICAR ALINEACIÓN SUIZA</p>
+            </div>
+          </div>
+
+          <div class="brief-form-col">
+            <span class="swiss-demo-flag">[Formulario Interactivo de Demostración]</span>
+            <form id="swissBriefForm">
+              <div class="swiss-form-row">
+                <div class="swiss-input-group" style="margin-bottom:0;">
+                  <label for="archStudio">Oficina de Arquitectura / Empresa</label>
+                  <input type="text" id="archStudio" required placeholder="Ej. Estudio Elemental / Klotz" />
+                </div>
+                <div class="swiss-input-group" style="margin-bottom:0;">
+                  <label for="archEmail">Correo Corporativo</label>
+                  <input type="email" id="archEmail" required placeholder="contacto@arquitectura.cl" />
+                </div>
+              </div>
+
+              <div class="swiss-form-row">
+                <div class="swiss-input-group" style="margin-bottom:0;">
+                  <label for="archType">Tipología del Proyecto</label>
+                  <select id="archType">
+                    <option value="Edificio Institucional / Público">Edificio Institucional / Público</option>
+                    <option value="Vivienda Unifamiliar Contemporánea">Vivienda Unifamiliar Contemporánea</option>
+                    <option value="Infraestructura Industrial / Energía">Infraestructura Industrial / Energía</option>
+                    <option value="Catálogo de Diseño Industrial / Mobiliario">Catálogo de Diseño Industrial / Mobiliario</option>
+                  </select>
+                </div>
+                <div class="swiss-input-group" style="margin-bottom:0;">
+                  <label for="archScope">Alcance de Jornada</label>
+                  <select id="archScope">
+                    <option value="1 Jornada Solar Completa (15 Vistas Finales)">1 Jornada Solar Completa (15 Vistas Finales)</option>
+                    <option value="2 Jornadas + Dron Fotogramétrico (30 Vistas)">2 Jornadas + Dron Fotogramétrico (30 Vistas)</option>
+                    <option value="Media Jornada Específica (8 Vistas)">Media Jornada Específica (8 Vistas)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="swiss-input-group">
+                <label for="archNotes">Ubicación de la Obra y Requerimientos de Publicación</label>
+                <textarea id="archNotes" rows="3" placeholder="Indique comuna/ciudad, fecha de entrega de obra y si habrá co-licencia con proveedores..."></textarea>
+              </div>
+
+              <button type="submit" class="btn-swiss-solid" style="width: 100%; padding: 15px;">
+                REGISTRAR BRIEF TÉCNICO →
+              </button>
+
+              <div class="swiss-form-status" id="swissFormStatus"></div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer class="swiss-footer">
+    <span>© 2026 BAUHAUS &amp; ZÜRICH · INTERNATIONAL TYPOGRAPHIC STYLE</span>
+    <span>Demostración Estilo <strong>14. Swiss Design / Estilo Suizo</strong> · KuyénDev</span>
+  </footer>
+
+  <!-- Lightbox Modal -->
+  <div class="swiss-modal" id="swissModal" role="dialog" aria-modal="true">
+    <div class="swiss-modal-box">
+      <div class="swiss-modal-top">
+        <span id="swissModalTitle">01 / CENTRO CULTURAL KUNSTHALLE SUR</span>
+        <button class="swiss-modal-close" id="swissModalClose">CERRAR [ESC]</button>
+      </div>
+      <div class="swiss-modal-body">
+        <img
+          id="swissModalImg"
+          src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=900&q=85"
+          alt="Obra arquitectónica ampliada"
+          onerror="this.onerror=null;this.src='../../images/demos/fotografia/14-swiss-design.jpg'"
+        />
+        <p id="swissModalSpec" style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase;"></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      // 12-Column Swiss Grid Overlay Toggle
+      const toggleGridBtn = document.getElementById('toggleGridBtn');
+      let gridVisible = false;
+      if (toggleGridBtn) {
+        toggleGridBtn.addEventListener('click', () => {
+          gridVisible = !gridVisible;
+          document.body.classList.toggle('show-swiss-grid', gridVisible);
+          toggleGridBtn.classList.toggle('active', gridVisible);
+          toggleGridBtn.textContent = gridVisible ? '⊞ Retícula 12-Col: ON' : '⊞ Retícula 12-Col: OFF';
+        });
+      }
+
+      // Color / Monochrome Toggle
+      const toggleColorBtn = document.getElementById('toggleColorBtn');
+      let colorActive = false;
+      if (toggleColorBtn) {
+        toggleColorBtn.addEventListener('click', () => {
+          colorActive = !colorActive;
+          document.body.classList.toggle('color-mode-active', colorActive);
+          toggleColorBtn.classList.toggle('active', colorActive);
+          toggleColorBtn.textContent = colorActive ? '◐ Modo: Color' : '◐ Modo: B&N';
+        });
+      }
+
+      // Filter Projects Matrix
+      const filterBtns = document.querySelectorAll('.swiss-filter-btn');
+      const projectCells = document.querySelectorAll('.project-cell');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const cat = btn.getAttribute('data-filter');
+          projectCells.forEach(cell => {
+            if (cat === 'all' || cell.getAttribute('data-cat') === cat) {
+              cell.classList.remove('hidden');
+            } else {
+              cell.classList.add('hidden');
+            }
+          });
+        });
+      });
+
+      // Lightbox Inspection
+      const swissModal = document.getElementById('swissModal');
+      const swissModalClose = document.getElementById('swissModalClose');
+      const swissModalTitle = document.getElementById('swissModalTitle');
+      const swissModalImg = document.getElementById('swissModalImg');
+      const swissModalSpec = document.getElementById('swissModalSpec');
+
+      projectCells.forEach(cell => {
+        cell.addEventListener('click', () => {
+          const img = cell.querySelector('img');
+          swissModalImg.src = img ? img.src : '';
+          swissModalTitle.textContent = cell.getAttribute('data-title');
+          swissModalSpec.textContent = cell.getAttribute('data-spec');
+          swissModal.classList.add('open');
+        });
+      });
+
+      if (swissModalClose) {
+        swissModalClose.addEventListener('click', () => swissModal.classList.remove('open'));
+      }
+      if (swissModal) {
+        swissModal.addEventListener('click', (e) => {
+          if (e.target === swissModal) swissModal.classList.remove('open');
+        });
+      }
+
+      // Brief Form Demo
+      const swissBriefForm = document.getElementById('swissBriefForm');
+      const swissFormStatus = document.getElementById('swissFormStatus');
+      if (swissBriefForm) {
+        swissBriefForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const studio = document.getElementById('archStudio').value;
+          const type = document.getElementById('archType').value;
+          const scope = document.getElementById('archScope').value;
+          swissFormStatus.style.display = 'block';
+          swissFormStatus.innerHTML = `<strong>[DEMOSTRACIÓN INTERACTIVA]</strong> Brief registrado para <strong>${studio}</strong> (${type} · ${scope}). En producción, nuestro productor técnico respondería con el estudio solar de la obra y presupuesto desglosado.`;
+          swissBriefForm.reset();
+        });
+      }
+    })();
+  </script>
+  <script src="../../js/config/rubros.js"></script>
+  <script src="../../js/demo-viewer-bar.js"></script>
+</body>
+</html>

@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KOMOREBI (木漏れ日) · Fotografía Contemplativa & Wabi-Sabi | Demo KuyénDev</title>
+  <meta name="description" content="Demostración interactiva estilo Japanese Zen / Wabi-Sabi para fotografía de autor, botánica, arquitectura serena y cerámica. Espacio negativo Ma, tipografía vertical y textura de papel Washi." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Serif+JP:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-washi: #F5F2EB;
+      --bg-washi-warm: #ECE7DC;
+      --ink-sumi: #2C2B29;
+      --moss-green: #4A4E3D;
+      --stone-taupe: #8C8275;
+      --hanko-red: #B84A39;
+      --border-hairline: rgba(44, 43, 41, 0.14);
+      --font-jp: 'Noto Serif JP', serif;
+      --font-editorial: 'Cormorant Garamond', Georgia, serif;
+      --season-tint: none;
+    }
+
+    body[data-season="haru"] { --season-tint: saturate(1.04) brightness(1.01); }
+    body[data-season="natsu"] { --season-tint: contrast(1.04) sepia(0.08); }
+    body[data-season="aki"] { --season-tint: sepia(0.18) contrast(1.05); }
+    body[data-season="fuyu"] { --season-tint: saturate(0.75) contrast(1.08); }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-washi);
+      color: var(--ink-sumi);
+      font-family: var(--font-editorial);
+      font-size: 1.12rem;
+      line-height: 1.8;
+      overflow-x: hidden;
+      background-image: radial-gradient(rgba(74, 78, 61, 0.04) 1px, transparent 0);
+      background-size: 36px 36px;
+    }
+
+    /* Cabecera Serena con Espacio Negativo (Ma) */
+    .zen-header {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 36px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    .zen-brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-decoration: none;
+      color: var(--ink-sumi);
+    }
+
+    .hanko-seal {
+      width: 38px;
+      height: 38px;
+      border: 1.5px solid var(--hanko-red);
+      color: var(--hanko-red);
+      font-family: var(--font-jp);
+      font-size: 0.78rem;
+      line-height: 1.1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2px;
+      font-weight: 600;
+      border-radius: 3px;
+    }
+
+    .zen-brand-title {
+      font-family: var(--font-jp);
+      font-size: 1.15rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      display: block;
+    }
+
+    .zen-brand-sub {
+      font-size: 0.85rem;
+      color: var(--stone-taupe);
+      letter-spacing: 0.08em;
+      display: block;
+    }
+
+    .zen-nav {
+      display: flex;
+      align-items: center;
+      gap: 38px;
+      list-style: none;
+    }
+
+    .zen-nav a {
+      text-decoration: none;
+      color: var(--ink-sumi);
+      font-family: var(--font-jp);
+      font-size: 0.82rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+    }
+
+    .zen-nav a:hover {
+      color: var(--moss-green);
+    }
+
+    /* Hero con Tipografía Vertical (Tategaki) y Composición Orgánica */
+    .zen-hero {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 96px 32px 116px;
+      display: grid;
+      grid-template-columns: 80px 1fr 1.05fr;
+      gap: 48px;
+      align-items: center;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    .vertical-tategaki {
+      writing-mode: vertical-rl;
+      font-family: var(--font-jp);
+      font-size: 0.82rem;
+      letter-spacing: 0.32em;
+      color: var(--stone-taupe);
+      border-left: 1px solid var(--border-hairline);
+      padding-left: 18px;
+      height: 360px;
+      display: flex;
+      justify-content: space-between;
+      user-select: none;
+    }
+
+    .zen-kicker {
+      font-family: var(--font-jp);
+      font-size: 0.76rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--moss-green);
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    .zen-hero h1 {
+      font-family: var(--font-jp);
+      font-weight: 300;
+      font-size: clamp(2.2rem, 3.9vw, 3.6rem);
+      line-height: 1.24;
+      margin-bottom: 28px;
+      color: var(--ink-sumi);
+    }
+
+    .zen-hero h1 em {
+      font-family: var(--font-editorial);
+      font-style: italic;
+      font-weight: 400;
+      color: var(--moss-green);
+    }
+
+    .zen-lead {
+      font-size: 1.22rem;
+      color: #524E48;
+      max-width: 490px;
+      margin-bottom: 40px;
+    }
+
+    .zen-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      font-family: var(--font-jp);
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 15px 30px;
+      background: var(--moss-green);
+      color: var(--bg-washi);
+      text-decoration: none;
+      border: 1px solid var(--moss-green);
+      transition: all 0.35s ease;
+      cursor: pointer;
+    }
+
+    .zen-btn:hover {
+      background: transparent;
+      color: var(--moss-green);
+    }
+
+    .zen-btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-jp);
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 15px 28px;
+      background: transparent;
+      color: var(--ink-sumi);
+      text-decoration: none;
+      border: 1px solid var(--border-hairline);
+      transition: border-color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .zen-btn-outline:hover {
+      border-color: var(--ink-sumi);
+    }
+
+    /* Marco Washi en Hero */
+    .hero-washi-frame {
+      position: relative;
+      padding: 28px;
+      background: #FAF8F3;
+      border: 1px solid var(--border-hairline);
+      box-shadow: 0 24px 60px rgba(44, 43, 41, 0.06);
+    }
+
+    .hero-washi-frame img {
+      width: 100%;
+      aspect-ratio: 4 / 4.8;
+      object-fit: cover;
+      display: block;
+      filter: var(--season-tint);
+      transition: filter 0.5s ease;
+    }
+
+    .washi-caption {
+      margin-top: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-jp);
+      font-size: 0.75rem;
+      color: var(--stone-taupe);
+      letter-spacing: 0.12em;
+    }
+
+    /* Secciones con Espacio Negativo Generoso (Ma 間) */
+    .zen-section {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 112px 32px;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    /* Selector Estacional Contemplativo (Shiki 四季) */
+    .season-bar {
+      background: var(--bg-washi-warm);
+      border: 1px solid var(--border-hairline);
+      padding: 28px 32px;
+      margin-bottom: 64px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .season-haiku {
+      font-style: italic;
+      font-size: 1.2rem;
+      color: var(--ink-sumi);
+    }
+
+    .season-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .season-btn {
+      font-family: var(--font-jp);
+      font-size: 0.76rem;
+      letter-spacing: 0.12em;
+      padding: 10px 18px;
+      background: var(--bg-washi);
+      border: 1px solid var(--border-hairline);
+      color: var(--ink-sumi);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .season-btn.active,
+    .season-btn:hover {
+      background: var(--moss-green);
+      color: var(--bg-washi);
+      border-color: var(--moss-green);
+    }
+
+    /* Galería Asimétrica Wabi-Sabi (Ma Layout) */
+    .ma-gallery {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 48px 36px;
+      align-items: center;
+    }
+
+    .ma-piece {
+      cursor: pointer;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .ma-piece.hidden {
+      display: none;
+    }
+
+    .ma-piece-1 { grid-column: 1 / span 7; }
+    .ma-piece-2 { grid-column: 9 / span 4; margin-top: 64px; }
+    .ma-piece-3 { grid-column: 2 / span 5; }
+    .ma-piece-4 { grid-column: 8 / span 5; margin-top: -32px; }
+    .ma-piece-5 { grid-column: 1 / span 6; }
+    .ma-piece-6 { grid-column: 8 / span 5; }
+
+    .ma-img-holder {
+      background: #FAF8F3;
+      padding: 18px;
+      border: 1px solid var(--border-hairline);
+      overflow: hidden;
+    }
+
+    .ma-img-holder img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 3.4;
+      object-fit: cover;
+      display: block;
+      filter: var(--season-tint);
+      transition: transform 0.8s ease, filter 0.5s ease;
+    }
+
+    .ma-piece:hover .ma-img-holder img {
+      transform: scale(1.03);
+    }
+
+    .ma-meta {
+      margin-top: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .ma-meta h3 {
+      font-family: var(--font-jp);
+      font-size: 1.05rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+    }
+
+    .ma-meta span {
+      font-family: var(--font-jp);
+      font-size: 0.72rem;
+      color: var(--stone-taupe);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    /* Tríptico de Filosofía & Servicios */
+    .zen-pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 36px;
+      margin-top: 56px;
+    }
+
+    .pillar-card {
+      background: #FAF8F3;
+      border: 1px solid var(--border-hairline);
+      padding: 42px 34px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .pillar-kanji {
+      font-family: var(--font-jp);
+      font-size: 2rem;
+      color: var(--moss-green);
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .pillar-card h3 {
+      font-family: var(--font-jp);
+      font-size: 1.25rem;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .pillar-price {
+      margin-top: 24px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-hairline);
+      font-family: var(--font-jp);
+      font-size: 0.9rem;
+      color: var(--moss-green);
+      letter-spacing: 0.08em;
+    }
+
+    /* Testimonios Serena */
+    .zen-testimonial {
+      background: var(--bg-washi-warm);
+      border: 1px solid var(--border-hairline);
+      padding: 34px 30px;
+    }
+
+    .zen-demo-badge {
+      display: inline-block;
+      font-family: var(--font-jp);
+      font-size: 0.66rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--moss-green);
+      border: 1px solid rgba(74, 78, 61, 0.35);
+      padding: 3px 9px;
+      margin-bottom: 14px;
+    }
+
+    /* Formulario de Correspondencia */
+    .zen-contact-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .zen-input {
+      width: 100%;
+      padding: 14px 0;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(44, 43, 41, 0.3);
+      font-family: var(--font-editorial);
+      font-size: 1.1rem;
+      color: var(--ink-sumi);
+      margin-bottom: 24px;
+    }
+
+    .zen-input:focus {
+      outline: none;
+      border-bottom-color: var(--moss-green);
+    }
+
+    /* Lightbox Zen */
+    .zen-lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(245, 242, 235, 0.96);
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+    }
+
+    .zen-lightbox.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .zen-lightbox-inner {
+      max-width: 860px;
+      width: 100%;
+      background: #FAF8F3;
+      border: 1px solid var(--border-hairline);
+      padding: 28px;
+      box-shadow: 0 24px 60px rgba(44, 43, 41, 0.1);
+    }
+
+    .zen-lightbox-inner img {
+      width: 100%;
+      max-height: 64vh;
+      object-fit: contain;
+      background: var(--bg-washi);
+    }
+
+    @media (max-width: 960px) {
+      .zen-hero {
+        grid-template-columns: 1fr;
+        padding: 56px 24px;
+      }
+      .vertical-tategaki {
+        display: none;
+      }
+      .ma-piece-1, .ma-piece-2, .ma-piece-3, .ma-piece-4, .ma-piece-5, .ma-piece-6 {
+        grid-column: span 12;
+        margin-top: 0;
+      }
+      .zen-pillars,
+      .zen-contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .zen-nav {
+        display: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body data-rubro-id="fotografia" data-style-id="japanese-zen" data-season="haru">
+
+  <!-- Cabecera Serena -->
+  <header class="zen-header">
+    <a href="#" class="zen-brand">
+      <div class="hanko-seal" aria-hidden="true">木漏<br/>れ日</div>
+      <div>
+        <span class="zen-brand-title">KOMOREBI</span>
+        <span class="zen-brand-sub">Fotografía Contemplativa, Botánica & Wabi-Sabi</span>
+      </div>
+    </a>
+
+    <nav aria-label="Navegación principal">
+      <ul class="zen-nav">
+        <li><a href="#obras">Colección (間)</a></li>
+        <li><a href="#filosofia">Oficio & Silencio</a></li>
+        <li><a href="#voces">Testimonios</a></li>
+        <li><a href="#correspondencia">Correspondencia</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Contemplativo -->
+    <section class="zen-hero">
+      <div class="vertical-tategaki" aria-hidden="true">
+        <span>木漏れ日 · LUZ ENTRE LAS HOJAS</span>
+        <span>侘寂 · BELLEZA IMPERFECTA</span>
+      </div>
+
+      <div>
+        <span class="zen-kicker">ESTUDIO DE OBSERVACIÓN SILENCIOSA</span>
+        <h1>Donde la luz habita el <em>espacio vacío</em> y la materia respira.</h1>
+        <p class="zen-lead">
+          Fotografiamos arquitectura en madera, cerámica de autor, jardines botánicos y retratos pausados siguiendo el principio japonés del <strong>Ma (間)</strong>: permitir que el silencio alrededor de la imagen hable con la misma claridad que la forma.
+        </p>
+        <div style="display: flex; flex-wrap: wrap; gap: 16px;">
+          <a href="#obras" class="zen-btn">Entrar al Jardín Visual</a>
+          <a href="#correspondencia" class="zen-btn-outline">Iniciar Diálogo</a>
+        </div>
+      </div>
+
+      <div class="hero-washi-frame">
+        <img
+          src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=1000&q=85"
+          onerror="this.onerror=null;this.src='../../images/demos/fotografia/09-japanese-zen.jpg'"
+          alt="Composición minimalista de rama botánica y cerámica sobre papel washi"
+        />
+        <div class="washi-caption">
+          <span>I. SOMBRA DE BAMBÚ EN MURO DE CAL</span>
+          <span>LUZ CENITAL · SIN RETOQUE</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Galería con Selector Estacional (Shiki 四季) -->
+    <section class="zen-section" id="obras">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px; margin-bottom: 40px;">
+        <div>
+          <span class="zen-kicker">EL FLUJO DE LAS CUATRO ESTACIONES · 四季</span>
+          <h2 style="font-family: var(--font-jp); font-weight: 300; font-size: clamp(1.9rem, 3.2vw, 2.75rem);">
+            Contemplación por Atmósfera
+          </h2>
+        </div>
+        <p style="max-width: 440px; color: var(--stone-taupe);">
+          Selecciona una estación o materia para armonizar la temperatura de la galería y explorar las series correspondientes.
+        </p>
+      </div>
+
+      <!-- Barra Estacional Interactiva -->
+      <div class="season-bar" role="region" aria-label="Selector de atmósfera estacional">
+        <p class="season-haiku" id="seasonHaiku">
+          «Brota el musgo húmedo sobre la piedra tibia; la primera luz no tiene prisa.»
+        </p>
+        <div class="season-buttons">
+          <button type="button" class="season-btn active" data-season-btn="haru" data-filter="todos">
+            春 Haru · Todas las Series
+          </button>
+          <button type="button" class="season-btn" data-season-btn="natsu" data-filter="botanica">
+            夏 Natsu · Botánica & Ikebana
+          </button>
+          <button type="button" class="season-btn" data-season-btn="aki" data-filter="ceramica">
+            秋 Aki · Cerámica & Materia
+          </button>
+          <button type="button" class="season-btn" data-season-btn="fuyu" data-filter="arquitectura">
+            冬 Fuyu · Arquitectura & Silencio
+          </button>
+        </div>
+      </div>
+
+      <!-- Grilla Asimétrica con Espacio Negativo (Ma) -->
+      <div class="ma-gallery">
+        <article class="ma-piece ma-piece-1"
+                 data-cat="arquitectura"
+                 data-title="Pabellón de Ciprés y Niebla"
+                 data-note="Arquitectura contemplativa · Luz difusa de mañana invernal"
+                 data-img="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=1000&q=85">
+          <div class="ma-img-holder">
+            <img src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=1000&q=85" onerror="this.onerror=null;this.src='../../images/demos/fotografia/09-japanese-zen.jpg'" alt="Arquitectura japonesa serena rodeada de naturaleza" loading="lazy" />
+          </div>
+          <div class="ma-meta">
+            <h3>Pabellón de Ciprés y Niebla</h3>
+            <span>Arquitectura · 01</span>
+          </div>
+        </article>
+
+        <article class="ma-piece ma-piece-2"
+                 data-cat="ceramica"
+                 data-title="Vasija Gres cocida a Leña"
+                 data-note="Texturas minerales e imperfección natural del esmalte de ceniza"
+                 data-img="https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&w=900&q=85">
+          <div class="ma-img-holder">
+            <img src="https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&w=900&q=85" onerror="this.onerror=null;this.src='../../images/demos/fotografia/09-japanese-zen.jpg'" alt="Cerámica artesanal wabi-sabi con textura orgánica" loading="lazy" />
+          </div>
+          <div class="ma-meta">
+            <h3>Vasija Gres cocida a Leña</h3>
+            <span>Cerámica · 02</span>
+          </div>
+        </article>
+
+        <article class="ma-piece ma-piece-3"
+                 data-cat="botanica"
+                 data-title="Estudio de Ikebana Silvestre"
+                 data-note="Equilibrio asimétrico entre rama seca de ciruelo y musgo fresco"
+                 data-img="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=900&q=85">
+          <div class="ma-img-holder">
+            <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=900&q=85" onerror="this.onerror=null;this.src='../../images/demos/fotografia/09-japanese-zen.jpg'" alt="Rama botánica minimalista con luz natural suave" loading="lazy" />
+          </div>
+          <div class="ma-meta">
+            <h3>Estudio de Ikebana Silvestre</h3>
+            <span>Botánica · 03</span>
+          </div>
+        </article>
+
+        <article class="ma-piece ma-piece-4"
+                 data-cat="ceramica"
+                 data-title="Ritual del Té & Lino Crudo"
+                 data-note="Documentación sensorial para artesanos y casas de té"
+                 data-img="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=900&q=85">
+          <div class="ma-img-holder">
+            <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=900&q=85" onerror="this.onerror=null;this.src='../../images/demos/fotografia/09-japanese-zen.jpg'" alt="Ceremonia del té minimalista en cuenco artesanal" loading="lazy" />
+          </div>
+          <div class="ma-meta">
+            <h3>Ritual del Té & Lino Crudo</h3>
+            <span>Materia · 04</span>
+          </div>
+        </article>
+
+        <article class="ma-piece ma-piece-5"
+                 data-cat="arquitectura"
+                 data-title="Geometría de Sombra en Tatami"
+                 data-note="El paso de las horas proyectado a través de paneles Shoji"
+                 data-img="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=900&q=85">
+          <div class="ma-img-holder">
+            <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=900&q=85" onerror="this.onerror=null;this.src='../../images/demos/fotografia/09-japanese-zen.jpg'" alt="Luz filtrada y sombras serenas en espacio arquitectónico" loading="lazy" />
+          </div>
+          <div class="ma-meta">
+            <h3>Geometría de Sombra en Tatami</h3>
+            <span>Arquitectura · 05</span>
+          </div>
+        </article>
+
+        <article class="ma-piece ma-piece-6"
+                 data-cat="botanica"
+                 data-title="Hoja de Ginkgo en Papel Kozo"
+                 data-note="Impresión pigmentaria sobre fibras vegetales japonesas"
+                 data-img="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=900&q=85">
+          <div class="ma-img-holder">
+            <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=900&q=85" onerror="this.onerror=null;this.src='../../images/demos/fotografia/09-japanese-zen.jpg'" alt="Detalle botánico sereno con tonos verde musgo" loading="lazy" />
+          </div>
+          <div class="ma-meta">
+            <h3>Hoja de Ginkgo en Papel Kozo</h3>
+            <span>Botánica · 06</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Filosofía & Servicios -->
+    <section class="zen-section" id="filosofia">
+      <span class="zen-kicker">OFICIO Y MODALIDADES DE ENCARGO</span>
+      <h2 style="font-family: var(--font-jp); font-weight: 300; font-size: clamp(1.9rem, 3.2vw, 2.75rem);">
+        Tres Caminos de Creación Visual
+      </h2>
+
+      <div class="zen-pillars">
+        <div class="pillar-card">
+          <div>
+            <span class="pillar-kanji">器 · Utsuwa</span>
+            <h3>Catálogo de Oficio & Cerámica</h3>
+            <p style="color: #524E48;">
+              Fotografía con luz natural difusa para ceramistas, talleres textiles, joyería orgánica y objetos de diseño que requieren transmitir tactilidad y nobleza material.
+            </p>
+          </div>
+          <div class="pillar-price">Jornada de Taller · $190.000 CLP</div>
+        </div>
+
+        <div class="pillar-card">
+          <div>
+            <span class="pillar-kanji">間 · Ma</span>
+            <h3>Arquitectura & Paisajismo</h3>
+            <p style="color: #524E48;">
+              Seguimiento completo de la trayectoria solar desde el alba hasta el crepúsculo para documentar casas de madera, hoteles boutique, jardines e interiorismo sereno.
+            </p>
+          </div>
+          <div class="pillar-price">Día Solar Completo · $360.000 CLP</div>
+        </div>
+
+        <div class="pillar-card">
+          <div>
+            <span class="pillar-kanji">紙 · Washi</span>
+            <h3>Obra Impresa en Papel Japonés</h3>
+            <p style="color: #524E48;">
+              Ediciones limitadas impresas con tintas de carbón sobre papel Awagami Kozo y Bambú hecho a mano, listas para enmarcado flotante en madera de mañío.
+            </p>
+          </div>
+          <div class="pillar-price">Obra Numerada · Desde $140.000 CLP</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonios de Demostración -->
+    <section class="zen-section" id="voces">
+      <span class="zen-kicker">ECOS DE TALLERES & ARQUITECTOS</span>
+      <h2 style="font-family: var(--font-jp); font-weight: 300; font-size: 2.2rem; margin-bottom: 40px;">
+        Palabras de Quienes Han Compartido el Silencio
+      </h2>
+
+      <div class="zen-pillars" style="margin-top: 0;">
+        <article class="zen-testimonial">
+          <span class="zen-demo-badge">[Testimonio de Demostración]</span>
+          <p style="font-style: italic; margin-bottom: 18px;">
+            "Por primera vez sentí que una fotografía respetaba el verdadero color del gres sin esmaltar. El diseño con amplio espacio en blanco hizo que nuestras piezas respiraran en la tienda online."
+          </p>
+          <div style="font-family: var(--font-jp); font-size: 0.78rem; color: var(--stone-taupe);">
+            <strong>Atelier Barro Sur</strong> · Cerámica de Alta Temperatura
+          </div>
+        </article>
+
+        <article class="zen-testimonial">
+          <span class="zen-demo-badge">[Testimonio de Demostración]</span>
+          <p style="font-style: italic; margin-bottom: 18px;">
+            "Esperaron pacientemente durante tres horas a que la neblina del lago envolviera nuestro refugio de madera. El resultado tiene una paz visual que define toda nuestra marca."
+          </p>
+          <div style="font-family: var(--font-jp); font-size: 0.78rem; color: var(--stone-taupe);">
+            <strong>Estudio Kura</strong> · Arquitectura en Madera
+          </div>
+        </article>
+
+        <article class="zen-testimonial">
+          <span class="zen-demo-badge">[Testimonio de Demostración]</span>
+          <p style="font-style: italic; margin-bottom: 18px;">
+            "Las impresiones sobre papel fibra de bambú tienen una textura casi escultórica. Nuestros clientes de interiorismo siempre preguntan quién capturó la serie botánica."
+          </p>
+          <div style="font-family: var(--font-jp); font-size: 0.78rem; color: var(--stone-taupe);">
+            <strong>Sofía Larraín</strong> · Paisajista & Botánica
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Correspondencia (Formulario) -->
+    <section class="zen-section" id="correspondencia" style="border-bottom: none;">
+      <div class="zen-contact-grid">
+        <div>
+          <span class="zen-kicker">CORRESPONDENCIA SERENA</span>
+          <h2 style="font-family: var(--font-jp); font-weight: 300; font-size: 2.35rem; margin-bottom: 18px;">
+            Escríbenos sobre tu espacio u oficio
+          </h2>
+          <p style="color: #524E48; margin-bottom: 24px;">
+            Tomamos un número reducido de encargos cada estación para dedicar a cada proyecto la observación y el reposo que merece.
+          </p>
+          <p style="font-family: var(--font-jp); font-size: 0.8rem; color: var(--stone-taupe);">
+            TALLER & ESTUDIO DE LUZ NATURAL:<br />
+            Camino al Volcán · Frutillar & Vitacura, Chile.
+          </p>
+        </div>
+
+        <form id="zenForm" style="background: #FAF8F3; padding: 44px; border: 1px solid var(--border-hairline);">
+          <label for="zName" class="zen-kicker" style="margin-bottom: 4px;">Nombre o Taller</label>
+          <input type="text" id="zName" class="zen-input" placeholder="Ej. Amalia Morandé · Taller de Cerámica" required />
+
+          <label for="zEmail" class="zen-kicker" style="margin-bottom: 4px;">Correo Electrónico</label>
+          <input type="email" id="zEmail" class="zen-input" placeholder="amalia@taller.cl" required />
+
+          <label for="zMessage" class="zen-kicker" style="margin-bottom: 4px;">Intención del Proyecto</label>
+          <textarea id="zMessage" rows="3" class="zen-input" placeholder="Cuéntanos sobre las piezas, el jardín o el espacio arquitectónico que deseas documentar..." required></textarea>
+
+          <button type="submit" class="zen-btn" style="width: 100%; justify-content: center;">
+            Enviar Carta al Estudio (Demo Interactiva)
+          </button>
+          <div id="zenFormStatus" style="display: none; margin-top: 18px; padding: 14px; background: var(--bg-washi-warm); border-left: 3px solid var(--moss-green); font-family: var(--font-jp); font-size: 0.82rem;"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Lightbox Contemplativo -->
+  <div class="zen-lightbox" id="zenLightbox" role="dialog" aria-modal="true" aria-labelledby="zenLbTitle">
+    <div class="zen-lightbox-inner">
+      <img src="" alt="" id="zenLbImg" />
+      <div style="margin-top: 18px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px;">
+        <div>
+          <h3 id="zenLbTitle" style="font-family: var(--font-jp); font-size: 1.2rem; font-weight: 500;"></h3>
+          <p id="zenLbNote" style="color: var(--stone-taupe); font-size: 0.98rem;"></p>
+        </div>
+        <button type="button" class="zen-btn-outline" id="zenLbClose" style="padding: 9px 18px;">Cerrar [ESC]</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="zen-section" style="padding-top: 32px; padding-bottom: 96px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; font-family: var(--font-jp); font-size: 0.76rem; color: var(--stone-taupe);">
+    <div><strong>KOMOREBI (木漏れ日)</strong> · Demostración Interactiva #09 (Japanese Zen / Wabi-Sabi) · Catálogo Fotografía KuyénDev.</div>
+    <div>Armonía, asimetría y espacio negativo (Ma).</div>
+  </footer>
+
+  <script>
+    (function () {
+      // Selector Estacional Shiki
+      const seasonBtns = document.querySelectorAll('[data-season-btn]');
+      const seasonHaiku = document.getElementById('seasonHaiku');
+      const pieces = document.querySelectorAll('.ma-piece');
+
+      const haikus = {
+        haru: '«Brota el musgo húmedo sobre la piedra tibia; la primera luz no tiene prisa.»',
+        natsu: '«Komorebi: danza el sol filtrado entre las hojas verdes y la sombra fresca.»',
+        aki: '«Barro cocido al fuego lento; la huella de las manos permanece en el esmalte.»',
+        fuyu: '«Silencio blanco en la madera de ciprés; solo el vapor del té dibuja el aire.»'
+      };
+
+      seasonBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const season = btn.getAttribute('data-season-btn');
+          const filter = btn.getAttribute('data-filter');
+
+          document.body.setAttribute('data-season', season);
+          seasonBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          if (haikus[season]) {
+            seasonHaiku.textContent = haikus[season];
+          }
+
+          pieces.forEach(piece => {
+            const cat = piece.getAttribute('data-cat');
+            if (filter === 'todos' || cat === filter) {
+              piece.classList.remove('hidden');
+            } else {
+              piece.classList.add('hidden');
+            }
+          });
+        });
+      });
+
+      // Lightbox
+      const lb = document.getElementById('zenLightbox');
+      const lbImg = document.getElementById('zenLbImg');
+      const lbTitle = document.getElementById('zenLbTitle');
+      const lbNote = document.getElementById('zenLbNote');
+      const lbClose = document.getElementById('zenLbClose');
+
+      pieces.forEach(p => {
+        p.addEventListener('click', () => {
+          lbImg.src = p.getAttribute('data-img');
+          lbImg.alt = p.getAttribute('data-title');
+          lbTitle.textContent = p.getAttribute('data-title');
+          lbNote.textContent = p.getAttribute('data-note');
+          lb.classList.add('open');
+        });
+      });
+
+      const closeLb = () => lb.classList.remove('open');
+      lbClose.addEventListener('click', closeLb);
+      lb.addEventListener('click', (e) => {
+        if (e.target === lb) closeLb();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeLb();
+      });
+
+      // Formulario Demo
+      const form = document.getElementById('zenForm');
+      const status = document.getElementById('zenFormStatus');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('zName').value;
+        status.style.display = 'block';
+        status.textContent = `印 Correspondencia recibida en modo demostración: Gracias, ${name}. Te responderemos al caer la tarde para conversar pausadamente sobre tu proyecto.`;
+        form.reset();
+      });
+    })();
+  </script>
+  <script src="../../js/config/rubros.js"></script>
+  <script src="../../js/demo-viewer-bar.js"></script>
+</body>
+</html>

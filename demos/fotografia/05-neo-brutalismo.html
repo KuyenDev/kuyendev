@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KRAKEN RAW · Street, Skate & Underground Visuals | Neo-Brutalismo</title>
+  <meta name="description" content="Colectivo y estudio de fotografía urbana, skate, música en vivo y moda callejera con estética Neo-Brutalista y flash directo." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-paper: #FFFDF5;
+      --ink: #000000;
+      --hot-pink: #FF4365;
+      --cyber-mint: #00D9C0;
+      --acid-yellow: #FFE600;
+      --electric-violet: #A855F7;
+      --border-thick: 3px solid #000000;
+      --shadow-hard: 6px 6px 0px #000000;
+      --shadow-hard-lg: 10px 10px 0px #000000;
+      --shadow-press: 2px 2px 0px #000000;
+      --font-grotesk: 'Space Grotesk', system-ui, sans-serif;
+      --font-display: 'Syne', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-paper);
+      color: var(--ink);
+    }
+
+    body {
+      font-family: var(--font-grotesk);
+      background-color: var(--bg-paper);
+      background-image: radial-gradient(#000000 1px, transparent 1px);
+      background-size: 24px 24px;
+      color: var(--ink);
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    body.high-voltage {
+      --bg-paper: #FFE600;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .marquee-track { animation: none !important; }
+      *, *::before, *::after {
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    .brutal-wrap {
+      width: min(1320px, 94vw);
+      margin: 0 auto;
+    }
+
+    /* BOTONES Y CAJAS NEO-BRUTALISTAS */
+    .brutal-box {
+      background: #FFFFFF;
+      border: var(--border-thick);
+      box-shadow: var(--shadow-hard);
+    }
+
+    .brutal-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: var(--acid-yellow);
+      color: var(--ink);
+      border: var(--border-thick);
+      box-shadow: var(--shadow-hard);
+      padding: 0.8rem 1.5rem;
+      font-family: var(--font-grotesk);
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.12s ease;
+    }
+
+    .brutal-btn:hover {
+      transform: translate(4px, 4px);
+      box-shadow: var(--shadow-press);
+      background: var(--cyber-mint);
+    }
+
+    .brutal-btn.pink {
+      background: var(--hot-pink);
+      color: #FFFFFF;
+    }
+
+    .brutal-btn.pink:hover {
+      background: var(--ink);
+      color: var(--acid-yellow);
+    }
+
+    .sticker-tag {
+      display: inline-block;
+      background: var(--cyber-mint);
+      border: 2px solid var(--ink);
+      box-shadow: 3px 3px 0 var(--ink);
+      padding: 0.25rem 0.7rem;
+      font-weight: 700;
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* MARQUESINA CINÉTICA SUPERIOR */
+    .marquee-bar {
+      background: var(--ink);
+      color: var(--acid-yellow);
+      border-bottom: var(--border-thick);
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 0.5rem 0;
+      font-weight: 700;
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .marquee-track {
+      display: inline-block;
+      animation: scrollMarquee 22s linear infinite;
+    }
+
+    @keyframes scrollMarquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* HEADER BRUTALISTA */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 95;
+      background: var(--bg-paper);
+      border-bottom: var(--border-thick);
+    }
+
+    .nav-brutal {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+
+    .brand-brutal {
+      text-decoration: none;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.55rem;
+      background: var(--acid-yellow);
+      border: var(--border-thick);
+      box-shadow: 4px 4px 0 var(--ink);
+      padding: 0.25rem 0.85rem;
+      transform: rotate(-1.5deg);
+    }
+
+    .brutal-menu {
+      display: flex;
+      gap: 1rem;
+      list-style: none;
+    }
+
+    .brutal-menu a {
+      text-decoration: none;
+      color: var(--ink);
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      padding: 0.45rem 0.85rem;
+      border: 2px solid transparent;
+    }
+
+    .brutal-menu a:hover {
+      background: #FFFFFF;
+      border: 2px solid var(--ink);
+      box-shadow: 3px 3px 0 var(--ink);
+    }
+
+    .mobile-brutal-toggle {
+      display: none;
+    }
+
+    /* HERO ASIMÉTRICO NEO-BRUTALISTA */
+    .hero-brutal {
+      padding: 4rem 0 5rem;
+      border-bottom: var(--border-thick);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .hero-headline {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5.6vw, 4.8rem);
+      font-weight: 800;
+      line-height: 0.98;
+      text-transform: uppercase;
+      margin: 1rem 0 1.5rem;
+    }
+
+    .hero-headline mark {
+      background: var(--hot-pink);
+      color: #FFFFFF;
+      padding: 0 0.35rem;
+      border: 3px solid var(--ink);
+      box-shadow: 4px 4px 0 var(--ink);
+      display: inline-block;
+      transform: rotate(1deg);
+    }
+
+    .hero-lead {
+      font-size: 1.12rem;
+      font-weight: 500;
+      max-width: 48ch;
+      margin-bottom: 2rem;
+      background: #FFFFFF;
+      border: var(--border-thick);
+      box-shadow: var(--shadow-hard);
+      padding: 1.2rem;
+    }
+
+    .hero-photo-stack {
+      position: relative;
+      padding: 1rem;
+      background: var(--cyber-mint);
+      border: var(--border-thick);
+      box-shadow: var(--shadow-hard-lg);
+      transform: rotate(1.5deg);
+    }
+
+    .hero-photo-stack img {
+      width: 100%;
+      aspect-ratio: 4 / 4.4;
+      object-fit: cover;
+      border: var(--border-thick);
+      display: block;
+      filter: contrast(1.15);
+    }
+
+    .floating-stamp {
+      position: absolute;
+      top: -18px;
+      right: -14px;
+      background: var(--acid-yellow);
+      border: var(--border-thick);
+      box-shadow: 4px 4px 0 var(--ink);
+      padding: 0.6rem 1rem;
+      font-weight: 800;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      transform: rotate(6deg);
+    }
+
+    /* CONSOLA INTERACTIVA DE FLASH Y FILTROS CALLEJEROS */
+    .section-brutal {
+      padding: 5rem 0;
+      border-bottom: var(--border-thick);
+    }
+
+    .section-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3.3rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      line-height: 1.05;
+    }
+
+    .filter-bar {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .brutal-chip {
+      background: #FFFFFF;
+      border: var(--border-thick);
+      box-shadow: 4px 4px 0 var(--ink);
+      padding: 0.55rem 1.1rem;
+      font-family: var(--font-grotesk);
+      font-weight: 700;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.12s ease;
+    }
+
+    .brutal-chip.is-active,
+    .brutal-chip:hover {
+      background: var(--hot-pink);
+      color: #FFFFFF;
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0 var(--ink);
+    }
+
+    .street-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .street-card {
+      background: #FFFFFF;
+      border: var(--border-thick);
+      box-shadow: var(--shadow-hard);
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .street-card.is-hidden {
+      display: none;
+    }
+
+    .street-card:hover {
+      transform: translate(-4px, -4px);
+      box-shadow: var(--shadow-hard-lg);
+    }
+
+    .street-card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.6rem 0.9rem;
+      border-bottom: var(--border-thick);
+      background: var(--acid-yellow);
+      font-weight: 700;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+    }
+
+    .street-card:nth-child(2n) .street-card-head {
+      background: var(--cyber-mint);
+    }
+
+    .street-card:nth-child(3n) .street-card-head {
+      background: var(--hot-pink);
+      color: #FFFFFF;
+    }
+
+    .street-card-img {
+      aspect-ratio: 4 / 4;
+      overflow: hidden;
+      border-bottom: var(--border-thick);
+    }
+
+    .street-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: filter 0.25s ease, transform 0.3s ease;
+    }
+
+    body.flash-grain .street-card-img img {
+      filter: grayscale(100%) contrast(1.45);
+    }
+
+    .street-card:hover .street-card-img img {
+      transform: scale(1.04);
+    }
+
+    .street-card-body {
+      padding: 1.15rem;
+    }
+
+    .street-card-body h3 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      margin-bottom: 0.35rem;
+    }
+
+    /* PACKS DE TARIFAS Y TESTIMONIOS BRUTALISTAS */
+    .split-brutal {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+    }
+
+    .testimonial-brutal {
+      background: #FFFFFF;
+      border: var(--border-thick);
+      box-shadow: var(--shadow-hard);
+      padding: 1.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .faq-brutal-item {
+      background: #FFFFFF;
+      border: var(--border-thick);
+      box-shadow: var(--shadow-hard);
+      margin-bottom: 1rem;
+    }
+
+    .faq-brutal-btn {
+      width: 100%;
+      background: var(--acid-yellow);
+      border: none;
+      padding: 1rem 1.25rem;
+      font-family: var(--font-grotesk);
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-align: left;
+      display: flex;
+      justify-content: space-between;
+      cursor: pointer;
+    }
+
+    .faq-brutal-body {
+      padding: 1.15rem 1.25rem;
+      border-top: var(--border-thick);
+      display: none;
+      font-size: 0.92rem;
+    }
+
+    .faq-brutal-item.is-open .faq-brutal-body {
+      display: block;
+    }
+
+    /* FORMULARIO DE BOOKING URBANO */
+    .booking-brutal {
+      background: var(--cyber-mint);
+      border: var(--border-thick);
+      box-shadow: var(--shadow-hard-lg);
+      padding: clamp(1.5rem, 4vw, 3rem);
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 2.5rem;
+    }
+
+    .brutal-form-box {
+      background: #FFFFFF;
+      border: var(--border-thick);
+      box-shadow: var(--shadow-hard);
+      padding: 2rem;
+    }
+
+    .b-field {
+      margin-bottom: 1.15rem;
+    }
+
+    .b-field label {
+      display: block;
+      font-weight: 700;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+
+    .b-field input,
+    .b-field select,
+    .b-field textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border: var(--border-thick);
+      background: var(--bg-paper);
+      font-family: var(--font-grotesk);
+      font-weight: 600;
+      font-size: 0.92rem;
+      outline: none;
+    }
+
+    .b-field input:focus,
+    .b-field select:focus,
+    .b-field textarea:focus {
+      background: var(--acid-yellow);
+    }
+
+    .brutal-alert {
+      margin-top: 1rem;
+      padding: 1rem;
+      background: var(--acid-yellow);
+      border: var(--border-thick);
+      box-shadow: 4px 4px 0 var(--ink);
+      font-weight: 700;
+      font-size: 0.86rem;
+      display: none;
+    }
+
+    .brutal-alert.is-visible {
+      display: block;
+    }
+
+    /* LIGHTBOX BRUTALISTA */
+    .brutal-lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.88);
+      z-index: 1200;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .brutal-lightbox.is-open {
+      display: flex;
+    }
+
+    .brutal-lb-window {
+      background: #FFFFFF;
+      border: var(--border-thick);
+      box-shadow: 12px 12px 0 var(--acid-yellow);
+      max-width: 820px;
+      width: 100%;
+    }
+
+    .brutal-lb-bar {
+      background: var(--hot-pink);
+      color: #FFFFFF;
+      border-bottom: var(--border-thick);
+      padding: 0.75rem 1.2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .brutal-lb-window img {
+      width: 100%;
+      max-height: 70vh;
+      object-fit: contain;
+      display: block;
+      background: #000;
+    }
+
+    footer {
+      background: var(--ink);
+      color: #FFFFFF;
+      padding: 3.5rem 0 7rem;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .street-grid,
+      .split-brutal,
+      .booking-brutal {
+        grid-template-columns: 1fr;
+      }
+      .brutal-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--acid-yellow);
+        border-bottom: var(--border-thick);
+        flex-direction: column;
+        padding: 1rem;
+      }
+      .brutal-menu.is-open {
+        display: flex;
+      }
+      .mobile-brutal-toggle {
+        display: inline-flex;
+      }
+    }
+  </style>
+</head>
+<body data-rubro-id="fotografia" data-style-id="neo-brutalismo">
+
+  <!-- Marquesina Cinética -->
+  <div class="marquee-bar" aria-hidden="true">
+    <div class="marquee-track">
+      <span>⚡ KRAKEN RAW STUDIO · STREETWEAR & SKATE PHOTOGRAPHY · FLASH DIRECTO · 35MM & FORMATO DIGITAL · SIN FILTROS COMPLACIENTES · SANTIAGO / VALPARAÍSO / BERLÍN ⚡ KRAKEN RAW STUDIO · STREETWEAR & SKATE PHOTOGRAPHY · FLASH DIRECTO · 35MM & FORMATO DIGITAL · SIN FILTROS COMPLACIENTES · SANTIAGO / VALPARAÍSO / BERLÍN ⚡</span>
+    </div>
+  </div>
+
+  <header>
+    <div class="brutal-wrap nav-brutal">
+      <a href="#inicio" class="brand-brutal">KRAKEN RAW!</a>
+      <nav aria-label="Navegación principal">
+        <ul class="brutal-menu" id="brutalMenu">
+          <li><a href="#archivo">Archivo</a></li>
+          <li><a href="#preguntas">Manifiesto</a></li>
+          <li><a href="#booking">Agendar Calle</a></li>
+        </ul>
+      </nav>
+      <div style="display:flex;gap:0.6rem;align-items:center;">
+        <button type="button" class="brutal-btn" id="flashModeBtn" style="padding:0.5rem 0.9rem;font-size:0.78rem;">⚡ Modo B&N Flash: OFF</button>
+        <button type="button" class="brutal-btn pink mobile-brutal-toggle" id="mobileBrutalBtn" style="padding:0.5rem 0.9rem;font-size:0.78rem;">Menú</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero-brutal" id="inicio">
+      <div class="brutal-wrap hero-grid">
+        <div>
+          <span class="sticker-tag">ESTILO #05 · NEO-BRUTALISMO VISUAL</span>
+          <h1 class="hero-headline">CRUDO, RUIDOSO Y <mark>SIN PERMISO</mark>.</h1>
+          <p class="hero-lead">Disparamos campañas de streetwear, cultura skate, punk shows, festivales nocturnos y retratos con flash directo en concreto. Cero poses corporativas.</p>
+          <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+            <a href="#archivo" class="brutal-btn pink">Ver Disparos Callejeros</a>
+            <a href="#booking" class="brutal-btn">Cotizar Sesión Raw →</a>
+          </div>
+        </div>
+
+        <div class="hero-photo-stack">
+          <span class="floating-stamp">FLASH 1/250s · ISO 800</span>
+          <img
+            src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1100&q=85"
+            alt="Fotografía urbana de alto impacto con flash"
+            onerror="this.onerror=null;this.src='../../images/demos/fotografia/05-neo-brutalismo.jpg'"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- ARCHIVO CALLEJERO INTERACTIVO -->
+    <section class="section-brutal" id="archivo">
+      <div class="brutal-wrap">
+        <div class="section-top">
+          <div>
+            <span class="sticker-tag" style="background:var(--acid-yellow);">CONTACTO DIRECTO</span>
+            <h2 class="section-title">ARCHIVO UNDERGROUND</h2>
+          </div>
+          <div class="filter-bar" role="tablist">
+            <button type="button" class="brutal-chip is-active" data-filter="all">TODO EL CAOS (06)</button>
+            <button type="button" class="brutal-chip" data-filter="streetwear">DROP STREETWEAR</button>
+            <button type="button" class="brutal-chip" data-filter="skate">SKATE & ASFALTO</button>
+            <button type="button" class="brutal-chip" data-filter="backstage">CONCIERTOS / RAVE</button>
+          </div>
+        </div>
+
+        <div class="street-grid">
+          <article class="street-card" data-cat="streetwear" data-title="DROP 01 // CONCRETO HÚMEDO">
+            <div class="street-card-head">
+              <span>#001 · STREETWEAR</span>
+              <span>28MM FLASH</span>
+            </div>
+            <div class="street-card-img">
+              <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80" alt="Lookbook urbano con colores intensos" onerror="this.onerror=null;this.src='../../images/demos/fotografia/05-neo-brutalismo.jpg'" />
+            </div>
+            <div class="street-card-body">
+              <h3>Drop 01 // Concreto</h3>
+              <p>Campaña cápsula en estacionamiento subterráneo a medianoche.</p>
+            </div>
+          </article>
+
+          <article class="street-card" data-cat="skate" data-title="DROP 02 // OLLIE SOBRE ESCALERA 12">
+            <div class="street-card-head">
+              <span>#002 · SKATE</span>
+              <span>FISHEYE 15MM</span>
+            </div>
+            <div class="street-card-img">
+              <img src="https://images.unsplash.com/photo-1520045892732-304bc3ac5d8e?auto=format&fit=crop&w=900&q=80" alt="Fotografía de skate con lente ojo de pez" onerror="this.onerror=null;this.src='../../images/demos/fotografia/05-neo-brutalismo.jpg'" />
+            </div>
+            <div class="street-card-body">
+              <h3>Escaleras Parque Bustamante</h3>
+              <p>Doble flash esclavo sincronizado a 1/1000s en pleno vuelo.</p>
+            </div>
+          </article>
+
+          <article class="street-card" data-cat="backstage" data-title="DROP 03 // MOSHPIT & HUMO ROJO">
+            <div class="street-card-head">
+              <span>#003 · RAVE / LIVE</span>
+              <span>ISO 3200</span>
+            </div>
+            <div class="street-card-img">
+              <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=900&q=80" alt="Energía de concierto en vivo" onerror="this.onerror=null;this.src='../../images/demos/fotografia/05-neo-brutalismo.jpg'" />
+            </div>
+            <div class="street-card-body">
+              <h3>Búnker Industrial 4AM</h3>
+              <p>Registro sin censura desde el escenario y primera fila.</p>
+            </div>
+          </article>
+
+          <article class="street-card" data-cat="streetwear" data-title="DROP 04 // NEÓN VALPARAÍSO">
+            <div class="street-card-head">
+              <span>#004 · STREETWEAR</span>
+              <span>35MM FILM</span>
+            </div>
+            <div class="street-card-img">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=80" alt="Retrato urbano de alto contraste" onerror="this.onerror=null;this.src='../../images/demos/fotografia/05-neo-brutalismo.jpg'" />
+            </div>
+            <div class="street-card-body">
+              <h3>Actitud Puerto</h3>
+              <p>Editorial para marca independiente de chaquetas intervenidas.</p>
+            </div>
+          </article>
+
+          <article class="street-card" data-cat="skate" data-title="DROP 05 // BOWL SECO">
+            <div class="street-card-head">
+              <span>#005 · SKATE</span>
+              <span>MEDIO FORMATO</span>
+            </div>
+            <div class="street-card-img">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=900&q=80" alt="Retrato crudo después de sesión de skate" onerror="this.onerror=null;this.src='../../images/demos/fotografia/05-neo-brutalismo.jpg'" />
+            </div>
+            <div class="street-card-body">
+              <h3>Retrato Post-Sesión</h3>
+              <p>Sudor, concreto y grano real sin retoque plástico de piel.</p>
+            </div>
+          </article>
+
+          <article class="street-card" data-cat="backstage" data-title="DROP 06 // BACKSTAGE PUNK">
+            <div class="street-card-head">
+              <span>#006 · BACKSTAGE</span>
+              <span>FLASH DIRECTO</span>
+            </div>
+            <div class="street-card-img">
+              <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=900&q=80" alt="Documental de backstage musical" onerror="this.onerror=null;this.src='../../images/demos/fotografia/05-neo-brutalismo.jpg'" />
+            </div>
+            <div class="street-card-body">
+              <h3>Gira Sur en Furgón</h3>
+              <p>Cobertura de 72 horas continuas para lanzamiento de vinilo.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ & TESTIMONIOS BRUTALISTAS -->
+    <section class="section-brutal" id="preguntas">
+      <div class="brutal-wrap split-brutal">
+        <div>
+          <span class="sticker-tag">SIN RODEOS</span>
+          <h2 class="section-title" style="margin:0.6rem 0 1.5rem;">PREGUNTAS RÁPIDAS</h2>
+
+          <div class="faq-brutal-item is-open">
+            <button type="button" class="faq-brutal-btn">
+              <span>01. ¿Disparan en película 35mm real o digital?</span>
+              <span>[—]</span>
+            </button>
+            <div class="faq-brutal-body">
+              Ambos. Llevamos cámaras compactas de 35mm con flash integrado (estilo Ricoh GR / Contax) junto con cuerpos digitales full-frame para entregar el material el mismo día si el drop lo exige.
+            </div>
+          </div>
+
+          <div class="faq-brutal-item">
+            <button type="button" class="faq-brutal-btn">
+              <span>02. ¿Hacen sesiones en calle sin cortar el tráfico?</span>
+              <span>[+]</span>
+            </button>
+            <div class="faq-brutal-body">
+              Nuestro equipo es ligero y guerrillero: flashes de mano potentes, lentes gran angular y velocidad pura para capturar la energía real de la ciudad.
+            </div>
+          </div>
+
+          <div class="faq-brutal-item">
+            <button type="button" class="faq-brutal-btn">
+              <span>03. ¿En cuánto tiempo entregan las fotos listas?</span>
+              <span>[+]</span>
+            </button>
+            <div class="faq-brutal-body">
+              Para conciertos y lanzamientos de ropa entregamos un adelanto de 15 fotos editadas en menos de 24 horas y la galería completa en 72 horas.
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <span class="sticker-tag" style="background:var(--hot-pink);color:#fff;">VOCES DEL UNDERGROUND</span>
+          <h2 class="section-title" style="margin:0.6rem 0 1.5rem;">FEEDBACK REAL</h2>
+
+          <article class="testimonial-brutal">
+            <span class="sticker-tag" style="background:var(--acid-yellow);margin-bottom:0.75rem;">[Testimonio de Demostración]</span>
+            <p style="font-weight:600;margin-bottom:0.8rem;">“Hicimos el lookbook de nuestra colección de hoodies en una fábrica abandonada con KRAKEN RAW. Se agotó el stock en 48 horas gracias a la potencia visual de las fotos.”</p>
+            <strong>DIEGO "KROMA" · FUNDADOR DE DISTRITO CERO STREETWEAR (EJEMPLO FICTICIO)</strong>
+          </article>
+
+          <article class="testimonial-brutal">
+            <span class="sticker-tag" style="background:var(--acid-yellow);margin-bottom:0.75rem;">[Testimonio de Demostración]</span>
+            <p style="font-weight:600;margin-bottom:0.8rem;">“Se metieron al medio del pogo con las cámaras y lograron las mejores fotos en vivo que nuestra banda ha tenido jamás.”</p>
+            <strong>CARLA V. · BATERISTA DE RUIDO SOLAR (EJEMPLO FICTICIO)</strong>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOOKING URBANO -->
+    <section class="section-brutal" id="booking" style="border-bottom:none;">
+      <div class="brutal-wrap">
+        <div class="booking-brutal">
+          <div>
+            <span class="sticker-tag" style="background:#FFFFFF;">AGENDA ABIERTA 2026</span>
+            <h2 class="section-title" style="margin:0.75rem 0 1rem;">ARMA TU SESIÓN EN LA CALLE</h2>
+            <p style="font-weight:600;font-size:1.02rem;margin-bottom:1.5rem;">Dinos qué marca, banda o proyecto tienes entre manos. Armamos la ruta de locaciones callejeras y salimos a disparar.</p>
+            <div class="brutal-box" style="padding:1.25rem;background:var(--acid-yellow);">
+              <p style="font-weight:800;">⚡ INCLUYE SIEMPRE:</p>
+              <p style="font-size:0.9rem;font-weight:600;">Dirección de pose anti-acartonada + Iluminación Flash Crudo + Entrega en Alta y Formato Vertical Reels/TikTok.</p>
+            </div>
+          </div>
+
+          <form class="brutal-form-box" id="brutalForm">
+            <div class="b-field">
+              <label for="bName">Tu Nombre / Marca / Banda</label>
+              <input type="text" id="bName" required placeholder="Ej. Colectivo Subterráneo" />
+            </div>
+            <div class="b-field">
+              <label for="bEmail">Correo o Instagram</label>
+              <input type="text" id="bEmail" required placeholder="@tumarca o correo@dominio.cl" />
+            </div>
+            <div class="b-field">
+              <label for="bShoot">Tipo de Bomba Visual</label>
+              <select id="bShoot">
+                <option value="Campaña Streetwear / Lookbook Urbano">Campaña Streetwear / Lookbook Urbano</option>
+                <option value="Cobertura de Concierto / Festival">Cobertura de Concierto / Festival</option>
+                <option value="Sesión Skate / Deporte de Acción">Sesión Skate / Deporte de Acción</option>
+              </select>
+            </div>
+            <div class="b-field">
+              <label for="bIdea">Coordenadas e Idea</label>
+              <textarea id="bIdea" rows="3" placeholder="Cuéntanos dónde y cuándo quieres romperla..."></textarea>
+            </div>
+            <button type="submit" class="brutal-btn pink" style="width:100%;">DISPARAR SOLICITUD AHORA ⚡</button>
+            <div class="brutal-alert" id="brutalAlert" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- LIGHTBOX BRUTALISTA -->
+  <div class="brutal-lightbox" id="brutalLightbox" role="dialog" aria-modal="true" aria-label="Visor Neo-Brutalista">
+    <div class="brutal-lb-window">
+      <div class="brutal-lb-bar">
+        <span id="brutalLbTitle">ARCHIVO RAW</span>
+        <button type="button" class="brutal-btn" id="brutalLbClose" style="padding:0.25rem 0.7rem;font-size:0.75rem;">CERRAR [X]</button>
+      </div>
+      <img id="brutalLbImg" src="" alt="" onerror="this.onerror=null;this.src='../../images/demos/fotografia/05-neo-brutalismo.jpg'" />
+    </div>
+  </div>
+
+  <footer>
+    <div class="brutal-wrap">
+      <p>© 2026 KRAKEN RAW · DEMOSTRACIÓN INTERACTIVA ESTILO #05 NEO-BRUTALISMO PARA KUYÉNDEV</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      // Menú móvil
+      const mobileBrutalBtn = document.getElementById('mobileBrutalBtn');
+      const brutalMenu = document.getElementById('brutalMenu');
+      if (mobileBrutalBtn && brutalMenu) {
+        mobileBrutalBtn.addEventListener('click', () => brutalMenu.classList.toggle('is-open'));
+      }
+
+      // Switcher interactivo de Modo B&N Flash Alto Contraste
+      const flashModeBtn = document.getElementById('flashModeBtn');
+      flashModeBtn.addEventListener('click', () => {
+        const active = document.body.classList.toggle('flash-grain');
+        document.body.classList.toggle('high-voltage', active);
+        flashModeBtn.textContent = active ? '⚡ Modo B&N Flash: ON' : '⚡ Modo B&N Flash: OFF';
+      });
+
+      // Filtros de portafolio
+      const chips = document.querySelectorAll('.brutal-chip');
+      const streetCards = document.querySelectorAll('.street-card');
+      chips.forEach(chip => {
+        chip.addEventListener('click', () => {
+          const cat = chip.getAttribute('data-filter');
+          chips.forEach(c => c.classList.toggle('is-active', c === chip));
+          streetCards.forEach(card => {
+            const match = cat === 'all' || card.getAttribute('data-cat') === cat;
+            card.classList.toggle('is-hidden', !match);
+          });
+        });
+      });
+
+      // Acordeón FAQ
+      document.querySelectorAll('.faq-brutal-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const item = btn.parentElement;
+          const open = item.classList.toggle('is-open');
+          btn.querySelector('span:last-child').textContent = open ? '[—]' : '[+]';
+        });
+      });
+
+      // Lightbox
+      const lb = document.getElementById('brutalLightbox');
+      const lbImg = document.getElementById('brutalLbImg');
+      const lbTitle = document.getElementById('brutalLbTitle');
+      const lbClose = document.getElementById('brutalLbClose');
+
+      streetCards.forEach(card => {
+        card.addEventListener('click', () => {
+          const img = card.querySelector('img');
+          lbImg.src = img.src;
+          lbImg.alt = img.alt;
+          lbTitle.textContent = card.getAttribute('data-title');
+          lb.classList.add('is-open');
+        });
+      });
+
+      const closeLb = () => lb.classList.remove('is-open');
+      lbClose.addEventListener('click', closeLb);
+      lb.addEventListener('click', (e) => {
+        if (e.target === lb) closeLb();
+      });
+
+      // Formulario Demo
+      const form = document.getElementById('brutalForm');
+      const alertBox = document.getElementById('brutalAlert');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('bName').value.trim();
+        const shoot = document.getElementById('bShoot').value;
+        alertBox.textContent = `[MODO DEMO KUYÉNDEV] ¡Fuego, ${name}! Tu solicitud para "${shoot}" fue simulada con éxito. En tu sitio web final, recibirás este contacto directo en tu WhatsApp o correo.`;
+        alertBox.classList.add('is-visible');
+        form.reset();
+      });
+    })();
+  </script>
+
+  <script src="../../js/config/rubros.js"></script>
+  <script src="../../js/demo-viewer-bar.js"></script>
+</body>
+</html>

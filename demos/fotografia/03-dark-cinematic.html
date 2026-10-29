@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NOCTURNE CINEMA · Fotografía & Film Documental de Autor | Dark Cinematic</title>
+  <meta name="description" content="Dirección de fotografía, bodas cinematográficas de destino y narrativa visual en formato anamórfico 2.39:1 con estética low-key." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-obsidian: #0A0A0A;
+      --bg-charcoal: #141414;
+      --bg-panel: #1B1B1E;
+      --amber-gold: #E5A93C;
+      --amber-glow: rgba(229, 169, 60, 0.25);
+      --text-silver: #E2E8F0;
+      --text-dim: #8E96A4;
+      --border-dark: rgba(255, 255, 255, 0.08);
+      --font-serif: 'Cinzel', Georgia, serif;
+      --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      color-scheme: dark;
+      background-color: var(--bg-obsidian);
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-obsidian);
+      color: var(--text-silver);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    .cinema-wrap {
+      width: min(1340px, 92vw);
+      margin: 0 auto;
+    }
+
+    .timecode {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      color: var(--amber-gold);
+      text-transform: uppercase;
+    }
+
+    /* HEADER CINEMATOGRÁFICO */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: linear-gradient(180deg, rgba(10, 10, 10, 0.95) 0%, rgba(10, 10, 10, 0.6) 100%);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-dark);
+    }
+
+    .nav-cinema {
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand-cinema {
+      text-decoration: none;
+      color: var(--text-silver);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-cinema strong {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      letter-spacing: 0.24em;
+      font-weight: 600;
+    }
+
+    .brand-cinema span {
+      font-size: 0.62rem;
+      letter-spacing: 0.3em;
+      color: var(--amber-gold);
+      text-transform: uppercase;
+    }
+
+    .cinema-links {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+    }
+
+    .cinema-links a {
+      text-decoration: none;
+      color: var(--text-dim);
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      transition: color 0.25s ease;
+    }
+
+    .cinema-links a:hover {
+      color: var(--amber-gold);
+    }
+
+    .btn-amber {
+      text-decoration: none;
+      background: transparent;
+      color: var(--amber-gold);
+      border: 1px solid var(--amber-gold);
+      padding: 0.6rem 1.35rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 600;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+
+    .btn-amber:hover {
+      background: var(--amber-gold);
+      color: #0A0A0A;
+      box-shadow: 0 0 25px var(--amber-glow);
+    }
+
+    .menu-btn {
+      display: none;
+      background: none;
+      border: 1px solid var(--border-dark);
+      color: var(--text-silver);
+      padding: 0.45rem 0.8rem;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    /* HERO ANAMÓRFICO 2.39:1 CON BARRAS LETTERBOX */
+    .hero-cinema {
+      padding: 7.5rem 0 4rem;
+      border-bottom: 1px solid var(--border-dark);
+    }
+
+    .anamorphic-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 2.39 / 1;
+      min-height: 440px;
+      background: #000;
+      overflow: hidden;
+      border-top: 22px solid #000;
+      border-bottom: 22px solid #000;
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.95);
+    }
+
+    .anamorphic-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: contrast(1.12) brightness(0.68) saturate(0.88);
+      transform: scale(1.04);
+      animation: kenBurns 22s ease-in-out infinite alternate;
+    }
+
+    @keyframes kenBurns {
+      0% { transform: scale(1.02) translate(0, 0); }
+      100% { transform: scale(1.1) translate(-1.5%, -1%); }
+    }
+
+    .hero-vignette {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(10, 10, 10, 0.2) 0%, rgba(10, 10, 10, 0.88) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: clamp(1.5rem, 4vw, 3.5rem);
+    }
+
+    .hero-hud-top {
+      position: absolute;
+      top: 1.25rem;
+      left: 2rem;
+      right: 2rem;
+      display: flex;
+      justify-content: space-between;
+      font-family: ui-monospace, monospace;
+      font-size: 0.72rem;
+      color: rgba(226, 232, 240, 0.7);
+      letter-spacing: 0.15em;
+    }
+
+    .hero-vignette h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4.5vw, 3.9rem);
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      line-height: 1.12;
+      max-width: 22ch;
+      margin: 0.5rem 0 1rem;
+    }
+
+    .hero-vignette p {
+      color: var(--text-dim);
+      max-width: 54ch;
+      font-size: 0.98rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* SECCIÓN COMPARADOR DE ETALONAJE / COLOR GRADING LUT */
+    .section {
+      padding: 6rem 0;
+      border-bottom: 1px solid var(--border-dark);
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 3.2vw, 2.7rem);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      margin-top: 0.4rem;
+    }
+
+    .lut-controls {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .lut-btn {
+      background: var(--bg-charcoal);
+      border: 1px solid var(--border-dark);
+      color: var(--text-dim);
+      padding: 0.55rem 1.1rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .lut-btn.is-active {
+      border-color: var(--amber-gold);
+      color: var(--amber-gold);
+      background: rgba(229, 169, 60, 0.1);
+    }
+
+    .lut-stage {
+      background: var(--bg-charcoal);
+      border: 1px solid var(--border-dark);
+      padding: 1.5rem;
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .lut-preview-box {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .lut-preview-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: filter 0.45s ease;
+    }
+
+    /* Presets de Colorimetría */
+    .lut-preview-box[data-grade="kodak"] img {
+      filter: contrast(1.22) brightness(0.88) sepia(0.28) saturate(1.15);
+    }
+    .lut-preview-box[data-grade="log"] img {
+      filter: contrast(0.72) brightness(1.08) saturate(0.45);
+    }
+    .lut-preview-box[data-grade="bleach"] img {
+      filter: contrast(1.4) brightness(0.82) saturate(0.25);
+    }
+
+    .lut-specs {
+      padding: 1rem;
+    }
+
+    .lut-specs h3 {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      color: var(--amber-gold);
+      margin-bottom: 0.75rem;
+    }
+
+    .lut-specs ul {
+      list-style: none;
+      margin-top: 1.25rem;
+      border-top: 1px solid var(--border-dark);
+      padding-top: 1rem;
+      font-size: 0.84rem;
+      color: var(--text-dim);
+    }
+
+    .lut-specs li {
+      padding: 0.35rem 0;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* REEL DE HISTORIAS / PORTAFOLIO */
+    .reel-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+    }
+
+    .scene-card {
+      background: var(--bg-charcoal);
+      border: 1px solid var(--border-dark);
+      cursor: pointer;
+      transition: border-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .scene-card:hover {
+      border-color: var(--amber-gold);
+      transform: translateY(-5px);
+    }
+
+    .scene-media {
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      position: relative;
+      background: #000;
+    }
+
+    .scene-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: contrast(1.15) brightness(0.84);
+      transition: transform 0.6s ease, filter 0.4s ease;
+    }
+
+    .scene-card:hover .scene-media img {
+      transform: scale(1.05);
+      filter: contrast(1.18) brightness(0.95);
+    }
+
+    .scene-tc {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      background: rgba(0, 0, 0, 0.75);
+      padding: 0.2rem 0.55rem;
+      font-family: ui-monospace, monospace;
+      font-size: 0.68rem;
+      color: var(--amber-gold);
+    }
+
+    .scene-body {
+      padding: 1.35rem;
+    }
+
+    .scene-body h3 {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .scene-body p {
+      font-size: 0.84rem;
+      color: var(--text-dim);
+    }
+
+    /* TESTIMONIOS DEMO & NOTA DEL DIRECTOR */
+    .director-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+    }
+
+    .quote-cinema {
+      background: var(--bg-charcoal);
+      border-left: 2px solid var(--amber-gold);
+      padding: 2rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .demo-marker {
+      display: inline-block;
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--amber-gold);
+      margin-bottom: 0.6rem;
+    }
+
+    /* FORMULARIO DE DISPONIBILIDAD DE RODAJE */
+    .booking-cinema {
+      background: var(--bg-charcoal);
+      border: 1px solid var(--border-dark);
+      padding: clamp(1.75rem, 4vw, 3.5rem);
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 3rem;
+    }
+
+    .field-cinema {
+      margin-bottom: 1.2rem;
+    }
+
+    .field-cinema label {
+      display: block;
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-dim);
+      margin-bottom: 0.45rem;
+    }
+
+    .field-cinema input,
+    .field-cinema select,
+    .field-cinema textarea {
+      width: 100%;
+      background: var(--bg-obsidian);
+      border: 1px solid var(--border-dark);
+      color: var(--text-silver);
+      padding: 0.85rem 1rem;
+      font-family: var(--font-sans);
+      font-size: 0.92rem;
+      outline: none;
+    }
+
+    .field-cinema input:focus,
+    .field-cinema select:focus,
+    .field-cinema textarea:focus {
+      border-color: var(--amber-gold);
+    }
+
+    .cinema-notice {
+      margin-top: 1rem;
+      padding: 1rem;
+      background: rgba(229, 169, 60, 0.12);
+      border: 1px solid var(--amber-gold);
+      color: var(--text-silver);
+      font-size: 0.85rem;
+      display: none;
+    }
+
+    .cinema-notice.is-visible {
+      display: block;
+    }
+
+    /* LIGHTBOX DE PROYECCIÓN */
+    .screening-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(5, 5, 5, 0.96);
+      z-index: 1200;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .screening-modal.is-open {
+      display: flex;
+    }
+
+    .screening-modal img {
+      max-width: 90vw;
+      max-height: 75vh;
+      border-top: 16px solid #000;
+      border-bottom: 16px solid #000;
+      box-shadow: 0 20px 80px rgba(0, 0, 0, 0.9);
+    }
+
+    footer {
+      padding: 4rem 0 7rem;
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .lut-stage,
+      .reel-grid,
+      .director-split,
+      .booking-cinema {
+        grid-template-columns: 1fr;
+      }
+      .anamorphic-frame {
+        aspect-ratio: 16 / 10;
+      }
+      .cinema-links {
+        display: none;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        background: var(--bg-obsidian);
+        flex-direction: column;
+        padding: 1.5rem;
+        border-bottom: 1px solid var(--border-dark);
+      }
+      .cinema-links.is-open {
+        display: flex;
+      }
+      .menu-btn {
+        display: inline-block;
+      }
+    }
+  </style>
+</head>
+<body data-rubro-id="fotografia" data-style-id="dark-cinematic">
+
+  <header>
+    <div class="cinema-wrap nav-cinema">
+      <a href="#proyeccion" class="brand-cinema">
+        <strong>NOCTURNE CINEMA</strong>
+        <span>Anamorphic Stills & Motion</span>
+      </a>
+      <nav aria-label="Navegación cinematográfica">
+        <ul class="cinema-links" id="cinemaLinks">
+          <li><a href="#proyeccion">Proyección</a></li>
+          <li><a href="#etalonaje">Laboratorio LUT</a></li>
+          <li><a href="#escenas">Fotogramas</a></li>
+          <li><a href="#critica">Crítica</a></li>
+          <li><a href="#rodaje">Reservar Fecha</a></li>
+        </ul>
+      </nav>
+      <div style="display:flex;align-items:center;gap:0.75rem;">
+        <a href="#rodaje" class="btn-amber">Cotizar Rodaje</a>
+        <button type="button" class="menu-btn" id="menuBtn">Menú</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO WIDESCREEN 2.39:1 -->
+    <section class="hero-cinema" id="proyeccion">
+      <div class="cinema-wrap">
+        <div class="anamorphic-frame">
+          <img
+            src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1800&q=85"
+            alt="Escena cinematográfica nocturna en claroscuro"
+            onerror="this.onerror=null;this.src='../../images/demos/fotografia/03-dark-cinematic.jpg'"
+          />
+          <div class="hero-vignette">
+            <div class="hero-hud-top">
+              <span>REC ● [24 FPS · 2.39:1 SCOPE]</span>
+              <span>TC 01:14:22:09 · ISO 1600 · T1.4</span>
+            </div>
+            <span class="timecode">Capítulo I · La Luz en la Penumbra</span>
+            <h1>Cada historia merece la densidad de una película de autor.</h1>
+            <p>Dirigimos y fotografiamos bodas de destino en la Patagonia, cortometrajes documentales y retratos dramáticos utilizando ópticas de cine Cooke y revelado emulado en celuloide 35mm.</p>
+            <div>
+              <a href="#escenas" class="btn-amber">Explorar Fotogramas</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPARADOR INTERACTIVO DE ETALONAJE (COLOR GRADING LUT) -->
+    <section class="section" id="etalonaje">
+      <div class="cinema-wrap">
+        <div class="section-header">
+          <div>
+            <span class="timecode">02 · Color Grading & Atmósfera Low-Key</span>
+            <h2 class="section-title">Mesa de Etalonaje Cinematográfico</h2>
+          </div>
+          <div class="lut-controls" role="group" aria-label="Seleccionar perfil de color cinematográfico">
+            <button type="button" class="lut-btn is-active" data-grade="kodak" data-title="Kodak 2383 Print Warm" data-desc="Negros densos, altas luces doradas cálidas y curva en S clásica de proyección en sala oscura.">LUT 01 · Kodak 2383 Warm</button>
+            <button type="button" class="lut-btn" data-grade="log" data-title="ARRI LogC3 Sin Procesar" data-desc="Perfil plano de captura directa del sensor con 14 pasos de rango dinámico en sombras y altas luces.">LUT 02 · Raw Sensor LogC</button>
+            <button type="button" class="lut-btn" data-grade="bleach" data-title="Silver Bleach Bypass" data-desc="Retención de plata en emulsión: contraste metálico dramático y saturación contenida de carácter épico.">LUT 03 · Bleach Bypass</button>
+          </div>
+        </div>
+
+        <div class="lut-stage">
+          <div class="lut-preview-box" id="lutPreviewBox" data-grade="kodak">
+            <img
+              src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1400&q=85"
+              alt="Fotograma de prueba de etalonaje cinematográfico"
+              onerror="this.onerror=null;this.src='../../images/demos/fotografia/03-dark-cinematic.jpg'"
+            />
+          </div>
+          <div class="lut-specs">
+            <span class="timecode">Perfil Activo en Monitor</span>
+            <h3 id="lutTitle">Kodak 2383 Print Warm</h3>
+            <p id="lutDesc" style="color:var(--text-dim);font-size:0.92rem;">Negros densos, altas luces doradas cálidas y curva en S clásica de proyección en sala oscura.</p>
+            <ul>
+              <li><span>Óptica Utilizada:</span> <strong>Anamórfico 40mm T2</strong></li>
+              <li><span>Relación de Contraste:</span> <strong>8:1 Claroscuro</strong></li>
+              <li><span>Espacio de Color:</span> <strong>DCI-P3 / Rec.709</strong></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERÍA DE FOTOGRAMAS -->
+    <section class="section" id="escenas">
+      <div class="cinema-wrap">
+        <div class="section-header">
+          <div>
+            <span class="timecode">03 · Selección de Fotogramas</span>
+            <h2 class="section-title">Archivo de Escenas</h2>
+          </div>
+        </div>
+
+        <div class="reel-grid">
+          <article class="scene-card" data-caption="Escena I · Tormenta en Torres del Paine (35mm)">
+            <div class="scene-media">
+              <span class="scene-tc">TC 00:18:41:02</span>
+              <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1000&q=80" alt="Pareja bajo luz dramática al atardecer" onerror="this.onerror=null;this.src='../../images/demos/fotografia/03-dark-cinematic.jpg'" />
+            </div>
+            <div class="scene-body">
+              <h3>I · Viento en el Fiordo</h3>
+              <p>Documental de boda íntima bajo lluvia austral e iluminación de antorchas.</p>
+            </div>
+          </article>
+
+          <article class="scene-card" data-caption="Escena II · Soliloquio en Teatro Municipal">
+            <div class="scene-media">
+              <span class="scene-tc">TC 00:42:10:19</span>
+              <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1000&q=80" alt="Contraluz escénico dramático" onerror="this.onerror=null;this.src='../../images/demos/fotografia/03-dark-cinematic.jpg'" />
+            </div>
+            <div class="scene-body">
+              <h3>II · Soliloquio Nocturno</h3>
+              <p>Retrato de autor para músicos de cámara con un único haz de luz cenital.</p>
+            </div>
+          </article>
+
+          <article class="scene-card" data-caption="Escena III · Carretera Austral a Medianoche">
+            <div class="scene-media">
+              <span class="scene-tc">TC 01:09:55:14</span>
+              <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1000&q=80" alt="Fotógrafo y cineasta en la niebla" onerror="this.onerror=null;this.src='../../images/demos/fotografia/03-dark-cinematic.jpg'" />
+            </div>
+            <div class="scene-body">
+              <h3>III · Niebla de Medianoche</h3>
+              <p>Serie documental de expedición invernal en los bosques templados del sur.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIOS & NOTA DEL DIRECTOR -->
+    <section class="section" id="critica">
+      <div class="cinema-wrap director-split">
+        <div>
+          <span class="timecode">04 · Visión del Director</span>
+          <h2 class="section-title" style="margin-bottom:1.25rem;">No fotografiamos poses; dirigimos atmósferas.</h2>
+          <p style="color:var(--text-dim);margin-bottom:1rem;">La luz dura del mediodía aplana la emoción. En NOCTURNE CINEMA esperamos el crepúsculo, la niebla o la penumbra interior de una casona antigua para esculpir los rostros mediante sombras profundas.</p>
+          <p style="color:var(--text-dim);">Cada entrega incluye una galería inmersiva sobre fondo negro absoluto y un cortometraje en 4K DCI con diseño sonoro original.</p>
+        </div>
+
+        <div>
+          <article class="quote-cinema">
+            <span class="demo-marker">[Testimonio de Demostración]</span>
+            <p style="font-size:0.96rem;margin-bottom:0.85rem;">“Ver nuestras fotografías de boda fue como entrar a una sala de cine europeo. La calidez del grano y el manejo de las sombras en la cena a la luz de las velas superó todo lo que imaginábamos.”</p>
+            <strong style="font-size:0.78rem;color:var(--amber-gold);letter-spacing:0.1em;text-transform:uppercase;">Ignacio & Florencia · Boda en Lago Llanquihue (Ejemplo Ficticio)</strong>
+          </article>
+
+          <article class="quote-cinema">
+            <span class="demo-marker">[Testimonio de Demostración]</span>
+            <p style="font-size:0.96rem;margin-bottom:0.85rem;">“Contratamos a NOCTURNE para el documental de nuestra viña familiar. Su dominio del lenguaje cinematográfico elevó la percepción internacional de nuestra marca.”</p>
+            <strong style="font-size:0.78rem;color:var(--amber-gold);letter-spacing:0.1em;text-transform:uppercase;">Rodrigo Errázuriz · Director de Viña Oscura (Ejemplo Ficticio)</strong>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMULARIO DE RODAJE -->
+    <section class="section" id="rodaje" style="border-bottom:none;">
+      <div class="cinema-wrap">
+        <div class="booking-cinema">
+          <div>
+            <span class="timecode">05 · Producción & Fechas</span>
+            <h2 class="section-title" style="margin-bottom:1rem;">Consultar Disponibilidad de Rodaje</h2>
+            <p style="color:var(--text-dim);font-size:0.92rem;margin-bottom:1.5rem;">Aceptamos un máximo de 14 producciones anuales para garantizar que el director principal realice personalmente la captura y el etalonaje completo.</p>
+            <p class="timecode">Base de Operaciones: Valdivia · Santiago · Buenos Aires</p>
+          </div>
+
+          <form id="cinemaForm">
+            <div class="field-cinema">
+              <label for="cName">Nombre de los Protagonistas o Productora</label>
+              <input type="text" id="cName" required placeholder="Ej. Cristóbal & Antonia" />
+            </div>
+            <div class="field-cinema">
+              <label for="cEmail">Correo Electrónico</label>
+              <input type="email" id="cEmail" required placeholder="contacto@dominio.cl" />
+            </div>
+            <div class="field-cinema">
+              <label for="cFormat">Formato Requerido</label>
+              <select id="cFormat">
+                <option value="Fotografía Documental + Film 4K Anamórfico">Fotografía Documental + Film 4K Anamórfico</option>
+                <option value="Cobertura Fotográfica de Autor Low-Key">Cobertura Fotográfica de Autor Low-Key</option>
+                <option value="Cortometraje Comercial / Editorial">Cortometraje Comercial / Editorial</option>
+              </select>
+            </div>
+            <div class="field-cinema">
+              <label for="cNotes">Locación y Fecha Tentativa</label>
+              <textarea id="cNotes" rows="3" placeholder="Indica ciudad, fecha aproximada y atmósfera deseada..."></textarea>
+            </div>
+            <button type="submit" class="btn-amber" style="width:100%;padding:0.95rem;">Verificar Fecha en Calendario de Rodaje</button>
+            <div class="cinema-notice" id="cinemaNotice" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- MODAL DE PROYECCIÓN -->
+  <div class="screening-modal" id="screeningModal" role="dialog" aria-modal="true" aria-label="Proyección de fotograma">
+    <div style="width:min(960px,90vw);display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
+      <span class="timecode" id="modalCaption">Fotograma</span>
+      <button type="button" class="btn-amber" id="modalClose">Cerrar Proyección [ESC]</button>
+    </div>
+    <img id="modalImg" src="" alt="" onerror="this.onerror=null;this.src='../../images/demos/fotografia/03-dark-cinematic.jpg'" />
+  </div>
+
+  <footer>
+    <div class="cinema-wrap">
+      <p>© 2026 NOCTURNE CINEMA · Demostración Estilo #03 Dark Cinematic para Catálogo KuyénDev</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      // Menú móvil
+      const menuBtn = document.getElementById('menuBtn');
+      const cinemaLinks = document.getElementById('cinemaLinks');
+      if (menuBtn && cinemaLinks) {
+        menuBtn.addEventListener('click', () => cinemaLinks.classList.toggle('is-open'));
+      }
+
+      // Selector de LUT en vivo
+      const lutBtns = document.querySelectorAll('.lut-btn');
+      const lutPreviewBox = document.getElementById('lutPreviewBox');
+      const lutTitle = document.getElementById('lutTitle');
+      const lutDesc = document.getElementById('lutDesc');
+
+      lutBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          lutBtns.forEach(b => b.classList.toggle('is-active', b === btn));
+          lutPreviewBox.setAttribute('data-grade', btn.getAttribute('data-grade'));
+          lutTitle.textContent = btn.getAttribute('data-title');
+          lutDesc.textContent = btn.getAttribute('data-desc');
+        });
+      });
+
+      // Modal de fotogramas
+      const modal = document.getElementById('screeningModal');
+      const modalImg = document.getElementById('modalImg');
+      const modalCaption = document.getElementById('modalCaption');
+      const modalClose = document.getElementById('modalClose');
+
+      document.querySelectorAll('.scene-card').forEach(card => {
+        card.addEventListener('click', () => {
+          const img = card.querySelector('img');
+          modalImg.src = img.src;
+          modalImg.alt = img.alt;
+          modalCaption.textContent = card.getAttribute('data-caption');
+          modal.classList.add('is-open');
+        });
+      });
+
+      const closeModal = () => modal.classList.remove('is-open');
+      modalClose.addEventListener('click', closeModal);
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeModal();
+      });
+
+      // Formulario Demo
+      const form = document.getElementById('cinemaForm');
+      const notice = document.getElementById('cinemaNotice');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('cName').value.trim();
+        const fmt = document.getElementById('cFormat').value;
+        notice.textContent = `[Simulación de Producción KuyénDev] Solicitud registrada para ${name} (${fmt}). En tu sitio web definitivo, esta consulta llegará directamente a tu bandeja o WhatsApp.`;
+        notice.classList.add('is-visible');
+        form.reset();
+      });
+    })();
+  </script>
+
+  <script src="../../js/config/rubros.js"></script>
+  <script src="../../js/demo-viewer-bar.js"></script>
+</body>
+</html>

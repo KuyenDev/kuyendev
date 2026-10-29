@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MAISON VALÉRIE · Haute Couture & Fashion Editorial | Editorial Magazine</title>
+  <meta name="description" content="Fotografía de moda de alta costura, campañas de pasarela y publicaciones editoriales inspiradas en Vogue y Harper's Bazaar." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --paper-cream: #F7F4EE;
+      --paper-warm: #EDE7DC;
+      --ink-black: #121212;
+      --gold-leaf: #C6A664;
+      --stone-grey: #7A7670;
+      --rule-line: rgba(18, 18, 18, 0.16);
+      --font-masthead: 'Playfair Display', Georgia, serif;
+      --font-editorial: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Inter', -apple-system, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--paper-cream);
+      color: var(--ink-black);
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--paper-cream);
+      color: var(--ink-black);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    .page-frame {
+      width: min(1360px, 93vw);
+      margin: 0 auto;
+    }
+
+    /* MASTHEAD ESTILO REVISTA VOGUE / BAZAAR */
+    .magazine-header {
+      border-bottom: 2px solid var(--ink-black);
+      background: var(--paper-cream);
+      position: sticky;
+      top: 0;
+      z-index: 95;
+    }
+
+    .issue-strip {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.45rem 0;
+      border-bottom: 1px solid var(--rule-line);
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--stone-grey);
+    }
+
+    .masthead-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+
+    .masthead-logo {
+      font-family: var(--font-masthead);
+      font-size: clamp(1.6rem, 3.2vw, 2.5rem);
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-decoration: none;
+      color: var(--ink-black);
+      text-transform: uppercase;
+    }
+
+    .editorial-nav {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+    }
+
+    .editorial-nav a {
+      text-decoration: none;
+      color: var(--ink-black);
+      font-size: 0.74rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .editorial-nav a:hover {
+      color: var(--gold-leaf);
+    }
+
+    .btn-couture {
+      text-decoration: none;
+      background: var(--ink-black);
+      color: var(--paper-cream);
+      padding: 0.6rem 1.3rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      border: 1px solid var(--ink-black);
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+
+    .btn-couture:hover {
+      background: transparent;
+      color: var(--ink-black);
+    }
+
+    .mobile-mag-btn {
+      display: none;
+      background: none;
+      border: 1px solid var(--ink-black);
+      padding: 0.4rem 0.75rem;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    /* PORTADA ASIMÉTRICA DE REVISTA */
+    .cover-spread {
+      display: grid;
+      grid-template-columns: 7fr 5fr;
+      border-bottom: 1px solid var(--rule-line);
+    }
+
+    .cover-left {
+      padding: 4.5rem 3.5rem 4.5rem 0;
+      border-right: 1px solid var(--rule-line);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .kicker {
+      font-size: 0.74rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--gold-leaf);
+      font-weight: 600;
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .cover-headline {
+      font-family: var(--font-masthead);
+      font-size: clamp(2.8rem, 5.6vw, 5.2rem);
+      line-height: 0.98;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      margin-bottom: 2rem;
+    }
+
+    .cover-headline em {
+      font-family: var(--font-editorial);
+      font-style: italic;
+      font-weight: 400;
+      color: var(--stone-grey);
+    }
+
+    .dropcap-copy {
+      font-family: var(--font-editorial);
+      font-size: 1.32rem;
+      line-height: 1.55;
+      color: var(--ink-black);
+      max-width: 48ch;
+      margin-bottom: 2.5rem;
+    }
+
+    .dropcap-copy::first-letter {
+      font-family: var(--font-masthead);
+      float: left;
+      font-size: 4.2rem;
+      line-height: 0.82;
+      padding-right: 0.75rem;
+      padding-top: 0.2rem;
+      color: var(--gold-leaf);
+    }
+
+    .cover-right {
+      padding: 3rem 0 3rem 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .cover-plate {
+      position: relative;
+      overflow: hidden;
+      background: var(--paper-warm);
+    }
+
+    .cover-plate img {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.8s ease;
+    }
+
+    .cover-plate:hover img {
+      transform: scale(1.03);
+    }
+
+    .plate-caption {
+      margin-top: 0.9rem;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.74rem;
+      color: var(--stone-grey);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* SELECTOR INTERACTIVO DE EDICIÓN / TEMPORADA (LOOKBOOK ISSUE FLIPPER) */
+    .editorial-section {
+      padding: 5.5rem 0;
+      border-bottom: 1px solid var(--rule-line);
+    }
+
+    .spread-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 3.5rem;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .spread-title {
+      font-family: var(--font-masthead);
+      font-size: clamp(2rem, 3.8vw, 3.2rem);
+      font-weight: 400;
+    }
+
+    .season-tabs {
+      display: flex;
+      border: 1px solid var(--ink-black);
+    }
+
+    .season-btn {
+      background: transparent;
+      border: none;
+      border-right: 1px solid var(--ink-black);
+      padding: 0.65rem 1.3rem;
+      font-size: 0.74rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      cursor: pointer;
+      color: var(--ink-black);
+      transition: all 0.2s ease;
+    }
+
+    .season-btn:last-child {
+      border-right: none;
+    }
+
+    .season-btn.is-active {
+      background: var(--ink-black);
+      color: var(--paper-cream);
+    }
+
+    .asymmetric-spread {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    .look-item {
+      cursor: pointer;
+      position: relative;
+    }
+
+    .look-item.col-5 { grid-column: span 5; }
+    .look-item.col-7 { grid-column: span 7; }
+    .look-item.col-4 { grid-column: span 4; }
+    .look-item.is-hidden { display: none; }
+
+    .look-frame {
+      position: relative;
+      overflow: hidden;
+      background: var(--paper-warm);
+    }
+
+    .look-frame img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.7s ease;
+    }
+
+    .look-item:hover .look-frame img {
+      transform: scale(1.03);
+    }
+
+    .credits-badge {
+      position: absolute;
+      bottom: 14px;
+      right: 14px;
+      background: rgba(247, 244, 238, 0.92);
+      color: var(--ink-black);
+      padding: 0.35rem 0.75rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      border: 1px solid var(--ink-black);
+    }
+
+    .look-meta {
+      padding-top: 1rem;
+      border-bottom: 1px solid var(--rule-line);
+      padding-bottom: 1rem;
+    }
+
+    .look-meta h3 {
+      font-family: var(--font-masthead);
+      font-size: 1.35rem;
+      font-weight: 400;
+      margin-bottom: 0.25rem;
+    }
+
+    .look-meta p {
+      font-family: var(--font-editorial);
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--stone-grey);
+    }
+
+    /* ARTÍCULO DE CRÍTICA & PULL QUOTE */
+    .magazine-columns {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .pull-quote {
+      font-family: var(--font-masthead);
+      font-style: italic;
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+      line-height: 1.28;
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      border-top: 2px solid var(--gold-leaf);
+      border-bottom: 2px solid var(--gold-leaf);
+    }
+
+    .editorial-review {
+      padding: 2rem;
+      background: var(--paper-warm);
+      border: 1px solid var(--rule-line);
+    }
+
+    .demo-stamp {
+      display: inline-block;
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-black);
+      border: 1px solid var(--ink-black);
+      padding: 0.2rem 0.55rem;
+      margin-bottom: 0.85rem;
+    }
+
+    /* CASTING & BOOKING DE AGENCIA */
+    .agency-grid {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: 3.5rem;
+    }
+
+    .editorial-form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .ed-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .ed-field label {
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--stone-grey);
+    }
+
+    .ed-field input,
+    .ed-field select,
+    .ed-field textarea {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--ink-black);
+      padding: 0.7rem 0;
+      font-family: var(--font-sans);
+      font-size: 0.92rem;
+      color: var(--ink-black);
+      outline: none;
+    }
+
+    .ed-confirm {
+      margin-top: 1.2rem;
+      padding: 1rem 1.25rem;
+      background: var(--paper-warm);
+      border-left: 3px solid var(--gold-leaf);
+      font-size: 0.86rem;
+      display: none;
+    }
+
+    .ed-confirm.is-visible {
+      display: block;
+    }
+
+    /* LIGHTBOX CON FICHA DE ESTILISMO */
+    .editorial-lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(247, 244, 238, 0.97);
+      z-index: 1200;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .editorial-lightbox.is-open {
+      display: flex;
+    }
+
+    .ed-lb-inner {
+      width: min(1020px, 94vw);
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 2.5rem;
+      align-items: center;
+      border: 1px solid var(--ink-black);
+      background: var(--paper-cream);
+      padding: 2rem;
+    }
+
+    .ed-lb-inner img {
+      width: 100%;
+      max-height: 72vh;
+      object-fit: contain;
+    }
+
+    footer {
+      padding: 4rem 0 7rem;
+      font-size: 0.76rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--stone-grey);
+      text-align: center;
+    }
+
+    @media (max-width: 920px) {
+      .cover-spread,
+      .magazine-columns,
+      .agency-grid,
+      .ed-lb-inner,
+      .editorial-form-row {
+        grid-template-columns: 1fr;
+      }
+      .cover-left {
+        border-right: none;
+        padding: 3rem 0;
+      }
+      .cover-right {
+        padding: 1rem 0 3rem;
+      }
+      .look-item.col-5,
+      .look-item.col-7,
+      .look-item.col-4 {
+        grid-column: span 12;
+      }
+      .editorial-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--paper-cream);
+        flex-direction: column;
+        padding: 1.5rem;
+        border-bottom: 2px solid var(--ink-black);
+      }
+      .editorial-nav.is-open {
+        display: flex;
+      }
+      .mobile-mag-btn {
+        display: inline-block;
+      }
+    }
+  </style>
+</head>
+<body data-rubro-id="fotografia" data-style-id="editorial-moda">
+
+  <header class="magazine-header">
+    <div class="page-frame">
+      <div class="issue-strip">
+        <span>Edición N° 48 · Otoño / Invierno 2026</span>
+        <span>París · Milán · Santiago de Chile</span>
+        <span>ISSN 2459-8820 · Archivo de Moda</span>
+      </div>
+      <div class="masthead-bar">
+        <a href="#portada" class="masthead-logo">MAISON VALÉRIE</a>
+        <nav aria-label="Navegación editorial">
+          <ul class="editorial-nav" id="editorialNav">
+            <li><a href="#portada">Editorial</a></li>
+            <li><a href="#lookbook">Lookbook</a></li>
+            <li><a href="#critica">Prensa</a></li>
+            <li><a href="#casting">Comisiones</a></li>
+          </ul>
+        </nav>
+        <div style="display:flex;align-items:center;gap:0.65rem;">
+          <a href="#casting" class="btn-couture">Booking & Prensa</a>
+          <button type="button" class="mobile-mag-btn" id="mobileMagBtn">Índice</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-frame">
+    <!-- PORTADA ASIMÉTRICA -->
+    <section class="cover-spread" id="portada">
+      <div class="cover-left">
+        <div>
+          <span class="kicker">Dossier Principal · Alta Costura & Retrato</span>
+          <h1 class="cover-headline">La silueta como <em>declaración</em> escultórica.</h1>
+          <p class="dropcap-copy">En Maison Valérie concebimos cada producción fotográfica como un número coleccionable. Trabajamos junto a diseñadores de autor, casas de joyería y directores de arte para crear campañas con la autoridad tipográfica y visual de las grandes cabeceras internacionales.</p>
+        </div>
+        <div style="display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap;border-top:1px solid var(--rule-line);padding-top:1.5rem;">
+          <a href="#lookbook" class="btn-couture">Explorar Edición N° 48</a>
+          <span style="font-family:var(--font-editorial);font-style:italic;font-size:1.1rem;color:var(--stone-grey);">Fotografía en Medio Formato & Película 120mm</span>
+        </div>
+      </div>
+
+      <div class="cover-right">
+        <div class="cover-plate">
+          <img
+            src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1200&q=85"
+            alt="Modelo de alta costura en gabardina estructurada"
+            onerror="this.onerror=null;this.src='../../images/demos/fotografia/04-editorial-moda.jpg'"
+          />
+        </div>
+        <div class="plate-caption">
+          <span>Lámina I · Silueta en Seda Cruda</span>
+          <span>Estilismo: Atelier Moreau · Luz Continua Fresnel</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOOKBOOK INTERACTIVO POR TEMPORADA -->
+    <section class="editorial-section" id="lookbook">
+      <div class="spread-header">
+        <div>
+          <span class="kicker">Catálogo de Pasarela & Campaña</span>
+          <h2 class="spread-title">Archivo de Temporadas</h2>
+        </div>
+        <div class="season-tabs" role="tablist" aria-label="Filtrar por temporada editorial">
+          <button type="button" class="season-btn is-active" data-season="all">Edición Completa (06)</button>
+          <button type="button" class="season-btn" data-season="aw26">Autumn / Winter</button>
+          <button type="button" class="season-btn" data-season="couture">Haute Couture</button>
+          <button type="button" class="season-btn" data-season="joyeria">Joyería & Belleza</button>
+        </div>
+      </div>
+
+      <div class="asymmetric-spread">
+        <article class="look-item col-5" data-season="aw26" data-title="Look 01 · Abrigo Monolítico en Lana Virgen" data-credits="Vestuario: Casa Arden · Maquillaje: Studio Nude · Cámara: Phase One IQ4 150MP">
+          <div class="look-frame">
+            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1000&q=80" alt="Editorial de moda otoño invierno" onerror="this.onerror=null;this.src='../../images/demos/fotografia/04-editorial-moda.jpg'" />
+            <span class="credits-badge">Ver Créditos de Estilismo</span>
+          </div>
+          <div class="look-meta">
+            <h3>I · Geometría de Invierno</h3>
+            <p>Publicado en Dossier Austral · Octubre 2026</p>
+          </div>
+        </article>
+
+        <article class="look-item col-7" data-season="couture" data-title="Look 02 · Drapeado Escultórico en Terciopelo Negro" data-credits="Alta Costura: Valérie Paris · Joyería: Oro 18k Martillado · Óptica: 80mm f/2.8">
+          <div class="look-frame">
+            <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=1300&q=80" alt="Producción de alta costura en locación clásica" onerror="this.onerror=null;this.src='../../images/demos/fotografia/04-editorial-moda.jpg'" />
+            <span class="credits-badge">Ver Créditos de Estilismo</span>
+          </div>
+          <div class="look-meta">
+            <h3>II · Crónica de Salón Privado</h3>
+            <p>Doble página central · Colección Cápsula</p>
+          </div>
+        </article>
+
+        <article class="look-item col-4" data-season="joyeria" data-title="Look 03 · Luz Áurea sobre Piel" data-credits="Joyería: Atelier Doré · Lente Macro 120mm · Iluminación Espejada">
+          <div class="look-frame">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=80" alt="Primer plano de belleza y alta joyería" onerror="this.onerror=null;this.src='../../images/demos/fotografia/04-editorial-moda.jpg'" />
+            <span class="credits-badge">Ver Créditos de Estilismo</span>
+          </div>
+          <div class="look-meta">
+            <h3>III · Estudio de Belleza & Oro</h3>
+            <p>Campaña de Alta Joyería</p>
+          </div>
+        </article>
+
+        <article class="look-item col-4" data-season="aw26" data-title="Look 04 · Sastrería Desestructurada" data-credits="Sastrería: Línea Masculina/Femenina · Película Kodak Portra 400">
+          <div class="look-frame">
+            <img src="https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?auto=format&fit=crop&w=900&q=80" alt="Retrato de moda en sastrería clásica" onerror="this.onerror=null;this.src='../../images/demos/fotografia/04-editorial-moda.jpg'" />
+            <span class="credits-badge">Ver Créditos de Estilismo</span>
+          </div>
+          <div class="look-meta">
+            <h3>IV · Sastrería de Autor</h3>
+            <p>Editorial Prêt-à-Porter</p>
+          </div>
+        </article>
+
+        <article class="look-item col-4" data-season="couture" data-title="Look 05 · Transparencia en Organza de Seda" data-credits="Vestuario: Atelier Lino · Locación: Palacio Cousiño · Luz de Ventanal">
+          <div class="look-frame">
+            <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=900&q=80" alt="Vestido en movimiento editorial" onerror="this.onerror=null;this.src='../../images/demos/fotografia/04-editorial-moda.jpg'" />
+            <span class="credits-badge">Ver Créditos de Estilismo</span>
+          </div>
+          <div class="look-meta">
+            <h3>V · Movimiento en Organza</h3>
+            <p>Serie de Archivo Analógico</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- PULL QUOTE & TESTIMONIOS DE DEMOSTRACIÓN -->
+    <section class="editorial-section" id="critica">
+      <div class="magazine-columns">
+        <article class="editorial-review">
+          <span class="demo-stamp">[Testimonio de Demostración]</span>
+          <p style="font-family:var(--font-editorial);font-size:1.2rem;margin-bottom:1rem;">“El lookbook diseñado y fotografiado por Maison Valérie nos abrió las puertas de showrooms en París y Tokio. Su sensibilidad editorial es impecable.”</p>
+          <strong style="font-size:0.74rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--stone-grey);">Isidora Fontaine · Directora Creativa de Casa Lino (Ejemplo Ficticio)</strong>
+        </article>
+
+        <blockquote class="pull-quote">
+          “La elegancia no consiste en destacar, sino en permanecer en la memoria visual de quien pasa la página.”
+        </blockquote>
+
+        <article class="editorial-review">
+          <span class="demo-stamp">[Testimonio de Demostración]</span>
+          <p style="font-family:var(--font-editorial);font-size:1.2rem;margin-bottom:1rem;">“Cuidan desde la caída milimétrica de cada prenda hasta la corrección de color para papel algodón. Un verdadero estudio de lujo.”</p>
+          <strong style="font-size:0.74rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--stone-grey);">Jean-Luc Delacroix · Editor de Moda Invitado (Ejemplo Ficticio)</strong>
+        </article>
+      </div>
+    </section>
+
+    <!-- BOOKING DE AGENCIA / COMISIONES -->
+    <section class="editorial-section" id="casting" style="border-bottom:none;">
+      <div class="agency-grid">
+        <div>
+          <span class="kicker">Representación & Reservas</span>
+          <h2 class="spread-title" style="margin-bottom:1rem;">Comisionar una Producción Editorial</h2>
+          <p style="color:var(--stone-grey);margin-bottom:1.5rem;">Realizamos dirección creativa integral, casting de modelos, producción de locación y fotografía para campañas de temporada, lookbooks y portadas.</p>
+          <div style="font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--stone-grey);">
+            <p>Mesa Editorial: +56 9 2223 1780 (Demo KuyénDev)</p>
+            <p>Estudio: Barrio París-Londres, Santiago</p>
+          </div>
+        </div>
+
+        <form id="editorialForm">
+          <div class="editorial-form-row">
+            <div class="ed-field">
+              <label for="edName">Nombre / Firma de Moda</label>
+              <input type="text" id="edName" required placeholder="Ej. Atelier Báltico" />
+            </div>
+            <div class="ed-field">
+              <label for="edEmail">Correo de Producción</label>
+              <input type="email" id="edEmail" required placeholder="prensa@atelier.cl" />
+            </div>
+          </div>
+          <div class="ed-field">
+            <label for="edType">Formato Editorial</label>
+            <select id="edType">
+              <option value="Campaña de Temporada & Lookbook Completo">Campaña de Temporada & Lookbook Completo</option>
+              <option value="Editorial de Revista / PR Kit">Editorial de Revista / PR Kit</option>
+              <option value="Alta Joyería & Beauty Macro">Alta Joyería & Beauty Macro</option>
+            </select>
+          </div>
+          <div class="ed-field">
+            <label for="edBrief">Síntesis de la Colección</label>
+            <textarea id="edBrief" rows="3" placeholder="Número de looks, texturas predominantes y fecha de lanzamiento..."></textarea>
+          </div>
+          <button type="submit" class="btn-couture" style="margin-top:0.5rem;">Solicitar Dossier de Tarifas & Fechas</button>
+          <div class="ed-confirm" id="edConfirm" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- LIGHTBOX CON CRÉDITOS DE ESTILISMO -->
+  <div class="editorial-lightbox" id="edLightbox" role="dialog" aria-modal="true" aria-label="Ficha de look editorial">
+    <div class="ed-lb-inner">
+      <img id="edLbImg" src="" alt="" onerror="this.onerror=null;this.src='../../images/demos/fotografia/04-editorial-moda.jpg'" />
+      <div>
+        <span class="kicker">Ficha Técnica de Publicación</span>
+        <h3 id="edLbTitle" style="font-family:var(--font-masthead);font-size:1.75rem;margin-bottom:1rem;">Look</h3>
+        <p id="edLbCredits" style="font-family:var(--font-editorial);font-size:1.2rem;color:var(--stone-grey);margin-bottom:2rem;"></p>
+        <button type="button" class="btn-couture" id="edLbClose">Cerrar Lámina [ESC]</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="page-frame">
+      <p>© 2026 MAISON VALÉRIE · Demostración Estilo #04 Editorial / Fashion Magazine para KuyénDev</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      // Menú móvil
+      const mobileMagBtn = document.getElementById('mobileMagBtn');
+      const editorialNav = document.getElementById('editorialNav');
+      if (mobileMagBtn && editorialNav) {
+        mobileMagBtn.addEventListener('click', () => editorialNav.classList.toggle('is-open'));
+      }
+
+      // Selector de temporada
+      const seasonBtns = document.querySelectorAll('.season-btn');
+      const lookItems = document.querySelectorAll('.look-item');
+      seasonBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const s = btn.getAttribute('data-season');
+          seasonBtns.forEach(b => b.classList.toggle('is-active', b === btn));
+          lookItems.forEach(item => {
+            const match = s === 'all' || item.getAttribute('data-season') === s;
+            item.classList.toggle('is-hidden', !match);
+          });
+        });
+      });
+
+      // Lightbox con créditos
+      const edLightbox = document.getElementById('edLightbox');
+      const edLbImg = document.getElementById('edLbImg');
+      const edLbTitle = document.getElementById('edLbTitle');
+      const edLbCredits = document.getElementById('edLbCredits');
+      const edLbClose = document.getElementById('edLbClose');
+
+      lookItems.forEach(item => {
+        item.addEventListener('click', () => {
+          const img = item.querySelector('img');
+          edLbImg.src = img.src;
+          edLbImg.alt = img.alt;
+          edLbTitle.textContent = item.getAttribute('data-title');
+          edLbCredits.textContent = item.getAttribute('data-credits');
+          edLightbox.classList.add('is-open');
+        });
+      });
+
+      const closeLb = () => edLightbox.classList.remove('is-open');
+      edLbClose.addEventListener('click', closeLb);
+      edLightbox.addEventListener('click', (e) => {
+        if (e.target === edLightbox) closeLb();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeLb();
+      });
+
+      // Formulario Editorial Demo
+      const form = document.getElementById('editorialForm');
+      const confirmBox = document.getElementById('edConfirm');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const brand = document.getElementById('edName').value.trim();
+        const type = document.getElementById('edType').value;
+        confirmBox.textContent = `[Demostración Editorial KuyénDev] Recepción confirmada para "${brand}" (${type}). En tu sitio web real, esta solicitud conectará directamente con tu agencia o estudio.`;
+        confirmBox.classList.add('is-visible');
+        form.reset();
+      });
+    })();
+  </script>
+
+  <script src="../../js/config/rubros.js"></script>
+  <script src="../../js/demo-viewer-bar.js"></script>
+</body>
+</html>

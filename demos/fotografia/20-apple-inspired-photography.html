@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OPTIK PRO 8K — Estudio Comercial de Precisión, Arquitectura & Producto</title>
+  <meta name="description" content="Fotografía comercial de ultra-definición, arquitectura minimalista y producto tecnológico. Demostración Apple-Inspired Photography Design por KuyénDev." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --pure-black: #000000;
+      --surface-dark: #101012;
+      --surface-card: #161618;
+      --apple-light: #F5F5F7;
+      --apple-muted: #86868B;
+      --apple-blue: #0071E3;
+      --apple-cyan: #2997FF;
+      --glass-border: rgba(255, 255, 255, 0.12);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-pill: 980px;
+      --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--pure-black);
+      color: var(--apple-light);
+      font-family: var(--font-body);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      padding-bottom: 90px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(1200px, 90%);
+      margin: 0 auto;
+    }
+
+    /* Sub-Navbar Frosted Glass estilo Cupertino */
+    .frosted-nav {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: rgba(0, 0, 0, 0.76);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 56px;
+    }
+
+    .nav-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .pro-badge {
+      font-size: 0.68rem;
+      padding: 2px 8px;
+      border-radius: 6px;
+      border: 1px solid var(--apple-cyan);
+      color: var(--apple-cyan);
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      list-style: none;
+      font-size: 0.8rem;
+      color: #D2D2D7;
+    }
+
+    .nav-links a:hover {
+      color: #FFFFFF;
+    }
+
+    .btn-apple {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 18px;
+      border-radius: var(--radius-pill);
+      background: var(--apple-blue);
+      color: #FFFFFF;
+      font-size: 0.8rem;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn-apple:hover {
+      background: #0077ED;
+    }
+
+    .btn-apple-lg {
+      padding: 14px 28px;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .btn-apple-outline {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--apple-light);
+      border: 1px solid var(--glass-border);
+    }
+
+    .btn-apple-outline:hover {
+      background: rgba(255, 255, 255, 0.14);
+    }
+
+    /* Hero Monumental */
+    .hero {
+      padding: 76px 0 60px;
+      text-align: center;
+    }
+
+    .hero-eyebrow {
+      color: var(--apple-cyan);
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.02em;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.6rem, 6vw, 4.9rem);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1.04;
+      max-width: 16ch;
+      margin: 0 auto 22px;
+      background: linear-gradient(180deg, #FFFFFF 0%, #A1A1A6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      color: var(--apple-muted);
+      font-size: clamp(1.05rem, 1.8vw, 1.28rem);
+      max-width: 58ch;
+      margin: 0 auto 32px;
+    }
+
+    .hero-cta {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+
+    .hero-showcase {
+      position: relative;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      border: 1px solid var(--glass-border);
+      background: var(--surface-card);
+      box-shadow: 0 30px 90px rgba(0, 113, 227, 0.18);
+    }
+
+    .hero-showcase img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+    }
+
+    .showcase-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 28px;
+      background: rgba(22, 22, 24, 0.92);
+      border-top: 1px solid var(--glass-border);
+      font-size: 0.82rem;
+      color: var(--apple-muted);
+    }
+
+    .showcase-bar strong {
+      color: var(--apple-light);
+    }
+
+    /* Secciones */
+    section {
+      padding: 84px 0;
+    }
+
+    .section-title-wrap {
+      text-align: center;
+      margin-bottom: 52px;
+    }
+
+    .section-title-wrap h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4.2vw, 3.3rem);
+      letter-spacing: -0.03em;
+      margin-bottom: 14px;
+    }
+
+    .section-title-wrap p {
+      color: var(--apple-muted);
+      font-size: 1.05rem;
+      max-width: 56ch;
+      margin: 0 auto;
+    }
+
+    /* Inspector Óptico Interactivo 100MP */
+    .optical-inspector {
+      background: var(--surface-card);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-xl);
+      padding: 32px;
+    }
+
+    .segmented-control {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      background: #000000;
+      padding: 6px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--glass-border);
+      margin-bottom: 28px;
+    }
+
+    .seg-btn {
+      padding: 10px 22px;
+      border-radius: var(--radius-pill);
+      background: transparent;
+      border: none;
+      color: var(--apple-muted);
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .seg-btn.is-active {
+      background: var(--surface-card);
+      color: #FFFFFF;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    }
+
+    .inspector-stage {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .inspector-canvas {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--glass-border);
+      height: 420px;
+    }
+
+    .inspector-canvas img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease, filter 0.4s ease;
+    }
+
+    .inspector-telemetry {
+      padding: 24px;
+      background: rgba(0, 0, 0, 0.45);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--glass-border);
+    }
+
+    .telemetry-metric {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .telemetry-metric:last-child {
+      border-bottom: none;
+    }
+
+    .telemetry-metric small {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--apple-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .telemetry-metric strong {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      color: var(--apple-cyan);
+    }
+
+    /* Sección en Superficie Clara (#F5F5F7) */
+    .light-showcase {
+      background: var(--apple-light);
+      color: #1D1D1F;
+      border-radius: 36px;
+      padding: 72px 5%;
+    }
+
+    .light-showcase .section-title-wrap p {
+      color: #515154;
+    }
+
+    .bento-apple {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .apple-card {
+      background: #FFFFFF;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .apple-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .apple-card img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+    }
+
+    .apple-card-body {
+      padding: 24px;
+    }
+
+    .apple-card-body small {
+      display: block;
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--apple-blue);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .apple-card-body h3 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+      color: #1D1D1F;
+    }
+
+    .apple-card-body p {
+      font-size: 0.9rem;
+      color: #515154;
+    }
+
+    /* Especificaciones Pro */
+    .specs-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .spec-tile {
+      background: var(--surface-card);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+    }
+
+    .spec-tile strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 2rem;
+      color: var(--apple-cyan);
+      margin-bottom: 8px;
+    }
+
+    .spec-tile h3 {
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+    }
+
+    .spec-tile p {
+      font-size: 0.86rem;
+      color: var(--apple-muted);
+    }
+
+    /* Testimonios */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .review-card {
+      background: var(--surface-card);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+    }
+
+    .demo-tag-apple {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--apple-cyan);
+      background: rgba(41, 151, 255, 0.12);
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+      margin-bottom: 14px;
+    }
+
+    /* Formulario Reserva */
+    .booking-box {
+      background: var(--surface-card);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-xl);
+      padding: 44px;
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .apple-field {
+      margin-bottom: 16px;
+    }
+
+    .apple-field label {
+      display: block;
+      font-size: 0.82rem;
+      color: var(--apple-muted);
+      margin-bottom: 6px;
+    }
+
+    .apple-input {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: #000000;
+      border: 1px solid var(--glass-border);
+      color: var(--apple-light);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      outline: none;
+    }
+
+    .apple-input:focus {
+      border-color: var(--apple-cyan);
+    }
+
+    .apple-confirm {
+      display: none;
+      margin-top: 16px;
+      padding: 14px;
+      border-radius: 14px;
+      background: rgba(0, 113, 227, 0.18);
+      border: 1px solid var(--apple-cyan);
+      color: #FFFFFF;
+      font-size: 0.86rem;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.92);
+      backdrop-filter: blur(20px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      padding: 24px;
+    }
+
+    .lightbox.is-open {
+      display: flex;
+    }
+
+    .lightbox-modal {
+      max-width: 880px;
+      width: 100%;
+      background: var(--surface-card);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-xl);
+      padding: 24px;
+    }
+
+    .lightbox-modal img {
+      width: 100%;
+      max-height: 68vh;
+      object-fit: cover;
+      border-radius: 16px;
+      margin-bottom: 16px;
+    }
+
+    .site-footer {
+      padding: 40px 0;
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--apple-muted);
+    }
+
+    @media (max-width: 960px) {
+      .inspector-stage,
+      .bento-apple,
+      .specs-grid,
+      .reviews-grid,
+      .booking-box {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        transition: none !important;
+        animation: none !important;
+      }
+    }
+  </style>
+</head>
+<body data-rubro-id="fotografia" data-style-id="apple-inspired-photography">
+
+  <header class="frosted-nav">
+    <div class="container nav-inner">
+      <a href="#" class="nav-title">
+        <span>OPTIK PRO</span>
+        <span class="pro-badge">8K STUDIO</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#inspector">Inspector 100MP</a></li>
+        <li><a href="#galeria">Keynote Visual</a></li>
+        <li><a href="#especificaciones">Flujo Pro</a></li>
+        <li><a href="#reserva">Reservar Estudio</a></li>
+      </ul>
+      <a href="#reserva" class="btn-apple">Cotizar Campaña</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <p class="hero-eyebrow">INGENIERÍA ÓPTICA PARA MARCAS LÍDERES</p>
+      <h1>Precisión Obsesiva en Cada Píxel.</h1>
+      <p>
+        Fotografía industrial, hardware tecnológico y arquitectura contemporánea capturada con sensores de 150 megapíxeles y calibración nativa Display P3 sobre monitores Apple Pro Display XDR.
+      </p>
+      <div class="hero-cta">
+        <a href="#inspector" class="btn-apple btn-apple-lg">Probar Inspector Óptico</a>
+        <a href="#galeria" class="btn-apple btn-apple-lg btn-apple-outline">Explorar Portafolio</a>
+      </div>
+
+      <div class="hero-showcase">
+        <img
+          src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1400&q=85"
+          alt="Fotografía comercial de producto tecnológico en aluminio espacial"
+          onerror="this.onerror=null;this.src='../../images/demos/fotografia/20-apple-inspired-photography.jpg'"
+        />
+        <div class="showcase-bar">
+          <span><strong>Cámara:</strong> Phase One XF IQ4 150MP</span>
+          <span><strong>Rango Dinámico:</strong> 15 Pasos Reales</span>
+          <span><strong>Espacio de Color:</strong> Display P3 / 16-bit RAW</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- INSPECTOR ÓPTICO INTERACTIVO -->
+    <section id="inspector">
+      <div class="section-title-wrap">
+        <h2>Inspector de Resolución &amp; Ciencia de Color.</h2>
+        <p>Alterna entre nuestros tres modos de captura de estudio para comprobar cómo revelamos micro-texturas en titanio, cristal zafiro y arquitectura.</p>
+      </div>
+
+      <div class="optical-inspector">
+        <div style="text-align: center;">
+          <div class="segmented-control" role="tablist">
+            <button type="button" class="seg-btn is-active" data-mode="macro">Macro 100MP Detalle</button>
+            <button type="button" class="seg-btn" data-mode="p3">Gama Amplia Display P3</button>
+            <button type="button" class="seg-btn" data-mode="studio">Luz Especular Controlada</button>
+          </div>
+        </div>
+
+        <div class="inspector-stage">
+          <div class="inspector-canvas">
+            <img
+              id="optikStageImg"
+              src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1200&q=85"
+              alt="Inspección de producto de alta precisión"
+              onerror="this.onerror=null;this.src='../../images/demos/fotografia/20-apple-inspired-photography.jpg'"
+            />
+          </div>
+
+          <div class="inspector-telemetry">
+            <h3 id="optikModeTitle" style="font-family: var(--font-display); font-size: 1.4rem; margin-bottom: 10px;">
+              Macro 100MP Focus Stacking
+            </h3>
+            <p id="optikModeDesc" style="color: var(--apple-muted); font-size: 0.9rem; margin-bottom: 18px;">
+              Combinamos 24 planos focales con riel micrométrico motorizado para obtener nitidez absoluta de borde a borde.
+            </p>
+            <div class="telemetry-metric">
+              <small>Resolución Efectiva</small>
+              <strong id="optikRes">14.204 × 10.652 px</strong>
+            </div>
+            <div class="telemetry-metric">
+              <small>Óptica Empleada</small>
+              <strong id="optikLens">Schneider Kreuznach 120mm Macro</strong>
+            </div>
+            <div class="telemetry-metric">
+              <small>Profundidad de Bits</small>
+              <strong id="optikBit">16-bit IIQ RAW Sin Compresión</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERÍA EN SUPERFICIE CLARA (#F5F5F7) -->
+    <section id="galeria">
+      <div class="light-showcase">
+        <div class="section-title-wrap">
+          <h2>Presentación Nivel Keynote.</h2>
+          <p>Cada campaña está diseñada para brillar tanto en pantallas Retina 6K como en vallas publicitarias de gran formato.</p>
+        </div>
+
+        <div class="bento-apple">
+          <article class="apple-card" data-title="Hardware Acústico Titanio" data-sub="Fotografía Industrial · Macro">
+            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=80" alt="Auriculares premium sobre fondo minimalista" onerror="this.onerror=null;this.src='../../images/demos/fotografia/20-apple-inspired-photography.jpg'" />
+            <div class="apple-card-body">
+              <small>Industrial Design</small>
+              <h3>Hardware Acústico en Titanio</h3>
+              <p>Modelado de bordes biselados con banderas de difusión gradual.</p>
+            </div>
+          </article>
+
+          <article class="apple-card" data-title="Pabellón Corporativo de Cristal" data-sub="Arquitectura Contemporánea">
+            <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=900&q=80" alt="Arquitectura minimalista de vidrio y acero" onerror="this.onerror=null;this.src='../../images/demos/fotografia/20-apple-inspired-photography.jpg'" />
+            <div class="apple-card-body">
+              <small>Spaces &amp; Flagships</small>
+              <h3>Pabellón Corporativo de Cristal</h3>
+              <p>Fotografía arquitectónica simétrica para sedes tecnológicas.</p>
+            </div>
+          </article>
+
+          <article class="apple-card" data-title="Relojería &amp; Sensores Biométricos" data-sub="Campaña Global de Lanzamiento">
+            <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=900&q=80" alt="Smartwatch con pantalla OLED encendida" onerror="this.onerror=null;this.src='../../images/demos/fotografia/20-apple-inspired-photography.jpg'" />
+            <div class="apple-card-body">
+              <small>Wearables</small>
+              <h3>Relojería &amp; Cristales Curvos</h3>
+              <p>Doble exposición para integrar pantallas OLED reales sin muaré.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FLUJO DE TRABAJO PRO -->
+    <section id="especificaciones">
+      <div class="section-title-wrap">
+        <h2>Arquitectura de Producción Pro.</h2>
+        <p>Infraestructura técnica pensada para directores de arte, diseñadores industriales y agencias exigentes.</p>
+      </div>
+
+      <div class="specs-grid">
+        <div class="spec-tile">
+          <strong>6K XDR</strong>
+          <h3>Monitoreo en Tiempo Real</h3>
+          <p>Estaciones Capture One Pro conectadas por fibra óptica a monitores Apple Pro Display XDR calibrados.</p>
+        </div>
+        <div class="spec-tile">
+          <strong>0.01 mm</strong>
+          <h3>Rieles Robotizados</h3>
+          <p>Control numérico Cognisys StackShot para apilamiento de enfoque repetible con precisión micrométrica.</p>
+        </div>
+        <div class="spec-tile">
+          <strong>10 Gbps</strong>
+          <h3>Entrega en la Nube</h3>
+          <p>Galerías privadas de revisión inmediata para equipos remotos en Santiago, Ciudad de México o California.</p>
+        </div>
+        <div class="spec-tile">
+          <strong>USDZ / 3D</strong>
+          <h3>Fotogrametría Lista para AR</h3>
+          <p>Generamos modelos tridimensionales con texturas PBR reales listos para experiencias de Realidad Aumentada.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section>
+      <div class="section-title-wrap">
+        <h2>Validado por Equipos de Producto.</h2>
+      </div>
+
+      <div class="reviews-grid">
+        <div class="review-card">
+          <span class="demo-tag-apple">[Testimonio de Demostración]</span>
+          <blockquote style="font-size: 1.02rem; margin-bottom: 16px;">
+            "Las imágenes de nuestro nuevo dispositivo médico parecían renders 3D de Cupertino, pero con la autenticidad y textura orgánica de una fotografía óptica real."
+          </blockquote>
+          <p style="font-size: 0.85rem; color: var(--apple-muted);">— Javier Larraín, VP de Diseño de Producto en BioTech Pulse (Ficticio)</p>
+        </div>
+
+        <div class="review-card">
+          <span class="demo-tag-apple">[Testimonio de Demostración]</span>
+          <blockquote style="font-size: 1.02rem; margin-bottom: 16px;">
+            "Aprobar las tomas en vivo sobre pantallas calibradas P3 nos ahorró tres semanas de correcciones de color antes del lanzamiento regional."
+          </blockquote>
+          <p style="font-size: 0.85rem; color: var(--apple-muted);">— Francisca Morel, Directora de Arte en Nova Mobility (Ficticio)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESERVA DE ESTUDIO -->
+    <section id="reserva">
+      <div class="booking-box">
+        <div>
+          <p class="hero-eyebrow" style="text-align: left;">AGENDA DE PRODUCCIÓN</p>
+          <h2 style="font-family: var(--font-display); font-size: clamp(1.9rem, 3.2vw, 2.7rem); margin-bottom: 16px;">
+            Lleva tu Producto al Estándar 8K.
+          </h2>
+          <p style="color: var(--apple-muted); margin-bottom: 20px;">
+            Completa las especificaciones de tu campaña para programar una llamada técnica de pre-producción e iluminación.
+          </p>
+        </div>
+
+        <form id="optikForm">
+          <div class="apple-field">
+            <label for="optikName">Nombre y Cargo</label>
+            <input type="text" id="optikName" class="apple-input" placeholder="Ej. Cristóbal Mena · Head of Brand" required />
+          </div>
+          <div class="apple-field">
+            <label for="optikCategory">Categoría de Proyecto</label>
+            <select id="optikCategory" class="apple-input">
+              <option>Lanzamiento de Hardware / Producto Hero</option>
+              <option>Fotografía Arquitectónica &amp; Espacios Flagship</option>
+              <option>Catálogo de Alta Resolución + Fotogrametría AR</option>
+            </select>
+          </div>
+          <div class="apple-field">
+            <label for="optikEmail">Correo Corporativo</label>
+            <input type="email" id="optikEmail" class="apple-input" placeholder="cristobal@empresa.com" required />
+          </div>
+          <button type="submit" class="btn-apple btn-apple-lg" style="width: 100%;">
+            Solicitar Propuesta Técnica (Demostración)
+          </button>
+          <div class="apple-confirm" id="optikConfirm" role="status">
+            ✓ Solicitud de demostración enviada. En un entorno real, recibirías de inmediato nuestro dossier de especificaciones ópticas y tarifas de estudio.
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="optikLightbox" role="dialog" aria-modal="true" aria-label="Inspección en alta resolución">
+    <div class="lightbox-modal">
+      <img id="optikLbImg" src="" alt="" />
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: 16px;">
+        <div>
+          <small id="optikLbSub" style="color: var(--apple-cyan); font-weight: 700;"></small>
+          <h3 id="optikLbTitle" style="font-family: var(--font-display);"></h3>
+        </div>
+        <button type="button" class="btn-apple btn-apple-outline" id="optikLbClose">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer container">
+    <p>OPTIK PRO 8K · Demostración de Estilo #20 (Apple-Inspired Photography Design) para el catálogo KuyénDev.</p>
+  </footer>
+
+  <script>
+    (function () {
+      const modes = {
+        macro: {
+          title: 'Macro 100MP Focus Stacking',
+          desc: 'Combinamos 24 planos focales con riel micrométrico motorizado para obtener nitidez absoluta de borde a borde.',
+          res: '14.204 × 10.652 px',
+          lens: 'Schneider Kreuznach 120mm Macro',
+          bit: '16-bit IIQ RAW Sin Compresión',
+          transform: 'scale(1.18)',
+          filter: 'contrast(112%) brightness(102%)'
+        },
+        p3: {
+          title: 'Ciencia de Color Display P3',
+          desc: 'Perfilado espectral personalizado para reproducir anodizados metálicos, pantallas OLED y acabados cerámicos con precisión exacta.',
+          res: 'Gama Cromática +25% vs sRGB',
+          lens: 'Rodenstock HR Digaron-S',
+          bit: 'Calibración Espectral X-Rite',
+          transform: 'scale(1.0)',
+          filter: 'saturate(128%) contrast(108%)'
+        },
+        studio: {
+          title: 'Iluminación Especular de Gradiente',
+          desc: 'Túneles ópticos de difusión continua que esculpen el contorno de superficies reflectantes sin puntos calientes.',
+          res: 'Control de Reflejos 360°',
+          lens: 'Phase One Blue Ring 80mm',
+          bit: 'Tethering Fibra Óptica 10G',
+          transform: 'scale(1.04)',
+          filter: 'brightness(96%) contrast(122%)'
+        }
+      };
+
+      const segBtns = document.querySelectorAll('.seg-btn');
+      const stageImg = document.getElementById('optikStageImg');
+      const mTitle = document.getElementById('optikModeTitle');
+      const mDesc = document.getElementById('optikModeDesc');
+      const mRes = document.getElementById('optikRes');
+      const mLens = document.getElementById('optikLens');
+      const mBit = document.getElementById('optikBit');
+
+      segBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          segBtns.forEach(b => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+          const m = modes[btn.dataset.mode];
+          if (m) {
+            mTitle.textContent = m.title;
+            mDesc.textContent = m.desc;
+            mRes.textContent = m.res;
+            mLens.textContent = m.lens;
+            mBit.textContent = m.bit;
+            stageImg.style.transform = m.transform;
+            stageImg.style.filter = m.filter;
+          }
+        });
+      });
+
+      // Lightbox
+      const cards = document.querySelectorAll('.apple-card');
+      const lb = document.getElementById('optikLightbox');
+      const lbImg = document.getElementById('optikLbImg');
+      const lbTitle = document.getElementById('optikLbTitle');
+      const lbSub = document.getElementById('optikLbSub');
+      const lbClose = document.getElementById('optikLbClose');
+
+      cards.forEach(card => {
+        card.addEventListener('click', () => {
+          const img = card.querySelector('img');
+          lbImg.src = img.src;
+          lbTitle.textContent = card.dataset.title;
+          lbSub.textContent = card.dataset.sub;
+          lb.classList.add('is-open');
+        });
+      });
+
+      lbClose.addEventListener('click', () => lb.classList.remove('is-open'));
+      lb.addEventListener('click', (e) => {
+        if (e.target === lb) lb.classList.remove('is-open');
+      });
+
+      // Formulario
+      const form = document.getElementById('optikForm');
+      const confirmBox = document.getElementById('optikConfirm');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        confirmBox.style.display = 'block';
+        form.reset();
+      });
+    })();
+  </script>
+  <script src="../../js/config/rubros.js"></script>
+  <script src="../../js/demo-viewer-bar.js"></script>
+</body>
+</html>

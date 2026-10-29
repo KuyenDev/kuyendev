@@ -1,0 +1,1641 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HALURO 35mm · Laboratorio & Retrato en Película Química | Demo KuyénDev</title>
+  <meta name="description" content="Demostración interactiva estilo Vintage / Analógico para estudios fotográficos. Texturas de papel algodón, hojas de contacto 35mm, marcos Polaroid y revelado químico artesanal." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-paper: #F4EBD9;
+      --bg-paper-deep: #EAE0C8;
+      --bg-card: #FAF6EC;
+      --ink-sepia: #3D312A;
+      --ink-muted: #6E5D53;
+      --accent-amber: #C07D53;
+      --accent-amber-dark: #9E5E36;
+      --accent-sage: #7D8C71;
+      --film-strip: #1E1916;
+      --border-vintage: rgba(61, 49, 42, 0.18);
+      --font-serif: 'EB Garamond', Georgia, serif;
+      --font-mono: 'Courier Prime', monospace;
+      --emulsion-filter: sepia(0.22) contrast(1.04) saturate(1.08) brightness(0.99);
+      --emulsion-badge: 'KODAK PORTRA 400 · C-41';
+      --halation-glow: rgba(192, 125, 83, 0.18);
+    }
+
+    body[data-emulsion="portra"] {
+      --emulsion-filter: sepia(0.22) contrast(1.04) saturate(1.1) brightness(0.99);
+      --emulsion-badge: 'KODAK PORTRA 400 · C-41';
+      --halation-glow: rgba(192, 125, 83, 0.22);
+    }
+
+    body[data-emulsion="ilford"] {
+      --emulsion-filter: grayscale(1) contrast(1.26) brightness(0.96);
+      --emulsion-badge: 'ILFORD HP5 PLUS · D-76 B&W';
+      --halation-glow: rgba(61, 49, 42, 0.25);
+    }
+
+    body[data-emulsion="cinestill"] {
+      --emulsion-filter: contrast(1.12) saturate(1.18) hue-rotate(-10deg) brightness(0.95);
+      --emulsion-badge: 'CINESTILL 800T · ECN-2 TUNGSTEN';
+      --halation-glow: rgba(214, 73, 51, 0.28);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-paper);
+      color: var(--ink-sepia);
+      font-family: var(--font-serif);
+      line-height: 1.65;
+      overflow-x: hidden;
+      position: relative;
+      background-image:
+        radial-gradient(rgba(61, 49, 42, 0.045) 1px, transparent 0),
+        radial-gradient(rgba(192, 125, 83, 0.04) 1px, transparent 0);
+      background-size: 28px 28px;
+      background-position: 0 0, 14px 14px;
+    }
+
+    /* Sutil grano analógico táctil */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 90;
+      opacity: 0.24;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.18'/%3E%3C/svg%3E");
+    }
+
+    /* Cinta superior de celuloide 35mm */
+    .film-sprocket-bar {
+      background: var(--film-strip);
+      color: #E2D5BE;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      padding: 8px 16px;
+      border-bottom: 2px solid var(--accent-amber);
+      overflow: hidden;
+      white-space: nowrap;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .sprocket-holes {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      opacity: 0.85;
+    }
+
+    .sprocket-hole {
+      display: inline-block;
+      width: 14px;
+      height: 9px;
+      border-radius: 2px;
+      background: var(--bg-paper);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    /* Navegación estilo archivo editorial */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(244, 235, 217, 0.94);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border-vintage);
+    }
+
+    .nav-container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: var(--ink-sepia);
+    }
+
+    .brand-title {
+      font-family: var(--font-serif);
+      font-size: 1.55rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      line-height: 1.1;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-stamp {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      background: var(--ink-sepia);
+      color: var(--bg-paper);
+      padding: 2px 7px;
+      border-radius: 2px;
+      letter-spacing: 0.08em;
+    }
+
+    .brand-sub {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--ink-muted);
+      letter-spacing: 0.06em;
+      margin-top: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      text-decoration: none;
+      color: var(--ink-sepia);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.2s ease;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-amber-dark);
+    }
+
+    .nav-cta {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 10px 18px;
+      background: var(--ink-sepia);
+      color: var(--bg-paper) !important;
+      border: 1px solid var(--ink-sepia);
+      text-decoration: none;
+      transition: all 0.25s ease;
+      box-shadow: 3px 3px 0 var(--accent-amber);
+    }
+
+    .nav-cta:hover {
+      background: var(--accent-amber-dark);
+      border-color: var(--accent-amber-dark);
+      transform: translate(-1px, -1px);
+      box-shadow: 4px 4px 0 var(--ink-sepia);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: transparent;
+      border: 1px solid var(--ink-sepia);
+      color: var(--ink-sepia);
+      font-family: var(--font-mono);
+      padding: 6px 12px;
+      font-size: 0.8rem;
+      cursor: pointer;
+    }
+
+    /* Hero Analógico con Marco Polaroid & Tira de Negativos */
+    .hero {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 64px 24px 80px;
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 56px;
+      align-items: center;
+      border-bottom: 1px dashed var(--border-vintage);
+    }
+
+    .archive-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent-amber-dark);
+      background: rgba(192, 125, 83, 0.12);
+      border: 1px solid rgba(192, 125, 83, 0.35);
+      padding: 6px 14px;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 4.8vw, 4.3rem);
+      font-weight: 500;
+      line-height: 1.08;
+      margin-bottom: 24px;
+      color: var(--ink-sepia);
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--accent-amber-dark);
+      font-weight: 600;
+    }
+
+    .hero-lead {
+      font-size: 1.25rem;
+      color: var(--ink-muted);
+      margin-bottom: 32px;
+      max-width: 580px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-mono);
+      font-size: 0.86rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background: var(--ink-sepia);
+      color: var(--bg-paper);
+      padding: 14px 26px;
+      text-decoration: none;
+      border: 1px solid var(--ink-sepia);
+      box-shadow: 4px 4px 0 var(--accent-amber);
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-amber-dark);
+      border-color: var(--accent-amber-dark);
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0 var(--ink-sepia);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-mono);
+      font-size: 0.86rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background: var(--bg-card);
+      color: var(--ink-sepia);
+      padding: 14px 24px;
+      text-decoration: none;
+      border: 1px solid var(--ink-sepia);
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn-secondary:hover {
+      background: var(--bg-paper-deep);
+    }
+
+    .darkroom-specs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-vintage);
+      font-family: var(--font-mono);
+    }
+
+    .spec-item strong {
+      display: block;
+      font-size: 1.25rem;
+      color: var(--ink-sepia);
+    }
+
+    .spec-item span {
+      font-size: 0.75rem;
+      color: var(--ink-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Composición Polaroid & Cinta 35mm en Hero */
+    .hero-polaroid-stack {
+      position: relative;
+      padding: 20px;
+    }
+
+    .polaroid-card {
+      background: #FFFDF9;
+      padding: 18px 18px 54px 18px;
+      box-shadow:
+        0 18px 40px rgba(61, 49, 42, 0.16),
+        0 2px 6px rgba(61, 49, 42, 0.1);
+      border: 1px solid rgba(61, 49, 42, 0.12);
+      transform: rotate(-1.8deg);
+      transition: transform 0.35s ease;
+      position: relative;
+    }
+
+    .polaroid-card:hover {
+      transform: rotate(0deg) scale(1.01);
+    }
+
+    .masking-tape {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-3deg);
+      width: 130px;
+      height: 32px;
+      background: rgba(232, 216, 179, 0.82);
+      border-left: 2px dashed rgba(61, 49, 42, 0.2);
+      border-right: 2px dashed rgba(61, 49, 42, 0.2);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+      z-index: 3;
+    }
+
+    .polaroid-img-wrap {
+      position: relative;
+      aspect-ratio: 4 / 4.2;
+      overflow: hidden;
+      background: #241E1B;
+    }
+
+    .polaroid-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: var(--emulsion-filter);
+      transition: filter 0.4s ease, transform 0.6s ease;
+    }
+
+    .film-date-burn {
+      position: absolute;
+      bottom: 14px;
+      right: 16px;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: #FF7A29;
+      text-shadow: 0 0 8px rgba(255, 102, 0, 0.85);
+      letter-spacing: 0.14em;
+      font-weight: 700;
+      pointer-events: none;
+    }
+
+    .polaroid-caption {
+      margin-top: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-bottom: 1px dotted rgba(61, 49, 42, 0.25);
+      padding-bottom: 8px;
+    }
+
+    .polaroid-handwriting {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.2rem;
+      color: var(--ink-sepia);
+    }
+
+    .polaroid-frame-code {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent-amber-dark);
+      font-weight: 700;
+    }
+
+    .floating-contact-strip {
+      position: absolute;
+      bottom: -24px;
+      left: -18px;
+      background: var(--film-strip);
+      color: #F4EBD9;
+      padding: 12px 16px;
+      border: 1px solid var(--accent-amber);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.22);
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      transform: rotate(2.5deg);
+      max-width: 280px;
+    }
+
+    .floating-contact-strip strong {
+      color: var(--accent-amber);
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    /* Secciones Generales */
+    .section-wrap {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 84px 24px;
+      border-bottom: 1px dashed var(--border-vintage);
+    }
+
+    .section-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    .section-kicker {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent-amber-dark);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 500;
+      line-height: 1.15;
+    }
+
+    /* Simulador Interactivo de Emulsión Química (Film Stock Selector) */
+    .emulsion-lab-bar {
+      background: var(--bg-card);
+      border: 1px solid var(--ink-sepia);
+      padding: 22px 26px;
+      margin-bottom: 36px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      box-shadow: 5px 5px 0 rgba(61, 49, 42, 0.1);
+    }
+
+    .emulsion-lab-info {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .emulsion-lab-title {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--ink-sepia);
+    }
+
+    .emulsion-lab-desc {
+      font-size: 0.98rem;
+      color: var(--ink-muted);
+    }
+
+    .emulsion-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .emulsion-btn {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      padding: 10px 16px;
+      border: 1px solid var(--ink-sepia);
+      background: var(--bg-paper);
+      color: var(--ink-sepia);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .emulsion-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .emulsion-btn.active,
+    .emulsion-btn:hover {
+      background: var(--ink-sepia);
+      color: var(--bg-paper);
+    }
+
+    /* Filtros de Formato de Cámara */
+    .format-filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+    }
+
+    .format-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .format-tab {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 7px 14px;
+      background: transparent;
+      border: 1px solid var(--border-vintage);
+      color: var(--ink-muted);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .format-tab.active,
+    .format-tab:hover {
+      border-color: var(--ink-sepia);
+      background: var(--bg-paper-deep);
+      color: var(--ink-sepia);
+      font-weight: 700;
+    }
+
+    /* Hoja de Contacto (Contact Sheet Grid) */
+    .contact-sheet-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .contact-frame {
+      background: #FFFDF9;
+      border: 1px solid rgba(61, 49, 42, 0.2);
+      padding: 14px 14px 20px;
+      box-shadow: 0 8px 24px rgba(61, 49, 42, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contact-frame:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 32px rgba(61, 49, 42, 0.16);
+    }
+
+    .contact-frame.hidden {
+      display: none;
+    }
+
+    .frame-top-strip {
+      background: var(--film-strip);
+      color: #D7C6AC;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      padding: 5px 10px;
+      display: flex;
+      justify-content: space-between;
+      letter-spacing: 0.1em;
+      margin-bottom: 10px;
+    }
+
+    .frame-top-strip .frame-num {
+      color: #FF9F43;
+      font-weight: 700;
+    }
+
+    .frame-photo-box {
+      position: relative;
+      aspect-ratio: 4 / 3.2;
+      overflow: hidden;
+      background: #1A1614;
+      margin-bottom: 14px;
+    }
+
+    .frame-photo-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: var(--emulsion-filter);
+      transition: transform 0.5s ease, filter 0.35s ease;
+    }
+
+    .contact-frame:hover .frame-photo-box img {
+      transform: scale(1.04);
+    }
+
+    .loupe-badge {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      background: rgba(30, 25, 22, 0.85);
+      color: #F4EBD9;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      padding: 4px 9px;
+      letter-spacing: 0.06em;
+      opacity: 0;
+      transform: translateY(4px);
+      transition: all 0.25s ease;
+    }
+
+    .contact-frame:hover .loupe-badge {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .frame-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: var(--ink-sepia);
+    }
+
+    .frame-notes {
+      font-size: 0.96rem;
+      color: var(--ink-muted);
+      margin-bottom: 12px;
+      flex-grow: 1;
+    }
+
+    .frame-exif {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--accent-amber-dark);
+      border-top: 1px dotted var(--border-vintage);
+      padding-top: 10px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* Proceso de Cuarto Oscuro */
+    .darkroom-process {
+      background: var(--film-strip);
+      color: #F4EBD9;
+      padding: 84px 24px;
+      border-bottom: 3px solid var(--accent-amber);
+    }
+
+    .darkroom-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+    }
+
+    .darkroom-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 44px;
+    }
+
+    .step-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(244, 235, 217, 0.16);
+      padding: 28px 22px;
+      position: relative;
+    }
+
+    .step-time {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      color: var(--accent-amber);
+      letter-spacing: 0.12em;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .step-card h3 {
+      font-size: 1.4rem;
+      font-weight: 500;
+      margin-bottom: 10px;
+      color: #FFFDF9;
+    }
+
+    .step-card p {
+      font-size: 0.98rem;
+      color: rgba(244, 235, 217, 0.78);
+    }
+
+    /* Servicios y Paquetes Analógicos */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .service-sheet {
+      background: var(--bg-card);
+      border: 1px solid var(--ink-sepia);
+      padding: 34px 28px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 6px 6px 0 rgba(61, 49, 42, 0.12);
+    }
+
+    .service-sheet.featured {
+      background: #FFFDF8;
+      border-width: 2px;
+      box-shadow: 8px 8px 0 var(--accent-amber);
+    }
+
+    .service-code {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent-sage);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .service-sheet h3 {
+      font-size: 1.65rem;
+      margin-bottom: 10px;
+    }
+
+    .service-price {
+      font-family: var(--font-mono);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--accent-amber-dark);
+      margin-bottom: 18px;
+      padding-bottom: 14px;
+      border-bottom: 1px dashed var(--border-vintage);
+    }
+
+    .service-list {
+      list-style: none;
+      margin-bottom: 28px;
+      flex-grow: 1;
+    }
+
+    .service-list li {
+      padding: 7px 0;
+      font-size: 1.02rem;
+      color: var(--ink-sepia);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .service-list li::before {
+      content: "✦";
+      color: var(--accent-amber-dark);
+      font-size: 0.85rem;
+      margin-top: 2px;
+    }
+
+    /* Testimonios de Demostración */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
+    }
+
+    .testimonial-note {
+      background: #FFFDF9;
+      border: 1px solid var(--border-vintage);
+      padding: 28px 24px;
+      position: relative;
+      box-shadow: 0 6px 18px rgba(61, 49, 42, 0.06);
+    }
+
+    .demo-tag {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: rgba(125, 140, 113, 0.18);
+      color: #48543E;
+      border: 1px solid rgba(125, 140, 113, 0.4);
+      padding: 3px 8px;
+      margin-bottom: 14px;
+    }
+
+    .testimonial-quote {
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--ink-sepia);
+      margin-bottom: 18px;
+    }
+
+    .testimonial-author {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--ink-muted);
+      border-top: 1px dotted var(--border-vintage);
+      padding-top: 10px;
+    }
+
+    /* Formulario de Reserva de Sesión Analógica */
+    .booking-layout {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .booking-form-card {
+      background: var(--bg-card);
+      border: 1px solid var(--ink-sepia);
+      padding: 36px 32px;
+      box-shadow: 6px 6px 0 var(--accent-amber);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+      color: var(--ink-sepia);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px 14px;
+      font-family: var(--font-serif);
+      font-size: 1.02rem;
+      background: #FFFDF9;
+      border: 1px solid rgba(61, 49, 42, 0.35);
+      color: var(--ink-sepia);
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--accent-amber-dark);
+      box-shadow: 0 0 0 2px rgba(192, 125, 83, 0.2);
+    }
+
+    .form-status {
+      display: none;
+      margin-top: 16px;
+      padding: 14px 16px;
+      background: rgba(125, 140, 113, 0.2);
+      border: 1px solid var(--accent-sage);
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--ink-sepia);
+    }
+
+    /* Lightbox Analógico (Mesa de Luz) */
+    .lightbox-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(24, 19, 16, 0.94);
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    .lightbox-modal.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .lightbox-sheet {
+      background: #FFFDF9;
+      color: var(--ink-sepia);
+      max-width: 880px;
+      width: 100%;
+      padding: 20px 20px 28px;
+      border: 2px solid var(--accent-amber);
+      position: relative;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: var(--ink-sepia);
+      color: var(--bg-paper);
+      border: none;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      padding: 6px 12px;
+      cursor: pointer;
+      z-index: 5;
+    }
+
+    .lightbox-img-container {
+      background: #14110F;
+      max-height: 62vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox-img-container img {
+      width: 100%;
+      max-height: 62vh;
+      object-fit: contain;
+      filter: var(--emulsion-filter);
+    }
+
+    .lightbox-meta {
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .site-footer {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 48px 24px 96px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--ink-muted);
+    }
+
+    @media (max-width: 960px) {
+      .hero,
+      .booking-layout {
+        grid-template-columns: 1fr;
+      }
+      .contact-sheet-grid,
+      .services-grid,
+      .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .darkroom-steps {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .nav-links {
+        display: none;
+      }
+      .mobile-menu-btn {
+        display: inline-block;
+      }
+      .nav-links.mobile-open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--bg-paper);
+        padding: 20px;
+        border-bottom: 2px solid var(--ink-sepia);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .contact-sheet-grid,
+      .services-grid,
+      .testimonials-grid,
+      .darkroom-steps,
+      .form-row,
+      .darkroom-specs {
+        grid-template-columns: 1fr;
+      }
+      .sprocket-holes {
+        display: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body data-rubro-id="fotografia" data-style-id="vintage-analogico" data-emulsion="portra">
+
+  <!-- Barra superior de celuloide 35mm -->
+  <div class="film-sprocket-bar" aria-hidden="true">
+    <div class="sprocket-holes">
+      <span class="sprocket-hole"></span><span class="sprocket-hole"></span><span class="sprocket-hole"></span>
+    </div>
+    <span>◀ KODAK SAFETY FILM 5063 · ARCHIVO QUÍMICO ARTESANAL · SANTIAGO & VALPARAÍSO ▶</span>
+    <div class="sprocket-holes">
+      <span class="sprocket-hole"></span><span class="sprocket-hole"></span><span class="sprocket-hole"></span>
+    </div>
+  </div>
+
+  <!-- Navegación -->
+  <header class="site-header">
+    <nav class="nav-container" aria-label="Navegación principal">
+      <a href="#" class="brand">
+        <span class="brand-title">HALURO 35mm <span class="brand-stamp">EST. 2018</span></span>
+        <span class="brand-sub">Laboratorio & Retrato en Película Química</span>
+      </a>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-expanded="false">MENÚ [+]</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#hoja-contacto">Hoja de Contacto</a></li>
+        <li><a href="#cuarto-oscuro">Cuarto Oscuro</a></li>
+        <li><a href="#sesiones">Sesiones en Rollo</a></li>
+        <li><a href="#testimonios">Bitácora</a></li>
+        <li><a href="#reservar" class="nav-cta">Reservar Rollo</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="archive-label">
+          <span>● CARRETE N° 408 · MEDIO FORMATO 6x7 & 35MM</span>
+        </div>
+        <h1>La memoria tiene <em>grano de plata</em> y tiempo de espera.</h1>
+        <p class="hero-lead">
+          Fotografía analógica sin prisas ni filtros sintéticos. Disparamos exclusivamente en celuloide de 35mm y formato medio 120, revelando cada fotograma a mano en nuestro cuarto oscuro con química fresca.
+        </p>
+        <div class="hero-actions">
+          <a href="#hoja-contacto" class="btn-primary">Inspeccionar Hoja de Contacto →</a>
+          <a href="#reservar" class="btn-secondary">Agendar Retrato Químico</a>
+        </div>
+        <div class="darkroom-specs">
+          <div class="spec-item">
+            <strong>100% Celuloide</strong>
+            <span>Sin sensores digitales</span>
+          </div>
+          <div class="spec-item">
+            <strong>6x7 & 35mm</strong>
+            <span>Hasselblad, Pentax & Leica</span>
+          </div>
+          <div class="spec-item">
+            <strong>Papel Baritado</strong>
+            <span>Copias de archivo museográfico</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-polaroid-stack">
+        <div class="polaroid-card">
+          <div class="masking-tape" aria-hidden="true"></div>
+          <div class="polaroid-img-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1000&q=85"
+              onerror="this.onerror=null;this.src='../../images/demos/fotografia/06-vintage-analogico.jpg'"
+              alt="Cámara analógica clásica de medio formato sobre mesa de trabajo editorial"
+            />
+            <span class="film-date-burn">'98 10 24</span>
+          </div>
+          <div class="polaroid-caption">
+            <span class="polaroid-handwriting">"Luz de otoño en Barrio Lastarria, toma única."</span>
+            <span class="polaroid-frame-code">FRAME #01A</span>
+          </div>
+        </div>
+        <div class="floating-contact-strip">
+          <strong>NOTA DE LABORATORIO:</strong>
+          <span>Emulsión activa: <span id="activeEmulsionLabel">KODAK PORTRA 400</span> · Revelado manual a 20°C.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hoja de Contacto & Selector de Emulsión Química -->
+    <section class="section-wrap" id="hoja-contacto">
+      <div class="section-header">
+        <div>
+          <span class="section-kicker">ARCHIVO DE NEGATIVOS · LUPA DE CONTACTO</span>
+          <h2 class="section-title">Hoja de Contacto & Emulsiones</h2>
+        </div>
+        <p style="max-width: 420px; color: var(--ink-muted);">
+          Alterna la emulsión química del laboratorio para previsualizar cómo responde el grano, el contraste de haluros de plata y la calidez cromática en nuestras sesiones reales.
+        </p>
+      </div>
+
+      <!-- Simulador de Película Química en Vivo -->
+      <div class="emulsion-lab-bar" role="region" aria-label="Selector interactivo de emulsión fotográfica">
+        <div class="emulsion-lab-info">
+          <span class="emulsion-lab-title">🧪 Selector de Emulsión en Cuarto Oscuro (En Vivo)</span>
+          <span class="emulsion-lab-desc" id="emulsionDescription">Kodak Portra 400: Tonos piel cálidos, latitud de exposición generosa y grano fino orgánico.</span>
+        </div>
+        <div class="emulsion-controls">
+          <button type="button" class="emulsion-btn active" data-set-emulsion="portra">
+            <span class="emulsion-dot" style="background: #D98A4E;"></span> Kodak Portra 400
+          </button>
+          <button type="button" class="emulsion-btn" data-set-emulsion="ilford">
+            <span class="emulsion-dot" style="background: #4A4A4A;"></span> Ilford HP5 B&W
+          </button>
+          <button type="button" class="emulsion-btn" data-set-emulsion="cinestill">
+            <span class="emulsion-dot" style="background: #E04F3E;"></span> CineStill 800T
+          </button>
+        </div>
+      </div>
+
+      <!-- Filtro por formato de cámara -->
+      <div class="format-filter-bar">
+        <div class="format-tabs" role="tablist" aria-label="Filtrar por formato de película">
+          <button type="button" class="format-tab active" data-filter="todos">Todos los Rollos (6)</button>
+          <button type="button" class="format-tab" data-filter="35mm">35mm Leica / Nikon (2)</button>
+          <button type="button" class="format-tab" data-filter="120mm">Medio Formato 6x7 (2)</button>
+          <button type="button" class="format-tab" data-filter="polaroid">Polaroid & Instantánea (2)</button>
+        </div>
+        <span>Haz clic en cualquier fotograma para abrir en la Mesa de Luz</span>
+      </div>
+
+      <!-- Grid Hoja de Contacto -->
+      <div class="contact-sheet-grid" id="contactGrid">
+        <!-- Frame 01A -->
+        <article class="contact-frame" data-category="120mm" data-title="Retrato en Ventanal Norte" data-frame="#01A · PENTAX 67" data-exif="105mm f/2.4 · 1/125s · Luz natural" data-img="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=80">
+          <div class="frame-top-strip">
+            <span class="frame-num">▶ #01A</span>
+            <span>MEDIO FORMATO 120</span>
+          </div>
+          <div class="frame-photo-box">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=80" onerror="this.onerror=null;this.src='../../images/demos/fotografia/06-vintage-analogico.jpg'" alt="Retrato analógico con grano suave e iluminación lateral" loading="lazy" />
+            <span class="loupe-badge">🔍 INSPECCIONAR NEGATIVO</span>
+          </div>
+          <h3 class="frame-title">Retrato en Ventanal Norte</h3>
+          <p class="frame-notes">Sesión íntima sin retoque digital; texturas reales y profundidad de campo ultra-selectiva en formato 6x7.</p>
+          <div class="frame-exif">
+            <span>Pentax 67 · Takumar 105mm</span>
+            <span>f/2.4 · 1/125s</span>
+          </div>
+        </article>
+
+        <!-- Frame 02A -->
+        <article class="contact-frame" data-category="35mm" data-title="Crónica de Café & Lluvia" data-frame="#02A · LEICA M6" data-exif="35mm Summicron · 1/60s · f/2.0" data-img="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=900&q=80">
+          <div class="frame-top-strip">
+            <span class="frame-num">▶ #02A</span>
+            <span>35MM REPORTAJE</span>
+          </div>
+          <div class="frame-photo-box">
+            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=900&q=80" onerror="this.onerror=null;this.src='../../images/demos/fotografia/06-vintage-analogico.jpg'" alt="Escena documental de cafetería en película de 35mm" loading="lazy" />
+            <span class="loupe-badge">🔍 INSPECCIONAR NEGATIVO</span>
+          </div>
+          <h3 class="frame-title">Crónica de Café & Lluvia</h3>
+          <p class="frame-notes">Documental espontáneo para tostadores de especialidad. Capturado a pulso con telémetro mecánico.</p>
+          <div class="frame-exif">
+            <span>Leica M6 · 35mm Summicron</span>
+            <span>f/2.0 · 1/60s</span>
+          </div>
+        </article>
+
+        <!-- Frame 03A -->
+        <article class="contact-frame" data-category="polaroid" data-title="Díptico Instantáneo de Taller" data-frame="#03A · POLAROID SX-70" data-exif="116mm f/8 · Química Integral 600" data-img="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=900&q=80">
+          <div class="frame-top-strip">
+            <span class="frame-num">▶ #03A</span>
+            <span>POLAROID ORIGINAL</span>
+          </div>
+          <div class="frame-photo-box">
+            <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=900&q=80" onerror="this.onerror=null;this.src='../../images/demos/fotografia/06-vintage-analogico.jpg'" alt="Fotografía instantánea Polaroid sobre mesa de artista" loading="lazy" />
+            <span class="loupe-badge">🔍 INSPECCIONAR NEGATIVO</span>
+          </div>
+          <h3 class="frame-title">Díptico Instantáneo de Taller</h3>
+          <p class="frame-notes">Piezas únicas imposibles de duplicar. Entregadas en mano diez minutos después del disparo.</p>
+          <div class="frame-exif">
+            <span>Polaroid SX-70 Sonar</span>
+            <span>Química Integral</span>
+          </div>
+        </article>
+
+        <!-- Frame 04A -->
+        <article class="contact-frame" data-category="120mm" data-title="Herbario & Naturaleza Muerta" data-frame="#04A · HASSELBLAD 500C/M" data-exif="80mm Planar · f/4 · 1/30s Trípode" data-img="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=900&q=80">
+          <div class="frame-top-strip">
+            <span class="frame-num">▶ #04A</span>
+            <span>FORMATO 6X6 CUADRADO</span>
+          </div>
+          <div class="frame-photo-box">
+            <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=900&q=80" onerror="this.onerror=null;this.src='../../images/demos/fotografia/06-vintage-analogico.jpg'" alt="Estudio botánico en formato medio cuadrado" loading="lazy" />
+            <span class="loupe-badge">🔍 INSPECCIONAR NEGATIVO</span>
+          </div>
+          <h3 class="frame-title">Herbario & Naturaleza Muerta</h3>
+          <p class="frame-notes">Bodegón editorial iluminado con espejo reflector antiguo y revelado con pirogalol para máxima acutancia.</p>
+          <div class="frame-exif">
+            <span>Hasselblad 500C/M · 80mm</span>
+            <span>f/4.0 · 1/30s</span>
+          </div>
+        </article>
+
+        <!-- Frame 05A -->
+        <article class="contact-frame" data-category="35mm" data-title="Noche de Neón & Halación" data-frame="#05A · NIKON FM2" data-exif="50mm f/1.4 AI-S · 1/30s · Tungsteno" data-img="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=900&q=80">
+          <div class="frame-top-strip">
+            <span class="frame-num">▶ #05A</span>
+            <span>35MM NOCTURNO</span>
+          </div>
+          <div class="frame-photo-box">
+            <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=900&q=80" onerror="this.onerror=null;this.src='../../images/demos/fotografia/06-vintage-analogico.jpg'" alt="Escena nocturna en película de cine rebobinada" loading="lazy" />
+            <span class="loupe-badge">🔍 INSPECCIONAR NEGATIVO</span>
+          </div>
+          <h3 class="frame-title">Noche de Neón & Halación</h3>
+          <p class="frame-notes">Película cinematográfica Kodak Vision3 sin capa Remjet, produciendo halos rojizos característicos alrededor de las luces altas.</p>
+          <div class="frame-exif">
+            <span>Nikon FM2 · 50mm f/1.4</span>
+            <span>ISO 800 · 1/30s</span>
+          </div>
+        </article>
+
+        <!-- Frame 06A -->
+        <article class="contact-frame" data-category="polaroid" data-title="Archivo Familiar en Sepia" data-frame="#06A · MAMIYA RB67 + PACKFILM" data-exif="127mm Sekor · f/5.6 · Transferencia en Papel" data-img="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=900&q=80">
+          <div class="frame-top-strip">
+            <span class="frame-num">▶ #06A</span>
+            <span>RESPALDO INSTANTÁNEO</span>
+          </div>
+          <div class="frame-photo-box">
+            <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=900&q=80" onerror="this.onerror=null;this.src='../../images/demos/fotografia/06-vintage-analogico.jpg'" alt="Celebración íntima documentada en película analógica" loading="lazy" />
+            <span class="loupe-badge">🔍 INSPECCIONAR NEGATIVO</span>
+          </div>
+          <h3 class="frame-title">Bodas en Celuloide Puro</h3>
+          <p class="frame-notes">Cobertura documental pausada donde cada disparo es medido con fotómetro de mano incidente.</p>
+          <div class="frame-exif">
+            <span>Mamiya RB67 · 127mm</span>
+            <span>f/5.6 · 1/250s</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Proceso de Cuarto Oscuro -->
+    <section class="darkroom-process" id="cuarto-oscuro">
+      <div class="darkroom-inner">
+        <span class="section-kicker" style="color: var(--accent-amber);">ALQUIMIA FOTOMECÁNICA · LUZ ROJA DE SEGURIDAD</span>
+        <h2 class="section-title" style="color: #FFFDF9;">Del Haluro de Plata al Papel de Algodón</h2>
+        <div class="darkroom-steps">
+          <div class="step-card">
+            <span class="step-time">ETAPA 01 · MEDICIÓN</span>
+            <h3>Fotómetro Incidente</h3>
+            <p>Sin pantallas de previsualización. Medimos la luz que acaricia el rostro con fotómetro Sekonic analógico, priorizando las sombras para conservar textura rica.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-time">ETAPA 02 · BAÑO QUÍMICO</span>
+            <h3>Revelado Manual 20°C</h3>
+            <p>Tanques Paterson agitados a mano con revelador Kodak D-76 o química C-41 fresca, controlando el contraste negativo rollo por rollo.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-time">ETAPA 03 · DIGITALIZACIÓN</span>
+            <h3>Escaneo Noritsu / Imacon</h3>
+            <p>Digitalizamos a 16 bits en alta resolución respetando los bordes reales del negativo y el grano estructural original sin reducción artificial.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-time">ETAPA 04 · AMPLIADORA</span>
+            <h3>Copia en Papel Baritado</h3>
+            <p>Proyectamos el negativo bajo lente Beseler sobre papel Ilford Multigrade Fiber, entregando copias físicas que duran más de 100 años.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sesiones y Tarifas -->
+    <section class="section-wrap" id="sesiones">
+      <div class="section-header">
+        <div>
+          <span class="section-kicker">TARIFARIO DE ESTUDIO & LABORATORIO</span>
+          <h2 class="section-title">Sesiones por Rollos de Película</h2>
+        </div>
+        <p style="max-width: 420px; color: var(--ink-muted);">
+          Cada sesión incluye los rollos vírgenes seleccionados, revelado químico en nuestro laboratorio, hoja de contacto impresa y escaneos en alta definición.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-sheet">
+          <span class="service-code">CARRETE 01 · RETRATO DE AUTOR</span>
+          <h3>Sesión 35mm Editorial</h3>
+          <div class="service-price">$145.000 CLP</div>
+          <ul class="service-list">
+            <li>2 rollos de 35mm (72 exposiciones totales) a elección entre Portra 400 o Ilford HP5.</li>
+            <li>90 minutos de sesión en estudio con luz natural o locación urbana.</li>
+            <li>Hoja de contacto numerada impresa en papel algodón 8x10".</li>
+            <li>Escaneo de los 72 fotogramas en formato TIFF/JPEG de alta resolución.</li>
+          </ul>
+          <a href="#reservar" class="btn-secondary" style="justify-content: center;">Seleccionar 35mm</a>
+        </article>
+
+        <article class="service-sheet featured">
+          <span class="service-code">CARRETE 02 · FORMATO MEDIO 120 (RECOMENDADO)</span>
+          <h3>Retrato en 6x7 + Polaroid</h3>
+          <div class="service-price">$240.000 CLP</div>
+          <ul class="service-list">
+            <li>3 rollos de formato medio 120 disparados con Pentax 67 o Hasselblad 500C/M.</li>
+            <li>4 fotografías instantáneas Polaroid SX-70 entregadas al finalizar la sesión.</li>
+            <li>2 ampliaciones artesanales de cuarto oscuro en papel baritado 20x25 cm.</li>
+            <li>Entrega de los negativos físicos archivados en fundas libres de ácido.</li>
+          </ul>
+          <a href="#reservar" class="btn-primary" style="justify-content: center;">Reservar Medio Formato →</a>
+        </article>
+
+        <article class="service-sheet">
+          <span class="service-code">CARRETE 03 · CRÓNICA COMPLETA</span>
+          <h3>Documental & Matrimonio Analógico</h3>
+          <div class="service-price">$590.000 CLP</div>
+          <ul class="service-list">
+            <li>8 rollos combinados (35mm, Medio Formato 120 y CineStill 800T para la noche).</li>
+            <li>6 horas de cobertura documental pausada y artística.</li>
+            <li>Caja de archivo entelada con 15 copias fine-art y negativos originales.</li>
+            <li>Galería privada online con estética de hoja de contacto para invitados.</li>
+          </ul>
+          <a href="#reservar" class="btn-secondary" style="justify-content: center;">Cotizar Cobertura</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Bitácora / Testimonios de Demostración -->
+    <section class="section-wrap" id="testimonios">
+      <div class="section-header">
+        <div>
+          <span class="section-kicker">NOTAS AL MARGEN · BITÁCORA DE CLIENTES</span>
+          <h2 class="section-title">Experiencias frente al Celuloide</h2>
+        </div>
+      </div>
+
+      <div class="testimonials-grid">
+        <article class="testimonial-note">
+          <span class="demo-tag">[Testimonio de Demostración]</span>
+          <p class="testimonial-quote">
+            "Acostumbrada a sesiones donde disparan mil fotos por minuto, escuchar el clic mecánico de la Hasselblad cambió por completo mi postura. Las 30 fotos del rollo tienen un alma que jamás logré en digital."
+          </p>
+          <div class="testimonial-author">
+            <strong>Clara Valdivieso</strong> · Violonchelista · Rollo Kodak Tri-X 400
+          </div>
+        </article>
+
+        <article class="testimonial-note">
+          <span class="demo-tag">[Testimonio de Demostración]</span>
+          <p class="testimonial-quote">
+            "Recibir la hoja de contacto física con las marcas de lápiz de cera rojo y elegir qué fotograma ampliar en el cuarto oscuro fue una experiencia inolvidable para nuestra marca de cerámica."
+          </p>
+          <div class="testimonial-author">
+            <strong>Taller Gres Austral</strong> · Catálogo Artesanal · Kodak Portra 160
+          </div>
+        </article>
+
+        <article class="testimonial-note">
+          <span class="demo-tag">[Testimonio de Demostración]</span>
+          <p class="testimonial-quote">
+            "Contratamos la cobertura nocturna en CineStill 800T para nuestro aniversario. Los tonos cálidos de las velas y el grano cinematográfico parecen fotogramas de una película de los años 70."
+          </p>
+          <div class="testimonial-author">
+            <strong>Matías & Renata</strong> · Celebración Íntima · Rollo CineStill 800T
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Formulario de Reserva -->
+    <section class="section-wrap" id="reservar" style="border-bottom: none;">
+      <div class="booking-layout">
+        <div>
+          <span class="section-kicker">RESERVA DE ESTUDIO & QUÍMICA</span>
+          <h2 class="section-title" style="margin-bottom: 18px;">Encarga tu Sesión en Película</h2>
+          <p style="color: var(--ink-muted); font-size: 1.12rem; margin-bottom: 24px;">
+            Mantenemos nuestros rollos refrigerados a 4°C para garantizar colores puros. Cuéntanos qué atmósfera buscas y prepararemos el chasis y la emulsión ideal para tu sesión.
+          </p>
+          <div style="background: var(--bg-paper-deep); padding: 20px; border-left: 3px solid var(--accent-amber-dark); font-family: var(--font-mono); font-size: 0.8rem;">
+            <strong>DIRECCIÓN DEL LABORATORIO (FICTICIA):</strong><br />
+            Pasaje Rosal 342, Dpto. B (Subsuelo) · Barrio Lastarria, Santiago.<br />
+            Atención con cita previa para no interrumpir procesos de revelado.
+          </div>
+        </div>
+
+        <div class="booking-form-card">
+          <form id="analogBookingForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="clientName">Nombre Completo</label>
+                <input type="text" id="clientName" class="form-control" placeholder="Ej. Elisa Montes" required />
+              </div>
+              <div class="form-group">
+                <label for="clientEmail">Correo Electrónico</label>
+                <input type="email" id="clientEmail" class="form-control" placeholder="elisa@ejemplo.cl" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="filmStockSelect">Emulsión Preferida</label>
+                <select id="filmStockSelect" class="form-control">
+                  <option value="Kodak Portra 400 (Color Cálido)">Kodak Portra 400 (Color Cálido)</option>
+                  <option value="Ilford HP5 Plus (Blanco y Negro Clásico)">Ilford HP5 Plus (B&N Clásico)</option>
+                  <option value="CineStill 800T (Tungsteno / Nocturno)">CineStill 800T (Tungsteno / Nocturno)</option>
+                  <option value="Asesoría en el estudio">Deseo asesoría del laboratorio</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="cameraFormatSelect">Formato de Cámara</label>
+                <select id="cameraFormatSelect" class="form-control">
+                  <option value="Medio Formato 120 (6x7 / 6x6)">Medio Formato 120 (6x7 / 6x6)</option>
+                  <option value="Paso Universal 35mm">Paso Universal 35mm</option>
+                  <option value="Combo 120 + Polaroid SX-70">Combo 120 + Polaroid SX-70</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="sessionNotes">Notas sobre la sesión o proyecto</label>
+              <textarea id="sessionNotes" rows="3" class="form-control" placeholder="Cuéntanos si prefieres luz natural en locación, retrato en estudio o cobertura documental..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">
+              Registrar Orden de Laboratorio (Demo Interactiva)
+            </button>
+            <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Mesa de Luz (Lightbox Modal) -->
+  <div class="lightbox-modal" id="lightboxModal" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle">
+    <div class="lightbox-sheet">
+      <button type="button" class="lightbox-close" id="lightboxClose">CERRAR [ESC]</button>
+      <div class="lightbox-img-container">
+        <img src="" alt="" id="lightboxImg" />
+      </div>
+      <div class="lightbox-meta">
+        <div>
+          <span class="polaroid-frame-code" id="lightboxFrameCode">#01A</span>
+          <h3 id="lightboxTitle" style="font-size: 1.45rem;">Título del Fotograma</h3>
+        </div>
+        <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--ink-muted);" id="lightboxExif">
+          EXIF Analógico
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div>
+      <strong>HALURO 35mm</strong> · Demostración Interactiva #06 (Estilo Vintage / Analógico) · Catálogo Fotografía KuyénDev.
+    </div>
+    <div>
+      <span>Hecho con oficio en Chile · Todos los testimonios y tarifas son demostrativos.</span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      // Menú móvil
+      const mobileBtn = document.getElementById('mobileMenuBtn');
+      const navLinks = document.getElementById('navLinks');
+      if (mobileBtn && navLinks) {
+        mobileBtn.addEventListener('click', () => {
+          const isOpen = navLinks.classList.toggle('mobile-open');
+          mobileBtn.setAttribute('aria-expanded', String(isOpen));
+          mobileBtn.textContent = isOpen ? 'CERRAR [×]' : 'MENÚ [+]';
+        });
+      }
+
+      // Selector de Emulsión Química en Vivo
+      const emulsionBtns = document.querySelectorAll('[data-set-emulsion]');
+      const emulsionDesc = document.getElementById('emulsionDescription');
+      const activeEmulsionLabel = document.getElementById('activeEmulsionLabel');
+      const descriptions = {
+        portra: {
+          label: 'KODAK PORTRA 400',
+          text: 'Kodak Portra 400: Tonos piel cálidos, latitud de exposición generosa y grano fino orgánico.'
+        },
+        ilford: {
+          label: 'ILFORD HP5 PLUS 400',
+          text: 'Ilford HP5 Plus B&W: Plata pura monocromática, negros profundos y carácter documental clásico.'
+        },
+        cinestill: {
+          label: 'CINESTILL 800T TUNGSTEN',
+          text: 'CineStill 800T: Emulsión de cine balanceada a tungsteno con atmósfera fría y halación cálida.'
+        }
+      };
+
+      emulsionBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const type = btn.getAttribute('data-set-emulsion');
+          document.body.setAttribute('data-emulsion', type);
+          emulsionBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          if (descriptions[type]) {
+            emulsionDesc.textContent = descriptions[type].text;
+            activeEmulsionLabel.textContent = descriptions[type].label;
+          }
+        });
+      });
+
+      // Filtro por Formato de Película
+      const formatTabs = document.querySelectorAll('[data-filter]');
+      const contactFrames = document.querySelectorAll('.contact-frame');
+
+      formatTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          const filter = tab.getAttribute('data-filter');
+          formatTabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+
+          contactFrames.forEach(frame => {
+            const cat = frame.getAttribute('data-category');
+            if (filter === 'todos' || cat === filter) {
+              frame.classList.remove('hidden');
+            } else {
+              frame.classList.add('hidden');
+            }
+          });
+        });
+      });
+
+      // Mesa de Luz (Lightbox)
+      const lightboxModal = document.getElementById('lightboxModal');
+      const lightboxImg = document.getElementById('lightboxImg');
+      const lightboxTitle = document.getElementById('lightboxTitle');
+      const lightboxFrameCode = document.getElementById('lightboxFrameCode');
+      const lightboxExif = document.getElementById('lightboxExif');
+      const lightboxClose = document.getElementById('lightboxClose');
+
+      contactFrames.forEach(frame => {
+        frame.addEventListener('click', () => {
+          const img = frame.getAttribute('data-img');
+          const title = frame.getAttribute('data-title');
+          const code = frame.getAttribute('data-frame');
+          const exif = frame.getAttribute('data-exif');
+
+          lightboxImg.src = img;
+          lightboxImg.alt = title;
+          lightboxTitle.textContent = title;
+          lightboxFrameCode.textContent = code;
+          lightboxExif.textContent = exif;
+          lightboxModal.classList.add('open');
+        });
+      });
+
+      const closeLightbox = () => lightboxModal.classList.remove('open');
+      lightboxClose.addEventListener('click', closeLightbox);
+      lightboxModal.addEventListener('click', (e) => {
+        if (e.target === lightboxModal) closeLightbox();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeLightbox();
+      });
+
+      // Formulario interactivo de demostración
+      const form = document.getElementById('analogBookingForm');
+      const status = document.getElementById('formStatus');
+      if (form && status) {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const name = document.getElementById('clientName').value;
+          const stock = document.getElementById('filmStockSelect').value;
+          const format = document.getElementById('cameraFormatSelect').value;
+          status.style.display = 'block';
+          status.innerHTML = `<strong>✓ ORDEN QUÍMICA #409 REGISTRADA (MODO DEMO):</strong> Gracias, ${name}. Hemos reservado tus rollos de <em>${stock}</em> en <em>${format}</em>. En una implementación real, recibirías la guía de vestuario y horario de luz natural en tu correo.`;
+          form.reset();
+        });
+      }
+    })();
+  </script>
+  <script src="../../js/config/rubros.js"></script>
+  <script src="../../js/demo-viewer-bar.js"></script>
+</body>
+</html>
