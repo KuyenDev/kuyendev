@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="sBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F0FDFA"/>
+      <stop offset="100%" stop-color="#CCFBF1"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#sBg)"/>
+  <circle cx="400" cy="300" r="200" fill="#FFFFFF" opacity="0.7" stroke="#14B8A6" stroke-width="2" stroke-dasharray="6 6"/>
+  <!-- Labios / Sonrisa estética -->
+  <path d="M260 280 C320 230, 480 230, 540 280 C480 380, 320 380, 260 280 Z" fill="#E11D48" opacity="0.85"/>
+  <!-- Arcada dental perfecta blanca -->
+  <path d="M290 280 C340 255, 460 255, 510 280 C480 340, 320 340, 290 280 Z" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2"/>
+  <!-- Separadores sutiles de carillas -->
+  <line x1="400" y1="265" x2="400" y2="325" stroke="#CBD5E1" stroke-width="2"/>
+  <line x1="360" y1="268" x2="360" y2="320" stroke="#CBD5E1" stroke-width="2"/>
+  <line x1="440" y1="268" x2="440" y2="320" stroke="#CBD5E1" stroke-width="2"/>
+  <!-- Brillos estéticos -->
+  <path d="M380 275 Q390 270 395 285" fill="none" stroke="#38BDF8" stroke-width="4" stroke-linecap="round"/>
+  
+  <rect x="180" y="510" width="440" height="50" rx="25" fill="#0F172A"/>
+  <text x="400" y="542" text-anchor="middle" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">Diseño Digital de Sonrisa (DSD) · Carillas 3D</text>
+</svg>

@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>RED SALUD AUSTRAL · Red Clínica Acreditada Fonasa &amp; Isapres</title>
+  <meta name="description" content="Red clínica institucional acreditada por la Superintendencia de Salud. Centros médicos, clínica dental, laboratorio e imagenología con bono electrónico Fonasa e Isapres." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Public+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --corp-blue: #0052CC;
+      --corp-blue-dark: #003E99;
+      --corp-navy: #0F172A;
+      --corp-sky: #38BDF8;
+      --corp-bg: #F8FAFC;
+      --corp-white: #FFFFFF;
+      --corp-border: #E2E8F0;
+      --text-main: #0F172A;
+      --text-muted: #475569;
+      --emerald: #059669;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+      --shadow-card: 0 10px 25px -5px rgba(15, 23, 42, 0.06), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+      --font-display: 'Public Sans', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--corp-bg);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      overflow-x: hidden;
+      padding-bottom: 92px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(1280px, 92%);
+      margin: 0 auto;
+    }
+
+    /* Barra Superior Institucional de Emergencias y Acreditación */
+    .utility-bar {
+      background: var(--corp-navy);
+      color: var(--corp-white);
+      font-size: 0.82rem;
+      padding: 9px 0;
+      border-bottom: 2px solid var(--corp-sky);
+    }
+
+    .utility-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .accreditation-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      color: #E2E8F0;
+    }
+
+    .accreditation-star {
+      background: var(--corp-sky);
+      color: var(--corp-navy);
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.74rem;
+    }
+
+    .utility-links {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 18px;
+      font-weight: 600;
+    }
+
+    .emergency-pill {
+      background: #DC2626;
+      color: #FFFFFF;
+      padding: 3px 10px;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+
+    /* Header Institucional */
+    .site-header {
+      background: var(--corp-white);
+      border-bottom: 1px solid var(--corp-border);
+      position: sticky;
+      top: 0;
+      z-index: 95;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 76px;
+      gap: 20px;
+    }
+
+    .corp-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.22rem;
+      color: var(--corp-navy);
+      letter-spacing: -0.02em;
+    }
+
+    .logo-cross {
+      width: 40px;
+      height: 40px;
+      background: var(--corp-blue);
+      color: var(--corp-white);
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      font-size: 1.35rem;
+      font-weight: 800;
+      box-shadow: inset 0 -3px 0 var(--corp-sky);
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .main-nav a:hover {
+      color: var(--corp-blue);
+    }
+
+    .btn-corp {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 22px;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.9rem;
+      background: var(--corp-blue);
+      color: var(--corp-white);
+      border: 1px solid var(--corp-blue);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-corp:hover {
+      background: var(--corp-blue-dark);
+    }
+
+    .btn-outline {
+      background: var(--corp-white);
+      color: var(--corp-blue);
+      border: 1px solid var(--corp-blue);
+    }
+
+    .btn-outline:hover {
+      background: #EFF6FF;
+    }
+
+    /* Hero Institucional */
+    .hero {
+      background: linear-gradient(135deg, #0F172A 0%, #003380 60%, #0052CC 100%);
+      color: var(--corp-white);
+      padding: 64px 0 92px;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(56, 189, 248, 0.16);
+      border: 1px solid rgba(56, 189, 248, 0.45);
+      color: var(--corp-sky);
+      padding: 6px 14px;
+      border-radius: 99px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.1rem, 3.8vw, 3.3rem);
+      line-height: 1.12;
+      margin-bottom: 18px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      color: #CBD5E1;
+      margin-bottom: 28px;
+      max-width: 600px;
+    }
+
+    .kpi-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .kpi-item strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.65rem;
+      color: var(--corp-sky);
+    }
+
+    .kpi-item span {
+      font-size: 0.82rem;
+      color: #CBD5E1;
+    }
+
+    .hero-visual-card {
+      background: var(--corp-white);
+      color: var(--text-main);
+      padding: 16px;
+      border-radius: var(--radius-md);
+      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
+    }
+
+    .hero-visual-card img {
+      width: 100%;
+      height: 310px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 14px;
+    }
+
+    .insurance-ribbon {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      background: var(--corp-bg);
+      border-radius: 8px;
+      border: 1px solid var(--corp-border);
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    /* Barra Rápida del Portal del Paciente (Overlap) */
+    .quick-portal {
+      margin-top: -46px;
+      position: relative;
+      z-index: 20;
+    }
+
+    .portal-bar {
+      background: var(--corp-white);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--corp-border);
+      box-shadow: var(--shadow-card);
+      padding: 22px 26px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .portal-action {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 12px;
+      border-radius: 8px;
+      transition: background 0.2s ease;
+    }
+
+    .portal-action:hover {
+      background: #EFF6FF;
+    }
+
+    .portal-icon {
+      width: 42px;
+      height: 42px;
+      flex-shrink: 0;
+      border-radius: 8px;
+      background: #EFF6FF;
+      color: var(--corp-blue);
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+    }
+
+    .portal-action h3 {
+      font-family: var(--font-display);
+      font-size: 0.96rem;
+      margin-bottom: 3px;
+    }
+
+    .portal-action p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Secciones */
+    section {
+      padding: 64px 0;
+    }
+
+    .section-head {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+
+    .eyebrow {
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--corp-blue);
+      margin-bottom: 6px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 2.8vw, 2.35rem);
+      color: var(--corp-navy);
+    }
+
+    /* Especialidades con Tabs Corporativos */
+    .dept-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      border-bottom: 2px solid var(--corp-border);
+      margin-bottom: 28px;
+    }
+
+    .dept-tab {
+      padding: 12px 20px;
+      background: transparent;
+      border: none;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      cursor: pointer;
+    }
+
+    .dept-tab.is-active {
+      color: var(--corp-blue);
+      border-bottom-color: var(--corp-blue);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
+      gap: 22px;
+    }
+
+    .service-card {
+      background: var(--corp-white);
+      border: 1px solid var(--corp-border);
+      border-radius: var(--radius-md);
+      padding: 26px;
+      box-shadow: var(--shadow-card);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .fonasa-code {
+      display: inline-block;
+      background: #F1F5F9;
+      color: var(--corp-navy);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+
+    .service-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+
+    .service-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .service-footer {
+      padding-top: 14px;
+      border-top: 1px solid var(--corp-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    /* Experiencia Visual: Simulador de Copago Fonasa / Isapre y Red de Sucursales */
+    .copay-simulator {
+      background: var(--corp-white);
+      border: 1px solid var(--corp-border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-card);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .sim-inputs {
+      padding: 36px;
+      border-right: 1px solid var(--corp-border);
+    }
+
+    .sim-outputs {
+      padding: 36px;
+      background: var(--corp-navy);
+      color: var(--corp-white);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .field-group {
+      margin-bottom: 20px;
+    }
+
+    .field-group label {
+      display: block;
+      font-size: 0.84rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .corp-select,
+    .corp-input {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #CBD5E1;
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      background: var(--corp-white);
+      color: var(--text-main);
+    }
+
+    .copay-box {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 10px;
+      padding: 24px;
+      margin: 18px 0;
+    }
+
+    .copay-price {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--corp-sky);
+    }
+
+    .branch-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .branch-pill {
+      padding: 8px 14px;
+      border-radius: 6px;
+      border: 1px solid var(--corp-border);
+      background: var(--corp-bg);
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .branch-pill.is-active {
+      background: var(--corp-blue);
+      color: var(--corp-white);
+      border-color: var(--corp-blue);
+    }
+
+    /* Directorio Médico y Sucursales con Lightbox */
+    .campus-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 24px;
+    }
+
+    .campus-card {
+      background: var(--corp-white);
+      border: 1px solid var(--corp-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .campus-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .campus-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .campus-body {
+      padding: 20px;
+    }
+
+    .campus-badge {
+      display: inline-block;
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--emerald);
+      background: #ECFDF5;
+      padding: 3px 9px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+
+    /* Testimonios */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 22px;
+    }
+
+    .review-card {
+      background: var(--corp-white);
+      border: 1px solid var(--corp-border);
+      border-top: 4px solid var(--corp-blue);
+      border-radius: var(--radius-md);
+      padding: 26px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .demo-badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      background: #EFF6FF;
+      color: var(--corp-blue);
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+
+    /* Reserva Institucional */
+    .booking-section {
+      background: var(--corp-white);
+      border: 1px solid var(--corp-border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-card);
+      padding: 40px;
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 36px;
+    }
+
+    .form-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .full-col {
+      grid-column: 1 / -1;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.82);
+      z-index: 200;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .lightbox.is-open {
+      display: flex;
+    }
+
+    .lightbox-card {
+      background: var(--corp-white);
+      border-radius: var(--radius-md);
+      max-width: 720px;
+      width: 100%;
+      padding: 24px;
+    }
+
+    .lightbox-card img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 16px;
+    }
+
+    .site-footer {
+      background: var(--corp-navy);
+      color: #94A3B8;
+      padding: 48px 0 36px;
+      margin-top: 48px;
+      font-size: 0.86rem;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .portal-bar,
+      .copay-simulator,
+      .booking-section {
+        grid-template-columns: 1fr;
+      }
+      .main-nav {
+        display: none;
+      }
+      .sim-inputs {
+        border-right: none;
+        border-bottom: 1px solid var(--corp-border);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .form-2col,
+      .kpi-strip {
+        grid-template-columns: 1fr;
+      }
+      .booking-section,
+      .sim-inputs,
+      .sim-outputs {
+        padding: 24px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body data-rubro-id="salud" data-style-id="modern-corporate-healthcare">
+
+  <!-- BARRA SUPERIOR INSTITUCIONAL -->
+  <div class="utility-bar">
+    <div class="container utility-inner">
+      <div class="accreditation-badge">
+        <span class="accreditation-star">★ ACREDITADA</span>
+        <span>Superintendencia de Salud · Estándar de Calidad Asistencial y Dental</span>
+      </div>
+      <div class="utility-links">
+        <span>Convenio Directo I-Med: Fonasa · Isapres · Dipreca</span>
+        <span class="emergency-pill">Urgencia Dental &amp; Médica 24h: 600 820 9000</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER CORPORATIVO -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#inicio" class="corp-logo">
+        <span class="logo-cross">✚</span>
+        <div>
+          <span style="display:block;line-height:1">RED SALUD AUSTRAL</span>
+          <small style="font-size:0.7rem;color:var(--text-muted);font-weight:600">RED CLÍNICA &amp; ODONTOLÓGICA</small>
+        </div>
+      </a>
+      <ul class="main-nav">
+        <li><a href="#prestaciones">Centros &amp; Prestaciones</a></li>
+        <li><a href="#copago">Simulador Bono Fonasa/Isapre</a></li>
+        <li><a href="#red-clinica">Directorio &amp; Sedes</a></li>
+        <li><a href="#pacientes">Testimonios</a></li>
+        <li><a href="#agendar">Reserva Online</a></li>
+      </ul>
+      <a href="#agendar" class="btn-corp">Reservar Hora con RUT</a>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <!-- HERO CORPORATIVO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="hero-tag">
+            <span>●</span>
+            <span>8 Centros Médicos y Clínicas Dentales Conectados en Red</span>
+          </div>
+          <h1>Respaldo clínico institucional al alcance de tu previsión.</h1>
+          <p>
+            En <strong>RED SALUD AUSTRAL</strong> integramos consultas de especialidades, clínica odontológica avanzada, imagenología digital 3D y laboratorio clínico con emisión de Bono Electrónico I-Med en recepción.
+          </p>
+          <div style="display:flex;flex-wrap:wrap;gap:14px;margin-bottom:32px">
+            <a href="#agendar" class="btn-corp" style="background:var(--corp-sky);color:var(--corp-navy);border-color:var(--corp-sky)">Agendar Hora Médica o Dental</a>
+            <a href="#copago" class="btn-corp" style="background:transparent;border-color:#94A3B8">Calcular Copago Fonasa / Isapre</a>
+          </div>
+          <div class="kpi-strip">
+            <div class="kpi-item">
+              <strong>+420</strong>
+              <span>Médicos y Cirujanos Dentistas Acreditados</span>
+            </div>
+            <div class="kpi-item">
+              <strong>100%</strong>
+              <span>Bonificación Electrónica Huella I-Med</span>
+            </div>
+            <div class="kpi-item">
+              <strong>12 min</strong>
+              <span>Tiempo Promedio de Admisión Digital</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual-card">
+          <img
+            src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1200&q=85"
+            alt="Edificio institucional y recepción de RED SALUD AUSTRAL"
+            onerror="this.onerror=null;this.src='../../images/demos/assets/med/clinic-reception.svg';"/>
+          <div class="insurance-ribbon">
+            <span style="color:var(--corp-blue)">✓ FONASA PAD &amp; MLE</span>
+            <span>✓ COLMENA</span>
+            <span>✓ BANMÉDICA</span>
+            <span>✓ CONSALUD</span>
+            <span>✓ CRUZBLANCA</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACCESOS RÁPIDOS PORTAL DEL PACIENTE -->
+    <div class="container quick-portal">
+      <div class="portal-bar">
+        <a href="#agendar" class="portal-action">
+          <div class="portal-icon">01</div>
+          <div>
+            <h3>Reserva por Especialidad</h3>
+            <p>Agenda médica, dental o kinesiología con disponibilidad en tiempo real.</p>
+          </div>
+        </a>
+        <a href="#copago" class="portal-action">
+          <div class="portal-icon">02</div>
+          <div>
+            <h3>Cotizador de Aranceles</h3>
+            <p>Consulta el valor exacto de tu copago según tramo Fonasa o Isapre.</p>
+          </div>
+        </a>
+        <a href="#prestaciones" class="portal-action">
+          <div class="portal-icon">03</div>
+          <div>
+            <h3>Resultados de Exámenes</h3>
+            <p>Laboratorio, Rayos X panorámicos y Scanner Cone Beam en línea.</p>
+          </div>
+        </a>
+        <a href="#red-clinica" class="portal-action">
+          <div class="portal-icon">04</div>
+          <div>
+            <h3>Red de 8 Sucursales</h3>
+            <p>Estacionamiento gratuito y acceso directo a pasos del Metro.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- PRESTACIONES POR DEPARTAMENTO -->
+    <section id="prestaciones" class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Cartera de Servicios Acreditados</p>
+          <h2 class="section-title">Unidades Clínicas &amp; Códigos Fonasa</h2>
+        </div>
+      </div>
+
+      <div class="dept-tabs" role="tablist" aria-label="Unidades Clínicas">
+        <button type="button" class="dept-tab is-active" data-dept="all">Todas las Unidades (6)</button>
+        <button type="button" class="dept-tab" data-dept="dental">Clínica Odontológica</button>
+        <button type="button" class="dept-tab" data-dept="ambulatorio">Consultas &amp; Especialidades</button>
+        <button type="button" class="dept-tab" data-dept="diagnostico">Imagenología &amp; Laboratorio</button>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-card" data-unit="dental">
+          <div>
+            <span class="fonasa-code">Cód. Fonasa PAD Dental / Convenio</span>
+            <h3>Implantología &amp; Rehabilitación Oral</h3>
+            <p>Implantes de titanio grado médico con guía quirúrgica 3D, coronas de zirconio monolítico y facilidades en 12 cuotas sin interés.</p>
+          </div>
+          <div class="service-footer">
+            <span>Diagnóstico + Escáner: $15.900</span>
+            <a href="#agendar" style="color:var(--corp-blue)">Reservar →</a>
+          </div>
+        </article>
+
+        <article class="service-card" data-unit="dental">
+          <div>
+            <span class="fonasa-code">Bono PAD Fonasa 25-01-015</span>
+            <h3>Odontología General &amp; Endodoncia</h3>
+            <p>Obturaciones estéticas de resina compuesta, tratamiento de conducto mecanizado en una sesión y destartraje ultrasónico.</p>
+          </div>
+          <div class="service-footer">
+            <span>Hasta 60% Bonificación</span>
+            <a href="#agendar" style="color:var(--corp-blue)">Reservar →</a>
+          </div>
+        </article>
+
+        <article class="service-card" data-unit="ambulatorio">
+          <div>
+            <span class="fonasa-code">Cód. Fonasa 01-01-001 MLE</span>
+            <h3>Medicina Interna, Cardiología &amp; Pediatría</h3>
+            <p>Consultas médicas de especialidad con acceso inmediato a electrocardiograma, holter de presión y ficha electrónica unificada.</p>
+          </div>
+          <div class="service-footer">
+            <span>Copago Fonasa desde $6.990</span>
+            <a href="#agendar" style="color:var(--corp-blue)">Reservar →</a>
+          </div>
+        </article>
+
+        <article class="service-card" data-unit="ambulatorio">
+          <div>
+            <span class="fonasa-code">Convenio Ges / Libre Elección</span>
+            <h3>Traumatología &amp; Kinesiología</h3>
+            <p>Gimnasio de rehabilitación musculoesquelética, ondas de choque y recuperación post-quirúrgica con kinesiólogos acreditados.</p>
+          </div>
+          <div class="service-footer">
+            <span>Pack 10 Sesiones Bonificable</span>
+            <a href="#agendar" style="color:var(--corp-blue)">Reservar →</a>
+          </div>
+        </article>
+
+        <article class="service-card" data-unit="diagnostico">
+          <div>
+            <span class="fonasa-code">Cód. Fonasa 04-01-010</span>
+            <h3>Radiología Dental 3D &amp; Mamografía</h3>
+            <p>Tomografía Cone Beam de baja dosis, radiografía panorámica instantánea, ecotomografías Doppler y mamografía digital.</p>
+          </div>
+          <div class="service-footer">
+            <span>Entrega Digital en 20 min</span>
+            <a href="#agendar" style="color:var(--corp-blue)">Reservar →</a>
+          </div>
+        </article>
+
+        <article class="service-card" data-unit="diagnostico">
+          <div>
+            <span class="fonasa-code">Toma de Muestras Lunes a Domingo</span>
+            <h3>Laboratorio Clínico Automatizado</h3>
+            <p>Perfil bioquímico, tiroideo, hemograma, vitamina D y exámenes preoperatorios con resultados en el Portal del Paciente el mismo día.</p>
+          </div>
+          <div class="service-footer">
+            <span>Sin Orden de Ayuno en Tarde</span>
+            <a href="#agendar" style="color:var(--corp-blue)">Reservar →</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- EXPERIENCIA VISUAL INTERACTIVA: SIMULADOR DE COPAGO Y SEDES -->
+    <section id="copago" class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Transparencia Institucional</p>
+          <h2 class="section-title">Simulador de Copago I-Med &amp; Disponibilidad por Sede</h2>
+        </div>
+      </div>
+
+      <div class="copay-simulator">
+        <div class="sim-inputs">
+          <div class="field-group">
+            <label for="simService">1. Selecciona la Prestación Médica o Dental</label>
+            <select id="simService" class="corp-select">
+              <option value="28000">Consulta Especialidad Médica (Cód. 01-01-001)</option>
+              <option value="24000">Evaluación Dental + Radiografía Panorámica Digital</option>
+              <option value="42000">Limpieza Dental Ultrasónica + Profilaxis Completa</option>
+              <option value="185000">Endodoncia Mecanizada Molar + Reconstrucción</option>
+              <option value="35000">Pack Chequeo Laboratorio Preventivo (7 Exámenes)</option>
+            </select>
+          </div>
+
+          <div class="field-group">
+            <label for="simInsurance">2. Selecciona tu Previsión de Salud</label>
+            <select id="simInsurance" class="corp-select">
+              <option value="0.25">Fonasa Libre Elección (Tramo B / C / D con Bono I-Med)</option>
+              <option value="0.20">Isapre en Convenio Preferente (80% Cobertura Plan)</option>
+              <option value="0.10">Isapre + Seguro Complementario Automático (90% Cobertura)</option>
+              <option value="1.00">Particular Arancel Preferente Red Salud Austral</option>
+            </select>
+          </div>
+
+          <div class="field-group" style="margin-bottom:0">
+            <label>3. Sucursal de Preferencia (Tiempo de espera en admisión hoy)</label>
+            <div class="branch-pills">
+              <button type="button" class="branch-pill is-active" data-wait="6 min" data-branch="Sede Providencia (Av. Nueva Providencia 2150)">Providencia</button>
+              <button type="button" class="branch-pill" data-wait="9 min" data-branch="Sede Las Condes (Av. Apoquindo 4800)">Las Condes</button>
+              <button type="button" class="branch-pill" data-wait="5 min" data-branch="Sede Ñuñoa (Av. Irarrázaval 3400)">Ñuñoa</button>
+              <button type="button" class="branch-pill" data-wait="11 min" data-branch="Sede Concepción Centro (Barros Arana 980)">Concepción</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="sim-outputs">
+          <div>
+            <span style="font-size:0.78rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--corp-sky);font-weight:700">Estimación Instantánea I-Med</span>
+            <h3 id="simBranchTitle" style="font-family:var(--font-display);font-size:1.3rem;margin-top:6px">
+              Sede Providencia (Av. Nueva Providencia 2150)
+            </h3>
+            <p style="font-size:0.86rem;color:#CBD5E1;margin-top:4px">
+              Tiempo estimado en recepción con huella digital: <strong id="simWaitTime" style="color:#34D399">6 min</strong>
+            </p>
+
+            <div class="copay-box">
+              <span style="font-size:0.82rem;color:#CBD5E1;display:block">Copago Estimado a Pagar por el Paciente:</span>
+              <div id="simCopayResult" class="copay-price">$7.000 CLP</div>
+              <span id="simListPrice" style="font-size:0.8rem;color:#94A3B8">Arancel Base: $28.000 CLP · Bonificación aplicada con huella</span>
+            </div>
+          </div>
+
+          <a href="#agendar" class="btn-corp" style="background:var(--corp-sky);color:var(--corp-navy);border-color:var(--corp-sky);width:100%">
+            Agendar esta Prestación Ahora
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIRECTORIO MÉDICO E INFRAESTRUCTURA CON LIGHTBOX -->
+    <section id="red-clinica" class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Infraestructura &amp; Cuerpo Médico</p>
+          <h2 class="section-title">Nuestros Centros &amp; Jefes de Servicio (Clic para inspeccionar)</h2>
+        </div>
+      </div>
+
+      <div class="campus-grid">
+        <article class="campus-card" data-title="Centro Médico & Dental Providencia" data-desc="Edificio clínico de 6 pisos con 28 boxes médicos, 14 sillones dentales alemanes Sirona, resonador magnético 1.5T y estacionamiento subterráneo.">
+          <img
+            src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800&q=80"
+            alt="Centro Médico Providencia"
+            onerror="this.onerror=null;this.src='../../images/demos/assets/med/doctor-male-1.svg';"/>
+          <div class="campus-body">
+            <span class="campus-badge">Acreditación Vigente 2024–2028</span>
+            <h3 style="font-family:var(--font-display);font-size:1.15rem;margin-bottom:6px">Torre Clínica Providencia</h3>
+            <p style="font-size:0.86rem;color:var(--text-muted)">28 boxes de especialidad, 14 suites dentales y toma de muestras desde las 07:00 hrs.</p>
+          </div>
+        </article>
+
+        <article class="campus-card" data-title="Dr. Roberto Izquierdo · Especialista Odontológico" data-desc="Médico Internista U. de Chile, Magíster en Gestión en Salud. Lidera los protocolos de seguridad del paciente y acreditación ministerial.">
+          <img
+            src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800&q=80"
+            alt="Dr. Roberto Izquierdo · Especialista Odontológico"
+            onerror="this.onerror=null;this.src='../../images/demos/assets/med/doctor-male-1.svg';"/>
+          <div class="campus-body">
+            <span class="campus-badge">Registro Superintendencia #44812</span>
+            <h3 style="font-family:var(--font-display);font-size:1.15rem;margin-bottom:6px">Dr. Roberto Izquierdo</h3>
+            <p style="font-size:0.86rem;color:var(--text-muted)">Director Médico de Red · Medicina Interna y Chequeos Preventivos Ejecutivos.</p>
+          </div>
+        </article>
+
+        <article class="campus-card" data-title="Dra. Valentina Lagos · Especialista Odontológico" data-desc="Cirujano Dentista especialista en Rehabilitación Oral e Implantología Digital. Coordina los 45 odontólogos de la red con flujo CAD/CAM.">
+          <img
+            src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80"
+            alt="Dra. Valentina Lagos · Especialista Odontológico"
+            onerror="this.onerror=null;this.src='../../images/demos/assets/med/doctor-female-1.svg';"/>
+          <div class="campus-body">
+            <span class="campus-badge">Registro Superintendencia #68219</span>
+            <h3 style="font-family:var(--font-display);font-size:1.15rem;margin-bottom:6px">Dra. Valentina Lagos</h3>
+            <p style="font-size:0.86rem;color:var(--text-muted)">Jefa Nacional de Odontología · Implantes Guiados y Ortodoncia Invisible.</p>
+          </div>
+        </article>
+
+        <article class="campus-card" data-title="Unidad de Imagenología & Scanner Cone Beam 3D" data-desc="Equipamiento de diagnóstico por imágenes de baja radiación integrado en red para que tu médico o dentista visualice la tomografía al instante.">
+          <img
+            src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=85"
+            alt="Unidad de Imagenología Digital"
+            onerror="this.onerror=null;this.src='../../images/demos/assets/med/clinic-box-dental.svg';"/>
+          <div class="campus-body">
+            <span class="campus-badge">PACS Digital en Línea</span>
+            <h3 style="font-family:var(--font-display);font-size:1.15rem;margin-bottom:6px">Centro de Imagenología 3D</h3>
+            <p style="font-size:0.86rem;color:var(--text-muted)">Scanner dental Cone Beam, Ecotomografía y Rayos X con informe en 2 horas.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section id="pacientes" class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Indicadores de Satisfacción</p>
+          <h2 class="section-title">Opiniones de Pacientes de la Red</h2>
+        </div>
+      </div>
+
+      <div class="reviews-grid">
+        <article class="review-card">
+          <span class="demo-badge">[Testimonio Ficticio de Demostración]</span>
+          <p style="font-size:0.94rem;margin-bottom:14px">
+            “Me realicé el diagnóstico dental con radiografía panorámica en la sede Providencia. Puse mi huella en el tótem I-Med, pagué solo el copago de mi Isapre y en 15 minutos ya tenía mi presupuesto claro.”
+          </p>
+          <strong style="font-size:0.86rem;color:var(--corp-navy)">Gonzalo Herrera · Paciente Clínica Dental Providencia</strong>
+        </article>
+
+        <article class="review-card">
+          <span class="demo-badge">[Testimonio Ficticio de Demostración]</span>
+          <p style="font-size:0.94rem;margin-bottom:14px">
+            “Excelente coordinación entre el laboratorio y el médico internista. Me tomé las muestras a las 07:30 am con Fonasa y en la tarde el doctor ya tenía todos los gráficos en su pantalla.”
+          </p>
+          <strong style="font-size:0.86rem;color:var(--corp-navy)">María Teresa Soto · Paciente Fonasa Tramo C</strong>
+        </article>
+
+        <article class="review-card">
+          <span class="demo-badge">[Testimonio Ficticio de Demostración]</span>
+          <p style="font-size:0.94rem;margin-bottom:14px">
+            “Llevé a mi hijo a Urgencia Dental un domingo a las 21:00 hrs por una fractura incisiva. Nos atendieron de inmediato y el seguro escolar se activó en la misma admisión.”
+          </p>
+          <strong style="font-size:0.86rem;color:var(--corp-navy)">Claudio Rojas · Padre de paciente pediátrico</strong>
+        </article>
+      </div>
+    </section>
+
+    <!-- RESERVA INSTITUCIONAL -->
+    <section id="agendar" class="container">
+      <div class="booking-section">
+        <div>
+          <p class="eyebrow">Admisión &amp; Agenda Central</p>
+          <h2 class="section-title" style="margin-bottom:12px">Reserva de Horas Médicas, Dentales y Exámenes</h2>
+          <p style="font-size:0.94rem;color:var(--text-muted);margin-bottom:20px">
+            Ingresa los datos del paciente para bloquear tu bloque horario en cualquiera de nuestras 8 sucursales o en modalidad Telemedicina.
+          </p>
+          <div style="background:var(--corp-bg);padding:18px;border-radius:8px;border:1px solid var(--corp-border);font-size:0.85rem">
+            <strong style="display:block;color:var(--corp-navy);margin-bottom:6px">Respaldo de Acreditación Sanitaria:</strong>
+            Todos nuestros profesionales cuentan con inscripción verificada en el Registro Nacional de Prestadores Individuales de Salud (Superintendencia de Salud de Chile).
+          </div>
+        </div>
+
+        <form id="corpBookingForm">
+          <div style="background:#EFF6FF;border:1px solid #BFDBFE;color:#1E3A8A;padding:12px 16px;border-radius:8px;font-size:0.82rem;font-weight:600;margin-bottom:16px">
+            ℹ️ <strong>Demostración Interactiva:</strong> Este formulario opera localmente como demostración de diseño institucional y no transmite datos reales.
+          </div>
+
+          <div class="form-2col">
+            <div>
+              <label for="cName" style="display:block;font-size:0.82rem;font-weight:700;margin-bottom:6px">Nombre Completo Paciente</label>
+              <input type="text" id="cName" class="corp-input" placeholder="Ej: Jorge Contreras Díaz" required />
+            </div>
+            <div>
+              <label for="cRut" style="display:block;font-size:0.82rem;font-weight:700;margin-bottom:6px">RUT Paciente</label>
+              <input type="text" id="cRut" class="corp-input" placeholder="14.230.980-4" required />
+            </div>
+            <div>
+              <label for="cBranch" style="display:block;font-size:0.82rem;font-weight:700;margin-bottom:6px">Sucursal Red Salud Austral</label>
+              <select id="cBranch" class="corp-select">
+                <option value="Sede Providencia">Sede Providencia (Metro Los Leones)</option>
+                <option value="Sede Las Condes">Sede Las Condes (Metro Escuela Militar)</option>
+                <option value="Sede Ñuñoa">Sede Ñuñoa (Plaza Ñuñoa)</option>
+                <option value="Sede Concepción">Sede Concepción Centro</option>
+              </select>
+            </div>
+            <div>
+              <label for="cArea" style="display:block;font-size:0.82rem;font-weight:700;margin-bottom:6px">Unidad Clínica</label>
+              <select id="cArea" class="corp-select">
+                <option value="Clínica Dental e Implantología">Clínica Dental e Implantología</option>
+                <option value="Consulta Especialidad Médica">Consulta Especialidad Médica</option>
+                <option value="Laboratorio / Toma de Muestras">Laboratorio / Toma de Muestras</option>
+                <option value="Imagenología / Scanner 3D">Imagenología / Scanner 3D</option>
+              </select>
+            </div>
+            <div>
+              <label for="cPrevision" style="display:block;font-size:0.82rem;font-weight:700;margin-bottom:6px">Previsión</label>
+              <select id="cPrevision" class="corp-select">
+                <option value="Fonasa (Bono Electrónico)">Fonasa (Bono Electrónico I-Med)</option>
+                <option value="Isapre en Convenio">Isapre en Convenio</option>
+                <option value="Particular / Dipreca">Particular / Dipreca / Capredena</option>
+              </select>
+            </div>
+            <div>
+              <label for="cDate" style="display:block;font-size:0.82rem;font-weight:700;margin-bottom:6px">Fecha de Atención</label>
+              <input type="date" id="cDate" class="corp-input" required />
+            </div>
+            <div class="full-col">
+              <button type="submit" class="btn-corp" style="width:100%;padding:14px;font-size:0.96rem">
+                Emitir Comprobante de Reserva (Modo Demostración)
+              </button>
+            </div>
+          </div>
+
+          <div id="corpFeedback" style="display:none;margin-top:16px;padding:16px;background:#ECFDF5;border:1px solid #6EE7B7;color:#065F46;border-radius:8px;font-weight:700;font-size:0.88rem;" role="status"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-labelledby="lbTitle">
+    <div class="lightbox-card">
+      <img id="lbImg" src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=85" alt="Detalle institucional" onerror="this.onerror=null;this.src='../../images/demos/assets/med/clinic-box-dental.svg';"/>
+      <h3 id="lbTitle" style="font-family:var(--font-display);font-size:1.3rem;margin-bottom:8px"></h3>
+      <p id="lbDesc" style="color:var(--text-muted);font-size:0.92rem;margin-bottom:18px"></p>
+      <button type="button" id="lbClose" class="btn-corp">Cerrar Ficha</button>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px">
+      <div>
+        <strong style="color:#FFFFFF;font-family:var(--font-display);font-size:1.05rem">RED SALUD AUSTRAL · Red Clínica Acreditada Fonasa &amp; Isapres</strong>
+        <p style="margin-top:6px">Demostración interactiva Estilo #17 (Modern Corporate Healthcare) desarrollada por KuyénDev.</p>
+      </div>
+      <div>
+        <span>Mesa Central 24/7: 600 820 9000 · Derechos y Deberes del Paciente Ley 20.584</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      // Filtro de Unidades Clínicas
+      const deptTabs = document.querySelectorAll('.dept-tab');
+      const serviceCards = document.querySelectorAll('.service-card');
+      deptTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          deptTabs.forEach(t => t.classList.remove('is-active'));
+          tab.classList.add('is-active');
+          const d = tab.dataset.dept;
+          serviceCards.forEach(card => {
+            card.style.display = (d === 'all' || card.dataset.unit === d) ? 'flex' : 'none';
+          });
+        });
+      });
+
+      // Simulador de Copago Fonasa / Isapre
+      const simService = document.getElementById('simService');
+      const simInsurance = document.getElementById('simInsurance');
+      const simCopayResult = document.getElementById('simCopayResult');
+      const simListPrice = document.getElementById('simListPrice');
+      const branchPills = document.querySelectorAll('.branch-pill');
+      const simBranchTitle = document.getElementById('simBranchTitle');
+      const simWaitTime = document.getElementById('simWaitTime');
+
+      function updateCopay() {
+        const base = parseInt(simService.value, 10);
+        const factor = parseFloat(simInsurance.value);
+        const copay = Math.round(base * factor);
+        simCopayResult.textContent = '$' + copay.toLocaleString('es-CL') + ' CLP';
+        simListPrice.textContent = `Arancel Base: $${base.toLocaleString('es-CL')} CLP · Bonificación electrónica I-Med`;
+      }
+
+      simService.addEventListener('change', updateCopay);
+      simInsurance.addEventListener('change', updateCopay);
+
+      branchPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          branchPills.forEach(p => p.classList.remove('is-active'));
+          pill.classList.add('is-active');
+          simBranchTitle.textContent = pill.dataset.branch;
+          simWaitTime.textContent = pill.dataset.wait;
+        });
+      });
+
+      // Lightbox
+      const lightbox = document.getElementById('lightbox');
+      const lbImg = document.getElementById('lbImg');
+      const lbTitle = document.getElementById('lbTitle');
+      const lbDesc = document.getElementById('lbDesc');
+      const lbClose = document.getElementById('lbClose');
+
+      document.querySelectorAll('.campus-card').forEach(card => {
+        card.addEventListener('click', () => {
+          const img = card.querySelector('img');
+          lbImg.src = img.src;
+          lbImg.alt = img.alt;
+          lbTitle.textContent = card.dataset.title;
+          lbDesc.textContent = card.dataset.desc;
+          lightbox.classList.add('is-open');
+        });
+      });
+
+      lbClose.addEventListener('click', () => lightbox.classList.remove('is-open'));
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) lightbox.classList.remove('is-open');
+      });
+
+      // Formulario de Reserva
+      const form = document.getElementById('corpBookingForm');
+      const feedback = document.getElementById('corpFeedback');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('cName').value;
+        const branch = document.getElementById('cBranch').value;
+        const area = document.getElementById('cArea').value;
+        const prev = document.getElementById('cPrevision').value;
+        feedback.style.display = 'block';
+        feedback.textContent = `✓ [Reserva Demostrativa #RSA-8492] Paciente: ${name} · Unidad: ${area} en ${branch} (${prev}). Recibirás confirmación SMS simulada.`;
+        form.reset();
+      });
+    })();
+  </script>
+  <script src="../../js/config/rubros.js"></script>
+  <script src="../../js/demo-viewer-bar.js"></script>
+</body>
+</html>

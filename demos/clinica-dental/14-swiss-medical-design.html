@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>ZÜRICH KLINIK · Instituto Clínico de Precisión & Urgencias Médicas</title>
+  <meta name="description" content="Instituto médico y traumatológico bajo estándar suizo de precisión clínica, triaje transparente en tiempo real y cirugía ambulatoria.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --white: #FFFFFF;
+      --black: #0A0A0A;
+      --swiss-red: #E11D48;
+      --gray-bg: #F9FAFB;
+      --gray-mid: #52525B;
+      --border: 1px solid #0A0A0A;
+      --font-grotesk: 'Space Grotesk', sans-serif;
+      --font-sans: 'Inter', system-ui, sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--white);
+      color: var(--black);
+      font-family: var(--font-sans);
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    .swiss-frame {
+      max-width: 1400px;
+      margin: 0 auto;
+      border-left: var(--border);
+      border-right: var(--border);
+    }
+
+    /* Swiss Header */
+    .swiss-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: var(--border);
+      display: grid;
+      grid-template-columns: 280px 1fr 240px;
+    }
+    .sh-brand {
+      padding: 1.1rem 1.5rem;
+      border-right: var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--black);
+      font-family: var(--font-grotesk);
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: -0.03em;
+    }
+    .swiss-cross {
+      width: 28px;
+      height: 28px;
+      background: var(--swiss-red);
+      position: relative;
+      flex-shrink: 0;
+    }
+    .swiss-cross::before, .swiss-cross::after {
+      content: '';
+      position: absolute;
+      background: var(--white);
+    }
+    .swiss-cross::before {
+      width: 16px; height: 6px; top: 11px; left: 6px;
+    }
+    .swiss-cross::after {
+      width: 6px; height: 16px; top: 6px; left: 11px;
+    }
+    .sh-nav {
+      display: flex;
+      align-items: center;
+      padding: 0 1.5rem;
+      gap: 2rem;
+      list-style: none;
+      font-size: 0.84rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .sh-nav a {
+      color: var(--black);
+      text-decoration: none;
+    }
+    .sh-nav a:hover { color: var(--swiss-red); }
+    .sh-cta {
+      border-left: var(--border);
+      background: var(--swiss-red);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-family: var(--font-grotesk);
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: background 0.15s;
+    }
+    .sh-cta:hover { background: var(--black); }
+
+    /* Hero Grid 12 Columns */
+    .swiss-hero {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      border-bottom: var(--border);
+    }
+    .hero-index-col {
+      grid-column: span 2;
+      border-right: var(--border);
+      padding: 2rem 1.5rem;
+      background: var(--gray-bg);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      font-family: var(--font-grotesk);
+    }
+    .big-num {
+      font-size: 3.5rem;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--swiss-red);
+    }
+    .hero-main-col {
+      grid-column: span 6;
+      border-right: var(--border);
+      padding: 3.5rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .hero-main-col h1 {
+      font-family: var(--font-grotesk);
+      font-size: clamp(2.3rem, 4.2vw, 4rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .hero-main-col p {
+      font-size: 1.05rem;
+      color: var(--gray-mid);
+      max-width: 48ch;
+      margin-bottom: 2rem;
+    }
+    .hero-img-col {
+      grid-column: span 4;
+      display: flex;
+      flex-direction: column;
+    }
+    .hero-img-wrap {
+      flex: 1;
+      min-height: 360px;
+      border-bottom: var(--border);
+      overflow: hidden;
+      background: var(--gray-bg);
+    }
+    .hero-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: contrast(1.06);
+      display: block;
+    }
+    .hero-kpi-strip {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .kpi-cell {
+      padding: 1.25rem;
+      border-right: var(--border);
+    }
+    .kpi-cell:last-child { border-right: none; }
+    .kpi-cell strong {
+      font-family: var(--font-grotesk);
+      font-size: 1.8rem;
+      display: block;
+      line-height: 1;
+    }
+    .kpi-cell span {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--gray-mid);
+    }
+
+    .btn-swiss {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.9rem 1.6rem;
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--font-grotesk);
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      border: var(--border);
+      cursor: pointer;
+    }
+    .btn-swiss-red {
+      background: var(--swiss-red);
+      border-color: var(--swiss-red);
+    }
+
+    /* Section Header Bar */
+    .sec-bar {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      border-bottom: var(--border);
+      background: var(--gray-bg);
+    }
+    .sec-bar-num {
+      padding: 1.5rem;
+      border-right: var(--border);
+      font-family: var(--font-grotesk);
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--swiss-red);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .sec-bar-title {
+      padding: 1.5rem 2.5rem;
+      font-family: var(--font-grotesk);
+      font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+    }
+
+    /* Interactive Visual Experience: Swiss Triage & Wait-Time Matrix */
+    .triage-grid {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      border-bottom: var(--border);
+    }
+    .triage-selector {
+      border-right: var(--border);
+      display: flex;
+      flex-direction: column;
+    }
+    .esi-btn {
+      padding: 1.25rem 1.5rem;
+      border: none;
+      border-bottom: var(--border);
+      background: var(--white);
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-grotesk);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+    .esi-btn:last-child { border-bottom: none; }
+    .esi-btn.active {
+      background: var(--black);
+      color: var(--white);
+    }
+    .esi-badge {
+      padding: 0.2rem 0.55rem;
+      font-size: 0.72rem;
+      background: var(--swiss-red);
+      color: var(--white);
+    }
+    .triage-display {
+      padding: 2.5rem;
+      background: var(--white);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+    .triage-clock {
+      border: var(--border);
+      padding: 2rem;
+      background: var(--gray-bg);
+    }
+    .triage-clock small {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gray-mid);
+      display: block;
+    }
+    .triage-clock strong {
+      font-family: var(--font-grotesk);
+      font-size: 3.4rem;
+      line-height: 1;
+      color: var(--swiss-red);
+      display: block;
+      margin: 0.5rem 0;
+    }
+
+    /* Especialidades Suizas */
+    .units-matrix {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-bottom: var(--border);
+    }
+    .unit-cell {
+      padding: 2.25rem;
+      border-right: var(--border);
+      border-bottom: var(--border);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.25rem;
+    }
+    .unit-cell:nth-child(3n) { border-right: none; }
+    .unit-code {
+      font-family: var(--font-grotesk);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--swiss-red);
+      letter-spacing: 0.08em;
+    }
+    .unit-cell h3 {
+      font-family: var(--font-grotesk);
+      font-size: 1.3rem;
+      text-transform: uppercase;
+    }
+    .unit-cell p {
+      font-size: 0.9rem;
+      color: var(--gray-mid);
+    }
+
+    /* Directorio e Instalaciones con Lightbox */
+    .docs-swiss-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-bottom: var(--border);
+    }
+    .doc-swiss-cell {
+      border-right: var(--border);
+      cursor: pointer;
+      background: var(--white);
+    }
+    .doc-swiss-cell:last-child { border-right: none; }
+    .doc-swiss-cell img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      border-bottom: var(--border);
+      display: block;
+    }
+    .doc-swiss-meta { padding: 1.5rem; }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 10, 10, 0.88);
+      z-index: 250;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox-swiss {
+      background: var(--white);
+      border: 2px solid var(--black);
+      max-width: 740px;
+      width: 100%;
+    }
+    .lightbox-swiss img {
+      width: 100%;
+      max-height: 420px;
+      object-fit: cover;
+      border-bottom: var(--border);
+    }
+
+    /* Testimonios + Reserva */
+    .bottom-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: var(--border);
+    }
+    .testi-pane {
+      padding: 2.5rem;
+      border-right: var(--border);
+      background: var(--gray-bg);
+    }
+    .swiss-quote {
+      border: var(--border);
+      background: var(--white);
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .swiss-tag {
+      display: inline-block;
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--font-grotesk);
+      font-size: 0.7rem;
+      padding: 0.2rem 0.5rem;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+    }
+    .form-pane { padding: 2.5rem; }
+    .s-field { margin-bottom: 1rem; }
+    .s-field label {
+      display: block;
+      font-family: var(--font-grotesk);
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+    .s-field input, .s-field select {
+      width: 100%;
+      padding: 0.8rem;
+      border: var(--border);
+      font-family: var(--font-sans);
+      font-size: 0.92rem;
+      background: var(--white);
+    }
+    .swiss-feedback {
+      display: none;
+      margin-top: 1rem;
+      padding: 1rem;
+      border: var(--border);
+      background: var(--gray-bg);
+      font-family: var(--font-grotesk);
+      font-size: 0.85rem;
+      color: var(--swiss-red);
+      font-weight: 700;
+    }
+
+    footer {
+      padding: 2rem 2.5rem 5rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-family: var(--font-grotesk);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 980px) {
+      .swiss-header, .swiss-hero, .sec-bar, .triage-grid, .triage-display, .units-matrix, .docs-swiss-grid, .bottom-split {
+        grid-template-columns: 1fr;
+      }
+      .sh-nav { display: none; }
+      .hero-index-col, .hero-main-col, .hero-img-col { grid-column: span 1; border-right: none; border-bottom: var(--border); }
+      .unit-cell, .doc-swiss-cell, .testi-pane { border-right: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body data-rubro-id="salud" data-style-id="swiss-medical-design">
+
+  <div class="swiss-frame">
+    <header class="swiss-header">
+      <a href="#" class="sh-brand">
+        <span class="swiss-cross" aria-hidden="true"></span>
+        <span>ZÜRICH KLINIK</span>
+      </a>
+      <ul class="sh-nav">
+        <li><a href="#triaje">01 / Triaje En Vivo</a></li>
+        <li><a href="#unidades">02 / Unidades</a></li>
+        <li><a href="#directorio">03 / Pabellones</a></li>
+        <li><a href="#admision">04 / Admisión</a></li>
+      </ul>
+      <a href="#admision" class="sh-cta">Urgencia & Citas →</a>
+    </header>
+
+    <main>
+      <!-- HERO SUIZO -->
+      <section class="swiss-hero">
+        <div class="hero-index-col">
+          <div>
+            <div class="big-num">01</div>
+            <div style="font-size:0.78rem;font-weight:700;text-transform:uppercase;margin-top:0.5rem">GRID SYSTEM // CLÍNICA DE PRECISIÓN</div>
+          </div>
+          <div style="font-size:0.75rem;color:var(--gray-mid)">
+            NORMA ISO 9001:2015<br>
+            TRIAJE MANCHESTER<br>
+            CIRUGÍA MAXILOFACIAL & TRAUMA
+          </div>
+        </div>
+
+        <div class="hero-main-col">
+          <div>
+            <h1>Medicina exacta. Cero demora innecesaria.</h1>
+            <p>Aplicamos el sistema hospitalario suizo de estandarización clínica: tiempos de atención auditados al minuto, protocolos quirúrgicos verificados por doble lista de chequeo y aranceles publicados antes de ingresar al box.</p>
+          </div>
+          <div style="display:flex;gap:1rem;flex-wrap:wrap">
+            <a href="#admision" class="btn-swiss btn-swiss-red">Agendar Consulta Exacta</a>
+            <a href="#triaje" class="btn-swiss">Ver Monitor de Triaje</a>
+          </div>
+        </div>
+
+        <div class="hero-img-col">
+          <div class="hero-img-wrap">
+            <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=85"
+                 alt="Arquitectura clínica suiza Zürich Klinik"
+                 onerror="this.onerror=null;this.src='../../images/demos/assets/med/clinic-box-dental.svg'">
+          </div>
+          <div class="hero-kpi-strip">
+            <div class="kpi-cell">
+              <strong>06 MIN</strong>
+              <span>Tiempo Medio Triaje Urgencia</span>
+            </div>
+            <div class="kpi-cell">
+              <strong>100%</strong>
+              <span>Trazabilidad Quirúrgica</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 01 / SECCIÓN INTERACTIVA: MONITOR SUIZO DE TRIAJE Y TIEMPOS -->
+      <section id="triaje">
+        <div class="sec-bar">
+          <div class="sec-bar-num">SECCIÓN 01 // LIVE DATA</div>
+          <h2 class="sec-bar-title">Tablero Interactivo de Triaje & Tiempos de Atención</h2>
+        </div>
+
+        <div class="triage-grid">
+          <div class="triage-selector" role="tablist" aria-label="Niveles de prioridad clínica">
+            <button type="button" class="esi-btn active" data-esi="1" role="tab" aria-selected="true">
+              <span>NIVEL 01 · URGENCIA MAXILOFACIAL / TRAUMA</span>
+              <span class="esi-badge">INMEDIATO</span>
+            </button>
+            <button type="button" class="esi-btn" data-esi="2" role="tab" aria-selected="false">
+              <span>NIVEL 02 · DOLOR AGUDO / INFECCIÓN</span>
+              <span class="esi-badge">11 MIN</span>
+            </button>
+            <button type="button" class="esi-btn" data-esi="3" role="tab" aria-selected="false">
+              <span>NIVEL 03 · CONSULTA ESPECIALISTA PROGRAMADA</span>
+              <span class="esi-badge">00 MIN ESPERA</span>
+            </button>
+            <button type="button" class="esi-btn" data-esi="4" role="tab" aria-selected="false">
+              <span>NIVEL 04 · IMAGENOLOGÍA & LABORATORIO</span>
+              <span class="esi-badge">08 MIN</span>
+            </button>
+          </div>
+
+          <div class="triage-display" aria-live="polite">
+            <div class="triage-clock">
+              <small>TIEMPO MÁXIMO GARANTIZADO EN BOX</small>
+              <strong id="triageTime">00:04 MIN</strong>
+              <span id="triageCode" style="font-family:var(--font-grotesk);font-size:0.82rem;font-weight:700">PROTOCOLO SUIZO ESI-1 // BOX QUIRÚRGICO A-02</span>
+            </div>
+            <div>
+              <h3 id="triageTitle" style="font-family:var(--font-grotesk);font-size:1.5rem;text-transform:uppercase;margin-bottom:0.75rem">Trauma Dental, Fractura Alveolar & Urgencia Médica</h3>
+              <p id="triageDesc" style="color:var(--gray-mid);font-size:0.95rem;margin-bottom:1rem">Ingreso directo sin paso por recepción administrativa. Equipo de cirujano maxilofacial, urgenciólogo y radiología Cone-Beam activado simultáneamente.</p>
+              <div style="font-family:var(--font-grotesk);font-size:0.82rem;border-top:var(--border);padding-top:0.75rem">
+                ARANCEL BASE PUBLICADO: <strong id="triagePrice">$48.000 CLP (Bonificación Inmediata I-Med)</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 02 / UNIDADES -->
+      <section id="unidades">
+        <div class="sec-bar">
+          <div class="sec-bar-num">SECCIÓN 02 // UNIDADES</div>
+          <h2 class="sec-bar-title">Departamentos Clínicos Estandarizados</h2>
+        </div>
+
+        <div class="units-matrix">
+          <article class="unit-cell">
+            <span class="unit-code">DEPT // ZK-01</span>
+            <h3>Cirugía Maxilofacial & Implantología Suiza</h3>
+            <p>Implantes de titanio-zirconio Straumann con carga inmediata guiada por computadora y sedación endovenosa monitorizada.</p>
+          </article>
+          <article class="unit-cell">
+            <span class="unit-code">DEPT // ZK-02</span>
+            <h3>Urgencia Médica & Traumatológica</h3>
+            <p>Resolución rápida de fracturas, suturas plásticas, esguinces y cuadros agudos con radiología digital en el mismo piso.</p>
+          </article>
+          <article class="unit-cell">
+            <span class="unit-code">DEPT // ZK-03</span>
+            <h3>Medicina Interna & Chequeo Ejecutivo</h3>
+            <p>Diagnóstico diferencial basado en evidencia con paneles bioquímicos procesados en nuestro laboratorio robotizado.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- 03 / DIRECTORIO E INSTALACIONES CON LIGHTBOX -->
+      <section id="directorio">
+        <div class="sec-bar">
+          <div class="sec-bar-num">SECCIÓN 03 // INFRAESTRUCTURA</div>
+          <h2 class="sec-bar-title">Pabellones & Jefaturas Médicas (Click para Ampliar)</h2>
+        </div>
+
+        <div class="docs-swiss-grid">
+          <article class="doc-swiss-cell" tabindex="0"
+                   data-title="Pabellón de Cirugía Ambulatoria Flujo Laminar ISO-5"
+                   data-sub="Esterilización central trazable por código de barras y presión positiva continua."
+                   data-img="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=85">
+            <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800&q=80" alt="Dr. Lukas Weber · Especialista Odontológico"
+                 onerror="this.onerror=null;this.src='../../images/demos/assets/med/doctor-male-1.svg'">
+            <div class="doc-swiss-meta">
+              <span class="unit-code">JEFE QUIRÚRGICO // ZK-A1</span>
+              <h3 style="font-family:var(--font-grotesk);margin:0.3rem 0">Dr. Lukas Weber</h3>
+              <p style="font-size:0.86rem;color:var(--gray-mid)">Cirujano Maxilofacial · Formación Universitätsspital Zürich.</p>
+            </div>
+          </article>
+
+          <article class="doc-swiss-cell" tabindex="0"
+                   data-title="Dra. Elena Vogel · Especialista Odontológico"
+                   data-sub="Tomografía computarizada y radiología digital directa con entrega en 15 minutos."
+                   data-img="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80">
+            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80" alt="Dra. Elena Vogel · Especialista Odontológico"
+                 onerror="this.onerror=null;this.src='../../images/demos/assets/med/doctor-female-1.svg'">
+            <div class="doc-swiss-meta">
+              <span class="unit-code">JEFA DE URGENCIAS // ZK-A2</span>
+              <h3 style="font-family:var(--font-grotesk);margin:0.3rem 0">Dra. Elena Vogel</h3>
+              <p style="font-size:0.86rem;color:var(--gray-mid)">Especialista en Medicina de Urgencia y Triaje de Alta Eficiencia.</p>
+            </div>
+          </article>
+
+          <article class="doc-swiss-cell" tabindex="0"
+                   data-title="Dr. Andrés · Especialista Odontológico"
+                   data-sub="Resultados de troponina, hemograma y PCR cuantitativa en menos de 25 minutos."
+                   data-img="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=800&q=80">
+            <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=800&q=80" alt="Dr. Andrés · Especialista Odontológico"
+                 onerror="this.onerror=null;this.src='../../images/demos/assets/med/doctor-male-2.svg'">
+            <div class="doc-swiss-meta">
+              <span class="unit-code">MEDICINA INTERNA // ZK-A3</span>
+              <h3 style="font-family:var(--font-grotesk);margin:0.3rem 0">Dr. AndrésBrunner</h3>
+              <p style="font-size:0.86rem;color:var(--gray-mid)">Médico Internista · Auditor de Calidad y Seguridad del Paciente.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 04 / TESTIMONIOS Y ADMISIÓN -->
+      <section class="bottom-split" id="admision">
+        <div class="testi-pane">
+          <div class="unit-code" style="margin-bottom:0.5rem">AUDITORÍA DE PACIENTES</div>
+          <h2 style="font-family:var(--font-grotesk);font-size:1.75rem;text-transform:uppercase;margin-bottom:1.5rem">Registros de Atención</h2>
+
+          <div class="swiss-quote">
+            <span class="swiss-tag">[Testimonio Ficticio de Demostración]</span>
+            <p style="font-size:0.93rem;margin-bottom:0.75rem">"Ingresé con una fractura coronaria por accidente en bicicleta. A los 4 minutos estaba en radiología y a los 35 minutos el Dr. Weber ya había reconstruido la pieza. Puntualidad suiza real."</p>
+            <strong style="font-family:var(--font-grotesk);font-size:0.8rem">CASO #ZK-409 · Felipe A., 39 años · Urgencia Dental</strong>
+          </div>
+
+          <div class="swiss-quote" style="margin-bottom:0">
+            <span class="swiss-tag">[Testimonio Ficticio de Demostración]</span>
+            <p style="font-size:0.93rem;margin-bottom:0.75rem">"Lo que más valoro es que conoces el presupuesto exacto y desglosado antes de cualquier procedimiento, y la hora agendada a las 09:00 comienza exactamente a las 09:00."</p>
+            <strong style="font-family:var(--font-grotesk);font-size:0.8rem">CASO #ZK-512 · Claudia R., 47 años · Implantología Straumann</strong>
+          </div>
+        </div>
+
+        <div class="form-pane">
+          <div class="unit-code" style="margin-bottom:0.5rem">SECCIÓN 04 // FORMULARIO DE ADMISIÓN</div>
+          <h2 style="font-family:var(--font-grotesk);font-size:1.75rem;text-transform:uppercase;margin-bottom:0.75rem">Registro Digital de Cita</h2>
+          <p style="font-size:0.85rem;color:var(--gray-mid);margin-bottom:1.25rem">
+            <strong>Aviso de Demostración:</strong> Este formulario es una simulación interactiva del lado del cliente.
+          </p>
+
+          <form id="swissForm">
+            <div class="s-field">
+              <label for="swName">01. Nombre del Paciente</label>
+              <input type="text" id="swName" required placeholder="Ej. Cristóbal Lehmann">
+            </div>
+            <div class="s-field">
+              <label for="swDept">02. Departamento Clínico</label>
+              <select id="swDept" required>
+                <option value="ZK-01 Cirugía & Implantes">ZK-01 · Cirugía Maxilofacial & Implantes</option>
+                <option value="ZK-02 Urgencia Prioritaria">ZK-02 · Fast-Track Urgencia</option>
+                <option value="ZK-03 Medicina Interna">ZK-03 · Medicina Interna & Chequeo</option>
+              </select>
+            </div>
+            <div class="s-field">
+              <label for="swDate">03. Fecha Requerida</label>
+              <input type="date" id="swDate" required>
+            </div>
+            <button type="submit" class="btn-swiss btn-swiss-red" style="width:100%">Emitir Pase de Admisión [Demo]</button>
+            <div class="swiss-feedback" id="swissFeedback" role="status"></div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>ZÜRICH KLINIK · AV. APOQUINDO 5500 · DEMO INTERACTIVA KUYÉNDEV</div>
+      <div>ESTILO #14 · SWISS MEDICAL DESIGN</div>
+    </footer>
+  </div>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Inspección de pabellón">
+    <div class="lightbox-swiss">
+      <img id="lbImg" src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=85" alt="Vista ampliada"
+           onerror="this.onerror=null;this.src='../../images/demos/assets/med/clinic-box-dental.svg'">
+      <div style="padding:1.25rem 1.5rem;display:flex;justify-content:space-between;align-items:center;gap:1rem">
+        <div>
+          <h3 id="lbTitle" style="font-family:var(--font-grotesk);text-transform:uppercase"></h3>
+          <p id="lbSub" style="font-size:0.86rem;color:var(--gray-mid)"></p>
+        </div>
+        <button type="button" class="btn-swiss" id="lbClose">CERRAR [ESC]</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const triageData = {
+        '1': {
+          time: '00:04 MIN',
+          code: 'PROTOCOLO SUIZO ESI-1 // BOX QUIRÚRGICO A-02',
+          title: 'Trauma Dental, Fractura Alveolar & Urgencia Médica',
+          desc: 'Ingreso directo sin paso por recepción administrativa. Equipo de cirujano maxilofacial, urgenciólogo y radiología Cone-Beam activado simultáneamente.',
+          price: '$48.000 CLP (Bonificación Inmediata I-Med)'
+        },
+        '2': {
+          time: '00:11 MIN',
+          code: 'PROTOCOLO SUIZO ESI-2 // BOX RESOLUTIVO B-04',
+          title: 'Odontalgia Aguda, Absceso o Cuadro Febril',
+          desc: 'Analgesia endovenosa o anestesia troncular inmediata en los primeros 11 minutos desde el registro digital en tótem.',
+          price: '$39.000 CLP (Cobertura FONASA / ISAPRE)'
+        },
+        '3': {
+          time: '00:00 MIN',
+          code: 'PROTOCOLO PUNTUALIDAD SUIZA // CONSULTA C-01',
+          title: 'Evaluación Especialista con Hora Programada',
+          desc: 'Sin sobreagendamiento. Tu especialista te recibe exactamente a la hora citada con tus imágenes ya cargadas en estación de trabajo.',
+          price: '$42.000 CLP (Incluye Planificación Escrita)'
+        },
+        '4': {
+          time: '00:08 MIN',
+          code: 'PROTOCOLO FAST-LAB // UNIDAD D-03',
+          title: 'Tomografía Cone-Beam 3D & Laboratorio Rápido',
+          desc: 'Toma de examen sin espera y envío automático del estudio DICOM y resultados bioquímicos al portal del paciente.',
+          price: '$34.500 CLP (Arancel Transparente)'
+        }
+      };
+
+      const esiBtns = document.querySelectorAll('.esi-btn');
+      const tTime = document.getElementById('triageTime');
+      const tCode = document.getElementById('triageCode');
+      const tTitle = document.getElementById('triageTitle');
+      const tDesc = document.getElementById('triageDesc');
+      const tPrice = document.getElementById('triagePrice');
+
+      esiBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          esiBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
+          btn.classList.add('active');
+          btn.setAttribute('aria-selected', 'true');
+          const d = triageData[btn.dataset.esi];
+          if (d) {
+            tTime.textContent = d.time;
+            tCode.textContent = d.code;
+            tTitle.textContent = d.title;
+            tDesc.textContent = d.desc;
+            tPrice.textContent = d.price;
+          }
+        });
+      });
+
+      // Lightbox
+      const lb = document.getElementById('lightbox');
+      const lbImg = document.getElementById('lbImg');
+      const lbTitle = document.getElementById('lbTitle');
+      const lbSub = document.getElementById('lbSub');
+      const lbClose = document.getElementById('lbClose');
+      document.querySelectorAll('.doc-swiss-cell').forEach(cell => {
+        const open = () => {
+          lbImg.src = cell.dataset.img;
+          lbTitle.textContent = cell.dataset.title;
+          lbSub.textContent = cell.dataset.sub;
+          lb.classList.add('open');
+        };
+        cell.addEventListener('click', open);
+        cell.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
+      });
+      lbClose.addEventListener('click', () => lb.classList.remove('open'));
+      lb.addEventListener('click', e => { if (e.target === lb) lb.classList.remove('open'); });
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') lb.classList.remove('open'); });
+
+      // Form
+      const form = document.getElementById('swissForm');
+      const fb = document.getElementById('swissFeedback');
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        const name = document.getElementById('swName').value;
+        const dept = document.getElementById('swDept').value;
+        fb.style.display = 'block';
+        fb.textContent = '[DEMO INTERACTIVA] PASE DE ADMISIÓN SIMULADO EMITIDO // PACIENTE: ' + name.toUpperCase() + ' // UNIDAD: ' + dept;
+        form.reset();
+      });
+    })();
+  </script>
+  <script src="../../js/config/rubros.js"></script>
+  <script src="../../js/demo-viewer-bar.js"></script>
+</body>
+</html>

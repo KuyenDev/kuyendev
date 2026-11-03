@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
+  <defs>
+    <linearGradient id="bgF3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDF2F8"/>
+      <stop offset="50%" stop-color="#F0FDF4"/>
+      <stop offset="100%" stop-color="#CCFBF1"/>
+    </linearGradient>
+    <linearGradient id="tealScrubs" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0D9488"/>
+      <stop offset="100%" stop-color="#0F766E"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1000" fill="url(#bgF3)"/>
+  <circle cx="400" cy="420" r="260" fill="#FFFFFF" opacity="0.7"/>
+
+  <!-- Ambo Quirúrgico Verde Quirófano / Teal -->
+  <path d="M160 1000 C180 720, 240 640, 400 640 C560 640, 620 720, 640 1000 Z" fill="url(#tealScrubs)"/>
+  <polygon points="340,640 400,760 460,640" fill="#FCE7D6"/>
+  <polygon points="350,640 400,740 450,640" fill="#E2E8F0" opacity="0.9"/>
+
+  <!-- Credencial Médica -->
+  <rect x="230" y="780" width="80" height="110" rx="8" fill="#FFFFFF" stroke="#99F6E4" stroke-width="2"/>
+  <rect x="242" y="792" width="56" height="40" rx="4" fill="#CCFBF1"/>
+  <line x1="242" y1="846" x2="286" y2="846" stroke="#0D9488" stroke-width="4" stroke-linecap="round"/>
+  <line x1="242" y1="858" x2="298" y2="858" stroke="#64748B" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Cuello -->
+  <path d="M360 520 L440 520 L440 650 L360 650 Z" fill="#FCE7D6"/>
+
+  <!-- Cabello suelto estilizado castaño -->
+  <path d="M260 400 C240 240, 560 240, 540 400 C550 560, 530 750, 490 820 C460 760, 480 580, 470 520 L330 520 C320 580, 340 760, 310 820 C270 750, 250 560, 260 400 Z" fill="#451A03"/>
+
+  <!-- Rostro -->
+  <path d="M300 400 C300 540, 330 580, 400 580 C470 580, 500 540, 500 400 Z" fill="#FCE7D6"/>
+  <!-- Flequillo / raya al costado -->
+  <path d="M280 370 C310 300, 490 300, 520 370 C480 340, 420 330, 400 340 C360 330, 320 340, 280 370 Z" fill="#78350F"/>
+
+  <!-- Ojos -->
+  <ellipse cx="355" cy="430" rx="8" ry="5.5" fill="#1C1917"/>
+  <ellipse cx="445" cy="430" rx="8" ry="5.5" fill="#1C1917"/>
+  <!-- Pestañas -->
+  <path d="M345 425 Q355 420 365 425" fill="none" stroke="#1C1917" stroke-width="2.5"/>
+  <path d="M435 425 Q445 420 455 425" fill="none" stroke="#1C1917" stroke-width="2.5"/>
+  <!-- Sonrisa afable y profesional -->
+  <path d="M370 500 Q400 525 430 500" fill="none" stroke="#BE123C" stroke-width="3.5" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
+  <defs>
+    <linearGradient id="bgM" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F0FDFA"/>
+      <stop offset="50%" stop-color="#E0F2FE"/>
+      <stop offset="100%" stop-color="#CFFAFE"/>
+    </linearGradient>
+    <linearGradient id="coatM" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F8FAFC"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1000" fill="url(#bgM)"/>
+  <circle cx="400" cy="420" r="260" fill="#FFFFFF" opacity="0.7"/>
+  
+  <!-- Cuerpo masculino bata médica -->
+  <path d="M140 1000 C160 700, 220 620, 400 620 C580 620, 640 700, 660 1000 Z" fill="url(#coatM)" stroke="#CBD5E1" stroke-width="2"/>
+  <!-- Camisa y Corbata -->
+  <path d="M330 620 L400 750 L470 620 Z" fill="#E0F2FE"/>
+  <polygon points="390,640 410,640 415,740 400,770 385,740" fill="#0284C7"/>
+  <!-- Cuello camisa -->
+  <polygon points="340,620 400,660 380,620" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <polygon points="460,620 400,660 420,620" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <!-- Solapas bata médica -->
+  <path d="M260 620 L330 870 L400 1000 L300 1000 Z" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+  <path d="M540 620 L470 870 L400 1000 L500 1000 Z" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+
+  <!-- Estetoscopio Profesional -->
+  <path d="M320 660 C320 800, 480 800, 480 660" fill="none" stroke="#1E293B" stroke-width="11" stroke-linecap="round"/>
+  <path d="M400 780 L400 840" fill="none" stroke="#1E293B" stroke-width="11" stroke-linecap="round"/>
+  <circle cx="400" cy="855" r="24" fill="#94A3B8" stroke="#334155" stroke-width="4"/>
+  <circle cx="400" cy="855" r="14" fill="#0EA5E9"/>
+
+  <!-- Credencial -->
+  <rect x="500" y="770" width="80" height="110" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2"/>
+  <rect x="512" y="782" width="56" height="40" rx="4" fill="#E2E8F0"/>
+  <line x1="512" y1="836" x2="556" y2="836" stroke="#0EA5E9" stroke-width="4" stroke-linecap="round"/>
+  <line x1="512" y1="848" x2="568" y2="848" stroke="#94A3B8" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Cuello y Cabeza Masculina -->
+  <path d="M350 490 L450 490 L450 630 L350 630 Z" fill="#FBD3B6"/>
+  <!-- Cabello corto peinado profesional -->
+  <path d="M275 390 C265 240, 535 240, 525 390 C525 430, 520 460, 510 470 L290 470 C280 460, 275 430, 275 390 Z" fill="#1E293B"/>
+  <!-- Rostro -->
+  <path d="M290 380 C290 520, 320 560, 400 560 C480 560, 510 520, 510 380 Z" fill="#FCE0CA"/>
+  <path d="M275 350 C310 270, 490 270, 525 350 C480 320, 420 310, 400 320 C360 310, 320 320, 275 350 Z" fill="#0F172A"/>
+
+  <!-- Ojos -->
+  <ellipse cx="355" cy="415" rx="10" ry="6" fill="#0F172A"/>
+  <ellipse cx="445" cy="415" rx="10" ry="6" fill="#0F172A"/>
+  <circle cx="357" cy="413" r="3" fill="#FFFFFF"/>
+  <circle cx="447" cy="413" r="3" fill="#FFFFFF"/>
+  <!-- Gafas de titanio modernas -->
+  <rect x="330" y="395" width="55" height="40" rx="10" fill="none" stroke="#0284C7" stroke-width="4"/>
+  <rect x="415" y="395" width="55" height="40" rx="10" fill="none" stroke="#0284C7" stroke-width="4"/>
+  <line x1="385" y1="415" x2="415" y2="415" stroke="#0284C7" stroke-width="4"/>
+  <!-- Sonrisa afable -->
+  <path d="M368 495 Q400 520 432 495" fill="none" stroke="#9A3412" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Placa inferior -->
+  <rect x="180" y="910" width="440" height="60" rx="30" fill="#FFFFFF" stroke="#0D9488" stroke-width="2" filter="drop-shadow(0 10px 15px rgba(13,148,136,0.15))"/>
+  <text x="400" y="940" text-anchor="middle" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="20" font-weight="800" fill="#0F172A">Especialista Médico Cirujano</text>
+  <text x="400" y="958" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#0D9488">ACREDITACIÓN CLÍNICA PROFESIONAL</text>
+</svg>

@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>VOGUE CUTS · Dirección de Arte Capilar & Pasarela | Editorial Fashion</title>
+  <meta name="description" content="Estudio de dirección de arte capilar, cortes de pasarela y coloración de alta moda inspirado en publicaciones editoriales internacionales." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;0,6..96,700;1,6..96,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-white: #FFFFFF;
+      --ink: #111111;
+      --rule-light: #E5E5E5;
+      --taupe: #A38B74;
+      --taupe-light: #F6F4F1;
+      --text-gray: #525252;
+      --font-editorial: 'Bodoni Moda', Didot, Georgia, serif;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-white);
+      color: var(--ink);
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-white);
+      color: var(--ink);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    .container {
+      width: min(1360px, 94vw);
+      margin: 0 auto;
+    }
+
+    /* Cabecera Editorial Tipo Revista */
+    .issue-strip {
+      border-bottom: 1px solid var(--ink);
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding: 0.55rem 0;
+      background: var(--bg-white);
+    }
+
+    .issue-strip-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 2px solid var(--ink);
+    }
+
+    .masthead {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      padding: 1.1rem 0;
+      gap: 1.5rem;
+    }
+
+    .nav-left {
+      display: flex;
+      gap: 1.75rem;
+      list-style: none;
+    }
+
+    .nav-left a {
+      text-decoration: none;
+      color: var(--ink);
+      font-size: 0.74rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      transition: color 0.2s ease;
+    }
+
+    .nav-left a:hover {
+      color: var(--taupe);
+    }
+
+    .brand-logo {
+      font-family: var(--font-editorial);
+      font-size: clamp(1.85rem, 3.2vw, 2.75rem);
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-decoration: none;
+      color: var(--ink);
+      line-height: 1;
+      text-align: center;
+    }
+
+    .nav-right {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .btn-editorial {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1.5rem;
+      background: var(--ink);
+      color: var(--bg-white);
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid var(--ink);
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .btn-editorial:hover {
+      background: var(--taupe);
+      border-color: var(--taupe);
+      color: var(--bg-white);
+    }
+
+    .btn-editorial-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1.45rem;
+      background: transparent;
+      color: var(--ink);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid var(--ink);
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .btn-editorial-outline:hover {
+      background: var(--ink);
+      color: var(--bg-white);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: transparent;
+      border: 1px solid var(--ink);
+      padding: 0.45rem 0.8rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      cursor: pointer;
+    }
+
+    /* Portada Asimétrica tipo Spread de Revista */
+    .hero-spread {
+      border-bottom: 1px solid var(--ink);
+    }
+
+    .spread-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+    }
+
+    .spread-left {
+      padding: 4.5rem 3.5rem 4.5rem 0;
+      border-right: 1px solid var(--ink);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .editorial-kicker {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--taupe);
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .hero-headline {
+      font-family: var(--font-editorial);
+      font-size: clamp(3rem, 6.2vw, 5.6rem);
+      font-weight: 400;
+      line-height: 0.96;
+      letter-spacing: -0.02em;
+      margin-bottom: 2rem;
+    }
+
+    .hero-headline em {
+      font-style: italic;
+      color: var(--taupe);
+    }
+
+    .dropcap-p {
+      font-size: 1rem;
+      color: var(--text-gray);
+      max-width: 52ch;
+      margin-bottom: 2.25rem;
+    }
+
+    .dropcap-p::first-letter {
+      font-family: var(--font-editorial);
+      float: left;
+      font-size: 3.6rem;
+      line-height: 0.82;
+      padding-right: 0.65rem;
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .spread-credits {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--rule-light);
+      font-size: 0.75rem;
+    }
+
+    .spread-credits strong {
+      display: block;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 0.2rem;
+    }
+
+    .spread-right {
+      padding: 3rem 0 3rem 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .cover-photo-wrap {
+      position: relative;
+      border: 1px solid var(--ink);
+      padding: 0.75rem;
+      background: var(--taupe-light);
+    }
+
+    .cover-photo-wrap img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      display: block;
+      filter: contrast(1.06);
+    }
+
+    .cover-caption {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      padding-top: 0.75rem;
+      color: var(--text-gray);
+    }
+
+    /* Secciones Editoriales */
+    .section {
+      padding: 5.5rem 0;
+      border-bottom: 1px solid var(--ink);
+    }
+
+    .section-taupe {
+      background-color: var(--taupe-light);
+    }
+
+    .editorial-header {
+      display: grid;
+      grid-template-columns: 0.35fr 0.65fr;
+      gap: 2rem;
+      align-items: baseline;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--rule-light);
+      margin-bottom: 3rem;
+    }
+
+    .issue-num {
+      font-family: var(--font-editorial);
+      font-size: 3.2rem;
+      line-height: 1;
+      color: var(--taupe);
+    }
+
+    .section-title {
+      font-family: var(--font-editorial);
+      font-size: clamp(2.2rem, 4vw, 3.6rem);
+      font-weight: 400;
+      line-height: 1.05;
+    }
+
+    /* Índice de Tarifas Editorial */
+    .index-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--ink);
+    }
+
+    .ed-tabs {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+
+    .ed-tab {
+      background: transparent;
+      border: 1px solid var(--rule-light);
+      color: var(--text-gray);
+      padding: 0.5rem 1rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .ed-tab.is-active {
+      background: var(--ink);
+      color: var(--bg-white);
+      border-color: var(--ink);
+    }
+
+    .editorial-table {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .ed-row {
+      display: grid;
+      grid-template-columns: 60px 1.3fr 1.6fr 140px 130px;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 1.65rem 0;
+      border-bottom: 1px solid var(--rule-light);
+      transition: background 0.2s ease;
+    }
+
+    .ed-row:hover {
+      background: var(--taupe-light);
+      padding-left: 0.75rem;
+      padding-right: 0.75rem;
+    }
+
+    .ed-row.is-hidden {
+      display: none;
+    }
+
+    .ed-idx {
+      font-family: var(--font-editorial);
+      font-size: 1.35rem;
+      font-style: italic;
+      color: var(--taupe);
+    }
+
+    .ed-name {
+      font-family: var(--font-editorial);
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+
+    .ed-desc {
+      font-size: 0.88rem;
+      color: var(--text-gray);
+    }
+
+    .ed-price {
+      font-family: var(--font-editorial);
+      font-size: 1.45rem;
+      font-weight: 600;
+      text-align: right;
+    }
+
+    /* Selector de Visagismo & Tendencia de Pasarela */
+    .runway-selector-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border: 1px solid var(--ink);
+      background: var(--bg-white);
+    }
+
+    .runway-controls {
+      padding: 3rem;
+      border-right: 1px solid var(--ink);
+    }
+
+    .runway-btn-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+
+    .runway-btn {
+      background: transparent;
+      border: 1px solid var(--rule-light);
+      padding: 1.1rem 1.25rem;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-sans);
+      transition: all 0.2s ease;
+    }
+
+    .runway-btn.is-active {
+      border-color: var(--ink);
+      background: var(--ink);
+      color: var(--bg-white);
+    }
+
+    .runway-output {
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Lookbook Asimétrico */
+    .lookbook-spread {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr 1fr;
+      gap: 1.75rem;
+      align-items: start;
+    }
+
+    .editorial-figure {
+      cursor: pointer;
+      border: 1px solid var(--rule-light);
+      padding: 0.75rem;
+      background: var(--bg-white);
+      transition: border-color 0.25s ease;
+    }
+
+    .editorial-figure.is-hidden {
+      display: none;
+    }
+
+    .editorial-figure:hover {
+      border-color: var(--ink);
+    }
+
+    .editorial-figure img {
+      width: 100%;
+      height: 410px;
+      object-fit: cover;
+      display: block;
+      margin-bottom: 0.85rem;
+    }
+
+    .editorial-figure:nth-child(2) img {
+      height: 330px;
+    }
+
+    /* Directores & Testimonios */
+    .three-col-ruled {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 1px solid var(--ink);
+    }
+
+    .ruled-cell {
+      padding: 2.25rem;
+      border-right: 1px solid var(--ink);
+      background: var(--bg-white);
+    }
+
+    .ruled-cell:last-child {
+      border-right: none;
+    }
+
+    .ruled-cell img {
+      width: 100%;
+      height: 290px;
+      object-fit: cover;
+      margin-bottom: 1.15rem;
+      filter: grayscale(25%);
+    }
+
+    /* Reserva / Booking Desk */
+    .booking-editorial {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 3.5rem;
+    }
+
+    .form-editorial {
+      border: 1px solid var(--ink);
+      padding: 2.5rem;
+      background: var(--bg-white);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .form-field.full {
+      grid-column: 1 / -1;
+    }
+
+    .form-field label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+      border: none;
+      border-bottom: 1px solid var(--ink);
+      padding: 0.75rem 0;
+      font-family: var(--font-sans);
+      font-size: 0.92rem;
+      background: transparent;
+      color: var(--ink);
+      outline: none;
+    }
+
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus {
+      border-bottom-color: var(--taupe);
+    }
+
+    .ed-feedback {
+      margin-top: 1.25rem;
+      padding: 1rem;
+      background: var(--taupe-light);
+      border-left: 3px solid var(--ink);
+      font-size: 0.85rem;
+      display: none;
+    }
+
+    .ed-feedback.is-visible {
+      display: block;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(17, 17, 17, 0.94);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .lightbox.is-open {
+      display: flex;
+    }
+
+    .lightbox-sheet {
+      max-width: 820px;
+      width: 100%;
+      background: var(--bg-white);
+      padding: 1.25rem;
+      border: 1px solid var(--ink);
+    }
+
+    .lightbox-sheet img {
+      width: 100%;
+      max-height: 68vh;
+      object-fit: cover;
+      display: block;
+    }
+
+    footer {
+      padding: 3.5rem 0 5rem;
+      font-size: 0.78rem;
+      color: var(--text-gray);
+    }
+
+    @media (max-width: 980px) {
+      .masthead {
+        grid-template-columns: auto 1fr auto;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+      }
+
+      .nav-left {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--bg-white);
+        border-bottom: 2px solid var(--ink);
+        flex-direction: column;
+        padding: 1.5rem;
+      }
+
+      .nav-left.is-open {
+        display: flex;
+      }
+
+      .spread-grid,
+      .editorial-header,
+      .runway-selector-grid,
+      .lookbook-spread,
+      .three-col-ruled,
+      .booking-editorial {
+        grid-template-columns: 1fr;
+      }
+
+      .spread-left {
+        border-right: none;
+        border-bottom: 1px solid var(--ink);
+        padding: 3rem 0;
+      }
+
+      .spread-right {
+        padding: 2.5rem 0;
+      }
+
+      .ed-row {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+      }
+
+      .ed-price {
+        text-align: left;
+      }
+
+      .runway-controls {
+        border-right: none;
+        border-bottom: 1px solid var(--ink);
+      }
+
+      .ruled-cell {
+        border-right: none;
+        border-bottom: 1px solid var(--ink);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .form-grid,
+      .spread-credits {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body data-rubro-id="peluqueria" data-style-id="editorial-fashion">
+
+  <div class="issue-strip">
+    <div class="container issue-strip-inner">
+      <span>VOL. IV · EDICIÓN OTOÑO / INVIERNO 2026</span>
+      <span>DIRECCIÓN DE ARTE CAPILAR & PASARELA · SANTIAGO / MILÁN</span>
+      <span>ESTILO #04 · EDITORIAL FASHION MAGAZINE</span>
+    </div>
+  </div>
+
+  <header>
+    <div class="container masthead">
+      <nav aria-label="Navegación editorial">
+        <button type="button" class="menu-toggle" id="menuToggle" aria-expanded="false">Índice</button>
+        <ul class="nav-left" id="navLeft">
+          <li><a href="#tarifas">01. Tarifario</a></li>
+          <li><a href="#visagismo">02. Tendencias</a></li>
+          <li><a href="#lookbook">03. Lookbook</a></li>
+          <li><a href="#directores">04. Autores</a></li>
+        </ul>
+      </nav>
+
+      <a href="#" class="brand-logo">VOGUE CUTS</a>
+
+      <div class="nav-right">
+        <a href="#reserva" class="btn-editorial">Booking Desk</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- PORTADA SPREAD DE REVISTA -->
+    <section class="hero-spread">
+      <div class="container spread-grid">
+        <div class="spread-left">
+          <div>
+            <span class="editorial-kicker">Editorial Report · La Nueva Silueta Capilar</span>
+            <h1 class="hero-headline">Arquitectura de <em>Pasarela</em> llevada a la calle.</h1>
+            <p class="dropcap-p">
+              Rechazamos los peinados estáticos de salón tradicional. En Vogue Cuts esculpimos cortes con tensión gráfica, flequillos editoriales y coloraciones de contraste controlado diseñadas para moverse frente a cámara y en la vida cotidiana.
+            </p>
+            <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2.5rem">
+              <a href="#reserva" class="btn-editorial">Reservar Sesión Editorial</a>
+              <a href="#lookbook" class="btn-editorial-outline">Ver Archivo de Campaña</a>
+            </div>
+          </div>
+
+          <div class="spread-credits">
+            <div>
+              <strong>Dirección Creativa</strong>
+              <span>Gaspard Morel & Colectivo VC</span>
+            </div>
+            <div>
+              <strong>Especialidad</strong>
+              <span>Razor Cuts · High-Fashion Color</span>
+            </div>
+            <div>
+              <strong>Cita Previa</strong>
+              <span>Alonso de Córdova · Vitacura</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="spread-right">
+          <div class="cover-photo-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85"
+              alt="Portada Editorial Vogue Cuts"
+              onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg';"/>
+            <div class="cover-caption">
+              <span>FIG. 01 — CORTE ESCULTÓRICO SHAG & CONTORNO</span>
+              <span>FOTOGRAFÍA DE ESTUDIO</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ÍNDICE DE SERVICIOS EDITORIAL -->
+    <section class="section" id="tarifas">
+      <div class="container">
+        <div class="editorial-header">
+          <div class="issue-num">N° 01</div>
+          <div>
+            <span class="editorial-kicker">Service Index & Rates</span>
+            <h2 class="section-title">Índice de Servicios & Dirección Capilar</h2>
+          </div>
+        </div>
+
+        <div class="index-controls">
+          <div class="ed-tabs" role="tablist">
+            <button type="button" class="ed-tab is-active" data-cat="all">Índice Completo</button>
+            <button type="button" class="ed-tab" data-cat="corte">Corte de Pasarela</button>
+            <button type="button" class="ed-tab" data-cat="color">Color Editorial</button>
+            <button type="button" class="ed-tab" data-cat="styling">Runway Styling</button>
+          </div>
+
+          <div class="ed-tabs">
+            <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;align-self:center;margin-right:0.4rem">Largo:</span>
+            <button type="button" class="ed-tab" data-mult="1" data-len="Corto">Corto</button>
+            <button type="button" class="ed-tab is-active" data-mult="1.2" data-len="Medio">Medio</button>
+            <button type="button" class="ed-tab" data-mult="1.45" data-len="Largo">Largo</button>
+          </div>
+        </div>
+
+        <div class="editorial-table">
+          <article class="ed-row" data-category="corte" data-base="48000">
+            <span class="ed-idx">01.</span>
+            <h3 class="ed-name">The Runway Razor Cut</h3>
+            <p class="ed-desc">Corte esculpido a navaja y tijera de filo dulce para lograr textura desestructurada tipo editorial parisina.</p>
+            <span class="ed-price">$57.600</span>
+            <a href="#reserva" class="btn-editorial-outline" style="padding:0.5rem 0.75rem;" data-pick="The Runway Razor Cut">Agendar</a>
+          </article>
+
+          <article class="ed-row" data-category="corte" data-base="52000">
+            <span class="ed-idx">02.</span>
+            <h3 class="ed-name">French Bob & Micro-Bangs</h3>
+            <p class="ed-desc">Geometría precisa a la altura del pómulo o mandíbula con estudio de proporciones faciales.</p>
+            <span class="ed-price">$62.400</span>
+            <a href="#reserva" class="btn-editorial-outline" style="padding:0.5rem 0.75rem;" data-pick="French Bob & Micro-Bangs">Agendar</a>
+          </article>
+
+          <article class="ed-row" data-category="color" data-base="105000">
+            <span class="ed-idx">03.</span>
+            <h3 class="ed-name">Color Block & High-Contrast</h3>
+            <p class="ed-desc">Diseño de paneles internos, contornos marcados o rubios platino de estudio con sellador de cutícula.</p>
+            <span class="ed-price">$126.000</span>
+            <a href="#reserva" class="btn-editorial-outline" style="padding:0.5rem 0.75rem;" data-pick="Color Block & High-Contrast">Agendar</a>
+          </article>
+
+          <article class="ed-row" data-category="color" data-base="92000">
+            <span class="ed-idx">04.</span>
+            <h3 class="ed-name">Expensive Brunette & Taupe Gloss</h3>
+            <p class="ed-desc">Dimensión fría en tonos moka, visón y arena que aporta profundidad cinematográfica bajo cualquier luz.</p>
+            <span class="ed-price">$110.400</span>
+            <a href="#reserva" class="btn-editorial-outline" style="padding:0.5rem 0.75rem;" data-pick="Expensive Brunette & Taupe Gloss">Agendar</a>
+          </article>
+
+          <article class="ed-row" data-category="styling" data-base="45000">
+            <span class="ed-idx">05.</span>
+            <h3 class="ed-name">Editorial Wet-Look & Session</h3>
+            <p class="ed-desc">Peinado arquitectónico de acabado húmedo o volumen cepillado para sesiones fotográficas, desfiles y galas.</p>
+            <span class="ed-price">$54.000</span>
+            <a href="#reserva" class="btn-editorial-outline" style="padding:0.5rem 0.75rem;" data-pick="Editorial Wet-Look & Session">Agendar</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CURADORÍA INTERACTIVA DE TENDENCIA / VISAGISMO -->
+    <section class="section section-taupe" id="visagismo">
+      <div class="container">
+        <div class="editorial-header">
+          <div class="issue-num">N° 02</div>
+          <div>
+            <span class="editorial-kicker">Curadoría de Temporada</span>
+            <h2 class="section-title">Selector de Silueta & Visagismo</h2>
+          </div>
+        </div>
+
+        <div class="runway-selector-grid">
+          <div class="runway-controls">
+            <span class="editorial-kicker">Selecciona la estética que deseas proyectar</span>
+            <p style="font-size:0.9rem;color:var(--text-gray)">Nuestro director de arte sugiere la combinación exacta de estructura y acabado:</p>
+            <div class="runway-btn-list">
+              <button type="button" class="runway-btn is-active" data-look-key="minimal">
+                <strong>01 · Minimalismo Geométrico Milán</strong>
+                <span>Líneas puras →</span>
+              </button>
+              <button type="button" class="runway-btn" data-look-key="rock">
+                <strong>02 · Neo-Shag & Textura París</strong>
+                <span>Capas audaces →</span>
+              </button>
+              <button type="button" class="runway-btn" data-look-key="avant">
+                <strong>03 · Platino Editorial & Contorno</strong>
+                <span>Alto impacto →</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="runway-output" aria-live="polite">
+            <div>
+              <span class="editorial-kicker" id="rwTag">EDICIÓN MILÁN · ROSTRO OVALADO / ANGULAR</span>
+              <h3 style="font-family:var(--font-editorial);font-size:2rem;margin:0.5rem 0 1rem;" id="rwTitle">Sharp Jawline Bob + Gloss Espejo</h3>
+              <p style="color:var(--text-gray);font-size:0.94rem;margin-bottom:1.5rem;" id="rwDesc">
+                Un corte recto sin capas superficiales que despeja la clavícula y enfatiza la estructura ósea. Acompañado de un baño de brillo neutro para máxima reflexión.
+              </p>
+              <div style="border-top:1px solid var(--rule-light);padding-top:1rem;font-size:0.82rem;display:flex;justify-content:space-between">
+                <span>Productos de acabado en casa:</span>
+                <strong id="rwProd">Sérum de Lino Puro + Cepillo Plano</strong>
+              </div>
+            </div>
+            <a href="#reserva" class="btn-editorial" style="margin-top:2rem;width:100%">Solicitar esta Dirección en Salón</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOOKBOOK DE PASARELA -->
+    <section class="section" id="lookbook">
+      <div class="container">
+        <div class="editorial-header">
+          <div class="issue-num">N° 03</div>
+          <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem">
+            <div>
+              <span class="editorial-kicker">Archive & Campaigns</span>
+              <h2 class="section-title">Lookbook de Pasarela</h2>
+            </div>
+            <div class="ed-tabs">
+              <button type="button" class="ed-tab is-active" data-filter="all">Todos</button>
+              <button type="button" class="ed-tab" data-filter="corte">Cortes Gráficos</button>
+              <button type="button" class="ed-tab" data-filter="color">Color de Estudio</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="lookbook-spread">
+          <figure class="editorial-figure" data-cat="corte" data-title="PLATE 01 · Sculpted Curtain Layers" data-sub="Corte en seco + Textura mineral · Foto: Archivo VC">
+            <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=900&q=80" alt="Look Sculpted Curtain Layers" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/hair-look-balayage.svg';"/>
+            <figcaption style="display:flex;justify-content:space-between;font-size:0.78rem">
+              <strong>PLATE 01 · Sculpted Layers</strong>
+              <span style="color:var(--taupe);text-transform:uppercase">Ampliar [+]</span>
+            </figcaption>
+          </figure>
+
+          <figure class="editorial-figure" data-cat="color" data-title="PLATE 02 · Raw Platinum & Root Shadow" data-sub="Decoloración controlada de estudio · Foto: Archivo VC">
+            <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=900&q=80" alt="Look Raw Platinum" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/hair-look-balayage.svg';"/>
+            <figcaption style="display:flex;justify-content:space-between;font-size:0.78rem">
+              <strong>PLATE 02 · Raw Platinum</strong>
+              <span style="color:var(--taupe);text-transform:uppercase">Ampliar [+]</span>
+            </figcaption>
+          </figure>
+
+          <figure class="editorial-figure" data-cat="corte" data-title="PLATE 03 · Architectural Wet Contour" data-sub="Dirección de pasarela y fijación flexible · Foto: Archivo VC">
+            <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=900&q=80" alt="Look Wet Contour" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/hair-look-balayage.svg';"/>
+            <figcaption style="display:flex;justify-content:space-between;font-size:0.78rem">
+              <strong>PLATE 03 · Wet Contour</strong>
+              <span style="color:var(--taupe);text-transform:uppercase">Ampliar [+]</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIRECTORES DE ARTE -->
+    <section class="section section-taupe" id="directores">
+      <div class="container">
+        <div class="editorial-header">
+          <div class="issue-num">N° 04</div>
+          <div>
+            <span class="editorial-kicker">Masthead Contributors</span>
+            <h2 class="section-title">Directores de Arte Capilar</h2>
+          </div>
+        </div>
+
+        <div class="three-col-ruled">
+          <article class="ruled-cell">
+            <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85" alt="Gaspard Morel" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg';"/>
+            <span class="editorial-kicker">Editor-at-Large de Corte</span>
+            <h3 style="font-family:var(--font-editorial);font-size:1.5rem;margin-bottom:0.5rem">Gaspard Morel</h3>
+            <p style="font-size:0.86rem;color:var(--text-gray)">Responsable de estilismo en semanas de la moda de Milán y París. Especialista en corte con navaja libre.</p>
+          </article>
+
+          <article class="ruled-cell">
+            <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85" alt="Elena Vance" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg';"/>
+            <span class="editorial-kicker">Directora de Colorimetría</span>
+            <h3 style="font-family:var(--font-editorial);font-size:1.5rem;margin-bottom:0.5rem">Elena Vance</h3>
+            <p style="font-size:0.86rem;color:var(--text-gray)">Creadora de paletas rubio hielo, castaños topo y contrastes gráficos para campañas publicitarias.</p>
+          </article>
+
+          <article class="ruled-cell">
+            <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85" alt="Pía Altamirano" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg';"/>
+            <span class="editorial-kicker">Session Stylist & Texturas</span>
+            <h3 style="font-family:var(--font-editorial);font-size:1.5rem;margin-bottom:0.5rem">Pía Altamirano</h3>
+            <p style="font-size:0.86rem;color:var(--text-gray)">Especialista en rulos editoriales, volúmenes escultóricos y preparación de modelos para portada.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIOS DE PRENSA Y CLIENTES -->
+    <section class="section" id="testimonios">
+      <div class="container">
+        <div class="editorial-header">
+          <div class="issue-num">N° 05</div>
+          <div>
+            <span class="editorial-kicker">Press & Client Notes</span>
+            <h2 class="section-title">Críticas & Testimonios</h2>
+          </div>
+        </div>
+
+        <div class="three-col-ruled">
+          <article class="ruled-cell">
+            <span class="editorial-kicker">[Testimonio Ficticio de Demostración]</span>
+            <p style="font-family:var(--font-editorial);font-size:1.15rem;font-style:italic;margin:0.75rem 0 1rem">“El único estudio en Santiago donde entienden cómo cortar un flequillo francés con peso editorial real sin que pierda forma a la semana.”</p>
+            <strong style="font-size:0.76rem;text-transform:uppercase;letter-spacing:0.12em">Agustina Prado · Productora de Moda (Ejemplo Ficticio)</strong>
+          </article>
+
+          <article class="ruled-cell">
+            <span class="editorial-kicker">[Testimonio Ficticio de Demostración]</span>
+            <p style="font-family:var(--font-editorial);font-size:1.15rem;font-style:italic;margin:0.75rem 0 1rem">“Elena diseñó un tono topo frío para nuestra campaña de invierno que fotografió increíble tanto en luz continua como con flash duro.”</p>
+            <strong style="font-size:0.76rem;text-transform:uppercase;letter-spacing:0.12em">Rodrigo Lira · Fotógrafo de Moda (Ejemplo Ficticio)</strong>
+          </article>
+
+          <article class="ruled-cell">
+            <span class="editorial-kicker">[Testimonio Ficticio de Demostración]</span>
+            <p style="font-family:var(--font-editorial);font-size:1.15rem;font-style:italic;margin:0.75rem 0 1rem">“Entrar a Vogue Cuts es como visitar una galería de arte contemporáneo. Te asesoran con honestidad estética y rigor técnico.”</p>
+            <strong style="font-size:0.76rem;text-transform:uppercase;letter-spacing:0.12em">Colomba Silva · Directora Creativa (Ejemplo Ficticio)</strong>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESERVA / BOOKING DESK -->
+    <section class="section section-taupe" id="reserva" style="border-bottom:none">
+      <div class="container booking-editorial">
+        <div>
+          <span class="editorial-kicker">Appointments & Production</span>
+          <h2 class="section-title" style="margin-bottom:1.25rem">Booking Desk</h2>
+          <p style="color:var(--text-gray);font-size:0.95rem;margin-bottom:2rem">
+            Reserva tu cita en salón o solicita presupuesto de dirección capilar para producciones editoriales y campañas de marca.
+          </p>
+          <div style="font-size:0.84rem;display:flex;flex-direction:column;gap:0.6rem">
+            <div><strong>ESTUDIO:</strong> Alonso de Córdova 2800, Vitacura (Demostración)</div>
+            <div><strong>HORARIO:</strong> Martes a Sábado · 10:00 — 20:00 hrs</div>
+            <div><strong>PRENSA:</strong> booking@voguecuts.demo</div>
+          </div>
+        </div>
+
+        <form class="form-editorial" id="edForm">
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="edName">Nombre Completo</label>
+              <input type="text" id="edName" required placeholder="Ej. Antonia Valdés" />
+            </div>
+            <div class="form-field">
+              <label for="edPhone">Teléfono / WhatsApp</label>
+              <input type="tel" id="edPhone" required placeholder="+56 9 6666 5555" />
+            </div>
+            <div class="form-field">
+              <label for="edService">Servicio de Índice</label>
+              <select id="edService">
+                <option value="The Runway Razor Cut">01 · The Runway Razor Cut</option>
+                <option value="French Bob & Micro-Bangs">02 · French Bob & Micro-Bangs</option>
+                <option value="Color Block & High-Contrast">03 · Color Block & High-Contrast</option>
+                <option value="Expensive Brunette & Taupe Gloss">04 · Expensive Brunette & Taupe Gloss</option>
+                <option value="Editorial Wet-Look & Session">05 · Editorial Wet-Look & Session</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="edDirector">Director Asignado</label>
+              <select id="edDirector">
+                <option value="Gaspard Morel">Gaspard Morel (Corte)</option>
+                <option value="Elena Vance">Elena Vance (Color)</option>
+                <option value="Pía Altamirano">Pía Altamirano (Session & Styling)</option>
+              </select>
+            </div>
+            <div class="form-field full">
+              <label for="edNotes">Referencias Visuales o Fecha Deseada</label>
+              <textarea id="edNotes" rows="2" placeholder="Indica día preferido o referencias de estilo..."></textarea>
+            </div>
+          </div>
+          <p style="font-size:0.74rem;color:var(--text-gray);margin:1.25rem 0">
+            * Formulario interactivo de demostración del lado del cliente. No genera reservas reales.
+          </p>
+          <button type="submit" class="btn-editorial" style="width:100%">Confirmar Solicitud en Booking Desk (Demo)</button>
+          <div class="ed-feedback" id="edFeedback" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Plancha fotográfica Lookbook">
+    <div class="lightbox-sheet">
+      <img id="lbImg" src="" alt="" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg';"/>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem">
+        <div>
+          <strong id="lbTitle" style="font-family:var(--font-editorial);font-size:1.25rem;display:block"></strong>
+          <span id="lbSub" style="font-size:0.78rem;color:var(--text-gray)"></span>
+        </div>
+        <button type="button" class="btn-editorial-outline" id="lbClose">Cerrar [ESC]</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem">
+      <span>© 2026 VOGUE CUTS · Demostración Estilo #04 Editorial / Fashion Magazine · KuyénDev</span>
+      <span>Paleta: #FFFFFF · #111111 · #E5E5E5 · #A38B74 | Bodoni Moda & Inter</span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const menuToggle = document.getElementById('menuToggle');
+      const navLeft = document.getElementById('navLeft');
+      if (menuToggle && navLeft) {
+        menuToggle.addEventListener('click', () => {
+          const open = navLeft.classList.toggle('is-open');
+          menuToggle.setAttribute('aria-expanded', String(open));
+        });
+      }
+
+      // Tarifario y multiplicador de largo
+      let cat = 'all';
+      let mult = 1.2;
+      const rows = document.querySelectorAll('.ed-row');
+      const fmt = new Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP', maximumFractionDigits: 0 });
+
+      function updateTable() {
+        rows.forEach(r => {
+          const show = cat === 'all' || r.getAttribute('data-category') === cat;
+          r.classList.toggle('is-hidden', !show);
+          const base = Number(r.getAttribute('data-base'));
+          r.querySelector('.ed-price').textContent = fmt.format(Math.round(base * mult));
+        });
+      }
+
+      document.querySelectorAll('[data-cat]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('[data-cat]').forEach(b => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+          cat = btn.getAttribute('data-cat');
+          updateTable();
+        });
+      });
+
+      document.querySelectorAll('[data-mult]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('[data-mult]').forEach(b => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+          mult = Number(btn.getAttribute('data-mult'));
+          updateTable();
+        });
+      });
+
+      const edService = document.getElementById('edService');
+      document.querySelectorAll('[data-pick]').forEach(a => {
+        a.addEventListener('click', () => {
+          if (edService) edService.value = a.getAttribute('data-pick');
+        });
+      });
+
+      // Selector de Visagismo
+      const lookGuide = {
+        minimal: {
+          tag: 'EDICIÓN MILÁN · ROSTRO OVALADO / ANGULAR',
+          title: 'Sharp Jawline Bob + Gloss Espejo',
+          desc: 'Un corte recto sin capas superficiales que despeja la clavícula y enfatiza la estructura ósea. Acompañado de un baño de brillo neutro para máxima reflexión.',
+          prod: 'Sérum de Lino Puro + Cepillo Plano'
+        },
+        rock: {
+          tag: 'EDICIÓN PARÍS · MOVIMIENTO ORGÁNICO',
+          title: 'Razor Shag & Curtain Fringe',
+          desc: 'Desfilado profundo a navaja con flequillo abierto que enmarca los pómulos. Ideal para secar al aire libre manteniendo actitud rock-chic.',
+          prod: 'Spray de Sal Mineral + Pasta Mate'
+        },
+        avant: {
+          tag: 'EDICIÓN LONDRES · ALTO CONTRASTE',
+          title: 'Platinum Halo & Micro-Bangs',
+          desc: 'Combinación de contornos rubio hielo polar con sombras estratégicas en nuca para crear profundidad visual inmediata frente a cámara.',
+          prod: 'Mascarilla Violeta Ácida + Protector Térmico'
+        }
+      };
+
+      document.querySelectorAll('[data-look-key]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('[data-look-key]').forEach(b => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+          const d = lookGuide[btn.getAttribute('data-look-key')];
+          document.getElementById('rwTag').textContent = d.tag;
+          document.getElementById('rwTitle').textContent = d.title;
+          document.getElementById('rwDesc').textContent = d.desc;
+          document.getElementById('rwProd').textContent = d.prod;
+        });
+      });
+
+      // Lookbook y Lightbox
+      const figures = document.querySelectorAll('.editorial-figure');
+      document.querySelectorAll('[data-filter]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('[data-filter]').forEach(b => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+          const f = btn.getAttribute('data-filter');
+          figures.forEach(fig => {
+            fig.classList.toggle('is-hidden', f !== 'all' && fig.getAttribute('data-cat') !== f);
+          });
+        });
+      });
+
+      const lb = document.getElementById('lightbox');
+      const lbImg = document.getElementById('lbImg');
+      const lbTitle = document.getElementById('lbTitle');
+      const lbSub = document.getElementById('lbSub');
+      figures.forEach(fig => {
+        fig.addEventListener('click', () => {
+          const img = fig.querySelector('img');
+          lbImg.src = img.src;
+          lbImg.alt = img.alt;
+          lbTitle.textContent = fig.getAttribute('data-title');
+          lbSub.textContent = fig.getAttribute('data-sub');
+          lb.classList.add('is-open');
+        });
+      });
+      const closeLb = () => lb.classList.remove('is-open');
+      document.getElementById('lbClose').addEventListener('click', closeLb);
+      lb.addEventListener('click', (e) => { if (e.target === lb) closeLb(); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLb(); });
+
+      // Formulario
+      const edForm = document.getElementById('edForm');
+      const edFeedback = document.getElementById('edFeedback');
+      edForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('edName').value.trim();
+        edFeedback.textContent = `[Simulación Interactiva KuyénDev] Gracias, ${name}. Tu solicitud para "${edService.value}" ha sido registrada en el Booking Desk en modo demostración.`;
+        edFeedback.classList.add('is-visible');
+        edForm.reset();
+      });
+    })();
+  </script>
+
+  <script src="../../js/config/rubros.js"></script>
+  <script src="../../js/demo-viewer-bar.js"></script>
+</body>
+</html>

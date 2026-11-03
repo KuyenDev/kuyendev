@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>DUO ALIGN · Ortodoncia Invisible & Diseño Digital de Sonrisa 50/50</title>
+  <meta name="description" content="Clínica especializada en ortodoncia invisible milimétrica y diseño digital de sonrisa DSD con planificación comparativa 50/50 antes de iniciar tu tratamiento.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --white: #FFFFFF;
+      --teal: #0D9488;
+      --teal-dark: #0F766E;
+      --mint-bg: #F0FDFA;
+      --mint-border: #CCFBF1;
+      --slate-dark: #0F172A;
+      --slate-muted: #475569;
+      --line-soft: #E2E8F0;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--white);
+      color: var(--slate-dark);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Split-Screen Top Header */
+    .split-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid var(--line-soft);
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(12px);
+    }
+    .header-left {
+      padding: 1.15rem 3.5vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-right: 1px solid var(--line-soft);
+    }
+    .header-right {
+      padding: 1.15rem 3.5vw;
+      background: var(--mint-bg);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .brand {
+      text-decoration: none;
+      color: var(--slate-dark);
+      display: flex;
+      align-items: baseline;
+      gap: 0.65rem;
+    }
+    .brand-serif {
+      font-family: var(--font-serif);
+      font-size: 1.45rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .brand-badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 0.2rem 0.55rem;
+      background: var(--teal);
+      color: var(--white);
+      border-radius: 999px;
+    }
+    .nav-menu {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+    }
+    .nav-menu a {
+      color: var(--slate-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-menu a:hover { color: var(--teal); }
+    .btn-teal {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--teal);
+      color: var(--white);
+      padding: 0.72rem 1.35rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-teal:hover {
+      background: var(--teal-dark);
+      transform: translateY(-1px);
+    }
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--white);
+      color: var(--slate-dark);
+      padding: 0.72rem 1.35rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid var(--line-soft);
+      cursor: pointer;
+    }
+
+    /* 50/50 Hero Split Architecture */
+    .split-hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: calc(100vh - 74px);
+      border-bottom: 1px solid var(--line-soft);
+    }
+    .hero-pane-left {
+      padding: 4.5rem 5vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-right: 1px solid var(--line-soft);
+      background: var(--white);
+    }
+    .hero-pane-right {
+      padding: 3.5rem 4.5vw;
+      background: var(--mint-bg);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+    }
+    .kicker-50 {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--teal);
+      margin-bottom: 1.2rem;
+    }
+    .hero-pane-left h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.25rem, 3.9vw, 3.6rem);
+      line-height: 1.12;
+      margin-bottom: 1.35rem;
+      color: var(--slate-dark);
+    }
+    .hero-pane-left h1 em {
+      color: var(--teal);
+      font-style: italic;
+    }
+    .hero-pane-left p {
+      color: var(--slate-muted);
+      font-size: 1.04rem;
+      max-width: 52ch;
+      margin-bottom: 2rem;
+    }
+    .dual-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-top: 1px solid var(--line-soft);
+      padding-top: 1.75rem;
+      margin-top: 2rem;
+      gap: 1.5rem;
+    }
+    .dual-stat strong {
+      display: block;
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      color: var(--teal);
+      line-height: 1.1;
+    }
+    .dual-stat span {
+      font-size: 0.84rem;
+      color: var(--slate-muted);
+    }
+
+    /* Interactive 50/50 Compare Viewer inside Hero/Section */
+    .compare-card {
+      background: var(--white);
+      border: 1px solid var(--mint-border);
+      border-radius: 20px;
+      padding: 1.25rem;
+      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.07);
+    }
+    .compare-stage {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      aspect-ratio: 16 / 11;
+      user-select: none;
+      background: #e6f4f1;
+    }
+    .compare-stage img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .compare-before-layer {
+      position: absolute;
+      inset: 0;
+      width: 50%;
+      overflow: hidden;
+      border-right: 3px solid var(--teal);
+    }
+    .compare-before-layer img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(0.45) contrast(0.95) brightness(0.93);
+    }
+    .badge-side {
+      position: absolute;
+      top: 14px;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      z-index: 5;
+    }
+    .badge-left {
+      left: 14px;
+      background: rgba(15, 23, 42, 0.82);
+      color: var(--white);
+    }
+    .badge-right {
+      right: 14px;
+      background: var(--teal);
+      color: var(--white);
+    }
+    .compare-controls {
+      margin-top: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .compare-controls input[type="range"] {
+      flex: 1;
+      accent-color: var(--teal);
+      cursor: ew-resize;
+    }
+
+    /* Section Containers */
+    .split-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid var(--line-soft);
+    }
+    .pane-white {
+      padding: 4.5rem 5vw;
+      background: var(--white);
+      border-right: 1px solid var(--line-soft);
+    }
+    .pane-mint {
+      padding: 4.5rem 5vw;
+      background: var(--mint-bg);
+    }
+    .sec-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.75rem, 2.8vw, 2.5rem);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    /* Interactive 50/50 Treatment Aligner Simulator */
+    .stage-pills {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin: 1.25rem 0;
+    }
+    .stage-pill {
+      padding: 0.55rem 1.05rem;
+      border-radius: 999px;
+      border: 1px solid var(--mint-border);
+      background: var(--white);
+      color: var(--slate-dark);
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .stage-pill.active {
+      background: var(--teal);
+      color: var(--white);
+      border-color: var(--teal);
+    }
+    .sim-readout {
+      background: var(--white);
+      border: 1px solid var(--mint-border);
+      border-radius: 16px;
+      padding: 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+    .sim-col {
+      padding: 1rem;
+      border-radius: 12px;
+      background: var(--mint-bg);
+    }
+    .sim-col h4 {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--teal);
+      margin-bottom: 0.4rem;
+    }
+    .sim-col strong {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      display: block;
+      margin-bottom: 0.35rem;
+    }
+
+    /* Prestaciones Duales */
+    .service-row {
+      padding: 1.35rem 0;
+      border-bottom: 1px solid var(--line-soft);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    .service-row h3 {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+    }
+    .service-row p {
+      font-size: 0.9rem;
+      color: var(--slate-muted);
+    }
+    .service-tag {
+      white-space: nowrap;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--teal);
+      background: var(--mint-bg);
+      border: 1px solid var(--mint-border);
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+    }
+
+    /* Directorio Médico & Clínica con Lightbox */
+    .container-wide {
+      padding: 4.5rem 5vw;
+      border-bottom: 1px solid var(--line-soft);
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .doc-card {
+      border: 1px solid var(--line-soft);
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--white);
+      cursor: pointer;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .doc-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--teal);
+    }
+    .doc-img {
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      background: var(--mint-bg);
+    }
+    .doc-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .doc-body { padding: 1.25rem; }
+    .doc-body span {
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--teal);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .doc-body h3 {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      margin: 0.25rem 0 0.4rem;
+    }
+    .doc-body p {
+      font-size: 0.86rem;
+      color: var(--slate-muted);
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.82);
+      backdrop-filter: blur(8px);
+      z-index: 250;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox-box {
+      background: var(--white);
+      border-radius: 18px;
+      max-width: 720px;
+      width: 100%;
+      overflow: hidden;
+    }
+    .lightbox-box img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+    }
+    .lightbox-caption {
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    /* Testimonios */
+    .testi-card {
+      background: var(--white);
+      border: 1px solid var(--mint-border);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .fict-label {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--teal-dark);
+      background: var(--mint-bg);
+      border: 1px solid var(--mint-border);
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      margin-bottom: 0.65rem;
+    }
+
+    /* Formulario */
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .field { display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 1rem; }
+    .field label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--slate-dark);
+    }
+    .field input, .field select, .field textarea {
+      padding: 0.78rem 0.9rem;
+      border: 1px solid var(--line-soft);
+      border-radius: 10px;
+      font-family: var(--font-sans);
+      font-size: 0.92rem;
+      background: var(--white);
+    }
+    .field input:focus, .field select:focus, .field textarea:focus {
+      outline: none;
+      border-color: var(--teal);
+    }
+    .demo-alert {
+      display: none;
+      margin-top: 1rem;
+      padding: 1rem;
+      border-radius: 10px;
+      background: var(--mint-bg);
+      border: 1px solid var(--teal);
+      color: var(--teal-dark);
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+
+    footer {
+      padding: 2.5rem 5vw 5rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.85rem;
+      color: var(--slate-muted);
+    }
+
+    @media (max-width: 960px) {
+      .split-header, .split-hero, .split-section { grid-template-columns: 1fr; }
+      .header-left, .hero-pane-left, .pane-white { border-right: none; border-bottom: 1px solid var(--line-soft); }
+      .nav-menu { display: none; }
+    }
+    @media (max-width: 560px) {
+      .dual-stats, .sim-readout, .form-row { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body data-rubro-id="salud" data-style-id="split-screen-clinical">
+
+  <header class="split-header">
+    <div class="header-left">
+      <a href="#" class="brand">
+        <span class="brand-serif">DUO ALIGN</span>
+        <span class="brand-badge">50 / 50 DSD</span>
+      </a>
+      <ul class="nav-menu">
+        <li><a href="#simulador">Comparador 50/50</a></li>
+        <li><a href="#prestaciones">Tratamientos</a></li>
+        <li><a href="#equipo">Especialistas</a></li>
+      </ul>
+    </div>
+    <div class="header-right">
+      <span style="font-size:0.82rem;color:var(--teal-dark);font-weight:600">Escáner Intraoral iTero 5D · Sin Moldes de Pasta</span>
+      <a href="#reserva" class="btn-teal">Evaluación Dual 50/50</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- SPLIT HERO 50/50 -->
+    <section class="split-hero">
+      <div class="hero-pane-left">
+        <div class="kicker-50">ARQUITECTURA CLÍNICA COMPARATIVA · ORTODONCIA & ESTÉTICA</div>
+        <h1>Visualiza tu sonrisa final <em>antes</em> del primer alineador.</h1>
+        <p>En DUO ALIGN dividimos cada diagnóstico en dos hemisferios: el estado anatómico actual y la proyección biométrica 3D de tu sonrisa ideal. Sin incertidumbre, sin brackets metálicos y con predictibilidad digital del 98.4%.</p>
+        <div style="display:flex;gap:0.85rem;flex-wrap:wrap">
+          <a href="#reserva" class="btn-teal">Agendar Escaneo 3D Inicial</a>
+          <a href="#simulador" class="btn-ghost">Probar Simulador 50/50</a>
+        </div>
+        <div class="dual-stats">
+          <div class="dual-stat">
+            <strong>50% Menos</strong>
+            <span>Tiempo en sillón dental gracias a monitoreo remoto quincenal.</span>
+          </div>
+          <div class="dual-stat">
+            <strong>100% Digital</strong>
+            <span>Set-up ortodóncico bimaxilar aprobado por ti en pantalla dividida.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-pane-right">
+        <div class="compare-card">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem">
+            <strong style="font-size:0.85rem">VISOR INTERACTIVO ANTES / DESPUÉS (DESLIZA LA CORTINA)</strong>
+            <span id="splitPct" style="font-size:0.78rem;color:var(--teal);font-weight:700">50% / 50%</span>
+          </div>
+          <div class="compare-stage">
+            <span class="badge-side badge-left">ANTES · DIAGNÓSTICO BASE</span>
+            <span class="badge-side badge-right">DESPUÉS · DISEÑO DSD + ALINEADOR</span>
+            <!-- Imagen Después (Fondo Completo) -->
+            <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1200&q=85"
+                 alt="Sonrisa alineada con Diseño Digital de Sonrisa Duo Align"
+                 onerror="this.onerror=null;this.src='../../images/demos/assets/med/dental-smile-1.svg'">
+            <!-- Capa Antes (Recortada por ancho) -->
+            <div class="compare-before-layer" id="beforeLayer">
+              <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1200&q=85"
+                   alt="Estado previo al diseño de sonrisa"
+                   onerror="this.onerror=null;this.src='../../images/demos/assets/med/dental-smile-1.svg'">
+            </div>
+          </div>
+          <div class="compare-controls">
+            <span style="font-size:0.75rem;font-weight:600;color:var(--slate-muted)">Estado Inicial</span>
+            <input type="range" id="compareRange" min="10" max="90" value="50" aria-label="Comparar antes y después">
+            <span style="font-size:0.75rem;font-weight:600;color:var(--teal)">Sonrisa Final</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCIA VISUAL INTERACTIVA Y PRESTACIONES EN PANTALLA DIVIDIDA -->
+    <section class="split-section" id="simulador">
+      <div class="pane-mint">
+        <div class="kicker-50">EXPERIENCIA VISUAL · CRONOGRAMA CINEMÁTICO DE ALINEADORES</div>
+        <h2 class="sec-title">Simulador de Progresión Ortodóncica por Etapas</h2>
+        <p style="color:var(--slate-muted);font-size:0.95rem">Selecciona una fase del tratamiento para comparar el movimiento radicular programado frente a la estética gingival lograda.</p>
+
+        <div class="stage-pills" role="tablist" aria-label="Etapas del tratamiento">
+          <button type="button" class="stage-pill active" data-stage="1" role="tab" aria-selected="true">Etapa 01 · Escaneo 3D</button>
+          <button type="button" class="stage-pill" data-stage="2" role="tab" aria-selected="false">Etapa 07 · Expansión de Arco</button>
+          <button type="button" class="stage-pill" data-stage="3" role="tab" aria-selected="false">Etapa 14 · Microestética & Contención</button>
+        </div>
+
+        <div class="sim-readout" aria-live="polite">
+          <div class="sim-col">
+            <h4>HEMISFERIO CLÍNICO (BIOMECÁNICA)</h4>
+            <strong id="simBioTitle">Digitalización Intraoral 6000 FPS</strong>
+            <p id="simBioDesc" style="font-size:0.86rem;color:var(--slate-muted)">Registro oclusal en color real y tomografía Cone-Beam para medir espesor óseo cortical antes de mover piezas.</p>
+          </div>
+          <div class="sim-col">
+            <h4>HEMISFERIO ESTÉTICO (ARMONÍA FACIAL)</h4>
+            <strong id="simEstTitle">Simulación Facial 50/50 en Vivo</strong>
+            <p id="simEstDesc" style="font-size:0.86rem;color:var(--slate-muted)">Trazado de línea bipupilar y curva de la sonrisa para diseñar proporciones áureas personalizadas.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="pane-white" id="prestaciones">
+        <div class="kicker-50">PRESTACIONES CLÍNICAS DUALES</div>
+        <h2 class="sec-title">Especialidades Odontológicas de Precisión</h2>
+        <div class="service-row">
+          <div>
+            <h3>Ortodoncia Invisible Full Aligners</h3>
+            <p>Alineadores termoplásticos multicapa cambiados cada 10 días con control biomecánico de torque y rotación.</p>
+          </div>
+          <span class="service-tag">6 a 14 Meses</span>
+        </div>
+        <div class="service-row">
+          <div>
+            <h3>Diseño Digital de Sonrisa (DSD) + Mockup</h3>
+            <p>Prueba física en boca de tu nueva sonrisa con resina bisacrílica antes de realizar cualquier desgaste dental.</p>
+          </div>
+          <span class="service-tag">Sesión de 60 min</span>
+        </div>
+        <div class="service-row">
+          <div>
+            <h3>Carillas Cerámicas Ultradelgadas (Lentes de Contacto)</h3>
+            <p>Disilicato de litio feldespático de 0.3 mm cementado bajo aislamiento absoluto y microscopía óptica.</p>
+          </div>
+          <span class="service-tag">Alta Estética</span>
+        </div>
+        <div class="service-row" style="border-bottom:none">
+          <div>
+            <h3>Blanqueamiento Clínico Fotoactivado Sensibilidad Cero</h3>
+            <p>Protocolo combinado clínico + cubetas nocturnas a medida con péptidos remineralizantes de hidroxiapatita.</p>
+          </div>
+          <span class="service-tag">2 Tonos en 1 Cita</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIRECTORIO MÉDICO & INSTALACIONES CON LIGHTBOX -->
+    <section class="container-wide" id="equipo">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem">
+        <div>
+          <div class="kicker-50">DIRECCIÓN CLÍNICA & SUITES 50/50</div>
+          <h2 class="sec-title" style="margin-bottom:0">Especialistas & Laboratorios CAD/CAM</h2>
+        </div>
+        <p style="font-size:0.88rem;color:var(--slate-muted)">Haz clic en cada tarjeta para ampliar imagen y credenciales clínicas.</p>
+      </div>
+
+      <div class="team-grid">
+        <article class="doc-card" tabindex="0"
+                 data-title="Dra. Antonia Sommer · Ortodoncia Digital"
+                 data-sub="Directora de Ortodoncia Digital · Diamond Provider en Alineadores Invisibles & Magíster en Ortodoncia."
+                 data-img="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=1200&q=85">
+          <div class="doc-img">
+            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80" alt="Dra. Antonia Sommer · Especialista Odontológico"
+                 onerror="this.onerror=null;this.src='../../images/demos/assets/med/doctor-female-1.svg'">
+          </div>
+          <div class="doc-body">
+            <span>ORTODONCIA INVISIBLE</span>
+            <h3>Dra. Antonia Sommer</h3>
+            <p>Directora de Ortodoncia Digital · Diamond Provider en Alineadores & Magíster en Ortodoncia.</p>
+          </div>
+        </article>
+
+        <article class="doc-card" tabindex="0"
+                 data-title="Dr. Clemente Vial · Especialista Odontológico"
+                 data-sub="Especialista en Rehabilitación Oral Biomimética, Carillas Cerámicas y Restauraciones Digitales CAD/CAM."
+                 data-img="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800&q=80">
+          <div class="doc-img">
+            <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800&q=80" alt="Dr. Clemente Vial · Especialista Odontológico"
+                 onerror="this.onerror=null;this.src='../../images/demos/assets/med/doctor-male-1.svg'">
+          </div>
+          <div class="doc-body">
+            <span>REHABILITACIÓN & ESTÉTICA</span>
+            <h3>Dr. Clemente Vial</h3>
+            <p>Especialista en Rehabilitación Oral y Odontología Adhesiva Biomimética (U. de los Andes / São Paulo).</p>
+          </div>
+        </article>
+
+        <article class="doc-card" tabindex="0"
+                 data-title="Dra. Florencia Matte · Especialista Odontológico"
+                 data-sub="Microcirugía Plástica Gingival, Regeneración Ósea y Recontorneo Estético Guiado Digitalmente."
+                 data-img="https://images.unsplash.com/photo-1651008376811-b90baee60c1f?auto=format&fit=crop&w=800&q=80">
+          <div class="doc-img">
+            <img src="https://images.unsplash.com/photo-1651008376811-b90baee60c1f?auto=format&fit=crop&w=800&q=80" alt="Dra. Florencia Matte · Especialista Odontológico"
+                 onerror="this.onerror=null;this.src='../../images/demos/assets/med/doctor-female-3.svg'">
+          </div>
+          <div class="doc-body">
+            <span>PERIODONCIA ESTÉTICA</span>
+            <h3>Dra. Florencia Matte</h3>
+            <p>Periodoncista · Microcirugía Plástica Gingival y Recontorneo Estético Guiado Digitalmente.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- TESTIMONIOS + RESERVA EN SPLIT 50/50 -->
+    <section class="split-section" id="reserva">
+      <div class="pane-white">
+        <div class="kicker-50">CASOS COMPARATIVOS</div>
+        <h2 class="sec-title">Experiencias de Pacientes</h2>
+
+        <div class="testi-card">
+          <span class="fict-label">[Testimonio Ficticio de Demostración]</span>
+          <p style="font-size:0.94rem;margin-bottom:0.75rem">"Ver en la pantalla dividida cómo iba a quedar mi mordida antes de pagar el tratamiento me dio total tranquilidad. En 9 meses con alineadores invisibles cerré el diastema sin que nadie en mi oficina notara que llevaba aparatos."</p>
+          <strong style="font-size:0.82rem;color:var(--teal)">Valentina H., 31 años · Abogada · Tratamiento Alineadores 18 etapas</strong>
+        </div>
+
+        <div class="testi-card">
+          <span class="fict-label">[Testimonio Ficticio de Demostración]</span>
+          <p style="font-size:0.94rem;margin-bottom:0.75rem">"El mockup 50/50 donde probaron mis carillas en la mitad de mi sonrisa para que yo mismo comparara en el espejo fue increíble. El resultado final quedó súper natural."</p>
+          <strong style="font-size:0.82rem;color:var(--teal)">Rodrigo M., 44 años · Director Comercial · DSD + 8 Lentes Cerámicos</strong>
+        </div>
+      </div>
+
+      <div class="pane-mint">
+        <div class="kicker-50">AGENDA TU SESIÓN DIAGNÓSTICA</div>
+        <h2 class="sec-title">Reserva tu Evaluación 50/50</h2>
+        <p style="font-size:0.9rem;color:var(--slate-muted);margin-bottom:1.25rem">
+          Aviso: Este formulario es una <strong>demostración interactiva del lado del cliente</strong> para exhibición de portafolio.
+        </p>
+
+        <form id="splitBookingForm">
+          <div class="form-row">
+            <div class="field">
+              <label for="spName">Nombre y Apellido</label>
+              <input type="text" id="spName" required placeholder="Ej. Ignacia Fuenzalida">
+            </div>
+            <div class="field">
+              <label for="spPhone">Teléfono / WhatsApp</label>
+              <input type="tel" id="spPhone" required placeholder="+56 9 8821 XXXX">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="spGoal">Objetivo Principal</label>
+              <select id="spGoal" required>
+                <option value="Ortodoncia Invisible">Alinear dientes (Ortodoncia Invisible)</option>
+                <option value="Diseño de Sonrisa DSD">Diseño Digital de Sonrisa + Carillas</option>
+                <option value="Blanqueamiento Clínico">Blanqueamiento Clínico Dual</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="spDate">Fecha Preferida</label>
+              <input type="date" id="spDate" required>
+            </div>
+          </div>
+          <button type="submit" class="btn-teal" style="width:100%;justify-content:center">Confirmar Hora en Simulador Demo</button>
+          <div class="demo-alert" id="splitAlert" role="status"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Detalle de especialista e instalación">
+    <div class="lightbox-box">
+      <img id="lbImg" src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=85" alt="Vista ampliada"
+           onerror="this.onerror=null;this.src='../../images/demos/assets/med/clinic-box-dental.svg'">
+      <div class="lightbox-caption">
+        <div>
+          <h3 id="lbTitle" style="font-family:var(--font-serif);font-size:1.25rem"></h3>
+          <p id="lbSub" style="font-size:0.86rem;color:var(--slate-muted)"></p>
+        </div>
+        <button type="button" class="btn-ghost" id="lbClose">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div><strong>DUO ALIGN CLÍNICA</strong> · Nueva Costanera 4092, Vitacura · Demostración Interactiva KuyénDev</div>
+    <div>ESTILO #12 · SPLIT-SCREEN CLINICAL (50/50)</div>
+  </footer>
+
+  <script>
+    (function () {
+      // Split Curtain 50/50 Slider
+      const range = document.getElementById('compareRange');
+      const beforeLayer = document.getElementById('beforeLayer');
+      const splitPct = document.getElementById('splitPct');
+      range.addEventListener('input', () => {
+        const v = range.value;
+        beforeLayer.style.width = v + '%';
+        splitPct.textContent = v + '% Antes / ' + (100 - v) + '% Después';
+      });
+
+      // Stage Selector
+      const stages = {
+        '1': {
+          bioT: 'Digitalización Intraoral 6000 FPS',
+          bioD: 'Registro oclusal en color real y tomografía Cone-Beam para medir espesor óseo cortical antes de mover piezas.',
+          estT: 'Simulación Facial 50/50 en Vivo',
+          estD: 'Trazado de línea bipupilar y curva de la sonrisa para diseñar proporciones áureas personalizadas.'
+        },
+        '2': {
+          bioT: 'Expansión Dentoalveolar Controlada',
+          bioD: 'Fuerzas ligeras y continuas de 0.25 mm por alineador con ataches optimizados de retención biomecánica.',
+          estT: 'Amplitud de Corredores Bucales',
+          estD: 'Eliminación de espacios oscuros laterales al sonreír, logrando una sonrisa amplia y luminosa.'
+        },
+        '3': {
+          bioT: 'Asentamiento Oclusal & Contención Vivera',
+          bioD: 'Contactos bilaterales simétricos verificados digitalmente con sensor de presión T-Scan.',
+          estT: 'Microestética de Bordes Incisales',
+          estD: 'Blanqueamiento final y recontorneo cosmético mínimamente invasivo para simetría 100% armónica.'
+        }
+      };
+
+      const pills = document.querySelectorAll('.stage-pill');
+      const simBioTitle = document.getElementById('simBioTitle');
+      const simBioDesc = document.getElementById('simBioDesc');
+      const simEstTitle = document.getElementById('simEstTitle');
+      const simEstDesc = document.getElementById('simEstDesc');
+
+      pills.forEach(p => {
+        p.addEventListener('click', () => {
+          pills.forEach(btn => { btn.classList.remove('active'); btn.setAttribute('aria-selected', 'false'); });
+          p.classList.add('active');
+          p.setAttribute('aria-selected', 'true');
+          const d = stages[p.dataset.stage];
+          if (d) {
+            simBioTitle.textContent = d.bioT;
+            simBioDesc.textContent = d.bioD;
+            simEstTitle.textContent = d.estT;
+            simEstDesc.textContent = d.estD;
+          }
+        });
+      });
+
+      // Lightbox
+      const lb = document.getElementById('lightbox');
+      const lbImg = document.getElementById('lbImg');
+      const lbTitle = document.getElementById('lbTitle');
+      const lbSub = document.getElementById('lbSub');
+      const lbClose = document.getElementById('lbClose');
+
+      document.querySelectorAll('.doc-card').forEach(card => {
+        const open = () => {
+          lbImg.src = card.dataset.img;
+          lbTitle.textContent = card.dataset.title;
+          lbSub.textContent = card.dataset.sub;
+          lb.classList.add('open');
+        };
+        card.addEventListener('click', open);
+        card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
+      });
+      lbClose.addEventListener('click', () => lb.classList.remove('open'));
+      lb.addEventListener('click', e => { if (e.target === lb) lb.classList.remove('open'); });
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') lb.classList.remove('open'); });
+
+      // Form
+      const form = document.getElementById('splitBookingForm');
+      const alertBox = document.getElementById('splitAlert');
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        const name = document.getElementById('spName').value;
+        const goal = document.getElementById('spGoal').value;
+        alertBox.style.display = 'block';
+        alertBox.textContent = '[DEMO INTERACTIVA] Reserva simulada para ' + name + ' (' + goal + '). En una clínica real recibirías confirmación por WhatsApp.';
+        form.reset();
+      });
+    })();
+  </script>
+  <script src="../../js/config/rubros.js"></script>
+  <script src="../../js/demo-viewer-bar.js"></script>
+</body>
+</html>

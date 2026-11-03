@@ -1,0 +1,1743 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>NORDIC STRAND · Estudio de Corte Escandinavo & Luz Natural</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Spectral:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-snow: #FAF9F6;
+      --bg-pearl: #E5E4E2;
+      --bg-card: #F3F2EE;
+      --taupe: #8C857B;
+      --sage: #6D7A6E;
+      --charcoal: #2B2B2A;
+      --line: rgba(43, 43, 42, 0.12);
+      --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-serif: 'Spectral', Georgia, serif;
+      --kelvin-tint: rgba(255, 248, 235, 0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-snow);
+      color: var(--charcoal);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+    }
+
+    body {
+      background-color: var(--bg-snow);
+      color: var(--charcoal);
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Ambient Daylight Overlay controlled by interactive simulator */
+    .daylight-ambient {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at 80% 15%, var(--kelvin-tint), transparent 70%);
+      z-index: 5;
+      transition: background 0.6s ease;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* Architectural Grid Lines */
+    .nordic-shell {
+      max-width: 1440px;
+      margin: 0 auto;
+      border-left: 1px solid var(--line);
+      border-right: 1px solid var(--line);
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250, 249, 246, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .header-grid {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      min-height: 76px;
+    }
+
+    .brand-cell {
+      padding: 0 2rem;
+      border-right: 1px solid var(--line);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .brand-title {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 400;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .brand-coords {
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      color: var(--taupe);
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+      padding: 0 1.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+      opacity: 0.75;
+      transition: opacity 0.25s ease;
+      position: relative;
+      padding: 0.25rem 0;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: var(--charcoal);
+      transition: width 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .header-cta {
+      padding: 0 2rem;
+      border-left: 1px solid var(--line);
+      height: 100%;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .btn-nordic {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      padding: 0.78rem 1.45rem;
+      background: var(--charcoal);
+      color: var(--bg-snow);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: 1px solid var(--charcoal);
+      cursor: pointer;
+      transition: background 0.25s ease, color 0.25s ease;
+    }
+
+    .btn-nordic:hover {
+      background: transparent;
+      color: var(--charcoal);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--charcoal);
+      border: 1px solid var(--charcoal);
+    }
+
+    .btn-outline:hover {
+      background: var(--charcoal);
+      color: var(--bg-snow);
+    }
+
+    /* Hero Section */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 7fr 5fr;
+      border-bottom: 1px solid var(--line);
+      min-height: calc(92vh - 76px);
+    }
+
+    .hero-copy {
+      padding: clamp(2.5rem, 6vw, 5.5rem);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-right: 1px solid var(--line);
+    }
+
+    .kicker-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--taupe);
+      margin-bottom: 1.5rem;
+    }
+
+    .kicker-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--sage);
+    }
+
+    .hero-headline {
+      font-family: var(--font-serif);
+      font-size: clamp(2.4rem, 4.8vw, 4.4rem);
+      font-weight: 300;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-headline em {
+      font-style: italic;
+      color: var(--taupe);
+    }
+
+    .hero-lead {
+      max-width: 520px;
+      font-size: 1.04rem;
+      color: #4A4946;
+      font-weight: 400;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--line);
+      padding-top: 1.75rem;
+      gap: 1.5rem;
+    }
+
+    .metric-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--taupe);
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    .metric-val {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 400;
+    }
+
+    .hero-visual {
+      position: relative;
+      background: var(--bg-pearl);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+
+    .hero-img-wrap {
+      position: relative;
+      flex: 1;
+      min-height: 440px;
+      overflow: hidden;
+    }
+
+    .hero-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: contrast(0.96) brightness(1.02);
+      transition: transform 0.8s ease, filter 0.5s ease;
+    }
+
+    .hero-img-caption {
+      padding: 1.25rem 2rem;
+      background: var(--bg-snow);
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      color: var(--taupe);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* Section Headers */
+    .section-bar {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-index {
+      padding: 2rem;
+      border-right: 1px solid var(--line);
+      font-size: 0.76rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--taupe);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .section-heading-box {
+      padding: 2.5rem clamp(1.5rem, 4vw, 3.5rem);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1.5rem;
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.85rem, 3.2vw, 2.75rem);
+      font-weight: 300;
+      line-height: 1.15;
+    }
+
+    .section-sub {
+      max-width: 440px;
+      font-size: 0.92rem;
+      color: var(--taupe);
+    }
+
+    /* Interactive Services Menu */
+    .services-wrap {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .service-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 2rem;
+      border-bottom: 1px solid var(--line);
+      background: var(--bg-card);
+      gap: 1rem;
+    }
+
+    .filter-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .pill-btn {
+      padding: 0.55rem 1.15rem;
+      background: transparent;
+      border: 1px solid var(--line);
+      font-family: var(--font-sans);
+      font-size: 0.76rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .pill-btn.active,
+    .pill-btn:hover {
+      background: var(--charcoal);
+      color: var(--bg-snow);
+      border-color: var(--charcoal);
+    }
+
+    .length-selector {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--taupe);
+    }
+
+    .length-btn {
+      padding: 0.35rem 0.75rem;
+      border: 1px solid var(--line);
+      background: var(--bg-snow);
+      font-size: 0.74rem;
+      cursor: pointer;
+      color: var(--charcoal);
+    }
+
+    .length-btn.active {
+      background: var(--sage);
+      color: #fff;
+      border-color: var(--sage);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .service-item {
+      padding: 2.25rem;
+      border-bottom: 1px solid var(--line);
+      border-right: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.25rem;
+      background: var(--bg-snow);
+      transition: background 0.25s ease;
+    }
+
+    .service-item:nth-child(2n) {
+      border-right: none;
+    }
+
+    .service-item:hover {
+      background: var(--bg-card);
+    }
+
+    .service-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .service-tag {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--sage);
+      margin-bottom: 0.35rem;
+      display: block;
+    }
+
+    .service-name {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      font-weight: 400;
+    }
+
+    .service-price {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      white-space: nowrap;
+    }
+
+    .service-desc {
+      font-size: 0.9rem;
+      color: #55534E;
+    }
+
+    .service-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 1rem;
+      border-top: 1px dashed var(--line);
+      font-size: 0.78rem;
+      color: var(--taupe);
+    }
+
+    .select-service-link {
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--charcoal);
+      font-weight: 600;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    /* Interactive Visual Experience: Nordic Daylight & Tone Simulator */
+    .daylight-lab {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      border-bottom: 1px solid var(--line);
+      background: var(--bg-card);
+    }
+
+    .lab-controls {
+      padding: clamp(2rem, 4vw, 3.5rem);
+      border-right: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1.75rem;
+    }
+
+    .lab-slider-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .lab-slider-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--taupe);
+    }
+
+    input[type="range"].nordic-range {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 4px;
+      background: var(--bg-pearl);
+      outline: none;
+    }
+
+    input[type="range"].nordic-range::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      background: var(--charcoal);
+      border: 2px solid var(--bg-snow);
+      cursor: pointer;
+      border-radius: 50%;
+    }
+
+    .tone-swatches {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem;
+    }
+
+    .swatch-card {
+      padding: 0.85rem 0.6rem;
+      border: 1px solid var(--line);
+      background: var(--bg-snow);
+      cursor: pointer;
+      text-align: center;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .swatch-card.active {
+      border-color: var(--charcoal);
+      transform: translateY(-2px);
+    }
+
+    .swatch-circle {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      margin: 0 auto 0.5rem;
+      border: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .swatch-name {
+      font-size: 0.72rem;
+      font-weight: 500;
+      display: block;
+    }
+
+    .lab-preview-stage {
+      padding: clamp(2rem, 4vw, 3.5rem);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      transition: background 0.5s ease;
+    }
+
+    .stage-card {
+      width: 100%;
+      max-width: 580px;
+      background: var(--bg-snow);
+      border: 1px solid var(--line);
+      padding: 1.5rem;
+      box-shadow: 0 20px 40px rgba(43, 43, 42, 0.06);
+    }
+
+    .stage-img-box {
+      position: relative;
+      height: 320px;
+      overflow: hidden;
+      margin-bottom: 1.25rem;
+    }
+
+    .stage-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: filter 0.4s ease;
+    }
+
+    .stage-light-overlay {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      mix-blend-mode: soft-light;
+      transition: background 0.4s ease;
+    }
+
+    .stage-readout {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      border-top: 1px solid var(--line);
+      padding-top: 1rem;
+      font-size: 0.8rem;
+    }
+
+    .readout-label {
+      color: var(--taupe);
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      display: block;
+    }
+
+    /* Lookbook Gallery + Lightbox */
+    .lookbook-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .look-card {
+      border-right: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      background: var(--bg-snow);
+      group: look;
+    }
+
+    .look-card:last-child {
+      border-right: none;
+    }
+
+    .look-thumb {
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+      position: relative;
+      background: var(--bg-pearl);
+    }
+
+    .look-thumb img {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s ease;
+    }
+
+    .look-card:hover .look-thumb img {
+      transform: scale(1.04);
+    }
+
+    .look-info {
+      padding: 1.25rem 1.5rem;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .look-title {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+    }
+
+    .look-code {
+      font-size: 0.72rem;
+      color: var(--taupe);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* Team & Architectural Philosophy */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .stylist-card {
+      border-right: 1px solid var(--line);
+      padding: 2.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .stylist-card:last-child {
+      border-right: none;
+    }
+
+    .stylist-photo {
+      aspect-ratio: 4 / 4;
+      overflow: hidden;
+      background: var(--bg-pearl);
+    }
+
+    .stylist-photo img {
+      width: 100%;
+      height: 100%;
+      filter: grayscale(25%);
+    }
+
+    .stylist-role {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--sage);
+    }
+
+    .stylist-name {
+      font-family: var(--font-serif);
+      font-size: 1.45rem;
+      font-weight: 400;
+    }
+
+    .stylist-bio {
+      font-size: 0.88rem;
+      color: #55534E;
+    }
+
+    /* Testimonials */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-bottom: 1px solid var(--line);
+      background: var(--bg-card);
+    }
+
+    .quote-card {
+      padding: 2.5rem;
+      border-right: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .quote-card:last-child {
+      border-right: none;
+    }
+
+    .demo-badge-tag {
+      display: inline-block;
+      font-size: 0.66rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--taupe);
+      background: var(--bg-snow);
+      border: 1px solid var(--line);
+      padding: 0.25rem 0.6rem;
+      width: fit-content;
+    }
+
+    .quote-text {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-style: italic;
+      line-height: 1.5;
+      color: var(--charcoal);
+    }
+
+    .quote-author {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--taupe);
+    }
+
+    /* Booking Section */
+    .booking-section {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .booking-aside {
+      padding: clamp(2rem, 4vw, 3.5rem);
+      border-right: 1px solid var(--line);
+      background: var(--bg-snow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .studio-hours {
+      list-style: none;
+      border-top: 1px solid var(--line);
+      padding-top: 1.5rem;
+      font-size: 0.88rem;
+    }
+
+    .studio-hours li {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.45rem 0;
+      border-bottom: 1px dashed var(--line);
+    }
+
+    .booking-form-wrap {
+      padding: clamp(2rem, 4vw, 3.5rem);
+      background: var(--bg-card);
+    }
+
+    .demo-notice {
+      padding: 0.85rem 1.1rem;
+      background: var(--bg-snow);
+      border-left: 3px solid var(--sage);
+      font-size: 0.8rem;
+      color: #4A4946;
+      margin-bottom: 1.75rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .form-field.full {
+      grid-column: 1 / -1;
+    }
+
+    .form-field label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--taupe);
+    }
+
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+      padding: 0.85rem 1rem;
+      background: var(--bg-snow);
+      border: 1px solid var(--line);
+      font-family: var(--font-sans);
+      font-size: 0.92rem;
+      color: var(--charcoal);
+      outline: none;
+    }
+
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus {
+      border-color: var(--charcoal);
+    }
+
+    .booking-feedback {
+      margin-top: 1.25rem;
+      padding: 1.25rem;
+      background: var(--bg-snow);
+      border: 1px solid var(--sage);
+      display: none;
+      font-size: 0.9rem;
+    }
+
+    /* Footer */
+    .site-footer {
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.8rem;
+      color: var(--taupe);
+    }
+
+    /* Lightbox Modal */
+    .lightbox-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(43, 43, 42, 0.88);
+      backdrop-filter: blur(8px);
+      z-index: 999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .lightbox-modal.open {
+      display: flex;
+    }
+
+    .lightbox-box {
+      max-width: 820px;
+      width: 100%;
+      background: var(--bg-snow);
+      border: 1px solid var(--line);
+      overflow: hidden;
+    }
+
+    .lightbox-img-container {
+      max-height: 70vh;
+      overflow: hidden;
+      background: var(--bg-pearl);
+    }
+
+    .lightbox-img-container img {
+      width: 100%;
+      height: 100%;
+      max-height: 70vh;
+      object-fit: cover;
+    }
+
+    .lightbox-bar {
+      padding: 1.25rem 1.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    @media (max-width: 1024px) {
+      .hero-grid,
+      .daylight-lab,
+      .booking-section {
+        grid-template-columns: 1fr;
+      }
+      .hero-copy,
+      .lab-controls,
+      .booking-aside {
+        border-right: none;
+        border-bottom: 1px solid var(--line);
+      }
+      .section-bar {
+        grid-template-columns: 1fr;
+      }
+      .section-index {
+        border-right: none;
+        border-bottom: 1px solid var(--line);
+        padding: 1.25rem 2rem;
+      }
+      .lookbook-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .look-card:nth-child(2n) {
+        border-right: none;
+      }
+      .look-card {
+        border-bottom: 1px solid var(--line);
+      }
+      .team-grid,
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+      .stylist-card,
+      .quote-card {
+        border-right: none;
+        border-bottom: 1px solid var(--line);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-grid {
+        grid-template-columns: 1fr auto;
+      }
+      .nav-links {
+        display: none;
+      }
+      .services-grid,
+      .form-grid,
+      .lookbook-grid,
+      .tone-swatches {
+        grid-template-columns: 1fr;
+      }
+      .service-item {
+        border-right: none;
+      }
+      .hero-metrics {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body data-rubro-id="peluqueria" data-style-id="scandinavian-nordic">
+  <div class="daylight-ambient" id="ambientOverlay"></div>
+
+  <div class="nordic-shell">
+    <!-- Header -->
+    <header class="site-header">
+      <div class="header-grid">
+        <a href="#top" class="brand-cell">
+          <span class="brand-title">NORDIC STRAND</span>
+          <span class="brand-coords">59.3293° N · Estudio de Luz Natural</span>
+        </a>
+        <nav aria-label="Navegación principal">
+          <ul class="nav-links">
+            <li><a href="#servicios">Carta Técnica</a></li>
+            <li><a href="#simulador-luz">Luz Nórdica</a></li>
+            <li><a href="#lookbook">Lookbook</a></li>
+            <li><a href="#equipo">Arquitectos Capilares</a></li>
+            <li><a href="#reserva">Agenda</a></li>
+          </ul>
+        </nav>
+        <div class="header-cta">
+          <a href="#reserva" class="btn-nordic">Reservar Cita</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero-grid" id="top">
+      <div class="hero-copy">
+        <div>
+          <div class="kicker-row">
+            <span class="kicker-dot"></span>
+            <span>Estilo #11 · Scandinavian / Nordic Hair Architecture</span>
+          </div>
+          <h1 class="hero-headline">
+            Geometría orgánica, <em>luz boreal</em> y pureza botánica.
+          </h1>
+          <p class="hero-lead">
+            En NORDIC STRAND diseñamos cortes de caída natural y rubios translúcidos calibrados bajo claraboyas orientadas al norte. Sin artificios, respetando la estructura viva de tu cabello.
+          </p>
+          <div class="hero-actions">
+            <a href="#reserva" class="btn-nordic">Agendar Diagnóstico</a>
+            <a href="#simulador-luz" class="btn-nordic btn-outline">Probar Simulador Solar</a>
+          </div>
+        </div>
+
+        <div class="hero-metrics">
+          <div>
+            <span class="metric-label">Iluminación Estudio</span>
+            <span class="metric-val">5,500K CRI 98</span>
+          </div>
+          <div>
+            <span class="metric-label">Fórmulas Botánicas</span>
+            <span class="metric-val">100% Nórdicas</span>
+          </div>
+          <div>
+            <span class="metric-label">Sesión Silenciosa</span>
+            <span class="metric-val">Opción Quiet Chair</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-img-wrap">
+          <img
+            src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85"
+            alt="Interior minimalista escandinavo con madera de abedul y luz natural"
+            onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg'">
+        </div>
+        <div class="hero-img-caption">
+          <span>Estudio Principal · Abedul & Piedra Caliza</span>
+          <span>Copenhague · Estocolmo · Santiago</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Services Menu -->
+    <section id="servicios" class="services-wrap">
+      <div class="section-bar">
+        <div class="section-index">
+          <span>01 / Carta Funcional</span>
+          <span>Precios Transparentes</span>
+        </div>
+        <div class="section-heading-box">
+          <h2 class="section-title">Arquitectura de Corte & Coloración Translúcida</h2>
+          <p class="section-sub">Selecciona la categoría y longitud capilar para consultar tiempos de sillón y valores exactos con productos orgánicos incluidos.</p>
+        </div>
+      </div>
+
+      <div class="service-toolbar">
+        <div class="filter-pills" role="tablist" aria-label="Filtrar servicios">
+          <button type="button" class="pill-btn active" data-filter="all">Todos (6)</button>
+          <button type="button" class="pill-btn" data-filter="corte">Corte Geométrico</button>
+          <button type="button" class="pill-btn" data-filter="color">Color Escandinavo</button>
+          <button type="button" class="pill-btn" data-filter="botanico">Terapia Abedul</button>
+        </div>
+
+        <div class="length-selector">
+          <span>Largo capilar:</span>
+          <button type="button" class="length-btn" data-mult="1" data-label="Corto">Corto</button>
+          <button type="button" class="length-btn active" data-mult="1.15" data-label="Medio">Medio</button>
+          <button type="button" class="length-btn" data-mult="1.3" data-label="Largo">Largo</button>
+        </div>
+      </div>
+
+      <div class="services-grid" id="servicesGrid">
+        <article class="service-item" data-category="corte" data-base-price="42000">
+          <div>
+            <div class="service-top">
+              <div>
+                <span class="service-tag">Corte Geométrico</span>
+                <h3 class="service-name">Nordic Blunt & Movimiento en Seco</h3>
+              </div>
+              <span class="service-price">$48.300</span>
+            </div>
+            <p class="service-desc">Esculpido de precisión en seco para respetar el remolino natural y lograr caída limpia sin necesidad de styling diario.</p>
+          </div>
+          <div class="service-meta">
+            <span>Duración: 60 min · Incluye lavado con savia de abedul</span>
+            <button type="button" class="select-service-link" data-service-name="Nordic Blunt & Movimiento en Seco">Elegir servicio →</button>
+          </div>
+        </article>
+
+        <article class="service-item" data-category="color" data-base-price="85000">
+          <div>
+            <div class="service-top">
+              <div>
+                <span class="service-tag">Color Escandinavo</span>
+                <h3 class="service-name">Scandi Hairline & Rubio Perla</h3>
+              </div>
+              <span class="service-price">$97.750</span>
+            </div>
+            <p class="service-desc">Iluminación ultra fina alrededor del rostro imitando el efecto del sol de medianoche nórdico, sin marcas de raíz.</p>
+          </div>
+          <div class="service-meta">
+            <span>Duración: 135 min · Libre de amoníaco</span>
+            <button type="button" class="select-service-link" data-service-name="Scandi Hairline & Rubio Perla">Elegir servicio →</button>
+          </div>
+        </article>
+
+        <article class="service-item" data-category="corte" data-base-price="38000">
+          <div>
+            <div class="service-top">
+              <div>
+                <span class="service-tag">Corte Geométrico</span>
+                <h3 class="service-name">Minimalist Pixie / Bixie Escultural</h3>
+              </div>
+              <span class="service-price">$43.700</span>
+            </div>
+            <p class="service-desc">Líneas depuradas en nuca y pómulos con textura etérea superior. Ideal para resaltar facciones con elegancia silenciosa.</p>
+          </div>
+          <div class="service-meta">
+            <span>Duración: 55 min · Secado difuso natural</span>
+            <button type="button" class="select-service-link" data-service-name="Minimalist Pixie / Bixie Escultural">Elegir servicio →</button>
+          </div>
+        </article>
+
+        <article class="service-item" data-category="color" data-base-price="72000">
+          <div>
+            <div class="service-top">
+              <div>
+                <span class="service-tag">Color Escandinavo</span>
+                <h3 class="service-name">Glaseado Tonos Avena & Ceniza Suave</h3>
+              </div>
+              <span class="service-price">$82.800</span>
+            </div>
+            <p class="service-desc">Baño de brillo translúcido ácido que neutraliza reflejos oxidados y aporta reflejo espejo frío o beige arena.</p>
+          </div>
+          <div class="service-meta">
+            <span>Duración: 90 min · Sellado cuticular pH 4.5</span>
+            <button type="button" class="select-service-link" data-service-name="Glaseado Tonos Avena & Ceniza Suave">Elegir servicio →</button>
+          </div>
+        </article>
+
+        <article class="service-item" data-category="botanico" data-base-price="46000">
+          <div>
+            <div class="service-top">
+              <div>
+                <span class="service-tag">Terapia Abedul</span>
+                <h3 class="service-name">Ritual Cuero Cabelludo Ártico Detox</h3>
+              </div>
+              <span class="service-price">$52.900</span>
+            </div>
+            <p class="service-desc">Exfoliación suave con arcilla glacial, vapor de pino nórdico y masaje craneal de 25 minutos en silencio absoluto.</p>
+          </div>
+          <div class="service-meta">
+            <span>Duración: 60 min · Cabina acústica privada</span>
+            <button type="button" class="select-service-link" data-service-name="Ritual Cuero Cabelludo Ártico Detox">Elegir servicio →</button>
+          </div>
+        </article>
+
+        <article class="service-item" data-category="botanico" data-base-price="54000">
+          <div>
+            <div class="service-top">
+              <div>
+                <span class="service-tag">Terapia Abedul</span>
+                <h3 class="service-name">Reconstrucción de Proteína de Avena</h3>
+              </div>
+              <span class="service-price">$62.100</span>
+            </div>
+            <p class="service-desc">Infusión térmica de aminoácidos vegetales de avena sueca y aceite de espino amarillo para hebras sensibilizadas.</p>
+          </div>
+          <div class="service-meta">
+            <span>Duración: 75 min · Incluye peinado minimalista</span>
+            <button type="button" class="select-service-link" data-service-name="Reconstrucción de Proteína de Avena">Elegir servicio →</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Visual Interactive Experience: Nordic Daylight & Tone Calibrator -->
+    <section id="simulador-luz">
+      <div class="section-bar">
+        <div class="section-index">
+          <span>02 / Experiencia Visual</span>
+          <span>Laboratorio de Luz Natural</span>
+        </div>
+        <div class="section-heading-box">
+          <h2 class="section-title">Calibrador de Luz Diurna Escandinava</h2>
+          <p class="section-sub">Un color capilar cambia radicalmente según la latitud y temperatura solar. Desliza el control horario para observar cómo nuestros pigmentos nórdicos se comportan bajo distinta luz.</p>
+        </div>
+      </div>
+
+      <div class="daylight-lab">
+        <div class="lab-controls">
+          <div>
+            <span class="service-tag">1. Selecciona el Matiz Nórdico</span>
+            <div class="tone-swatches" id="toneSwatches">
+              <button type="button" class="swatch-card active" data-tone="Perla Ártico" data-hex="#EDE8DC" data-rec="Matiz ultra luminoso con subtono frío neutro.">
+                <span class="swatch-circle" style="background: linear-gradient(135deg, #F5F2EB, #D9D2C5)"></span>
+                <span class="swatch-name">Perla Ártico</span>
+              </button>
+              <button type="button" class="swatch-card" data-tone="Avena Danesa" data-hex="#DECBB1" data-rec="Rubio beige cremoso de bajo mantenimiento.">
+                <span class="swatch-circle" style="background: linear-gradient(135deg, #E8D8C3, #C4AE92)"></span>
+                <span class="swatch-name">Avena</span>
+              </button>
+              <button type="button" class="swatch-card" data-tone="Cobre Boreal" data-hex="#C48B71" data-rec="Cobrizo desaturado suave con reflejo ámbar.">
+                <span class="swatch-circle" style="background: linear-gradient(135deg, #D6A187, #9E6850)"></span>
+                <span class="swatch-name">Cobre Suave</span>
+              </button>
+              <button type="button" class="swatch-card" data-tone="Fresno Oscuro" data-hex="#6E675F" data-rec="Castaño nórdico frío sin oxidación rojiza.">
+                <span class="swatch-circle" style="background: linear-gradient(135deg, #877F76, #4A453F)"></span>
+                <span class="swatch-name">Fresno</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="lab-slider-wrap">
+            <span class="service-tag">2. Ajusta la Temperatura de Luz Natural (Kelvin)</span>
+            <input type="range" id="kelvinSlider" class="nordic-range" min="3200" max="6800" step="100" value="5200" aria-label="Temperatura de luz en grados Kelvin">
+            <div class="lab-slider-labels">
+              <span>3200K · Sol Bajo Invierno</span>
+              <span id="kelvinValueLabel">5200K · Claraboya Mediodía</span>
+              <span>6800K · Cielo Nublado Norte</span>
+            </div>
+          </div>
+
+          <p id="toneRecommendation" style="font-size: 0.9rem; color: #4A4946; border-left: 2px solid var(--charcoal); padding-left: 1rem">
+            Matiz ultra luminoso con subtono frío neutro. Calibrado bajo luz cenital de 5200K.
+          </p>
+        </div>
+
+        <div class="lab-preview-stage" id="labStage">
+          <div class="stage-card">
+            <div class="stage-img-box">
+              <img
+                id="stagePreviewImg"
+                src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85"
+                alt="Vista previa de iluminación capilar nórdica"
+                onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg'">
+              <div class="stage-light-overlay" id="stageLightOverlay"></div>
+            </div>
+            <div class="stage-readout">
+              <div>
+                <span class="readout-label">Matiz Activo</span>
+                <strong id="readoutTone">Perla Ártico</strong>
+              </div>
+              <div>
+                <span class="readout-label">Espectro Solar</span>
+                <strong id="readoutKelvin">5200 K (Puro)</strong>
+              </div>
+              <div>
+                <span class="readout-label">Fórmula Sugerida</span>
+                <strong id="readoutFormula">9.12 + Glaze Avena</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lookbook Gallery with Functional Lightbox -->
+    <section id="lookbook">
+      <div class="section-bar">
+        <div class="section-index">
+          <span>03 / Archivo Visual</span>
+          <span>Haz clic para ampliar</span>
+        </div>
+        <div class="section-heading-box">
+          <h2 class="section-title">Lookbook de Temporada · Luz & Textura</h2>
+          <p class="section-sub">Trabajos reales de estructura minimalista y coloración orgánica. Haz clic en cualquier fotografía para inspeccionar la ficha técnica en pantalla completa.</p>
+        </div>
+      </div>
+
+      <div class="lookbook-grid">
+        <article class="look-card" tabindex="0" data-title="01 · Bob Arquitectónico en Línea A" data-detail="Corte con navaja japonesa + Baño de luz Perla Ártico 5500K" data-img="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85">
+          <div class="look-thumb">
+            <img
+              src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=900&q=80"
+              alt="Bob Arquitectónico Escandinavo"
+              onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/hair-look-balayage.svg'">
+          </div>
+          <div class="look-info">
+            <h3 class="look-title">Bob Línea A</h3>
+            <span class="look-code">Ver Ficha +</span>
+          </div>
+        </article>
+
+        <article class="look-card" tabindex="0" data-title="02 · Scandi Blonde & Capas Invisibles" data-detail="Técnica AirTouch sin demarcación + Tratamiento de savia de abedul" data-img="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1000&q=80">
+          <div class="look-thumb">
+            <img
+              src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=900&q=80"
+              alt="Rubio nórdico luminoso"
+              onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/hair-look-balayage.svg'">
+          </div>
+          <div class="look-info">
+            <h3 class="look-title">Scandi Blonde</h3>
+            <span class="look-code">Ver Ficha +</span>
+          </div>
+        </article>
+
+        <article class="look-card" tabindex="0" data-title="03 · Textura Orgánica Lino & Avena" data-detail="Secado al aire con bruma mineral marina del Mar del Norte" data-img="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1000&q=80">
+          <div class="look-thumb">
+            <img
+              src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85"
+              alt="Interior del salón escandinavo"
+              onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg'">
+          </div>
+          <div class="look-info">
+            <h3 class="look-title">Textura Lino</h3>
+            <span class="look-code">Ver Ficha +</span>
+          </div>
+        </article>
+
+        <article class="look-card" tabindex="0" data-title="04 · Corte Clavícula & Flequillo Cortina" data-detail="Contorno facial suave en seco + Glaseado Avena Danesa" data-img="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1000&q=80">
+          <div class="look-thumb">
+            <img
+              src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=900&q=80"
+              alt="Corte clavícula minimalista"
+              onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/hair-look-balayage.svg'">
+          </div>
+          <div class="look-info">
+            <h3 class="look-title">Clavícula Suave</h3>
+            <span class="look-code">Ver Ficha +</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Team / Story -->
+    <section id="equipo">
+      <div class="section-bar">
+        <div class="section-index">
+          <span>04 / Estudio & Equipo</span>
+          <span>Filosofía Lagom</span>
+        </div>
+        <div class="section-heading-box">
+          <h2 class="section-title">Menos exceso, mejor estructura</h2>
+          <p class="section-sub">Fundado bajo el principio sueco de "Lagom" —ni demasiado, ni muy poco, simplemente lo esencial—, nuestro estudio elimina el ruido visual y acústico de los salones tradicionales.</p>
+        </div>
+      </div>
+
+      <div class="team-grid">
+        <article class="stylist-card">
+          <div class="stylist-photo">
+            <img
+              src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=800&q=80"
+              alt="Freja Lindqvist - Directora de Corte"
+              onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/stylist-female-1.svg'">
+          </div>
+          <span class="stylist-role">Directora Creativa · Estocolmo</span>
+          <h3 class="stylist-name">Freja Lindqvist</h3>
+          <p class="stylist-bio">12 años perfeccionando geometría capilar en seco y bobs arquitectónicos que crecen manteniendo su proporción durante 10 semanas.</p>
+        </article>
+
+        <article class="stylist-card">
+          <div class="stylist-photo">
+            <img
+              src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80"
+              alt="Soren Halvorsen - Maestro Colorista"
+              onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/stylist-female-2.svg'">
+          </div>
+          <span class="stylist-role">Especialista en Luz & Rubios</span>
+          <h3 class="stylist-name">Søren Halvorsen</h3>
+          <p class="stylist-bio">Creador de nuestra formulación Scandi-Pearl libre de amoníaco, diseñada para reflejar la luz natural sin dañar la bicapa lipídica.</p>
+        </article>
+
+        <article class="stylist-card">
+          <div class="stylist-photo">
+            <img
+              src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=800&q=80"
+              alt="Astrid Vestergaard - Terapeuta Capilar"
+              onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/stylist-female-1.svg'">
+          </div>
+          <span class="stylist-role">Tricología & Botánica Ártica</span>
+          <h3 class="stylist-name">Astrid Vestergaard</h3>
+          <p class="stylist-bio">Dirige la cabina de hidroterapia con infusiones de abedul blanco, corteza de sauce y arcillas minerales escandinavas.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section aria-label="Testimonios">
+      <div class="section-bar">
+        <div class="section-index">
+          <span>05 / Experiencias</span>
+          <span>Voces del Estudio</span>
+        </div>
+        <div class="section-heading-box">
+          <h2 class="section-title">Calma, precisión y luz real</h2>
+          <p class="section-sub">Opiniones demostrativas sobre la experiencia minimalista en NORDIC STRAND.</p>
+        </div>
+      </div>
+
+      <div class="testimonials-grid">
+        <article class="quote-card">
+          <span class="demo-badge-tag">[Testimonio Ficticio de Demostración]</span>
+          <p class="quote-text">“Elegí la modalidad Quiet Chair. La luz natural de las claraboyas, el aroma a madera de abedul y un corte bob que se acomoda solo cada mañana.”</p>
+          <span class="quote-author">— Camila Valdés · Arquitecta</span>
+        </article>
+
+        <article class="quote-card">
+          <span class="demo-badge-tag">[Testimonio Ficticio de Demostración]</span>
+          <p class="quote-text">“Por primera vez evaluaron mi tono de rubio bajo luz de 5500K antes de aplicar el matiz. El color se ve igual de limpio en la calle que dentro del salón.”</p>
+          <span class="quote-author">— Marianne Krogh · Diseñadora Industrial</span>
+        </article>
+
+        <article class="quote-card">
+          <span class="demo-badge-tag">[Testimonio Ficticio de Demostración]</span>
+          <p class="quote-text">“El ritual detox de cuero cabelludo con vapor de pino nórdico fue como una tarde en un spa de Copenhague. Salí con el cabello liviano y brillante.”</p>
+          <span class="quote-author">— Sofía Larraín · Editora</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- Interactive Booking Form -->
+    <section id="reserva" class="booking-section">
+      <div class="booking-aside">
+        <div>
+          <span class="service-tag">06 / Agenda de Estudio</span>
+          <h2 class="section-title" style="margin-bottom: 1rem">Reserva tu Sesión</h2>
+          <p class="section-sub">Atendemos un máximo de 4 clientes simultáneos para preservar la luz, el silencio y la dedicación artesanal en cada sillón.</p>
+        </div>
+
+        <ul class="studio-hours">
+          <li><span>Martes a Viernes</span><strong>09:30 – 19:30</strong></li>
+          <li><span>Sábados (Luz Matinal)</span><strong>09:00 – 17:00</strong></li>
+          <li><span>Domingo y Lunes</span><span>Cerrado por descanso</span></li>
+          <li><span>Ubicación</span><span>Av. Nueva Costanera · Estudio 4B</span></li>
+        </ul>
+      </div>
+
+      <div class="booking-form-wrap">
+        <div class="demo-notice">
+          <strong>Modo Demostración Interactiva:</strong> Este formulario simula una reserva en tiempo real del lado del cliente para mostrar el flujo de usuario. No envía datos reales ni genera cobros.
+        </div>
+
+        <form id="nordicBookingForm">
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="clientName">Nombre Completo</label>
+              <input type="text" id="clientName" required placeholder="Ej. Elena Lindholm">
+            </div>
+            <div class="form-field">
+              <label for="clientContact">Correo o WhatsApp</label>
+              <input type="text" id="clientContact" required placeholder="+56 9 0000 0000">
+            </div>
+            <div class="form-field">
+              <label for="serviceSelect">Servicio Seleccionado</label>
+              <select id="serviceSelect" required>
+                <option value="Nordic Blunt & Movimiento en Seco">Nordic Blunt & Movimiento en Seco</option>
+                <option value="Scandi Hairline & Rubio Perla">Scandi Hairline & Rubio Perla</option>
+                <option value="Minimalist Pixie / Bixie Escultural">Minimalist Pixie / Bixie Escultural</option>
+                <option value="Glaseado Tonos Avena & Ceniza Suave">Glaseado Tonos Avena & Ceniza Suave</option>
+                <option value="Ritual Cuero Cabelludo Ártico Detox">Ritual Cuero Cabelludo Ártico Detox</option>
+                <option value="Reconstrucción de Proteína de Avena">Reconstrucción de Proteína de Avena</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="chairMode">Preferencia Ambiental</label>
+              <select id="chairMode">
+                <option value="Estándar con conversación e infusión">Estándar · Infusión de abedul & música ambiental</option>
+                <option value="Quiet Chair (Sesión silenciosa)">Quiet Chair · Sesión en silencio tras diagnóstico</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="bookDate">Fecha Preferida</label>
+              <input type="date" id="bookDate" required>
+            </div>
+            <div class="form-field">
+              <label for="bookTime">Bloque de Luz Solar</label>
+              <select id="bookTime">
+                <option value="10:00 (Luz Matinal 5600K)">10:00 · Luz Matinal (5600K)</option>
+                <option value="12:30 (Cenital Pura 5200K)">12:30 · Luz Cenital Pura (5200K)</option>
+                <option value="16:00 (Sol Dorado Nórdico 4100K)">16:00 · Sol Dorado Nórdico (4100K)</option>
+              </select>
+            </div>
+            <div class="form-field full">
+              <button type="submit" class="btn-nordic" style="width: 100%; padding: 1rem">Confirmar Simulación de Reserva</button>
+            </div>
+          </div>
+        </form>
+
+        <div class="booking-feedback" id="bookingFeedback" role="status" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div>
+        <strong>NORDIC STRAND</strong> · Estudio de Corte Escandinavo & Luz Natural · Demostración Estilo #11
+      </div>
+      <div>
+        Diseñado por KuyénDev · Catálogo Peluquería & Belleza
+      </div>
+    </footer>
+  </div>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox-modal" id="lightboxModal" role="dialog" aria-modal="true" aria-label="Vista ampliada del lookbook">
+    <div class="lightbox-box">
+      <div class="lightbox-img-container">
+        <img id="lightboxImg" src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=900&q=80" alt="Detalle del look" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/hair-look-balayage.svg'">
+      </div>
+      <div class="lightbox-bar">
+        <div>
+          <strong id="lightboxTitle" style="font-family: var(--font-serif); font-size: 1.2rem; display: block"></strong>
+          <span id="lightboxDetail" style="font-size: 0.85rem; color: var(--taupe)"></span>
+        </div>
+        <button type="button" class="btn-nordic" id="closeLightboxBtn">Cerrar [ESC]</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      // 1. Interactive Services Filter & Length Price Multiplier
+      const filterBtns = document.querySelectorAll('.pill-btn');
+      const lengthBtns = document.querySelectorAll('.length-btn');
+      const serviceItems = document.querySelectorAll('.service-item');
+      let currentMult = 1.15;
+
+      function formatCLP(num) {
+        return '$' + Math.round(num).toLocaleString('es-CL');
+      }
+
+      function updateServicePrices() {
+        serviceItems.forEach(item => {
+          const base = parseFloat(item.getAttribute('data-base-price') || '40000');
+          const priceEl = item.querySelector('.service-price');
+          if (priceEl) {
+            priceEl.textContent = formatCLP(base * currentMult);
+          }
+        });
+      }
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const cat = btn.getAttribute('data-filter');
+          serviceItems.forEach(item => {
+            if (cat === 'all' || item.getAttribute('data-category') === cat) {
+              item.style.display = 'flex';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      lengthBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          lengthBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentMult = parseFloat(btn.getAttribute('data-mult') || '1');
+          updateServicePrices();
+        });
+      });
+
+      // Jump from service card to booking select
+      const serviceSelect = document.getElementById('serviceSelect');
+      document.querySelectorAll('.select-service-link').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const sName = btn.getAttribute('data-service-name');
+          if (serviceSelect && sName) {
+            serviceSelect.value = sName;
+          }
+          document.getElementById('reserva').scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+
+      // 2. Nordic Daylight & Tone Simulator
+      const kelvinSlider = document.getElementById('kelvinSlider');
+      const kelvinValueLabel = document.getElementById('kelvinValueLabel');
+      const readoutKelvin = document.getElementById('readoutKelvin');
+      const readoutTone = document.getElementById('readoutTone');
+      const readoutFormula = document.getElementById('readoutFormula');
+      const toneRecommendation = document.getElementById('toneRecommendation');
+      const stageLightOverlay = document.getElementById('stageLightOverlay');
+      const stagePreviewImg = document.getElementById('stagePreviewImg');
+      const swatchCards = document.querySelectorAll('.swatch-card');
+
+      let activeTone = 'Perla Ártico';
+      let activeRec = 'Matiz ultra luminoso con subtono frío neutro.';
+
+      function updateLightSimulation() {
+        const k = parseInt(kelvinSlider.value, 10);
+        let desc = 'Claraboya Mediodía';
+        let overlayColor = 'rgba(255, 250, 240, 0.12)';
+        if (k < 4200) {
+          desc = 'Sol Dorado Bajo';
+          overlayColor = 'rgba(255, 195, 130, 0.28)';
+        } else if (k > 5900) {
+          desc = 'Luz Boreal Fría';
+          overlayColor = 'rgba(205, 228, 255, 0.26)';
+        }
+        kelvinValueLabel.textContent = k + 'K · ' + desc;
+        readoutKelvin.textContent = k + ' K (' + desc + ')';
+        stageLightOverlay.style.background = overlayColor;
+        document.documentElement.style.setProperty('--kelvin-tint', overlayColor);
+        const contrastVal = 0.94 + ((k - 3200) / 3600) * 0.1;
+        stagePreviewImg.style.filter = 'contrast(' + contrastVal.toFixed(2) + ') brightness(1.02)';
+        toneRecommendation.textContent = activeRec + ' Simulado bajo espectro de ' + k + 'K (' + desc + ').';
+      }
+
+      kelvinSlider.addEventListener('input', updateLightSimulation);
+
+      swatchCards.forEach((card, idx) => {
+        card.addEventListener('click', () => {
+          swatchCards.forEach(c => c.classList.remove('active'));
+          card.classList.add('active');
+          activeTone = card.getAttribute('data-tone');
+          activeRec = card.getAttribute('data-rec');
+          readoutTone.textContent = activeTone;
+          const formulas = ['10.12 + Savia Abedul', '9.31 + Glaze Avena', '8.43 + Ámbar Suave', '6.11 + Ceniza Mineral'];
+          readoutFormula.textContent = formulas[idx] || formulas[0];
+          updateLightSimulation();
+        });
+      });
+
+      // 3. Lightbox Gallery
+      const lightboxModal = document.getElementById('lightboxModal');
+      const lightboxImg = document.getElementById('lightboxImg');
+      const lightboxTitle = document.getElementById('lightboxTitle');
+      const lightboxDetail = document.getElementById('lightboxDetail');
+      const closeLightboxBtn = document.getElementById('closeLightboxBtn');
+
+      document.querySelectorAll('.look-card').forEach(card => {
+        const openBox = () => {
+          lightboxImg.src = card.getAttribute('data-img');
+          lightboxTitle.textContent = card.getAttribute('data-title');
+          lightboxDetail.textContent = card.getAttribute('data-detail');
+          lightboxModal.classList.add('open');
+        };
+        card.addEventListener('click', openBox);
+        card.addEventListener('keydown', e => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openBox();
+          }
+        });
+      });
+
+      function closeLightbox() {
+        lightboxModal.classList.remove('open');
+      }
+      closeLightboxBtn.addEventListener('click', closeLightbox);
+      lightboxModal.addEventListener('click', e => {
+        if (e.target === lightboxModal) closeLightbox();
+      });
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') closeLightbox();
+      });
+
+      // 4. Booking Form Simulation
+      const bookingForm = document.getElementById('nordicBookingForm');
+      const bookingFeedback = document.getElementById('bookingFeedback');
+      const bookDateInput = document.getElementById('bookDate');
+      if (bookDateInput) {
+        const tomorrow = new Date(Date.now() + 86400000).toISOString().split('T')[0];
+        bookDateInput.value = tomorrow;
+      }
+
+      bookingForm.addEventListener('submit', e => {
+        e.preventDefault();
+        const name = document.getElementById('clientName').value.trim();
+        const service = document.getElementById('serviceSelect').value;
+        const chair = document.getElementById('chairMode').value;
+        const date = document.getElementById('bookDate').value;
+        const time = document.getElementById('bookTime').value;
+
+        bookingFeedback.style.display = 'block';
+        bookingFeedback.innerHTML =
+          '<strong>✓ Simulación de Reserva Confirmada (Demostración)</strong><br>' +
+          'Gracias, <strong>' + name + '</strong>. Hemos pre-asignado tu sesión de <em>' + service + '</em> para el <strong>' + date + '</strong> a las <strong>' + time + '</strong> bajo modalidad <em>' + chair + '</em>.';
+      });
+    })();
+  </script>
+  <script src="../../js/config/rubros.js"></script>
+  <script src="../../js/demo-viewer-bar.js"></script>
+</body>
+</html>

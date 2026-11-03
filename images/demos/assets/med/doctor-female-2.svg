@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
+  <defs>
+    <linearGradient id="bgD" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F0FDF4"/>
+      <stop offset="50%" stop-color="#E0F2FE"/>
+      <stop offset="100%" stop-color="#DCFCE7"/>
+    </linearGradient>
+    <linearGradient id="scrubD" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0D9488"/>
+      <stop offset="100%" stop-color="#115E59"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1000" fill="url(#bgD)"/>
+  <circle cx="400" cy="420" r="260" fill="#FFFFFF" opacity="0.65"/>
+  <!-- Icono de diente estilizado en fondo -->
+  <path d="M400 140 C340 140, 310 180, 320 250 C330 310, 350 360, 360 410 C370 450, 390 480, 400 480 C410 480, 430 450, 440 410 C450 360, 470 310, 480 250 C490 180, 460 140, 400 140 Z" fill="#0D9488" opacity="0.06"/>
+
+  <!-- Uniforme Odontológico Ergonómico -->
+  <path d="M150 1000 C170 710, 230 630, 400 630 C570 630, 630 710, 650 1000 Z" fill="url(#scrubD)" stroke="#134E4A" stroke-width="2"/>
+  <!-- Cuello cerrado moderno -->
+  <path d="M330 630 C330 680, 470 680, 470 630 Z" fill="#14B8A6"/>
+  
+  <!-- Lupa clínica frontal / Odontología de precisión -->
+  <path d="M330 370 C330 350, 470 350, 470 370" fill="none" stroke="#334155" stroke-width="6"/>
+  <circle cx="400" cy="350" r="22" fill="#0284C7" stroke="#0F172A" stroke-width="4"/>
+  <circle cx="400" cy="350" r="10" fill="#67E8F9"/>
+
+  <!-- Cabeza y Cabello Rubio / Castaño claro -->
+  <path d="M360 520 L440 520 L440 640 L360 640 Z" fill="#FCD3B6"/>
+  <path d="M260 420 C250 250, 550 250, 540 420 C540 590, 510 650, 480 670 L320 670 C290 650, 260 590, 260 420 Z" fill="#B45309"/>
+  <ellipse cx="400" cy="430" rx="112" ry="140" fill="#FDE8D7"/>
+  <path d="M280 380 C320 280, 480 270, 520 380 C480 340, 430 330, 400 340 C370 330, 310 340, 280 380 Z" fill="#92400E"/>
+
+  <!-- Ojos -->
+  <ellipse cx="355" cy="425" rx="10" ry="6" fill="#065F46"/>
+  <ellipse cx="445" cy="425" rx="10" ry="6" fill="#065F46"/>
+  <circle cx="357" cy="423" r="3" fill="#FFFFFF"/>
+  <circle cx="447" cy="423" r="3" fill="#FFFFFF"/>
+  <path d="M335 408 Q355 400 375 408" fill="none" stroke="#78350F" stroke-width="4" stroke-linecap="round"/>
+  <path d="M425 408 Q445 400 465 408" fill="none" stroke="#78350F" stroke-width="4" stroke-linecap="round"/>
+  <!-- Sonrisa perfecta blanca -->
+  <path d="M365 490 Q400 525 435 490" fill="#FFFFFF" stroke="#BE185D" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Placa inferior -->
+  <rect x="180" y="910" width="440" height="60" rx="30" fill="#FFFFFF" stroke="#0D9488" stroke-width="2" filter="drop-shadow(0 10px 15px rgba(13,148,136,0.15))"/>
+  <text x="400" y="940" text-anchor="middle" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="20" font-weight="800" fill="#0F172A">Especialista en Ortodoncia &amp; Estética</text>
+  <text x="400" y="958" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#0D9488">ODONTOLOGÍA DIGITAL CERTIFICADA</text>
+</svg>

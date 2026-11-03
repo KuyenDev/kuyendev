@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>PRISMA HAIR LAB · Coloración & Glass Studio | Liquid Glass</title>
+  <meta name="description" content="Laboratorio de coloración multidimensional, efectos Glass Hair y estilismo vanguardista bajo una estética Liquid Glass." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-deep: #0C1017;
+      --glass-surface: rgba(255, 255, 255, 0.08);
+      --glass-surface-strong: rgba(255, 255, 255, 0.13);
+      --glass-border: rgba(255, 255, 255, 0.18);
+      --glass-highlight: rgba(255, 255, 255, 0.34);
+      --cyan: #38BDF8;
+      --magenta: #E879F9;
+      --champagne: #FDE68A;
+      --text-white: #F8FAFC;
+      --text-dim: #94A3B8;
+      --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --font-display: 'Syne', system-ui, sans-serif;
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-pill: 999px;
+      --blur: blur(22px);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-deep);
+      color: var(--text-white);
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-deep);
+      color: var(--text-white);
+      line-height: 1.65;
+      overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    /* Orbes ambientales Liquid Glass */
+    .ambient-canvas {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(110px);
+      opacity: 0.42;
+      animation: floatOrb 16s ease-in-out infinite alternate;
+    }
+
+    .orb-cyan {
+      width: 520px;
+      height: 520px;
+      background: radial-gradient(circle, var(--cyan), transparent 70%);
+      top: -120px;
+      left: -100px;
+    }
+
+    .orb-magenta {
+      width: 560px;
+      height: 560px;
+      background: radial-gradient(circle, var(--magenta), transparent 70%);
+      top: 28%;
+      right: -160px;
+      animation-delay: -5s;
+    }
+
+    .orb-champagne {
+      width: 440px;
+      height: 440px;
+      background: radial-gradient(circle, rgba(253, 230, 138, 0.55), transparent 70%);
+      bottom: 8%;
+      left: 18%;
+      animation-delay: -9s;
+    }
+
+    @keyframes floatOrb {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(40px, -35px) scale(1.08); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    .container {
+      width: min(1280px, 92vw);
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .glass-panel {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.04) 100%);
+      backdrop-filter: var(--blur);
+      -webkit-backdrop-filter: var(--blur);
+      border: 1px solid var(--glass-border);
+      border-top-color: var(--glass-highlight);
+      border-left-color: var(--glass-highlight);
+      border-radius: var(--radius-xl);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+
+    .badge-glass {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1rem;
+      border-radius: var(--radius-pill);
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      color: var(--cyan);
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    /* Navegación Flotante de Cristal */
+    .header-float {
+      position: sticky;
+      top: 18px;
+      z-index: 100;
+      padding: 0 1rem;
+    }
+
+    .nav-capsule {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0.85rem 1.5rem;
+      border-radius: var(--radius-pill);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      background: rgba(12, 16, 23, 0.68);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .brand {
+      text-decoration: none;
+      color: var(--text-white);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand-prism {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--cyan), var(--magenta));
+      display: grid;
+      place-items: center;
+      font-family: var(--font-display);
+      font-weight: 800;
+      color: #0C1017;
+      font-size: 0.95rem;
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.45);
+    }
+
+    .brand-name {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: 0.08em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.85rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-dim);
+      font-size: 0.84rem;
+      font-weight: 500;
+      transition: color 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-white);
+    }
+
+    .btn-liquid {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: var(--radius-pill);
+      background: linear-gradient(135deg, var(--cyan) 0%, var(--magenta) 100%);
+      color: #0C1017;
+      font-family: var(--font-sans);
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 10px 28px rgba(232, 121, 249, 0.35);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .btn-liquid:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 34px rgba(56, 189, 248, 0.5);
+    }
+
+    .btn-frosted {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.45rem;
+      border-radius: var(--radius-pill);
+      background: var(--glass-surface);
+      border: 1px solid var(--glass-border);
+      color: var(--text-white);
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .btn-frosted:hover {
+      background: var(--glass-surface-strong);
+      border-color: var(--cyan);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: var(--glass-surface);
+      border: 1px solid var(--glass-border);
+      color: var(--text-white);
+      padding: 0.45rem 0.9rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.78rem;
+      cursor: pointer;
+    }
+
+    /* Hero Liquid Glass */
+    .hero {
+      padding: 4.5rem 0 5rem;
+    }
+
+    .hero-stage {
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.35rem, 4.6vw, 4.1rem);
+      font-weight: 700;
+      line-height: 1.08;
+      margin: 1.2rem 0 1.35rem;
+      background: linear-gradient(120deg, #FFFFFF 20%, #38BDF8 65%, #E879F9 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-lead {
+      color: var(--text-dim);
+      font-size: 1.03rem;
+      max-width: 50ch;
+      margin-bottom: 2rem;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+
+    .glass-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .stat-chip {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      padding: 1rem;
+    }
+
+    .stat-chip strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      color: var(--cyan);
+    }
+
+    .stat-chip span {
+      font-size: 0.76rem;
+      color: var(--text-dim);
+    }
+
+    .hero-visual {
+      position: relative;
+    }
+
+    .hero-img-frame {
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      border: 1px solid var(--glass-highlight);
+      position: relative;
+    }
+
+    .hero-img-frame img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .floating-prism-card {
+      position: absolute;
+      bottom: 18px;
+      left: 18px;
+      right: 18px;
+      padding: 1.15rem 1.35rem;
+      border-radius: var(--radius-lg);
+      background: rgba(12, 16, 23, 0.76);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-highlight);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    /* Secciones */
+    .section {
+      padding: 4.5rem 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 2rem;
+      margin-bottom: 2.75rem;
+      flex-wrap: wrap;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.9rem, 3.3vw, 2.85rem);
+      font-weight: 700;
+      margin-top: 0.65rem;
+    }
+
+    /* Carta de Servicios Frosted */
+    .filter-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      padding: 1rem 1.35rem;
+      margin-bottom: 2rem;
+    }
+
+    .chip-group {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .glass-chip {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--glass-border);
+      color: var(--text-dim);
+      padding: 0.5rem 1.05rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.22s ease;
+    }
+
+    .glass-chip.is-active {
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.28), rgba(232, 121, 249, 0.28));
+      border-color: var(--cyan);
+      color: var(--text-white);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .service-glass-card {
+      padding: 1.85rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.25rem;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .service-glass-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--cyan);
+    }
+
+    .service-glass-card.is-hidden {
+      display: none;
+    }
+
+    .service-title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .service-price-pill {
+      display: inline-block;
+      padding: 0.35rem 0.85rem;
+      border-radius: var(--radius-pill);
+      background: rgba(232, 121, 249, 0.16);
+      border: 1px solid rgba(232, 121, 249, 0.45);
+      color: #F5D0FE;
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-top: 0.5rem;
+    }
+
+    /* Simulador de Refracción & Colorimetría Glass */
+    .simulator-grid {
+      padding: 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .tone-swatches {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.85rem;
+      margin: 1.25rem 0;
+    }
+
+    .tone-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.85rem 1rem;
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--glass-border);
+      color: var(--text-white);
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.25s ease;
+    }
+
+    .tone-btn.is-active {
+      border-color: var(--magenta);
+      background: rgba(232, 121, 249, 0.15);
+    }
+
+    .tone-dot {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+
+    .sim-preview-card {
+      padding: 2rem;
+      border-radius: var(--radius-xl);
+      background: rgba(12, 16, 23, 0.65);
+      border: 1px solid var(--glass-highlight);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sim-glow-bar {
+      height: 10px;
+      border-radius: var(--radius-pill);
+      margin-bottom: 1.25rem;
+      background: linear-gradient(90deg, var(--cyan), var(--magenta));
+      transition: background 0.4s ease;
+    }
+
+    /* Lookbook */
+    .lookbook-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .look-card {
+      padding: 0.9rem;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .look-card.is-hidden {
+      display: none;
+    }
+
+    .look-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .look-card img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      border-radius: var(--radius-lg);
+      margin-bottom: 0.9rem;
+    }
+
+    /* Equipo & Testimonios */
+    .three-col {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .team-card, .testi-card {
+      padding: 1.65rem;
+    }
+
+    .team-card img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      border-radius: var(--radius-lg);
+      margin-bottom: 1rem;
+    }
+
+    /* Reserva */
+    .booking-panel {
+      padding: 2.75rem;
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 2.5rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .form-field.full {
+      grid-column: 1 / -1;
+    }
+
+    .form-field label {
+      font-size: 0.76rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+    }
+
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+      background: rgba(12, 16, 23, 0.7);
+      border: 1px solid var(--glass-border);
+      border-radius: 14px;
+      padding: 0.85rem 1rem;
+      color: var(--text-white);
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      outline: none;
+    }
+
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus {
+      border-color: var(--cyan);
+    }
+
+    .feedback-box {
+      margin-top: 1rem;
+      padding: 1rem;
+      border-radius: 14px;
+      background: rgba(56, 189, 248, 0.14);
+      border: 1px solid var(--cyan);
+      font-size: 0.85rem;
+      display: none;
+    }
+
+    .feedback-box.is-visible {
+      display: block;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(12, 16, 23, 0.88);
+      backdrop-filter: blur(20px);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .lightbox.is-open {
+      display: flex;
+    }
+
+    .lightbox-inner {
+      max-width: 780px;
+      width: 100%;
+      padding: 1.25rem;
+    }
+
+    .lightbox-inner img {
+      width: 100%;
+      max-height: 68vh;
+      object-fit: cover;
+      border-radius: var(--radius-lg);
+    }
+
+    footer {
+      padding: 3rem 0 5rem;
+      border-top: 1px solid var(--glass-border);
+      color: var(--text-dim);
+      font-size: 0.82rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    @media (max-width: 960px) {
+      .hero-stage,
+      .simulator-grid,
+      .booking-panel,
+      .services-grid,
+      .lookbook-grid,
+      .three-col {
+        grid-template-columns: 1fr;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 76px;
+        left: 1rem;
+        right: 1rem;
+        background: rgba(12, 16, 23, 0.95);
+        backdrop-filter: blur(24px);
+        border: 1px solid var(--glass-border);
+        border-radius: var(--radius-lg);
+        flex-direction: column;
+        padding: 1.25rem;
+      }
+
+      .nav-links.is-open {
+        display: flex;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .form-grid,
+      .glass-stats,
+      .tone-swatches {
+        grid-template-columns: 1fr;
+      }
+      .hero-stage {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body data-rubro-id="peluqueria" data-style-id="liquid-glass">
+
+  <div class="ambient-canvas" aria-hidden="true">
+    <div class="orb orb-cyan"></div>
+    <div class="orb orb-magenta"></div>
+    <div class="orb orb-champagne"></div>
+  </div>
+
+  <header class="header-float">
+    <div class="nav-capsule">
+      <a href="#" class="brand">
+        <span class="brand-prism">P</span>
+        <span class="brand-name">PRISMA HAIR LAB</span>
+      </a>
+
+      <nav aria-label="Navegación principal">
+        <button type="button" class="menu-toggle" id="menuToggle" aria-expanded="false">Menú</button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#servicios">Glass Menu</a></li>
+          <li><a href="#laboratorio">Simulador Cromático</a></li>
+          <li><a href="#lookbook">Lookbook</a></li>
+          <li><a href="#equipo">Artistas</a></li>
+          <li><a href="#testimonios">Reseñas</a></li>
+        </ul>
+      </nav>
+
+      <a href="#reserva" class="btn-liquid">Agendar Lab</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="glass-panel hero-stage">
+        <div>
+          <span class="badge-glass">Estilo #02 · Liquid Glass & Glassmorphism</span>
+          <h1 class="hero-title">Coloración iridiscente & acabado Glass Hair.</h1>
+          <p class="hero-lead">
+            Fusionamos química capilar de enlaces moleculares con pigmentos multidimensionales en tonos champán, lavanda perlado y hielo espectral. Brillo espejo medible desde la primera sesión.
+          </p>
+          <div class="hero-cta-row">
+            <a href="#laboratorio" class="btn-liquid">Probar Simulador de Tono</a>
+            <a href="#servicios" class="btn-frosted">Ver Carta Translúcida</a>
+          </div>
+          <div class="glass-stats">
+            <div class="stat-chip">
+              <strong>+94%</strong>
+              <span>Refracción lumínica con sellado ácido pH 4.5</span>
+            </div>
+            <div class="stat-chip">
+              <strong>Zero Ammonia</strong>
+              <span>Pigmentos líquidos de aceite micro-encapsulado</span>
+            </div>
+            <div class="stat-chip">
+              <strong>3D Scan</strong>
+              <span>Lectura óptica de porosidad antes de decolorar</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-img-frame">
+            <img
+              src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=900&q=80"
+              alt="Coloración iridiscente y acabado Glass Hair en Prisma Hair Lab"
+              onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/hair-look-balayage.svg';"/>
+            <div class="floating-prism-card">
+              <div>
+                <strong style="font-family:var(--font-display);font-size:0.95rem;display:block">Protocolo Liquid Mirror™</strong>
+                <span style="font-size:0.78rem;color:var(--text-dim)">Laminado cristalino activado por calor iónico</span>
+              </div>
+              <span class="badge-glass">Tendencia 2026</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CARTA DE SERVICIOS -->
+    <section class="section" id="servicios">
+      <div class="section-head">
+        <div>
+          <span class="badge-glass">Menú de Laboratorio</span>
+          <h2 class="section-title">Fórmulas & Tratamientos</h2>
+        </div>
+        <p style="color:var(--text-dim);max-width:44ch">Filtra por especialidad o ajusta la longitud de tu cabello para calcular los gramos de pigmento y valor estimado.</p>
+      </div>
+
+      <div class="glass-panel filter-bar">
+        <div class="chip-group" role="tablist">
+          <button type="button" class="glass-chip is-active" data-cat="all">Todos (6)</button>
+          <button type="button" class="glass-chip" data-cat="glass">Laminado Glass</button>
+          <button type="button" class="glass-chip" data-cat="color">Color Iridiscente</button>
+          <button type="button" class="glass-chip" data-cat="corte">Corte Láser / Digital</button>
+        </div>
+
+        <div class="chip-group">
+          <span style="font-size:0.76rem;color:var(--text-dim);margin-right:0.3rem">Largo:</span>
+          <button type="button" class="glass-chip" data-mult="1" data-len="Corto">Corto</button>
+          <button type="button" class="glass-chip is-active" data-mult="1.25" data-len="Medio">Medio</button>
+          <button type="button" class="glass-chip" data-mult="1.5" data-len="XL">Largo XL</button>
+        </div>
+      </div>
+
+      <div class="services-grid">
+        <article class="glass-panel service-glass-card" data-category="glass" data-base="56000">
+          <div>
+            <h3 class="service-title">Laminado Crystal Mirror</h3>
+            <span class="service-price-pill">$70.000</span>
+            <p style="color:var(--text-dim);font-size:0.88rem;margin-top:0.85rem">Sellado cuticular con polímeros vegetales reflectantes que repelen la humedad y el frizz por hasta 6 semanas.</p>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;font-size:0.78rem;color:var(--cyan)">
+            <span class="len-tag">75 min · Medio</span>
+            <a href="#reserva" style="color:var(--text-white);text-decoration:none;font-weight:700;" data-pick="Laminado Crystal Mirror">Agendar →</a>
+          </div>
+        </article>
+
+        <article class="glass-panel service-glass-card" data-category="color" data-base="108000">
+          <div>
+            <h3 class="service-title">Balayage Holográfico Pearl</h3>
+            <span class="service-price-pill">$135.000</span>
+            <p style="color:var(--text-dim);font-size:0.88rem;margin-top:0.85rem">Degradado de alta definición con matices rosa cuarzo, champán helado o perla nórdica y bonder molecular.</p>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;font-size:0.78rem;color:var(--cyan)">
+            <span class="len-tag">190 min · Medio</span>
+            <a href="#reserva" style="color:var(--text-white);text-decoration:none;font-weight:700;" data-pick="Balayage Holográfico Pearl">Agendar →</a>
+          </div>
+        </article>
+
+        <article class="glass-panel service-glass-card" data-category="color" data-base="74000">
+          <div>
+            <h3 class="service-title">Gloss Pastel & Toner Lavanda</h3>
+            <span class="service-price-pill">$92.500</span>
+            <p style="color:var(--text-dim);font-size:0.88rem;margin-top:0.85rem">Baño translúcido de fantasía sutil sobre rubios previos para reflejos lavanda, durazno cristal o titanio.</p>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;font-size:0.78rem;color:var(--cyan)">
+            <span class="len-tag">90 min · Medio</span>
+            <a href="#reserva" style="color:var(--text-white);text-decoration:none;font-weight:700;" data-pick="Gloss Pastel & Toner Lavanda">Agendar →</a>
+          </div>
+        </article>
+
+        <article class="glass-panel service-glass-card" data-category="corte" data-base="44000">
+          <div>
+            <h3 class="service-title">Liquid Bob & Contorno Geométrico</h3>
+            <span class="service-price-pill">$55.000</span>
+            <p style="color:var(--text-dim);font-size:0.88rem;margin-top:0.85rem">Corte de precisión milimétrica pensado para maximizar el rebote de luz en cabellos lacios u ondulados.</p>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;font-size:0.78rem;color:var(--cyan)">
+            <span class="len-tag">60 min · Medio</span>
+            <a href="#reserva" style="color:var(--text-white);text-decoration:none;font-weight:700;" data-pick="Liquid Bob & Contorno Geométrico">Agendar →</a>
+          </div>
+        </article>
+
+        <article class="glass-panel service-glass-card" data-category="glass" data-base="62000">
+          <div>
+            <h3 class="service-title">Terapia Hidrogel & Ultrasonido</h3>
+            <span class="service-price-pill">$77.500</span>
+            <p style="color:var(--text-dim);font-size:0.88rem;margin-top:0.85rem">Placa ultrasónica fría que introduce ceramidas líquidas al córtex sin utilizar temperatura extrema.</p>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;font-size:0.78rem;color:var(--cyan)">
+            <span class="len-tag">65 min · Medio</span>
+            <a href="#reserva" style="color:var(--text-white);text-decoration:none;font-weight:700;" data-pick="Terapia Hidrogel & Ultrasonido">Agendar →</a>
+          </div>
+        </article>
+
+        <article class="glass-panel service-glass-card" data-category="corte" data-base="48000">
+          <div>
+            <h3 class="service-title">Butterfly Layers & Blowout Iónico</h3>
+            <span class="service-price-pill">$60.000</span>
+            <p style="color:var(--text-dim);font-size:0.88rem;margin-top:0.85rem">Capas envolventes con movimiento ingrávido y cepillado con tecnología de iones negativos.</p>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;font-size:0.78rem;color:var(--cyan)">
+            <span class="len-tag">75 min · Medio</span>
+            <a href="#reserva" style="color:var(--text-white);text-decoration:none;font-weight:700;" data-pick="Butterfly Layers & Blowout Iónico">Agendar →</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SIMULADOR CROMÁTICO LIQUID GLASS -->
+    <section class="section" id="laboratorio">
+      <div class="glass-panel simulator-grid">
+        <div>
+          <span class="badge-glass">Diagnóstico Óptico Interactivo</span>
+          <h2 class="section-title">Simulador de Reflejo & Matiz</h2>
+          <p style="color:var(--text-dim);margin:0.85rem 0 1.25rem">
+            Elige el reflejo translúcido que deseas proyectar bajo luz natural y conoce la fórmula exacta de nuestro laboratorio:
+          </p>
+
+          <div class="tone-swatches" id="toneSwatches">
+            <button type="button" class="tone-btn is-active" data-tone="pearl">
+              <span class="tone-dot" style="background:linear-gradient(135deg,#E0F2FE,#F5D0FE)"></span>
+              <div>
+                <strong style="display:block;font-size:0.86rem">Opal Pearl</strong>
+                <span style="font-size:0.72rem;color:var(--text-dim)">Champán & Iris Frío</span>
+              </div>
+            </button>
+
+            <button type="button" class="tone-btn" data-tone="rose">
+              <span class="tone-dot" style="background:linear-gradient(135deg,#FBCFE8,#E879F9)"></span>
+              <div>
+                <strong style="display:block;font-size:0.86rem">Quartz Blush</strong>
+                <span style="font-size:0.72rem;color:var(--text-dim)">Rosa Pastel & Lavanda</span>
+              </div>
+            </button>
+
+            <button type="button" class="tone-btn" data-tone="cyber">
+              <span class="tone-dot" style="background:linear-gradient(135deg,#38BDF8,#818CF8)"></span>
+              <div>
+                <strong style="display:block;font-size:0.86rem">Ice Titanium</strong>
+                <span style="font-size:0.72rem;color:var(--text-dim)">Plata Ártico & Azul Hielo</span>
+              </div>
+            </button>
+
+            <button type="button" class="tone-btn" data-tone="amber">
+              <span class="tone-dot" style="background:linear-gradient(135deg,#FDE68A,#F59E0B)"></span>
+              <div>
+                <strong style="display:block;font-size:0.86rem">Liquid Champagne</strong>
+                <span style="font-size:0.72rem;color:var(--text-dim)">Dorado Néctar & Cristal</span>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <div class="sim-preview-card" aria-live="polite">
+          <div class="sim-glow-bar" id="simGlowBar"></div>
+          <span class="badge-glass" id="simCode">Fórmula #PR-01 · Nivel 9.12</span>
+          <h3 style="font-family:var(--font-display);font-size:1.55rem;margin:0.85rem 0 0.65rem;" id="simTitle">Opal Pearl · Brillo Iridiscente</h3>
+          <p style="color:var(--text-dim);font-size:0.92rem;margin-bottom:1.25rem;" id="simDesc">
+            Neutraliza residuos amarillos mediante micro-pigmentos violeta y cian translúcido, logrando un rubio nacarado de efecto espejo.
+          </p>
+          <div style="display:flex;justify-content:space-between;border-top:1px solid var(--glass-border);padding-top:0.85rem;font-size:0.84rem">
+            <span style="color:var(--text-dim)"> Nivel de decoloración requerido:</span>
+            <strong id="simLevel" style="color:var(--cyan)">Altura 9 (Rubio Muy Claro)</strong>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.65rem 0 1.25rem;font-size:0.84rem">
+            <span style="color:var(--text-dim)">Durabilidad del reflejo:</span>
+            <strong id="simDur" style="color:var(--magenta)">24 a 30 lavados con shampoo ácido</strong>
+          </div>
+          <a href="#reserva" class="btn-liquid" style="width:100%">Reservar esta Fórmula en el Lab</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOOKBOOK CON LIGHTBOX -->
+    <section class="section" id="lookbook">
+      <div class="section-head">
+        <div>
+          <span class="badge-glass">Galería Óptica</span>
+          <h2 class="section-title">Transformaciones Prisma</h2>
+        </div>
+        <div class="chip-group">
+          <button type="button" class="glass-chip is-active" data-look="all">Todos</button>
+          <button type="button" class="glass-chip" data-look="glass">Efecto Espejo</button>
+          <button type="button" class="glass-chip" data-look="pastel">Pastel & Lavanda</button>
+        </div>
+      </div>
+
+      <div class="lookbook-grid">
+        <article class="glass-panel look-card" data-look-cat="glass" data-title="Liquid Obsidian & Ice" data-sub="Laminado ultrasónico + Corte láser recto">
+          <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=900&q=80" alt="Look Liquid Obsidian" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/hair-look-balayage.svg';"/>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:0 0.4rem">
+            <div>
+              <strong style="font-family:var(--font-display)">Liquid Obsidian & Ice</strong>
+              <span style="display:block;font-size:0.76rem;color:var(--text-dim)">Laminado Glass</span>
+            </div>
+            <span style="color:var(--cyan);font-size:0.8rem;font-weight:700">Ver +</span>
+          </div>
+        </article>
+
+        <article class="glass-panel look-card" data-look-cat="pastel" data-title="Lavender Haze Balayage" data-sub="Degradado perlado con reflejo amatista suave">
+          <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=900&q=80" alt="Look Lavender Haze" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/hair-look-balayage.svg';"/>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:0 0.4rem">
+            <div>
+              <strong style="font-family:var(--font-display)">Lavender Haze Balayage</strong>
+              <span style="display:block;font-size:0.76rem;color:var(--text-dim)">Color Iridiscente</span>
+            </div>
+            <span style="color:var(--cyan);font-size:0.8rem;font-weight:700">Ver +</span>
+          </div>
+        </article>
+
+        <article class="glass-panel look-card" data-look-cat="glass" data-title="Champagne Glow Waves" data-sub="Gloss ácido reflectante + Ondas líquidas">
+          <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=900&q=80" alt="Look Champagne Glow" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/hair-look-balayage.svg';"/>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:0 0.4rem">
+            <div>
+              <strong style="font-family:var(--font-display)">Champagne Glow Waves</strong>
+              <span style="display:block;font-size:0.76rem;color:var(--text-dim)">Gloss & Brillo</span>
+            </div>
+            <span style="color:var(--cyan);font-size:0.8rem;font-weight:700">Ver +</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- EQUIPO -->
+    <section class="section" id="equipo">
+      <div class="section-head">
+        <div>
+          <span class="badge-glass">Alquimistas Capilares</span>
+          <h2 class="section-title">Equipo de Laboratorio</h2>
+        </div>
+      </div>
+
+      <div class="three-col">
+        <article class="glass-panel team-card">
+          <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=800&q=80" alt="Nova Sato" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/stylist-female-1.svg';"/>
+          <h3 style="font-family:var(--font-display);font-size:1.2rem">Nova Sato</h3>
+          <span style="font-size:0.76rem;color:var(--cyan);font-weight:700;text-transform:uppercase">Head of Chromatics</span>
+          <p style="font-size:0.86rem;color:var(--text-dim);margin-top:0.5rem">Especialista en rubios polares, tonos fantasía pastel y formulación química sin daño estructural.</p>
+        </article>
+
+        <article class="glass-panel team-card">
+          <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=800&q=80" alt="Lucas Vane" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/stylist-male-1.svg';"/>
+          <h3 style="font-family:var(--font-display);font-size:1.2rem">Lucas Vane</h3>
+          <span style="font-size:0.76rem;color:var(--magenta);font-weight:700;text-transform:uppercase">Director de Corte Digital</span>
+          <p style="font-size:0.86rem;color:var(--text-dim);margin-top:0.5rem">Creador de líneas Liquid Bob y cortes geométricos pulidos para acabado espejo de alto impacto.</p>
+        </article>
+
+        <article class="glass-panel team-card">
+          <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80" alt="Mía Soler" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/stylist-female-2.svg';"/>
+          <h3 style="font-family:var(--font-display);font-size:1.2rem">Mía Soler</h3>
+          <span style="font-size:0.76rem;color:var(--champagne);font-weight:700;text-transform:uppercase">Especialista en Bio-Laminado</span>
+          <p style="font-size:0.86rem;color:var(--text-dim);margin-top:0.5rem">Experta en sellado ácido con ultrasonido frío y recuperación de hebras altamente decoloradas.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section class="section" id="testimonios">
+      <div class="section-head">
+        <div>
+          <span class="badge-glass">Social Proof</span>
+          <h2 class="section-title">Experiencias verificadas</h2>
+        </div>
+      </div>
+
+      <div class="three-col">
+        <article class="glass-panel testi-card">
+          <span class="badge-glass" style="margin-bottom:0.85rem">[Testimonio Ficticio de Demostración]</span>
+          <p style="font-size:0.95rem;color:var(--text-white);margin-bottom:1rem">“El laminado Crystal Mirror dejó mi pelo con un reflejo que parece filtro digital en la vida real. Cero frizz incluso con llovizna.”</p>
+          <strong style="font-size:0.8rem;color:var(--cyan)">Ignacia Ríos · Directora de Arte Digital (Ejemplo Ficticio)</strong>
+        </article>
+
+        <article class="glass-panel testi-card">
+          <span class="badge-glass" style="margin-bottom:0.85rem">[Testimonio Ficticio de Demostración]</span>
+          <p style="font-size:0.95rem;color:var(--text-white);margin-bottom:1rem">“Me hicieron un tono rosa cuarzo champán soñado sin maltratar mis rulos. El ambiente con luces y paneles de cristal es único.”</p>
+          <strong style="font-size:0.8rem;color:var(--magenta)">Fernanda Lagos · Productora Musical (Ejemplo Ficticio)</strong>
+        </article>
+
+        <article class="glass-panel testi-card">
+          <span class="badge-glass" style="margin-bottom:0.85rem">[Testimonio Ficticio de Demostración]</span>
+          <p style="font-size:0.95rem;color:var(--text-white);margin-bottom:1rem">“El escaneo de porosidad previo les permitió igualar mi rubio perlado en una sola sesión con suavidad absoluta.”</p>
+          <strong style="font-size:0.8rem;color:var(--champagne)">Camila Bendersky · Creadora Visual (Ejemplo Ficticio)</strong>
+        </article>
+      </div>
+    </section>
+
+    <!-- RESERVA -->
+    <section class="section" id="reserva">
+      <div class="glass-panel booking-panel">
+        <div>
+          <span class="badge-glass">Fast Booking</span>
+          <h2 class="section-title">Agenda tu estación en Prisma Lab</h2>
+          <p style="color:var(--text-dim);margin:1rem 0 1.5rem">
+            Cada estación cuenta con iluminación anular calibrada, barra de bebidas botánicas e internet de alta velocidad.
+          </p>
+          <div style="font-size:0.86rem;color:var(--text-dim);display:flex;flex-direction:column;gap:0.6rem">
+            <div><strong style="color:var(--text-white)">Estudio:</strong> Av. Italia 1450, Providencia (Ubicación Ficticia)</div>
+            <div><strong style="color:var(--text-white)">Horario:</strong> Martes a Sábado · 10:00 a 20:30 hrs</div>
+          </div>
+        </div>
+
+        <form id="glassBookingForm">
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="gName">Nombre</label>
+              <input type="text" id="gName" required placeholder="Tu nombre completo" />
+            </div>
+            <div class="form-field">
+              <label for="gPhone">WhatsApp</label>
+              <input type="tel" id="gPhone" required placeholder="+56 9 9999 0000" />
+            </div>
+            <div class="form-field">
+              <label for="gService">Servicio Seleccionado</label>
+              <select id="gService">
+                <option value="Laminado Crystal Mirror">Laminado Crystal Mirror</option>
+                <option value="Balayage Holográfico Pearl">Balayage Holográfico Pearl</option>
+                <option value="Gloss Pastel & Toner Lavanda">Gloss Pastel & Toner Lavanda</option>
+                <option value="Liquid Bob & Contorno Geométrico">Liquid Bob & Contorno Geométrico</option>
+                <option value="Terapia Hidrogel & Ultrasonido">Terapia Hidrogel & Ultrasonido</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="gDate">Día Preferido</label>
+              <input type="text" id="gDate" placeholder="Ej. Viernes 15:00 hrs" />
+            </div>
+            <div class="form-field full">
+              <label for="gNotes">Historial Químico (Últimos 12 meses)</label>
+              <textarea id="gNotes" rows="2" placeholder="Cuéntanos si tienes decoloración previa, alisados o tinte oscuro..."></textarea>
+            </div>
+          </div>
+          <p style="font-size:0.75rem;color:var(--text-dim);margin:0.85rem 0">
+            * Demostración interactiva del lado del cliente. No genera reservas ni cobros reales.
+          </p>
+          <button type="submit" class="btn-liquid" style="width:100%">Confirmar Reserva en Modo Demo</button>
+          <div class="feedback-box" id="glassFeedback" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visor de imagen Prisma Lab">
+    <div class="glass-panel lightbox-inner">
+      <img id="lbImg" src="" alt="" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg';"/>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem">
+        <div>
+          <strong id="lbTitle" style="font-family:var(--font-display);font-size:1.1rem;display:block"></strong>
+          <span id="lbSub" style="font-size:0.8rem;color:var(--text-dim)"></span>
+        </div>
+        <button type="button" class="btn-frosted" id="lbClose">Cerrar [ESC]</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem">
+      <span>© 2026 PRISMA HAIR LAB · Demostración Estilo #02 Liquid Glass / Glassmorphism · KuyénDev</span>
+      <span>Paleta: #0C1017 · rgba(255,255,255,0.08) · #38BDF8 · #E879F9 | Plus Jakarta Sans & Syne</span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const menuToggle = document.getElementById('menuToggle');
+      const navLinks = document.getElementById('navLinks');
+      if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+          const open = navLinks.classList.toggle('is-open');
+          menuToggle.setAttribute('aria-expanded', String(open));
+        });
+      }
+
+      // Filtro y calculadora de servicios
+      let activeCat = 'all';
+      let mult = 1.25;
+      let lenLabel = 'Medio';
+      const cards = document.querySelectorAll('.service-glass-card');
+      const fmt = new Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP', maximumFractionDigits: 0 });
+
+      function updateServices() {
+        cards.forEach(c => {
+          const match = activeCat === 'all' || c.getAttribute('data-category') === activeCat;
+          c.classList.toggle('is-hidden', !match);
+          const base = Number(c.getAttribute('data-base'));
+          c.querySelector('.service-price-pill').textContent = fmt.format(Math.round(base * mult));
+          const lenEl = c.querySelector('.len-tag');
+          const mins = lenEl.textContent.split('·')[0].trim();
+          lenEl.textContent = `${mins} · ${lenLabel}`;
+        });
+      }
+
+      document.querySelectorAll('[data-cat]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('[data-cat]').forEach(b => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+          activeCat = btn.getAttribute('data-cat');
+          updateServices();
+        });
+      });
+
+      document.querySelectorAll('[data-mult]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('[data-mult]').forEach(b => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+          mult = Number(btn.getAttribute('data-mult'));
+          lenLabel = btn.getAttribute('data-len');
+          updateServices();
+        });
+      });
+
+      const gService = document.getElementById('gService');
+      document.querySelectorAll('[data-pick]').forEach(a => {
+        a.addEventListener('click', () => {
+          if (gService) gService.value = a.getAttribute('data-pick');
+        });
+      });
+
+      // Simulador de tono
+      const toneData = {
+        pearl: {
+          code: 'Fórmula #PR-01 · Nivel 9.12',
+          title: 'Opal Pearl · Brillo Iridiscente',
+          desc: 'Neutraliza residuos amarillos mediante micro-pigmentos violeta y cian translúcido, logrando un rubio nacarado de efecto espejo.',
+          level: 'Altura 9 (Rubio Muy Claro)',
+          dur: '24 a 30 lavados con shampoo ácido',
+          grad: 'linear-gradient(90deg, #38BDF8, #E879F9)'
+        },
+        rose: {
+          code: 'Fórmula #PR-04 · Nivel 9.26',
+          title: 'Quartz Blush · Rosa Pastel Lavanda',
+          desc: 'Velo pastel de cuarzo rosado y subtono frío que aporta calidez romántica y un reflejo multidimensional bajo luz solar.',
+          level: 'Altura 9 a 10 (Rubio Platino Suave)',
+          dur: '18 a 22 lavados con acondicionador con pigmento',
+          grad: 'linear-gradient(90deg, #F472B6, #C084FC)'
+        },
+        cyber: {
+          code: 'Fórmula #PR-08 · Nivel 10.11',
+          title: 'Ice Titanium · Plata Ártico',
+          desc: 'Pigmentación metálica fría con laminado de silicio orgánico para un acabado futurista ultra reflectante.',
+          level: 'Altura 10 (Platino Puro)',
+          dur: '25 lavados con sellador pH 4.2',
+          grad: 'linear-gradient(90deg, #38BDF8, #818CF8)'
+        },
+        amber: {
+          code: 'Fórmula #PR-11 · Nivel 8.31',
+          title: 'Liquid Champagne · Dorado Cristal',
+          desc: 'Iluminación cálida equilibrada que refleja luz dorada sin virar a tonos cobrizos, ideal para bases castañas claras.',
+          level: 'Altura 8 (Rubio Claro Miel)',
+          dur: '30 a 36 lavados sin pérdida de brillo',
+          grad: 'linear-gradient(90deg, #FDE68A, #F59E0B)'
+        }
+      };
+
+      document.querySelectorAll('[data-tone]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('[data-tone]').forEach(b => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+          const d = toneData[btn.getAttribute('data-tone')];
+          document.getElementById('simCode').textContent = d.code;
+          document.getElementById('simTitle').textContent = d.title;
+          document.getElementById('simDesc').textContent = d.desc;
+          document.getElementById('simLevel').textContent = d.level;
+          document.getElementById('simDur').textContent = d.dur;
+          document.getElementById('simGlowBar').style.background = d.grad;
+        });
+      });
+
+      // Lookbook y Lightbox
+      const lookCards = document.querySelectorAll('.look-card');
+      document.querySelectorAll('[data-look]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('[data-look]').forEach(b => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+          const cat = btn.getAttribute('data-look');
+          lookCards.forEach(c => {
+            c.classList.toggle('is-hidden', cat !== 'all' && c.getAttribute('data-look-cat') !== cat);
+          });
+        });
+      });
+
+      const lb = document.getElementById('lightbox');
+      const lbImg = document.getElementById('lbImg');
+      const lbTitle = document.getElementById('lbTitle');
+      const lbSub = document.getElementById('lbSub');
+      lookCards.forEach(card => {
+        card.addEventListener('click', () => {
+          const img = card.querySelector('img');
+          lbImg.src = img.src;
+          lbImg.alt = img.alt;
+          lbTitle.textContent = card.getAttribute('data-title');
+          lbSub.textContent = card.getAttribute('data-sub');
+          lb.classList.add('is-open');
+        });
+      });
+      const closeLb = () => lb.classList.remove('is-open');
+      document.getElementById('lbClose').addEventListener('click', closeLb);
+      lb.addEventListener('click', (e) => { if (e.target === lb) closeLb(); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLb(); });
+
+      // Formulario
+      const form = document.getElementById('glassBookingForm');
+      const fb = document.getElementById('glassFeedback');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('gName').value.trim();
+        const srv = gService.value;
+        fb.textContent = `[Simulación Interactiva KuyénDev] ¡Listo, ${name}! Tu solicitud para "${srv}" en Prisma Hair Lab fue registrada en modo demostración.`;
+        fb.classList.add('is-visible');
+        form.reset();
+      });
+    })();
+  </script>
+
+  <script src="../../js/config/rubros.js"></script>
+  <script src="../../js/demo-viewer-bar.js"></script>
+</body>
+</html>

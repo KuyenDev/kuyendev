@@ -80,6 +80,7 @@
   /* Tipografías Oficiales */
   --kd-font-display: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --kd-font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --kd-font-sans: var(--kd-font-body);
   --kd-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
   /* Transiciones */
@@ -4257,11 +4258,368 @@ header.scrolled .nav-glass {
 }
 
 .modal-palette-dot {
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  transition: transform 0.18s ease, border-color 0.18s ease;
+  position: relative;
+}
+
+.modal-palette-dot:hover {
+  transform: scale(1.18);
+  border-color: var(--kd-cyan-light);
+}
+
+/* Barra de Herramientas del Catálogo: Buscador + Filtros + Favoritos */
+.style-catalog-toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 1.1rem 1.25rem;
+  background: rgba(10, 17, 29, 0.65);
+  border: 1px solid var(--kd-border-subtle);
+  border-radius: var(--kd-radius-md);
+}
+
+.style-toolbar-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.style-search-box {
+  position: relative;
+  flex: 1;
+  min-width: min(100%, 280px);
+  max-width: 460px;
+}
+
+.style-search-box svg.search-icon {
+  position: absolute;
+  left: 0.9rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  color: var(--kd-text-muted);
+  pointer-events: none;
+}
+
+.style-search-input {
+  width: 100%;
+  background: rgba(16, 28, 45, 0.85);
+  border: 1px solid var(--kd-border-subtle);
+  border-radius: 999px;
+  padding: 0.58rem 2.4rem 0.58rem 2.45rem;
+  color: var(--kd-text-primary);
+  font-family: var(--kd-font-body);
+  font-size: 0.85rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.style-search-input::placeholder {
+  color: var(--kd-text-muted);
+}
+
+.style-search-input:focus {
+  outline: none;
+  border-color: var(--kd-cyan);
+  box-shadow: 0 0 0 3px rgba(39, 199, 212, 0.16);
+}
+
+.style-search-clear {
+  position: absolute;
+  right: 0.65rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--kd-text-secondary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.75rem;
+}
+
+.style-search-clear:hover {
+  background: rgba(39, 199, 212, 0.25);
+  color: #fff;
+}
+
+.style-toolbar-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.style-results-counter {
+  font-size: 0.8rem;
+  color: var(--kd-text-secondary);
+  font-weight: 600;
+}
+
+.style-results-counter strong {
+  color: var(--kd-cyan-light);
+}
+
+/* Botones de Favorito y Comparar en cada Tarjeta */
+.style-card-quick-tools {
+  position: absolute;
+  top: 28px;
+  right: 0.6rem;
+  display: flex;
+  gap: 0.35rem;
+  z-index: 5;
+}
+
+.style-tool-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: rgba(6, 11, 20, 0.86);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(8px);
+  color: var(--kd-text-secondary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.style-tool-btn svg {
+  width: 14px;
+  height: 14px;
+  pointer-events: none;
+}
+
+.style-tool-btn:hover {
+  border-color: var(--kd-cyan);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.style-tool-btn.is-fav {
+  background: rgba(244, 63, 94, 0.22);
+  border-color: #f43f5e;
+  color: #fb7185;
+}
+
+.style-tool-btn.is-compared {
+  background: rgba(39, 199, 212, 0.24);
+  border-color: var(--kd-cyan);
+  color: var(--kd-cyan-light);
+}
+
+/* Fila de Paleta Interactiva en Tarjeta */
+.style-card-palette-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.55rem 0.75rem;
+  background: rgba(8, 14, 25, 0.65);
+  border: 1px solid var(--kd-border-subtle);
+  border-radius: var(--kd-radius-xs);
+  margin-bottom: 1.15rem;
+}
+
+.style-card-swatches {
+  display: flex;
+  align-items: center;
+  gap: 0.38rem;
+}
+
+.style-card-swatch {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+  transition: transform 0.16s ease, border-color 0.16s ease;
+  padding: 0;
+}
+
+.style-card-swatch:hover {
+  transform: scale(1.22);
+  border-color: var(--kd-cyan-light);
+}
+
+.style-card-fonts-lbl {
+  font-size: 0.7rem;
+  color: var(--kd-text-muted);
+  font-family: var(--kd-font-mono);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 165px;
+}
+
+/* Botonera triple de tarjeta (Demostración + Detalles + Cotizar) */
+.style-card-actions-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: auto;
+}
+
+.style-card-quote-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  width: 100%;
+  padding: 0.48rem 0.75rem;
+  border-radius: var(--kd-radius-xs);
+  font-size: 0.77rem;
+  font-weight: 700;
+  color: var(--kd-cyan-light);
+  background: rgba(39, 199, 212, 0.08);
+  border: 1px solid rgba(39, 199, 212, 0.24);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.style-card-quote-link:hover {
+  background: rgba(39, 199, 212, 0.18);
+  border-color: rgba(39, 199, 212, 0.5);
+  color: #fff;
+}
+
+.style-card-quote-link svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Estado vacío del buscador/filtro */
+.style-empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 3.5rem 1.5rem;
+  background: rgba(12, 20, 34, 0.6);
+  border: 1px dashed rgba(39, 199, 212, 0.3);
+  border-radius: var(--kd-radius-md);
+}
+
+/* Barra Flotante de Comparador y Favoritos */
+.kd-catalog-dock {
+  position: sticky;
+  bottom: 1.25rem;
+  z-index: 80;
+  margin-top: 1.75rem;
+  padding: 0.85rem 1.25rem;
+  background: rgba(8, 15, 28, 0.94);
+  border: 1px solid rgba(39, 199, 212, 0.45);
+  border-radius: var(--kd-radius-md);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.75), 0 0 24px rgba(39, 199, 212, 0.18);
+  backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.kd-dock-items {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.kd-dock-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(22, 38, 58, 0.9);
+  border: 1px solid rgba(39, 199, 212, 0.3);
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--kd-text-primary);
+}
+
+.kd-dock-pill button {
+  background: none;
+  border: none;
+  color: var(--kd-text-muted);
+  cursor: pointer;
+  padding: 0 2px;
+  font-size: 0.85rem;
+  line-height: 1;
+}
+
+.kd-dock-pill button:hover {
+  color: #f43f5e;
+}
+
+/* Modal Comparador de Estilos (2 a 3 columnas lado a lado) */
+.kd-compare-dialog {
+  background: var(--kd-bg-surface-elevated);
+  border: 1px solid rgba(39, 199, 212, 0.4);
+  border-radius: var(--kd-radius-lg);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.85);
+  max-width: 1180px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: clamp(1.25rem, 2.5vw, 2rem);
+  position: relative;
+}
+
+.kd-compare-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+}
+
+.kd-compare-col {
+  background: rgba(10, 17, 29, 0.85);
+  border: 1px solid var(--kd-border-subtle);
+  border-radius: var(--kd-radius-md);
+  padding: 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+/* Toast de Confirmación Rápida */
+.kd-catalog-toast {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 100005;
+  background: rgba(8, 15, 28, 0.96);
+  border: 1px solid var(--kd-cyan);
+  color: var(--kd-text-primary);
+  padding: 0.65rem 1.1rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.65);
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+
+.kd-catalog-toast.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Responsive Breakpoints para el Sistema de Carpetas */
@@ -4304,5 +4662,10 @@ header.scrolled .nav-glass {
   
   .style-card-actions {
     grid-template-columns: 1fr;
+  }
+  
+  .kd-catalog-dock {
+    flex-direction: column;
+    align-items: stretch;
   }
 }

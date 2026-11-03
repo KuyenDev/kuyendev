@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>MAISON SOURIRE · Rehabilitación Oral, Carillas de Porcelana & Estética Facial | Estilo #03 Premium Clinical Luxury</title>
+  <meta name="description" content="Demostración interactiva Estilo #03 Premium Clinical Luxury para KuyénDev: Maison Sourire, clínica boutique de rehabilitación oral, carillas de porcelana y armonización facial." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ivory: #FDFBF7;
+      --travertine: #EFECE6;
+      --charcoal: #1E1E1E;
+      --obsidian: #121212;
+      --gold: #D4AF37;
+      --gold-muted: #B8962E;
+      --gold-line: rgba(212, 175, 55, 0.35);
+      --stone-muted: #6A645B;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'Montserrat', system-ui, -apple-system, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--ivory);
+      color: var(--charcoal);
+      font-family: var(--font-sans);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background-color: var(--ivory);
+      overflow-x: hidden;
+    }
+
+    /* Cinta Concierge Superior */
+    .luxury-Ribbon {
+      background-color: var(--charcoal);
+      color: #E8E2D5;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 10px 24px;
+      text-align: center;
+      border-bottom: 1px solid var(--gold-line);
+    }
+
+    .luxury-Ribbon span {
+      color: var(--gold);
+      margin: 0 8px;
+    }
+
+    /* Header Boutique Simétrico */
+    .luxury-header {
+      position: sticky;
+      top: 0;
+      z-index: 110;
+      background: rgba(253, 251, 247, 0.95);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(30, 30, 30, 0.08);
+    }
+
+    .luxury-header-inner {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 22px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .luxury-nav {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .luxury-nav a {
+      text-decoration: none;
+      color: var(--charcoal);
+      font-size: 0.76rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      transition: color 0.25s ease;
+    }
+
+    .luxury-nav a:hover {
+      color: var(--gold-muted);
+    }
+
+    .maison-logo {
+      text-align: center;
+      text-decoration: none;
+      color: var(--charcoal);
+    }
+
+    .maison-logo-title {
+      font-family: var(--font-serif);
+      font-size: 1.55rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      display: block;
+      line-height: 1.1;
+    }
+
+    .maison-logo-sub {
+      font-size: 0.63rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--stone-muted);
+      display: block;
+      margin-top: 4px;
+    }
+
+    .btn-luxury {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 26px;
+      background-color: var(--charcoal);
+      color: var(--ivory);
+      border: 1px solid var(--gold);
+      font-family: var(--font-sans);
+      font-size: 0.74rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-luxury:hover {
+      background-color: var(--gold);
+      color: var(--charcoal);
+    }
+
+    .btn-luxury-outline {
+      background-color: transparent;
+      color: var(--charcoal);
+      border: 1px solid var(--charcoal);
+    }
+
+    .btn-luxury-outline:hover {
+      border-color: var(--gold);
+      background-color: var(--travertine);
+      color: var(--charcoal);
+    }
+
+    .mob-lux-btn {
+      display: none;
+      background: transparent;
+      border: 1px solid var(--charcoal);
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+
+    /* Hero Editorial de Lujo Clínico */
+    .hero-luxury {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 76px 28px 96px;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 68px;
+      align-items: center;
+    }
+
+    .kicker-gold {
+      display: inline-block;
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-muted);
+      font-weight: 600;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--gold-line);
+      padding-bottom: 6px;
+    }
+
+    .hero-luxury h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.5rem, 4.4vw, 4rem);
+      font-weight: 400;
+      line-height: 1.1;
+      margin-bottom: 26px;
+      color: var(--charcoal);
+    }
+
+    .hero-luxury h1 em {
+      font-style: italic;
+      color: var(--gold-muted);
+    }
+
+    .hero-luxury p {
+      font-size: 1rem;
+      color: var(--stone-muted);
+      font-weight: 400;
+      max-width: 520px;
+      margin-bottom: 38px;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 52px;
+    }
+
+    .atelier-signatures {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(30, 30, 30, 0.12);
+    }
+
+    .sig-item strong {
+      display: block;
+      font-family: var(--font-serif);
+      font-size: 1.65rem;
+      font-weight: 600;
+      color: var(--charcoal);
+    }
+
+    .sig-item span {
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--stone-muted);
+    }
+
+    .hero-portrait-frame {
+      position: relative;
+      padding: 22px;
+      background: var(--travertine);
+      border: 1px solid var(--gold-line);
+    }
+
+    .hero-portrait-inner {
+      aspect-ratio: 4 / 4.5;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-portrait-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .portrait-plaque {
+      position: absolute;
+      bottom: -18px;
+      left: 36px;
+      right: 36px;
+      background: var(--charcoal);
+      color: var(--ivory);
+      padding: 18px 24px;
+      border: 1px solid var(--gold);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .portrait-plaque small {
+      display: block;
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .portrait-plaque strong {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      font-size: 1rem;
+    }
+
+    /* Secciones */
+    .lux-section {
+      padding: 96px 28px;
+      border-top: 1px solid rgba(30, 30, 30, 0.08);
+    }
+
+    .lux-section.bg-travertine {
+      background-color: var(--travertine);
+    }
+
+    .lux-section.bg-dark {
+      background-color: var(--charcoal);
+      color: var(--ivory);
+    }
+
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+    }
+
+    .lux-header-block {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 32px;
+      margin-bottom: 56px;
+      flex-wrap: wrap;
+    }
+
+    .lux-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 3.2vw, 2.85rem);
+      font-weight: 400;
+      line-height: 1.15;
+    }
+
+    /* Atelier Interactivo de Carillas de Porcelana */
+    .veneer-atelier {
+      background: var(--ivory);
+      border: 1px solid var(--gold-line);
+      padding: 48px;
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 52px;
+      align-items: center;
+    }
+
+    .shade-selector {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 24px 0;
+    }
+
+    .shade-btn {
+      padding: 16px;
+      text-align: left;
+      background: var(--travertine);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .shade-btn.is-active {
+      background: var(--charcoal);
+      color: var(--ivory);
+      border-color: var(--gold);
+    }
+
+    .shade-swatch {
+      width: 28px;
+      height: 14px;
+      display: inline-block;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      margin-bottom: 8px;
+    }
+
+    .shade-btn strong {
+      display: block;
+      font-family: var(--font-serif);
+      font-size: 1rem;
+    }
+
+    .shade-btn span {
+      font-size: 0.75rem;
+      opacity: 0.8;
+    }
+
+    .atelier-preview-box {
+      background: var(--charcoal);
+      color: var(--ivory);
+      padding: 36px;
+      border: 1px solid var(--gold);
+    }
+
+    .tooth-diagram-row {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      padding: 28px;
+      background: #141414;
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      margin-bottom: 24px;
+    }
+
+    .tooth-unit {
+      width: 36px;
+      height: 52px;
+      border-radius: 6px 6px 16px 16px;
+      background: #FDFBF7;
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      transition: all 0.35s ease;
+      box-shadow: inset 0 -6px 12px rgba(212, 175, 55, 0.12);
+    }
+
+    .tooth-unit.lateral {
+      height: 46px;
+      width: 30px;
+    }
+
+    .tooth-unit.canine {
+      height: 50px;
+      width: 32px;
+      border-radius: 6px 6px 20px 14px;
+    }
+
+    /* Colección de Tratamientos de Autor */
+    .treatments-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .treatment-card {
+      background: var(--ivory);
+      border: 1px solid rgba(30, 30, 30, 0.12);
+      padding: 36px 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: border-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .treatment-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-4px);
+    }
+
+    .roman-num {
+      font-family: var(--font-serif);
+      font-style: italic;
+      color: var(--gold-muted);
+      font-size: 1.2rem;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .treatment-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      font-weight: 400;
+      margin-bottom: 12px;
+    }
+
+    .treatment-card p {
+      font-size: 0.88rem;
+      color: var(--stone-muted);
+      margin-bottom: 28px;
+    }
+
+    /* Galería Suites Privadas & Directores con Lightbox */
+    .suites-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .suite-card {
+      background: transparent;
+      border: 1px solid var(--gold-line);
+      padding: 16px;
+      text-align: left;
+      color: var(--ivory);
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .suite-card:hover {
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .suite-img {
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+
+    .suite-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .suite-card:hover .suite-img img {
+      transform: scale(1.04);
+    }
+
+    /* Testimonios Ficticios */
+    .lux-testimonials {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .lux-quote-card {
+      background: var(--travertine);
+      border-left: 3px solid var(--gold);
+      padding: 36px;
+    }
+
+    .demo-lux-tag {
+      display: inline-block;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--stone-muted);
+      border: 1px solid rgba(30, 30, 30, 0.2);
+      padding: 3px 9px;
+      margin-bottom: 16px;
+    }
+
+    /* Concierge Form */
+    .concierge-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    .concierge-form-box {
+      background: var(--ivory);
+      border: 1px solid var(--gold);
+      padding: 44px;
+    }
+
+    .lux-input,
+    .lux-select {
+      width: 100%;
+      padding: 13px 14px;
+      border: 1px solid rgba(30, 30, 30, 0.22);
+      background: transparent;
+      font-family: var(--font-sans);
+      font-size: 0.88rem;
+      color: var(--charcoal);
+      margin-top: 6px;
+    }
+
+    .lux-input:focus,
+    .lux-select:focus {
+      outline: none;
+      border-color: var(--gold);
+    }
+
+    .lux-feedback {
+      margin-top: 20px;
+      padding: 18px;
+      background: var(--charcoal);
+      color: var(--ivory);
+      border: 1px solid var(--gold);
+      font-size: 0.86rem;
+      display: none;
+    }
+
+    .lux-feedback.is-visible {
+      display: block;
+    }
+
+    /* Lightbox */
+    .lux-lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(18, 18, 18, 0.92);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .lux-lightbox.is-open {
+      display: flex;
+    }
+
+    .lux-lightbox-inner {
+      max-width: 860px;
+      width: 100%;
+      background: var(--charcoal);
+      border: 1px solid var(--gold);
+      padding: 20px;
+      color: var(--ivory);
+    }
+
+    .lux-footer {
+      background: var(--obsidian);
+      color: #9E978E;
+      padding: 64px 28px 44px;
+      border-top: 1px solid var(--gold-line);
+      font-size: 0.82rem;
+    }
+
+    @media (max-width: 980px) {
+      .hero-luxury,
+      .veneer-atelier,
+      .treatments-grid,
+      .suites-grid,
+      .lux-testimonials,
+      .concierge-grid {
+        grid-template-columns: 1fr;
+      }
+      .luxury-nav {
+        display: none;
+      }
+      .luxury-nav.is-open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--ivory);
+        padding: 24px;
+        border-bottom: 1px solid var(--gold);
+      }
+      .mob-lux-btn {
+        display: inline-flex;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .shade-selector,
+      .atelier-signatures {
+        grid-template-columns: 1fr;
+      }
+      .portrait-plaque {
+        position: static;
+        margin-top: 12px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body data-rubro-id="salud" data-style-id="premium-clinical-luxury">
+
+  <div class="luxury-Ribbon">
+    ATELIER PRIVADO DE ALTA ODONTOLOGÍA <span>·</span> SUITE EXCLUSIVA EN NUEVA COSTANERA, VITACURA <span>·</span> ATENCIÓN CONCIERGE INDIVIDUAL
+  </div>
+
+  <header class="luxury-header">
+    <div class="luxury-header-inner">
+      <nav class="luxury-nav" id="luxNav" aria-label="Navegación de alta estética">
+        <a href="#atelier">Atelier de Porcelana</a>
+        <a href="#coleccion">Tratamientos</a>
+        <a href="#suites">Suites & Directores</a>
+      </nav>
+
+      <a href="#" class="maison-logo">
+        <span class="maison-logo-title">MAISON SOURIRE</span>
+        <span class="maison-logo-sub">Haute Esthétique Dentaire & Faciale</span>
+      </a>
+
+      <div style="display:flex;align-items:center;gap:12px">
+        <a href="#concierge" class="btn-luxury">Cita Privada Concierge</a>
+        <button type="button" class="mob-lux-btn" id="mobLuxBtn" aria-label="Menú">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Editorial -->
+    <section class="hero-luxury">
+      <div>
+        <span class="kicker-gold">Estilo #03 · Premium Clinical Luxury</span>
+        <h1>
+          La arquitectura de una sonrisa <em>irrepetible</em>.
+        </h1>
+        <p>
+          En Maison Sourire concebimos la rehabilitación oral y la armonización facial como una obra de alta relojería. Lentes cerámicos esculpidos a mano por maestros ceramistas suizos en suites privadas sin sala de espera compartida.
+        </p>
+        <div class="hero-cta-group">
+          <a href="#concierge" class="btn-luxury">Solicitar Evaluación Privada</a>
+          <a href="#atelier" class="btn-luxury btn-luxury-outline">Explorar Tonos de Porcelana</a>
+        </div>
+        <div class="atelier-signatures">
+          <div class="sig-item">
+            <strong>0.2 mm</strong>
+            <span>Lentes de contacto sin desgaste dental</span>
+          </div>
+          <div class="sig-item">
+            <strong>1 Paciente</strong>
+            <span>Exclusividad absoluta por bloque</span>
+          </div>
+          <div class="sig-item">
+            <strong>10 Años</strong>
+            <span>Certificado de garantía cerámica</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-portrait-frame">
+        <div class="hero-portrait-inner">
+          <img
+            src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=1200&q=85"
+            alt="Dr. Maximiliano Fontecilla · Prostodoncista Estético"
+            onerror="this.onerror=null;this.src='../../images/demos/assets/med/doctor-male-1.svg';"/>
+        </div>
+        <div class="portrait-plaque">
+          <div>
+            <small>Dirección Clínica</small>
+            <strong>Dr. Maximiliano Fontecilla · Prostodoncista Estético</strong>
+          </div>
+          <span style="color:var(--gold);font-family:var(--font-serif);font-style:italic">Vitacura</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Atelier Interactivo de Carillas & Tonos Cerámicos -->
+    <section class="lux-section bg-travertine" id="atelier">
+      <div class="container">
+        <div class="lux-header-block">
+          <div>
+            <span class="kicker-gold">Personalización Biomimética</span>
+            <h2 class="lux-title">Atelier Interactivo de Carillas de Porcelana</h2>
+          </div>
+          <p style="max-width:460px;color:var(--stone-muted);font-size:0.92rem">
+            Selecciona el matiz cerámico y la anatomía incisal para previsualizar el comportamiento óptico de nuestras carillas de disilicato de litio feldespático.
+          </p>
+        </div>
+
+        <div class="veneer-atelier">
+          <div>
+            <h3 style="font-family:var(--font-serif);font-size:1.5rem;font-weight:400;margin-bottom:8px">1. Selecciona la Carta de Luz Cerámica</h3>
+            <p style="font-size:0.86rem;color:var(--stone-muted)">Cada carilla reproduce la opalescencia y microtextura del esmalte joven natural.</p>
+
+            <div class="shade-selector" role="tablist">
+              <button type="button" class="shade-btn is-active" data-shade="b1">
+                <span class="shade-swatch" style="background:#FAF7F0"></span>
+                <strong>Natural Translucent B1</strong>
+                <span>Luminosidad orgánica e imperceptible</span>
+              </button>
+              <button type="button" class="shade-btn" data-shade="bl2">
+                <span class="shade-swatch" style="background:#FFFFFF"></span>
+                <strong>Couture Pearl BL2</strong>
+                <span>Alto brillo editorial de alfombra roja</span>
+              </button>
+              <button type="button" class="shade-btn" data-shade="a1">
+                <span class="shade-swatch" style="background:#F5EFE2"></span>
+                <strong>Warm Silk Ivory A1</strong>
+                <span>Calidez mediterránea y máxima naturalidad</span>
+              </button>
+              <button type="button" class="shade-btn" data-shade="soft">
+                <span class="shade-swatch" style="background:#F8F5EE"></span>
+                <strong>Soft Rounded Contour</strong>
+                <span>Bordes incisales delicados y juveniles</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="atelier-preview-box" aria-live="polite">
+            <span class="kicker-gold" style="border:none;margin-bottom:8px">Ficha de Laboratorio Cerámico</span>
+            <h4 id="shadeTitleOut" style="font-family:var(--font-serif);font-size:1.55rem;font-weight:400;margin-bottom:18px">
+              Natural Translucent B1 · Esmalte Feldespático Suizo
+            </h4>
+
+            <div class="tooth-diagram-row" id="toothRow">
+              <div class="tooth-unit canine"></div>
+              <div class="tooth-unit lateral"></div>
+              <div class="tooth-unit"></div>
+              <div class="tooth-unit"></div>
+              <div class="tooth-unit lateral"></div>
+              <div class="tooth-unit canine"></div>
+            </div>
+
+            <p id="shadeDescOut" style="font-size:0.88rem;color:#D6D0C4;margin-bottom:20px">
+              Translucidez incisal del 38% con halo ámbar sutil. Ideal para pacientes que buscan rejuvenecer su sonrisa sin que nadie perciba una intervención odontológica.
+            </p>
+
+            <div style="display:flex;justify-content:space-between;align-items:center;padding-top:16px;border-top:1px solid rgba(212,175,55,0.25);flex-wrap:wrap;gap:12px">
+              <span style="font-size:0.8rem;color:var(--gold)">Mock-up Digital de Prueba en 48 hrs</span>
+              <a href="#concierge" class="btn-luxury" style="padding:10px 18px;" id="bookShadeBtn">Solicitar Prueba Mock-Up</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tratamientos de Autor -->
+    <section class="lux-section" id="coleccion">
+      <div class="container">
+        <div class="lux-header-block">
+          <div>
+            <span class="kicker-gold">Haute Dentisterie</span>
+            <h2 class="lux-title">Colección de Tratamientos Exclusivos</h2>
+          </div>
+        </div>
+
+        <div class="treatments-grid">
+          <article class="treatment-card">
+            <div>
+              <span class="roman-num">I.</span>
+              <h3>Lentes Cerámicos Ultradelgados (0.2 mm)</h3>
+              <p>Láminas de porcelana estratificada a mano bajo microscopio óptico Zeiss, adheridas sin tallado agresivo sobre tu esmalte intacto.</p>
+            </div>
+            <a href="#concierge" class="btn-luxury btn-luxury-outline" onclick="setLuxuryService('Lentes Cerámicos Ultradelgados')">Reservar Diagnóstico</a>
+          </article>
+
+          <article class="treatment-card">
+            <div>
+              <span class="roman-num">II.</span>
+              <h3>Rehabilitación Total sobre Zirconio Rosado</h3>
+              <p>Restauración integral de función y estética en 72 horas con sedación consciente asistida por médico anestesiólogo.</p>
+            </div>
+            <a href="#concierge" class="btn-luxury btn-luxury-outline" onclick="setLuxuryService('Rehabilitación Integral con Sedación')">Reservar Diagnóstico</a>
+          </article>
+
+          <article class="treatment-card">
+            <div>
+              <span class="roman-num">III.</span>
+              <h3>Armonización Orofacial & Perfiloplastía</h3>
+              <p>Bioestimuladores de colágeno y ácido hialurónico de grado suizo para enmarcar el diseño de sonrisa con proporciones áureas.</p>
+            </div>
+            <a href="#concierge" class="btn-luxury btn-luxury-outline" onclick="setLuxuryService('Armonización Orofacial de Autor')">Reservar Diagnóstico</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Suites Privadas & Directores Clínicos con Lightbox -->
+    <section class="lux-section bg-dark" id="suites">
+      <div class="container">
+        <div class="lux-header-block">
+          <div>
+            <span class="kicker-gold">Privacidad & Hospitalidad Cinco Estrellas</span>
+            <h2 class="lux-title" style="color:var(--ivory)">Suites Clínicas & Maestros Especialistas</h2>
+          </div>
+        </div>
+
+        <div class="suites-grid">
+          <button type="button" class="suite-card" data-lux-img="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1200&q=85" data-lux-title="Suite Imperial Vitacura · Equipada con microscopía Zeiss y aromaterapia botánica libre de olor clínico">
+            <div class="suite-img">
+              <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1200&q=85" alt="Suite Imperial Vitacura" onerror="this.onerror=null;this.src='../../images/demos/assets/med/clinic-suite-vip.svg';"/>
+            </div>
+            <span class="kicker-gold" style="margin-bottom:6px;border:none">Pabellón Boutique I</span>
+            <strong style="display:block;font-family:var(--font-serif);font-size:1.25rem;font-weight:400">Suite Imperial & Lounge de Recuperación</strong>
+            <span style="font-size:0.78rem;color:var(--gold);display:block;margin-top:8px">Inspeccionar Fotografía +</span>
+          </button>
+
+          <button type="button" class="suite-card" data-lux-img="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=1200&q=85" data-lux-title="Dr. Maximiliano Fontecilla · Director de Rehabilitación Oral, miembro de la European Academy of Esthetic Dentistry">
+            <div class="suite-img">
+              <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800&q=80" alt="Dr. Maximiliano Fontecilla" onerror="this.onerror=null;this.src='../../images/demos/assets/med/doctor-male-1.svg';"/>
+            </div>
+            <span class="kicker-gold" style="margin-bottom:6px;border:none">Director Clínico</span>
+            <strong style="display:block;font-family:var(--font-serif);font-size:1.25rem;font-weight:400">Dr. Maximiliano Fontecilla (Ginebra / Santiago)</strong>
+            <span style="font-size:0.78rem;color:var(--gold);display:block;margin-top:8px">Ver Perfil & Credenciales +</span>
+          </button>
+
+          <button type="button" class="suite-card" data-lux-img="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=1200&q=85" data-lux-title="Atelier de Cerámica Propio · Esculpido manual de carillas con pigmentos minerales suizos">
+            <div class="suite-img">
+              <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=85" alt="Atelier de Cerámica Propio" onerror="this.onerror=null;this.src='../../images/demos/assets/med/clinic-box-dental.svg';"/>
+            </div>
+            <span class="kicker-gold" style="margin-bottom:6px;border:none">Artesanía Dental</span>
+            <strong style="display:block;font-family:var(--font-serif);font-size:1.25rem;font-weight:400">Laboratorio de Alta Cerámica In-House</strong>
+            <span style="font-size:0.78rem;color:var(--gold);display:block;margin-top:8px">Inspeccionar Fotografía +</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonios Ficticios -->
+    <section class="lux-section">
+      <div class="container">
+        <div class="lux-header-block">
+          <div>
+            <span class="kicker-gold">Confidencialidad & Prestigio</span>
+            <h2 class="lux-title">Voces de nuestros pacientes</h2>
+          </div>
+        </div>
+
+        <div class="lux-testimonials">
+          <div class="lux-quote-card">
+            <span class="demo-lux-tag">[Testimonio Ficticio de Demostración]</span>
+            <p style="font-family:var(--font-serif);font-size:1.15rem;font-style:italic;margin-bottom:18px">
+              "Entrar a Maison Sourire se siente como llegar a un hotel boutique en Ginebra. No me crucé con ningún otro paciente, probamos el diseño de mis carillas antes de tocar el diente y el resultado es absolutamente natural."
+            </p>
+            <strong style="font-size:0.82rem;letter-spacing:0.08em;text-transform:uppercase">Isidora V. · Rehabilitación con 10 Lentes Cerámicos</strong>
+          </div>
+
+          <div class="lux-quote-card">
+            <span class="demo-lux-tag">[Testimonio Ficticio de Demostración]</span>
+            <p style="font-family:var(--font-serif);font-size:1.15rem;font-style:italic;margin-bottom:18px">
+              "Viajé desde Lima por tres días. El equipo de concierge coordinó mi diagnóstico 3D el lunes y el miércoles ya regresaba con mi sonrisa rehabilitada bajo sedación consciente sin ningún dolor."
+            </p>
+            <strong style="font-size:0.82rem;letter-spacing:0.08em;text-transform:uppercase">Cristóbal E. · Programa Internacional Dental Concierge</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Solicitud de Cita Concierge -->
+    <section class="lux-section bg-travertine" id="concierge">
+      <div class="container">
+        <div class="concierge-grid">
+          <div>
+            <span class="kicker-gold">Atención Privada con Reserva Previa</span>
+            <h2 class="lux-title" style="margin-bottom:18px">Concierge & Admisión Privada</h2>
+            <p style="color:var(--stone-muted);margin-bottom:28px">
+              Nuestra coordinadora de pacientes VIP se comunicará de forma confidencial para preparar su suite, estacionamiento reservado y protocolo de bienvenida.
+            </p>
+            <p style="font-size:0.85rem;color:var(--charcoal)">
+              <strong>Dirección:</strong> Av. Nueva Costanera 4040, Suite Penthouse, Vitacura.<br/>
+              <strong>Línea Directa Concierge:</strong> +56 2 2910 8800
+            </p>
+          </div>
+
+          <div class="concierge-form-box">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;flex-wrap:wrap;gap:8px">
+              <h3 style="font-family:var(--font-serif);font-size:1.4rem;font-weight:400">Solicitud de Audiencia Clínica</h3>
+              <span class="demo-lux-tag" style="margin:0">[Demostración Interactiva]</span>
+            </div>
+
+            <form id="luxuryConciergeForm">
+              <div style="margin-bottom:16px">
+                <label for="luxName" style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em">Nombre Completo del Paciente *</label>
+                <input type="text" id="luxName" class="lux-input" placeholder="Ej: Magdalena Subercaseaux" required />
+              </div>
+
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px">
+                <div>
+                  <label for="luxPhone" style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em">Teléfono Directo / WhatsApp *</label>
+                  <input type="text" id="luxPhone" class="lux-input" placeholder="+56 9 9100 0000" required />
+                </div>
+                <div>
+                  <label for="luxService" style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em">Tratamiento de Interés</label>
+                  <select id="luxService" class="lux-select">
+                    <option value="Lentes Cerámicos Ultradelgados">Lentes Cerámicos Ultradelgados</option>
+                    <option value="Rehabilitación Integral con Sedación">Rehabilitación Integral con Sedación</option>
+                    <option value="Armonización Orofacial de Autor">Armonización Orofacial de Autor</option>
+                  </select>
+                </div>
+              </div>
+
+              <div style="margin-bottom:24px">
+                <label style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;display:block;margin-bottom:8px">Preferencias de Hospitalidad</label>
+                <label style="font-size:0.84rem;display:flex;align-items:center;gap:8px;margin-bottom:6px;cursor:pointer">
+                  <input type="checkbox" checked style="accent-color:var(--charcoal);" /> Reserva de Suite con acceso privado directo desde ascensor
+                </label>
+                <label style="font-size:0.84rem;display:flex;align-items:center;gap:8px;cursor:pointer">
+                  <input type="checkbox" style="accent-color:var(--charcoal);" /> Evaluación conjunta con médico anestesiólogo (Sedación Consciente)
+                </label>
+              </div>
+
+              <button type="submit" class="btn-luxury" style="width:100%">
+                Enviar Solicitud a Concierge (Demostración)
+              </button>
+            </form>
+
+            <div class="lux-feedback" id="luxFeedback" role="status"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Lightbox Modal -->
+  <div class="lux-lightbox" id="luxLightbox" role="dialog" aria-modal="true" aria-label="Galería Maison Sourire">
+    <div class="lux-lightbox-inner">
+      <div style="aspect-ratio:16/9;overflow:hidden;margin-bottom:16px">
+        <img id="luxLbImg" src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=85" alt="Vista ampliada" style="width:100%;height:100%;object-fit:cover;" / onerror="this.onerror=null;this.src='../../images/demos/assets/med/clinic-box-dental.svg'">
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap">
+        <span id="luxLbCaption" style="font-family:var(--font-serif);font-size:1.05rem">Suite Imperial Vitacura</span>
+        <button type="button" class="btn-luxury" id="luxLbClose" style="padding:8px 18px">Cerrar (Esc)</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="lux-footer">
+    <div class="container" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px">
+      <div>
+        <strong style="color:var(--ivory);font-family:var(--font-serif);letter-spacing:0.1em">MAISON SOURIRE · HAUTE ESTHÉTIQUE DENTAIRE</strong>
+        <p>Demostración interactiva KuyénDev · Estilo #03 Premium Clinical Luxury.</p>
+      </div>
+      <div>
+        <p>© 2026 Marca y testimonios ficticios de demostración visual.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+
+      const mobBtn = document.getElementById('mobLuxBtn');
+      const nav = document.getElementById('luxNav');
+      if (mobBtn && nav) {
+        mobBtn.addEventListener('click', () => nav.classList.toggle('is-open'));
+      }
+
+      // Configurador de Carillas
+      const shadesData = {
+        b1: {
+          title: 'Natural Translucent B1 · Esmalte Feldespático Suizo',
+          desc: 'Translucidez incisal del 38% con halo ámbar sutil. Ideal para pacientes que buscan rejuvenecer su sonrisa sin que nadie perciba una intervención odontológica.',
+          bg: '#FAF7F0',
+          radius: '6px 6px 16px 16px'
+        },
+        bl2: {
+          title: 'Couture Pearl BL2 · Luminosidad de Alta Costura',
+          desc: 'Blanco perlado de alta reflexión lumínica con microtextura satinada. Diseñado para sonrisas protagonistas de alto impacto estético.',
+          bg: '#FFFFFF',
+          radius: '5px 5px 12px 12px'
+        },
+        a1: {
+          title: 'Warm Silk Ivory A1 · Armonía Orgánica Cálida',
+          desc: 'Matiz marfil cálido que armoniza con pieles bronceadas o doradas, manteniendo gradiente cervical natural.',
+          bg: '#F4ECE0',
+          radius: '6px 6px 15px 15px'
+        },
+        soft: {
+          title: 'Soft Rounded Contour · Morfología Delicada',
+          desc: 'Ángulos incisales suavizados que suavizan los rasgos faciales y devuelven la curvatura joven del labio superior.',
+          bg: '#F8F5EE',
+          radius: '8px 8px 22px 22px'
+        }
+      };
+
+      const shadeBtns = document.querySelectorAll('.shade-btn');
+      const units = document.querySelectorAll('.tooth-unit');
+
+      shadeBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          shadeBtns.forEach(b => b.classList.toggle('is-active', b === btn));
+          const key = btn.getAttribute('data-shade');
+          const info = shadesData[key] || shadesData.b1;
+          document.getElementById('shadeTitleOut').textContent = info.title;
+          document.getElementById('shadeDescOut').textContent = info.desc;
+          units.forEach(u => {
+            u.style.backgroundColor = info.bg;
+            u.style.borderRadius = info.radius;
+          });
+        });
+      });
+
+      window.setLuxuryService = function (srv) {
+        const sel = document.getElementById('luxService');
+        if (sel) sel.value = srv;
+      };
+
+      // Formulario Concierge
+      const form = document.getElementById('luxuryConciergeForm');
+      const feedback = document.getElementById('luxFeedback');
+      if (form && feedback) {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const name = document.getElementById('luxName').value.trim();
+          const srv = document.getElementById('luxService').value;
+          feedback.classList.add('is-visible');
+          feedback.innerHTML = `
+            <strong style="color:var(--gold)">✓ Audiencia Privada Registrada [Demostración Interactiva]</strong><br/>
+            Estimado/a <strong>${name}</strong>, nuestro equipo Concierge ha reservado tentativamente la Suite Imperial para su evaluación de <strong>${srv}</strong>.
+          `;
+        });
+      }
+
+      // Lightbox
+      const lb = document.getElementById('luxLightbox');
+      const lbImg = document.getElementById('luxLbImg');
+      const lbCap = document.getElementById('luxLbCaption');
+      const lbClose = document.getElementById('luxLbClose');
+
+      document.querySelectorAll('[data-lux-img]').forEach(card => {
+        card.addEventListener('click', () => {
+          lbImg.src = card.getAttribute('data-lux-img');
+          lbCap.textContent = card.getAttribute('data-lux-title');
+          lb.classList.add('is-open');
+        });
+      });
+
+      const closeLb = () => lb && lb.classList.remove('is-open');
+      if (lbClose) lbClose.addEventListener('click', closeLb);
+      if (lb) lb.addEventListener('click', (e) => { if (e.target === lb) closeLb(); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLb(); });
+    })();
+  </script>
+
+  <script src="../../js/config/rubros.js"></script>
+  <script src="../../js/demo-viewer-bar.js"></script>
+</body>
+</html>

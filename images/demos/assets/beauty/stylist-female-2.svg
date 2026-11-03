@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
+  <defs>
+    <linearGradient id="bgF2B" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FAF5FF"/>
+      <stop offset="50%" stop-color="#FDF4FF"/>
+      <stop offset="100%" stop-color="#F5F3FF"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1000" fill="url(#bgF2B)"/>
+  <circle cx="400" cy="420" r="260" fill="#FFFFFF" opacity="0.8"/>
+
+  <!-- Vestimenta estilista moderna negra / minimalista -->
+  <path d="M160 1000 C180 720, 240 640, 400 640 C560 640, 620 720, 640 1000 Z" fill="#27272A"/>
+  <polygon points="340,640 400,760 460,640" fill="#FCE7D6"/>
+  <circle cx="400" cy="740" r="16" fill="#F43F5E"/>
+
+  <!-- Cuello y Cabeza -->
+  <path d="M360 520 L440 520 L440 650 L360 650 Z" fill="#FCE7D6"/>
+
+  <!-- Cabello Bob moderno negro azabache -->
+  <path d="M250 380 C240 230, 560 230, 550 380 C550 560, 530 640, 500 660 L300 660 C270 640, 250 560, 250 380 Z" fill="#18181B"/>
+
+  <!-- Rostro -->
+  <path d="M300 400 C300 540, 330 580, 400 580 C470 580, 500 540, 500 400 Z" fill="#FCE7D6"/>
+  <path d="M270 360 C320 280, 480 280, 530 360 C470 330, 410 320, 400 330 C390 320, 330 330, 270 360 Z" fill="#09090B"/>
+
+  <!-- Ojos -->
+  <ellipse cx="355" cy="425" rx="8" ry="5.5" fill="#18181B"/>
+  <ellipse cx="445" cy="425" rx="8" ry="5.5" fill="#18181B"/>
+  <path d="M365 500 Q400 525 435 500" fill="none" stroke="#E11D48" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Placa -->
+  <rect x="180" y="910" width="440" height="60" rx="30" fill="#FFFFFF" stroke="#9333EA" stroke-width="2"/>
+  <text x="400" y="940" text-anchor="middle" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="20" font-weight="800" fill="#18181B">Master Stylist &amp; Hair Artist</text>
+  <text x="400" y="958" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#9333EA">ESTILISMO &amp; TENDENCIAS INTERNACIONALES</text>
+</svg>

@@ -258,28 +258,88 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 9. Formulario Inteligente de Cotización Web (Generador a WhatsApp / Email)
+  // 9. Formulario Inteligente de Cotización Web (Generador a WhatsApp / Email + Preselección desde Catálogo/Demos)
   const quoteForm = document.getElementById('quoteSmartForm');
   if (quoteForm) {
+    const urlParams = new URLSearchParams(window.location.search);
+    const paramRubro = urlParams.get('rubro') || '';
+    const paramEstilo = urlParams.get('estilo') || '';
+    const paramNombre = urlParams.get('nombre') || '';
+    const paramFavs = urlParams.get('favoritos') || '';
+
+    const bannerEl = document.getElementById('quoteSelectedStyleBanner');
+    const textEl = document.getElementById('quoteSelectedStyleText');
+    const subEl = document.getElementById('quoteSelectedStyleSub');
+    const clearBtn = document.getElementById('quoteClearStyleBtn');
+    const hiddenRubro = document.getElementById('quoteSelectedRubro');
+    const hiddenStyle = document.getElementById('quoteSelectedStyle');
+    const hiddenFavs = document.getElementById('quoteSelectedFavorites');
+    const detailsInput = document.getElementById('quoteDetails');
+
+    let storedFavs = [];
+    try {
+      const rawFavs = localStorage.getItem('kd_fav_styles');
+      if (rawFavs) storedFavs = JSON.parse(rawFavs);
+    } catch (_) {}
+
+    if (bannerEl && (paramEstilo || paramFavs || storedFavs.length > 0)) {
+      bannerEl.style.display = 'block';
+      if (paramEstilo) {
+        const displayTitle = paramNombre ? `#${paramEstilo.replace(/^0+/, '').padStart(2, '0')} · ${paramNombre}` : `Estilo: ${paramEstilo}`;
+        if (textEl) textEl.textContent = paramRubro ? `${displayTitle} (${paramRubro})` : displayTitle;
+        if (subEl) subEl.textContent = 'Se adjuntará automáticamente como referencia visual en tu solicitud por WhatsApp.';
+        if (hiddenRubro) hiddenRubro.value = paramRubro;
+        if (hiddenStyle) hiddenStyle.value = paramNombre ? `${paramEstilo} (${paramNombre})` : paramEstilo;
+        if (detailsInput && !detailsInput.value.trim()) {
+          detailsInput.value = `Me interesa cotizar un sitio web inspirado en el diseño "${paramNombre || paramEstilo}"${paramRubro ? ` del rubro ${paramRubro}` : ''}. `;
+        }
+      } else if (paramFavs || storedFavs.length > 0) {
+        const favList = paramFavs ? paramFavs.split(',').filter(Boolean) : storedFavs.map(f => `${f.number}. ${f.name} (${f.rubroName || f.rubroId})`);
+        if (textEl) textEl.textContent = `Estilos favoritos guardados (${favList.length}):`;
+        if (subEl) subEl.textContent = favList.join(' · ');
+        if (hiddenFavs) hiddenFavs.value = favList.join(', ');
+      }
+
+      if (clearBtn) {
+        clearBtn.addEventListener('click', () => {
+          bannerEl.style.display = 'none';
+          if (hiddenRubro) hiddenRubro.value = '';
+          if (hiddenStyle) hiddenStyle.value = '';
+          if (hiddenFavs) hiddenFavs.value = '';
+        });
+      }
+    }
+
     quoteForm.addEventListener('submit', (e) => {
       e.preventDefault();
 
       const name = document.getElementById('quoteName')?.value.trim();
       const business = document.getElementById('quoteBusiness')?.value.trim() || 'No especificado';
+      const phone = document.getElementById('quotePhone')?.value.trim() || 'No especificado';
       const projectType = document.getElementById('quoteType')?.value;
       const budget = document.getElementById('quoteBudget')?.value || 'A evaluar';
       const details = document.getElementById('quoteDetails')?.value.trim();
+      const selectedRubro = hiddenRubro?.value.trim() || '';
+      const selectedStyle = hiddenStyle?.value.trim() || '';
+      const selectedFavs = hiddenFavs?.value.trim() || '';
 
       if (!name || !details) {
         alert('Por favor completa tu nombre y una breve descripción del proyecto.');
         return;
       }
 
+      let refBlock = '';
+      if (selectedRubro) refBlock += `📂 *Rubro de Referencia:* ${selectedRubro}\n`;
+      if (selectedStyle) refBlock += `🎨 *Estilo Seleccionado:* ${selectedStyle}\n`;
+      if (selectedFavs) refBlock += `❤️ *Estilos Favoritos Guardados:* ${selectedFavs}\n`;
+
       const msg = `*SOLICITUD DE COTIZACIÓN WEB — KUYÉNDEV*\n\n` +
                   `👤 *Nombre:* ${name}\n` +
                   `🏢 *Negocio/Marca:* ${business}\n` +
-                  `💻 *Tipo de Sitio:* ${projectType}\n` +
-                  `💰 *Rango/Presupuesto:* ${budget}\n` +
+                  `📱 *Teléfono/WhatsApp:* ${phone}\n` +
+                  `💻 *Servicio de Interés:* ${projectType}\n` +
+                  refBlock +
+                  `⏱️ *Plazo Estimado:* ${budget}\n` +
                   `📝 *Detalles del Requerimiento:*\n${details}\n\n` +
                   `_Enviado desde el formulario oficial en kuyendev.cl_`;
 

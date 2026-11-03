@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
+  <defs>
+    <linearGradient id="sBgBarber" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FEF3C7"/>
+      <stop offset="50%" stop-color="#FDE68A"/>
+      <stop offset="100%" stop-color="#F59E0B"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1000" fill="#1C1917"/>
+  <circle cx="400" cy="420" r="260" fill="#292524" stroke="#D97706" stroke-width="2"/>
+  
+  <!-- Camisa arremangada y tirantes de cuero -->
+  <path d="M140 1000 C160 700, 220 620, 400 620 C580 620, 640 700, 660 1000 Z" fill="#FAFAF9" stroke="#E7E5E4" stroke-width="2"/>
+  <!-- Tirantes de cuero café -->
+  <line x1="280" y1="640" x2="320" y2="1000" stroke="#78350F" stroke-width="18" stroke-linecap="round"/>
+  <line x1="520" y1="640" x2="480" y2="1000" stroke="#78350F" stroke-width="18" stroke-linecap="round"/>
+  <!-- Corbatín negro -->
+  <polygon points="360,650 440,650 400,670" fill="#1C1917"/>
+  <polygon points="360,690 440,690 400,670" fill="#1C1917"/>
+  <circle cx="400" cy="670" r="8" fill="#D97706"/>
+
+  <!-- Cuello y Cabeza -->
+  <path d="M350 490 L450 490 L450 630 L350 630 Z" fill="#FBD3B6"/>
+  <!-- Barba esculpida y bigote clásico -->
+  <path d="M290 380 C290 540, 330 600, 400 600 C470 600, 510 540, 510 380 Z" fill="#FCE0CA"/>
+  <!-- Barba espesa recortada -->
+  <path d="M310 460 C320 590, 360 620, 400 620 C440 620, 480 590, 490 460 C470 480, 440 490, 400 490 C360 490, 330 480, 310 460 Z" fill="#292524"/>
+  <!-- Cabello pompadour clásico -->
+  <path d="M270 360 C260 210, 540 210, 530 360 C490 280, 410 270, 370 290 C320 280, 280 320, 270 360 Z" fill="#1C1917"/>
+
+  <!-- Ojos -->
+  <ellipse cx="355" cy="415" rx="10" ry="6" fill="#0F172A"/>
+  <ellipse cx="445" cy="415" rx="10" ry="6" fill="#0F172A"/>
+  <!-- Bigote inglés estilizado -->
+  <path d="M350 465 Q400 450 450 465 Q470 455 480 445 Q460 475 400 475 Q340 475 320 445 Q330 455 350 465 Z" fill="#1C1917"/>
+
+  <!-- Placa inferior -->
+  <rect x="180" y="910" width="440" height="60" rx="30" fill="#292524" stroke="#D97706" stroke-width="2" filter="drop-shadow(0 10px 15px rgba(0,0,0,0.5))"/>
+  <text x="400" y="940" text-anchor="middle" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="20" font-weight="800" fill="#F59E0B">Master Barber &amp; Hair Stylist</text>
+  <text x="400" y="958" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#E7E5E4">BARBERÍA DE PRECISIÓN &amp; CORTE CLÁSICO</text>
+</svg>

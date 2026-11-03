@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
+  <meta name="robots" content="noindex, nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>HORIZONTE AUSTRAL · Fotografía Aérea, Expediciones & Paisaje Monumental | Demo KuyénDev</title>
   <meta name="description" content="Demostración interactiva estilo Fullscreen Immersive para fotografía de naturaleza, expediciones aéreas y paisaje monumental. Lienzos 100vw/100vh sin bordes con HUD translúcido." />
@@ -532,7 +533,7 @@
       </ul>
     </div>
 
-    <div style="display: flex; gap: 10px; pointer-events: auto;">
+    <div style="display: flex; gap: 10px; pointer-events: auto">
       <button type="button" class="hud-btn" id="togglePureModeBtn" title="Ocultar interfaz para contemplar la fotografía a pantalla completa">
         👁️ Modo Lienzo Puro
       </button>
@@ -547,9 +548,7 @@
         <img
           id="stageMainImage"
           src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1800&q=85"
-          onerror="this.onerror=null;this.src='../../images/demos/fotografia/08-fullscreen-immersive.jpg'"
-          alt="Paisaje monumental de montaña y niebla al amanecer"
-        />
+          onerror="this.onerror=null;this.src='../../images/demos/assets/photo/photo-landscape.svg';"/>
         <div class="stage-vignette"></div>
       </div>
 
@@ -567,7 +566,7 @@
             <p class="stage-desc" id="hudDesc">
               Capturas de ultra-alta definición donde la fotografía ocupa el 100% del campo visual sin márgenes ni distracciones. Diseñado para exhibición museográfica y campañas de territorio.
             </p>
-            <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+            <div style="display: flex; flex-wrap: wrap; gap: 12px">
               <button type="button" class="hud-btn" id="openStageLightboxBtn">⤢ Ampliar Fotograma 100%</button>
               <a href="#expediciones" class="hud-btn">Explorar Capítulos ↓</a>
             </div>
@@ -588,7 +587,7 @@
                       data-optics="PHASE ONE IQ4 150MP · 28MM F/8"
                       data-time="05:42 AM · LUZ AUSTRAL"
                       data-img="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1800&q=85">
-                <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=400&q=70" onerror="this.onerror=null;this.src='../../images/demos/fotografia/08-fullscreen-immersive.jpg'" alt="Miniatura Capítulo 1" />
+                <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=400&q=70" onerror="this.onerror=null;this.src='../../images/demos/assets/photo/photo-architecture.svg';"/>
               </button>
 
               <button type="button" class="chapter-thumb-btn"
@@ -600,7 +599,7 @@
                       data-optics="DJI INSPIRE 3 · ZENMUSE X9 8K"
                       data-time="06:18 AM · HORA DORADA"
                       data-img="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1800&q=85">
-                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=70" onerror="this.onerror=null;this.src='../../images/demos/fotografia/08-fullscreen-immersive.jpg'" alt="Miniatura Capítulo 2" />
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=70" onerror="this.onerror=null;this.src='../../images/demos/assets/photo/photo-architecture.svg';"/>
               </button>
 
               <button type="button" class="chapter-thumb-btn"
@@ -612,7 +611,7 @@
                       data-optics="LEICA SL2-S · 50MM APO-SUMMICRON"
                       data-time="18:50 PM · CREPÚSCULO"
                       data-img="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1800&q=85">
-                <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=400&q=70" onerror="this.onerror=null;this.src='../../images/demos/fotografia/08-fullscreen-immersive.jpg'" alt="Miniatura Capítulo 3" />
+                <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=400&q=70" onerror="this.onerror=null;this.src='../../images/demos/assets/photo/photo-architecture.svg';"/>
               </button>
 
               <button type="button" class="chapter-thumb-btn"
@@ -624,7 +623,7 @@
                       data-optics="HASSELBLAD X2D · 38MM F/2.5"
                       data-time="07:30 AM · NIEBLA DENSA"
                       data-img="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1800&q=85">
-                <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=400&q=70" onerror="this.onerror=null;this.src='../../images/demos/fotografia/08-fullscreen-immersive.jpg'" alt="Miniatura Capítulo 4" />
+                <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=400&q=70" onerror="this.onerror=null;this.src='../../images/demos/assets/photo/photo-architecture.svg';"/>
               </button>
             </div>
           </div>
@@ -638,10 +637,7 @@
         <img
           class="bg-pan"
           src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1800&q=85"
-          onerror="this.onerror=null;this.src='../../images/demos/fotografia/08-fullscreen-immersive.jpg'"
-          alt="Espejo de agua monumental entre montañas"
-          loading="lazy"
-        />
+          onerror="this.onerror=null;this.src='../../images/demos/assets/photo/photo-landscape.svg';"/>
         <div class="panel-hud-card">
           <span class="panel-meta">SERIE I · CARTOGRAFÍA AÉREA & HELICÓPTERO</span>
           <h2>Territorios Inexplorados desde el Aire</h2>
@@ -656,14 +652,11 @@
         </div>
       </article>
 
-      <article class="fullbleed-panel" style="justify-content: flex-end;">
+      <article class="fullbleed-panel" style="justify-content: flex-end">
         <img
           class="bg-pan"
           src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1800&q=85"
-          onerror="this.onerror=null;this.src='../../images/demos/fotografia/08-fullscreen-immersive.jpg'"
-          alt="Cumbres nevadas bajo cielo estrellado"
-          loading="lazy"
-        />
+          onerror="this.onerror=null;this.src='../../images/demos/assets/photo/photo-architecture.svg';"/>
         <div class="panel-hud-card">
           <span class="panel-meta">SERIE II · ASTROFOTOGRAFÍA & ALTA MONTAÑA</span>
           <h2>Cielos Australes de Escala Museográfica</h2>
@@ -684,18 +677,18 @@
       <span class="section-eyebrow">PRODUCCIÓN EN TERRENO & OBRA FINE ART</span>
       <h2 class="section-heading">Producciones de Escala Monumental</h2>
 
-      <div class="expedition-grid" style="margin-bottom: 84px;">
+      <div class="expedition-grid" style="margin-bottom: 84px">
         <div class="glass-card">
           <div>
             <span class="section-eyebrow">01 · EDICIONES NUMERADAS</span>
             <h3>Obra Fine-Art para Arquitectura</h3>
-            <p style="color: var(--text-dim);">
+            <p style="color: var(--text-dim)">
               Impresiones de gran formato en papel Hahnemühle Photo Rag Metallic con montaje en Diasec acrílico anti-reflejo para lobbies corporativos, hoteles y coleccionistas.
             </p>
           </div>
           <div>
             <div class="glass-price">Desde $380.000 CLP</div>
-            <a href="#comision" class="hud-btn" style="display: inline-block;">Solicitar Catálogo de Obra</a>
+            <a href="#comision" class="hud-btn" style="display: inline-block">Solicitar Catálogo de Obra</a>
           </div>
         </div>
 
@@ -703,13 +696,13 @@
           <div>
             <span class="section-eyebrow">02 · PRODUCCIÓN EN LOCACIÓN REMOTA</span>
             <h3>Expedición Comercial & Aérea</h3>
-            <p style="color: var(--text-dim);">
+            <p style="color: var(--text-dim)">
               Despliegue autónomo en cualquier región de Chile para lodges, parques nacionales, proyectos de infraestructura o campañas outdoor con fotografía 150MP y cine aéreo 8K.
             </p>
           </div>
           <div>
             <div class="glass-price">Desde $950.000 CLP</div>
-            <a href="#comision" class="hud-btn" style="display: inline-block;">Planificar Expedición</a>
+            <a href="#comision" class="hud-btn" style="display: inline-block">Planificar Expedición</a>
           </div>
         </div>
 
@@ -717,30 +710,30 @@
           <div>
             <span class="section-eyebrow">03 · BANCO DE IMÁGENES EXCLUSIVO</span>
             <h3>Licencias Globales en 16-Bit RAW</h3>
-            <p style="color: var(--text-dim);">
+            <p style="color: var(--text-dim)">
               Acceso inmediato a nuestro archivo de más de 4.000 fotografías de alta resolución de desierto, glaciares, océano y cordillera para campañas internacionales.
             </p>
           </div>
           <div>
             <div class="glass-price">Licencia a Medida</div>
-            <a href="#comision" class="hud-btn" style="display: inline-block;">Consultar Archivo</a>
+            <a href="#comision" class="hud-btn" style="display: inline-block">Consultar Archivo</a>
           </div>
         </div>
       </div>
 
       <!-- Testimonios de Demostración -->
       <span class="section-eyebrow">RECEPCIÓN DE COLECCIONISTAS & DIRECTORES DE ARTE</span>
-      <h2 class="section-heading" style="font-size: 2.1rem; margin-bottom: 32px;">Impacto en Sala y Pantallas</h2>
+      <h2 class="section-heading" style="font-size: 2.1rem; margin-bottom: 32px">Impacto en Sala y Pantallas</h2>
 
       <div class="expedition-grid">
         <div class="glass-card">
           <div>
             <span class="demo-pill">[Testimonio de Demostración]</span>
-            <p style="color: var(--text-pure); font-size: 1.02rem; margin-bottom: 18px;">
+            <p style="color: var(--text-pure); font-size: 1.02rem; margin-bottom: 18px">
               "Comisionamos tres murales retroiluminados de 2.8 metros para la recepción de nuestro hotel en Puerto Natales. La nitidez del hielo milenario hipnotiza a cada huésped que entra."
             </p>
           </div>
-          <div style="font-size: 0.82rem; color: var(--text-dim);">
+          <div style="font-size: 0.82rem; color: var(--text-dim)">
             <strong>Estudio Nómade Arquitectos</strong> · Interiorismo Hotelero
           </div>
         </div>
@@ -748,11 +741,11 @@
         <div class="glass-card">
           <div>
             <span class="demo-pill">[Testimonio de Demostración]</span>
-            <p style="color: var(--text-pure); font-size: 1.02rem; margin-bottom: 18px;">
+            <p style="color: var(--text-pure); font-size: 1.02rem; margin-bottom: 18px">
               "El diseño web a pantalla completa nos permitió presentar nuestra memoria anual de sostenibilidad con fotografías aéreas que hablan por sí solas."
             </p>
           </div>
-          <div style="font-size: 0.82rem; color: var(--text-dim);">
+          <div style="font-size: 0.82rem; color: var(--text-dim)">
             <strong>Fundación Conservación Austral</strong> · Memoria Anual
           </div>
         </div>
@@ -760,11 +753,11 @@
         <div class="glass-card">
           <div>
             <span class="demo-pill">[Testimonio de Demostración]</span>
-            <p style="color: var(--text-pure); font-size: 1.02rem; margin-bottom: 18px;">
+            <p style="color: var(--text-pure); font-size: 1.02rem; margin-bottom: 18px">
               "Su equipo operó a -12°C en la cordillera con autonomía total de energía y respaldos satelitales. Entregaron material que superó estándares internacionales."
             </p>
           </div>
-          <div style="font-size: 0.82rem; color: var(--text-dim);">
+          <div style="font-size: 0.82rem; color: var(--text-dim)">
             <strong>Martín Krauss</strong> · Productor Ejecutivo Outdoor
           </div>
         </div>
@@ -772,15 +765,15 @@
     </section>
 
     <!-- Formulario de Comisión -->
-    <section class="dark-section" id="comision" style="padding-top: 20px; padding-bottom: 110px;">
+    <section class="dark-section" id="comision" style="padding-top: 20px; padding-bottom: 110px">
       <div class="commission-box">
         <div>
           <span class="section-eyebrow">CONTACTO DIRECTO CON EXPEDICIÓN</span>
-          <h2 style="font-family: var(--font-display); font-size: 2.3rem; margin-bottom: 16px;">Coordina una Comisión o Impresión</h2>
-          <p style="color: var(--text-dim); margin-bottom: 28px;">
+          <h2 style="font-family: var(--font-display); font-size: 2.3rem; margin-bottom: 16px">Coordina una Comisión o Impresión</h2>
+          <p style="color: var(--text-dim); margin-bottom: 28px">
             Indícanos las coordenadas de tu proyecto, las dimensiones del muro donde instalarás la obra o los requerimientos de licencia comercial.
           </p>
-          <div class="telemetry-chip" style="display: inline-block;">
+          <div class="telemetry-chip" style="display: inline-block">
             SATCOM BASE: <strong>PUERTO VARAS & SANTIAGO · CHILE</strong>
           </div>
         </div>
@@ -802,10 +795,10 @@
           <label for="fsMessage" class="section-eyebrow">Detalles del Proyecto</label>
           <textarea id="fsMessage" rows="3" class="hud-input" placeholder="Dimensiones requeridas, locación o fechas de rodaje..." required></textarea>
 
-          <button type="submit" class="hud-btn" style="width: 100%; padding: 14px;">
+          <button type="submit" class="hud-btn" style="width: 100%; padding: 14px">
             Transmitir Solicitud (Demo Interactiva)
           </button>
-          <div id="fsFormStatus" style="display: none; margin-top: 16px; padding: 14px; border: 1px solid var(--border-hud-strong); border-radius: 8px; font-size: 0.86rem; color: var(--text-pure);"></div>
+          <div id="fsFormStatus" style="display: none; margin-top: 16px; padding: 14px; border: 1px solid var(--border-hud-strong); border-radius: 8px; font-size: 0.86rem; color: var(--text-pure)"></div>
         </form>
       </div>
     </section>
@@ -815,12 +808,12 @@
   <div class="fs-lightbox" id="fsLightbox" role="dialog" aria-modal="true" aria-label="Vista a pantalla completa">
     <img src="" alt="" id="fsLightboxImg" />
     <div class="fs-lightbox-bar">
-      <span id="fsLightboxCaption" style="font-size: 0.88rem; letter-spacing: 0.08em; text-transform: uppercase;"></span>
+      <span id="fsLightboxCaption" style="font-size: 0.88rem; letter-spacing: 0.08em; text-transform: uppercase"></span>
       <button type="button" class="hud-btn" id="fsLightboxClose">Cerrar [ESC]</button>
     </div>
   </div>
 
-  <footer class="dark-section" style="padding-top: 32px; padding-bottom: 96px; border-top: 1px solid var(--border-hud); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; font-size: 0.8rem; color: var(--text-dim);">
+  <footer class="dark-section" style="padding-top: 32px; padding-bottom: 96px; border-top: 1px solid var(--border-hud); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; font-size: 0.8rem; color: var(--text-dim)">
     <div><strong>HORIZONTE AUSTRAL</strong> · Demostración Interactiva #08 (Fullscreen Immersive) · Catálogo Fotografía KuyénDev.</div>
     <div>Presiona las flechas ← / → para cambiar el capítulo en el visor superior.</div>
   </footer>

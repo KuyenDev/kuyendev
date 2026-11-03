@@ -1,0 +1,1507 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>KORTEX BARBER & LAB · Cortes Urbanos, Fades & Color Rebelde | Demo Neo-Brutalismo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --yellow: #FFE600;
+      --pink: #FF3366;
+      --black: #000000;
+      --white: #FFFFFF;
+      --border: 3px solid #000000;
+      --shadow: 6px 6px 0px #000000;
+      --shadow-lg: 10px 10px 0px #000000;
+      --shadow-pink: 6px 6px 0px #FF3366;
+      --font-display: 'Archivo Black', sans-serif;
+      --font-body: 'Space Grotesk', sans-serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--yellow);
+      color: var(--black);
+      font-family: var(--font-body);
+      line-height: 1.45;
+      overflow-x: hidden;
+      background-image: radial-gradient(var(--black) 1.25px, transparent 1.25px);
+      background-size: 24px 24px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    /* MARQUEE TAPE */
+    .brutal-ticker {
+      background: var(--black);
+      color: var(--yellow);
+      border-bottom: var(--border);
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 10px 0;
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .brutal-ticker__track {
+      display: inline-block;
+      animation: tickerMove 22s linear infinite;
+    }
+
+    .brutal-ticker__track span {
+      margin: 0 24px;
+    }
+
+    .brutal-ticker__track .accent {
+      color: var(--pink);
+    }
+
+    @keyframes tickerMove {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* HEADER */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: var(--border);
+    }
+
+    .header-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      display: flex;
+      align-items: stretch;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .brand-logo {
+      padding: 16px 24px;
+      background: var(--pink);
+      color: var(--white);
+      font-family: var(--font-display);
+      font-size: clamp(1.2rem, 2.2vw, 1.65rem);
+      letter-spacing: -0.02em;
+      border-right: var(--border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-transform: uppercase;
+    }
+
+    .brand-logo span.tag {
+      background: var(--yellow);
+      color: var(--black);
+      font-size: 0.7rem;
+      padding: 3px 8px;
+      border: 2px solid var(--black);
+      box-shadow: 2px 2px 0 var(--black);
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-left: auto;
+    }
+
+    .main-nav a {
+      padding: 16px 20px;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      border-left: var(--border);
+      background: var(--white);
+      transition: transform 0.12s ease, background-color 0.12s ease;
+    }
+
+    .main-nav a:hover {
+      background: var(--yellow);
+    }
+
+    .main-nav a.cta-nav {
+      background: var(--black);
+      color: var(--yellow);
+      font-family: var(--font-display);
+    }
+
+    .main-nav a.cta-nav:hover {
+      background: var(--pink);
+      color: var(--white);
+    }
+
+    /* CONTAINER & BUTTONS */
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .btn-brutal {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 28px;
+      font-family: var(--font-display);
+      font-size: 1rem;
+      text-transform: uppercase;
+      border: var(--border);
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+      background: var(--pink);
+      color: var(--white);
+    }
+
+    .btn-brutal:hover {
+      transform: translate(-3px, -3px);
+      box-shadow: 9px 9px 0px var(--black);
+    }
+
+    .btn-brutal:active {
+      transform: translate(3px, 3px);
+      box-shadow: 2px 2px 0px var(--black);
+    }
+
+    .btn-brutal--white {
+      background: var(--white);
+      color: var(--black);
+    }
+
+    .btn-brutal--yellow {
+      background: var(--yellow);
+      color: var(--black);
+    }
+
+    /* HERO */
+    .hero {
+      padding: 56px 0 72px;
+      border-bottom: var(--border);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 36px;
+      align-items: stretch;
+    }
+
+    .hero-box {
+      background: var(--white);
+      border: var(--border);
+      box-shadow: var(--shadow-lg);
+      padding: clamp(24px, 4vw, 48px);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .sticker-badge {
+      display: inline-block;
+      align-self: flex-start;
+      background: var(--pink);
+      color: var(--white);
+      border: var(--border);
+      box-shadow: 4px 4px 0 var(--black);
+      padding: 6px 14px;
+      font-weight: 700;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      transform: rotate(-2deg);
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 5.6vw, 4.8rem);
+      line-height: 0.96;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-title .highlight-yellow {
+      background: var(--yellow);
+      padding: 0 10px;
+      border: 2px solid var(--black);
+      display: inline-block;
+      transform: rotate(1deg);
+    }
+
+    .hero-title .highlight-pink {
+      background: var(--pink);
+      color: var(--white);
+      padding: 0 10px;
+      border: 2px solid var(--black);
+      display: inline-block;
+      transform: rotate(-1.5deg);
+    }
+
+    .hero-lead {
+      font-size: clamp(1rem, 1.4vw, 1.22rem);
+      font-weight: 500;
+      margin-bottom: 28px;
+      max-width: 58ch;
+      border-left: 5px solid var(--pink);
+      padding-left: 16px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      border-top: var(--border);
+      padding-top: 20px;
+    }
+
+    .stat-pill {
+      background: var(--yellow);
+      border: 2px solid var(--black);
+      padding: 12px;
+      box-shadow: 3px 3px 0 var(--black);
+    }
+
+    .stat-pill strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+    }
+
+    .stat-pill span {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .hero-visual {
+      background: var(--pink);
+      border: var(--border);
+      box-shadow: var(--shadow-lg);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .hero-img-frame {
+      border: var(--border);
+      background: var(--black);
+      overflow: hidden;
+      height: 100%;
+      min-height: 360px;
+      position: relative;
+    }
+
+    .hero-img-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: contrast(1.15) saturate(1.1);
+    }
+
+    .floating-stamp {
+      position: absolute;
+      bottom: 16px;
+      right: 16px;
+      background: var(--yellow);
+      color: var(--black);
+      border: var(--border);
+      box-shadow: var(--shadow);
+      padding: 12px 16px;
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      transform: rotate(3deg);
+    }
+
+    /* SECTION HEADINGS */
+    .section-block {
+      padding: 72px 0;
+      border-bottom: var(--border);
+    }
+
+    .section-block--white {
+      background: var(--white);
+    }
+
+    .section-block--pink {
+      background: var(--pink);
+      color: var(--white);
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .section-kicker {
+      display: inline-block;
+      background: var(--black);
+      color: var(--yellow);
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      padding: 6px 12px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      border: 2px solid var(--black);
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      text-transform: uppercase;
+      line-height: 1;
+    }
+
+    /* SERVICES INTERACTIVE MATRIX */
+    .tabs-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .tab-btn {
+      padding: 14px 22px;
+      font-family: var(--font-display);
+      font-size: 0.92rem;
+      text-transform: uppercase;
+      background: var(--white);
+      color: var(--black);
+      border: var(--border);
+      box-shadow: 4px 4px 0 var(--black);
+      cursor: pointer;
+      transition: transform 0.1s ease, background-color 0.1s ease;
+    }
+
+    .tab-btn:hover {
+      background: var(--yellow);
+    }
+
+    .tab-btn.active {
+      background: var(--pink);
+      color: var(--white);
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0 var(--black);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .service-card {
+      background: var(--white);
+      color: var(--black);
+      border: var(--border);
+      box-shadow: var(--shadow);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.15s ease;
+    }
+
+    .service-card:hover {
+      transform: translate(-4px, -4px);
+      box-shadow: 10px 10px 0 var(--black);
+    }
+
+    .service-card__top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .service-tag {
+      background: var(--yellow);
+      border: 2px solid var(--black);
+      padding: 4px 10px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .service-price {
+      background: var(--black);
+      color: var(--yellow);
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      padding: 6px 12px;
+      border: 2px solid var(--black);
+    }
+
+    .service-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .service-card p {
+      font-size: 0.95rem;
+      margin-bottom: 18px;
+    }
+
+    .service-card__meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 2px dashed var(--black);
+      padding-top: 14px;
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+
+    /* VISUAL EXPERIENCE: REBEL LAB CUSTOMIZER */
+    .lab-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: stretch;
+    }
+
+    .lab-controls, .lab-preview {
+      background: var(--white);
+      color: var(--black);
+      border: var(--border);
+      box-shadow: var(--shadow-lg);
+      padding: 28px;
+    }
+
+    .control-group {
+      margin-bottom: 24px;
+    }
+
+    .control-group label {
+      display: block;
+      font-family: var(--font-display);
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+
+    .option-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .pill-choice {
+      padding: 10px 16px;
+      border: var(--border);
+      background: var(--white);
+      font-weight: 700;
+      font-family: var(--font-body);
+      cursor: pointer;
+      box-shadow: 3px 3px 0 var(--black);
+      text-transform: uppercase;
+      font-size: 0.85rem;
+    }
+
+    .pill-choice.active {
+      background: var(--yellow);
+      transform: translate(-2px, -2px);
+      box-shadow: 5px 5px 0 var(--black);
+    }
+
+    .lab-badge-output {
+      background: var(--yellow);
+      border: var(--border);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      margin-top: 16px;
+    }
+
+    .color-swatch-bar {
+      height: 36px;
+      border: var(--border);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* LOOKBOOK & LIGHTBOX */
+    .lookbook-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .look-card {
+      background: var(--white);
+      border: var(--border);
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      transition: transform 0.15s ease;
+    }
+
+    .look-card:hover {
+      transform: translate(-4px, -4px) rotate(-1deg);
+      box-shadow: 10px 10px 0 var(--black);
+    }
+
+    .look-card__img {
+      height: 280px;
+      border-bottom: var(--border);
+      overflow: hidden;
+      position: relative;
+      background: var(--black);
+    }
+
+    .look-card__img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .look-card__body {
+      padding: 16px;
+    }
+
+    .look-card__body h3 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .look-card__body span {
+      font-size: 0.82rem;
+      font-weight: 700;
+      background: var(--yellow);
+      padding: 2px 8px;
+      border: 2px solid var(--black);
+      display: inline-block;
+    }
+
+    /* CREW */
+    .crew-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .crew-card {
+      background: var(--yellow);
+      border: var(--border);
+      box-shadow: var(--shadow);
+      padding: 20px;
+    }
+
+    .crew-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border: var(--border);
+      margin-bottom: 16px;
+      background: var(--black);
+    }
+
+    .crew-card h3 {
+      font-family: var(--font-display);
+      text-transform: uppercase;
+      font-size: 1.3rem;
+    }
+
+    .crew-role {
+      display: inline-block;
+      background: var(--pink);
+      color: var(--white);
+      padding: 3px 10px;
+      border: 2px solid var(--black);
+      font-weight: 700;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      margin: 6px 0 10px;
+    }
+
+    /* TESTIMONIALS */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .review-card {
+      background: var(--white);
+      color: var(--black);
+      border: var(--border);
+      box-shadow: var(--shadow);
+      padding: 24px;
+    }
+
+    .demo-label {
+      display: inline-block;
+      background: var(--yellow);
+      color: var(--black);
+      border: 2px solid var(--black);
+      padding: 3px 8px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .review-card p {
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 16px;
+    }
+
+    .review-author {
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+    }
+
+    /* BOOKING FORM */
+    .booking-wrap {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 32px;
+    }
+
+    .brutal-form {
+      background: var(--white);
+      border: var(--border);
+      box-shadow: var(--shadow-lg);
+      padding: 32px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .form-field {
+      margin-bottom: 16px;
+    }
+
+    .form-field label {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: var(--border);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 700;
+      background: var(--white);
+      box-shadow: 3px 3px 0 var(--black);
+    }
+
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus {
+      outline: none;
+      background: var(--yellow);
+    }
+
+    .ticket-box {
+      background: var(--black);
+      color: var(--white);
+      border: var(--border);
+      box-shadow: var(--shadow-pink);
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .ticket-status {
+      background: var(--yellow);
+      color: var(--black);
+      border: var(--border);
+      padding: 16px;
+      margin-top: 20px;
+      font-weight: 700;
+      display: none;
+    }
+
+    /* LIGHTBOX */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.88);
+      z-index: 999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .lightbox.open {
+      display: flex;
+    }
+
+    .lightbox-card {
+      background: var(--white);
+      border: var(--border);
+      box-shadow: 12px 12px 0 var(--pink);
+      max-width: 760px;
+      width: 100%;
+      padding: 20px;
+    }
+
+    .lightbox-card img {
+      width: 100%;
+      max-height: 480px;
+      object-fit: cover;
+      border: var(--border);
+      margin-bottom: 16px;
+    }
+
+    .lightbox-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* FOOTER */
+    .site-footer {
+      background: var(--black);
+      color: var(--white);
+      padding: 48px 0;
+      border-top: var(--border);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .lab-grid,
+      .booking-wrap {
+        grid-template-columns: 1fr;
+      }
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      .hero-stats {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body data-rubro-id="peluqueria" data-style-id="neo-brutalismo">
+
+  <!-- MARQUEE -->
+  <div class="brutal-ticker" aria-hidden="true">
+    <div class="brutal-ticker__track">
+      <span>★ KORTEX BARBER & LAB</span>
+      <span class="accent">/// SKIN FADES DE ALTA PRECISIÓN</span>
+      <span>★ COLORACIÓN FANTASÍA & BLEACH LAB</span>
+      <span class="accent">/// DISEÑO GEOMÉTRICO A NAVAJA</span>
+      <span>★ SIN REGLAS ABURRIDAS · AGENDA TU TURNO</span>
+      <span>★ KORTEX BARBER & LAB</span>
+      <span class="accent">/// SKIN FADES DE ALTA PRECISIÓN</span>
+      <span>★ COLORACIÓN FANTASÍA & BLEACH LAB</span>
+      <span class="accent">/// DISEÑO GEOMÉTRICO A NAVAJA</span>
+      <span>★ SIN REGLAS ABURRIDAS · AGENDA TU TURNO</span>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#top" class="brand-logo">
+        KORTEX LAB <span class="tag">EST. #06</span>
+      </a>
+      <nav class="main-nav" aria-label="Navegación principal">
+        <a href="#servicios">Carta Brutal</a>
+        <a href="#customizer">Rebel Lab</a>
+        <a href="#lookbook">Lookbook</a>
+        <a href="#equipo">Crew</a>
+        <a href="#reservas" class="cta-nav">Agendar Turno →</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-box">
+          <div>
+            <span class="sticker-badge">⚡ BARBERÍA ALTERNATIVA & LABORATORIO DE COLOR</span>
+            <h1 class="hero-title">
+              CORTES <span class="highlight-yellow">URBANOS</span>, FADES & <span class="highlight-pink">COLOR REBELDE</span>
+            </h1>
+            <p class="hero-lead">
+              En <strong>KORTEX BARBER & LAB</strong> fusionamos barbería de calle, decoloraciones de alto impacto y arquitectura capilar sin moldes corporativos. Música en vinilo, espresso doble y navaja quirúrgica.
+            </p>
+            <div class="hero-actions">
+              <a href="#reservas" class="btn-brutal">Reservar Silla Ahora</a>
+              <a href="#customizer" class="btn-brutal btn-brutal--white">Configurar Mi Corte</a>
+            </div>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-pill">
+              <strong>+4.800</strong>
+              <span>Fades & Diseños al Año</span>
+            </div>
+            <div class="stat-pill">
+              <strong>100%</strong>
+              <span>Pigmentos Veganos Neon</span>
+            </div>
+            <div class="stat-pill">
+              <strong>6 Sillas</strong>
+              <span>Cero Espera con Reserva</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-img-frame">
+            <img
+              src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=900&q=80"
+              alt="Corte urbano con fade de precisión y estética neo-brutalista en Kortex Barber & Lab"
+              onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/stylist-male-1.svg';"/>
+            <div class="floating-stamp">
+              DROP 2026 // STREET CUTS
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICIOS CON PESTAÑAS INTERACTIVAS -->
+    <section id="servicios" class="section-block section-block--white">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-kicker">01 // TARIFARIO DIRECTO</span>
+            <h2 class="section-title">CARTA DE SERVICIOS</h2>
+          </div>
+          <div class="tabs-bar" role="tablist" aria-label="Categorías de servicios">
+            <button type="button" class="tab-btn active" data-filter="all" role="tab" aria-selected="true">Todos (6)</button>
+            <button type="button" class="tab-btn" data-filter="fades" role="tab" aria-selected="false">Fades & Navaja</button>
+            <button type="button" class="tab-btn" data-filter="color" role="tab" aria-selected="false">Bleach & Neón</button>
+            <button type="button" class="tab-btn" data-filter="combos" role="tab" aria-selected="false">Combos Full</button>
+          </div>
+        </div>
+
+        <div class="services-grid" id="servicesGrid">
+          <article class="service-card" data-category="fades">
+            <div>
+              <div class="service-card__top">
+                <span class="service-tag">Fades & Navaja</span>
+                <span class="service-price">$18.000</span>
+              </div>
+              <h3>Skin Fade Quirúrgico + Textura</h3>
+              <p>Degradado a cero con trimmer y shaver hipoalergénica, conexión superior a tijera y acabado mate o húmedo.</p>
+            </div>
+            <div class="service-card__meta">
+              <span>⏱ 45 MIN</span>
+              <a href="#reservas" data-select-service="Skin Fade Quirúrgico ($18.000)">Elegir →</a>
+            </div>
+          </article>
+
+          <article class="service-card" data-category="fades">
+            <div>
+              <div class="service-card__top">
+                <span class="service-tag">Fades & Navaja</span>
+                <span class="service-price">$21.000</span>
+              </div>
+              <h3>Mullet / Burst Fade Contemporáneo</h3>
+              <p>Estructura vanguardista con nuca texturizada, contornos marcados a navaja libre y lavado detox energético.</p>
+            </div>
+            <div class="service-card__meta">
+              <span>⏱ 50 MIN</span>
+              <a href="#reservas" data-select-service="Mullet / Burst Fade ($21.000)">Elegir →</a>
+            </div>
+          </article>
+
+          <article class="service-card" data-category="color">
+            <div>
+              <div class="service-card__top">
+                <span class="service-tag">Bleach & Neón</span>
+                <span class="service-price">$42.000</span>
+              </div>
+              <h3>Global Platinum Ice / Buzz Bleach</h3>
+              <p>Decoloración controlada con protector de enlaces plex, matizado blanco polar o gris titanio y sellado ácido.</p>
+            </div>
+            <div class="service-card__meta">
+              <span>⏱ 120 MIN</span>
+              <a href="#reservas" data-select-service="Global Platinum Ice ($42.000)">Elegir →</a>
+            </div>
+          </article>
+
+          <article class="service-card" data-category="color">
+            <div>
+              <div class="service-card__top">
+                <span class="service-tag">Bleach & Neón</span>
+                <span class="service-price">$49.000</span>
+              </div>
+              <h3> Buzz Art & Graff Esténcil Capilar</h3>
+              <p>Decoloración global + diseño geométrico, animal print o bloques flúor pintados a mano alzada en tonos #FFE600 o #FF3366.</p>
+            </div>
+            <div class="service-card__meta">
+              <span>⏱ 140 MIN</span>
+              <a href="#reservas" data-select-service="Buzz Art & Graff Esténcil ($49.000)">Elegir →</a>
+            </div>
+          </article>
+
+          <article class="service-card" data-category="combos">
+            <div>
+              <div class="service-card__top">
+                <span class="service-tag">Combos Full</span>
+                <span class="service-price">$26.000</span>
+              </div>
+              <h3>Kortex Total: Corte + Barba Vapor</h3>
+              <p>Corte urbano completo + perfilado de barba con compresa aromática caliente, ozono facial y aceites esenciales.</p>
+            </div>
+            <div class="service-card__meta">
+              <span>⏱ 70 MIN</span>
+              <a href="#reservas" data-select-service="Kortex Total Corte + Barba ($26.000)">Elegir →</a>
+            </div>
+          </article>
+
+          <article class="service-card" data-category="combos">
+            <div>
+              <div class="service-card__top">
+                <span class="service-tag">Combos Full</span>
+                <span class="service-price">$32.000</span>
+              </div>
+              <h3>Freestyle Linework + Cejas + Fade</h3>
+              <p>Fade de alto contraste, diseño gráfico a navaja libre, perfilado de cejas y mascarilla negra detox.</p>
+            </div>
+            <div class="service-card__meta">
+              <span>⏱ 75 MIN</span>
+              <a href="#reservas" data-select-service="Freestyle Linework + Fade ($32.000)">Elegir →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCIA VISUAL INTERACTIVA: REBEL LAB CUSTOMIZER -->
+    <section id="customizer" class="section-block">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-kicker">02 // SIMULADOR INTERACTIVO</span>
+            <h2 class="section-title">KORTEX REBEL LAB · ARMA TU COMBO</h2>
+          </div>
+          <p style="max-width: 440px; font-weight: 700">
+            Selecciona base de corte, nivel de contraste y pigmento fantasía para calcular tiempo en silla y presupuesto instantáneo.
+          </p>
+        </div>
+
+        <div class="lab-grid">
+          <div class="lab-controls">
+            <div class="control-group">
+              <label>1. Estructura Base de Corte</label>
+              <div class="option-pills" id="labBase">
+                <button type="button" class="pill-choice active" data-name="Buzz Cut Quirúrgico" data-price="16000" data-time="40">Buzz Cut ($16k)</button>
+                <button type="button" class="pill-choice" data-name="Mid Drop Fade" data-price="18000" data-time="45">Mid Drop Fade ($18k)</button>
+                <button type="button" class="pill-choice" data-name="Modern Mullet" data-price="21000" data-time="50">Modern Mullet ($21k)</button>
+                <button type="button" class="pill-choice" data-name="Crop Texturizado" data-price="19000" data-time="45">Crop Texturizado ($19k)</button>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label>2. Inyección de Color / Bleach</label>
+              <div class="option-pills" id="labColor">
+                <button type="button" class="pill-choice active" data-name="Natural / Sin Tinte" data-price="0" data-time="0" data-hex="#000000" data-text="#FFFFFF">Sin Color ($0)</button>
+                <button type="button" class="pill-choice" data-name="Amarillo Eléctrico #FFE600" data-price="28000" data-time="80" data-hex="#FFE600" data-text="#000000">Amarillo Eléctrico (+$28k)</button>
+                <button type="button" class="pill-choice" data-name="Rosa Rebelde #FF3366" data-price="28000" data-time="80" data-hex="#FF3366" data-text="#FFFFFF">Rosa Rebelde (+$28k)</button>
+                <button type="button" class="pill-choice" data-name="Blanco Polar Ice" data-price="25000" data-time="75" data-hex="#FFFFFF" data-text="#000000">Blanco Polar (+$25k)</button>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label>3. Detalle Extra de Autor</label>
+              <div class="option-pills" id="labExtra">
+                <button type="button" class="pill-choice active" data-name="Acabado Clásico Mate" data-price="0" data-time="0">Acabado Mate ($0)</button>
+                <button type="button" class="pill-choice" data-name="Diseño Geométrico a Navaja" data-price="6000" data-time="15">Trazo Navaja (+$6k)</button>
+                <button type="button" class="pill-choice" data-name="Perfilado Barba Vapor" data-price="8000" data-time="25">Barba Vapor (+$8k)</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="lab-preview">
+            <span class="section-kicker">FICHA TÉCNICA GENERADA</span>
+            <h3 id="labSummaryTitle" style="font-family: var(--font-display); font-size: 1.7rem; text-transform: uppercase; margin: 10px 0">
+              Buzz Cut Quirúrgico + Natural / Sin Tinte
+            </h3>
+            <div id="labSwatch" class="color-swatch-bar" style="background: #000000; color: #FFFFFF">
+              MUESTRA DE PIGMENTO: NATURAL / SIN TINTE
+            </div>
+            <div class="lab-badge-output">
+              <p style="font-weight: 700; text-transform: uppercase; font-size: 0.85rem">Detalle de tu sesión:</p>
+              <ul style="list-style: square inside; margin: 10px 0 16px; font-weight: 700;" id="labList">
+                <li>Base: Buzz Cut Quirúrgico</li>
+                <li>Color: Natural / Sin Tinte</li>
+                <li>Extra: Acabado Clásico Mate</li>
+              </ul>
+              <div style="display: flex; justify-content: space-between; align-items: center; border-top: 3px solid #000; padding-top: 14px; flex-wrap: wrap; gap: 10px">
+                <div>
+                  <span style="font-size: 0.8rem; font-weight: 700; display: block">TIEMPO ESTIMADO: <strong id="labTime">40 MIN</strong></span>
+                  <span style="font-family: var(--font-display); font-size: 2rem;" id="labTotal">$16.000</span>
+                </div>
+                <button type="button" class="btn-brutal" id="applyLabToBooking">Cargar en Reserva →</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOOKBOOK CON LIGHTBOX -->
+    <section id="lookbook" class="section-block section-block--white">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-kicker">03 // ARCHIVO VISUAL</span>
+            <h2 class="section-title">LOOKBOOK DE CALLE</h2>
+          </div>
+          <p style="font-weight: 700">Haz clic en cualquier trabajo para inspeccionar la ficha técnica en pantalla completa.</p>
+        </div>
+
+        <div class="lookbook-grid">
+          <article class="look-card" tabindex="0" role="button" data-title="HIGH SKIN FADE + TEXTURA ROTA" data-desc="Degradado alto a shaver con parte superior desconectada y polvo voluminizador mate." data-img="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85">
+            <div class="look-card__img">
+              <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=900&q=80" alt="High Skin Fade con textura rota" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/hair-look-balayage.svg';"/>
+            </div>
+            <div class="look-card__body">
+              <h3>HIGH SKIN FADE + TEXTURA</h3>
+              <span>VER FICHA + ZOOM</span>
+            </div>
+          </article>
+
+          <article class="look-card" tabindex="0" role="button" data-title="BUZZ BLEACH NEÓN #FFE600" data-desc="Decoloración global nivel 10 con pigmento flúor ácido y estencil lateral negro." data-img="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=900&q=80">
+            <div class="look-card__img">
+              <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85" alt="Buzz Bleach Neón en Kortex Lab" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg';"/>
+            </div>
+            <div class="look-card__body">
+              <h3>BUZZ BLEACH NEÓN #FFE600</h3>
+              <span>VER FICHA + ZOOM</span>
+            </div>
+          </article>
+
+          <article class="look-card" tabindex="0" role="button" data-title="BURST FADE + MULLET REBELDE" data-desc="Arco radial limpio alrededor de la oreja con caída posterior texturizada a navaja." data-img="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=900&q=80">
+            <div class="look-card__img">
+              <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=900&q=80" alt="Burst Fade Mullet" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/hair-look-balayage.svg';"/>
+            </div>
+            <div class="look-card__body">
+              <h3>BURST FADE + MULLET</h3>
+              <span>VER FICHA + ZOOM</span>
+            </div>
+          </article>
+
+          <article class="look-card" tabindex="0" role="button" data-title="GEOMETRÍA A NAVAJA + BARBA SHARP" data-desc="Líneas paralelas quirúrgicas y perfilado angular de barba con pigmentación sutil." data-img="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=900&q=80">
+            <div class="look-card__img">
+              <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85" alt="Geometría a navaja y barba sharp" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg';"/>
+            </div>
+            <div class="look-card__body">
+              <h3>GEOMETRÍA A NAVAJA</h3>
+              <span>VER FICHA + ZOOM</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EQUIPO -->
+    <section id="equipo" class="section-block section-block--pink">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-kicker">04 // LOS RESIDENTES</span>
+            <h2 class="section-title">EL CREW DE KORTEX</h2>
+          </div>
+        </div>
+
+        <div class="crew-grid" style="color: var(--black)">
+          <article class="crew-card">
+            <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=900&q=80" alt="Valkiria - Directora de Color y Buzz Art" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/stylist-female-1.svg';"/>
+            <h3>VALKIRIA "ACID" RÍOS</h3>
+            <span class="crew-role">HEAD COLORIST & BUZZ ART</span>
+            <p>Especialista en decoloraciones extremas sin daño, stencils geométricos y tinturas flúor de alta duración.</p>
+          </article>
+
+          <article class="crew-card">
+            <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=900&q=80" alt="Dante Kortex - Master Barber" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/stylist-male-1.svg';"/>
+            <h3>DANTE "RAZOR" SOTO</h3>
+            <span class="crew-role">FUNDADOR & MASTER FADE</span>
+            <p>11 años perfeccionando skin fades milimétricos, cortes crop europeos y diseño de barba con navaja libre.</p>
+          </article>
+
+          <article class="crew-card">
+            <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85" alt="Kira - Especialista en Mullets y Textura" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg';"/>
+            <h3>KIRA VERA</h3>
+            <span class="crew-role">CREATIVE SHAG & MULLET</span>
+            <p>Arquitecta de capas desestructuradas, wolf cuts, flequillos rectos y cortes sin género con tijera japonesa.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section class="section-block section-block--white">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-kicker">05 // COMUNIDAD</span>
+            <h2 class="section-title">LO QUE DICE LA CALLE</h2>
+          </div>
+        </div>
+
+        <div class="reviews-grid">
+          <article class="review-card">
+            <span class="demo-label">[Testimonio Ficticio de Demostración]</span>
+            <p>“Me hice un Buzz Bleach con diseño rosa y amarillo para mi sesión de fotos y quedó brutal. El pelo quedó súper sano y el fade duró impecable semanas.”</p>
+            <div class="review-author">— MATÍAS "KROMA" G. · DJ & PRODUCTOR</div>
+          </article>
+
+          <article class="review-card">
+            <span class="demo-label">[Testimonio Ficticio de Demostración]</span>
+            <p>“Por fin una barbería que entiende los cortes modernos y mullets sin dejarte igual que a todo el mundo. El ambiente con vinilos y café es un 10.”</p>
+            <div class="review-author">— CAMILA ROBLES · DISEÑADORA GRÁFICA</div>
+          </article>
+
+          <article class="review-card">
+            <span class="demo-label">[Testimonio Ficticio de Demostración]</span>
+            <p>“Puntualidad absoluta. Reservas tu hora, te reciben con un espresso y sales con el degradado más limpio de la ciudad.”</p>
+            <div class="review-author">— TOMÁS NAVARRO · ILUSTRADOR</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESERVA INTERACTIVA -->
+    <section id="reservas" class="section-block">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-kicker">06 // BOOKING DIRECTO</span>
+            <h2 class="section-title">RESERVA TU SILLA</h2>
+          </div>
+          <span class="demo-label" style="font-size: 0.85rem">[Formulario de Demostración Interactiva — Sin envío real de datos]</span>
+        </div>
+
+        <div class="booking-wrap">
+          <form class="brutal-form" id="bookingForm">
+            <div class="form-row">
+              <div class="form-field">
+                <label for="clientName">Tu Nombre / Alias</label>
+                <input type="text" id="clientName" required placeholder="Ej: Lucas 'Volt' Díaz" />
+              </div>
+              <div class="form-field">
+                <label for="clientPhone">WhatsApp de Contacto</label>
+                <input type="tel" id="clientPhone" required placeholder="+56 9 8765 4321" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="serviceSelect">Servicio o Combo</label>
+                <select id="serviceSelect" required>
+                  <option value="Skin Fade Quirúrgico ($18.000)">Skin Fade Quirúrgico ($18.000)</option>
+                  <option value="Mullet / Burst Fade ($21.000)">Mullet / Burst Fade ($21.000)</option>
+                  <option value="Global Platinum Ice ($42.000)">Global Platinum Ice ($42.000)</option>
+                  <option value="Buzz Art & Graff Esténcil ($49.000)">Buzz Art & Graff Esténcil ($49.000)</option>
+                  <option value="Kortex Total Corte + Barba ($26.000)">Kortex Total Corte + Barba ($26.000)</option>
+                  <option value="Freestyle Linework + Fade ($32.000)">Freestyle Linework + Fade ($32.000)</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="barberSelect">Especialista</label>
+                <select id="barberSelect">
+                  <option value="Dante 'Razor' Soto">Dante "Razor" Soto (Master Fade)</option>
+                  <option value="Valkiria 'Acid' Ríos">Valkiria "Acid" Ríos (Color & Buzz)</option>
+                  <option value="Kira Vera">Kira Vera (Mullets & Shag)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="bookDate">Fecha Preferida</label>
+                <input type="date" id="bookDate" required />
+              </div>
+              <div class="form-field">
+                <label for="bookTime">Bloque Horario</label>
+                <select id="bookTime">
+                  <option value="11:00 hrs">11:00 hrs</option>
+                  <option value="13:00 hrs">13:00 hrs</option>
+                  <option value="16:00 hrs">16:00 hrs</option>
+                  <option value="18:30 hrs">18:30 hrs</option>
+                  <option value="20:00 hrs (Night Session)">20:00 hrs (Night Session)</option>
+                </select>
+              </div>
+            </div>
+
+            <button type="submit" class="btn-brutal" style="width: 100%">Confirmar Ticket de Reserva (Demo)</button>
+            <div class="ticket-status" id="bookingFeedback" role="status" aria-live="polite"></div>
+          </form>
+
+          <aside class="ticket-box">
+            <div>
+              <span class="sticker-badge">TICKET PREVIEW // KORTEX LAB</span>
+              <h3 style="font-family: var(--font-display); font-size: 1.8rem; text-transform: uppercase; color: var(--yellow); margin-bottom: 14px">
+                UBICACIÓN & HORARIOS
+              </h3>
+              <p style="margin-bottom: 18px">
+                📍 <strong>Galpón Urbano 404, Barrio Italia</strong> · Estacionamiento de bicicletas interior, barra de café de especialidad y música en vivo los viernes.
+              </p>
+              <ul style="list-style: none; border-top: 2px solid var(--pink); padding-top: 16px; display: grid; gap: 10px">
+                <li><strong>MARTES A VIERNES:</strong> 11:00 — 21:00 HRS</li>
+                <li><strong>SÁBADOS (DJ SET):</strong> 10:00 — 20:00 HRS</li>
+                <li><strong>DOMINGO & LUNES:</strong> LABORATORIO CERRADO</li>
+              </ul>
+            </div>
+            <div style="background: var(--pink); color: var(--white); border: 2px solid var(--white); padding: 14px; font-weight: 700; font-size: 0.85rem; margin-top: 20px">
+              ★ DEMOSTRACIÓN INTERACTIVA KUYÉNDEV: Este formulario simula el flujo de reserva en tiempo real del lado del cliente.
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightboxModal" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle">
+    <div class="lightbox-card">
+      <img id="lightboxImg" src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=900&q=80" alt="Vista ampliada del lookbook" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/hair-look-balayage.svg';"/>
+      <div class="lightbox-footer">
+        <div>
+          <h3 id="lightboxTitle" style="font-family: var(--font-display); text-transform: uppercase">LOOK</h3>
+          <p id="lightboxDesc" style="font-weight: 500"></p>
+        </div>
+        <button type="button" class="btn-brutal" id="closeLightbox">Cerrar [ESC]</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong style="font-family: var(--font-display); font-size: 1.3rem; color: var(--yellow)">KORTEX BARBER & LAB</strong>
+        <p style="font-size: 0.85rem; opacity: 0.85">Estilo #06 Neo-Brutalismo · Demostración interactiva para el catálogo de Peluquería & Belleza de KuyénDev.</p>
+      </div>
+      <a href="#top" class="btn-brutal btn-brutal--yellow" style="padding: 10px 18px; font-size: 0.85rem">Subir ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      // Tabs de servicios
+      const tabBtns = document.querySelectorAll('.tab-btn');
+      const serviceCards = document.querySelectorAll('.service-card');
+
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          tabBtns.forEach(b => {
+            b.classList.remove('active');
+            b.setAttribute('aria-selected', 'false');
+          });
+          btn.classList.add('active');
+          btn.setAttribute('aria-selected', 'true');
+          const filter = btn.getAttribute('data-filter');
+          serviceCards.forEach(card => {
+            if (filter === 'all' || card.getAttribute('data-category') === filter) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // Seleccionar servicio desde tarjeta
+      const serviceSelect = document.getElementById('serviceSelect');
+      document.querySelectorAll('[data-select-service]').forEach(link => {
+        link.addEventListener('click', () => {
+          const val = link.getAttribute('data-select-service');
+          if (serviceSelect) {
+            for (const opt of serviceSelect.options) {
+              if (opt.value === val) {
+                serviceSelect.value = val;
+                break;
+              }
+            }
+          }
+        });
+      });
+
+      // Rebel Lab Customizer
+      const labGroups = ['labBase', 'labColor', 'labExtra'];
+      const updateLab = () => {
+        const baseBtn = document.querySelector('#labBase .pill-choice.active');
+        const colorBtn = document.querySelector('#labColor .pill-choice.active');
+        const extraBtn = document.querySelector('#labExtra .pill-choice.active');
+
+        const totalPrice = Number(baseBtn.dataset.price) + Number(colorBtn.dataset.price) + Number(extraBtn.dataset.price);
+        const totalTime = Number(baseBtn.dataset.time) + Number(colorBtn.dataset.time) + Number(extraBtn.dataset.time);
+
+        document.getElementById('labSummaryTitle').textContent = `${baseBtn.dataset.name} + ${colorBtn.dataset.name}`;
+        document.getElementById('labList').innerHTML = `
+          <li>Base: ${baseBtn.dataset.name}</li>
+          <li>Color: ${colorBtn.dataset.name}</li>
+          <li>Extra: ${extraBtn.dataset.name}</li>
+        `;
+        document.getElementById('labTime').textContent = `${totalTime} MIN`;
+        document.getElementById('labTotal').textContent = '$' + totalPrice.toLocaleString('es-CL');
+
+        const swatch = document.getElementById('labSwatch');
+        swatch.style.background = colorBtn.dataset.hex || '#000000';
+        swatch.style.color = colorBtn.dataset.text || '#FFFFFF';
+        swatch.textContent = `MUESTRA DE PIGMENTO: ${colorBtn.dataset.name}`;
+      };
+
+      labGroups.forEach(groupId => {
+        const container = document.getElementById(groupId);
+        container.querySelectorAll('.pill-choice').forEach(btn => {
+          btn.addEventListener('click', () => {
+            container.querySelectorAll('.pill-choice').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            updateLab();
+          });
+        });
+      });
+
+      document.getElementById('applyLabToBooking').addEventListener('click', () => {
+        const title = document.getElementById('labSummaryTitle').textContent;
+        const price = document.getElementById('labTotal').textContent;
+        const customText = `Combo Rebel Lab: ${title} (${price})`;
+        let customOption = serviceSelect.querySelector('option[data-custom="1"]');
+        if (!customOption) {
+          customOption = document.createElement('option');
+          customOption.setAttribute('data-custom', '1');
+          serviceSelect.prepend(customOption);
+        }
+        customOption.value = customText;
+        customOption.textContent = customText;
+        serviceSelect.value = customText;
+        document.getElementById('reservas').scrollIntoView({ behavior: 'smooth' });
+      });
+
+      // Lightbox
+      const lightbox = document.getElementById('lightboxModal');
+      const lightboxImg = document.getElementById('lightboxImg');
+      const lightboxTitle = document.getElementById('lightboxTitle');
+      const lightboxDesc = document.getElementById('lightboxDesc');
+
+      document.querySelectorAll('.look-card').forEach(card => {
+        const openCard = () => {
+          lightboxImg.src = card.dataset.img;
+          lightboxTitle.textContent = card.dataset.title;
+          lightboxDesc.textContent = card.dataset.desc;
+          lightbox.classList.add('open');
+        };
+        card.addEventListener('click', openCard);
+        card.addEventListener('keydown', e => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openCard();
+          }
+        });
+      });
+
+      document.getElementById('closeLightbox').addEventListener('click', () => lightbox.classList.remove('open'));
+      lightbox.addEventListener('click', e => {
+        if (e.target === lightbox) lightbox.classList.remove('open');
+      });
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') lightbox.classList.remove('open');
+      });
+
+      // Booking Form Demo
+      const bookingForm = document.getElementById('bookingForm');
+      const feedback = document.getElementById('bookingFeedback');
+      bookingForm.addEventListener('submit', e => {
+        e.preventDefault();
+        const name = document.getElementById('clientName').value.trim();
+        const service = serviceSelect.value;
+        const barber = document.getElementById('barberSelect').value;
+        const date = document.getElementById('bookDate').value;
+        const time = document.getElementById('bookTime').value;
+
+        feedback.style.display = 'block';
+        feedback.innerHTML = `⚡ <strong>[RESERVA DE DEMOSTRACIÓN GENERADA]</strong><br>¡Listo, ${name}! Tu turno ficticio para <strong>${service}</strong> con <strong>${barber}</strong> el día <strong>${date}</strong> a las <strong>${time}</strong> fue simulado con éxito.`;
+      });
+    })();
+  </script>
+  <script src="../../js/config/rubros.js"></script>
+  <script src="../../js/demo-viewer-bar.js"></script>
+</body>
+</html>

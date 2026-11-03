@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>VISION CLINIC PRO · Odontología Robótica &amp; Diagnóstico Cuántico de Precisión</title>
+  <meta name="description" content="Clínica dental robótica y centro de diagnóstico cuántico de precisión inspirado en el lenguaje de diseño de Cupertino. Estilo #20 Apple-Inspired Medical Design." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --pure-black: #000000;
+      --cupertino-gray: #F5F5F7;
+      --apple-blue: #0071E3;
+      --apple-sky: #2997FF;
+      --pure-white: #FFFFFF;
+      --text-dark: #1D1D1F;
+      --text-secondary: #6E6E73;
+      --dark-card: #121214;
+      --radius-card: 24px;
+      --radius-pill: 999px;
+      --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--cupertino-gray);
+      color: var(--text-dark);
+      font-family: var(--font-body);
+      line-height: 1.58;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      padding-bottom: 96px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(1180px, 90%);
+      margin: 0 auto;
+    }
+
+    /* Barra Superior Frosted Glass estilo Cupertino */
+    .global-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(0, 0, 0, 0.82);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      color: var(--cupertino-gray);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .nav-content {
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      font-size: 0.82rem;
+    }
+
+    .brand-mark {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.96rem;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--pure-white);
+    }
+
+    .brand-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--apple-sky);
+      box-shadow: 0 0 12px var(--apple-sky);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      color: rgba(245, 245, 247, 0.78);
+    }
+
+    .nav-links a:hover {
+      color: var(--pure-white);
+    }
+
+    .btn-apple {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 24px;
+      border-radius: var(--radius-pill);
+      background: var(--apple-blue);
+      color: var(--pure-white);
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.92rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn-apple:hover {
+      background: #0077ED;
+    }
+
+    .btn-apple-sm {
+      padding: 6px 14px;
+      font-size: 0.76rem;
+    }
+
+    .btn-link {
+      color: var(--apple-sky);
+      font-weight: 500;
+      font-size: 0.96rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Hero Keynote Oscuro */
+    .hero-keynote {
+      background: var(--pure-black);
+      color: var(--cupertino-gray);
+      padding: 76px 0 84px;
+      text-align: center;
+    }
+
+    .hero-eyebrow {
+      color: var(--apple-sky);
+      font-weight: 600;
+      font-size: 0.88rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .hero-headline {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5.4vw, 4.6rem);
+      font-weight: 800;
+      line-height: 1.04;
+      letter-spacing: -0.035em;
+      max-width: 900px;
+      margin: 0 auto 20px;
+      background: linear-gradient(180deg, #FFFFFF 0%, #A1A1A6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subcopy {
+      font-size: clamp(1.05rem, 1.8vw, 1.32rem);
+      color: #A1A1A6;
+      max-width: 680px;
+      margin: 0 auto 32px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+
+    .hero-stage {
+      position: relative;
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      background: var(--dark-card);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      box-shadow: 0 30px 80px rgba(0, 113, 227, 0.22);
+    }
+
+    .hero-stage img {
+      width: 100%;
+      height: 460px;
+      object-fit: cover;
+    }
+
+    .stage-telemetry {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      background: rgba(18, 18, 20, 0.92);
+      backdrop-filter: blur(16px);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      text-align: left;
+      gap: 16px;
+    }
+
+    .telemetry-metric strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      color: var(--pure-white);
+    }
+
+    .telemetry-metric span {
+      font-size: 0.78rem;
+      color: #86868B;
+    }
+
+    /* Secciones Claras #F5F5F7 */
+    section {
+      padding: 84px 0;
+    }
+
+    .section-intro {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 48px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3.8vw, 3.1rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.08;
+      margin-bottom: 14px;
+    }
+
+    /* Especialidades con Selector Segmentado estilo iOS/macOS */
+    .segmented-control {
+      display: inline-flex;
+      background: #E5E5EA;
+      padding: 4px;
+      border-radius: var(--radius-pill);
+      margin-top: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .seg-btn {
+      padding: 9px 22px;
+      border-radius: var(--radius-pill);
+      border: none;
+      background: transparent;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .seg-btn.is-active {
+      background: var(--pure-white);
+      color: var(--text-dark);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .bento-specs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    .apple-card {
+      background: var(--pure-white);
+      border-radius: var(--radius-card);
+      padding: 34px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.04);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 22px;
+      transition: transform 0.28s ease;
+    }
+
+    .apple-card:hover {
+      transform: scale(1.015);
+    }
+
+    .spec-chip {
+      display: inline-block;
+      font-size: 0.74rem;
+      font-weight: 600;
+      color: var(--apple-blue);
+      background: rgba(0, 113, 227, 0.08);
+      padding: 5px 12px;
+      border-radius: var(--radius-pill);
+      margin-bottom: 12px;
+    }
+
+    .apple-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .apple-card p {
+      color: var(--text-secondary);
+      font-size: 0.94rem;
+    }
+
+    .card-foot {
+      padding-top: 16px;
+      border-top: 1px solid #E5E5EA;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.86rem;
+      font-weight: 600;
+    }
+
+    /* Experiencia Visual Interactiva: Visor de Capas de Escaneo Cuántico 3D */
+    .quantum-section {
+      background: var(--pure-black);
+      color: var(--cupertino-gray);
+      border-radius: 32px;
+      padding: 56px;
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 44px;
+      align-items: center;
+    }
+
+    .layer-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .layer-btn {
+      text-align: left;
+      padding: 18px 22px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--cupertino-gray);
+      cursor: pointer;
+      transition: all 0.22s ease;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .layer-btn.is-active {
+      background: rgba(0, 113, 227, 0.22);
+      border-color: var(--apple-sky);
+    }
+
+    .scanner-viewport {
+      background: #090D16;
+      border: 1px solid rgba(41, 151, 255, 0.35);
+      border-radius: var(--radius-card);
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .scanner-viewport img {
+      width: 100%;
+      height: 310px;
+      object-fit: cover;
+      border-radius: 16px;
+      transition: filter 0.35s ease;
+    }
+
+    .hud-readout {
+      margin-top: 18px;
+      padding: 16px 20px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+    }
+
+    /* Directorio y Suites Robóticas con Lightbox */
+    .suites-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .suite-card {
+      background: var(--pure-white);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.04);
+      cursor: pointer;
+      transition: transform 0.25s ease;
+    }
+
+    .suite-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .suite-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .suite-body {
+      padding: 22px;
+    }
+
+    /* Testimonios */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .demo-pill {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--apple-blue);
+      background: rgba(0, 113, 227, 0.1);
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+      margin-bottom: 12px;
+    }
+
+    /* Reserva Concierge Cupertino */
+    .concierge-box {
+      background: var(--pure-white);
+      border-radius: 32px;
+      padding: 48px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 42px;
+    }
+
+    .apple-input,
+    .apple-select {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 14px;
+      border: 1px solid #D2D2D7;
+      background: var(--cupertino-gray);
+      font-family: var(--font-body);
+      font-size: 0.94rem;
+      color: var(--text-dark);
+      outline: none;
+    }
+
+    .apple-input:focus,
+    .apple-select:focus {
+      border-color: var(--apple-blue);
+      background: var(--pure-white);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .col-full {
+      grid-column: 1 / -1;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.84);
+      backdrop-filter: blur(20px);
+      z-index: 200;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .lightbox.is-open {
+      display: flex;
+    }
+
+    .lightbox-modal {
+      background: var(--pure-white);
+      border-radius: var(--radius-card);
+      max-width: 720px;
+      width: 100%;
+      padding: 28px;
+    }
+
+    .lightbox-modal img {
+      width: 100%;
+      max-height: 410px;
+      object-fit: cover;
+      border-radius: 16px;
+      margin-bottom: 18px;
+    }
+
+    .site-footer {
+      padding: 40px 0;
+      border-top: 1px solid #D2D2D7;
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      text-align: center;
+    }
+
+    @media (max-width: 960px) {
+      .quantum-section,
+      .concierge-box,
+      .stage-telemetry {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+      .quantum-section,
+      .concierge-box {
+        padding: 26px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body data-rubro-id="salud" data-style-id="apple-inspired-medical">
+
+  <!-- NAV FROSTED GLASS -->
+  <header class="global-nav">
+    <div class="container nav-content">
+      <a href="#inicio" class="brand-mark">
+        <span class="brand-dot"></span>
+        <span>VISION CLINIC PRO</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#sistemas">Sistemas Clínicos</a></li>
+        <li><a href="#escaner-cuantico">Visor Cuántico 3D</a></li>
+        <li><a href="#especialistas">Especialistas &amp; Suites</a></li>
+        <li><a href="#experiencias">Pacientes</a></li>
+        <li><a href="#agendar">Concierge</a></li>
+      </ul>
+      <a href="#agendar" class="btn-apple btn-apple-sm">Reservar Evaluación Pro</a>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <!-- HERO KEYNOTE -->
+    <section class="hero-keynote">
+      <div class="container">
+        <p class="hero-eyebrow">Odontología Robótica · Imagenología Cuántica</p>
+        <h1 class="hero-headline">Precisión clínica medida en micras.</h1>
+        <p class="hero-subcopy">
+          En <strong>VISION CLINIC PRO</strong> combinamos navegación quirúrgica asistida por brazo robótico, escaneo intraoral fotónico de 8K y rehabilitación cerámica tallada en 25 minutos.
+        </p>
+        <div class="hero-ctas">
+          <a href="#agendar" class="btn-apple">Agendar Diagnóstico 3D</a>
+          <a href="#escaner-cuantico" class="btn-link">Explorar el Visor Cuántico →</a>
+        </div>
+
+        <div class="hero-stage">
+          <img
+            src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1200&q=85"
+            alt="Suite clínica minimalista de VISION CLINIC PRO con equipamiento robótico"
+            onerror="this.onerror=null;this.src='../../images/demos/assets/med/clinic-suite-vip.svg';"/>
+          <div class="stage-telemetry">
+            <div class="telemetry-metric">
+              <strong>4 µm</strong>
+              <span>Tolerancia de ajuste en coronas CAD/CAM</span>
+            </div>
+            <div class="telemetry-metric">
+              <strong>92% Menos</strong>
+              <span>Radiación gracias a sensores de conteo de fotones</span>
+            </div>
+            <div class="telemetry-metric">
+              <strong>25 min</strong>
+              <span>Diseño y fresado de carillas en una sola cita</span>
+            </div>
+            <div class="telemetry-metric">
+              <strong>Gemelo 3D</strong>
+              <span>Simulación facial antes de iniciar tratamiento</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ESPECIALIDADES CON SELECTOR SEGMENTADO -->
+    <section id="sistemas" class="container">
+      <div class="section-intro">
+        <p class="hero-eyebrow" style="color:var(--apple-blue)">Ingeniería Médica &amp; Dental</p>
+        <h2 class="section-title">Diseñado para transformar cada diagnóstico.</h2>
+        <div class="segmented-control" role="tablist" aria-label="Filtrar sistemas">
+          <button type="button" class="seg-btn is-active" data-sys="all">Todos los Sistemas (6)</button>
+          <button type="button" class="seg-btn" data-sys="robotica">Odontología Robótica</button>
+          <button type="button" class="seg-btn" data-sys="cuantica">Diagnóstico Cuántico</button>
+        </div>
+      </div>
+
+      <div class="bento-specs">
+        <article class="apple-card" data-system="robotica">
+          <div>
+            <span class="spec-chip">Navegación Háptica</span>
+            <h3>Implantes Robóticos Sin Bisturí</h3>
+            <p>Colocación de implantes de titanio-zirconio guiada por sensores ópticos en tiempo real, sin incisiones ni suturas y con carga inmediata el mismo día.</p>
+          </div>
+          <div class="card-foot">
+            <span>Precisión angular 0.1°</span>
+            <a href="#agendar" style="color:var(--apple-blue)">Reservar →</a>
+          </div>
+        </article>
+
+        <article class="apple-card" data-system="robotica">
+          <div>
+            <span class="spec-chip">Flujo Chairside 25 Min</span>
+            <h3>Carillas Ópticas de Disilicato en 1 Sesión</h3>
+            <p>Escaneo intraoral sin pastas de impresión y tallado robótico de cerámica feldespática translúcida mientras descansas en nuestra suite.</p>
+          </div>
+          <div class="card-foot">
+            <span>Simulación Digital Previa</span>
+            <a href="#agendar" style="color:var(--apple-blue)">Reservar →</a>
+          </div>
+        </article>
+
+        <article class="apple-card" data-system="cuantica">
+          <div>
+            <span class="spec-chip">Photon-Counting CT</span>
+            <h3>Tomografía Cuántica Ultra-Low Dose</h3>
+            <p>Reconstrucción volumétrica maxilofacial y craneal en resolución sub-milimétrica con una fracción mínima de la dosis de un rayo X convencional.</p>
+          </div>
+          <div class="card-foot">
+            <span>Entrega Instantánea en Cloud</span>
+            <a href="#agendar" style="color:var(--apple-blue)">Reservar →</a>
+          </div>
+        </article>
+
+        <article class="apple-card" data-system="robotica">
+          <div>
+            <span class="spec-chip">IA Biomecánica</span>
+            <h3>Ortodoncia Invisible Algorítmica</h3>
+            <p>Alineadores transparentes termomoldeados con predicción radicular 3D que reducen el tiempo total de tratamiento hasta en un 40%.</p>
+          </div>
+          <div class="card-foot">
+            <span>Monitoreo Remoto por App</span>
+            <a href="#agendar" style="color:var(--apple-blue)">Reservar →</a>
+          </div>
+        </article>
+
+        <article class="apple-card" data-system="cuantica">
+          <div>
+            <span class="spec-chip">Láser Er:YAG</span>
+            <h3>Micro-Odontología Láser Sin Turbina</h3>
+            <p>Eliminación selectiva de caries mediante pulsos de luz y agua sin vibración mecánica, sin ruido de torno y en el 90% de los casos sin anestesia.</p>
+          </div>
+          <div class="card-foot">
+            <span>Cero Vibración</span>
+            <a href="#agendar" style="color:var(--apple-blue)">Reservar →</a>
+          </div>
+        </article>
+
+        <article class="apple-card" data-system="cuantica">
+          <div>
+            <span class="spec-chip">Biomarcadores Salivales</span>
+            <h3>Chequeo Preventivo Genómico &amp; Oral</h3>
+            <p>Secuenciación rápida del microbioma oral y marcadores inflamatorios cardiovasculares en 15 minutos durante tu control anual.</p>
+          </div>
+          <div class="card-foot">
+            <span>Informe Interactivo</span>
+            <a href="#agendar" style="color:var(--apple-blue)">Reservar →</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- EXPERIENCIA VISUAL INTERACTIVA: VISOR DE CAPAS DE ESCANEO CUÁNTICO -->
+    <section id="escaner-cuantico" class="container" style="padding-top:20px">
+      <div class="quantum-section">
+        <div>
+          <p class="hero-eyebrow">Demostración Interactiva de Hardware</p>
+          <h2 style="font-family:var(--font-display);font-size:clamp(1.85rem,3.2vw,2.6rem);line-height:1.1;margin-bottom:14px">
+            Gemelo Digital 3D: Explora cada capa diagnóstica.
+          </h2>
+          <p style="color:#A1A1A6;font-size:0.95rem">
+            Alterna entre las capas ópticas de nuestro escáner cuántico para comprobar cómo planificamos implantes, oclusión y diseño de sonrisa antes de tocar un solo diente.
+          </p>
+
+          <div class="layer-buttons" role="tablist">
+            <button type="button" class="layer-btn is-active" data-filter="none" data-mode="Capa 01 · Esmalte Fotónico 8K" data-telemetry="Resolución superficial: 4 micras · Colorimetría P3 calibrada">
+              <span><strong>01. Esmalte &amp; Estética Facial 8K</strong><br /><small style="color:#A1A1A6">Textura real y traslucidez cerámica</small></span>
+              <span style="color:var(--apple-sky)">Activo</span>
+            </button>
+            <button type="button" class="layer-btn" data-filter="contrast(135%) saturate(140%) hue-rotate(175deg)" data-mode="Capa 02 · Densidad Ósea & Raíces CBCT" data-telemetry="Mapeo de nervio dentario y volumen óseo en tiempo real">
+              <span><strong>02. Tomografía Cuántica de Densidad Ósea</strong><br /><small style="color:#A1A1A6">Guía robótica sub-milimétrica</small></span>
+              <span style="color:var(--apple-sky)">Ver 3D</span>
+            </button>
+            <button type="button" class="layer-btn" data-filter="contrast(120%) brightness(108%) saturate(165%)" data-mode="Capa 03 · Mapa de Presión Oclusal Digital" data-telemetry="Distribución de fuerzas masticatorias equilibrada al 99.8%">
+              <span><strong>03. Mapa Biodinámico de Oclusión y ATM</strong><br /><small style="color:#A1A1A6">Detección de micro-contactos y bruxismo</small></span>
+              <span style="color:var(--apple-sky)">Ver 3D</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="scanner-viewport">
+          <img
+            id="quantumImg"
+            src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1200&q=85"
+            alt="Simulación de escaneo 3D en VISION CLINIC PRO"
+            onerror="this.onerror=null;this.src='../../images/demos/assets/med/clinic-suite-vip.svg';"/>
+          <div class="hud-readout">
+            <div>
+              <strong id="hudMode" style="display:block;color:var(--pure-white)">Capa 01 · Esmalte Fotónico 8K</strong>
+              <span id="hudTelemetry" style="color:#A1A1A6">Resolución superficial: 4 micras · Colorimetría P3 calibrada</span>
+            </div>
+            <span style="background:rgba(41,151,255,0.2);color:var(--apple-sky);padding:6px 12px;border-radius:99px;font-weight:600;font-size:0.76rem">
+              VISION OS CLINICAL
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ESPECIALISTAS & SUITES CON LIGHTBOX -->
+    <section id="especialistas" class="container">
+      <div class="section-intro">
+        <p class="hero-eyebrow" style="color:var(--apple-blue)">Dirección Clínica &amp; Laboratorios</p>
+        <h2 class="section-title">Mentes brillantes. Instrumental extraordinario.</h2>
+        <p style="color:var(--text-secondary)">Haz clic en cualquier tarjeta para inspeccionar en alta definición.</p>
+      </div>
+
+      <div class="suites-grid">
+        <article class="suite-card" data-title="Suite Quirúrgica Robótica #01" data-desc="Equipada con brazo de asistencia háptica para implantología, techo luminoso circadiano y pantalla micro-LED 8K para que el paciente visualice su gemelo digital.">
+          <img
+            src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1200&q=85"
+            alt="Suite Quirúrgica Robótica"
+            onerror="this.onerror=null;this.src='../../images/demos/assets/med/clinic-suite-vip.svg';"/>
+          <div class="suite-body">
+            <span class="spec-chip">Arquitectura Cupertino</span>
+            <h3 style="font-family:var(--font-display);font-size:1.2rem;margin-bottom:6px">Pabellón Robótico Pro</h3>
+            <p style="font-size:0.86rem;color:var(--text-secondary)">Aire ultralimpio ISO Clase 5 y vidrio electrocrómico de privacidad instantánea.</p>
+          </div>
+        </article>
+
+        <article class="suite-card" data-title="Dr. Maximiliano Krauss · Especialista Odontológico" data-desc="Cirujano Maxilofacial con fellowship en Zúrich y Stanford. Pionero en cirugía guiada por sensores ópticos sin colgajo en Latinoamérica.">
+          <img
+            src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800&q=80"
+            alt="Dr. Maximiliano Krauss · Especialista Odontológico"
+            onerror="this.onerror=null;this.src='../../images/demos/assets/med/doctor-male-1.svg';"/>
+          <div class="suite-body">
+            <span class="spec-chip">Cirugía Robótica</span>
+            <h3 style="font-family:var(--font-display);font-size:1.2rem;margin-bottom:6px">Dr. Maximiliano Krauss</h3>
+            <p style="font-size:0.86rem;color:var(--text-secondary)">Director Clínico · Implantología Guiada y Rehabilitación Compleja en 24h.</p>
+          </div>
+        </article>
+
+        <article class="suite-card" data-title="Dra. Elena Vivaldi · Especialista Odontológico" data-desc="Especialista en Rehabilitación Oral Estética y óptica dental. Diseña restauraciones cerámicas biomiméticas con precisión de 4 micras.">
+          <img
+            src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80"
+            alt="Dra. Elena Vivaldi · Especialista Odontológico"
+            onerror="this.onerror=null;this.src='../../images/demos/assets/med/doctor-female-1.svg';"/>
+          <div class="suite-body">
+            <span class="spec-chip">Estética Óptica 8K</span>
+            <h3 style="font-family:var(--font-display);font-size:1.2rem;margin-bottom:6px">Dra. Elena Vivaldi</h3>
+            <p style="font-size:0.86rem;color:var(--text-secondary)">Jefa de Prostodoncia Digital y Cerámica Computarizada.</p>
+          </div>
+        </article>
+
+        <article class="suite-card" data-title="Laboratorio Robótico In-House de 5 Ejes" data-desc="Talladoras diamantadas de 5 ejes que esculpen bloques de disilicato de litio y circonia multicapa en 25 minutos frente al paciente.">
+          <img
+            src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1200&q=85"
+            alt="Laboratorio Robótico Dental"
+            onerror="this.onerror=null;this.src='../../images/demos/assets/med/clinic-suite-vip.svg';"/>
+          <div class="suite-body">
+            <span class="spec-chip">Fresado en 25 Minutos</span>
+            <h3 style="font-family:var(--font-display);font-size:1.2rem;margin-bottom:6px">Quantum Milling Lab</h3>
+            <p style="font-size:0.86rem;color:var(--text-secondary)">Producción instantánea de coronas e incrustaciones en una sola visita.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section id="experiencias" class="container" style="padding-top:16px">
+      <div class="section-intro">
+        <p class="hero-eyebrow" style="color:var(--apple-blue)">Precisión Comprobada</p>
+        <h2 class="section-title">Pacientes que ya viven el futuro clínico.</h2>
+      </div>
+
+      <div class="testimonials-grid">
+        <article class="apple-card">
+          <div>
+            <span class="demo-pill">[Testimonio Ficticio de Demostración]</span>
+            <p style="font-size:0.98rem;color:var(--text-dark)">
+              “Entré a las 09:00 am por una corona fracturada. Escaneó mi boca con una cámara óptica en 90 segundos, vi cómo la máquina tallaba la pieza de porcelana y a las 10:15 am salí con mi diente definitivo.”
+            </p>
+          </div>
+          <strong style="font-size:0.86rem;color:var(--text-secondary)">Cristián Urrutia · Rehabilitación Chairside 1 Sesión</strong>
+        </article>
+
+        <article class="apple-card">
+          <div>
+            <span class="demo-pill">[Testimonio Ficticio de Demostración]</span>
+            <p style="font-size:0.98rem;color:var(--text-dark)">
+              “Me colocaron dos implantes con asistencia robótica sin bisturí ni puntos de sutura. No tuve inflamación al día siguiente y la precisión mostrada en la pantalla 8K da una tranquilidad absoluta.”
+            </p>
+          </div>
+          <strong style="font-size:0.86rem;color:var(--text-secondary)">Paulina Matte · Implantología Guiada</strong>
+        </article>
+
+        <article class="apple-card">
+          <div>
+            <span class="demo-pill">[Testimonio Ficticio de Demostración]</span>
+            <p style="font-size:0.98rem;color:var(--text-dark)">
+              “El diseño de la clínica parece una tienda insignia en Cupertino: silenciosa, minimalista, sin cables visibles y con todo tu historial 3D sincronizado.”
+            </p>
+          </div>
+          <strong style="font-size:0.86rem;color:var(--text-secondary)">Javier Undurraga · Evaluación Diagnóstica Cuántica</strong>
+        </article>
+      </div>
+    </section>
+
+    <!-- RESERVA CONCIERGE -->
+    <section id="agendar" class="container" style="padding-top:16px">
+      <div class="concierge-box">
+        <div>
+          <p class="hero-eyebrow" style="color:var(--apple-blue)">Vision Concierge</p>
+          <h2 class="section-title" style="font-size:2.2rem;margin-bottom:14px">Agenda tu Sesión de Escaneo 3D.</h2>
+          <p style="color:var(--text-secondary);font-size:0.95rem;margin-bottom:24px">
+            En tu primera cita de 45 minutos creamos el Gemelo Digital 3D de tu sonrisa y estructura maxilofacial, entregándote un plan exacto en el acto.
+          </p>
+          <div style="background:var(--cupertino-gray);padding:20px;border-radius:18px;font-size:0.86rem;color:var(--text-secondary)">
+            <strong style="color:var(--text-dark);display:block;margin-bottom:4px">Ubicación Flagship:</strong>
+            Av. Alonso de Córdova 5320, Piso 12, Las Condes · Estacionamiento privado con cargadores eléctricos y convenio automático con Isapres y Seguros High-End.
+          </div>
+        </div>
+
+        <form id="visionForm">
+          <div style="background:var(--cupertino-gray);padding:12px 16px;border-radius:12px;font-size:0.8rem;color:var(--text-secondary);margin-bottom:18px">
+            ℹ️ <strong>Demostración Interactiva:</strong> Formulario de agendamiento simulado localmente en el navegador para mostrar el estilo Apple-Inspired Medical.
+          </div>
+
+          <div class="form-grid">
+            <div>
+              <label for="vName" style="display:block;font-size:0.8rem;font-weight:600;margin-bottom:6px">Nombre y Apellido</label>
+              <input type="text" id="vName" class="apple-input" placeholder="Ej: Tomás Errázuriz" required />
+            </div>
+            <div>
+              <label for="vContact" style="display:block;font-size:0.8rem;font-weight:600;margin-bottom:6px">Teléfono o Correo</label>
+              <input type="text" id="vContact" class="apple-input" placeholder="+56 9 9888 7766" required />
+            </div>
+            <div>
+              <label for="vProgram" style="display:block;font-size:0.8rem;font-weight:600;margin-bottom:6px">Programa Clínico</label>
+              <select id="vProgram" class="apple-select">
+                <option value="Escaneo Gemelo Digital 3D + Diagnóstico">Escaneo Gemelo Digital 3D + Diagnóstico</option>
+                <option value="Implantología Robótica Sin Bisturí">Implantología Robótica Sin Bisturí</option>
+                <option value="Carillas / Coronas Cerámicas en 25 Min">Carillas / Coronas Cerámicas en 25 Min</option>
+                <option value="Ortodoncia Invisible Algorítmica">Ortodoncia Invisible Algorítmica</option>
+              </select>
+            </div>
+            <div>
+              <label for="vDate" style="display:block;font-size:0.8rem;font-weight:600;margin-bottom:6px">Fecha Preferida</label>
+              <input type="date" id="vDate" class="apple-input" required />
+            </div>
+            <div class="col-full">
+              <button type="submit" class="btn-apple" style="width:100%;padding:15px;font-size:0.98rem">
+                Confirmar Reserva en Vision Concierge (Demo)
+              </button>
+            </div>
+          </div>
+
+          <div id="visionFeedback" style="display:none;margin-top:16px;padding:16px;border-radius:14px;background:rgba(0,113,227,0.1);color:var(--apple-blue);font-weight:600;font-size:0.88rem;" role="status"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-labelledby="lbTitle">
+    <div class="lightbox-modal">
+      <img id="lbImg" src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=85" alt="Vista detallada Vision Clinic Pro" onerror="this.onerror=null;this.src='../../images/demos/assets/med/clinic-box-dental.svg';"/>
+      <h3 id="lbTitle" style="font-family:var(--font-display);font-size:1.45rem;margin-bottom:8px"></h3>
+      <p id="lbDesc" style="color:var(--text-secondary);font-size:0.94rem;margin-bottom:20px"></p>
+      <button type="button" id="lbClose" class="btn-apple">Cerrar Vista</button>
+    </div>
+  </div>
+
+  <footer class="site-footer container">
+    <p><strong>VISION CLINIC PRO · Odontología Robótica &amp; Diagnóstico Cuántico de Precisión</strong></p>
+    <p style="margin-top:4px">Demostración interactiva Estilo #20 (Apple-Inspired Medical Design) creada por KuyénDev.</p>
+  </footer>
+
+  <script>
+    (function () {
+      // Filtro Segmentado de Sistemas
+      const segBtns = document.querySelectorAll('.seg-btn');
+      const specCards = document.querySelectorAll('.apple-card[data-system]');
+      segBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          segBtns.forEach(b => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+          const sys = btn.dataset.sys;
+          specCards.forEach(card => {
+            card.style.display = (sys === 'all' || card.dataset.system === sys) ? 'flex' : 'none';
+          });
+        });
+      });
+
+      // Visor Cuántico 3D Interactivo
+      const layerBtns = document.querySelectorAll('.layer-btn');
+      const quantumImg = document.getElementById('quantumImg');
+      const hudMode = document.getElementById('hudMode');
+      const hudTelemetry = document.getElementById('hudTelemetry');
+
+      layerBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          layerBtns.forEach(b => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+          quantumImg.style.filter = btn.dataset.filter;
+          hudMode.textContent = btn.dataset.mode;
+          hudTelemetry.textContent = btn.dataset.telemetry;
+        });
+      });
+
+      // Lightbox
+      const lightbox = document.getElementById('lightbox');
+      const lbImg = document.getElementById('lbImg');
+      const lbTitle = document.getElementById('lbTitle');
+      const lbDesc = document.getElementById('lbDesc');
+      const lbClose = document.getElementById('lbClose');
+
+      document.querySelectorAll('.suite-card').forEach(card => {
+        card.addEventListener('click', () => {
+          const img = card.querySelector('img');
+          lbImg.src = img.src;
+          lbImg.alt = img.alt;
+          lbTitle.textContent = card.dataset.title;
+          lbDesc.textContent = card.dataset.desc;
+          lightbox.classList.add('is-open');
+        });
+      });
+
+      lbClose.addEventListener('click', () => lightbox.classList.remove('is-open'));
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) lightbox.classList.remove('is-open');
+      });
+
+      // Formulario Concierge
+      const form = document.getElementById('visionForm');
+      const feedback = document.getElementById('visionFeedback');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('vName').value;
+        const prog = document.getElementById('vProgram').value;
+        feedback.style.display = 'block';
+        feedback.textContent = `✓ [Simulación Vision Concierge] Estimado/a ${name}, hemos reservado tu suite para "${prog}". Tu pase digital Apple Wallet de demostración está listo.`;
+        form.reset();
+      });
+    })();
+  </script>
+  <script src="../../js/config/rubros.js"></script>
+  <script src="../../js/demo-viewer-bar.js"></script>
+</body>
+</html>

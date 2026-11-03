@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
+  <defs>
+    <linearGradient id="sBgB" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF1F2"/>
+      <stop offset="50%" stop-color="#FDF4FF"/>
+      <stop offset="100%" stop-color="#FCE7F3"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1000" fill="url(#sBgB)"/>
+  <circle cx="400" cy="420" r="260" fill="#FFFFFF" opacity="0.7"/>
+  
+  <!-- Delantal negro de salón chic -->
+  <path d="M160 1000 C180 720, 240 640, 400 640 C560 640, 620 720, 640 1000 Z" fill="#18181B" stroke="#27272A" stroke-width="2"/>
+  <path d="M330 640 L400 780 L470 640 Z" fill="#D97706"/>
+  
+  <!-- Tijeras doradas cruzadas en bolsillo -->
+  <circle cx="360" cy="800" r="14" fill="none" stroke="#F59E0B" stroke-width="4"/>
+  <circle cx="440" cy="800" r="14" fill="none" stroke="#F59E0B" stroke-width="4"/>
+  <line x1="370" y1="810" x2="430" y2="880" stroke="#F59E0B" stroke-width="5" stroke-linecap="round"/>
+  <line x1="430" y1="810" x2="370" y2="880" stroke="#F59E0B" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- Cuello y Cabeza Femenina con cabello Balayage -->
+  <path d="M360 520 L440 520 L440 650 L360 650 Z" fill="#FCD3B6"/>
+  <!-- Cabello suelto ondulado con mechas rubias/doradas -->
+  <path d="M240 420 C230 240, 570 240, 560 420 C560 680, 520 740, 480 800 L320 800 C280 740, 240 680, 240 420 Z" fill="#D97706"/>
+  <path d="M280 430 C300 620, 330 720, 360 760" fill="none" stroke="#FDE68A" stroke-width="12" stroke-linecap="round"/>
+  <path d="M520 430 C500 620, 470 720, 440 760" fill="none" stroke="#FDE68A" stroke-width="12" stroke-linecap="round"/>
+
+  <!-- Rostro -->
+  <ellipse cx="400" cy="430" rx="115" ry="140" fill="#FDE8D7"/>
+  <!-- Cabello frontal peinado al medio -->
+  <path d="M285 360 C330 270, 470 270, 515 360 C460 320, 410 320, 400 330 C390 320, 340 320, 285 360 Z" fill="#B45309"/>
+
+  <!-- Ojos y maquillaje elegante -->
+  <ellipse cx="355" cy="420" rx="10" ry="6" fill="#18181B"/>
+  <ellipse cx="445" cy="420" rx="10" ry="6" fill="#18181B"/>
+  <circle cx="357" cy="418" r="3" fill="#FFFFFF"/>
+  <circle cx="447" cy="418" r="3" fill="#FFFFFF"/>
+  <path d="M330 405 Q355 395 380 405" fill="none" stroke="#78350F" stroke-width="4" stroke-linecap="round"/>
+  <path d="M420 405 Q445 395 470 405" fill="none" stroke="#78350F" stroke-width="4" stroke-linecap="round"/>
+  <path d="M365 490 Q400 525 435 490" fill="none" stroke="#BE185D" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- Placa inferior -->
+  <rect x="180" y="910" width="440" height="60" rx="30" fill="#FFFFFF" stroke="#D97706" stroke-width="2" filter="drop-shadow(0 10px 15px rgba(217,119,6,0.15))"/>
+  <text x="400" y="940" text-anchor="middle" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="20" font-weight="800" fill="#18181B">Master Stylist &amp; Colorista</text>
+  <text x="400" y="958" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#D97706">DISEÑO DE COLOR &amp; ESTILO DE AUTOR</text>
+</svg>

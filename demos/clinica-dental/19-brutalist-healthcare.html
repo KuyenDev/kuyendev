@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>DIRECTA LAB · Urgencia Dental Express &amp; Exámenes con Precios 100% Públicos</title>
+  <meta name="description" content="Clínica de urgencia dental express y laboratorio clínico con estilo Neo-Brutalist Healthcare: cero letra chica, aranceles 100% públicos y atención sin fila." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-paper: #FFFDF5;
+      --ink: #000000;
+      --electric-blue: #0055FF;
+      --acid-yellow: #FFDD00;
+      --pure-white: #FFFFFF;
+      --coral-alert: #FF3366;
+      --mint-ok: #00E676;
+      --border-heavy: 4px solid #000000;
+      --border-med: 3px solid #000000;
+      --shadow-hard: 7px 7px 0px #000000;
+      --shadow-hard-sm: 4px 4px 0px #000000;
+      --font-display: 'Syne', sans-serif;
+      --font-mono: 'Space Grotesk', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-paper);
+      background-image: radial-gradient(#000000 1px, transparent 1px);
+      background-size: 26px 26px;
+      color: var(--ink);
+      font-family: var(--font-mono);
+      line-height: 1.5;
+      overflow-x: hidden;
+      padding-bottom: 96px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(1260px, 92%);
+      margin: 0 auto;
+    }
+
+    /* Cinta Superior Brutalista */
+    .ticker-bar {
+      background: var(--acid-yellow);
+      border-bottom: var(--border-heavy);
+      padding: 10px 0;
+      font-weight: 700;
+      font-size: 0.86rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .ticker-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Header Neo-Brutalista */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 95;
+      background: var(--bg-paper);
+      border-bottom: var(--border-heavy);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      gap: 16px;
+    }
+
+    .brutal-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.4rem;
+      text-transform: uppercase;
+    }
+
+    .logo-badge {
+      background: var(--electric-blue);
+      color: var(--pure-white);
+      border: var(--border-med);
+      box-shadow: var(--shadow-hard-sm);
+      padding: 4px 10px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 12px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      padding: 8px 14px;
+      border: 2px solid transparent;
+      font-weight: 700;
+      font-size: 0.88rem;
+      text-transform: uppercase;
+    }
+
+    .nav-links a:hover {
+      background: var(--acid-yellow);
+      border-color: var(--ink);
+      box-shadow: 3px 3px 0 var(--ink);
+    }
+
+    .brutal-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 24px;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 0.94rem;
+      text-transform: uppercase;
+      background: var(--acid-yellow);
+      color: var(--ink);
+      border: var(--border-med);
+      box-shadow: var(--shadow-hard-sm);
+      cursor: pointer;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    .brutal-btn:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0 var(--ink);
+    }
+
+    .brutal-btn:active {
+      transform: translate(3px, 3px);
+      box-shadow: 1px 1px 0 var(--ink);
+    }
+
+    .brutal-btn-blue {
+      background: var(--electric-blue);
+      color: var(--pure-white);
+    }
+
+    /* Hero Neo-Brutalista */
+    .hero {
+      padding: 44px 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 32px;
+      align-items: stretch;
+    }
+
+    .hero-box {
+      background: var(--pure-white);
+      border: var(--border-heavy);
+      box-shadow: var(--shadow-hard);
+      padding: 38px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .brutal-sticker {
+      display: inline-block;
+      background: var(--electric-blue);
+      color: var(--pure-white);
+      border: var(--border-med);
+      padding: 6px 14px;
+      font-weight: 700;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      align-self: flex-start;
+      margin-bottom: 18px;
+      box-shadow: var(--shadow-hard-sm);
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.1rem, 4.2vw, 3.6rem);
+      line-height: 1.02;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .hero-title mark {
+      background: var(--acid-yellow);
+      padding: 0 8px;
+      border: 2px solid var(--ink);
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      font-weight: 500;
+      margin-bottom: 26px;
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 26px;
+    }
+
+    .stat-block {
+      background: var(--bg-paper);
+      border: var(--border-med);
+      padding: 14px;
+      box-shadow: var(--shadow-hard-sm);
+    }
+
+    .stat-block strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.65rem;
+    }
+
+    .hero-photo-box {
+      background: var(--acid-yellow);
+      border: var(--border-heavy);
+      box-shadow: var(--shadow-hard);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .hero-photo-box img {
+      width: 100%;
+      height: 330px;
+      object-fit: cover;
+      border: var(--border-med);
+    }
+
+    .live-queue-banner {
+      background: var(--ink);
+      color: var(--pure-white);
+      padding: 16px;
+      border: var(--border-med);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 700;
+    }
+
+    /* Secciones */
+    section {
+      padding: 48px 0;
+    }
+
+    .section-banner {
+      background: var(--ink);
+      color: var(--pure-white);
+      border: var(--border-heavy);
+      box-shadow: var(--shadow-hard);
+      padding: 20px 28px;
+      margin-bottom: 32px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .section-banner h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 2.8vw, 2.25rem);
+      text-transform: uppercase;
+    }
+
+    /* Catálogo de Precios Fijos 100% Públicos */
+    .filter-switches {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .switch-btn {
+      padding: 9px 18px;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 0.84rem;
+      text-transform: uppercase;
+      background: var(--pure-white);
+      color: var(--ink);
+      border: var(--border-med);
+      cursor: pointer;
+    }
+
+    .switch-btn.is-active {
+      background: var(--acid-yellow);
+      box-shadow: 3px 3px 0 var(--pure-white);
+    }
+
+    .price-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 24px;
+    }
+
+    .price-card {
+      background: var(--pure-white);
+      border: var(--border-heavy);
+      box-shadow: var(--shadow-hard);
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .price-tag {
+      display: inline-block;
+      background: var(--acid-yellow);
+      border: var(--border-med);
+      padding: 6px 14px;
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 800;
+      box-shadow: var(--shadow-hard-sm);
+    }
+
+    .price-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      text-transform: uppercase;
+      margin: 12px 0 6px;
+    }
+
+    .price-includes {
+      list-style: none;
+      font-size: 0.88rem;
+      border-top: 2px dashed var(--ink);
+      padding-top: 12px;
+    }
+
+    .price-includes li {
+      margin-bottom: 6px;
+    }
+
+    /* Experiencia Visual Interactiva: Carrito Instantáneo Cero Letra Chica */
+    .brutal-calculator {
+      background: var(--pure-white);
+      border: var(--border-heavy);
+      box-shadow: var(--shadow-hard);
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+    }
+
+    .calc-items {
+      padding: 32px;
+      border-right: var(--border-heavy);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .calc-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 18px;
+      background: var(--bg-paper);
+      border: var(--border-med);
+      cursor: pointer;
+      font-weight: 700;
+      user-select: none;
+    }
+
+    .calc-row.is-selected {
+      background: var(--acid-yellow);
+      box-shadow: var(--shadow-hard-sm);
+    }
+
+    .calc-receipt {
+      padding: 32px;
+      background: var(--electric-blue);
+      color: var(--pure-white);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .receipt-paper {
+      background: var(--pure-white);
+      color: var(--ink);
+      border: var(--border-heavy);
+      box-shadow: var(--shadow-hard);
+      padding: 24px;
+      margin: 18px 0;
+    }
+
+    .receipt-total {
+      font-family: var(--font-display);
+      font-size: 2.4rem;
+      font-weight: 800;
+      border-top: var(--border-heavy);
+      padding-top: 12px;
+      margin-top: 12px;
+    }
+
+    /* Directorio y Boxes Express con Lightbox */
+    .labs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
+      gap: 24px;
+    }
+
+    .lab-card {
+      background: var(--pure-white);
+      border: var(--border-heavy);
+      box-shadow: var(--shadow-hard);
+      padding: 18px;
+      cursor: pointer;
+      transition: transform 0.15s ease;
+    }
+
+    .lab-card:hover {
+      transform: translate(-3px, -3px);
+    }
+
+    .lab-card img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      border: var(--border-med);
+      margin-bottom: 14px;
+    }
+
+    /* Testimonios */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .brutal-review {
+      background: var(--pure-white);
+      border: var(--border-heavy);
+      box-shadow: var(--shadow-hard);
+      padding: 26px;
+    }
+
+    .demo-stamp {
+      display: inline-block;
+      background: var(--acid-yellow);
+      border: 2px solid var(--ink);
+      padding: 3px 10px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    /* Formulario Express */
+    .express-form-box {
+      background: var(--acid-yellow);
+      border: var(--border-heavy);
+      box-shadow: var(--shadow-hard);
+      padding: 38px;
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 32px;
+    }
+
+    .brutal-input,
+    .brutal-select {
+      width: 100%;
+      padding: 13px 16px;
+      border: var(--border-med);
+      background: var(--pure-white);
+      font-family: var(--font-mono);
+      font-size: 0.94rem;
+      font-weight: 700;
+      color: var(--ink);
+      box-shadow: 3px 3px 0 var(--ink);
+    }
+
+    .form-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .full-span {
+      grid-column: 1 / -1;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.86);
+      z-index: 200;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .lightbox.is-open {
+      display: flex;
+    }
+
+    .lightbox-box {
+      background: var(--bg-paper);
+      border: var(--border-heavy);
+      box-shadow: 10px 10px 0 var(--acid-yellow);
+      max-width: 700px;
+      width: 100%;
+      padding: 26px;
+    }
+
+    .lightbox-box img {
+      width: 100%;
+      max-height: 390px;
+      object-fit: cover;
+      border: var(--border-med);
+      margin-bottom: 16px;
+    }
+
+    .site-footer {
+      margin-top: 48px;
+      background: var(--ink);
+      color: var(--pure-white);
+      border-top: var(--border-heavy);
+      padding: 36px 0;
+      font-weight: 700;
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid,
+      .brutal-calculator,
+      .express-form-box {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        display: none;
+      }
+      .calc-items {
+        border-right: none;
+        border-bottom: var(--border-heavy);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .form-2col,
+      .stats-row {
+        grid-template-columns: 1fr;
+      }
+      .hero-box,
+      .express-form-box,
+      .calc-items,
+      .calc-receipt {
+        padding: 22px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body data-rubro-id="salud" data-style-id="brutalist-healthcare">
+
+  <!-- CINTA SUPERIOR -->
+  <div class="ticker-bar">
+    <div class="container ticker-inner">
+      <span>⚡ PRECIOS 100% PÚBLICOS EN WEB · CERO PRESUPUESTOS SORPRESA</span>
+      <span>⏱ TIEMPO ACTUAL EN BOX URGENCIA DENTAL: 07 MINUTOS</span>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#inicio" class="brutal-logo">
+        <span class="logo-badge">DL!</span>
+        <span>DIRECTA LAB</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#tarifario">Tarifario Público</a></li>
+        <li><a href="#calculadora">Cotizador Exacto</a></li>
+        <li><a href="#boxes">Boxes &amp; Equipo</a></li>
+        <li><a href="#testimonios">Pacientes</a></li>
+        <li><a href="#urgencia">Check-In Express</a></li>
+      </ul>
+      <a href="#urgencia" class="brutal-btn brutal-btn-blue">Tengo Urgencia Ahora</a>
+    </div>
+  </header>
+
+  <main id="inicio" class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="hero-box">
+          <div>
+            <span class="brutal-sticker">SALUD DIRECTA · SIN RODEOS NI FILA FÍSICA</span>
+            <h1 class="hero-title">Urgencia dental y exámenes <mark>con precio fijo.</mark></h1>
+            <p class="hero-desc">
+              ¿Dolor de muela a las 20:00 hrs o necesitas exámenes hoy? En <strong>DIRECTA LAB</strong> publicamos cada arancel en grande antes de que te sientes en el sillón. Rayos X incluidos, Fonasa e Isapres al instante.
+            </p>
+            <div style="display:flex;flex-wrap:wrap;gap:14px">
+              <a href="#urgencia" class="brutal-btn brutal-btn-blue">Tomar Turno Express (7 min)</a>
+              <a href="#calculadora" class="brutal-btn">Armar Presupuesto en Vivo</a>
+            </div>
+          </div>
+
+          <div class="stats-row">
+            <div class="stat-block">
+              <strong>$0</strong>
+              <span>Cobros Ocultos o Insumos Extra</span>
+            </div>
+            <div class="stat-block">
+              <strong>15 min</strong>
+              <span>Alivio de Dolor Dental Agudo</span>
+            </div>
+            <div class="stat-block">
+              <strong>2 horas</strong>
+              <span>Resultados Lab en tu WhatsApp</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-photo-box">
+          <img
+            src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80"
+            alt="Box clínico moderno de DIRECTA LAB con señalética clara"
+            onerror="this.onerror=null;this.src='../../images/demos/assets/med/doctor-female-1.svg';"/>
+          <div class="live-queue-banner">
+            <div>
+              <span style="color:var(--mint-ok);display:block;font-size:0.78rem">● ESTADO DE BOXES EN VIVO</span>
+              <span>4 de 6 Sillones Disponibles para Urgencia Inmediata</span>
+            </div>
+            <span style="background:var(--acid-yellow);color:var(--ink);padding:4px 10px;border:2px solid var(--pure-white)">ABIERTO</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TARIFARIO 100% PÚBLICO -->
+    <section id="tarifario">
+      <div class="section-banner">
+        <div>
+          <span style="color:var(--acid-yellow);font-size:0.8rem;font-weight:700">ARANCELES SIN LETRA CHICA</span>
+          <h2>Tarifario Público 2025 (Todo Incluido)</h2>
+        </div>
+        <div class="filter-switches" role="tablist">
+          <button type="button" class="switch-btn is-active" data-type="all">Todo (6)</button>
+          <button type="button" class="switch-btn" data-type="dental">Urgencia Dental</button>
+          <button type="button" class="switch-btn" data-type="lab">Laboratorio Express</button>
+        </div>
+      </div>
+
+      <div class="price-grid">
+        <article class="price-card" data-kind="dental">
+          <div>
+            <span class="price-tag">$19.900</span>
+            <h3>Consulta Urgencia + Rx Retroalveolar</h3>
+            <ul class="price-includes">
+              <li>✓ Diagnóstico digital inmediato en pantalla</li>
+              <li>✓ Radiografía digital incluida sin costo adicional</li>
+              <li>✓ Receta analgésica / antibiótica al instante</li>
+            </ul>
+          </div>
+          <a href="#urgencia" class="brutal-btn" style="width:100%">Agendar Este Precio →</a>
+        </article>
+
+        <article class="price-card" data-kind="dental">
+          <div>
+            <span class="price-tag">$34.900</span>
+            <h3>Limpieza Dental Pro + Airflow</h3>
+            <ul class="price-includes">
+              <li>✓ Destartraje ultrasónico completo ambas arcadas</li>
+              <li>✓ Pulido con bicarbonato perlado anti-manchas</li>
+              <li>✓ Fluoración barniz incluida (30 minutos)</li>
+            </ul>
+          </div>
+          <a href="#urgencia" class="brutal-btn" style="width:100%">Agendar Este Precio →</a>
+        </article>
+
+        <article class="price-card" data-kind="dental">
+          <div>
+            <span class="price-tag">$49.900</span>
+            <h3>Tapadura Estética Simple o Media</h3>
+            <ul class="price-includes">
+              <li>✓ Resina nanohíbrida 3M de alta estética</li>
+              <li>✓ Anestesia tópica y local incluida en tarifa</li>
+              <li>✓ Garantía escrita de 12 meses</li>
+            </ul>
+          </div>
+          <a href="#urgencia" class="brutal-btn" style="width:100%">Agendar Este Precio →</a>
+        </article>
+
+        <article class="price-card" data-kind="dental">
+          <div>
+            <span class="price-tag">$65.000</span>
+            <h3>Exodoncia Simple / Urgencia Dolor</h3>
+            <ul class="price-includes">
+              <li>✓ Extracción sin dolor o trepanación de urgencia</li>
+              <li>✓ Sutura reabsorbible e insumos quirúrgicos incluidos</li>
+              <li>✓ Control post-operatorio a los 7 días $0</li>
+            </ul>
+          </div>
+          <a href="#urgencia" class="brutal-btn" style="width:100%">Agendar Este Precio →</a>
+        </article>
+
+        <article class="price-card" data-kind="lab">
+          <div>
+            <span class="price-tag">$24.900</span>
+            <h3>Pack Chequeo Bioquímico + Hemograma</h3>
+            <ul class="price-includes">
+              <li>✓ Hemograma, Perfil Lipídico, Glicemia y Hepático</li>
+              <li>✓ Toma de muestra incluida sin cobro aparte</li>
+              <li>✓ Informe PDF en tu correo en 3 horas</li>
+            </ul>
+          </div>
+          <a href="#urgencia" class="brutal-btn" style="width:100%">Agendar Este Precio →</a>
+        </article>
+
+        <article class="price-card" data-kind="lab">
+          <div>
+            <span class="price-tag">$29.900</span>
+            <h3>Pack Energía: Vitamina D + B12 + Ferritina</h3>
+            <ul class="price-includes">
+              <li>✓ Ideal para fatiga, caída capilar o control anual</li>
+              <li>✓ Sin necesidad de orden médica impresa</li>
+              <li>✓ Reembolsable en Isapres y Fonasa</li>
+            </ul>
+          </div>
+          <a href="#urgencia" class="brutal-btn" style="width:100%">Agendar Este Precio →</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- EXPERIENCIA VISUAL INTERACTIVA: CALCULADORA DE RECIBO EXACTO -->
+    <section id="calculadora">
+      <div class="section-banner" style="background:var(--electric-blue)">
+        <div>
+          <span style="color:var(--acid-yellow);font-size:0.8rem;font-weight:700">INTERACTIVO · CERO SORPRESAS EN CAJA</span>
+          <h2>Calculadora Brutalista de Cuenta Exacta</h2>
+        </div>
+        <span>Marca las prestaciones que necesitas hoy</span>
+      </div>
+
+      <div class="brutal-calculator">
+        <div class="calc-items" role="group" aria-label="Seleccionar prestaciones">
+          <div class="calc-row is-selected" data-price="19900" data-label="Evaluación Urgencia + Radiografía Digital">
+            <span>[✓] Evaluación Urgencia + Radiografía Digital</span>
+            <strong>$19.900</strong>
+          </div>
+          <div class="calc-row" data-price="34900" data-label="Limpieza Dental Ultrasónica + Pulido Airflow">
+            <span>[ ] Limpieza Dental Ultrasónica + Pulido Airflow</span>
+            <strong>$34.900</strong>
+          </div>
+          <div class="calc-row" data-price="49900" data-label="Restauración / Tapadura Resina 3M Completa">
+            <span>[ ] Restauración / Tapadura Resina 3M Completa</span>
+            <strong>$49.900</strong>
+          </div>
+          <div class="calc-row" data-price="24900" data-label="Pack Laboratorio Chequeo General Express">
+            <span>[ ] Pack Laboratorio Chequeo General Express</span>
+            <strong>$24.900</strong>
+          </div>
+          <div class="calc-row" data-price="15000" data-label="Radiografía Panorámica Full HD Instantánea">
+            <span>[ ] Radiografía Panorámica Full HD Instantánea</span>
+            <strong>$15.000</strong>
+          </div>
+        </div>
+
+        <div class="calc-receipt">
+          <div>
+            <span style="background:var(--acid-yellow);color:var(--ink);padding:4px 10px;border:2px solid var(--ink);font-weight:700;font-size:0.78rem">
+              BOLETA TRANSPARENTE DIRECTA LAB
+            </span>
+            <div class="receipt-paper">
+              <div id="receiptLines" style="font-size:0.88rem;font-weight:700;min-height:90px">
+                • Evaluación Urgencia + Radiografía Digital: $19.900
+              </div>
+              <div style="font-size:0.8rem;margin-top:10px;color:#333">
+                Insumos clínicos, EPI y anestesia: <strong>$0 (Incluidos)</strong>
+              </div>
+              <div id="receiptTotal" class="receipt-total">$19.900 CLP</div>
+            </div>
+          </div>
+          <a href="#urgencia" class="brutal-btn" style="width:100%;justify-content:center">
+            Congelar Este Total y Venir Hoy →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIRECTORIO Y BOXES CON LIGHTBOX -->
+    <section id="boxes">
+      <div class="section-banner">
+        <div>
+          <span style="color:var(--acid-yellow);font-size:0.8rem;font-weight:700">EQUIPO &amp; TECNOLOGÍA</span>
+          <h2>Nuestros Boxes Express &amp; Especialistas (Clic para Ampliar)</h2>
+        </div>
+      </div>
+
+      <div class="labs-grid">
+        <article class="lab-card" data-title="Box Urgencia Dental #01 · Alivio en 15 Minutos" data-desc="Equipado con radiografía periapical en el mismo sillón, anestesia electrónica y esterilización clase B trazable por código QR.">
+          <img
+            src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=85"
+            alt="Box Urgencia Dental Directa Lab"
+            onerror="this.onerror=null;this.src='../../images/demos/assets/med/clinic-box-dental.svg';"/>
+          <span style="background:var(--acid-yellow);padding:2px 8px;border:2px solid var(--ink);font-size:0.75rem;font-weight:700">BOX EXPRESS #01</span>
+          <h3 style="font-family:var(--font-display);font-size:1.15rem;margin:8px 0 4px">Suite Dental de Acción Rápida</h3>
+          <p style="font-size:0.86rem">Rayos X en el sillón para no moverte de sala.</p>
+        </article>
+
+        <article class="lab-card" data-title="Dr. Ignacio Salgado · Especialista Odontológico" data-desc="Cirujano Dentista U. de Concepción. Especialista en endodoncia de urgencia, cirugía de terceros molares y manejo inmediato del dolor agudo.">
+          <img
+            src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800&q=80"
+            alt="Dr. Ignacio Salgado · Especialista Odontológico"
+            onerror="this.onerror=null;this.src='../../images/demos/assets/med/doctor-male-1.svg';"/>
+          <span style="background:var(--electric-blue);color:#fff;padding:2px 8px;border:2px solid var(--ink);font-size:0.75rem;font-weight:700">CIRUJANO JEFE</span>
+          <h3 style="font-family:var(--font-display);font-size:1.15rem;margin:8px 0 4px">Dr. Ignacio Salgado</h3>
+          <p style="font-size:0.86rem">+3.500 urgencias dentales resueltas en una sola sesión.</p>
+        </article>
+
+        <article class="lab-card" data-title="Dra. Bárbara Muñoz · Especialista Odontológico" data-desc="Odontóloga especialista en restauraciones directas de alta resistencia y blanqueamiento clínico LED sin sensibilidad.">
+          <img
+            src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80"
+            alt="Dra. Bárbara Muñoz · Especialista Odontológico"
+            onerror="this.onerror=null;this.src='../../images/demos/assets/med/doctor-female-1.svg';"/>
+          <span style="background:var(--electric-blue);color:#fff;padding:2px 8px;border:2px solid var(--ink);font-size:0.75rem;font-weight:700">ODONTOLOGÍA</span>
+          <h3 style="font-family:var(--font-display);font-size:1.15rem;margin:8px 0 4px">Dra. Bárbara Muñoz</h3>
+          <p style="font-size:0.86rem">Especialista en resinas estéticas y profilaxis ultrasónica.</p>
+        </article>
+
+        <article class="lab-card" data-title="Laboratorio Automatizado de Procesamiento en 2 Horas" data-desc="Analizadores hematológicos y bioquímicos de última generación que envían tus resultados validados directo a tu celular.">
+          <img
+            src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=85"
+            alt="Laboratorio Clínico Express"
+            onerror="this.onerror=null;this.src='../../images/demos/assets/med/clinic-box-dental.svg';"/>
+          <span style="background:var(--mint-ok);padding:2px 8px;border:2px solid var(--ink);font-size:0.75rem;font-weight:700">BIOQUÍMICA 2H</span>
+          <h3 style="font-family:var(--font-display);font-size:1.15rem;margin:8px 0 4px">Unidad de Toma de Muestras</h3>
+          <p style="font-size:0.86rem">Atención por orden de llegada o QR en menos de 8 minutos.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section id="testimonios">
+      <div class="section-banner">
+        <h2>Lo Que Dicen Quienes Odian los Cobros Ocultos</h2>
+      </div>
+
+      <div class="reviews-grid">
+        <article class="brutal-review">
+          <span class="demo-stamp">[Testimonio Ficticio de Demostración]</span>
+          <p style="font-weight:600;margin-bottom:14px">
+            “En otras clínicas el ‘diagnóstico gratis’ termina costando 80 mil pesos en radiografías sorpresa. En DIRECTA LAB vi $19.900 en la web y pagué exactamente $19.900 con radiografía incluida.”
+          </p>
+          <strong>— Felipe A. · Urgencia por fractura de tapadura</strong>
+        </article>
+
+        <article class="brutal-review">
+          <span class="demo-stamp">[Testimonio Ficticio de Demostración]</span>
+          <p style="font-weight:600;margin-bottom:14px">
+            “Saqué turno desde el celular mientras iba en el Metro. Llegué, mostré el código y en 6 minutos ya estaba anestesiado y sin dolor.”
+          </p>
+          <strong>— Camila R. · Atención Express 19:30 hrs</strong>
+        </article>
+
+        <article class="brutal-review">
+          <span class="demo-stamp">[Testimonio Ficticio de Demostración]</span>
+          <p style="font-weight:600;margin-bottom:14px">
+            “Me hice el pack de Vitamina D y hemograma a las 08:15 am antes de entrar a la oficina. A las 10:40 am ya tenía el PDF en mi WhatsApp.”
+          </p>
+          <strong>— Nicolás T. · Laboratorio Express</strong>
+        </article>
+      </div>
+    </section>
+
+    <!-- FORMULARIO CHECK-IN EXPRESS -->
+    <section id="urgencia">
+      <div class="express-form-box">
+        <div>
+          <span class="brutal-sticker">CERO FILA FÍSICA</span>
+          <h2 style="font-family:var(--font-display);font-size:2.1rem;text-transform:uppercase;line-height:1.05;margin-bottom:14px">
+            Bloquea tu Box en 30 Segundos
+          </h2>
+          <p style="font-weight:600;margin-bottom:18px">
+            Al enviar este formulario recibes tu código de turno directo para entrar sin pasar por ventanilla de admisión tradicional.
+          </p>
+          <div style="background:var(--pure-white);border:var(--border-med);padding:16px;box-shadow:var(--shadow-hard-sm);font-size:0.86rem;font-weight:700">
+            📍 Av. Providencia 1945 (Salida Metro Pedro de Valdivia) · Lunes a Domingo 08:00 a 22:00 hrs.
+          </div>
+        </div>
+
+        <form id="brutalForm">
+          <div style="background:var(--pure-white);border:var(--border-med);padding:12px 14px;font-size:0.8rem;font-weight:700;margin-bottom:16px">
+            ⚠️ <strong>DEMOSTRACIÓN INTERACTIVA:</strong> Este sistema de check-in es una simulación funcional del lado del cliente. No procesa datos reales.
+          </div>
+
+          <div class="form-2col">
+            <div>
+              <label for="bName" style="display:block;font-weight:700;font-size:0.82rem;margin-bottom:4px">TU NOMBRE</label>
+              <input type="text" id="bName" class="brutal-input" placeholder="Ej: Matías Vera" required />
+            </div>
+            <div>
+              <label for="bPhone" style="display:block;font-weight:700;font-size:0.82rem;margin-bottom:4px">WHATSAPP</label>
+              <input type="tel" id="bPhone" class="brutal-input" placeholder="+56 9 9123 4567" required />
+            </div>
+            <div>
+              <label for="bService" style="display:block;font-weight:700;font-size:0.82rem;margin-bottom:4px">PRESTACIÓN PRECIO FIJO</label>
+              <select id="bService" class="brutal-select">
+                <option value="Urgencia Dental + Rx ($19.900)">Urgencia Dental + Rx ($19.900)</option>
+                <option value="Limpieza Pro Airflow ($34.900)">Limpieza Pro Airflow ($34.900)</option>
+                <option value="Tapadura Estética 3M ($49.900)">Tapadura Estética 3M ($49.900)</option>
+                <option value="Pack Laboratorio Express ($24.900)">Pack Laboratorio Express ($24.900)</option>
+              </select>
+            </div>
+            <div>
+              <label for="bSlot" style="display:block;font-weight:700;font-size:0.82rem;margin-bottom:4px">BLOQUE HORARIO</label>
+              <select id="bSlot" class="brutal-select">
+                <option value="Hoy · Próximo Box Disponible (15 min)">Hoy · Próximo Box Disponible (15 min)</option>
+                <option value="Hoy · Tarde (16:00 a 20:00)">Hoy · Tarde (16:00 a 20:00)</option>
+                <option value="Mañana · Primera Hora (08:30)">Mañana · Primera Hora (08:30)</option>
+              </select>
+            </div>
+            <div class="full-span">
+              <button type="submit" class="brutal-btn brutal-btn-blue" style="width:100%;padding:16px;font-size:1rem">
+                GENERAR TICKET DE ATENCIÓN (DEMO) →
+              </button>
+            </div>
+          </div>
+
+          <div id="brutalFeedback" style="display:none;margin-top:16px;padding:16px;background:var(--pure-white);border:var(--border-heavy);box-shadow:var(--shadow-hard-sm);font-weight:700;" role="status"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-labelledby="lbTitle">
+    <div class="lightbox-box">
+      <img id="lbImg" src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=85" alt="Vista ampliada Directa Lab" onerror="this.onerror=null;this.src='../../images/demos/assets/med/clinic-box-dental.svg';"/>
+      <h3 id="lbTitle" style="font-family:var(--font-display);font-size:1.4rem;text-transform:uppercase;margin-bottom:8px"></h3>
+      <p id="lbDesc" style="font-weight:600;margin-bottom:18px"></p>
+      <button type="button" id="lbClose" class="brutal-btn">CERRAR VENTANA [X]</button>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px">
+      <span>DIRECTA LAB · Urgencia Dental Express &amp; Exámenes con Precios 100% Públicos</span>
+      <span>Estilo #19 Brutalist Healthcare · Diseñado por KuyénDev</span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      // Filtro de Tarifario
+      const switchBtns = document.querySelectorAll('.switch-btn');
+      const priceCards = document.querySelectorAll('.price-card');
+      switchBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          switchBtns.forEach(b => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+          const t = btn.dataset.type;
+          priceCards.forEach(card => {
+            card.style.display = (t === 'all' || card.dataset.kind === t) ? 'flex' : 'none';
+          });
+        });
+      });
+
+      // Calculadora de Cuenta Exacta
+      const calcRows = document.querySelectorAll('.calc-row');
+      const receiptLines = document.getElementById('receiptLines');
+      const receiptTotal = document.getElementById('receiptTotal');
+
+      function updateReceipt() {
+        let total = 0;
+        const lines = [];
+        calcRows.forEach(row => {
+          const labelSpan = row.querySelector('span');
+          const rawLabel = row.dataset.label;
+          const price = parseInt(row.dataset.price, 10);
+          if (row.classList.contains('is-selected')) {
+            total += price;
+            labelSpan.textContent = '[✓] ' + rawLabel;
+            lines.push(`• ${rawLabel}: $${price.toLocaleString('es-CL')}`);
+          } else {
+            labelSpan.textContent = '[ ] ' + rawLabel;
+          }
+        });
+        receiptLines.innerHTML = lines.length
+          ? lines.join('<br />')
+          : 'Selecciona al menos una prestación en la columna izquierda.';
+        receiptTotal.textContent = '$' + total.toLocaleString('es-CL') + ' CLP';
+      }
+
+      calcRows.forEach(row => {
+        row.addEventListener('click', () => {
+          row.classList.toggle('is-selected');
+          updateReceipt();
+        });
+      });
+
+      // Lightbox
+      const lightbox = document.getElementById('lightbox');
+      const lbImg = document.getElementById('lbImg');
+      const lbTitle = document.getElementById('lbTitle');
+      const lbDesc = document.getElementById('lbDesc');
+      const lbClose = document.getElementById('lbClose');
+
+      document.querySelectorAll('.lab-card').forEach(card => {
+        card.addEventListener('click', () => {
+          const img = card.querySelector('img');
+          lbImg.src = img.src;
+          lbImg.alt = img.alt;
+          lbTitle.textContent = card.dataset.title;
+          lbDesc.textContent = card.dataset.desc;
+          lightbox.classList.add('is-open');
+        });
+      });
+
+      lbClose.addEventListener('click', () => lightbox.classList.remove('is-open'));
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) lightbox.classList.remove('is-open');
+      });
+
+      // Formulario Check-in
+      const form = document.getElementById('brutalForm');
+      const feedback = document.getElementById('brutalFeedback');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('bName').value;
+        const service = document.getElementById('bService').value;
+        const slot = document.getElementById('bSlot').value;
+        feedback.style.display = 'block';
+        feedback.textContent = `⚡ [TURNO DEMO #DL-094] ${name}, tu cupo para ${service} (${slot}) está bloqueado con tarifa fija garantizada.`;
+        form.reset();
+      });
+    })();
+  </script>
+  <script src="../../js/config/rubros.js"></script>
+  <script src="../../js/demo-viewer-bar.js"></script>
+</body>
+</html>

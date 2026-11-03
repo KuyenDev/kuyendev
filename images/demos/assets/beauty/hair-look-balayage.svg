@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
+  <defs>
+    <linearGradient id="lookBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#18181B"/>
+      <stop offset="100%" stop-color="#27272A"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1000" fill="url(#lookBg)"/>
+  <circle cx="400" cy="420" r="280" fill="#3F3F46" opacity="0.4"/>
+  <!-- Silueta posterior de cabello largo con ondas balayage -->
+  <path d="M220 300 C200 120, 600 120, 580 300 C580 650, 620 780, 520 900 C460 960, 340 960, 280 900 C180 780, 220 650, 220 300 Z" fill="#78350F"/>
+  <!-- Mechas balayage doradas luminosas -->
+  <path d="M260 360 C280 550, 320 720, 380 880" fill="none" stroke="#FDE68A" stroke-width="18" stroke-linecap="round" filter="drop-shadow(0 0 8px rgba(253,230,138,0.3))"/>
+  <path d="M540 360 C520 550, 480 720, 420 880" fill="none" stroke="#FDE68A" stroke-width="18" stroke-linecap="round" filter="drop-shadow(0 0 8px rgba(253,230,138,0.3))"/>
+  <path d="M380 340 C390 550, 410 700, 400 860" fill="none" stroke="#F59E0B" stroke-width="14" stroke-linecap="round"/>
+  
+  <rect x="180" y="910" width="440" height="60" rx="30" fill="rgba(24,24,27,0.9)" stroke="#F59E0B" stroke-width="2"/>
+  <text x="400" y="946" text-anchor="middle" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="18" font-weight="700" fill="#FDE68A">Balayage Vainilla &amp; Ondas Dimensionales</text>
+</svg>

@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>MODULA STUDIO · Salón Multiespecialidad & Color Hub | Demo Bento Grid</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-slate: #0F172A;
+      --card-slate: #1E293B;
+      --card-border: rgba(148, 163, 184, 0.18);
+      --sky: #38BDF8;
+      --indigo: #818CF8;
+      --surface-light: #F8FAFC;
+      --text-muted: #94A3B8;
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --font-heading: 'Plus Jakarta Sans', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-slate);
+      color: var(--surface-light);
+      font-family: var(--font-body);
+      line-height: 1.55;
+      background-image:
+        radial-gradient(circle at 12% 10%, rgba(56, 189, 248, 0.14), transparent 36%),
+        radial-gradient(circle at 88% 20%, rgba(129, 140, 248, 0.14), transparent 40%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* FLOATING PILL HEADER */
+    .bento-header {
+      position: sticky;
+      top: 14px;
+      z-index: 100;
+      padding: 0 20px;
+      margin-bottom: 24px;
+    }
+
+    .bento-header__bar {
+      max-width: 1320px;
+      margin: 0 auto;
+      background: rgba(30, 41, 59, 0.85);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--card-border);
+      border-radius: 999px;
+      padding: 12px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      box-shadow: 0 16px 36px rgba(2, 6, 23, 0.45);
+    }
+
+    .logo-modula {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
+    }
+
+    .logo-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 4px;
+      background: linear-gradient(135deg, var(--sky), var(--indigo));
+    }
+
+    .bento-nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .bento-nav a {
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 0.86rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: color 0.2s ease, background-color 0.2s ease;
+    }
+
+    .bento-nav a:hover {
+      color: var(--surface-light);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .btn-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 999px;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.88rem;
+      background: linear-gradient(135deg, var(--sky), var(--indigo));
+      color: var(--bg-slate);
+      border: none;
+      cursor: pointer;
+      transition: transform 0.18s ease, filter 0.18s ease;
+    }
+
+    .btn-pill:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.08);
+    }
+
+    /* BENTO CARD BASE */
+    .bento-card {
+      background: var(--card-slate);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: 26px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .bento-card:hover {
+      border-color: rgba(56, 189, 248, 0.45);
+    }
+
+    .bento-card--light {
+      background: var(--surface-light);
+      color: var(--bg-slate);
+    }
+
+    .bento-card--gradient {
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.18), rgba(129, 140, 248, 0.22));
+      border-color: rgba(56, 189, 248, 0.35);
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      background: rgba(56, 189, 248, 0.14);
+      color: var(--sky);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      margin-bottom: 14px;
+    }
+
+    /* HERO BENTO MOSAIC (12 COLS) */
+    .hero-mosaic {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+      margin-bottom: 56px;
+    }
+
+    .cell-hero-main {
+      grid-column: span 7;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 410px;
+    }
+
+    .cell-hero-photo {
+      grid-column: span 5;
+      padding: 0;
+      min-height: 410px;
+      position: relative;
+    }
+
+    .cell-hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .photo-overlay-badge {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      right: 16px;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cell-stat-1 {
+      grid-column: span 4;
+    }
+
+    .cell-stat-2 {
+      grid-column: span 4;
+    }
+
+    .cell-stat-3 {
+      grid-column: span 4;
+    }
+
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 4.2vw, 3.35rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+
+    .hero-title span {
+      background: linear-gradient(90deg, var(--sky), var(--indigo));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .live-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #22C55E;
+      box-shadow: 0 0 10px #22C55E;
+      display: inline-block;
+    }
+
+    /* SECTION HEADERS */
+    .section-wrap {
+      margin-bottom: 64px;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .section-head h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.6rem, 3vw, 2.35rem);
+      letter-spacing: -0.02em;
+    }
+
+    /* MODULAR SERVICES BENTO */
+    .filter-pills {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 9px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--card-border);
+      background: var(--card-slate);
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+
+    .filter-btn.active {
+      background: var(--sky);
+      color: var(--bg-slate);
+      border-color: var(--sky);
+    }
+
+    .services-bento {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+    }
+
+    .srv-tile {
+      grid-column: span 4;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .srv-tile.wide {
+      grid-column: span 6;
+    }
+
+    .srv-tile__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .srv-price {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--sky);
+    }
+
+    .srv-tile h3 {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+
+    .srv-tile p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      margin-bottom: 18px;
+    }
+
+    .srv-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--card-border);
+      padding-top: 12px;
+      font-size: 0.83rem;
+    }
+
+    /* VISUAL EXPERIENCE: DIAGNOSTIC COLOR & CARE CALCULATOR */
+    .diagnostic-bento {
+      display: grid;
+      grid-template-columns: 7fr 5fr;
+      gap: 18px;
+    }
+
+    .step-selector {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin: 10px 0 20px;
+    }
+
+    .diag-opt {
+      padding: 12px;
+      border-radius: var(--radius-md);
+      background: rgba(15, 23, 42, 0.65);
+      border: 1px solid var(--card-border);
+      color: var(--surface-light);
+      text-align: left;
+      cursor: pointer;
+      font-family: var(--font-body);
+    }
+
+    .diag-opt.active {
+      border-color: var(--sky);
+      background: rgba(56, 189, 248, 0.14);
+    }
+
+    .diag-opt strong {
+      display: block;
+      font-size: 0.9rem;
+      margin-bottom: 2px;
+    }
+
+    .diag-opt span {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    /* LOOKBOOK BENTO */
+    .lookbook-bento {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+    }
+
+    .look-tile {
+      grid-column: span 3;
+      padding: 0;
+      cursor: pointer;
+      min-height: 290px;
+    }
+
+    .look-tile.featured {
+      grid-column: span 6;
+    }
+
+    .look-tile img {
+      width: 100%;
+      height: 100%;
+      min-height: 290px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .look-tile:hover img {
+      transform: scale(1.04);
+    }
+
+    .look-caption {
+      position: absolute;
+      inset: auto 12px 12px 12px;
+      background: rgba(15, 23, 42, 0.86);
+      backdrop-filter: blur(10px);
+      padding: 12px 14px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--card-border);
+    }
+
+    /* TEAM & TESTIMONIALS BENTO */
+    .hub-people-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+    }
+
+    .person-tile {
+      grid-column: span 4;
+    }
+
+    .person-tile img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+      margin-bottom: 14px;
+    }
+
+    .review-tile {
+      grid-column: span 4;
+    }
+
+    .fict-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(129, 140, 248, 0.16);
+      color: var(--indigo);
+      border: 1px solid rgba(129, 140, 248, 0.35);
+      margin-bottom: 10px;
+    }
+
+    /* BOOKING BENTO */
+    .booking-bento {
+      display: grid;
+      grid-template-columns: 8fr 4fr;
+      gap: 18px;
+    }
+
+    .mod-input-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .mod-field label {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    .mod-field input,
+    .mod-field select {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--card-border);
+      background: var(--bg-slate);
+      color: var(--surface-light);
+      font-family: var(--font-body);
+    }
+
+    .mod-toast {
+      display: none;
+      margin-top: 16px;
+      padding: 16px;
+      border-radius: var(--radius-md);
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid var(--sky);
+    }
+
+    /* LIGHTBOX */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(2, 6, 23, 0.88);
+      backdrop-filter: blur(8px);
+      z-index: 999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .lightbox.open {
+      display: flex;
+    }
+
+    .lightbox-panel {
+      background: var(--card-slate);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      max-width: 740px;
+      width: 100%;
+      padding: 20px;
+    }
+
+    .lightbox-panel img {
+      width: 100%;
+      max-height: 460px;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+      margin-bottom: 14px;
+    }
+
+    @media (max-width: 980px) {
+      .cell-hero-main,
+      .cell-hero-photo,
+      .cell-stat-1,
+      .cell-stat-2,
+      .cell-stat-3,
+      .srv-tile,
+      .srv-tile.wide,
+      .look-tile,
+      .look-tile.featured,
+      .person-tile,
+      .review-tile {
+        grid-column: span 12;
+      }
+      .diagnostic-bento,
+      .booking-bento,
+      .mod-input-grid,
+      .step-selector {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body data-rubro-id="peluqueria" data-style-id="bento-grid">
+
+  <!-- HEADER -->
+  <header class="bento-header">
+    <div class="bento-header__bar">
+      <a href="#top" class="logo-modula">
+        <span class="logo-dot"></span>
+        MODULA STUDIO <span style="font-size: 0.72rem; color: var(--sky); font-weight: 600">// BENTO #08</span>
+      </a>
+      <nav class="bento-nav" aria-label="Navegación principal">
+        <a href="#mosaico-servicios">Módulos de Servicio</a>
+        <a href="#color-hub">Diagnóstico Capilar</a>
+        <a href="#lookbook">Lookbook Grid</a>
+        <a href="#especialistas">Especialistas</a>
+        <a href="#agenda" class="btn-pill">Agendar Turno</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" class="container">
+    <!-- HERO BENTO MOSAIC -->
+    <section class="hero-mosaic" aria-label="Presentación principal">
+      <div class="bento-card cell-hero-main">
+        <div>
+          <span class="chip"><span class="live-dot"></span> DISPONIBILIDAD EN TIEMPO REAL · 4 ESTACIONES LIBRES HOY</span>
+          <h1 class="hero-title">
+            Salón Multiespecialidad & <span>Colorimetría de Precisión</span> en Módulos Claros.
+          </h1>
+          <p style="color: var(--text-muted); font-size: 1.05rem; max-width: 58ch; margin-bottom: 24px">
+            En <strong>MODULA STUDIO</strong> organizamos corte arquitectónico, balayage multidimensional, Gloss Bar y recuperación molecular en bloques transparentes con tiempo y valor exacto desde el primer clic.
+          </p>
+        </div>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap">
+          <a href="#agenda" class="btn-pill">Reservar Bloque Ahora →</a>
+          <a href="#color-hub" class="btn-pill" style="background: rgba(255,255,255,0.08); color: var(--surface-light)">Simular Diagnóstico</a>
+        </div>
+      </div>
+
+      <div class="bento-card cell-hero-photo">
+        <img
+          src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=900&q=80"
+          alt="Estación moderna de estilismo y colorimetría en Modula Studio"
+          onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/hair-look-balayage.svg';"/>
+        <div class="photo-overlay-badge">
+          <div>
+            <strong style="display: block; font-size: 0.92rem">Color Hub & Gloss Bar</strong>
+            <span style="font-size: 0.78rem; color: var(--text-muted)">Fórmulas sin amoníaco · Bond Builder incluido</span>
+          </div>
+          <span class="chip" style="margin: 0">4.9 ★</span>
+        </div>
+      </div>
+
+      <div class="bento-card cell-stat-1 bento-card--gradient">
+        <span class="chip">MÓDULO EXPRESS</span>
+        <h2 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 6px">Gloss & Blowout 45'</h2>
+        <p style="font-size: 0.88rem; color: var(--text-muted)">Baño de brillo ácido + brushing pulido ideal entre reuniones.</p>
+      </div>
+
+      <div class="bento-card cell-stat-2">
+        <span class="chip" style="color: var(--indigo); border-color: rgba(129,140,248,0.35); background: rgba(129,140,248,0.14)">TECNOLOGÍA K18 + OLAPLEX</span>
+        <h2 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 6px">100% Fibra Protegida</h2>
+        <p style="font-size: 0.88rem; color: var(--text-muted)">Todos nuestros módulos de decoloración incluyen péptidos biomiméticos.</p>
+      </div>
+
+      <div class="bento-card cell-stat-3 bento-card--light">
+        <span class="chip" style="background: var(--bg-slate); color: var(--sky)">HORARIO EXTENDIDO</span>
+        <h2 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 6px">Lun — Sáb · 09:00 a 21:00</h2>
+        <p style="font-size: 0.88rem; color: #334155">Wi-Fi de alta velocidad en estación para teletrabajo + barra Matcha & Espresso.</p>
+      </div>
+    </section>
+
+    <!-- MÓDULOS DE SERVICIO INTERACTIVOS -->
+    <section id="mosaico-servicios" class="section-wrap">
+      <div class="section-head">
+        <div>
+          <span class="chip">01 · ARQUITECTURA DE SERVICIOS</span>
+          <h2>Explora Nuestros Módulos por Especialidad</h2>
+        </div>
+        <div class="filter-pills" role="tablist" aria-label="Filtrar módulos de servicio">
+          <button type="button" class="filter-btn active" data-mod="all" role="tab" aria-selected="true">Todos (6)</button>
+          <button type="button" class="filter-btn" data-mod="color" role="tab" aria-selected="false">Color Hub</button>
+          <button type="button" class="filter-btn" data-mod="corte" role="tab" aria-selected="false">Corte & Diseño</button>
+          <button type="button" class="filter-btn" data-mod="reparacion" role="tab" aria-selected="false">Bio-Reparación</button>
+        </div>
+      </div>
+
+      <div class="services-bento">
+        <article class="bento-card srv-tile wide" data-mod="color">
+          <div>
+            <div class="srv-tile__header">
+              <span class="chip" style="margin:0">COLOR HUB DESTACADO</span>
+              <span class="srv-price">$78.000</span>
+            </div>
+            <h3>Balayage Dimensional + Babylights + Tonalizado</h3>
+            <p>Iluminación personalizada según subtono de piel, fundido de raíz sin marcas de crecimiento (Shadow Root) y sellado con péptidos.</p>
+          </div>
+          <div class="srv-footer">
+            <span>⏱ 180 min · Incluye K18 Mask</span>
+            <button type="button" class="btn-pill mod-book-trigger" data-srv="Balayage Dimensional ($78.000)" style="padding: 6px 14px; font-size: 0.78rem">Agendar módulo</button>
+          </div>
+        </article>
+
+        <article class="bento-card srv-tile wide" data-mod="color">
+          <div>
+            <div class="srv-tile__header">
+              <span class="chip" style="margin:0">GLOSS BAR</span>
+              <span class="srv-price">$36.000</span>
+            </div>
+            <h3>Toner Acid Gloss & Brushing Espejo</h3>
+            <p>Neutralización de reflejos no deseados, recarga de pigmento traslúcido de alto brillo y peinado con ondas suaves o liso cristal.</p>
+          </div>
+          <div class="srv-footer">
+            <span>⏱ 60 min · Brillo instantáneo</span>
+            <button type="button" class="btn-pill mod-book-trigger" data-srv="Toner Acid Gloss & Brushing ($36.000)" style="padding: 6px 14px; font-size: 0.78rem">Agendar módulo</button>
+          </div>
+        </article>
+
+        <article class="bento-card srv-tile" data-mod="corte">
+          <div>
+            <div class="srv-tile__header">
+              <span class="chip" style="margin:0">CORTE DE AUTOR</span>
+              <span class="srv-price">$28.000</span>
+            </div>
+            <h3>Corte Modular & Visagismo Digital</h3>
+            <p>Diseño de capas, bob arquitectónico o butterfly cut adaptado a tu textura natural.</p>
+          </div>
+          <div class="srv-footer">
+            <span>⏱ 55 min</span>
+            <button type="button" class="btn-pill mod-book-trigger" data-srv="Corte Modular & Visagismo ($28.000)" style="padding: 6px 14px; font-size: 0.78rem">Elegir</button>
+          </div>
+        </article>
+
+        <article class="bento-card srv-tile" data-mod="corte">
+          <div>
+            <div class="srv-tile__header">
+              <span class="chip" style="margin:0">BARBER & PIXIE</span>
+              <span class="srv-price">$23.000</span>
+            </div>
+            <h3>Short Cut / Pixie / Scissor Taper</h3>
+            <p>Cortes cortos de alta precisión con texturizado en seco y acabado ligero.</p>
+          </div>
+          <div class="srv-footer">
+            <span>⏱ 45 min</span>
+            <button type="button" class="btn-pill mod-book-trigger" data-srv="Short Cut / Pixie ($23.000)" style="padding: 6px 14px; font-size: 0.78rem">Elegir</button>
+          </div>
+        </article>
+
+        <article class="bento-card srv-tile" data-mod="reparacion">
+          <div>
+            <div class="srv-tile__header">
+              <span class="chip" style="margin:0">BIO-LAB</span>
+              <span class="srv-price">$42.000</span>
+            </div>
+            <h3>Reconstrucción Molecular K18 + Ultrasonido</h3>
+            <p>Terapia profunda con plancha ultrasónica fría que infunde aminoácidos en el córtex.</p>
+          </div>
+          <div class="srv-footer">
+            <span>⏱ 65 min</span>
+            <button type="button" class="btn-pill mod-book-trigger" data-srv="Reconstrucción Molecular K18 ($42.000)" style="padding: 6px 14px; font-size: 0.78rem">Elegir</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- EXPERIENCIA VISUAL INTERACTIVA: SIMULADOR DE DIAGNÓSTICO BENTO -->
+    <section id="color-hub" class="section-wrap">
+      <div class="section-head">
+        <div>
+          <span class="chip">02 · INTERACTIVE COLOR HUB</span>
+          <h2>Simulador Modular de Presupuesto & Tiempo</h2>
+        </div>
+      </div>
+
+      <div class="diagnostic-bento">
+        <div class="bento-card">
+          <h3 style="font-family: var(--font-heading); margin-bottom: 6px">1. Largo Actual del Cabello</h3>
+          <div class="step-selector" id="lenSelector">
+            <button type="button" class="diag-opt active" data-mult="1" data-label="Corto / Mentón">
+              <strong>Corto / Bob</strong>
+              <span>Sobre los hombros</span>
+            </button>
+            <button type="button" class="diag-opt" data-mult="1.2" data-label="Medio / Clavícula">
+              <strong>Largo Medio</strong>
+              <span>Altura clavícula</span>
+            </button>
+            <button type="button" class="diag-opt" data-mult="1.4" data-label="Largo / XL">
+              <strong>Largo / XL</strong>
+              <span>Bajo omóplatos</span>
+            </button>
+          </div>
+
+          <h3 style="font-family: var(--font-heading); margin-bottom: 6px">2. Objetivo Principal Hoy</h3>
+          <div class="step-selector" id="goalSelector">
+            <button type="button" class="diag-opt active" data-base="36000" data-mins="60" data-title="Gloss & Corte">
+              <strong>Brillo & Corte</strong>
+              <span>Refrescar tono y puntas</span>
+            </button>
+            <button type="button" class="diag-opt" data-base="68000" data-mins="150" data-title="Iluminación Contour">
+              <strong>Face Framing / Contour</strong>
+              <span>Luz frontal + matiz</span>
+            </button>
+            <button type="button" class="diag-opt" data-base="82000" data-mins="190" data-title="Balayage Global + K18">
+              <strong>Cambio Global</strong>
+              <span>Balayage + reparación</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="bento-card bento-card--gradient" style="display: flex; flex-direction: column; justify-content: space-between">
+          <div>
+            <span class="chip">RESULTADO DEL DIAGNÓSTICO</span>
+            <h3 id="diagResultTitle" style="font-family: var(--font-heading); font-size: 1.6rem; margin-bottom: 10px">
+              Gloss & Corte · Corto / Mentón
+            </h3>
+            <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 18px">
+              Incluye lavado relajante shiatsu, diagnóstico con microcámara capilar y protector térmico final.
+            </p>
+          </div>
+
+          <div style="background: rgba(15, 23, 42, 0.75); padding: 18px; border-radius: var(--radius-md); border: 1px solid var(--card-border)">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px">
+              <div>
+                <span style="font-size: 0.78rem; color: var(--text-muted); display: block">INVERSIÓN ESTIMADA</span>
+                <strong id="diagPrice" style="font-family: var(--font-heading); font-size: 2rem; color: var(--sky)">$36.000</strong>
+              </div>
+              <div style="text-align: right">
+                <span style="font-size: 0.78rem; color: var(--text-muted); display: block">DURACIÓN</span>
+                <strong id="diagTime" style="font-size: 1.1rem">60 min</strong>
+              </div>
+            </div>
+            <button type="button" class="btn-pill" id="sendDiagToForm" style="width: 100%">Usar esta configuración en mi reserva</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOOKBOOK BENTO CON LIGHTBOX -->
+    <section id="lookbook" class="section-wrap">
+      <div class="section-head">
+        <div>
+          <span class="chip">03 · PORTFOLIO EN CUADRÍCULA</span>
+          <h2>Lookbook Modular (Clic para Zoom)</h2>
+        </div>
+      </div>
+
+      <div class="lookbook-bento">
+        <article class="bento-card look-tile featured" tabindex="0" role="button" data-title="VANILLA BLONDE BALAYAGE" data-desc="Transición suave desde base 6 con puntas vainilla luminosas y tratamiento K18." data-img="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85">
+          <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=900&q=80" alt="Vanilla Blonde Balayage en Modula Studio" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/hair-look-balayage.svg';"/>
+          <div class="look-caption">
+            <strong>Vanilla Blonde Balayage</strong>
+            <span style="display: block; font-size: 0.78rem; color: var(--sky)">Módulo Color Hub · Ver detalle</span>
+          </div>
+        </article>
+
+        <article class="bento-card look-tile" tabindex="0" role="button" data-title="ITALIAN BOB PRECISO" data-desc="Corte recto a la altura de la mandíbula con volumen aireado y brillo espejo." data-img="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80">
+          <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=900&q=80" alt="Italian Bob en Modula Studio" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/hair-look-balayage.svg';"/>
+          <div class="look-caption">
+            <strong>Italian Bob Preciso</strong>
+            <span style="display: block; font-size: 0.78rem; color: var(--sky)">Módulo Corte · Zoom</span>
+          </div>
+        </article>
+
+        <article class="bento-card look-tile" tabindex="0" role="button" data-title="COPPER GLOSS MULTIDIMENSIONAL" data-desc="Cobrizo cálido formulado con pigmentos ácidos de alta reflectancia." data-img="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=800&q=80">
+          <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85" alt="Copper Gloss en Modula Studio" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg';"/>
+          <div class="look-caption">
+            <strong>Copper Gloss</strong>
+            <span style="display: block; font-size: 0.78rem; color: var(--sky)">Gloss Bar · Zoom</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- EQUIPO Y TESTIMONIOS EN BENTO -->
+    <section id="especialistas" class="section-wrap">
+      <div class="section-head">
+        <div>
+          <span class="chip">04 · ESPECIALISTAS & EXPERIENCIAS</span>
+          <h2>Equipo Directivo & Reseñas Verificadas</h2>
+        </div>
+      </div>
+
+      <div class="hub-people-grid">
+        <article class="bento-card person-tile">
+          <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=900&q=80" alt="Martina Soler - Directora de Colorimetría" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/stylist-female-1.svg';"/>
+          <span class="chip">COLOR HUB LEAD</span>
+          <h3 style="font-family: var(--font-heading)">Martina Soler</h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted)">Master en rubios fríos, correcciones de color complejas y formulación sin amoníaco.</p>
+        </article>
+
+        <article class="bento-card person-tile">
+          <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=900&q=80" alt="Lucas Arancibia - Arquitecto de Corte" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/hair-look-balayage.svg';"/>
+          <span class="chip">CUTTING ARCHITECT</span>
+          <h3 style="font-family: var(--font-heading)">Lucas Arancibia</h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted)">Especialista en bobs geométricos, capas invisibles y cortes de bajo mantenimiento.</p>
+        </article>
+
+        <article class="bento-card person-tile">
+          <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85" alt="Sofía K. - Tricología y Bio-Reparación" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg';"/>
+          <span class="chip">TRICOLOGÍA & BIO-LAB</span>
+          <h3 style="font-family: var(--font-heading)">Sofía Kunstmann</h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted)">Encargada de protocolos moleculares K18, detox de cuero cabelludo y ultrasonido capilar.</p>
+        </article>
+
+        <article class="bento-card review-tile">
+          <span class="fict-tag">[Testimonio Ficticio de Demostración]</span>
+          <p style="font-size: 0.95rem; margin-bottom: 12px">“Me encanta que todo esté dividido por módulos con precios transparentes. El simulador calculó exacto lo que pagué en el salón.”</p>
+          <strong style="font-size: 0.85rem; color: var(--sky)">— Francisca V. · Product Manager</strong>
+        </article>
+
+        <article class="bento-card review-tile">
+          <span class="fict-tag">[Testimonio Ficticio de Demostración]</span>
+          <p style="font-size: 0.95rem; margin-bottom: 12px">“Fui al Gloss Bar en mi hora de almuerzo y en 50 minutos salí con el pelo brillante y pude seguir trabajando con su Wi-Fi.”</p>
+          <strong style="font-size: 0.85rem; color: var(--sky)">— Javiera M. · Arquitecta</strong>
+        </article>
+
+        <article class="bento-card review-tile">
+          <span class="fict-tag">[Testimonio Ficticio de Demostración]</span>
+          <p style="font-size: 0.95rem; margin-bottom: 12px">“El Balayage Dimensional de Martina no deja marcas cuando crece la raíz. Llevo 4 meses y sigue viéndose luminoso.”</p>
+          <strong style="font-size: 0.85rem; color: var(--sky)">— Trinidad R. · Fotógrafa</strong>
+        </article>
+      </div>
+    </section>
+
+    <!-- RESERVA BENTO -->
+    <section id="agenda" class="section-wrap">
+      <div class="section-head">
+        <div>
+          <span class="chip">05 · RESERVA MODULAR</span>
+          <h2>Agenda tu Estación en Modula Studio</h2>
+        </div>
+        <span class="fict-tag">[Demostración Interactiva · Sin procesamiento de datos reales]</span>
+      </div>
+
+      <div class="booking-bento">
+        <form class="bento-card" id="bentoForm">
+          <div class="mod-input-grid">
+            <div class="mod-field">
+              <label for="bName">Nombre y Apellido</label>
+              <input type="text" id="bName" required placeholder="Ej: Valentina Rojas" />
+            </div>
+            <div class="mod-field">
+              <label for="bPhone">WhatsApp</label>
+              <input type="tel" id="bPhone" required placeholder="+56 9 9123 4567" />
+            </div>
+          </div>
+
+          <div class="mod-input-grid">
+            <div class="mod-field">
+              <label for="bService">Módulo Seleccionado</label>
+              <select id="bService" required>
+                <option value="Balayage Dimensional ($78.000)">Balayage Dimensional ($78.000)</option>
+                <option value="Toner Acid Gloss & Brushing ($36.000)">Toner Acid Gloss & Brushing ($36.000)</option>
+                <option value="Corte Modular & Visagismo ($28.000)">Corte Modular & Visagismo ($28.000)</option>
+                <option value="Short Cut / Pixie ($23.000)">Short Cut / Pixie ($23.000)</option>
+                <option value="Reconstrucción Molecular K18 ($42.000)">Reconstrucción Molecular K18 ($42.000)</option>
+              </select>
+            </div>
+            <div class="mod-field">
+              <label for="bSpec">Especialista</label>
+              <select id="bSpec">
+                <option value="Martina Soler (Color Hub)">Martina Soler (Color Hub)</option>
+                <option value="Lucas Arancibia (Corte)">Lucas Arancibia (Corte)</option>
+                <option value="Sofía Kunstmann (Bio-Lab)">Sofía Kunstmann (Bio-Lab)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="mod-input-grid">
+            <div class="mod-field">
+              <label for="bDate">Fecha</label>
+              <input type="date" id="bDate" required />
+            </div>
+            <div class="mod-field">
+              <label for="bTime">Bloque</label>
+              <select id="bTime">
+                <option value="10:00 hrs">10:00 hrs</option>
+                <option value="13:00 hrs">13:00 hrs</option>
+                <option value="16:30 hrs">16:30 hrs</option>
+                <option value="19:00 hrs">19:00 hrs</option>
+              </select>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-pill" style="width: 100%; padding: 14px">Confirmar Reserva Modular (Demo)</button>
+          <div class="mod-toast" id="bentoToast" role="status" aria-live="polite"></div>
+        </form>
+
+        <aside class="bento-card bento-card--light" style="display: flex; flex-direction: column; justify-content: space-between">
+          <div>
+            <span class="chip" style="background: var(--bg-slate); color: var(--sky)">HUB NUEVA COSTANERA</span>
+            <h3 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 10px">
+              Av. Vitacura 3940, Piso 2
+            </h3>
+            <p style="color: #475569; font-size: 0.92rem; margin-bottom: 16px">
+              Estacionamiento subterráneo liberado para clientes, estaciones con cargador USB-C y carta de infusiones sin costo.
+            </p>
+          </div>
+          <div style="background: #E2E8F0; padding: 14px; border-radius: var(--radius-md); font-size: 0.82rem; color: #1E293B">
+            <strong>Modo Demostración KuyénDev:</strong> Prueba los filtros, el simulador de diagnóstico y el formulario para experimentar la fluidez del diseño Bento Grid.
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="bLightbox" role="dialog" aria-modal="true" aria-labelledby="bLightTitle">
+    <div class="lightbox-panel">
+      <img id="bLightImg" src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=900&q=80" alt="Look ampliado" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/hair-look-balayage.svg';"/>
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap">
+        <div>
+          <h3 id="bLightTitle" style="font-family: var(--font-heading)">LOOK</h3>
+          <p id="bLightDesc" style="color: var(--text-muted); font-size: 0.9rem"></p>
+        </div>
+        <button type="button" class="btn-pill" id="bLightClose">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="container" style="padding: 32px 20px 56px; text-align: center; color: var(--text-muted); font-size: 0.86rem">
+    <p><strong>MODULA STUDIO</strong> · Estilo #08 Bento Grid · Demostración interactiva desarrollada por KuyénDev.</p>
+  </footer>
+
+  <script>
+    (function () {
+      // Filtros de módulos
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const srvTiles = document.querySelectorAll('.srv-tile');
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => {
+            b.classList.remove('active');
+            b.setAttribute('aria-selected', 'false');
+          });
+          btn.classList.add('active');
+          btn.setAttribute('aria-selected', 'true');
+          const mod = btn.dataset.mod;
+          srvTiles.forEach(tile => {
+            tile.style.display = (mod === 'all' || tile.dataset.mod === mod) ? 'flex' : 'none';
+          });
+        });
+      });
+
+      const bService = document.getElementById('bService');
+      document.querySelectorAll('.mod-book-trigger').forEach(btn => {
+        btn.addEventListener('click', () => {
+          bService.value = btn.dataset.srv;
+          document.getElementById('agenda').scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+
+      // Simulador Diagnóstico
+      const updateDiag = () => {
+        const lenBtn = document.querySelector('#lenSelector .diag-opt.active');
+        const goalBtn = document.querySelector('#goalSelector .diag-opt.active');
+        const mult = parseFloat(lenBtn.dataset.mult);
+        const base = parseInt(goalBtn.dataset.base, 10);
+        const mins = Math.round(parseInt(goalBtn.dataset.mins, 10) * (mult === 1 ? 1 : mult * 0.92));
+        const price = Math.round((base * mult) / 1000) * 1000;
+
+        document.getElementById('diagResultTitle').textContent = `${goalBtn.dataset.title} · ${lenBtn.dataset.label}`;
+        document.getElementById('diagPrice').textContent = '$' + price.toLocaleString('es-CL');
+        document.getElementById('diagTime').textContent = `${mins} min`;
+      };
+
+      ['lenSelector', 'goalSelector'].forEach(id => {
+        const wrap = document.getElementById(id);
+        wrap.querySelectorAll('.diag-opt').forEach(btn => {
+          btn.addEventListener('click', () => {
+            wrap.querySelectorAll('.diag-opt').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            updateDiag();
+          });
+        });
+      });
+
+      document.getElementById('sendDiagToForm').addEventListener('click', () => {
+        const title = document.getElementById('diagResultTitle').textContent;
+        const price = document.getElementById('diagPrice').textContent;
+        const val = `Diagnóstico: ${title} (${price})`;
+        let opt = bService.querySelector('option[data-diag="1"]');
+        if (!opt) {
+          opt = document.createElement('option');
+          opt.setAttribute('data-diag', '1');
+          bService.prepend(opt);
+        }
+        opt.value = val;
+        opt.textContent = val;
+        bService.value = val;
+        document.getElementById('agenda').scrollIntoView({ behavior: 'smooth' });
+      });
+
+      // Lightbox
+      const bLightbox = document.getElementById('bLightbox');
+      document.querySelectorAll('.look-tile').forEach(tile => {
+        const open = () => {
+          document.getElementById('bLightImg').src = tile.dataset.img;
+          document.getElementById('bLightTitle').textContent = tile.dataset.title;
+          document.getElementById('bLightDesc').textContent = tile.dataset.desc;
+          bLightbox.classList.add('open');
+        };
+        tile.addEventListener('click', open);
+        tile.addEventListener('keydown', e => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            open();
+          }
+        });
+      });
+      document.getElementById('bLightClose').addEventListener('click', () => bLightbox.classList.remove('open'));
+      bLightbox.addEventListener('click', e => {
+        if (e.target === bLightbox) bLightbox.classList.remove('open');
+      });
+
+      // Formulario
+      document.getElementById('bentoForm').addEventListener('submit', e => {
+        e.preventDefault();
+        const name = document.getElementById('bName').value.trim();
+        const srv = bService.value;
+        const spec = document.getElementById('bSpec').value;
+        const date = document.getElementById('bDate').value;
+        const time = document.getElementById('bTime').value;
+        const toast = document.getElementById('bentoToast');
+        toast.style.display = 'block';
+        toast.innerHTML = `✓ <strong>[MÓDULO DE DEMOSTRACIÓN RESERVADO]</strong><br>Hola ${name}, hemos simulado tu cita para <strong>${srv}</strong> con <strong>${spec}</strong> el <strong>${date}</strong> a las <strong>${time}</strong>.`;
+      });
+    })();
+  </script>
+  <script src="../../js/config/rubros.js"></script>
+  <script src="../../js/demo-viewer-bar.js"></script>
+</body>
+</html>

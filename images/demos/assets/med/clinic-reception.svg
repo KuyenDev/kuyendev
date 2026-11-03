@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <defs>
+    <linearGradient id="recWall" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F1F5F9"/>
+      <stop offset="100%" stop-color="#E2E8F0"/>
+    </linearGradient>
+    <linearGradient id="wood" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#D97706"/>
+      <stop offset="100%" stop-color="#B45309"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#recWall)"/>
+  <rect y="500" width="1200" height="300" fill="#94A3B8"/>
+  <!-- Mostrador curvo de recepción en roble y cuarzo -->
+  <path d="M200 620 C200 480, 1000 480, 1000 620 L960 740 C960 620, 240 620, 240 740 Z" fill="url(#wood)" stroke="#78350F" stroke-width="3"/>
+  <path d="M180 500 C180 440, 1020 440, 1020 500 L980 540 C980 490, 220 490, 220 540 Z" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2"/>
+  <!-- Logotipo central retroiluminado -->
+  <circle cx="600" cy="240" r="65" fill="#FFFFFF" stroke="#0284C7" stroke-width="4" filter="drop-shadow(0 10px 20px rgba(2,132,199,0.15))"/>
+  <path d="M580 240 L620 240 M600 220 L600 260" stroke="#0284C7" stroke-width="10" stroke-linecap="round"/>
+  <text x="600" y="350" text-anchor="middle" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="24" font-weight="800" fill="#0F172A">RECEPCIÓN &amp; ADMISIÓN CENTRAL</text>
+</svg>

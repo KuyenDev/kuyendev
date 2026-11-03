@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>CHROMA POP! · Peluquería Creativa & Color Block Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --pop-coral: #FF6B6B;
+      --pop-mint: #4ECDC4;
+      --pop-yellow: #FFE66D;
+      --pop-ink: #292F36;
+      --pop-cream: #FFFDF7;
+      --font-display: 'Fredoka', sans-serif;
+      --font-body: 'Poppins', sans-serif;
+      --border-pop: 4px solid #292F36;
+      --shadow-pop: 7px 7px 0px #292F36;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--pop-cream);
+      color: var(--pop-ink);
+      font-family: var(--font-body);
+    }
+
+    body {
+      background-color: var(--pop-cream);
+      background-image: radial-gradient(rgba(41, 47, 54, 0.14) 2px, transparent 2px);
+      background-size: 26px 26px;
+      color: var(--pop-ink);
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    /* Header Color Block */
+    .pop-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--pop-yellow);
+      border-bottom: var(--border-pop);
+    }
+
+    .pop-header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 0;
+      gap: 1rem;
+    }
+
+    .pop-logo {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 700;
+      background: var(--pop-coral);
+      color: #fff;
+      padding: 0.3rem 1rem;
+      border: var(--border-pop);
+      border-radius: 14px;
+      box-shadow: 4px 4px 0 var(--pop-ink);
+      transform: rotate(-2deg);
+      display: inline-block;
+    }
+
+    .pop-nav {
+      display: flex;
+      gap: 1rem;
+      list-style: none;
+    }
+
+    .pop-nav a {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 0.45rem 0.95rem;
+      border-radius: 999px;
+      border: 2px solid transparent;
+      transition: all 0.15s ease;
+    }
+
+    .pop-nav a:hover {
+      background: #fff;
+      border-color: var(--pop-ink);
+      box-shadow: 3px 3px 0 var(--pop-ink);
+    }
+
+    .btn-pop {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.6rem;
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      background: var(--pop-mint);
+      color: var(--pop-ink);
+      border: var(--border-pop);
+      border-radius: 999px;
+      box-shadow: var(--shadow-pop);
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .btn-pop:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 9px 9px 0 var(--pop-ink);
+    }
+
+    .btn-pop:active {
+      transform: translate(3px, 3px);
+      box-shadow: 2px 2px 0 var(--pop-ink);
+    }
+
+    .btn-coral {
+      background: var(--pop-coral);
+      color: #fff;
+    }
+
+    .btn-yellow {
+      background: var(--pop-yellow);
+      color: var(--pop-ink);
+    }
+
+    /* Hero Color Block */
+    .hero-pop {
+      padding: 3.5rem 0 4.5rem;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .comic-badge {
+      display: inline-block;
+      background: var(--pop-mint);
+      border: 3px solid var(--pop-ink);
+      border-radius: 999px;
+      padding: 0.35rem 1rem;
+      font-family: var(--font-display);
+      font-size: 0.88rem;
+      font-weight: 700;
+      box-shadow: 4px 4px 0 var(--pop-ink);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-pop-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5.2vw, 4.5rem);
+      line-height: 1.04;
+      margin-bottom: 1.25rem;
+      color: var(--pop-ink);
+    }
+
+    .highlight-word {
+      background: var(--pop-yellow);
+      padding: 0 0.45rem;
+      border: 3px solid var(--pop-ink);
+      border-radius: 12px;
+      display: inline-block;
+      transform: rotate(1.5deg);
+    }
+
+    .hero-pop-desc {
+      font-size: 1.08rem;
+      margin-bottom: 2rem;
+      max-width: 540px;
+    }
+
+    .hero-frame-stack {
+      position: relative;
+      background: var(--pop-coral);
+      border: var(--border-pop);
+      border-radius: 28px;
+      padding: 1.25rem;
+      box-shadow: 12px 12px 0 var(--pop-ink);
+    }
+
+    .sticker-burst {
+      position: absolute;
+      top: -22px;
+      right: -16px;
+      background: var(--pop-yellow);
+      border: var(--border-pop);
+      border-radius: 50%;
+      width: 110px;
+      height: 110px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.85rem;
+      line-height: 1.1;
+      transform: rotate(12deg);
+      box-shadow: 4px 4px 0 var(--pop-ink);
+      z-index: 3;
+    }
+
+    .hero-photo-box {
+      border: var(--border-pop);
+      border-radius: 20px;
+      overflow: hidden;
+      height: 440px;
+      background: #fff;
+    }
+
+    .hero-photo-box img {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Section Title Banner */
+    .pop-section {
+      padding: 4.5rem 0;
+      border-top: var(--border-pop);
+    }
+
+    .pop-section.bg-mint {
+      background-color: var(--pop-mint);
+    }
+
+    .pop-section.bg-yellow {
+      background-color: var(--pop-yellow);
+    }
+
+    .pop-section.bg-coral {
+      background-color: var(--pop-coral);
+    }
+
+    .pop-head {
+      text-align: center;
+      margin-bottom: 2.75rem;
+    }
+
+    .pop-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3.8vw, 3.1rem);
+      margin-bottom: 0.5rem;
+    }
+
+    /* Visual Interactive Experience: Color-Block Hair Customizer */
+    .mixer-board {
+      background: var(--pop-cream);
+      border: var(--border-pop);
+      border-radius: 28px;
+      padding: clamp(1.5rem, 3.5vw, 3rem);
+      box-shadow: 10px 10px 0 var(--pop-ink);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .zone-picker {
+      margin-bottom: 1.5rem;
+    }
+
+    .zone-title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      margin-bottom: 0.65rem;
+      display: block;
+    }
+
+    .color-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+    }
+
+    .color-chip {
+      padding: 0.55rem 1rem;
+      border: 3px solid var(--pop-ink);
+      border-radius: 12px;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #fff;
+      box-shadow: 3px 3px 0 var(--pop-ink);
+    }
+
+    .color-chip.active {
+      transform: translate(-2px, -2px);
+      box-shadow: 5px 5px 0 var(--pop-ink);
+      background: var(--pop-yellow);
+    }
+
+    .chip-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 2px solid var(--pop-ink);
+    }
+
+    .pop-avatar-stage {
+      background: #fff;
+      border: var(--border-pop);
+      border-radius: 24px;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 6px 6px 0 var(--pop-ink);
+    }
+
+    .svg-hair-canvas {
+      max-width: 280px;
+      margin: 0 auto 1rem;
+    }
+
+    /* Interactive Services Menu */
+    .pop-filter-bar {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      margin-bottom: 2.25rem;
+    }
+
+    .pop-filter-btn {
+      padding: 0.65rem 1.35rem;
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 700;
+      border: 3px solid var(--pop-ink);
+      border-radius: 999px;
+      background: #fff;
+      box-shadow: 4px 4px 0 var(--pop-ink);
+      cursor: pointer;
+    }
+
+    .pop-filter-btn.active {
+      background: var(--pop-coral);
+      color: #fff;
+    }
+
+    .pop-services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .pop-service-card {
+      background: #fff;
+      border: var(--border-pop);
+      border-radius: 22px;
+      padding: 1.75rem;
+      box-shadow: var(--shadow-pop);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.25rem;
+    }
+
+    .pop-price-tag {
+      display: inline-block;
+      background: var(--pop-yellow);
+      border: 2px solid var(--pop-ink);
+      border-radius: 10px;
+      padding: 0.25rem 0.75rem;
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    /* Lookbook Gallery */
+    .pop-look-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+
+    .pop-look-card {
+      background: #fff;
+      border: var(--border-pop);
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: var(--shadow-pop);
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .pop-look-card:hover {
+      transform: translateY(-6px) rotate(-1deg);
+    }
+
+    .pop-look-img {
+      aspect-ratio: 3 / 4;
+      border-bottom: var(--border-pop);
+      overflow: hidden;
+    }
+
+    .pop-look-img img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .pop-look-footer {
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-display);
+      font-weight: 700;
+    }
+
+    /* Team */
+    .pop-team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+    }
+
+    .pop-member {
+      background: var(--pop-cream);
+      border: var(--border-pop);
+      border-radius: 24px;
+      padding: 1.75rem;
+      box-shadow: var(--shadow-pop);
+      text-align: center;
+    }
+
+    .pop-member-pic {
+      width: 140px;
+      height: 140px;
+      margin: 0 auto 1rem;
+      border-radius: 50%;
+      border: var(--border-pop);
+      overflow: hidden;
+      background: var(--pop-yellow);
+    }
+
+    /* Testimonials */
+    .pop-bubbles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+    }
+
+    .speech-bubble {
+      background: #fff;
+      border: var(--border-pop);
+      border-radius: 24px;
+      padding: 1.75rem;
+      box-shadow: var(--shadow-pop);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .pop-demo-label {
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      background: var(--pop-yellow);
+      border: 2px solid var(--pop-ink);
+      border-radius: 8px;
+      padding: 0.2rem 0.6rem;
+      width: fit-content;
+    }
+
+    /* Booking */
+    .pop-booking-card {
+      background: #fff;
+      border: var(--border-pop);
+      border-radius: 28px;
+      padding: clamp(1.5rem, 4vw, 3rem);
+      box-shadow: 12px 12px 0 var(--pop-ink);
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: 2.5rem;
+    }
+
+    .pop-form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .pop-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .pop-field.full {
+      grid-column: 1 / -1;
+    }
+
+    .pop-field label {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .pop-field input,
+    .pop-field select {
+      padding: 0.85rem 1rem;
+      border: 3px solid var(--pop-ink);
+      border-radius: 14px;
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      background: var(--pop-cream);
+    }
+
+    .pop-feedback {
+      margin-top: 1.25rem;
+      padding: 1.1rem;
+      background: var(--pop-yellow);
+      border: 3px solid var(--pop-ink);
+      border-radius: 14px;
+      font-weight: 600;
+      display: none;
+    }
+
+    /* Lightbox */
+    .pop-lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(41, 47, 54, 0.88);
+      z-index: 999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .pop-lightbox.open {
+      display: flex;
+    }
+
+    .pop-lb-box {
+      max-width: 720px;
+      width: 100%;
+      background: #fff;
+      border: var(--border-pop);
+      border-radius: 24px;
+      box-shadow: 12px 12px 0 var(--pop-yellow);
+      overflow: hidden;
+    }
+
+    @media (max-width: 1024px) {
+      .hero-pop,
+      .mixer-board,
+      .pop-booking-card,
+      .pop-services-grid,
+      .pop-team-grid,
+      .pop-bubbles-grid {
+        grid-template-columns: 1fr;
+      }
+      .pop-look-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .pop-nav {
+        display: none;
+      }
+      .pop-look-grid,
+      .pop-form-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body data-rubro-id="peluqueria" data-style-id="pop-art">
+  <!-- Header -->
+  <header class="pop-header">
+    <div class="container pop-header-inner">
+      <a href="#top" class="pop-logo">CHROMA POP!</a>
+      <nav aria-label="Navegación principal">
+        <ul class="pop-nav">
+          <li><a href="#color-mixer">Color-Block Lab</a></li>
+          <li><a href="#servicios">Menú Pop</a></li>
+          <li><a href="#lookbook">Looks!</a></li>
+          <li><a href="#equipo">Squad</a></li>
+          <li><a href="#reserva">Reservar</a></li>
+        </ul>
+      </nav>
+      <a href="#reserva" class="btn-pop btn-coral">¡Quiero Cita! ⚡</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main id="top">
+    <section class="container hero-pop">
+      <div>
+        <span class="comic-badge">★ Estilo #14 · Pop Art / Color Block Studio</span>
+        <h1 class="hero-pop-title">
+          Tu Pelo No Vino a Pasar <span class="highlight-word">Desapercibido!</span>
+        </h1>
+        <p class="hero-pop-desc">
+          En <strong>CHROMA POP!</strong> somos fanáticos de los bloques de color saturado, flequillos geométricos, mullets expresivos, rulos con volumen XL y tinturas veganas que alegran la cuadra entera.
+        </p>
+        <div style="display:flex; flex-wrap:wrap; gap:1rem">
+          <a href="#color-mixer" class="btn-pop">Armar Mi Color Block 🎨</a>
+          <a href="#servicios" class="btn-pop btn-yellow">Ver Precios Claros</a>
+        </div>
+      </div>
+
+      <div class="hero-frame-stack">
+        <div class="sticker-burst">100% VEGAN & CRUELTY FREE!</div>
+        <div class="hero-photo-box">
+          <img
+            src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=900&q=80"
+            alt="Peluquería creativa estilo Pop Art y Color Block"
+            onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/hair-look-balayage.svg'">
+        </div>
+      </div>
+    </section>
+
+    <!-- Visual Interactive Experience: Color-Block Customizer -->
+    <section id="color-mixer" class="pop-section bg-mint">
+      <div class="container">
+        <div class="pop-head">
+          <span class="comic-badge" style="background:var(--pop-yellow)">⚡ Juguete Interactivo de Estudio</span>
+          <h2 class="pop-title">Diseñador de Bloques Cromáticos</h2>
+          <p>Elige el color de tu Flequillo/Frontal y el de tus Capas Exteriores para crear tu combinación Color-Block personalizada.</p>
+        </div>
+
+        <div class="mixer-board">
+          <div>
+            <div class="zone-picker">
+              <span class="zone-title">1. Bloque Frontal & Flequillo (Bang Block)</span>
+              <div class="color-pills" id="fringePicker">
+                <button type="button" class="color-chip active" data-hex="#FF6B6B" data-name="Coral Pop">
+                  <span class="chip-dot" style="background:#FF6B6B"></span> Coral Pop
+                </button>
+                <button type="button" class="color-chip" data-hex="#FFE66D" data-name="Amarillo Banana">
+                  <span class="chip-dot" style="background:#FFE66D"></span> Amarillo Banana
+                </button>
+                <button type="button" class="color-chip" data-hex="#4ECDC4" data-name="Menta Eléctrica">
+                  <span class="chip-dot" style="background:#4ECDC4"></span> Menta Eléctrica
+                </button>
+                <button type="button" class="color-chip" data-hex="#A855F7" data-name="Uva Cómic">
+                  <span class="chip-dot" style="background:#A855F7"></span> Uva Cómic
+                </button>
+              </div>
+            </div>
+
+            <div class="zone-picker">
+              <span class="zone-title">2. Bloque de Melena & Puntas (Crown & Tips)</span>
+              <div class="color-pills" id="crownPicker">
+                <button type="button" class="color-chip active" data-hex="#292F36" data-name="Negro Tinta">
+                  <span class="chip-dot" style="background:#292F36"></span> Negro Tinta
+                </button>
+                <button type="button" class="color-chip" data-hex="#FF6B6B" data-name="Coral Pop">
+                  <span class="chip-dot" style="background:#FF6B6B"></span> Coral Pop
+                </button>
+                <button type="button" class="color-chip" data-hex="#4ECDC4" data-name="Menta Eléctrica">
+                  <span class="chip-dot" style="background:#4ECDC4"></span> Menta Eléctrica
+                </button>
+                <button type="button" class="color-chip" data-hex="#FF9F1C" data-name="Mandarina Pop">
+                  <span class="chip-dot" style="background:#FF9F1C"></span> Mandarina Pop
+                </button>
+              </div>
+            </div>
+
+            <div style="background:var(--pop-yellow); border:3px solid var(--pop-ink); border-radius:16px; padding:1rem; margin-bottom:1.25rem">
+              <strong style="font-family:var(--font-display)">Tu Receta Activa:</strong>
+              <span id="comboReadout">Frontal Coral Pop + Melena Negro Tinta</span>
+            </div>
+
+            <button type="button" class="btn-pop btn-coral" id="sendComboToForm" style="width:100%">
+              ¡Reservar Este Combo de Color! 🎨
+            </button>
+          </div>
+
+          <div class="pop-avatar-stage">
+            <!-- Interactive SVG Pop Art Hair -->
+            <svg class="svg-hair-canvas" viewBox="0 0 260 280" aria-label="Ilustración interactiva de peinado Color Block">
+              <!-- Background Halftone Circle -->
+              <circle cx="130" cy="140" r="115" fill="#FFE66D" stroke="#292F36" stroke-width="5"/>
+              <!-- Back/Crown Hair Block -->
+              <path id="svgCrownLayer" d="M45 135 C40 55, 220 55, 215 135 L230 235 L180 225 L185 155 L75 155 L80 225 L30 235 Z" fill="#292F36" stroke="#292F36" stroke-width="5" stroke-linejoin="round"/>
+              <!-- Face -->
+              <rect x="82" y="105" width="96" height="108" rx="44" fill="#FFFDF7" stroke="#292F36" stroke-width="5"/>
+              <!-- Pop Sunglasses -->
+              <rect x="86" y="138" width="40" height="24" rx="6" fill="#FF6B6B" stroke="#292F36" stroke-width="4"/>
+              <rect x="134" y="138" width="40" height="24" rx="6" fill="#4ECDC4" stroke="#292F36" stroke-width="4"/>
+              <line x1="126" y1="148" x2="134" y2="148" stroke="#292F36" stroke-width="4"/>
+              <!-- Smile -->
+              <path d="M115 182 Q130 194 145 182" fill="none" stroke="#292F36" stroke-width="4" stroke-linecap="round"/>
+              <!-- Front Fringe / Bangs Color Block -->
+              <path id="svgFringeLayer" d="M72 125 C75 72, 185 72, 188 125 L162 128 L152 106 L138 128 L108 128 L98 108 Z" fill="#FF6B6B" stroke="#292F36" stroke-width="5" stroke-linejoin="round"/>
+            </svg>
+            <p style="font-family:var(--font-display); font-size:0.95rem">Vista Previa Ilustrada en Tiempo Real</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Services Menu -->
+    <section id="servicios" class="pop-section">
+      <div class="container">
+        <div class="pop-head">
+          <span class="comic-badge">✂️ Sin Letra Chica · Precios Unisex</span>
+          <h2 class="pop-title">Menú Creativo CHROMA POP!</h2>
+          <p>Cobramos por tiempo y técnica, nunca por género. Filtra tu próximo cambio de look:</p>
+        </div>
+
+        <div class="pop-filter-bar">
+          <button type="button" class="pop-filter-btn active" data-popcat="all">Todo el Menú (6)</button>
+          <button type="button" class="pop-filter-btn" data-popcat="colorblock">Color Block & Fantasía</button>
+          <button type="button" class="pop-filter-btn" data-popcat="cortes">Cortes Creativos & Rulos</button>
+          <button type="button" class="pop-filter-btn" data-popcat="bombas">Bombas de Nutrición</button>
+        </div>
+
+        <div class="pop-services-grid">
+          <article class="pop-service-card" data-popcat="colorblock">
+            <div>
+              <span class="pop-price-tag">$74.000</span>
+              <h3 style="font-family:var(--font-display); font-size:1.35rem; margin:0.75rem 0 0.5rem">Color Block Duo (2 Zonas)</h3>
+              <p style="font-size:0.92rem">Flequillo contrastado, patillas neón o nuca oculta en dos tonos vibrantes con protector de fibra incluido.</p>
+            </div>
+            <button type="button" class="btn-pop pick-pop-service" data-service="Color Block Duo (2 Zonas)">¡Lo Quiero!</button>
+          </article>
+
+          <article class="pop-service-card" data-popcat="cortes">
+            <div>
+              <span class="pop-price-tag">$36.000</span>
+              <h3 style="font-family:var(--font-display); font-size:1.35rem; margin:0.75rem 0 0.5rem">Shullet / Mullet & Micro-Bangs</h3>
+              <p style="font-size:0.92rem">Corte de mucha textura con navaja y tijera para dar actitud inmediata tanto en pelo liso como ondulado.</p>
+            </div>
+            <button type="button" class="btn-pop pick-pop-service" data-service="Shullet / Mullet & Micro-Bangs">¡Lo Quiero!</button>
+          </article>
+
+          <article class="pop-service-card" data-popcat="colorblock">
+            <div>
+              <span class="pop-price-tag">$92.000</span>
+              <h3 style="font-family:var(--font-display); font-size:1.35rem; margin:0.75rem 0 0.5rem">Arcoíris Pop / Prisma Pastel</h3>
+              <p style="font-size:0.92rem">Diseño libre de 3 a 5 bloques de color saturado o pastel sobre base decolorada cuidada con Plex.</p>
+            </div>
+            <button type="button" class="btn-pop pick-pop-service" data-service="Arcoíris Pop / Prisma Pastel">¡Lo Quiero!</button>
+          </article>
+
+          <article class="pop-service-card" data-popcat="cortes">
+            <div>
+              <span class="pop-price-tag">$42.000</span>
+              <h3 style="font-family:var(--font-display); font-size:1.35rem; margin:0.75rem 0 0.5rem">Corte Rulos XL en Seco + Difusor</h3>
+              <p style="font-size:0.92rem">Esculpido rulo por rulo en seco + definición bounce con gelatina botánica sin frizz ni peso.</p>
+            </div>
+            <button type="button" class="btn-pop pick-pop-service" data-service="Corte Rulos XL en Seco + Difusor">¡Lo Quiero!</button>
+          </article>
+
+          <article class="pop-service-card" data-popcat="bombas">
+            <div>
+              <span class="pop-price-tag">$39.000</span>
+              <h3 style="font-family:var(--font-display); font-size:1.35rem; margin:0.75rem 0 0.5rem">Smoothie Capilar Frutas & Brillo</h3>
+              <p style="font-size:0.92rem">Cocktail nutritivo de papaya, karité y aminoácidos con gorro térmico para revivir cabellos teñidos.</p>
+            </div>
+            <button type="button" class="btn-pop pick-pop-service" data-service="Smoothie Capilar Frutas & Brillo">¡Lo Quiero!</button>
+          </article>
+
+          <article class="pop-service-card" data-popcat="bombas">
+            <div>
+              <span class="pop-price-tag">$32.000</span>
+              <h3 style="font-family:var(--font-display); font-size:1.35rem; margin:0.75rem 0 0.5rem">Refresh de Tono + Flequillo Gratis</h3>
+              <p style="font-size:0.92rem">Recarga de pigmento directo entre sesiones + retoque de flequillo para mantener tu Color Block fresco.</p>
+            </div>
+            <button type="button" class="btn-pop pick-pop-service" data-service="Refresh de Tono + Flequillo Gratis">¡Lo Quiero!</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lookbook Gallery -->
+    <section id="lookbook" class="pop-section bg-yellow">
+      <div class="container">
+        <div class="pop-head">
+          <span class="comic-badge" style="background:#fff">📸 Galería con Lightbox</span>
+          <h2 class="pop-title">Muro de la Fama CHROMA POP!</h2>
+          <p>Haz clic en cualquier foto para ver el detalle técnico en grande.</p>
+        </div>
+
+        <div class="pop-look-grid">
+          <article class="pop-look-card" tabindex="0" data-title="POP #01 · CORAL & MINT SPLIT" data-desc="Contraste complementario en coral neón y verde menta" data-img="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85">
+            <div class="pop-look-img">
+              <img
+                src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=900&q=80"
+                alt="Look Pop Art Coral y Menta"
+                onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/hair-look-balayage.svg'">
+            </div>
+            <div class="pop-look-footer">
+              <span>Coral & Mint</span>
+              <span>🔍 Ver +</span>
+            </div>
+          </article>
+
+          <article class="pop-look-card" tabindex="0" data-title="POP #02 · MICRO BANGS AMARILLO SOL" data-desc="Flequillo recto sobre ceja en amarillo intenso" data-img="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=1000&q=80">
+            <div class="pop-look-img">
+              <img
+                src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=900&q=80"
+                alt="Micro bangs coloridos"
+                onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/hair-look-balayage.svg'">
+            </div>
+            <div class="pop-look-footer">
+              <span>Sunny Bangs</span>
+              <span>🔍 Ver +</span>
+            </div>
+          </article>
+
+          <article class="pop-look-card" tabindex="0" data-title="POP #03 · SHAGGY RULOS MULTICOLOR" data-desc="Corte en capas redondas con destellos mandarina y rosa" data-img="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1000&q=80">
+            <div class="pop-look-img">
+              <img
+                src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85"
+                alt="Rulos con volumen"
+                onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg'">
+            </div>
+            <div class="pop-look-footer">
+              <span>Curly Pop XL</span>
+              <span>🔍 Ver +</span>
+            </div>
+          </article>
+
+          <article class="pop-look-card" tabindex="0" data-title="POP #04 · PIXIE GEOMÉTRICO MAGENTA" data-desc="Pixie corto texturizado con pigmento vegano de alto impacto" data-img="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1000&q=80">
+            <div class="pop-look-img">
+              <img
+                src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=900&q=80"
+                alt="Estudio creativo colorido"
+                onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/hair-look-balayage.svg'">
+            </div>
+            <div class="pop-look-footer">
+              <span>Magenta Pixie</span>
+              <span>🔍 Ver +</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Squad / Team -->
+    <section id="equipo" class="pop-section">
+      <div class="container">
+        <div class="pop-head">
+          <span class="comic-badge">🌈 El Squad de Estilistas</span>
+          <h2 class="pop-title">Creadores de Dopamina Capilar</h2>
+        </div>
+
+        <div class="pop-team-grid">
+          <article class="pop-member">
+            <div class="pop-member-pic">
+              <img
+                src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=800&q=80"
+                alt="Lola Chispa"
+                onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/stylist-female-1.svg'">
+            </div>
+            <h3 style="font-family:var(--font-display); font-size:1.35rem">Lola “Chispa”</h3>
+            <p style="font-weight:600; color:var(--pop-coral); margin-bottom:0.5rem">Reina del Color Block</p>
+            <p style="font-size:0.9rem">Diseñadora gráfica devenida en colorista. Fanática de los bloques geométricos sin sangrado de color.</p>
+          </article>
+
+          <article class="pop-member">
+            <div class="pop-member-pic">
+              <img
+                src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=800&q=80"
+                alt="Dani Navaja"
+                onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/stylist-male-1.svg'">
+            </div>
+            <h3 style="font-family:var(--font-display); font-size:1.35rem">Dani “Navaja”</h3>
+            <p style="font-weight:600; color:#1E9E95; margin-bottom:0.5rem">Especialista en Mullets & Shags</p>
+            <p style="font-size:0.9rem">Si buscas volumen ochentero, flequillos baby-bangs o textura despeinada lista en 2 minutos, es tu persona.</p>
+          </article>
+
+          <article class="pop-member">
+            <div class="pop-member-pic">
+              <img
+                src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80"
+                alt="Pepa Rulos"
+                onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/stylist-female-2.svg'">
+            </div>
+            <h3 style="font-family:var(--font-display); font-size:1.35rem">Pepa “Bounce”</h3>
+            <p style="font-weight:600; color:var(--pop-coral); margin-bottom:0.5rem">Doctora en Rulos & Afro</p>
+            <p style="font-size:0.9rem">Corta en seco respetando el encogimiento real de cada patrón 2C a 4C y pinta rulos con técnica Pintura.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="pop-section bg-coral" aria-label="Testimonios">
+      <div class="container">
+        <div class="pop-head">
+          <h2 class="pop-title" style="color:#fff">¡Lo Que Dicen en el Barrio!</h2>
+        </div>
+
+        <div class="pop-bubbles-grid">
+          <article class="speech-bubble">
+            <span class="pop-demo-label">[Testimonio Ficticio de Demostración]</span>
+            <p>“Me hice el flequillo amarillo banana con el resto en negro tinta. ¡En el metro ya me han preguntado tres veces dónde me corté!”</p>
+            <strong style="font-family:var(--font-display)">— Cata R. · Tatuadora</strong>
+          </article>
+
+          <article class="speech-bubble">
+            <span class="pop-demo-label">[Testimonio Ficticio de Demostración]</span>
+            <p>“Amé que los precios sean por largo/tiempo y no por género. Además ponen música increíble y te dan stickers del estudio.”</p>
+            <strong style="font-family:var(--font-display)">— Nico M. · Músico Indie</strong>
+          </article>
+
+          <article class="speech-bubble">
+            <span class="pop-demo-label">[Testimonio Ficticio de Demostración]</span>
+            <p>“Pepa devolvió la vida a mis rulos decolorados con el Smoothie de frutas. Salí con volumen gigante y cero frizz.”</p>
+            <strong style="font-family:var(--font-display)">— Fran V. · Fotógrafa</strong>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Booking Section -->
+    <section id="reserva" class="pop-section">
+      <div class="container">
+        <div class="pop-booking-card">
+          <div>
+            <span class="comic-badge">📅 Agenda Online en 1 Minuto</span>
+            <h2 class="pop-title" style="margin-bottom:1rem">¡Asegura Tu Sillón en CHROMA POP!</h2>
+            <p style="margin-bottom:1.25rem">
+              <strong>Nota de Demostración Interactiva:</strong> Este formulario simula una reserva instantánea en tu navegador para mostrar la experiencia del sitio. No procesa datos reales.
+            </p>
+            <div style="background:var(--pop-mint); border:3px solid var(--pop-ink); border-radius:16px; padding:1.1rem">
+              <strong style="font-family:var(--font-display)">📍 Barrio Italia · Av. Condell</strong>
+              <p style="font-size:0.9rem; margin-top:0.35rem">Martes a Sábado: 11:00 a 20:30 hrs<br>Pet Friendly 🐶 & Café Helado de Cortesía</p>
+            </div>
+          </div>
+
+          <form id="popBookingForm">
+            <div class="pop-form-grid">
+              <div class="pop-field">
+                <label for="pName">Tu Nombre o Apodo</label>
+                <input type="text" id="pName" required placeholder="Ej. Solange Pop">
+              </div>
+              <div class="pop-field">
+                <label for="pPhone">WhatsApp / Instagram</label>
+                <input type="text" id="pPhone" required placeholder="+56 9 0000 0000">
+              </div>
+              <div class="pop-field">
+                <label for="pService">Servicio Elegido</label>
+                <select id="pService">
+                  <option value="Color Block Duo (2 Zonas)">Color Block Duo (2 Zonas) - $74.000</option>
+                  <option value="Shullet / Mullet & Micro-Bangs">Shullet / Mullet & Micro-Bangs - $36.000</option>
+                  <option value="Arcoíris Pop / Prisma Pastel">Arcoíris Pop / Prisma Pastel - $92.000</option>
+                  <option value="Corte Rulos XL en Seco + Difusor">Corte Rulos XL en Seco + Difusor - $42.000</option>
+                  <option value="Smoothie Capilar Frutas & Brillo">Smoothie Capilar Frutas & Brillo - $39.000</option>
+                  <option value="Refresh de Tono + Flequillo Gratis">Refresh de Tono + Flequillo Gratis - $32.000</option>
+                </select>
+              </div>
+              <div class="pop-field">
+                <label for="pCombo">Receta del Mezclador Color-Block</label>
+                <input type="text" id="pCombo" value="Frontal Coral Pop + Melena Negro Tinta" readonly>
+              </div>
+              <div class="pop-field">
+                <label for="pDate">Día de Tu Cita</label>
+                <input type="date" id="pDate" required>
+              </div>
+              <div class="pop-field">
+                <label for="pTime">Horario</label>
+                <select id="pTime">
+                  <option value="11:30 AM (Mañana Creativa)">11:30 AM · Mañana Creativa</option>
+                  <option value="15:00 PM (Tarde Color Block)">15:00 PM · Tarde Color Block</option>
+                  <option value="18:00 PM (After-Work Express)">18:00 PM · After-Work Express</option>
+                </select>
+              </div>
+              <div class="pop-field full">
+                <button type="submit" class="btn-pop btn-coral" style="width:100%; font-size:1.1rem">
+                  ¡CONFIRMAR RESERVA DEMO! 🎉
+                </button>
+              </div>
+            </div>
+            <div class="pop-feedback" id="popFeedback" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer style="background:var(--pop-ink); color:#fff; padding:2rem 1.25rem; text-align:center; font-family:var(--font-display)">
+    CHROMA POP! · Peluquería Creativa & Color Block Studio · Estilo #14 por KuyénDev
+  </footer>
+
+  <!-- Lightbox Modal -->
+  <div class="pop-lightbox" id="popLightbox" role="dialog" aria-modal="true" aria-label="Foto ampliada">
+    <div class="pop-lb-box">
+      <div style="max-height:65vh; overflow:hidden; border-bottom:var(--border-pop)">
+        <img id="popLbImg" src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=900&q=80" alt="Look ampliado" style="width:100%; max-height:65vh; object-fit:cover;" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/hair-look-balayage.svg'">
+      </div>
+      <div style="padding:1.25rem; display:flex; justify-content:space-between; align-items:center; gap:1rem">
+        <div>
+          <h3 id="popLbTitle" style="font-family:var(--font-display); font-size:1.25rem"></h3>
+          <p id="popLbDesc" style="font-size:0.9rem"></p>
+        </div>
+        <button type="button" class="btn-pop btn-coral" id="closePopLb" style="padding:0.5rem 1.1rem">Cerrar X</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      // 1. Color Block Customizer SVG
+      const fringeBtns = document.querySelectorAll('#fringePicker .color-chip');
+      const crownBtns = document.querySelectorAll('#crownPicker .color-chip');
+      const svgFringe = document.getElementById('svgFringeLayer');
+      const svgCrown = document.getElementById('svgCrownLayer');
+      const comboReadout = document.getElementById('comboReadout');
+      const pCombo = document.getElementById('pCombo');
+
+      let fringeName = 'Coral Pop';
+      let crownName = 'Negro Tinta';
+
+      function updateComboText() {
+        const txt = 'Frontal ' + fringeName + ' + Melena ' + crownName;
+        comboReadout.textContent = txt;
+        if (pCombo) pCombo.value = txt;
+      }
+
+      fringeBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          fringeBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          svgFringe.setAttribute('fill', btn.getAttribute('data-hex'));
+          fringeName = btn.getAttribute('data-name');
+          updateComboText();
+        });
+      });
+
+      crownBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          crownBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          svgCrown.setAttribute('fill', btn.getAttribute('data-hex'));
+          crownName = btn.getAttribute('data-name');
+          updateComboText();
+        });
+      });
+
+      document.getElementById('sendComboToForm').addEventListener('click', () => {
+        updateComboText();
+        document.getElementById('reserva').scrollIntoView({ behavior: 'smooth' });
+      });
+
+      // 2. Services Filter
+      const filterBtns = document.querySelectorAll('.pop-filter-btn');
+      const serviceCards = document.querySelectorAll('.pop-service-card');
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const cat = btn.getAttribute('data-popcat');
+          serviceCards.forEach(card => {
+            card.style.display = (cat === 'all' || card.getAttribute('data-popcat') === cat) ? 'flex' : 'none';
+          });
+        });
+      });
+
+      const pService = document.getElementById('pService');
+      document.querySelectorAll('.pick-pop-service').forEach(btn => {
+        btn.addEventListener('click', () => {
+          pService.value = btn.getAttribute('data-service');
+          document.getElementById('reserva').scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+
+      // 3. Lightbox
+      const popLightbox = document.getElementById('popLightbox');
+      const popLbImg = document.getElementById('popLbImg');
+      const popLbTitle = document.getElementById('popLbTitle');
+      const popLbDesc = document.getElementById('popLbDesc');
+
+      document.querySelectorAll('.pop-look-card').forEach(card => {
+        const openLb = () => {
+          popLbImg.src = card.getAttribute('data-img');
+          popLbTitle.textContent = card.getAttribute('data-title');
+          popLbDesc.textContent = card.getAttribute('data-desc');
+          popLightbox.classList.add('open');
+        };
+        card.addEventListener('click', openLb);
+        card.addEventListener('keydown', e => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openLb();
+          }
+        });
+      });
+
+      document.getElementById('closePopLb').addEventListener('click', () => popLightbox.classList.remove('open'));
+      popLightbox.addEventListener('click', e => {
+        if (e.target === popLightbox) popLightbox.classList.remove('open');
+      });
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') popLightbox.classList.remove('open');
+      });
+
+      // 4. Booking Form
+      const pDate = document.getElementById('pDate');
+      if (pDate) {
+        pDate.value = new Date(Date.now() + 86400000).toISOString().split('T')[0];
+      }
+      document.getElementById('popBookingForm').addEventListener('submit', e => {
+        e.preventDefault();
+        const name = document.getElementById('pName').value.trim();
+        const serv = pService.value;
+        const combo = pCombo.value;
+        const date = pDate.value;
+        const time = document.getElementById('pTime').value;
+        const fb = document.getElementById('popFeedback');
+        fb.style.display = 'block';
+        fb.innerHTML =
+          '⚡ <strong>¡BOOM! Reserva Simulada con Éxito (Modo Demo)</strong><br>' +
+          '¡Hola <strong>' + name + '</strong>! Tu turno para <em>' + serv + '</em> con combinación <strong>' + combo + '</strong> quedó agendado en modo demostración para el <strong>' + date + ' (' + time + ')</strong>.';
+      });
+    })();
+  </script>
+  <script src="../../js/config/rubros.js"></script>
+  <script src="../../js/demo-viewer-bar.js"></script>
+</body>
+</html>

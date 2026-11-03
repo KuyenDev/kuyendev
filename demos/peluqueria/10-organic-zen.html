@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>KINTSUGI BOTANICAL · Fitocosmética & Spa Capilar Orgánico | Demo Organic Zen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Noto+Serif:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --linen: #F5F2EB;
+      --linen-warm: #EDE7DA;
+      --sage: #7A8B7B;
+      --sage-dark: #5B6B5C;
+      --sand: #D8C3A5;
+      --stone: #3E423A;
+      --stone-muted: #666B61;
+      --font-display: 'Marcellus', serif;
+      --font-serif: 'Noto Serif', serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--linen);
+      color: var(--stone);
+      font-family: var(--font-serif);
+      line-height: 1.75;
+      background-image: radial-gradient(circle at 80% 10%, rgba(216, 195, 165, 0.35), transparent 45%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* HEADER */
+    .zen-header {
+      position: sticky;
+      top: 0;
+      z-index: 90;
+      background: rgba(245, 242, 235, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(122, 139, 123, 0.25);
+    }
+
+    .header-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 0;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .zen-brand {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .zen-brand__title {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      letter-spacing: 0.14em;
+      color: var(--stone);
+    }
+
+    .zen-brand__sub {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--sage-dark);
+    }
+
+    .zen-nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    .zen-nav a {
+      font-size: 0.88rem;
+      color: var(--stone-muted);
+      transition: color 0.3s ease;
+    }
+
+    .zen-nav a:hover {
+      color: var(--stone);
+    }
+
+    .btn-zen {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 28px;
+      border-radius: 999px;
+      background: var(--sage);
+      color: var(--linen);
+      font-family: var(--font-display);
+      font-size: 0.86rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: 1px solid var(--sage);
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .btn-zen:hover {
+      background: var(--stone);
+      border-color: var(--stone);
+      transform: translateY(-2px);
+    }
+
+    .btn-zen--sand {
+      background: transparent;
+      color: var(--stone);
+      border-color: var(--stone);
+    }
+
+    .btn-zen--sand:hover {
+      background: var(--sand);
+      color: var(--stone);
+    }
+
+    /* HERO */
+    .zen-hero {
+      padding: 72px 0 96px;
+      border-bottom: 1px solid rgba(122, 139, 123, 0.25);
+    }
+
+    .hero-asymmetric {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .kicker-zen {
+      display: inline-block;
+      font-size: 0.76rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--sage-dark);
+      background: var(--linen-warm);
+      padding: 6px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--sand);
+      margin-bottom: 22px;
+    }
+
+    .zen-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 4.4vw, 3.6rem);
+      line-height: 1.18;
+      font-weight: 400;
+      margin-bottom: 22px;
+      color: var(--stone);
+    }
+
+    .zen-hero p {
+      font-size: 1.06rem;
+      color: var(--stone-muted);
+      margin-bottom: 34px;
+      max-width: 54ch;
+    }
+
+    .zen-values {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 40px;
+      padding-top: 26px;
+      border-top: 1px solid rgba(122, 139, 123, 0.3);
+    }
+
+    .zen-values strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      color: var(--sage-dark);
+    }
+
+    .zen-values span {
+      font-size: 0.82rem;
+      color: var(--stone-muted);
+    }
+
+    .arch-vessel {
+      background: var(--sand);
+      padding: 18px;
+      border-radius: 220px 220px 28px 28px;
+      box-shadow: 0 24px 50px rgba(62, 66, 58, 0.1);
+    }
+
+    .arch-vessel img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      border-radius: 205px 205px 18px 18px;
+    }
+
+    /* SECTIONS */
+    .zen-section {
+      padding: 88px 0;
+      border-bottom: 1px solid rgba(122, 139, 123, 0.25);
+    }
+
+    .zen-section--warm {
+      background-color: var(--linen-warm);
+    }
+
+    .zen-section--sage {
+      background-color: var(--sage);
+      color: var(--linen);
+    }
+
+    .zen-heading {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 52px;
+    }
+
+    .zen-heading h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+      font-weight: 400;
+      margin-bottom: 12px;
+    }
+
+    /* RITUAL MENU TABS */
+    .ritual-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .r-tab {
+      padding: 10px 24px;
+      border-radius: 999px;
+      border: 1px solid var(--sage);
+      background: transparent;
+      color: var(--stone);
+      font-family: var(--font-display);
+      font-size: 0.86rem;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+    }
+
+    .r-tab.active {
+      background: var(--sage);
+      color: var(--linen);
+    }
+
+    .ritual-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 28px;
+    }
+
+    .r-card {
+      background: var(--linen);
+      border: 1px solid var(--sand);
+      border-radius: 28px;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.3s ease;
+    }
+
+    .r-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .r-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 400;
+      margin: 8px 0 10px;
+    }
+
+    .r-card p {
+      font-size: 0.94rem;
+      color: var(--stone-muted);
+      margin-bottom: 22px;
+    }
+
+    .r-card__foot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(216, 195, 165, 0.7);
+      padding-top: 16px;
+    }
+
+    .r-price {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      color: var(--sage-dark);
+    }
+
+    /* VISUAL EXPERIENCE: ALQUIMIA BOTÁNICA INTERACTIVA */
+    .alchemy-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      align-items: stretch;
+    }
+
+    .herb-choices {
+      display: grid;
+      gap: 14px;
+    }
+
+    .herb-btn {
+      text-align: left;
+      padding: 20px 24px;
+      border-radius: 20px;
+      border: 1px solid rgba(245, 242, 235, 0.35);
+      background: rgba(62, 66, 58, 0.22);
+      color: var(--linen);
+      font-family: var(--font-serif);
+      cursor: pointer;
+      transition: background-color 0.25s ease;
+    }
+
+    .herb-btn.active {
+      background: var(--linen);
+      color: var(--stone);
+      border-color: var(--linen);
+    }
+
+    .herb-btn strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      margin-bottom: 4px;
+    }
+
+    .apothecary-vessel {
+      background: var(--linen);
+      color: var(--stone);
+      border-radius: 28px;
+      padding: 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 20px 44px rgba(0, 0, 0, 0.12);
+    }
+
+    /* LOOKBOOK */
+    .botanical-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+    }
+
+    .pebble-card {
+      background: var(--linen-warm);
+      border: 1px solid var(--sand);
+      border-radius: 140px 140px 24px 24px;
+      padding: 16px;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .pebble-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .pebble-card img {
+      width: 100%;
+      height: 290px;
+      object-fit: cover;
+      border-radius: 128px 128px 16px 16px;
+      margin-bottom: 14px;
+    }
+
+    .pebble-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 400;
+    }
+
+    /* TERAPEUTAS & TESTIMONIOS */
+    .therapists-grid,
+    .serene-reviews {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 28px;
+    }
+
+    .therapist-card,
+    .serene-quote {
+      background: var(--linen);
+      border: 1px solid var(--sand);
+      border-radius: 24px;
+      padding: 26px;
+    }
+
+    .therapist-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 18px;
+      margin-bottom: 16px;
+    }
+
+    .zen-demo-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: var(--linen-warm);
+      color: var(--sage-dark);
+      border: 1px solid var(--sand);
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+    }
+
+    /* BOOKING */
+    .sanctuary-booking {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 36px;
+    }
+
+    .zen-form {
+      background: var(--linen-warm);
+      border: 1px solid var(--sand);
+      border-radius: 28px;
+      padding: 36px;
+    }
+
+    .z-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .z-field label {
+      display: block;
+      font-size: 0.82rem;
+      color: var(--stone-muted);
+      margin-bottom: 6px;
+    }
+
+    .z-field input,
+    .z-field select {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 14px;
+      border: 1px solid var(--sand);
+      background: var(--linen);
+      color: var(--stone);
+      font-family: var(--font-serif);
+    }
+
+    .zen-confirmation {
+      display: none;
+      margin-top: 18px;
+      padding: 18px;
+      border-radius: 16px;
+      background: var(--linen);
+      border: 1px solid var(--sage);
+    }
+
+    /* LIGHTBOX */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(62, 66, 58, 0.88);
+      z-index: 999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .lightbox.open {
+      display: flex;
+    }
+
+    .lightbox-zen {
+      max-width: 720px;
+      width: 100%;
+      background: var(--linen);
+      border-radius: 28px;
+      padding: 24px;
+    }
+
+    .lightbox-zen img {
+      width: 100%;
+      max-height: 460px;
+      object-fit: cover;
+      border-radius: 18px;
+      margin-bottom: 16px;
+    }
+
+    @media (max-width: 900px) {
+      .hero-asymmetric,
+      .alchemy-box,
+      .sanctuary-booking,
+      .z-row,
+      .zen-values {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body data-rubro-id="peluqueria" data-style-id="organic-zen">
+
+  <header class="zen-header">
+    <div class="container header-wrap">
+      <a href="#top" class="zen-brand">
+        <span class="zen-brand__title">KINTSUGI BOTANICAL</span>
+        <span class="zen-brand__sub">Spa Capilar & Fitocosmética Wabi-Sabi</span>
+      </a>
+      <nav class="zen-nav" aria-label="Navegación principal">
+        <a href="#rituales">Rituales Botánicos</a>
+        <a href="#alquimia">Alquimia Herbal</a>
+        <a href="#galeria">Texturas Naturales</a>
+        <a href="#terapeutas">Terapeutas</a>
+        <a href="#reserva-zen" class="btn-zen">Reservar Ritual</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="zen-hero">
+      <div class="container hero-asymmetric">
+        <div>
+          <span class="kicker-zen">🌿 FITOCOSMÉTICA ORGÁNICA · HEAD SPA JAPONÉS · SIN SILICONAS NI AMONÍACO</span>
+          <h1>Belleza Consciente que Honra la Textura Natural de tu Cabello.</h1>
+          <p>
+            En <strong>KINTSUGI BOTANICAL</strong> reemplazamos la química agresiva por infusiones de camelia japonesa, barros minerales biodinámicos, hidroterapia craneal al vapor y cortes conscientes en seco.
+          </p>
+          <div style="display: flex; gap: 16px; flex-wrap: wrap">
+            <a href="#reserva-zen" class="btn-zen">Agendar Ceremonia Capilar</a>
+            <a href="#alquimia" class="btn-zen btn-zen--sand">Formular Mi Infusión</a>
+          </div>
+
+          <div class="zen-values">
+            <div>
+              <strong>100% Botánico</strong>
+              <span>Extractos puros prensados en frío</span>
+            </div>
+            <div>
+              <strong>Agua Filtrada</strong>
+              <span>Declorada y mineralizada en lavacabezas</span>
+            </div>
+            <div>
+              <strong>Ritmo Lento</strong>
+              <span>Una persona por terapeuta sin apuros</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="arch-vessel">
+          <img
+            src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85"
+            alt="Espacio sereno de cuidado capilar orgánico con luz cálida y elementos naturales en Kintsugi Botanical"
+            onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg';"/>
+        </div>
+      </div>
+    </section>
+
+    <!-- CARTA DE RITUALES CON PESTAÑAS -->
+    <section id="rituales" class="zen-section zen-section--warm">
+      <div class="container">
+        <div class="zen-heading">
+          <span class="kicker-zen">01 · CARTA HOLÍSTICA</span>
+          <h2>Ceremonias de Cuidado & Estilismo Consciente</h2>
+          <p style="color: var(--stone-muted)">Cada visita comienza con un baño de vapor aromático para manos y una taza de té verde Sencha orgánico.</p>
+        </div>
+
+        <div class="ritual-tabs" role="tablist" aria-label="Categorías de rituales">
+          <button type="button" class="r-tab active" data-ritual="all" role="tab" aria-selected="true">Todas las Ceremonias</button>
+          <button type="button" class="r-tab" data-ritual="headspa" role="tab" aria-selected="false">Japanese Head Spa</button>
+          <button type="button" class="r-tab" data-ritual="barros" role="tab" aria-selected="false">Barros & Color Botánico</button>
+          <button type="button" class="r-tab" data-ritual="corte" role="tab" aria-selected="false">Corte Orgánico</button>
+        </div>
+
+        <div class="ritual-cards">
+          <article class="r-card" data-ritual="headspa">
+            <div>
+              <span class="zen-demo-tag">HEAD SPA JAPONÉS · 75 MIN</span>
+              <h3>Ceremonia de Hidroterapia & Cascada Termal</h3>
+              <p>Exfoliación de cuero cabelludo con arcilla blanca y bambú, arco de agua termal continua, masaje craneocervical y mascarilla de aceite de tsubaki.</p>
+            </div>
+            <div class="r-card__foot">
+              <span class="r-price">$48.000</span>
+              <button type="button" class="btn-zen pick-ritual" data-name="Ceremonia Head Spa Termal ($48.000)" style="padding: 8px 18px; font-size: 0.78rem">Elegir</button>
+            </div>
+          </article>
+
+          <article class="r-card" data-ritual="barros">
+            <div>
+              <span class="zen-demo-tag">COLORACIÓN VEGETAL · 110 MIN</span>
+              <h3>Cataplasma de Barros Minerales & Henna Pura</h3>
+              <p>Pigmentación 100% botánica (cassia, índigo, amla y nogal) que envuelve la cutícula aportando grosor, reflejos cálidos y brillo natural sin oxidación.</p>
+            </div>
+            <div class="r-card__foot">
+              <span class="r-price">$54.000</span>
+              <button type="button" class="btn-zen pick-ritual" data-name="Cataplasma de Barros & Henna ($54.000)" style="padding: 8px 18px; font-size: 0.78rem">Elegir</button>
+            </div>
+          </article>
+
+          <article class="r-card" data-ritual="corte">
+            <div>
+              <span class="zen-demo-tag">CORTE CONSCIENTE · 65 MIN</span>
+              <h3>Corte Escultórico en Seco & Baño de Salvia</h3>
+              <p>Respetamos la caída real de tus ondas, rizos o lacio natural cortando en seco hebra por hebra, seguido de lavado nutritivo y secado con difusor tibio.</p>
+            </div>
+            <div class="r-card__foot">
+              <span class="r-price">$34.000</span>
+              <button type="button" class="btn-zen pick-ritual" data-name="Corte Escultórico en Seco ($34.000)" style="padding: 8px 18px; font-size: 0.78rem">Elegir</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCIA VISUAL INTERACTIVA: ALQUIMIA BOTÁNICA -->
+    <section id="alquimia" class="zen-section zen-section--sage">
+      <div class="container">
+        <div class="zen-heading">
+          <span class="kicker-zen" style="background: rgba(245,242,235,0.2); color: var(--linen)">02 · ALQUIMIA PERSONALIZADA</span>
+          <h2>Prepara tu Infusión Capilar en Vivo</h2>
+          <p>Selecciona la necesidad actual de tu cuero cabelludo y fibra para descubrir la sinergia botánica que maceraremos en mortero para tu sesión.</p>
+        </div>
+
+        <div class="alchemy-box">
+          <div class="herb-choices">
+            <button type="button" class="herb-btn active" data-title="SINERGIA I · CALMA & EQUILIBRIO (CUERO CABELLUDO SENSIBLE)" data-herbs="Hidrolato de Lavanda Silvestre + Arcilla Rosa + Aceite de Jojoba Dorado" data-aroma="Notas herbáceas suaves, flor de manzanilla romana y madera húmeda." data-benefit="Descongestiona la piel, alivia la tensión craneal y devuelve la elasticidad natural sin peso.">
+              <strong>I. Calma & Raíz Sensible</strong>
+              <span>Lavanda silvestre, arcilla rosa francesa y manzanilla romana.</span>
+            </button>
+
+            <button type="button" class="herb-btn" data-title="SINERGIA II · NUTRICIÓN PROFUNDA KINTSUGI (HEBRA SECA O RIZADA)" data-herbs="Aceite de Camelia Tsubaki + Manteca de Murumuru + Leche de Avena" data-aroma="Cálido aroma a sándalo blanco, vainilla botánica y almendra." data-benefit="Sella las fisuras de la cutícula como el oro en la cerámica Kintsugi, devolviendo definición y suavidad sedosa.">
+              <strong>II. Nutrición Kintsugi (Cabello Seco o Rizado)</strong>
+              <span>Aceite de camelia japonesa, manteca de murumuru y sándalo.</span>
+            </button>
+
+            <button type="button" class="herb-btn" data-title="SINERGIA III · DETOX OXIGENANTE & VIGOR (RAÍZ GRASA O CAÍDA)" data-herbs="Romero Orgánico Destilado + Té Verde Matcha + Ortiga Blanca" data-aroma="Fresco, balsámico, con hojas de menta piperita y cedro japonés Hinoki." data-benefit="Estimula la microcirculación folicular, purifica residuos minerales y aporta volumen aéreo desde la raíz.">
+              <strong>III. Detox & Vigor Folicular</strong>
+              <span>Romero destilado, té verde Matcha, ortiga y madera Hinoki.</span>
+            </button>
+          </div>
+
+          <div class="apothecary-vessel">
+            <div>
+              <span class="zen-demo-tag">FÓRMULA DE MORTERO RECOMENDADA</span>
+              <h3 id="herbTitle" style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 12px">
+                SINERGIA I · CALMA & EQUILIBRIO (CUERO CABELLUDO SENSIBLE)
+              </h3>
+              <p id="herbBenefit" style="color: var(--stone-muted); margin-bottom: 20px">
+                Descongestiona la piel, alivia la tensión craneal y devuelve la elasticidad natural sin peso.
+              </p>
+              <div style="border-top: 1px solid var(--sand); padding-top: 16px; font-size: 0.92rem; display: grid; gap: 8px">
+                <div><strong style="color: var(--sage-dark)">ACTIVOS BOTÁNICOS:</strong> <span id="herbActives">Hidrolato de Lavanda Silvestre + Arcilla Rosa + Aceite de Jojoba Dorado</span></div>
+                <div><strong style="color: var(--sage-dark)">PERFIL AROMÁTICO:</strong> <span id="herbAroma">Notas herbáceas suaves, flor de manzanilla romana y madera húmeda.</span></div>
+              </div>
+            </div>
+
+            <button type="button" class="btn-zen" id="applyHerbBtn" style="margin-top: 24px; width: 100%">
+              Incluir esta sinergia en mi reserva →
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERÍA CON LIGHTBOX -->
+    <section id="galeria" class="zen-section">
+      <div class="container">
+        <div class="zen-heading">
+          <span class="kicker-zen">03 · TEXTURAS VIVAS</span>
+          <h2>Galería de Rituales & Movimiento Orgánico</h2>
+        </div>
+
+        <div class="botanical-gallery">
+          <article class="pebble-card" tabindex="0" role="button" data-title="HEAD SPA EN ARCO DE VAPOR" data-desc="Hidroterapia japonesa con infusión tibia de flores de manzanilla y romero." data-img="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85">
+            <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85" alt="Head Spa Japonés en Kintsugi Botanical" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg';"/>
+            <h3>Head Spa Termal</h3>
+            <span style="font-size: 0.8rem; color: var(--sage-dark)">Contemplar imagen +</span>
+          </article>
+
+          <article class="pebble-card" tabindex="0" role="button" data-title="ONDAS LIBRES & CORTE EN SECO" data-desc="Capas orgánicas trabajadas sin tensión ni calor extremo." data-img="https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=800&q=80">
+            <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=900&q=80" alt="Ondas naturales tratadas con fitocosmética" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/hair-look-balayage.svg';"/>
+            <h3>Ondas Libres en Seco</h3>
+            <span style="font-size: 0.8rem; color: var(--sage-dark)">Contemplar imagen +</span>
+          </article>
+
+          <article class="pebble-card" tabindex="0" role="button" data-title="REFLEJOS DE COBRE & HENNA" data-desc="Brillo botánico logrado con cassia obovata, henna pura e infusión de hibisco." data-img="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=800&q=80">
+            <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85" alt="Reflejos botánicos de henna" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg';"/>
+            <h3>Barros & Henna Cálida</h3>
+            <span style="font-size: 0.8rem; color: var(--sage-dark)">Contemplar imagen +</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TERAPEUTAS Y TESTIMONIOS -->
+    <section id="terapeutas" class="zen-section zen-section--warm">
+      <div class="container">
+        <div class="zen-heading">
+          <span class="kicker-zen">04 · MANOS QUE CUIDAN</span>
+          <h2>Nuestras Terapeutas Capilares & Voces</h2>
+        </div>
+
+        <div class="therapists-grid" style="margin-bottom: 40px">
+          <article class="therapist-card">
+            <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85" alt="Amaya Lin - Fundadora y Fitoterapeuta Capilar" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg';"/>
+            <span class="zen-demo-tag">FUNDADORA & HEAD SPA MASTER</span>
+            <h3 style="font-family: var(--font-display)">Amaya Lin</h3>
+            <p style="font-size: 0.92rem; color: var(--stone-muted)">Formada en Kioto en técnicas de masaje craneal japonés y formulación botánica orgánica.</p>
+          </article>
+
+          <article class="therapist-card">
+            <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=900&q=80" alt="Clara Mistral - Especialista en Barros y Corte en Seco" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/hair-look-balayage.svg';"/>
+            <span class="zen-demo-tag">COLORACIÓN VEGETAL & RIZOS</span>
+            <h3 style="font-family: var(--font-display)">Clara Mistral</h3>
+            <p style="font-size: 0.92rem; color: var(--stone-muted)">Dedicada al corte respetuoso de texturas onduladas y rizadas y mezclas de barros minerales.</p>
+          </article>
+
+          <article class="therapist-card">
+            <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85" alt="Ema Solís - Tricología Natural" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg';"/>
+            <span class="zen-demo-tag">TERAPEUTA DE CUERO CABELLUDO</span>
+            <h3 style="font-family: var(--font-display)">Ema Solís</h3>
+            <p style="font-size: 0.92rem; color: var(--stone-muted)">Especialista en oxigenación folicular, aromaterapia clínica y recuperación post-estrés.</p>
+          </article>
+        </div>
+
+        <div class="serene-reviews">
+          <article class="serene-quote">
+            <span class="zen-demo-tag">[Testimonio Ficticio de Demostración]</span>
+            <p style="margin-bottom: 14px">“El Head Spa Termal fue la hora y media más reparadora de mi año. No hay olor a químicos, solo lavanda, madera tibia y el sonido del agua.”</p>
+            <strong style="font-family: var(--font-display); font-size: 0.9rem; color: var(--sage-dark)">— Elisa Domínguez · Ceramista</strong>
+          </article>
+
+          <article class="serene-quote">
+            <span class="zen-demo-tag">[Testimonio Ficticio de Demostración]</span>
+            <p style="margin-bottom: 14px">“Después de años de alergia a los tintes tradicionales, los barros botánicos me devolvieron el brillo y cubrieron mis primeras canas con reflejos preciosos.”</p>
+            <strong style="font-family: var(--font-display); font-size: 0.9rem; color: var(--sage-dark)">— Mariana Tagle · Editora</strong>
+          </article>
+
+          <article class="serene-quote">
+            <span class="zen-demo-tag">[Testimonio Ficticio de Demostración]</span>
+            <p style="margin-bottom: 14px">“El corte en seco cambió por completo la relación con mis ondas. Ya no necesito usar plancha ni productos pesados.”</p>
+            <strong style="font-family: var(--font-display); font-size: 0.9rem; color: var(--sage-dark)">— Ignacia Valdivieso · Instructora de Yoga</strong>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESERVA -->
+    <section id="reserva-zen" class="zen-section">
+      <div class="container">
+        <div class="zen-heading">
+          <span class="kicker-zen">05 · RESERVA PAUSADA</span>
+          <h2>Agenda tu Ceremonia en Kintsugi</h2>
+          <span class="zen-demo-tag">[Formulario de Demostración Interactiva · Sin envío real]</span>
+        </div>
+
+        <div class="sanctuary-booking">
+          <form class="zen-form" id="zenForm">
+            <div class="z-row">
+              <div class="z-field">
+                <label for="zName">Tu Nombre</label>
+                <input type="text" id="zName" required placeholder="Ej: Antonia Lira" />
+              </div>
+              <div class="z-field">
+                <label for="zPhone">WhatsApp</label>
+                <input type="tel" id="zPhone" required placeholder="+56 9 6543 2109" />
+              </div>
+            </div>
+
+            <div class="z-row">
+              <div class="z-field">
+                <label for="zRitual">Ceremonia Principal</label>
+                <select id="zRitual" required>
+                  <option value="Ceremonia Head Spa Termal ($48.000)">Ceremonia Head Spa Termal ($48.000)</option>
+                  <option value="Cataplasma de Barros & Henna ($54.000)">Cataplasma de Barros & Henna ($54.000)</option>
+                  <option value="Corte Escultórico en Seco ($34.000)">Corte Escultórico en Seco ($34.000)</option>
+                </select>
+              </div>
+              <div class="z-field">
+                <label for="zBlend">Sinergia Botánica</label>
+                <select id="zBlend">
+                  <option value="I. Calma & Raíz Sensible">I. Calma & Raíz Sensible</option>
+                  <option value="II. Nutrición Kintsugi (Cabello Seco o Rizado)">II. Nutrición Kintsugi (Cabello Seco o Rizado)</option>
+                  <option value="III. Detox & Vigor Folicular">III. Detox & Vigor Folicular</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="z-row">
+              <div class="z-field">
+                <label for="zDate">Fecha</label>
+                <input type="date" id="zDate" required />
+              </div>
+              <div class="z-field">
+                <label for="zTea">Infusión de Bienvenida</label>
+                <select id="zTea">
+                  <option value="Té Verde Sencha de Uji">Té Verde Sencha de Uji</option>
+                  <option value="Infusión de Manzanilla & Miel Cruda">Infusión de Manzanilla & Miel Cruda</option>
+                  <option value="Agua Tibia de Jengibre & Limón">Agua Tibia de Jengibre & Limón</option>
+                </select>
+              </div>
+            </div>
+
+            <button type="submit" class="btn-zen" style="width: 100%; margin-top: 8px">Confirmar Ceremonia (Demo)</button>
+            <div class="zen-confirmation" id="zenConfirm" role="status" aria-live="polite"></div>
+          </form>
+
+          <aside class="zen-form" style="display: flex; flex-direction: column; justify-content: space-between">
+            <div>
+              <span class="zen-demo-tag">JARDÍN INTERIOR · PROVIDENCIA</span>
+              <h3 style="font-family: var(--font-display); font-size: 1.5rem; margin: 10px 0">
+                Calle Las Urbinas 142, Casa Interior
+              </h3>
+              <p style="color: var(--stone-muted); font-size: 0.94rem; margin-bottom: 18px">
+                Un refugio silencioso rodeado de helechos y madera nativa, alejado del ruido de la calle.
+              </p>
+              <ul style="list-style: none; border-top: 1px solid var(--sand); padding-top: 16px; display: grid; gap: 8px; font-size: 0.9rem">
+                <li><strong>Martes a Sábado:</strong> 10:00 — 19:30 hrs</li>
+                <li><strong>Atención Individual:</strong> Sin música estridente ni esperas</li>
+              </ul>
+            </div>
+            <p style="font-size: 0.8rem; color: var(--stone-muted); border-top: 1px solid var(--sand); padding-top: 14px">
+              Demostración interactiva desarrollada por KuyénDev para el Estilo #10 Organic Zen / Wabi-Sabi.
+            </p>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="zLightbox" role="dialog" aria-modal="true" aria-labelledby="zLightTitle">
+    <div class="lightbox-zen">
+      <img id="zLightImg" src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85" alt="Vista ampliada" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg';"/>
+      <h3 id="zLightTitle" style="font-family: var(--font-display); margin-bottom: 6px">RITUAL</h3>
+      <p id="zLightDesc" style="color: var(--stone-muted); margin-bottom: 16px"></p>
+      <button type="button" class="btn-zen" id="zLightClose">Cerrar</button>
+    </div>
+  </div>
+
+  <footer style="padding: 48px 0; text-align: center; color: var(--stone-muted); font-size: 0.85rem">
+    <div class="container">
+      <p style="font-family: var(--font-display); font-size: 1.1rem; color: var(--stone); margin-bottom: 4px">KINTSUGI BOTANICAL SANCTUARY</p>
+      <p>Estilo #10 Organic Zen / Wabi-Sabi · Catálogo Peluquería & Belleza KuyénDev.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      // Pestañas de rituales
+      const rTabs = document.querySelectorAll('.r-tab');
+      const rCards = document.querySelectorAll('.r-card');
+      rTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          rTabs.forEach(t => {
+            t.classList.remove('active');
+            t.setAttribute('aria-selected', 'false');
+          });
+          tab.classList.add('active');
+          tab.setAttribute('aria-selected', 'true');
+          const filter = tab.dataset.ritual;
+          rCards.forEach(c => {
+            c.style.display = (filter === 'all' || c.dataset.ritual === filter) ? 'flex' : 'none';
+          });
+        });
+      });
+
+      const zRitual = document.getElementById('zRitual');
+      document.querySelectorAll('.pick-ritual').forEach(btn => {
+        btn.addEventListener('click', () => {
+          zRitual.value = btn.dataset.name;
+          document.getElementById('reserva-zen').scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+
+      // Alquimia Botánica
+      const herbBtns = document.querySelectorAll('.herb-btn');
+      const zBlend = document.getElementById('zBlend');
+      herbBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          herbBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          document.getElementById('herbTitle').textContent = btn.dataset.title;
+          document.getElementById('herbBenefit').textContent = btn.dataset.benefit;
+          document.getElementById('herbActives').textContent = btn.dataset.herbs;
+          document.getElementById('herbAroma').textContent = btn.dataset.aroma;
+        });
+      });
+
+      document.getElementById('applyHerbBtn').addEventListener('click', () => {
+        const chosen = document.querySelector('.herb-btn.active strong').textContent;
+        zBlend.value = chosen;
+        document.getElementById('reserva-zen').scrollIntoView({ behavior: 'smooth' });
+      });
+
+      // Lightbox
+      const zLightbox = document.getElementById('zLightbox');
+      document.querySelectorAll('.pebble-card').forEach(card => {
+        const open = () => {
+          document.getElementById('zLightImg').src = card.dataset.img;
+          document.getElementById('zLightTitle').textContent = card.dataset.title;
+          document.getElementById('zLightDesc').textContent = card.dataset.desc;
+          zLightbox.classList.add('open');
+        };
+        card.addEventListener('click', open);
+        card.addEventListener('keydown', e => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            open();
+          }
+        });
+      });
+      document.getElementById('zLightClose').addEventListener('click', () => zLightbox.classList.remove('open'));
+      zLightbox.addEventListener('click', e => {
+        if (e.target === zLightbox) zLightbox.classList.remove('open');
+      });
+
+      // Formulario
+      document.getElementById('zenForm').addEventListener('submit', e => {
+        e.preventDefault();
+        const name = document.getElementById('zName').value.trim();
+        const ritual = zRitual.value;
+        const blend = zBlend.value;
+        const date = document.getElementById('zDate').value;
+        const tea = document.getElementById('zTea').value;
+        const confirm = document.getElementById('zenConfirm');
+        confirm.style.display = 'block';
+        confirm.innerHTML = `🌿 <strong>[CEREMONIA DE DEMOSTRACIÓN REGISTRADA]</strong><br>Gracias, ${name}. Hemos simulado tu reserva para <strong>${ritual}</strong> con la <strong>${blend}</strong> el día <strong>${date}</strong>. Te recibiremos con <strong>${tea}</strong>.`;
+      });
+    })();
+  </script>
+  <script src="../../js/config/rubros.js"></script>
+  <script src="../../js/demo-viewer-bar.js"></script>
+</body>
+</html>

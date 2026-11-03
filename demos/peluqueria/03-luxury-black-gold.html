@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>MAISON ORLÉANS · Haute Coiffure & Concierge VIP | Luxury Black & Gold</title>
+  <meta name="description" content="Salón de alta peluquería y suites privadas VIP en estética Luxury Black & Gold. Coloración de autor, caviar capilar y servicio concierge." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-noir: #0A0A0C;
+      --bg-charcoal: #1E1E24;
+      --bg-card: #131318;
+      --gold: #D4AF37;
+      --gold-soft: rgba(212, 175, 55, 0.28);
+      --champagne: #F5E6BE;
+      --text-ivory: #F7F4ED;
+      --text-muted: #A39E93;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Montserrat', -apple-system, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-noir);
+      color: var(--text-ivory);
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-noir);
+      color: var(--text-ivory);
+      line-height: 1.65;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    .container {
+      width: min(1300px, 90vw);
+      margin: 0 auto;
+    }
+
+    .gold-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .gold-kicker::before,
+    .gold-kicker::after {
+      content: "";
+      width: 24px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold));
+    }
+
+    /* Header Luxury */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10, 10, 12, 0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--gold-soft);
+    }
+
+    .nav-bar {
+      height: 86px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .brand {
+      text-decoration: none;
+      color: var(--champagne);
+      text-align: center;
+    }
+
+    .brand-main {
+      font-family: var(--font-serif);
+      font-size: 1.65rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      display: block;
+      line-height: 1;
+    }
+
+    .brand-sub {
+      font-size: 0.6rem;
+      letter-spacing: 0.34em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: 4px;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.25rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      transition: color 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .btn-gold {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      padding: 0.85rem 1.75rem;
+      background: linear-gradient(135deg, #D4AF37 0%, #F5E6BE 50%, #B8860B 100%);
+      color: #0A0A0C;
+      font-family: var(--font-sans);
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid var(--gold);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-gold:hover {
+      filter: brightness(1.1);
+      box-shadow: 0 0 28px rgba(212, 175, 55, 0.35);
+    }
+
+    .btn-noir {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      padding: 0.85rem 1.65rem;
+      background: transparent;
+      color: var(--champagne);
+      border: 1px solid var(--gold);
+      font-size: 0.74rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-noir:hover {
+      background: rgba(212, 175, 55, 0.14);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: transparent;
+      border: 1px solid var(--gold);
+      color: var(--champagne);
+      padding: 0.45rem 0.85rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    /* Hero Imperial */
+    .hero {
+      padding: 5.5rem 0 6rem;
+      border-bottom: 1px solid var(--gold-soft);
+      background: radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.11), transparent 55%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.8rem, 5.2vw, 4.75rem);
+      font-weight: 400;
+      line-height: 1.04;
+      color: var(--champagne);
+      margin: 1.25rem 0 1.5rem;
+    }
+
+    .hero-title em {
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    .hero-lead {
+      color: var(--text-muted);
+      font-size: 1rem;
+      max-width: 48ch;
+      margin-bottom: 2.25rem;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .luxury-pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--gold-soft);
+    }
+
+    .pillar-num {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .pillar-txt {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.35rem;
+      letter-spacing: 0.04em;
+    }
+
+    .hero-frame {
+      position: relative;
+      padding: 1.25rem;
+      border: 1px solid var(--gold-soft);
+      background: var(--bg-card);
+    }
+
+    .hero-frame::before {
+      content: "";
+      position: absolute;
+      inset: 6px;
+      border: 1px solid rgba(212, 175, 55, 0.45);
+      pointer-events: none;
+    }
+
+    .hero-frame img {
+      width: 100%;
+      height: 540px;
+      object-fit: cover;
+      display: block;
+      filter: contrast(1.05);
+    }
+
+    .vip-seal {
+      position: absolute;
+      bottom: -18px;
+      right: 24px;
+      background: var(--bg-noir);
+      border: 1px solid var(--gold);
+      padding: 1rem 1.5rem;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.85);
+    }
+
+    .vip-seal strong {
+      font-family: var(--font-serif);
+      color: var(--champagne);
+      font-size: 1.15rem;
+      display: block;
+    }
+
+    .vip-seal span {
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* Secciones */
+    .section {
+      padding: 6rem 0;
+      border-bottom: 1px solid var(--gold-soft);
+    }
+
+    .section-charcoal {
+      background-color: var(--bg-charcoal);
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 2rem;
+      margin-bottom: 3.25rem;
+      flex-wrap: wrap;
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.2rem, 3.8vw, 3.4rem);
+      font-weight: 400;
+      color: var(--champagne);
+      margin-top: 0.65rem;
+      line-height: 1.1;
+    }
+
+    /* Menú Haute Coiffure */
+    .gold-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 1.15rem 1.5rem;
+      border: 1px solid var(--gold-soft);
+      background: var(--bg-card);
+      margin-bottom: 2.5rem;
+    }
+
+    .tab-row {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .gold-tab {
+      background: transparent;
+      border: 1px solid var(--gold-soft);
+      color: var(--text-muted);
+      padding: 0.55rem 1.15rem;
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .gold-tab.is-active {
+      background: var(--gold);
+      color: var(--bg-noir);
+      border-color: var(--gold);
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.75rem;
+    }
+
+    .menu-item {
+      background: var(--bg-card);
+      border: 1px solid var(--gold-soft);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.25rem;
+      transition: border-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .menu-item:hover {
+      border-color: var(--gold);
+      transform: translateY(-3px);
+    }
+
+    .menu-item.is-hidden {
+      display: none;
+    }
+
+    .menu-item-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      border-bottom: 1px dotted rgba(212, 175, 55, 0.35);
+      padding-bottom: 0.75rem;
+    }
+
+    .menu-item-name {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      color: var(--champagne);
+    }
+
+    .menu-item-price {
+      font-family: var(--font-serif);
+      font-size: 1.55rem;
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    /* Configurador de Suite Privada & Concierge VIP */
+    .concierge-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 3rem;
+      background: var(--bg-noir);
+      border: 1px solid var(--gold);
+      padding: 3rem;
+    }
+
+    .suite-options {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .suite-card-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--gold-soft);
+      padding: 1.25rem 1.5rem;
+      color: var(--text-ivory);
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.25s ease;
+    }
+
+    .suite-card-btn.is-active {
+      border-color: var(--gold);
+      background: rgba(212, 175, 55, 0.1);
+    }
+
+    .concierge-summary {
+      background: var(--bg-card);
+      border: 1px solid var(--gold-soft);
+      padding: 2.25rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Galería VIP */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+    }
+
+    .gallery-card {
+      background: var(--bg-card);
+      border: 1px solid var(--gold-soft);
+      padding: 0.85rem;
+      cursor: pointer;
+      transition: border-color 0.3s ease;
+    }
+
+    .gallery-card.is-hidden {
+      display: none;
+    }
+
+    .gallery-card:hover {
+      border-color: var(--gold);
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 360px;
+      object-fit: cover;
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    /* Equipo & Testimonios */
+    .three-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+    }
+
+    .artisan-card, .vip-testimonial {
+      background: var(--bg-card);
+      border: 1px solid var(--gold-soft);
+      padding: 1.75rem;
+    }
+
+    .artisan-card img {
+      width: 100%;
+      height: 290px;
+      object-fit: cover;
+      margin-bottom: 1.15rem;
+      border: 1px solid var(--gold-soft);
+    }
+
+    /* Reserva */
+    .booking-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 3.5rem;
+    }
+
+    .vip-form {
+      background: var(--bg-card);
+      border: 1px solid var(--gold);
+      padding: 2.5rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.15rem;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .form-field.full {
+      grid-column: 1 / -1;
+    }
+
+    .form-field label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+      background: var(--bg-noir);
+      border: 1px solid var(--gold-soft);
+      padding: 0.9rem 1rem;
+      color: var(--text-ivory);
+      font-family: var(--font-sans);
+      font-size: 0.88rem;
+      outline: none;
+    }
+
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus {
+      border-color: var(--gold);
+    }
+
+    .vip-feedback {
+      margin-top: 1.15rem;
+      padding: 1rem;
+      border: 1px solid var(--gold);
+      background: rgba(212, 175, 55, 0.12);
+      color: var(--champagne);
+      font-size: 0.85rem;
+      display: none;
+    }
+
+    .vip-feedback.is-visible {
+      display: block;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 10, 12, 0.95);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .lightbox.is-open {
+      display: flex;
+    }
+
+    .lightbox-box {
+      max-width: 800px;
+      width: 100%;
+      background: var(--bg-card);
+      border: 1px solid var(--gold);
+      padding: 1.25rem;
+    }
+
+    .lightbox-box img {
+      width: 100%;
+      max-height: 68vh;
+      object-fit: cover;
+      display: block;
+    }
+
+    footer {
+      padding: 3.5rem 0 5rem;
+      background: var(--bg-noir);
+      color: var(--text-muted);
+      font-size: 0.78rem;
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid,
+      .menu-grid,
+      .concierge-grid,
+      .gallery-grid,
+      .three-grid,
+      .booking-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 86px;
+        left: 0;
+        right: 0;
+        background: var(--bg-noir);
+        border-bottom: 1px solid var(--gold);
+        flex-direction: column;
+        padding: 1.5rem;
+      }
+
+      .nav-links.is-open {
+        display: flex;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .form-grid,
+      .luxury-pillars {
+        grid-template-columns: 1fr;
+      }
+      .concierge-grid {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body data-rubro-id="peluqueria" data-style-id="luxury-black-gold">
+
+  <header>
+    <div class="container nav-bar">
+      <a href="#" class="brand">
+        <span class="brand-main">MAISON ORLÉANS</span>
+        <span class="brand-sub">Haute Coiffure & Concierge VIP</span>
+      </a>
+
+      <nav aria-label="Navegación principal">
+        <button type="button" class="menu-toggle" id="menuToggle" aria-expanded="false">Menú</button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#carta">Haute Carta</a></li>
+          <li><a href="#concierge">Suites Privadas</a></li>
+          <li><a href="#coleccion">Colección</a></li>
+          <li><a href="#maestros">Directores</a></li>
+          <li><a href="#testimonios">Referencias</a></li>
+        </ul>
+      </nav>
+
+      <a href="#reserva" class="btn-gold">Concierge VIP</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="gold-kicker">Estilo #03 · Luxury Black & Gold</span>
+          <h1 class="hero-title">El arte supremo de la alta peluquería <em>privada</em>.</h1>
+          <p class="hero-lead">
+            Suites insonorizadas individuales, infusiones de caviar negro e iluminación escénica cálida. En Maison Orléans cada visita es un ritual de distinción y confidencialidad absoluta.
+          </p>
+          <div class="hero-cta">
+            <a href="#reserva" class="btn-gold">Solicitar Suite Privada</a>
+            <a href="#carta" class="btn-noir">Explorar Carta Imperial</a>
+          </div>
+          <div class="luxury-pillars">
+            <div>
+              <div class="pillar-num">4 Suites</div>
+              <div class="pillar-txt">Salones privados con servicio de sommelier y valet parking</div>
+            </div>
+            <div>
+              <div class="pillar-num">24K</div>
+              <div class="pillar-txt">Elixires con micro-partículas de oro bio-activo y seda real</div>
+            </div>
+            <div>
+              <div class="pillar-num">1 a 1</div>
+              <div class="pillar-txt">Director artístico dedicado en exclusividad durante tu cita</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-frame">
+          <img
+            src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85"
+            alt="Estética Luxury Black & Gold en Maison Orléans"
+            onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg';"/>
+          <div class="vip-seal">
+            <strong>Membrecía Privée</strong>
+            <span>Atención en Salón & Hotel Suite</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CARTA DE SERVICIOS -->
+    <section class="section" id="carta">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="gold-kicker">Haute Coiffure Menu</span>
+            <h2 class="section-title">Rituales & Alta Coloración</h2>
+          </div>
+          <p style="color:var(--text-muted);max-width:42ch;font-size:0.92rem">Selecciona la categoría y la longitud capilar para consultar el arancel correspondiente a salón principal.</p>
+        </div>
+
+        <div class="gold-controls">
+          <div class="tab-row" role="tablist">
+            <button type="button" class="gold-tab is-active" data-cat="all">Colección Completa</button>
+            <button type="button" class="gold-tab" data-cat="color">Or & Lumière Color</button>
+            <button type="button" class="gold-tab" data-cat="caviar">Rituales de Caviar</button>
+            <button type="button" class="gold-tab" data-cat="corte">Corte Couture</button>
+          </div>
+
+          <div class="tab-row">
+            <span style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.14em;color:var(--gold);margin-right:0.4rem">Longitud:</span>
+            <button type="button" class="gold-tab" data-mult="1" data-len="Corto">Corto</button>
+            <button type="button" class="gold-tab is-active" data-mult="1.25" data-len="Medio">Medio</button>
+            <button type="button" class="gold-tab" data-mult="1.5" data-len="Largo Imperial">Largo Imperial</button>
+          </div>
+        </div>
+
+        <div class="menu-grid">
+          <article class="menu-item" data-category="color" data-base="140000">
+            <div>
+              <div class="menu-item-top">
+                <h3 class="menu-item-name">Balayage Champagne Impérial</h3>
+                <span class="menu-item-price">$175.000</span>
+              </div>
+              <p style="color:var(--text-muted);font-size:0.88rem">Iluminación multidimensional de alta costura con matiz oro champaña, protección de puentes disulfuro y baño de seda.</p>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:0.74rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold)">
+              <span class="len-label">210 min · Medio</span>
+              <a href="#reserva" style="color:var(--champagne);text-decoration:none;font-weight:600;" data-service="Balayage Champagne Impérial">Seleccionar →</a>
+            </div>
+          </article>
+
+          <article class="menu-item" data-category="caviar" data-base="88000">
+            <div>
+              <div class="menu-item-top">
+                <h3 class="menu-item-name">Cura de Caviar Negro & Oro 24K</h3>
+                <span class="menu-item-price">$110.000</span>
+              </div>
+              <p style="color:var(--text-muted);font-size:0.88rem">Rejuvenecimiento celular intensivo con extracto de caviar beluga, péptidos y sellado térmico con micro-oro luminoso.</p>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:0.74rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold)">
+              <span class="len-label">90 min · Medio</span>
+              <a href="#reserva" style="color:var(--champagne);text-decoration:none;font-weight:600;" data-service="Cura de Caviar Negro & Oro 24K">Seleccionar →</a>
+            </div>
+          </article>
+
+          <article class="menu-item" data-category="corte" data-base="64000">
+            <div>
+              <div class="menu-item-top">
+                <h3 class="menu-item-name">Coupe Haute Couture & Visagismo</h3>
+                <span class="menu-item-price">$80.000</span>
+              </div>
+              <p style="color:var(--text-muted);font-size:0.88rem">Diseño de corte personalizado por nuestro Director Creativo, lavado shiatsu en sillón de cuero reclinable y brushing de gala.</p>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:0.74rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold)">
+              <span class="len-label">90 min · Medio</span>
+              <a href="#reserva" style="color:var(--champagne);text-decoration:none;font-weight:600;" data-service="Coupe Haute Couture & Visagismo">Seleccionar →</a>
+            </div>
+          </article>
+
+          <article class="menu-item" data-category="color" data-base="96000">
+            <div>
+              <div class="menu-item-top">
+                <h3 class="menu-item-name">Gloss Noir Velours & Reflejos</h3>
+                <span class="menu-item-price">$120.000</span>
+              </div>
+              <p style="color:var(--text-muted);font-size:0.88rem">Profundidad extrema para cabellos oscuros o castaños ricos con brillo espejo tridimensional y nutrición de óleo de argán puro.</p>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:0.74rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold)">
+              <span class="len-label">120 min · Medio</span>
+              <a href="#reserva" style="color:var(--champagne);text-decoration:none;font-weight:600;" data-service="Gloss Noir Velours & Reflejos">Seleccionar →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONFIGURADOR DE EXPERIENCIA CONCIERGE VIP -->
+    <section class="section section-charcoal" id="concierge">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="gold-kicker">Privacidad & Protocolo</span>
+            <h2 class="section-title">Configurador de Experiencia VIP</h2>
+          </div>
+          <p style="color:var(--text-muted);max-width:42ch;font-size:0.92rem">Personaliza el nivel de privacidad y hospitalidad para tu próxima visita o evento de gala.</p>
+        </div>
+
+        <div class="concierge-grid">
+          <div>
+            <span style="font-size:0.74rem;text-transform:uppercase;letter-spacing:0.16em;color:var(--gold)">Selecciona tu modalidad de atención:</span>
+            <div class="suite-options" id="suiteSelector">
+              <button type="button" class="suite-card-btn is-active" data-suite="salon">
+                <div>
+                  <strong style="font-family:var(--font-serif);font-size:1.3rem;color:var(--champagne);display:block">Salón Principal Orléans</strong>
+                  <span style="font-size:0.8rem;color:var(--text-muted)">Sillón de cuero italiano, copa de champagne Brut y diagnóstico óptico.</span>
+                </div>
+                <span style="color:var(--gold);font-weight:600;font-size:0.82rem">Incluido</span>
+              </button>
+
+              <button type="button" class="suite-card-btn" data-suite="privee">
+                <div>
+                  <strong style="font-family:var(--font-serif);font-size:1.3rem;color:var(--champagne);display:block">Suite Privée Insonorizada</strong>
+                  <span style="font-size:0.8rem;color:var(--text-muted)">Cabina individual cerrada, acceso directo desde estacionamiento y menú degustación.</span>
+                </div>
+                <span style="color:var(--gold);font-weight:600;font-size:0.82rem">+$45.000</span>
+              </button>
+
+              <button type="button" class="suite-card-btn" data-suite="domicilio">
+                <div>
+                  <strong style="font-family:var(--font-serif);font-size:1.3rem;color:var(--champagne);display:block">Concierge en Hotel o Residencia</strong>
+                  <span style="font-size:0.8rem;color:var(--text-muted)">Desplazamiento de Director Creativo y asistente para novias, galas o directorio.</span>
+                </div>
+                <span style="color:var(--gold);font-weight:600;font-size:0.82rem">+$120.000</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="concierge-summary" aria-live="polite">
+            <div>
+              <span class="gold-kicker">Resumen de Hospitalidad</span>
+              <h3 style="font-family:var(--font-serif);font-size:1.85rem;color:var(--champagne);margin:0.85rem 0;" id="suiteTitle">Salón Principal Orléans</h3>
+              <p style="color:var(--text-muted);font-size:0.9rem;margin-bottom:1.5rem;" id="suiteDesc">
+                Disfruta de nuestra atmósfera de luz dramática controlada, carta de cafés de origen, infusiones botánicas y copa de bienvenida.
+              </p>
+              <div style="border-top:1px solid var(--gold-soft);padding-top:1rem;font-size:0.84rem;display:flex;justify-content:space-between">
+                <span style="color:var(--text-muted)">Amenidades incluidas:</span>
+                <strong style="color:var(--champagne);" id="suiteAmenity">Valet Parking + Champagne Bar</strong>
+              </div>
+            </div>
+            <a href="#reserva" class="btn-gold" style="margin-top:1.75rem;width:100%">Incluir en mi Reserva VIP</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COLECCIÓN / LOOKBOOK -->
+    <section class="section" id="coleccion">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="gold-kicker">Galería de Gala</span>
+            <h2 class="section-title">Colección Noir & Or</h2>
+          </div>
+          <div class="tab-row">
+            <button type="button" class="gold-tab is-active" data-gal="all">Todos</button>
+            <button type="button" class="gold-tab" data-gal="rubios">Oro & Champagne</button>
+            <button type="button" class="gold-tab" data-gal="gala">Peinados de Gala</button>
+          </div>
+        </div>
+
+        <div class="gallery-grid">
+          <article class="gallery-card" data-gal-cat="rubios" data-title="I · Or Impérial" data-detail="Balayage en tonos miel dorada y tratamiento de caviar">
+            <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=900&q=80" alt="Look Or Impérial" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/hair-look-balayage.svg';"/>
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div>
+                <h3 style="font-family:var(--font-serif);font-size:1.3rem;color:var(--champagne)">Or Impérial</h3>
+                <span style="font-size:0.75rem;color:var(--text-muted)">Alta Coloración</span>
+              </div>
+              <span style="color:var(--gold);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.12em">Ver Obra</span>
+            </div>
+          </article>
+
+          <article class="gallery-card" data-gal-cat="gala" data-title="II · Ondas de Ópera" data-detail="Esculpido clásico pulido con elixir de oro de 24 quilates">
+            <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=900&q=80" alt="Look Ondas de Ópera" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/hair-look-balayage.svg';"/>
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div>
+                <h3 style="font-family:var(--font-serif);font-size:1.3rem;color:var(--champagne)">Ondas de Ópera</h3>
+                <span style="font-size:0.75rem;color:var(--text-muted)">Gala & Alfombra Roja</span>
+              </div>
+              <span style="color:var(--gold);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.12em">Ver Obra</span>
+            </div>
+          </article>
+
+          <article class="gallery-card" data-gal-cat="rubios" data-title="III · Soie Platine" data-detail="Rubio champaña frío con reconstrucción de seda real">
+            <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=900&q=80" alt="Look Soie Platine" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/hair-look-balayage.svg';"/>
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div>
+                <h3 style="font-family:var(--font-serif);font-size:1.3rem;color:var(--champagne)">Soie Platine</h3>
+                <span style="font-size:0.75rem;color:var(--text-muted)">Haute Color</span>
+              </div>
+              <span style="color:var(--gold);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.12em">Ver Obra</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAESTROS -->
+    <section class="section section-charcoal" id="maestros">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="gold-kicker">Maîtres Coiffeurs</span>
+            <h2 class="section-title">Directores de Maison Orléans</h2>
+          </div>
+        </div>
+
+        <div class="three-grid">
+          <article class="artisan-card">
+            <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85" alt="Laurent Delacroix" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg';"/>
+            <h3 style="font-family:var(--font-serif);font-size:1.45rem;color:var(--champagne)">Laurent Delacroix</h3>
+            <div style="font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin:0.25rem 0 0.65rem">Fondateur & Directeur Créatif</div>
+            <p style="font-size:0.86rem;color:var(--text-muted)">Ex estilista de maisons parisinas con más de 18 años vistiendo cabelleras para galas y editoriales internacionales.</p>
+          </article>
+
+          <article class="artisan-card">
+            <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85" alt="Victoria Saint-Clair" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg';"/>
+            <h3 style="font-family:var(--font-serif);font-size:1.45rem;color:var(--champagne)">Victoria Saint-Clair</h3>
+            <div style="font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin:0.25rem 0 0.65rem">Master Colorist Champagne</div>
+            <p style="font-size:0.86rem;color:var(--text-muted)">Referente en iluminaciones doradas sutiles y correcciones de color de alta complejidad en suites privadas.</p>
+          </article>
+
+          <article class="artisan-card">
+            <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85" alt="Antonia Montt" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg';"/>
+            <h3 style="font-family:var(--font-serif);font-size:1.45rem;color:var(--champagne)">Antonia Montt</h3>
+            <div style="font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin:0.25rem 0 0.65rem">Directora de Rituales Caviar</div>
+            <p style="font-size:0.86rem;color:var(--text-muted)">Especialista en longevidad capilar, protocolos antiedad del folículo y masajes craneales de relajación profunda.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section class="section" id="testimonios">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="gold-kicker">Círculo Privé</span>
+            <h2 class="section-title">Elogios de nuestros clientes</h2>
+          </div>
+        </div>
+
+        <div class="three-grid">
+          <article class="vip-testimonial">
+            <span style="font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:0.85rem">[Testimonio Ficticio de Demostración]</span>
+            <p style="font-family:var(--font-serif);font-size:1.15rem;font-style:italic;color:var(--champagne);margin-bottom:1.15rem">“Reservar la Suite Privée me permite continuar con mis reuniones confidenciales mientras Victoria trabaja mi color y me sirven un espresso impecable.”</p>
+            <div style="font-size:0.78rem;color:var(--text-muted)">Bernardita Larraín · Socia de Banca Privada (Ejemplo Ficticio)</div>
+          </article>
+
+          <article class="vip-testimonial">
+            <span style="font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:0.85rem">[Testimonio Ficticio de Demostración]</span>
+            <p style="font-family:var(--font-serif);font-size:1.15rem;font-style:italic;color:var(--champagne);margin-bottom:1.15rem">“El ritual de caviar negro devolvió el cuerpo y brillo a mi cabello antes de mi matrimonio. Un servicio de estándar europeo.”</p>
+            <div style="font-size:0.78rem;color:var(--text-muted)">Magdalena Cousiño · Coleccionista de Arte (Ejemplo Ficticio)</div>
+          </article>
+
+          <article class="vip-testimonial">
+            <span style="font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:0.85rem">[Testimonio Ficticio de Demostración]</span>
+            <p style="font-family:var(--font-serif);font-size:1.15rem;font-style:italic;color:var(--champagne);margin-bottom:1.15rem">“Laurent tiene un ojo infalible para las proporciones del rostro. Su corte mantiene la elegancia sin esfuerzo durante meses.”</p>
+            <div style="font-size:0.78rem;color:var(--text-muted)">Cristóbal Errázuriz · Empresario Vitivinícola (Ejemplo Ficticio)</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESERVA CONCIERGE -->
+    <section class="section section-charcoal" id="reserva" style="border-bottom:none">
+      <div class="container booking-grid">
+        <div>
+          <span class="gold-kicker">Concierge Desk</span>
+          <h2 class="section-title">Solicitar Reserva Privada</h2>
+          <p style="color:var(--text-muted);margin:1.25rem 0 2rem;font-size:0.95rem">
+            Nuestro equipo de Concierge confirmará disponibilidad de sillón o Suite Privée y coordinará tu estacionamiento reservado.
+          </p>
+          <div style="display:flex;flex-direction:column;gap:0.75rem;font-size:0.85rem;color:var(--text-muted)">
+            <div><strong style="color:var(--champagne)">Maison:</strong> Isidora Goyenechea 3000, Las Condes (Demostración)</div>
+            <div><strong style="color:var(--champagne)">Atención:</strong> Lunes a Sábado · 09:00 a 21:00 hrs</div>
+            <div><strong style="color:var(--champagne)">Valet Parking:</strong> Acceso subterráneo privado</div>
+          </div>
+        </div>
+
+        <form class="vip-form" id="vipForm">
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="vipName">Nombre del Huésped</label>
+              <input type="text" id="vipName" required placeholder="Ej. Josefina Subercaseaux" />
+            </div>
+            <div class="form-field">
+              <label for="vipPhone">Teléfono / WhatsApp Directo</label>
+              <input type="tel" id="vipPhone" required placeholder="+56 9 7777 8888" />
+            </div>
+            <div class="form-field">
+              <label for="vipService">Ritual o Servicio</label>
+              <select id="vipService">
+                <option value="Balayage Champagne Impérial">Balayage Champagne Impérial</option>
+                <option value="Cura de Caviar Negro & Oro 24K">Cura de Caviar Negro & Oro 24K</option>
+                <option value="Coupe Haute Couture & Visagismo">Coupe Haute Couture & Visagismo</option>
+                <option value="Gloss Noir Velours & Reflejos">Gloss Noir Velours & Reflejos</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="vipSuite">Modalidad de Privacidad</label>
+              <select id="vipSuite">
+                <option value="Salón Principal Orléans">Salón Principal Orléans</option>
+                <option value="Suite Privée Insonorizada">Suite Privée Insonorizada</option>
+                <option value="Concierge en Hotel o Residencia">Concierge en Hotel o Residencia</option>
+              </select>
+            </div>
+            <div class="form-field full">
+              <label for="vipNotes">Preferencias de Hospitalidad (Bebida, Horario, Silencio)</label>
+              <textarea id="vipNotes" rows="3" placeholder="Indícanos tu horario ideal y preferencias de atención..."></textarea>
+            </div>
+          </div>
+          <p style="font-size:0.74rem;color:var(--text-muted);margin:1rem 0">
+            * Formulario demostrativo interactivo del lado del cliente. No genera cargos ni reservas reales.
+          </p>
+          <button type="submit" class="btn-gold" style="width:100%">Enviar Solicitud al Concierge (Demo)</button>
+          <div class="vip-feedback" id="vipFeedback" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Obra de alta peluquería">
+    <div class="lightbox-box">
+      <img id="lbImg" src="" alt="" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg';"/>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem">
+        <div>
+          <strong id="lbTitle" style="font-family:var(--font-serif);font-size:1.35rem;color:var(--champagne);display:block"></strong>
+          <span id="lbDetail" style="font-size:0.8rem;color:var(--text-muted)"></span>
+        </div>
+        <button type="button" class="btn-noir" id="lbClose">Cerrar [ESC]</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem">
+      <span>© 2026 MAISON ORLÉANS · Demostración Estilo #03 Luxury Black & Gold · Catálogo KuyénDev</span>
+      <span>Paleta: #0A0A0C · #D4AF37 · #F5E6BE · #1E1E24 | Cormorant Garamond & Montserrat</span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const menuToggle = document.getElementById('menuToggle');
+      const navLinks = document.getElementById('navLinks');
+      if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+          const open = navLinks.classList.toggle('is-open');
+          menuToggle.setAttribute('aria-expanded', String(open));
+        });
+      }
+
+      // Carta de servicios y largo
+      let cat = 'all';
+      let mult = 1.25;
+      let lenTxt = 'Medio';
+      const items = document.querySelectorAll('.menu-item');
+      const fmt = new Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP', maximumFractionDigits: 0 });
+
+      function refreshMenu() {
+        items.forEach(item => {
+          const show = cat === 'all' || item.getAttribute('data-category') === cat;
+          item.classList.toggle('is-hidden', !show);
+          const base = Number(item.getAttribute('data-base'));
+          item.querySelector('.menu-item-price').textContent = fmt.format(Math.round(base * mult));
+          const lbl = item.querySelector('.len-label');
+          const mins = lbl.textContent.split('·')[0].trim();
+          lbl.textContent = `${mins} · ${lenTxt}`;
+        });
+      }
+
+      document.querySelectorAll('[data-cat]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('[data-cat]').forEach(b => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+          cat = btn.getAttribute('data-cat');
+          refreshMenu();
+        });
+      });
+
+      document.querySelectorAll('[data-mult]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('[data-mult]').forEach(b => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+          mult = Number(btn.getAttribute('data-mult'));
+          lenTxt = btn.getAttribute('data-len');
+          refreshMenu();
+        });
+      });
+
+      const vipService = document.getElementById('vipService');
+      const vipSuite = document.getElementById('vipSuite');
+      document.querySelectorAll('[data-service]').forEach(a => {
+        a.addEventListener('click', () => {
+          if (vipService) vipService.value = a.getAttribute('data-service');
+        });
+      });
+
+      // Configurador de Suite VIP
+      const suiteInfo = {
+        salon: {
+          title: 'Salón Principal Orléans',
+          desc: 'Disfruta de nuestra atmósfera de luz dramática controlada, carta de cafés de origen, infusiones botánicas y copa de bienvenida.',
+          amenity: 'Valet Parking + Champagne Bar'
+        },
+        privee: {
+          title: 'Suite Privée Insonorizada',
+          desc: 'Espacio completamente independiente con acústica aislada, tocador privado, climatización a medida y acceso reservado.',
+          amenity: 'Suite Cerrada + Sommelier & Caviar Bite'
+        },
+        domicilio: {
+          title: 'Concierge en Hotel o Residencia',
+          desc: 'Trasladamos nuestro equipamiento portátil de iluminación y baúl de alta cosmética directamente a tu residencia o suite de hotel.',
+          amenity: 'Director Creativo + Asistente en Locación'
+        }
+      };
+
+      document.querySelectorAll('[data-suite]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('[data-suite]').forEach(b => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+          const info = suiteInfo[btn.getAttribute('data-suite')];
+          document.getElementById('suiteTitle').textContent = info.title;
+          document.getElementById('suiteDesc').textContent = info.desc;
+          document.getElementById('suiteAmenity').textContent = info.amenity;
+          if (vipSuite) vipSuite.value = info.title;
+        });
+      });
+
+      // Galería y Lightbox
+      const galCards = document.querySelectorAll('.gallery-card');
+      document.querySelectorAll('[data-gal]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('[data-gal]').forEach(b => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+          const g = btn.getAttribute('data-gal');
+          galCards.forEach(c => {
+            c.classList.toggle('is-hidden', g !== 'all' && c.getAttribute('data-gal-cat') !== g);
+          });
+        });
+      });
+
+      const lb = document.getElementById('lightbox');
+      const lbImg = document.getElementById('lbImg');
+      const lbTitle = document.getElementById('lbTitle');
+      const lbDetail = document.getElementById('lbDetail');
+      galCards.forEach(card => {
+        card.addEventListener('click', () => {
+          const img = card.querySelector('img');
+          lbImg.src = img.src;
+          lbImg.alt = img.alt;
+          lbTitle.textContent = card.getAttribute('data-title');
+          lbDetail.textContent = card.getAttribute('data-detail');
+          lb.classList.add('is-open');
+        });
+      });
+      const closeLb = () => lb.classList.remove('is-open');
+      document.getElementById('lbClose').addEventListener('click', closeLb);
+      lb.addEventListener('click', (e) => { if (e.target === lb) closeLb(); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLb(); });
+
+      // Formulario VIP
+      const vipForm = document.getElementById('vipForm');
+      const vipFeedback = document.getElementById('vipFeedback');
+      vipForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('vipName').value.trim();
+        vipFeedback.textContent = `[Simulación Interactiva KuyénDev] Estimado/a ${name}, nuestro Concierge VIP ha registrado tu solicitud en modo demostración para "${vipService.value}" (${vipSuite.value}).`;
+        vipFeedback.classList.add('is-visible');
+        vipForm.reset();
+      });
+    })();
+  </script>
+
+  <script src="../../js/config/rubros.js"></script>
+  <script src="../../js/demo-viewer-bar.js"></script>
+</body>
+</html>

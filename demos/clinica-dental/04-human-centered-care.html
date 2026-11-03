@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>ABRAZO SALUD · Enfermería Domiciliaria, Geriatría & Cuidado Familiar | Estilo #04 Human-Centered Care</title>
+  <meta name="description" content="Demostración interactiva Estilo #04 Human-Centered / Care Design para KuyénDev: Abrazo Salud, enfermería a domicilio, geriatría, odontología móvil y acompañamiento familiar." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Quicksand:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-cream: #F7F4EA;
+      --bg-warm-white: #FFFDF9;
+      --pastel-sky: #A8DADC;
+      --pastel-sky-soft: #E2F3F4;
+      --sage-green: #2A9D8F;
+      --sage-hover: #21867A;
+      --calm-blue: #457B9D;
+      --navy-ink: #1D3557;
+      --text-soft: #4A5D73;
+      --coral-warm: #E76F51;
+      --radius-organic: 28px;
+      --radius-card: 22px;
+      --radius-pill: 999px;
+      --font-heading: 'Quicksand', sans-serif;
+      --font-body: 'Nunito', system-ui, -apple-system, sans-serif;
+      --base-scale: 1;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-cream);
+      color: var(--navy-ink);
+      font-family: var(--font-body);
+      font-size: calc(16px * var(--base-scale));
+      line-height: 1.65;
+    }
+
+    html.large-text-mode {
+      --base-scale: 1.14;
+    }
+
+    body {
+      background-color: var(--bg-cream);
+      overflow-x: hidden;
+    }
+
+    /* Barra de Accesibilidad y Acompañamiento Familiar */
+    .care-top-bar {
+      background-color: var(--pastel-sky-soft);
+      border-bottom: 2px solid var(--pastel-sky);
+      padding: 10px 24px;
+      font-size: 0.9rem;
+      color: var(--navy-ink);
+    }
+
+    .care-top-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .a11y-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-a11y {
+      background: var(--bg-warm-white);
+      border: 2px solid var(--calm-blue);
+      color: var(--navy-ink);
+      padding: 5px 14px;
+      border-radius: var(--radius-pill);
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 0.84rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-a11y.is-active,
+    .btn-a11y:hover {
+      background: var(--calm-blue);
+      color: #FFFFFF;
+    }
+
+    /* Header Cálido y Protector */
+    .care-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 253, 249, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(69, 123, 157, 0.16);
+    }
+
+    .care-header-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .care-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--navy-ink);
+    }
+
+    .care-heart-badge {
+      width: 46px;
+      height: 46px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, var(--sage-green), var(--calm-blue));
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 18px rgba(42, 157, 143, 0.25);
+    }
+
+    .care-logo-title {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.25rem;
+      display: block;
+      line-height: 1.1;
+    }
+
+    .care-logo-sub {
+      font-size: 0.78rem;
+      color: var(--sage-green);
+      font-weight: 700;
+    }
+
+    .care-nav {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+    }
+
+    .care-nav a {
+      text-decoration: none;
+      color: var(--navy-ink);
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: color 0.2s ease;
+    }
+
+    .care-nav a:hover {
+      color: var(--sage-green);
+    }
+
+    .btn-care {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 24px;
+      border-radius: var(--radius-pill);
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      cursor: pointer;
+      border: 2px solid transparent;
+      background-color: var(--sage-green);
+      color: #FFFFFF;
+      box-shadow: 0 8px 20px rgba(42, 157, 143, 0.25);
+      transition: all 0.2s ease;
+    }
+
+    .btn-care:hover {
+      background-color: var(--sage-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-care-secondary {
+      background-color: var(--bg-warm-white);
+      color: var(--calm-blue);
+      border-color: var(--pastel-sky);
+      box-shadow: none;
+    }
+
+    .btn-care-secondary:hover {
+      background-color: var(--pastel-sky-soft);
+      color: var(--navy-ink);
+    }
+
+    .care-mob-btn {
+      display: none;
+      background: var(--pastel-sky-soft);
+      border: 2px solid var(--calm-blue);
+      border-radius: 12px;
+      padding: 8px 12px;
+      font-weight: 700;
+      color: var(--navy-ink);
+      cursor: pointer;
+    }
+
+    /* Hero Cálido con Formas Curvas Protectoras */
+    .hero-care {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 56px 24px 76px;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .warm-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-warm-white);
+      border: 2px solid var(--pastel-sky);
+      color: var(--calm-blue);
+      padding: 7px 16px;
+      border-radius: var(--radius-pill);
+      font-weight: 800;
+      font-size: 0.82rem;
+      margin-bottom: 20px;
+    }
+
+    .hero-care h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2.1rem, 3.8vw, 3.25rem);
+      font-weight: 700;
+      line-height: 1.16;
+      color: var(--navy-ink);
+      margin-bottom: 20px;
+    }
+
+    .hero-care h1 span {
+      color: var(--sage-green);
+      text-decoration: underline;
+      text-decoration-color: var(--pastel-sky);
+      text-decoration-thickness: 5px;
+      text-underline-offset: 4px;
+    }
+
+    .hero-care p {
+      font-size: 1.08rem;
+      color: var(--text-soft);
+      margin-bottom: 32px;
+    }
+
+    .care-trust-badges {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 36px;
+    }
+
+    .trust-box {
+      background: var(--bg-warm-white);
+      border: 2px solid rgba(168, 218, 220, 0.65);
+      border-radius: var(--radius-card);
+      padding: 16px;
+    }
+
+    .trust-box strong {
+      display: block;
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      color: var(--sage-green);
+    }
+
+    .trust-box span {
+      font-size: 0.84rem;
+      color: var(--text-soft);
+      font-weight: 600;
+    }
+
+    .hero-care-photo-card {
+      background: var(--bg-warm-white);
+      padding: 20px;
+      border-radius: 36px;
+      border: 3px solid var(--pastel-sky);
+      box-shadow: 0 20px 45px rgba(29, 53, 87, 0.08);
+      position: relative;
+    }
+
+    .hero-care-img {
+      border-radius: 26px;
+      overflow: hidden;
+      aspect-ratio: 4 / 3.4;
+      background: var(--pastel-sky-soft);
+    }
+
+    .hero-care-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .care-floating-note {
+      margin-top: 16px;
+      background: var(--pastel-sky-soft);
+      border-radius: 20px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    /* Secciones */
+    .care-section {
+      padding: 76px 24px;
+    }
+
+    .care-section.bg-white {
+      background-color: var(--bg-warm-white);
+      border-top: 2px solid rgba(168, 218, 220, 0.45);
+      border-bottom: 2px solid rgba(168, 218, 220, 0.45);
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+    }
+
+    .section-head-care {
+      max-width: 720px;
+      margin-bottom: 44px;
+    }
+
+    .section-head-care h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      color: var(--navy-ink);
+      margin-bottom: 12px;
+    }
+
+    /* Planificador Interactivo de Cuidado en Casa */
+    .care-planner-box {
+      background: var(--bg-cream);
+      border: 3px solid var(--pastel-sky);
+      border-radius: var(--radius-organic);
+      padding: 36px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .need-buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 16px 0 24px;
+    }
+
+    .need-btn {
+      padding: 16px;
+      border-radius: 18px;
+      background: var(--bg-warm-white);
+      border: 2px solid rgba(69, 123, 157, 0.22);
+      text-align: left;
+      font-family: var(--font-body);
+      color: var(--navy-ink);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .need-btn.is-active {
+      background: var(--sage-green);
+      color: #FFFFFF;
+      border-color: var(--sage-green);
+    }
+
+    .need-btn strong {
+      display: block;
+      font-size: 0.98rem;
+      margin-bottom: 4px;
+    }
+
+    .need-btn span {
+      font-size: 0.82rem;
+      opacity: 0.9;
+    }
+
+    .planner-summary {
+      background: var(--bg-warm-white);
+      border: 2px solid var(--sage-green);
+      border-radius: 24px;
+      padding: 28px;
+    }
+
+    /* Tarjetas de Servicios Domiciliarios */
+    .care-services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+      gap: 24px;
+    }
+
+    .care-service-card {
+      background: var(--bg-warm-white);
+      border: 2px solid rgba(168, 218, 220, 0.7);
+      border-radius: var(--radius-card);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease;
+    }
+
+    .care-service-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--sage-green);
+    }
+
+    .care-icon-circle {
+      width: 52px;
+      height: 52px;
+      border-radius: 18px;
+      background: var(--pastel-sky-soft);
+      color: var(--calm-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      font-size: 1.4rem;
+    }
+
+    /* Equipo Humano & Lightbox */
+    .care-team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .care-team-card {
+      background: var(--bg-cream);
+      border: 2px solid var(--pastel-sky);
+      border-radius: var(--radius-card);
+      padding: 18px;
+      text-align: left;
+      cursor: pointer;
+      color: var(--navy-ink);
+    }
+
+    .care-team-photo {
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 4 / 3.2;
+      margin-bottom: 14px;
+    }
+
+    .care-team-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Testimonios Familiares */
+    .family-quotes-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .family-quote-card {
+      background: var(--bg-warm-white);
+      border: 2px solid var(--pastel-sky);
+      border-radius: var(--radius-card);
+      padding: 28px;
+    }
+
+    .demo-care-badge {
+      display: inline-block;
+      background: var(--pastel-sky-soft);
+      color: var(--calm-blue);
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      margin-bottom: 12px;
+    }
+
+    /* Formulario de Solicitud a Domicilio */
+    .home-visit-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 44px;
+      align-items: start;
+    }
+
+    .visit-form-card {
+      background: var(--bg-warm-white);
+      border: 3px solid var(--sage-green);
+      border-radius: var(--radius-organic);
+      padding: 36px;
+    }
+
+    .care-input,
+    .care-select {
+      width: 100%;
+      padding: 13px 16px;
+      border-radius: 14px;
+      border: 2px solid var(--pastel-sky);
+      background: var(--bg-cream);
+      font-family: var(--font-body);
+      font-size: 0.96rem;
+      color: var(--navy-ink);
+      margin-top: 6px;
+    }
+
+    .care-feedback {
+      margin-top: 18px;
+      padding: 18px;
+      border-radius: 16px;
+      background: #E6F7F5;
+      border: 2px solid var(--sage-green);
+      color: var(--navy-ink);
+      font-weight: 600;
+      display: none;
+    }
+
+    .care-feedback.is-visible {
+      display: block;
+    }
+
+    /* Lightbox */
+    .care-lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(29, 53, 87, 0.85);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .care-lightbox.is-open {
+      display: flex;
+    }
+
+    .care-lightbox-box {
+      max-width: 780px;
+      width: 100%;
+      background: var(--bg-warm-white);
+      border-radius: var(--radius-organic);
+      padding: 22px;
+      border: 3px solid var(--pastel-sky);
+    }
+
+    .care-footer {
+      background: var(--navy-ink);
+      color: #E2F3F4;
+      padding: 56px 24px 40px;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 960px) {
+      .hero-care,
+      .care-planner-box,
+      .care-team-grid,
+      .family-quotes-grid,
+      .home-visit-layout {
+        grid-template-columns: 1fr;
+      }
+      .care-nav {
+        display: none;
+      }
+      .care-nav.is-open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--bg-warm-white);
+        padding: 20px;
+        border-bottom: 2px solid var(--pastel-sky);
+      }
+      .care-mob-btn {
+        display: inline-flex;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .need-buttons,
+      .care-trust-badges {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body data-rubro-id="salud" data-style-id="human-centered-care">
+
+  <!-- Barra de Accesibilidad para Adultos Mayores y Familias -->
+  <div class="care-top-bar">
+    <div class="care-top-inner">
+      <div>
+        <strong>🤝 Atención Humana 24/7 en tu Hogar:</strong> Enfermeras universitarias, geriatras y odontología móvil a domicilio.
+      </div>
+      <div class="a11y-controls">
+        <span>Accesibilidad Visual:</span>
+        <button type="button" class="btn-a11y" id="toggleFontSizeBtn" aria-pressed="false">
+          🔍 A+ Aumentar Tamaño de Letra
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header Cálido -->
+  <header class="care-header">
+    <div class="care-header-inner">
+      <a href="#" class="care-logo">
+        <div class="care-heart-badge" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+        </div>
+        <div>
+          <span class="care-logo-title">ABRAZO SALUD</span>
+          <span class="care-logo-sub">Enfermería Domiciliaria & Cuidado Familiar</span>
+        </div>
+      </a>
+
+      <nav class="care-nav" id="careNav" aria-label="Navegación familiar">
+        <a href="#planificador">Armar Plan en Casa</a>
+        <a href="#prestaciones">Cuidados & Odontología Móvil</a>
+        <a href="#equipo">Nuestras Enfermeras</a>
+        <a href="#familias">Testimonios</a>
+      </nav>
+
+      <div style="display:flex;align-items:center;gap:10px">
+        <a href="#solicitar-visita" class="btn-care">Solicitar Visita en Casa</a>
+        <button type="button" class="care-mob-btn" id="careMobBtn">Menú</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Empático -->
+    <section class="hero-care">
+      <div>
+        <div class="warm-pill">
+          <span>🌿 ESTILO #04 · HUMAN-CENTERED / CARE DESIGN</span>
+        </div>
+        <h1>
+          Cuidamos a quienes más quieres en la <span>calidez de su hogar</span>.
+        </h1>
+        <p>
+          Sabemos que trasladar a un adulto mayor o familiar en recuperación genera estrés. Nuestro equipo de enfermeras universitarias, médicos geriatras y odontólogos domiciliarios llega directamente a tu casa con paciencia, afecto y rigor clínico.
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:14px">
+          <a href="#solicitar-visita" class="btn-care">Coordinar Enfermera o Médico Hoy</a>
+          <a href="#planificador" class="btn-care btn-care-secondary">Cotizar Plan de Cuidado</a>
+        </div>
+
+        <div class="care-trust-badges">
+          <div class="trust-box">
+            <strong>100%</strong>
+            <span>Profesionales inscritos en Superintendencia</span>
+          </div>
+          <div class="trust-box">
+            <strong>60 min</strong>
+            <span>Consultas sin apuro con reporte a la familia</span>
+          </div>
+          <div class="trust-box">
+            <strong>7 Días</strong>
+            <span>Cobertura continua incluidos festivos</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-care-photo-card">
+        <div class="hero-care-img">
+          <img
+            src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80"
+            alt="Enfermera atendiendo con calidez a paciente adulto mayor en su hogar"
+            onerror="this.onerror=null;this.src='../../images/demos/assets/med/doctor-female-1.svg';"/>
+        </div>
+        <div class="care-floating-note">
+          <div>
+            <strong style="display:block;color:var(--navy-ink)">Coordinadora Familiar en Línea</strong>
+            <span style="font-size:0.86rem;color:var(--text-soft)">Enfermera Jefe Clara Soto responde tus dudas sin compromiso</span>
+          </div>
+          <a href="#solicitar-visita" class="btn-care" style="padding:9px 18px;font-size:0.86rem">Hablar Ahora</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Configurador Interactivo de Cuidado en Casa -->
+    <section class="care-section bg-white" id="planificador">
+      <div class="container">
+        <div class="section-head-care">
+          <span class="warm-pill" style="margin-bottom:10px">Orientación Transparente para la Familia</span>
+          <h2>Configurador de Apoyo Domiciliario</h2>
+          <p style="color:var(--text-soft)">
+            Elige el tipo de atención que necesita tu familiar para conocer qué profesional asiste, qué incluye la visita y el arancel reembolsable en Isapres.
+          </p>
+        </div>
+
+        <div class="care-planner-box">
+          <div>
+            <strong style="font-size:1rem">1. ¿Qué apoyo necesita hoy tu familiar?</strong>
+            <div class="need-buttons" role="tablist">
+              <button type="button" class="need-btn is-active" data-care="enfermeria">
+                <strong>Curaciones & Inyecciones</strong>
+                <span>Toma de muestras, sueros, sondas y curación avanzada.</span>
+              </button>
+              <button type="button" class="need-btn" data-care="geriatria">
+                <strong>Médico Geriatra en Casa</strong>
+                <span>Evaluación integral de memoria, polimedicación y movilidad.</span>
+              </button>
+              <button type="button" class="need-btn" data-care="dental">
+                <strong>Odontología Móvil en Casa</strong>
+                <span>Reparación de prótesis, higiene y urgencias sin salir de cama.</span>
+              </button>
+              <button type="button" class="need-btn" data-care="turno">
+                <strong>Cuidado por Turnos 12/24h</strong>
+                <span>Acompañamiento TENS y enfermería post-hospitalaria.</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="planner-summary" aria-live="polite">
+            <span class="demo-care-badge">Plan Recomendado Abrazo Salud</span>
+            <h3 id="carePlanTitle" style="font-family:var(--font-heading);font-size:1.4rem;margin-bottom:10px">
+              Visita de Enfermería Universitaria a Domicilio
+            </h3>
+            <p id="carePlanDesc" style="color:var(--text-soft);font-size:0.94rem;margin-bottom:18px">
+              Incluye traslado de enfermera titulada, insumos clínicos estériles, control de signos vitales y envío de informe digital por WhatsApp a los hijos o cuidadores.
+            </p>
+            <div style="padding:14px 16px;background:var(--bg-cream);border-radius:16px;margin-bottom:18px;display:flex;justify-content:space-between;align-items:center">
+              <span>Valor Visita Todo Incluido:</span>
+              <strong id="carePlanPrice" style="font-size:1.35rem;color:var(--sage-green)">$38.000 CLP</strong>
+            </div>
+            <a href="#solicitar-visita" class="btn-care" style="width:100%;" id="carePlanBookBtn">Solicitar este Cuidado a Domicilio</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Prestaciones Humanas -->
+    <section class="care-section" id="prestaciones">
+      <div class="container">
+        <div class="section-head-care">
+          <h2>Salud integral que llega a tu puerta</h2>
+          <p style="color:var(--text-soft)">Llevamos equipamiento clínico portátil de última generación a todas las comunas de Santiago.</p>
+        </div>
+
+        <div class="care-services-grid">
+          <article class="care-service-card">
+            <div>
+              <div class="care-icon-circle" aria-hidden="true">🩺</div>
+              <h3 style="font-family:var(--font-heading);font-size:1.25rem;margin-bottom:8px">Enfermería & Toma de Exámenes</h3>
+              <p style="color:var(--text-soft);font-size:0.92rem;margin-bottom:20px">
+                Exámenes de sangre y orina a domicilio en ayunas con entrega de resultados en línea, administración de medicamentos endovenosos y curación de escaras.
+              </p>
+            </div>
+            <a href="#solicitar-visita" class="btn-care btn-care-secondary" onclick="setCareVisit('Enfermería & Exámenes en Casa')">Agendar Visita</a>
+          </article>
+
+          <article class="care-service-card">
+            <div>
+              <div class="care-icon-circle" aria-hidden="true">🦷</div>
+              <h3 style="font-family:var(--font-heading);font-size:1.25rem;margin-bottom:8px">Unidad Dental Portátil Domiciliaria</h3>
+              <p style="color:var(--text-soft);font-size:0.92rem;margin-bottom:20px">
+                Atención odontológica para adultos mayores o pacientes con movilidad reducida: ajuste de prótesis dentales, limpiezas suaves y alivio de dolor en su propio sillón.
+              </p>
+            </div>
+            <a href="#solicitar-visita" class="btn-care btn-care-secondary" onclick="setCareVisit('Odontología Móvil Domiciliaria')">Agendar Visita</a>
+          </article>
+
+          <article class="care-service-card">
+            <div>
+              <div class="care-icon-circle" aria-hidden="true">🤲</div>
+              <h3 style="font-family:var(--font-heading);font-size:1.25rem;margin-bottom:8px">Kinesiología Motora y Respiratoria</h3>
+              <p style="color:var(--text-soft);font-size:0.92rem;margin-bottom:20px">
+                Rehabilitación de marcha, prevención de caídas en el hogar y kinesiología respiratoria infantil y geriátrica con trato afectuoso.
+              </p>
+            </div>
+            <a href="#solicitar-visita" class="btn-care btn-care-secondary" onclick="setCareVisit('Kinesiología en Casa')">Agendar Visita</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Equipo Humano con Lightbox -->
+    <section class="care-section bg-white" id="equipo">
+      <div class="container">
+        <div class="section-head-care">
+          <h2>Conoce los rostros de quienes entrarán a tu hogar</h2>
+          <p style="color:var(--text-soft)">Antes de cada visita enviamos la credencial, foto y antecedentes verificados del profesional asignado (Haz clic para ampliar).</p>
+        </div>
+
+        <div class="care-team-grid">
+          <button type="button" class="care-team-card" data-care-img="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=1200&q=85" data-care-caption="E.U. Clara Soto Henríquez · Enfermera Jefe PUC con 14 años de experiencia en hospitalización domiciliaria y cuidado geriátrico.">
+            <div class="care-team-photo">
+              <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80" alt="Enfermera Clara Soto" onerror="this.onerror=null;this.src='../../images/demos/assets/med/doctor-female-1.svg';"/>
+            </div>
+            <span class="demo-care-badge">SIS #30219-4</span>
+            <strong style="display:block;font-size:1.1rem;font-family:var(--font-heading)">E.U. Clara Soto Henríquez</strong>
+            <span style="font-size:0.86rem;color:var(--sage-green);font-weight:700">Ver Ficha Profesional +</span>
+          </button>
+
+          <button type="button" class="care-team-card" data-care-img="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=1200&q=85" data-care-caption="Dr. Roberto Pizarro · Médico Geriatra y Odontogeriatra coordinador de atención domiciliaria integral sin estrés.">
+            <div class="care-team-photo">
+              <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800&q=80" alt="Dr. Roberto Pizarro · Especialista Odontológico" onerror="this.onerror=null;this.src='../../images/demos/assets/med/doctor-male-1.svg';"/>
+            </div>
+            <span class="demo-care-badge">SIS #24910-1</span>
+            <strong style="display:block;font-size:1.1rem;font-family:var(--font-heading)">Dr. Roberto Pizarro Lira</strong>
+            <span style="font-size:0.86rem;color:var(--sage-green);font-weight:700">Ver Ficha Profesional +</span>
+          </button>
+
+          <button type="button" class="care-team-card" data-care-img="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=1200&q=85" data-care-caption="Dra. Javiera Méndez · Cirujano Dentista especialista en Odontología Domiciliaria con maletín clínico portátil.">
+            <div class="care-team-photo">
+              <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80" alt="Dra. Javiera Méndez · Especialista Odontológico" onerror="this.onerror=null;this.src='../../images/demos/assets/med/doctor-female-1.svg';"/>
+            </div>
+            <span class="demo-care-badge">SIS #41882-9</span>
+            <strong style="display:block;font-size:1.1rem;font-family:var(--font-heading)">Dra. Javiera Méndez · Odontogeriatría</strong>
+            <span style="font-size:0.86rem;color:var(--sage-green);font-weight:700">Ver Ficha Profesional +</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonios Familiares -->
+    <section class="care-section" id="familias">
+      <div class="container">
+        <div class="section-head-care">
+          <h2>La tranquilidad de las familias que acompañamos</h2>
+        </div>
+
+        <div class="family-quotes-grid">
+          <div class="family-quote-card">
+            <span class="demo-care-badge">[Testimonio Ficticio de Demostración]</span>
+            <p style="font-size:1rem;margin-bottom:16px">
+              "Mi mamá tiene 86 años y le costaba muchísimo ir al consultorio o al dentista. La Dra. Javiera vino a la casa con su equipo portátil, reparó su prótesis en el living y la trató con un cariño inmenso."
+            </p>
+            <strong>Marcela G. · Hija de paciente en Ñuñoa</strong>
+          </div>
+
+          <div class="family-quote-card">
+            <span class="demo-care-badge">[Testimonio Ficticio de Demostración]</span>
+            <p style="font-size:1rem;margin-bottom:16px">
+              "Después de la cirugía de cadera de mi papá, las enfermeras de Abrazo Salud vinieron todos los días a realizar sus curaciones y enviarnos el reporte por WhatsApp a los tres hermanos."
+            </p>
+            <strong>Jorge T. · Familiar en Providencia</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Formulario de Visita Domiciliaria -->
+    <section class="care-section bg-white" id="solicitar-visita">
+      <div class="container">
+        <div class="home-visit-layout">
+          <div>
+            <span class="warm-pill" style="margin-bottom:12px">Respuesta en menos de 15 minutos</span>
+            <h2 style="font-family:var(--font-heading);font-size:2.2rem;margin-bottom:16px">Coordinemos la visita a tu hogar</h2>
+            <p style="color:var(--text-soft);margin-bottom:24px">
+              Déjanos tus datos y una enfermera coordinadora te llamará para escuchar el caso de tu familiar y programar la visita en el horario más cómodo.
+            </p>
+            <div style="background:var(--bg-cream);padding:22px;border-radius:20px;border:2px solid var(--pastel-sky)">
+              <strong>📍 Cobertura Domiciliaria Directa:</strong>
+              <p style="font-size:0.9rem;color:var(--text-soft);margin-top:6px">
+                Providencia, Ñuñoa, Las Condes, La Reina, Vitacura, Santiago Centro, San Miguel y Maipú. Emitimos boleta reembolsable en todas las Isapres y seguros complementarios.
+              </p>
+            </div>
+          </div>
+
+          <div class="visit-form-card">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;flex-wrap:wrap;gap:8px">
+              <h3 style="font-family:var(--font-heading);font-size:1.35rem">Solicitud de Atención en Casa</h3>
+              <span class="demo-care-badge" style="margin:0">[Demostración Interactiva]</span>
+            </div>
+
+            <form id="careVisitForm">
+              <div style="margin-bottom:14px">
+                <label for="famName" style="font-weight:700;font-size:0.9rem">Tu Nombre (Familiar o Paciente) *</label>
+                <input type="text" id="famName" class="care-input" placeholder="Ej: Patricia Contreras" required />
+              </div>
+
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px">
+                <div>
+                  <label for="famPhone" style="font-weight:700;font-size:0.9rem">Teléfono / WhatsApp *</label>
+                  <input type="text" id="famPhone" class="care-input" placeholder="+56 9 7654 3210" required />
+                </div>
+                <div>
+                  <label for="famComuna" style="font-weight:700;font-size:0.9rem">Comuna del Domicilio *</label>
+                  <select id="famComuna" class="care-select">
+                    <option value="Ñuñoa">Ñuñoa</option>
+                    <option value="Providencia">Providencia</option>
+                    <option value="Las Condes">Las Condes</option>
+                    <option value="La Reina">La Reina</option>
+                    <option value="Santiago / Otra">Santiago / Otra Comuna</option>
+                  </select>
+                </div>
+              </div>
+
+              <div style="margin-bottom:20px">
+                <label for="famService" style="font-weight:700;font-size:0.9rem">Tipo de Cuidado Requerido</label>
+                <select id="famService" class="care-select">
+                  <option value="Enfermería & Exámenes en Casa">Enfermería Universitaria & Procedimientos</option>
+                  <option value="Médico Geriatra a Domicilio">Consulta Médico Geriatra en Casa</option>
+                  <option value="Odontología Móvil Domiciliaria">Odontología Móvil Domiciliaria (Prótesis / Dolor)</option>
+                  <option value="Kinesiología en Casa">Kinesiología Motora / Respiratoria</option>
+                </select>
+              </div>
+
+              <button type="submit" class="btn-care" style="width:100%">
+                Solicitar Coordinación Familiar (Demostración)
+              </button>
+            </form>
+
+            <div class="care-feedback" id="careFeedback" role="status"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Lightbox -->
+  <div class="care-lightbox" id="careLightbox" role="dialog" aria-modal="true" aria-label="Ficha de profesional">
+    <div class="care-lightbox-box">
+      <div style="border-radius:18px;overflow:hidden;aspect-ratio:16/9;margin-bottom:16px">
+        <img id="careLbImg" src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=85" alt="Profesional de salud" style="width:100%;height:100%;object-fit:cover;" / onerror="this.onerror=null;this.src='../../images/demos/assets/med/clinic-box-dental.svg'">
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap">
+        <strong id="careLbCaption" style="font-size:0.98rem">E.U. Clara Soto Henríquez</strong>
+        <button type="button" class="btn-care" id="careLbClose" style="padding:8px 18px">Cerrar (Esc)</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="care-footer">
+    <div class="container" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px">
+      <div>
+        <strong style="font-family:var(--font-heading);font-size:1.1rem;color:#FFFFFF">ABRAZO SALUD · CUIDADO DOMICILIARIO EMPÁTICO</strong>
+        <p>Estilo #04 Human-Centered / Care Design · Demostración interactiva desarrollada por KuyénDev.</p>
+      </div>
+      <div>
+        <p>© 2026 Todos los testimonios familiares y reservas son ficticios para fines de demostración.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+
+      // Botón Accesibilidad A+ para Adultos Mayores
+      const fontBtn = document.getElementById('toggleFontSizeBtn');
+      if (fontBtn) {
+        fontBtn.addEventListener('click', () => {
+          const isLarge = document.documentElement.classList.toggle('large-text-mode');
+          fontBtn.classList.toggle('is-active', isLarge);
+          fontBtn.setAttribute('aria-pressed', isLarge ? 'true' : 'false');
+          fontBtn.textContent = isLarge ? '🔍 A- Restaurar Letra Normal' : '🔍 A+ Aumentar Tamaño de Letra';
+        });
+      }
+
+      const mobBtn = document.getElementById('careMobBtn');
+      const nav = document.getElementById('careNav');
+      if (mobBtn && nav) {
+        mobBtn.addEventListener('click', () => nav.classList.toggle('is-open'));
+      }
+
+      // Configurador de Plan en Casa
+      const carePlans = {
+        enfermeria: {
+          title: 'Visita de Enfermería Universitaria a Domicilio',
+          desc: 'Incluye traslado de enfermera titulada, insumos clínicos estériles, control de signos vitales y envío de informe digital por WhatsApp a los hijos o cuidadores.',
+          price: '$38.000 CLP'
+        },
+        geriatria: {
+          title: 'Evaluación Geriátrica Integral en Casa (60 min)',
+          desc: 'Consulta sin apuro con médico geriatra: ajuste de medicamentos, evaluación cognitiva, prevención de caídas y orientación directa a la familia.',
+          price: '$65.000 CLP'
+        },
+        dental: {
+          title: 'Odontología Móvil Domiciliaria con Unidad Portátil',
+          desc: 'Atención en cama o sillón para adultos mayores: reparación y rebase de prótesis dentales, higiene ultrasónica y alivio de urgencias dentales.',
+          price: '$52.000 CLP'
+        },
+        turno: {
+          title: 'Turno de Cuidado y Acompañamiento en Casa (12 hrs)',
+          desc: 'Asistencia continua de enfermería técnica supervisada: higiene y confort, administración de fármacos, alimentación asistida y compañía cálida.',
+          price: '$58.000 CLP'
+        }
+      };
+
+      const needBtns = document.querySelectorAll('.need-btn');
+      needBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          needBtns.forEach(b => b.classList.toggle('is-active', b === btn));
+          const key = btn.getAttribute('data-care');
+          const p = carePlans[key] || carePlans.enfermeria;
+          document.getElementById('carePlanTitle').textContent = p.title;
+          document.getElementById('carePlanDesc').textContent = p.desc;
+          document.getElementById('carePlanPrice').textContent = p.price;
+        });
+      });
+
+      window.setCareVisit = function (val) {
+        const sel = document.getElementById('famService');
+        if (sel) sel.value = val;
+      };
+
+      // Formulario
+      const form = document.getElementById('careVisitForm');
+      const feedback = document.getElementById('careFeedback');
+      if (form && feedback) {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const name = document.getElementById('famName').value.trim();
+          const comuna = document.getElementById('famComuna').value;
+          const srv = document.getElementById('famService').value;
+          feedback.classList.add('is-visible');
+          feedback.innerHTML = `
+            ✓ <strong>Solicitud Recibida con Cariño [Demostración Interactiva]</strong><br/>
+            Hola <strong>${name}</strong>, nuestra Enfermera Coordinadora para la comuna de <strong>${comuna}</strong> se comunicará en breve para organizar la visita de <strong>${srv}</strong>.
+          `;
+        });
+      }
+
+      // Lightbox
+      const lb = document.getElementById('careLightbox');
+      const lbImg = document.getElementById('careLbImg');
+      const lbCap = document.getElementById('careLbCaption');
+      const lbClose = document.getElementById('careLbClose');
+
+      document.querySelectorAll('[data-care-img]').forEach(card => {
+        card.addEventListener('click', () => {
+          lbImg.src = card.getAttribute('data-care-img');
+          lbCap.textContent = card.getAttribute('data-care-caption');
+          lb.classList.add('is-open');
+        });
+      });
+
+      const closeLb = () => lb && lb.classList.remove('is-open');
+      if (lbClose) lbClose.addEventListener('click', closeLb);
+      if (lb) lb.addEventListener('click', (e) => { if (e.target === lb) closeLb(); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLb(); });
+    })();
+  </script>
+
+  <script src="../../js/config/rubros.js"></script>
+  <script src="../../js/demo-viewer-bar.js"></script>
+</body>
+</html>

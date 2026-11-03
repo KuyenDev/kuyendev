@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>VALKYRIA PRIVATE HOSPITAL · Suites Quirúrgicas VIP & Medicina Ejecutiva</title>
+  <meta name="description" content="Hospital privado de alta privacidad, suites quirúrgicas con hospitalidad cinco estrellas, rehabilitación oral bajo sedación profunda y medicina de longevidad.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-void: #060B14;
+      --bg-chamber: #152238;
+      --cyan-luxe: #38BDF8;
+      --silver: #94A3B8;
+      --ivory: #F8FAFC;
+      --border-luxe: rgba(56, 189, 248, 0.22);
+      --border-subtle: rgba(148, 163, 184, 0.16);
+      --font-cinzel: 'Cinzel', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; color-scheme: dark; }
+    body {
+      background-color: var(--bg-void);
+      color: var(--ivory);
+      font-family: var(--font-sans);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: min(1280px, 92%);
+      margin: 0 auto;
+    }
+
+    /* Cinematic Floating Header */
+    .cine-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 110;
+      background: linear-gradient(180deg, rgba(6, 11, 20, 0.92) 0%, rgba(6, 11, 20, 0.65) 100%);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .cine-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 82px;
+      gap: 1rem;
+    }
+    .brand {
+      text-decoration: none;
+      color: var(--ivory);
+      display: flex;
+      flex-direction: column;
+    }
+    .brand-main {
+      font-family: var(--font-cinzel);
+      font-size: 1.3rem;
+      letter-spacing: 0.18em;
+      font-weight: 600;
+    }
+    .brand-sub {
+      font-size: 0.65rem;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--cyan-luxe);
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      font-size: 0.84rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .nav-links a {
+      color: var(--silver);
+      text-decoration: none;
+      transition: color 0.25s;
+    }
+    .nav-links a:hover { color: var(--cyan-luxe); }
+    .btn-cine {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.78rem 1.5rem;
+      background: rgba(56, 189, 248, 0.14);
+      border: 1px solid var(--cyan-luxe);
+      color: var(--ivory);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.25s, box-shadow 0.25s;
+    }
+    .btn-cine:hover {
+      background: var(--cyan-luxe);
+      color: var(--bg-void);
+      box-shadow: 0 0 32px rgba(56, 189, 248, 0.45);
+    }
+
+    /* Fullscreen Widescreen Hero */
+    .cine-hero {
+      position: relative;
+      min-height: 94vh;
+      display: flex;
+      align-items: flex-end;
+      padding: 8.5rem 0 4.5rem;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .hero-backdrop {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero-backdrop img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.48) contrast(1.12);
+      transform: scale(1.03);
+    }
+    .hero-vignette {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 70% 30%, rgba(56, 189, 248, 0.18), transparent 55%),
+        linear-gradient(180deg, rgba(6, 11, 20, 0.45) 0%, rgba(6, 11, 20, 0.96) 92%);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 3rem;
+      align-items: end;
+    }
+    .cine-kicker {
+      font-size: 0.75rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--cyan-luxe);
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .hero-content h1 {
+      font-family: var(--font-cinzel);
+      font-size: clamp(2.3rem, 4.5vw, 4.1rem);
+      font-weight: 600;
+      line-height: 1.12;
+      margin-bottom: 1.35rem;
+    }
+    .hero-content p {
+      color: var(--silver);
+      font-size: 1.06rem;
+      max-width: 56ch;
+      margin-bottom: 2rem;
+    }
+    .hero-specs-panel {
+      background: rgba(21, 34, 56, 0.72);
+      backdrop-filter: blur(18px);
+      border: 1px solid var(--border-luxe);
+      padding: 1.75rem;
+      border-radius: 8px;
+    }
+    .spec-line {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border-subtle);
+      font-size: 0.86rem;
+    }
+    .spec-line:last-child { border-bottom: none; }
+    .spec-line strong { color: var(--cyan-luxe); font-family: var(--font-cinzel); }
+
+    section { padding: 5rem 0; }
+    .section-head {
+      margin-bottom: 2.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .section-head h2 {
+      font-family: var(--font-cinzel);
+      font-size: clamp(1.75rem, 3vw, 2.6rem);
+      font-weight: 600;
+    }
+
+    /* Interactive Visual Experience: Cinematic Suite & Surgical Chamber Explorer */
+    .cinema-stage {
+      background: var(--bg-chamber);
+      border: 1px solid var(--border-luxe);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.65);
+    }
+    .stage-viewport {
+      position: relative;
+      aspect-ratio: 21 / 9;
+      min-height: 360px;
+      overflow: hidden;
+      background: #04070d;
+    }
+    .stage-viewport img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: filter 0.4s ease;
+    }
+    .stage-hud {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(6, 11, 20, 0.88) 0%, rgba(6, 11, 20, 0.25) 65%);
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    .stage-controls-bar {
+      padding: 1.5rem 2rem;
+      background: #09111F;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .scene-tabs {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .scene-tab {
+      background: rgba(21, 34, 56, 0.8);
+      border: 1px solid var(--border-subtle);
+      color: var(--silver);
+      padding: 0.65rem 1.15rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .scene-tab.active {
+      border-color: var(--cyan-luxe);
+      color: var(--ivory);
+      background: rgba(56, 189, 248, 0.18);
+    }
+    .ambient-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.8rem;
+      color: var(--silver);
+    }
+
+    /* Especialidades Ejecutivas */
+    .vip-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 1.5rem;
+    }
+    .vip-card {
+      background: linear-gradient(160deg, var(--bg-chamber), rgba(6, 11, 20, 0.95));
+      border: 1px solid var(--border-subtle);
+      padding: 2rem;
+      border-radius: 8px;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+    .vip-card:hover {
+      border-color: var(--cyan-luxe);
+      transform: translateY(-4px);
+    }
+    .vip-num {
+      font-family: var(--font-cinzel);
+      color: var(--cyan-luxe);
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      display: block;
+      margin-bottom: 0.75rem;
+    }
+    .vip-card h3 {
+      font-family: var(--font-cinzel);
+      font-size: 1.25rem;
+      margin-bottom: 0.65rem;
+    }
+    .vip-card p {
+      color: var(--silver);
+      font-size: 0.92rem;
+    }
+
+    /* Directorio e Instalaciones con Lightbox */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 1.5rem;
+    }
+    .gallery-item {
+      background: var(--bg-chamber);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: border-color 0.25s;
+    }
+    .gallery-item:hover { border-color: var(--cyan-luxe); }
+    .gallery-item img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      display: block;
+    }
+    .gallery-caption { padding: 1.35rem; }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(6, 11, 20, 0.94);
+      backdrop-filter: blur(12px);
+      z-index: 250;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox-cine {
+      background: var(--bg-chamber);
+      border: 1px solid var(--cyan-luxe);
+      border-radius: 8px;
+      max-width: 780px;
+      width: 100%;
+      overflow: hidden;
+    }
+    .lightbox-cine img {
+      width: 100%;
+      max-height: 440px;
+      object-fit: cover;
+    }
+
+    /* Testimonios + Concierge */
+    .concierge-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 2.5rem;
+      background: var(--bg-chamber);
+      border: 1px solid var(--border-luxe);
+      border-radius: 10px;
+      padding: 2.75rem;
+    }
+    .quote-cine {
+      border-left: 2px solid var(--cyan-luxe);
+      padding-left: 1.25rem;
+      margin-bottom: 1.75rem;
+    }
+    .demo-badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--cyan-luxe);
+      border: 1px solid var(--border-luxe);
+      padding: 0.2rem 0.6rem;
+      margin-bottom: 0.6rem;
+    }
+    .c-field { margin-bottom: 1rem; }
+    .c-field label {
+      display: block;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--cyan-luxe);
+      margin-bottom: 0.35rem;
+    }
+    .c-field input, .c-field select {
+      width: 100%;
+      padding: 0.85rem;
+      background: var(--bg-void);
+      border: 1px solid var(--border-subtle);
+      color: var(--ivory);
+      font-family: var(--font-sans);
+      border-radius: 4px;
+    }
+    .cine-feedback {
+      display: none;
+      margin-top: 1rem;
+      padding: 1rem;
+      background: rgba(56, 189, 248, 0.14);
+      border: 1px solid var(--cyan-luxe);
+      font-size: 0.86rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 2.5rem 0 5rem;
+      color: var(--silver);
+      font-size: 0.84rem;
+    }
+
+    @media (max-width: 940px) {
+      .hero-content, .concierge-wrap { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .stage-viewport { aspect-ratio: 16 / 10; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body data-rubro-id="salud" data-style-id="immersive-healthcare-cinematic">
+
+  <header class="cine-header">
+    <div class="container cine-nav">
+      <a href="#" class="brand">
+        <span class="brand-main">VALKYRIA</span>
+        <span class="brand-sub">PRIVATE HOSPITAL & SURGICAL SUITES</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#recorrido">Recorrido Inmersivo</a></li>
+        <li><a href="#programas">Cirugía & Longevidad</a></li>
+        <li><a href="#comite">Comité Médico</a></li>
+        <li><a href="#concierge">Concierge VIP</a></li>
+      </ul>
+      <a href="#concierge" class="btn-cine">Admisión Privada</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- FULLSCREEN CINEMATIC HERO -->
+    <section class="cine-hero">
+      <div class="hero-backdrop">
+        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1200&q=85"
+             alt="Suite hospitalaria cinemática Valkyria Private Hospital"
+             onerror="this.onerror=null;this.src='../../images/demos/assets/med/clinic-suite-vip.svg'">
+      </div>
+      <div class="hero-vignette"></div>
+
+      <div class="container hero-content">
+        <div>
+          <span class="cine-kicker">MEDICINA EJECUTIVA · PRIVACIDAD ABSOLUTA · SUITES QUIRÚRGICAS</span>
+          <h1>Donde la alta cirugía habita en la serenidad absoluta.</h1>
+          <p>Diseñamos una experiencia médica inmersiva sin salas de espera: acceso subterráneo privado, rehabilitación oral completa en una sola sesión bajo sedación profunda y suites de recuperación con acústica e iluminación circadiana.</p>
+          <div style="display:flex;gap:1rem;flex-wrap:wrap">
+            <a href="#recorrido" class="btn-cine">Iniciar Recorrido de Suites</a>
+            <a href="#concierge" class="btn-cine" style="background:transparent">Contactar Medical Concierge</a>
+          </div>
+        </div>
+
+        <div class="hero-specs-panel">
+          <div class="spec-line">
+            <span>Acceso & Check-In</span>
+            <strong>Ascensor Privado a Suite</strong>
+          </div>
+          <div class="spec-line">
+            <span>Proporción Enfermería</span>
+            <strong>1 : 1 Dedicación Exclusiva</strong>
+          </div>
+          <div class="spec-line">
+            <span>Rehabilitación Oral VIP</span>
+            <strong>En 1 Día (Sedación Consciente)</strong>
+          </div>
+          <div class="spec-line">
+            <span>Certificación Internacional</span>
+            <strong>Joint Commission Gold Seal</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCIA VISUAL INTERACTIVA: ESCENARIOS CINEMÁTICOS -->
+    <section id="recorrido">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="cine-kicker">ARQUITECTURA SENSORIAL INTERACTIVA</span>
+            <h2>Explorador de Cámaras Clínicas & Atmósfera Circadiana</h2>
+          </div>
+          <p style="color:var(--silver);font-size:0.9rem;max-width:44ch">Alterna entre nuestras tres cámaras principales y ajusta la escena lumínica de recuperación.</p>
+        </div>
+
+        <div class="cinema-stage">
+          <div class="stage-viewport">
+            <img id="stageImg" src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1200&q=85"
+                 alt="Vista inmersiva de Suite Valkyria"
+                 onerror="this.onerror=null;this.src='../../images/demos/assets/med/clinic-suite-vip.svg'">
+            <div class="stage-hud" aria-live="polite">
+              <span class="cine-kicker" id="sceneCode">ESCENA I // SUITE PANORÁMICA DE RECUPERACIÓN</span>
+              <h3 id="sceneTitle" style="font-family:var(--font-cinzel);font-size:clamp(1.5rem, 2.6vw, 2.25rem);margin-bottom:0.5rem">Suite Cordillera · Aislamiento Acústico 48 dB</h3>
+              <p id="sceneDesc" style="color:var(--silver);max-width:56ch;font-size:0.95rem">Equipada con monitoreo biométrico invisible bajo el colchón, purificación de aire grado HEPA H14 y gastronomía clínica de autor.</p>
+            </div>
+          </div>
+
+          <div class="stage-controls-bar">
+            <div class="scene-tabs" role="tablist" aria-label="Seleccionar cámara del hospital">
+              <button type="button" class="scene-tab active" data-scene="suite" role="tab" aria-selected="true">I · Suite Recuperación VIP</button>
+              <button type="button" class="scene-tab" data-scene="or" role="tab" aria-selected="false">II · Quirófano Híbrido Robótico</button>
+              <button type="button" class="scene-tab" data-scene="longevity" role="tab" aria-selected="false">III · Cámara Hiperbárica & Sueño</button>
+            </div>
+
+            <div class="ambient-toggle">
+              <label for="luxRange">LUZ CIRCADIANA:</label>
+              <input type="range" id="luxRange" min="35" max="100" value="75" style="accent-color:var(--cyan-luxe)">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ESPECIALIDADES -->
+    <section id="programas">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="cine-kicker">MEDICINA & CIRUGÍA DE ALTA COMPLEJIDAD</span>
+            <h2>Programas Clínicos Privados</h2>
+          </div>
+        </div>
+
+        <div class="vip-grid">
+          <article class="vip-card">
+            <span class="vip-num">PROGRAMA I // ONE-DAY SMILE</span>
+            <h3>Rehabilitación Oral Integral bajo Sedación</h3>
+            <p>Resolución completa de implantes cigomáticos o arcada completa en una única mañana quirúrgica supervisada por médico anestesiólogo.</p>
+          </article>
+
+          <article class="vip-card">
+            <span class="vip-num">PROGRAMA II // EXECUTIVE LONGEVITY</span>
+            <h3>Chequeo Ejecutivo de Cuerpo Completo</h3>
+            <p>Resonancia de cuerpo entero, score cálcico coronario, secuenciación genómica preventiva y evaluación neurocognitiva en 6 horas privadas.</p>
+          </article>
+
+          <article class="vip-card">
+            <span class="vip-num">PROGRAMA III // FACIAL HARMONY</span>
+            <h3>Cirugía Maxilofacial & Armonización</h3>
+            <p>Planificación virtual tridimensional con recuperación acelerada mediante oxigenoterapia hiperbárica y drenaje linfático médico.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIRECTORIO E INSTALACIONES CON LIGHTBOX -->
+    <section id="comite">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="cine-kicker">DIRECCIÓN MÉDICA & SUITES</span>
+            <h2>Comité Clínico & Espacios (Click para Ampliar)</h2>
+          </div>
+        </div>
+
+        <div class="gallery-grid">
+          <article class="gallery-item" tabindex="0"
+                   data-title="Dr. Henrik Lindqvist · Cirujano Jefe & Especialista en Longevidad"
+                   data-sub="Cirujano Jefe con más de 18 años de trayectoria internacional en cirugía reconstructiva y protocolos de longevidad celular."
+                   data-img="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=1200&q=85">
+            <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=800&q=85" alt="Dr. Henrik Lindqvist · Cirujano Jefe"
+                 onerror="this.onerror=null;this.src='../../images/demos/assets/med/doctor-male-1.svg'">
+            <div class="gallery-caption">
+              <span class="cine-kicker">DIRECTOR MÉDICO</span>
+              <h3 style="font-family:var(--font-cinzel);margin:0.2rem 0">Dr. Henrik Lindqvist</h3>
+              <p style="font-size:0.86rem;color:var(--silver)">Cirujano Jefe & Especialista en Medicina de Longevidad.</p>
+            </div>
+          </article>
+
+          <article class="gallery-item" tabindex="0"
+                   data-title="Dra. Isidora Errázuriz · Anestesiología & Sedación Consciente"
+                   data-sub="Jefa de Anestesiología Cardiovascular, monitoreo BIS de profundidad anestésica y despertar lúcido sin sedación residual."
+                   data-img="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=1200&q=85">
+            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=85" alt="Dra. Isidora Errázuriz · Jefa de Anestesiología"
+                 onerror="this.onerror=null;this.src='../../images/demos/assets/med/doctor-female-1.svg'">
+            <div class="gallery-caption">
+              <span class="cine-kicker">ANESTESIOLOGÍA & SEDACIÓN</span>
+              <h3 style="font-family:var(--font-cinzel);margin:0.2rem 0">Dra. Isidora Errázuriz</h3>
+              <p style="font-size:0.86rem;color:var(--silver)">Jefa de Anestesiología Cardiovascular y Sedación Consciente.</p>
+            </div>
+          </article>
+
+          <article class="gallery-item" tabindex="0"
+                   data-title="Dr. Maximiliano Lira · Rehabilitación Oral VIP"
+                   data-sub="Especialista en Rehabilitación Oral e Implantología Avanzada, prótesis fija inmediata en circonio monolítico guiada por escaneo intraoral."
+                   data-img="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=1200&q=85">
+            <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800&q=85" alt="Dr. Maximiliano Lira · Especialista en Rehabilitación Oral"
+                 onerror="this.onerror=null;this.src='../../images/demos/assets/med/doctor-male-2.svg'">
+            <div class="gallery-caption">
+              <span class="cine-kicker">REHABILITACIÓN ORAL VIP</span>
+              <h3 style="font-family:var(--font-cinzel);margin:0.2rem 0">Dr. Maximiliano Lira</h3>
+              <p style="font-size:0.86rem;color:var(--silver)">Especialista en Rehabilitación Oral e Implantología Avanzada.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIOS & MEDICAL CONCIERGE -->
+    <section id="concierge">
+      <div class="container">
+        <div class="concierge-wrap">
+          <div>
+            <span class="cine-kicker">EXPERIENCIAS CONFIDENCIALES</span>
+            <h2 style="font-family:var(--font-cinzel);font-size:1.9rem;margin-bottom:1.5rem">Voces de Nuestros Huéspedes</h2>
+
+            <div class="quote-cine">
+              <span class="demo-badge">[Testimonio Ficticio de Demostración]</span>
+              <p style="font-size:0.94rem;margin-bottom:0.6rem">"Postergué mis implantes por años debido a mi agenda de viajes. En Valkyria ingresé por estacionamiento privado a las 08:00, dormí plácidamente con sedación y desperté en una suite digna de un hotel suizo con mi sonrisa terminada."</p>
+              <strong style="font-size:0.82rem;color:var(--cyan-luxe)">HUÉSPED EJECUTIVO · Director de Directorio, 56 años</strong>
+            </div>
+
+            <div class="quote-cine" style="margin-bottom:0">
+              <span class="demo-badge">[Testimonio Ficticio de Demostración]</span>
+              <p style="font-size:0.94rem;margin-bottom:0.6rem">"El chequeo anual en suite privada sin cruzarme con nadie ni hacer filas cambió mi estándar de salud preventiva."</p>
+              <strong style="font-size:0.82rem;color:var(--cyan-luxe)">HUÉSPED EJECUTIVA · Inversionista, 48 años</strong>
+            </div>
+          </div>
+
+          <div>
+            <span class="cine-kicker">MEDICAL CONCIERGE DESK</span>
+            <h2 style="font-family:var(--font-cinzel);font-size:1.9rem;margin-bottom:0.6rem">Solicitud de Admisión Privada</h2>
+            <p style="color:var(--silver);font-size:0.86rem;margin-bottom:1.25rem">
+              <strong>Nota de Demostración:</strong> Este formulario es una demostración interactiva del lado del cliente.
+            </p>
+
+            <form id="cineForm">
+              <div class="c-field">
+                <label for="cnName">Nombre del Huésped o Asistente Ejecutivo</label>
+                <input type="text" id="cnName" required placeholder="Ej. Raimundo Chadwick">
+              </div>
+              <div class="c-field">
+                <label for="cnSuite">Programa Clínico Requerido</label>
+                <select id="cnSuite" required>
+                  <option value="One-Day Smile Sedación">Programa I · Rehabilitación Oral One-Day bajo Sedación</option>
+                  <option value="Executive Longevity Checkup">Programa II · Chequeo Ejecutivo de Longevidad en Suite</option>
+                  <option value="Cirugía Maxilofacial VIP">Programa III · Cirugía Maxilofacial & Cámara Hiperbárica</option>
+                </select>
+              </div>
+              <div class="c-field">
+                <label for="cnDate">Fecha Tentativa de Ingreso</label>
+                <input type="date" id="cnDate" required>
+              </div>
+              <button type="submit" class="btn-cine" style="width:100%;justify-content:center">Coordinar Admisión con Concierge [Demo]</button>
+              <div class="cine-feedback" id="cineFeedback" role="status"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visor de Suite Quirúrgica">
+    <div class="lightbox-cine">
+      <img id="lbImg" src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=85" alt="Vista ampliada"
+           onerror="this.onerror=null;this.src='../../images/demos/assets/med/clinic-box-dental.svg'">
+      <div style="padding:1.35rem 1.6rem;display:flex;justify-content:space-between;align-items:center;gap:1rem">
+        <div>
+          <h3 id="lbTitle" style="font-family:var(--font-cinzel)"></h3>
+          <p id="lbSub" style="font-size:0.86rem;color:var(--silver)"></p>
+        </div>
+        <button type="button" class="btn-cine" id="lbClose">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem">
+      <div><strong>VALKYRIA PRIVATE HOSPITAL</strong> · Camino El Alba, Lo Barnechea · Demo Interactiva KuyénDev</div>
+      <div style="font-family:var(--font-cinzel)">ESTILO #15 · IMMERSIVE HEALTHCARE / CINEMATIC</div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const scenes = {
+        suite: {
+          code: 'ESCENA I // SUITE PANORÁMICA DE RECUPERACIÓN',
+          title: 'Suite Cordillera · Aislamiento Acústico 48 dB',
+          desc: 'Equipada con monitoreo biométrico invisible bajo el colchón, purificación de aire grado HEPA H14 y gastronomía clínica de autor.',
+          img: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1200&q=85'
+        },
+        or: {
+          code: 'ESCENA II // QUIRÓFANO HÍBRIDO DE NAVEGACIÓN 3D',
+          title: 'Pabellón Quirúrgico Guiado por Óptica Robótica',
+          desc: 'Integración de tomografía intraoperatoria e iluminación quirúrgica sin sombras para microcirugía maxilofacial e implantología.',
+          img: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1200&q=85'
+        },
+        longevity: {
+          code: 'ESCENA III // CÁMARA HIPERBÁRICA & LONGEVIDAD',
+          title: 'Oxigenación Hiperbárica de 2.4 ATA en Cabina Privada',
+          desc: 'Acelera la regeneración tisular y osteointegración reduciendo el edema postoperatorio en un 65%.',
+          img: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1200&q=85'
+        }
+      };
+
+      const tabs = document.querySelectorAll('.scene-tab');
+      const stageImg = document.getElementById('stageImg');
+      const sCode = document.getElementById('sceneCode');
+      const sTitle = document.getElementById('sceneTitle');
+      const sDesc = document.getElementById('sceneDesc');
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          tabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
+          tab.classList.add('active');
+          tab.setAttribute('aria-selected', 'true');
+          const s = scenes[tab.dataset.scene];
+          if (s) {
+            stageImg.src = s.img;
+            sCode.textContent = s.code;
+            sTitle.textContent = s.title;
+            sDesc.textContent = s.desc;
+          }
+        });
+      });
+
+      const luxRange = document.getElementById('luxRange');
+      luxRange.addEventListener('input', () => {
+        stageImg.style.filter = 'brightness(' + (luxRange.value / 100) + ') contrast(1.1)';
+      });
+
+      // Lightbox
+      const lb = document.getElementById('lightbox');
+      const lbImg = document.getElementById('lbImg');
+      const lbTitle = document.getElementById('lbTitle');
+      const lbSub = document.getElementById('lbSub');
+      const lbClose = document.getElementById('lbClose');
+      document.querySelectorAll('.gallery-item').forEach(item => {
+        const open = () => {
+          lbImg.src = item.dataset.img;
+          lbTitle.textContent = item.dataset.title;
+          lbSub.textContent = item.dataset.sub;
+          lb.classList.add('open');
+        };
+        item.addEventListener('click', open);
+        item.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
+      });
+      lbClose.addEventListener('click', () => lb.classList.remove('open'));
+      lb.addEventListener('click', e => { if (e.target === lb) lb.classList.remove('open'); });
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') lb.classList.remove('open'); });
+
+      // Form
+      const form = document.getElementById('cineForm');
+      const fb = document.getElementById('cineFeedback');
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        const name = document.getElementById('cnName').value;
+        const suite = document.getElementById('cnSuite').value;
+        fb.style.display = 'block';
+        fb.textContent = '[DEMO INTERACTIVA] Nuestro Medical Concierge ha registrado la solicitud simulada para ' + name + ' (' + suite + ').';
+        form.reset();
+      });
+    })();
+  </script>
+  <script src="../../js/config/rubros.js"></script>
+  <script src="../../js/demo-viewer-bar.js"></script>
+</body>
+</html>

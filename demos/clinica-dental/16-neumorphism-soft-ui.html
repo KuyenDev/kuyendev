@@ -1,0 +1,1440 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>SERENITY MED · Centro Médico Familiar &amp; Teleconsulta Soft UI</title>
+  <meta name="description" content="Centro médico familiar y plataforma de telemedicina integrativa con experiencia Soft UI sin estrés. Demostración interactiva Neumorphism por KuyénDev." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-surface: #E8EEF5;
+      --bg-surface-alt: #DFE7F0;
+      --primary: #3182CE;
+      --primary-dark: #2B6CB0;
+      --secondary: #CBD5E0;
+      --pure-white: #FFFFFF;
+      --text-main: #1A365D;
+      --text-muted: #4A5568;
+      --accent-teal: #319795;
+      --shadow-dark: #C3CDD9;
+      --shadow-light: #FFFFFF;
+      --neu-outset: 10px 10px 20px var(--shadow-dark), -10px -10px 20px var(--shadow-light);
+      --neu-outset-sm: 5px 5px 12px var(--shadow-dark), -5px -5px 12px var(--shadow-light);
+      --neu-inset: inset 5px 5px 11px var(--shadow-dark), inset -5px -5px 11px var(--shadow-light);
+      --neu-inset-deep: inset 8px 8px 16px var(--shadow-dark), inset -8px -8px 16px var(--shadow-light);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --radius-pill: 999px;
+      --font-display: 'Nunito', sans-serif;
+      --font-body: 'Quicksand', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-surface);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      line-height: 1.65;
+      overflow-x: hidden;
+      padding-bottom: 96px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(1240px, 92%);
+      margin: 0 auto;
+    }
+
+    /* Superficies Neumórficas */
+    .neu-card {
+      background: var(--bg-surface);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--neu-outset);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+    }
+
+    .neu-card-sm {
+      background: var(--bg-surface);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--neu-outset-sm);
+      border: 1px solid rgba(255, 255, 255, 0.65);
+    }
+
+    .neu-well {
+      background: var(--bg-surface);
+      border-radius: var(--radius-md);
+      box-shadow: var(--neu-inset);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+    }
+
+    .neu-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--bg-surface);
+      color: var(--text-main);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 13px 26px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      box-shadow: var(--neu-outset-sm);
+      cursor: pointer;
+      transition: all 0.22s ease;
+      user-select: none;
+    }
+
+    .neu-btn:hover {
+      color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .neu-btn:active,
+    .neu-btn.is-active {
+      box-shadow: var(--neu-inset);
+      color: var(--primary);
+      transform: translateY(0);
+    }
+
+    .neu-btn-primary {
+      background: linear-gradient(145deg, #3b8ee0, #2b74b8);
+      color: var(--pure-white);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      box-shadow: 6px 6px 14px var(--shadow-dark), -6px -6px 14px var(--shadow-light);
+    }
+
+    .neu-btn-primary:hover {
+      color: var(--pure-white);
+      filter: brightness(1.06);
+    }
+
+    .neu-btn-primary:active {
+      box-shadow: inset 4px 4px 10px rgba(17, 45, 78, 0.45);
+    }
+
+    /* Header Tactil */
+    .site-header {
+      position: sticky;
+      top: 16px;
+      z-index: 90;
+      margin-top: 16px;
+    }
+
+    .nav-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 24px;
+      border-radius: var(--radius-pill);
+      background: rgba(232, 238, 245, 0.92);
+      backdrop-filter: blur(12px);
+      box-shadow: var(--neu-outset-sm);
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.15rem;
+      color: var(--text-main);
+    }
+
+    .brand-orb {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      box-shadow: var(--neu-inset);
+      color: var(--primary);
+      font-weight: 800;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      padding: 8px 16px;
+      border-radius: var(--radius-pill);
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      transition: all 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+      box-shadow: var(--neu-inset);
+    }
+
+    .nav-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: var(--radius-pill);
+      box-shadow: var(--neu-inset);
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--accent-teal);
+    }
+
+    .pulse-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #38B2AC;
+      box-shadow: 0 0 8px #38B2AC;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 48px 0 36px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .hero-panel {
+      padding: 42px;
+    }
+
+    .eyebrow-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 18px;
+      border-radius: var(--radius-pill);
+      box-shadow: var(--neu-inset);
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 22px;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.1rem, 4vw, 3.35rem);
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      margin-bottom: 18px;
+    }
+
+    .hero-title span {
+      color: var(--primary);
+    }
+
+    .hero-lead {
+      font-size: 1.06rem;
+      color: var(--text-muted);
+      margin-bottom: 26px;
+    }
+
+    /* Buscador Inset de Síntomas */
+    .symptom-finder {
+      padding: 16px;
+      margin-bottom: 26px;
+    }
+
+    .symptom-finder-label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .symptom-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .symptom-chip {
+      padding: 8px 16px;
+      border-radius: var(--radius-pill);
+      font-size: 0.84rem;
+      font-weight: 700;
+      background: var(--bg-surface);
+      box-shadow: var(--neu-outset-sm);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      cursor: pointer;
+      color: var(--text-main);
+      transition: all 0.2s ease;
+    }
+
+    .symptom-chip.is-active {
+      box-shadow: var(--neu-inset);
+      color: var(--primary);
+    }
+
+    .symptom-recommendation {
+      margin-top: 14px;
+      padding: 12px 16px;
+      border-radius: 14px;
+      box-shadow: var(--neu-inset);
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--primary-dark);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    /* Hero Visual & Diales Biométricos */
+    .hero-showcase {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .hero-img-frame {
+      padding: 14px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--neu-inset-deep);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-img-frame img {
+      width: 100%;
+      height: 330px;
+      object-fit: cover;
+      border-radius: 16px;
+    }
+
+    .floating-telemed-badge {
+      position: absolute;
+      bottom: 26px;
+      left: 26px;
+      right: 26px;
+      padding: 14px 20px;
+      border-radius: var(--radius-md);
+      background: rgba(232, 238, 245, 0.92);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--neu-outset-sm);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .biometric-dials {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .dial-card {
+      padding: 16px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--neu-outset-sm);
+      text-align: center;
+    }
+
+    .dial-ring {
+      width: 66px;
+      height: 66px;
+      margin: 0 auto 10px;
+      border-radius: 50%;
+      box-shadow: var(--neu-inset);
+      display: grid;
+      place-items: center;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1rem;
+      color: var(--primary);
+    }
+
+    .dial-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    /* Secciones Generales */
+    section {
+      padding: 52px 0;
+    }
+
+    .section-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 20px;
+      margin-bottom: 34px;
+    }
+
+    .section-eyebrow {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 3vw, 2.45rem);
+      line-height: 1.18;
+    }
+
+    /* Especialidades con Conmutador Soft UI */
+    .filter-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 8px;
+      border-radius: var(--radius-pill);
+      box-shadow: var(--neu-inset);
+    }
+
+    .filter-pill {
+      padding: 10px 20px;
+      border-radius: var(--radius-pill);
+      border: none;
+      background: transparent;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .filter-pill.is-active {
+      background: var(--bg-surface);
+      color: var(--primary);
+      box-shadow: var(--neu-outset-sm);
+    }
+
+    .specialties-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .spec-card {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+      transition: transform 0.25s ease;
+    }
+
+    .spec-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .spec-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .spec-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 18px;
+      box-shadow: var(--neu-inset);
+      display: grid;
+      place-items: center;
+      color: var(--primary);
+      font-size: 1.35rem;
+    }
+
+    .spec-tag {
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      box-shadow: var(--neu-inset);
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+
+    .spec-title {
+      font-family: var(--font-display);
+      font-size: 1.28rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .spec-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+    }
+
+    .spec-meta {
+      padding-top: 14px;
+      border-top: 1px solid var(--secondary);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.86rem;
+      font-weight: 700;
+    }
+
+    /* Consola Interactiva de Calma Sensorial y Triaje Soft UI */
+    .sensory-console {
+      padding: 36px;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .console-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .slider-well {
+      padding: 18px 22px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--neu-inset);
+    }
+
+    .slider-head {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+
+    .neu-range {
+      width: 100%;
+      accent-color: var(--primary);
+      cursor: pointer;
+    }
+
+    .tactile-toggles {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .toggle-btn {
+      padding: 14px;
+      border-radius: var(--radius-md);
+      background: var(--bg-surface);
+      box-shadow: var(--neu-outset-sm);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.86rem;
+      color: var(--text-main);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+    }
+
+    .toggle-btn.is-active {
+      box-shadow: var(--neu-inset);
+      color: var(--primary);
+    }
+
+    .toggle-indicator {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--secondary);
+      transition: all 0.2s ease;
+    }
+
+    .toggle-btn.is-active .toggle-indicator {
+      background: var(--primary);
+      box-shadow: 0 0 8px var(--primary);
+    }
+
+    .console-display {
+      padding: 32px;
+      border-radius: var(--radius-xl);
+      box-shadow: var(--neu-inset-deep);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .breathing-sphere {
+      width: 168px;
+      height: 168px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #FFFFFF, #CFE0F2 70%);
+      box-shadow: var(--neu-outset);
+      display: grid;
+      place-items: center;
+      transition: transform 0.6s ease, box-shadow 0.4s ease;
+    }
+
+    .breathing-inner {
+      width: 112px;
+      height: 112px;
+      border-radius: 50%;
+      box-shadow: var(--neu-inset);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .console-summary {
+      padding: 16px 20px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--neu-outset-sm);
+      width: 100%;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    /* Directorio Médico y Espacios con Lightbox */
+    .directory-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
+      gap: 24px;
+    }
+
+    .doctor-card {
+      padding: 20px;
+      cursor: pointer;
+      transition: transform 0.25s ease;
+    }
+
+    .doctor-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .doctor-photo-well {
+      padding: 10px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--neu-inset);
+      margin-bottom: 16px;
+    }
+
+    .doctor-photo-well img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .doctor-role {
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .doctor-name {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 800;
+      margin: 4px 0 6px;
+    }
+
+    .doctor-bio {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+
+    /* Testimonios */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .testimonial-card {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .demo-tag {
+      display: inline-block;
+      padding: 5px 12px;
+      border-radius: var(--radius-pill);
+      box-shadow: var(--neu-inset);
+      font-size: 0.73rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      align-self: flex-start;
+    }
+
+    .testimonial-quote {
+      font-size: 0.96rem;
+      font-style: italic;
+      color: var(--text-main);
+    }
+
+    .testimonial-author {
+      font-weight: 800;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    /* Reserva Médica Soft UI */
+    .booking-panel {
+      padding: 40px;
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 36px;
+      align-items: start;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-field.full {
+      grid-column: 1 / -1;
+    }
+
+    .form-field label {
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .neu-input,
+    .neu-select,
+    .neu-textarea {
+      width: 100%;
+      padding: 14px 18px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      background: var(--bg-surface);
+      box-shadow: var(--neu-inset);
+      font-family: var(--font-body);
+      font-size: 0.94rem;
+      font-weight: 600;
+      color: var(--text-main);
+      outline: none;
+    }
+
+    .neu-input:focus,
+    .neu-select:focus,
+    .neu-textarea:focus {
+      border-color: var(--primary);
+    }
+
+    .demo-notice {
+      padding: 14px 18px;
+      border-radius: 16px;
+      box-shadow: var(--neu-inset);
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .booking-feedback {
+      display: none;
+      margin-top: 18px;
+      padding: 18px;
+      border-radius: 18px;
+      box-shadow: var(--neu-inset);
+      color: var(--primary-dark);
+      font-weight: 700;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(232, 238, 245, 0.88);
+      backdrop-filter: blur(14px);
+      z-index: 200;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .lightbox.is-open {
+      display: flex;
+    }
+
+    .lightbox-box {
+      max-width: 720px;
+      width: 100%;
+      padding: 28px;
+    }
+
+    .lightbox-box img {
+      width: 100%;
+      max-height: 420px;
+      object-fit: cover;
+      border-radius: 18px;
+      margin-bottom: 18px;
+    }
+
+    /* Footer */
+    .site-footer {
+      margin-top: 40px;
+      padding: 32px;
+      text-align: center;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid,
+      .sensory-console,
+      .booking-panel {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero-panel,
+      .sensory-console,
+      .booking-panel {
+        padding: 24px;
+      }
+      .form-grid,
+      .biometric-dials,
+      .tactile-toggles {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body data-rubro-id="salud" data-style-id="neumorphism-soft-ui">
+
+  <header class="site-header container">
+    <nav class="nav-bar" aria-label="Navegación principal">
+      <a href="#inicio" class="brand">
+        <span class="brand-orb">SM</span>
+        <span>SERENITY MED</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#especialidades">Especialidades</a></li>
+        <li><a href="#calma-sensorial">Cabina Soft UI</a></li>
+        <li><a href="#equipo">Equipo &amp; Suites</a></li>
+        <li><a href="#testimonios">Pacientes</a></li>
+        <li><a href="#reserva">Agendar</a></li>
+      </ul>
+      <div class="nav-status">
+        <span class="pulse-dot"></span>
+        <span>Teleconsulta Activa · 4 min espera</span>
+      </div>
+    </nav>
+  </header>
+
+  <main id="inicio" class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="neu-card hero-panel">
+          <div class="eyebrow-pill">
+            <span>●</span>
+            <span>Medicina Familiar, Pediatría &amp; Odontología Sin Ansiedad</span>
+          </div>
+          <h1 class="hero-title">Salud táctil, cercana y <span>libre de estrés clínico.</span></h1>
+          <p class="hero-lead">
+            En <strong>SERENITY MED</strong> reemplazamos la frialdad hospitalaria por arquitectura acústica suave, consultas familiares de 40 minutos y telemedicina instantánea integrada con tu ficha médica.
+          </p>
+
+          <!-- Buscador Inset de Orientación Rápida -->
+          <div class="neu-well symptom-finder">
+            <span class="symptom-finder-label">Orientador Táctil · ¿Qué tipo de atención buscas hoy?</span>
+            <div class="symptom-chips" role="group" aria-label="Motivos de consulta">
+              <button type="button" class="symptom-chip is-active" data-symptom="Chequeo Familiar Preventivo · Recomendamos Medicina Familiar Integral (40 min, Bono Fonasa/Isapre).">Chequeo Familiar</button>
+              <button type="button" class="symptom-chip" data-symptom="Odontología Sin Dolor · Recomendamos Suite Dental Sedación Consciente y Ultrasonido Tibio.">Sensibilidad Dental</button>
+              <button type="button" class="symptom-chip" data-symptom="Control Pediátrico Amigable · Recomendamos Pediatría del Desarrollo en Box Cero Miedo.">Control Infantil</button>
+              <button type="button" class="symptom-chip" data-symptom="Videoconsulta Inmediata · Conecta en menos de 5 minutos con un médico general con receta electrónica.">Teleconsulta Hoy</button>
+            </div>
+            <div id="symptomOutput" class="symptom-recommendation">
+              Chequeo Familiar Preventivo · Recomendamos Medicina Familiar Integral (40 min, Bono Fonasa/Isapre).
+            </div>
+          </div>
+
+          <div class="hero-actions">
+            <a href="#reserva" class="neu-btn neu-btn-primary">Reservar Hora Sin Estrés</a>
+            <a href="#calma-sensorial" class="neu-btn">Personalizar Ambiente de Consulta</a>
+          </div>
+        </div>
+
+        <div class="neu-card hero-showcase">
+          <div class="hero-img-frame">
+            <img
+              src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1200&q=85"
+              alt="Recepción clínica y sala de atención familiar SERENITY MED con diseño Soft UI"
+              onerror="this.onerror=null;this.src='../../images/demos/assets/med/clinic-reception.svg';"/>
+            <div class="floating-telemed-badge">
+              <div>
+                <strong style="display:block;font-size:0.92rem">Box Sensorial &amp; Telemedicina HD</strong>
+                <span style="font-size:0.78rem;color:var(--text-muted)">Receta médica y orden de exámenes digital al instante</span>
+              </div>
+              <a href="#reserva" class="neu-btn" style="padding:8px 16px;font-size:0.8rem">Conectar</a>
+            </div>
+          </div>
+
+          <div class="biometric-dials">
+            <div class="dial-card">
+              <div class="dial-ring">99.2%</div>
+              <div class="dial-label">Pacientes Sin Ansiedad</div>
+            </div>
+            <div class="dial-card">
+              <div class="dial-ring">40m</div>
+              <div class="dial-label">Duración por Cita</div>
+            </div>
+            <div class="dial-card">
+              <div class="dial-ring">24/7</div>
+              <div class="dial-label">Telemedicina Familiar</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ESPECIALIDADES INTERACTIVAS -->
+    <section id="especialidades">
+      <div class="section-header">
+        <div>
+          <p class="section-eyebrow">Prestaciones Integrales</p>
+          <h2 class="section-title">Especialidades Médicas &amp; Dentales</h2>
+        </div>
+        <div class="filter-pills" role="tablist" aria-label="Filtrar modalidad">
+          <button type="button" class="filter-pill is-active" data-mod="all">Todas (6)</button>
+          <button type="button" class="filter-pill" data-mod="presencial">Presencial Soft Box</button>
+          <button type="button" class="filter-pill" data-mod="teleconsulta">Teleconsulta HD</button>
+        </div>
+      </div>
+
+      <div class="specialties-grid">
+        <article class="neu-card-sm spec-card" data-modality="presencial">
+          <div>
+            <div class="spec-top">
+              <div class="spec-icon">♥</div>
+              <span class="spec-tag">Presencial · 40 min</span>
+            </div>
+            <h3 class="spec-title" style="margin-top:16px">Medicina Familiar Integral</h3>
+            <p class="spec-desc">Seguimiento continuo para niños, adultos y personas mayores con enfoque preventivo, metabólico y cardiovascular.</p>
+          </div>
+          <div class="spec-meta">
+            <span>Arancel desde $28.000</span>
+            <a href="#reserva" style="color:var(--primary)">Agendar →</a>
+          </div>
+        </article>
+
+        <article class="neu-card-sm spec-card" data-modality="presencial">
+          <div>
+            <div class="spec-top">
+              <div class="spec-icon">✦</div>
+              <span class="spec-tag">Presencial · Cero Dolor</span>
+            </div>
+            <h3 class="spec-title" style="margin-top:16px">Odontología Neuro-Relajante</h3>
+            <p class="spec-desc">Higiene ultrasónica con agua tibia, anestesia computarizada sin aguja visible y rehabilitación estética mínimamente invasiva.</p>
+          </div>
+          <div class="spec-meta">
+            <span>Evaluación $19.900</span>
+            <a href="#reserva" style="color:var(--primary)">Agendar →</a>
+          </div>
+        </article>
+
+        <article class="neu-card-sm spec-card" data-modality="teleconsulta">
+          <div>
+            <div class="spec-top">
+              <div class="spec-icon">◉</div>
+              <span class="spec-tag">Teleconsulta · 15 min espera</span>
+            </div>
+            <h3 class="spec-title" style="margin-top:16px">Telemedicina Aguda &amp; Recetas</h3>
+            <p class="spec-desc">Atención por videollamada encriptada para cuadros respiratorios, lectura de exámenes de laboratorio y licencias médicas.</p>
+          </div>
+          <div class="spec-meta">
+            <span>Copago Fonasa $6.400</span>
+            <a href="#reserva" style="color:var(--primary)">Conectar →</a>
+          </div>
+        </article>
+
+        <article class="neu-card-sm spec-card" data-modality="presencial">
+          <div>
+            <div class="spec-top">
+              <div class="spec-icon">☀</div>
+              <span class="spec-tag">Presencial · Familiar</span>
+            </div>
+            <h3 class="spec-title" style="margin-top:16px">Pediatría &amp; Odontopediatría</h3>
+            <p class="spec-desc">Boxes con iluminación regulable y juegos táctiles para que los niños vivan el control sano y dental con alegría.</p>
+          </div>
+          <div class="spec-meta">
+            <span>Arancel desde $30.000</span>
+            <a href="#reserva" style="color:var(--primary)">Agendar →</a>
+          </div>
+        </article>
+
+        <article class="neu-card-sm spec-card" data-modality="teleconsulta">
+          <div>
+            <div class="spec-top">
+              <div class="spec-icon">☾</div>
+              <span class="spec-tag">Híbrido · 50 min</span>
+            </div>
+            <h3 class="spec-title" style="margin-top:16px">Salud Mental &amp; Sueño</h3>
+            <p class="spec-desc">Psicología clínica, manejo del estrés laboral y medicina del sueño con biofeedback respiratorio en consulta o en casa.</p>
+          </div>
+          <div class="spec-meta">
+            <span>Sesión desde $32.000</span>
+            <a href="#reserva" style="color:var(--primary)">Agendar →</a>
+          </div>
+        </article>
+
+        <article class="neu-card-sm spec-card" data-modality="teleconsulta">
+          <div>
+            <div class="spec-top">
+              <div class="spec-icon">✚</div>
+              <span class="spec-tag">Teleconsulta · Preventivo</span>
+            </div>
+            <h3 class="spec-title" style="margin-top:16px">Nutrición &amp; Salud Digestiva</h3>
+            <p class="spec-desc">Planes personalizados antiinflamatorios con seguimiento semanal por app táctil y ajuste de micronutrientes.</p>
+          </div>
+          <div class="spec-meta">
+            <span>Consulta $25.000</span>
+            <a href="#reserva" style="color:var(--primary)">Conectar →</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- EXPERIENCIA VISUAL INTERACTIVA: CONSOLA SENSORIAL SOFT UI -->
+    <section id="calma-sensorial">
+      <div class="section-header">
+        <div>
+          <p class="section-eyebrow">Experiencia Interactiva Soft UI</p>
+          <h2 class="section-title">Configurador de Confort Sensorial para tu Cita</h2>
+        </div>
+        <p style="max-width:440px;font-size:0.92rem;color:var(--text-muted)">
+          Antes de llegar a SERENITY MED puedes preconfigurar la luz, temperatura acústica y protocolo anti-ansiedad de tu box dental o médico.
+        </p>
+      </div>
+
+      <div class="neu-card sensory-console">
+        <div class="console-controls">
+          <div class="slider-well">
+            <div class="slider-head">
+              <span>Iluminación Circadiana del Box</span>
+              <span id="lightReadout">65% · Luz Cálida Suave</span>
+            </div>
+            <input type="range" id="lightSlider" class="neu-range" min="25" max="100" value="65" aria-label="Iluminación del box" />
+          </div>
+
+          <div class="slider-well">
+            <div class="slider-head">
+              <span>Ritmo de Respiración Guiada (Ciclo por minuto)</span>
+              <span id="breathReadout">6 RPM · Calma Profunda</span>
+            </div>
+            <input type="range" id="breathSlider" class="neu-range" min="4" max="12" value="6" aria-label="Ritmo de respiración" />
+          </div>
+
+          <div class="tactile-toggles">
+            <button type="button" class="toggle-btn is-active" data-feature="Cancelación Acústica Turbina">
+              <span>Cancelación Ruido Dental</span>
+              <span class="toggle-indicator"></span>
+            </button>
+            <button type="button" class="toggle-btn is-active" data-feature="Aromaterapia Lavanda Clínica">
+              <span>Aroma Lavanda Orgánica</span>
+              <span class="toggle-indicator"></span>
+            </button>
+            <button type="button" class="toggle-btn" data-feature="Manta Térmica Ponderada">
+              <span>Manta Ponderada Tibia</span>
+              <span class="toggle-indicator"></span>
+            </button>
+            <button type="button" class="toggle-btn" data-feature="Pausa por Señal de Mano">
+              <span>Botón de Pausa en Mano</span>
+              <span class="toggle-indicator"></span>
+            </button>
+          </div>
+        </div>
+
+        <div class="console-display">
+          <div id="breathingSphere" class="breathing-sphere">
+            <div class="breathing-inner">
+              <span id="sphereBpm" style="font-size:1.55rem">6 RPM</span>
+              <span style="font-size:0.74rem;color:var(--text-muted)">Coherencia Cardíaca</span>
+            </div>
+          </div>
+          <div>
+            <h3 style="font-family:var(--font-display);font-size:1.25rem;margin-bottom:4px">Tu Perfil Sensorial Está Listo</h3>
+            <p style="font-size:0.86rem;color:var(--text-muted)">Se adjuntará automáticamente a tu reserva médica o dental.</p>
+          </div>
+          <div id="sensorySummary" class="console-summary">
+            Protocolos activos: Cancelación Acústica Turbina · Aromaterapia Lavanda Clínica
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIRECTORIO MÉDICO E INSTALACIONES CON LIGHTBOX -->
+    <section id="equipo">
+      <div class="section-header">
+        <div>
+          <p class="section-eyebrow">Profesionales &amp; Espacios</p>
+          <h2 class="section-title">Directorio Clínico &amp; Suites Soft UI (Haz clic para ampliar)</h2>
+        </div>
+      </div>
+
+      <div class="directory-grid">
+        <article class="neu-card-sm doctor-card" data-title="Dra. Camila Valdés · Especialista Odontológico" data-desc="Médico Cirujano PUC, especialista en Medicina Familiar e Integrativa. 14 años acompañando familias en controles preventivos sin prisa.">
+          <div class="doctor-photo-well">
+            <img
+              src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80"
+              alt="Dra. Camila Valdés · Especialista Odontológico"
+              onerror="this.onerror=null;this.src='../../images/demos/assets/med/doctor-female-1.svg';"/>
+          </div>
+          <span class="doctor-role">Medicina Familiar &amp; Teleconsulta</span>
+          <h3 class="doctor-name">Dra. Camila Valdés</h3>
+          <p class="doctor-bio">Especialista en chequeos integrales, salud cardiometabólica y manejo empático de pacientes con fobia médica.</p>
+          <span class="neu-btn" style="width:100%;padding:10px;font-size:0.84rem">Ver Ficha &amp; Box Clínico</span>
+        </article>
+
+        <article class="neu-card-sm doctor-card" data-title="Dr. Martín Arriagada · Especialista Odontológico" data-desc="Cirujano Dentista U. de Chile, certificado en sedación consciente inhalatoria y rehabilitación adhesiva biomimética con magnificación.">
+          <div class="doctor-photo-well">
+            <img
+              src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800&q=80"
+              alt="Dr. Martín Arriagada · Especialista Odontológico"
+              onerror="this.onerror=null;this.src='../../images/demos/assets/med/doctor-male-1.svg';"/>
+          </div>
+          <span class="doctor-role">Odontología Neuro-Relajante</span>
+          <h3 class="doctor-name">Dr. Martín Arriagada</h3>
+          <p class="doctor-bio">Certificado en odontología libre de dolor, anestesia digital controlada por presión y estética dental conservadora.</p>
+          <span class="neu-btn" style="width:100%;padding:10px;font-size:0.84rem">Ver Ficha &amp; Box Clínico</span>
+        </article>
+
+        <article class="neu-card-sm doctor-card" data-title="Dra. Sofía Riquelme · Especialista Odontológico" data-desc="Pediatra acreditada con subespecialidad en lactancia, sueño infantil y acompañamiento respetuoso para padres primerizos.">
+          <div class="doctor-photo-well">
+            <img
+              src="https://images.unsplash.com/photo-1594824813627-89146dfa9960?auto=format&fit=crop&w=800&q=80"
+              alt="Dra. Sofía Riquelme · Especialista Odontológico"
+              onerror="this.onerror=null;this.src='../../images/demos/assets/med/doctor-female-2.svg';"/>
+          </div>
+          <span class="doctor-role">Pediatría Cero Miedo</span>
+          <h3 class="doctor-name">Dra. Sofía Riquelme</h3>
+          <p class="doctor-bio">Control de niño sano en suite táctil con iluminación suave, sin delantal clínico intimidante y tiempos extendidos.</p>
+          <span class="neu-btn" style="width:100%;padding:10px;font-size:0.84rem">Ver Ficha &amp; Box Clínico</span>
+        </article>
+
+        <article class="neu-card-sm doctor-card" data-title="Suite Dental Acústica Soft UI" data-desc="Equipada con sillón ergonómico viscoelástico, auriculares Bose de cancelación activa, techo con proyección natural y aire purificado HEPA H14.">
+          <div class="doctor-photo-well">
+            <img
+              src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1200&q=85"
+              alt="Suite Dental Acústica SERENITY MED"
+              onerror="this.onerror=null;this.src='../../images/demos/assets/med/clinic-suite-vip.svg';"/>
+          </div>
+          <span class="doctor-role">Instalaciones Acreditadas</span>
+          <h3 class="doctor-name">Suite Dental Acústica #03</h3>
+          <p class="doctor-bio">Sillones viscoelásticos tibios, purificación HEPA H14 y paneles fonoabsorbentes redondeados.</p>
+          <span class="neu-btn" style="width:100%;padding:10px;font-size:0.84rem">Inspeccionar Suite</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section id="testimonios">
+      <div class="section-header">
+        <div>
+          <p class="section-eyebrow">Experiencias de Pacientes</p>
+          <h2 class="section-title">Salud que se siente tranquila desde la recepción</h2>
+        </div>
+      </div>
+
+      <div class="testimonials-grid">
+        <article class="neu-card-sm testimonial-card">
+          <span class="demo-tag">[Testimonio Ficticio de Demostración]</span>
+          <p class="testimonial-quote">
+            “Postergué mi limpieza dental por 5 años debido al pánico al ruido del torno. En SERENITY MED preconfiguré los audífonos con cancelación activa y agua tibia; ni siquiera sentí en qué momento terminaron.”
+          </p>
+          <div class="testimonial-author">Andrea M. · Paciente de Odontología Neuro-Relajante</div>
+        </article>
+
+        <article class="neu-card-sm testimonial-card">
+          <span class="demo-tag">[Testimonio Ficticio de Demostración]</span>
+          <p class="testimonial-quote">
+            “Tener medicina familiar presencial y telemedicina pediátrica en el mismo portal nos cambió la vida. En 4 minutos teníamos la receta electrónica y el bono Fonasa procesado sin salir de casa.”
+          </p>
+          <div class="testimonial-author">Rodrigo &amp; Elena · Familia adscrita al Plan Serenity</div>
+        </article>
+
+        <article class="neu-card-sm testimonial-card">
+          <span class="demo-tag">[Testimonio Ficticio de Demostración]</span>
+          <p class="testimonial-quote">
+            “La consulta dura 40 minutos reales. La doctora revisó mis exámenes, ajustó mi descanso y me explicó cada indicador en una pantalla táctil clarísima.”
+          </p>
+          <div class="testimonial-author">Patricio V. · Chequeo Preventivo Anual</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- FORMULARIO DE RESERVA MÉDICA -->
+    <section id="reserva">
+      <div class="neu-card booking-panel">
+        <div>
+          <p class="section-eyebrow">Agenda Digital Soft UI</p>
+          <h2 class="section-title" style="margin-bottom:14px">Reserva tu Cita o Teleconsulta</h2>
+          <p style="font-size:0.95rem;color:var(--text-muted);margin-bottom:22px">
+            Selecciona tu especialidad, modalidad (Presencial en Las Condes / Providencia o Videoconsulta HD) y tu previsión de salud.
+          </p>
+          <div class="neu-well" style="padding:20px;margin-bottom:18px">
+            <strong style="display:block;margin-bottom:6px">Convenios Automáticos I-Med:</strong>
+            <p style="font-size:0.86rem;color:var(--text-muted)">Fonasa Libre Elección (Nivel 2), Banmédica, Colmena, Consalud, CruzBlanca, Nueva Masvida, Vida Tres y Seguros Complementarios.</p>
+          </div>
+          <div class="neu-well" style="padding:20px">
+            <strong style="display:block;margin-bottom:6px">Horario Continuado:</strong>
+            <p style="font-size:0.86rem;color:var(--text-muted)">Lunes a Sábado 08:00 a 20:30 hrs · Telemedicina Familiar 24/7.</p>
+          </div>
+        </div>
+
+        <form id="bookingForm">
+          <div class="demo-notice">
+            ℹ️ <strong>Demostración Interactiva:</strong> Este formulario simula una reserva clínica real del lado del cliente. No almacena ni envía datos médicos personales a servidores externos.
+          </div>
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="patientName">Nombre y Apellido</label>
+              <input type="text" id="patientName" class="neu-input" placeholder="Ej: Francisca Morales" required />
+            </div>
+            <div class="form-field">
+              <label for="patientRut">RUT o Pasaporte</label>
+              <input type="text" id="patientRut" class="neu-input" placeholder="16.450.210-K" required />
+            </div>
+            <div class="form-field">
+              <label for="patientSpec">Especialidad</label>
+              <select id="patientSpec" class="neu-select" required>
+                <option value="Medicina Familiar Integral">Medicina Familiar Integral (40 min)</option>
+                <option value="Odontología Neuro-Relajante">Odontología Neuro-Relajante (Sin Dolor)</option>
+                <option value="Teleconsulta Médica Express">Teleconsulta Médica Express (Videollamada)</option>
+                <option value="Pediatría Cero Miedo">Pediatría / Odontopediatría Cero Miedo</option>
+                <option value="Salud Mental & Sueño">Salud Mental &amp; Medicina del Sueño</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="patientInsurance">Previsión</label>
+              <select id="patientInsurance" class="neu-select">
+                <option value="Fonasa Libre Elección">Fonasa Libre Elección</option>
+                <option value="Isapre Convenio I-Med">Isapre Convenio I-Med</option>
+                <option value="Particular Reembolsable">Particular / Seguro Complementario</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="patientDate">Fecha Preferida</label>
+              <input type="date" id="patientDate" class="neu-input" required />
+            </div>
+            <div class="form-field">
+              <label for="patientPhone">WhatsApp de Confirmación</label>
+              <input type="tel" id="patientPhone" class="neu-input" placeholder="+56 9 8765 4321" required />
+            </div>
+            <div class="form-field full">
+              <label for="patientNotes">Preferencia Sensorial o Motivo de Consulta (Opcional)</label>
+              <textarea id="patientNotes" class="neu-textarea" rows="2" placeholder="Ej: Prefiero música ambiental suave y anestesia sin aguja visible..."></textarea>
+            </div>
+            <div class="form-field full">
+              <button type="submit" class="neu-btn neu-btn-primary" style="width:100%;padding:16px;font-size:1rem">
+                Confirmar Reserva en Modo Demostración
+              </button>
+            </div>
+          </div>
+          <div id="bookingFeedback" class="booking-feedback" role="status"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle">
+    <div class="neu-card lightbox-box">
+      <img id="lightboxImg" src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=85" alt="Vista ampliada" onerror="this.onerror=null;this.src='../../images/demos/assets/med/clinic-box-dental.svg';"/>
+      <h3 id="lightboxTitle" style="font-family:var(--font-display);font-size:1.35rem;margin-bottom:8px"></h3>
+      <p id="lightboxDesc" style="color:var(--text-muted);font-size:0.95rem;margin-bottom:20px"></p>
+      <button type="button" id="closeLightbox" class="neu-btn neu-btn-primary">Cerrar Vista</button>
+    </div>
+  </div>
+
+  <footer class="site-footer container">
+    <div class="neu-card-sm" style="padding:24px">
+      <p><strong>SERENITY MED · Centro Médico Familiar &amp; Teleconsulta Soft UI</strong></p>
+      <p style="margin-top:6px">Demostración interactiva Estilo #16 (Neumorphism / Soft UI) diseñada por KuyénDev · Todos los testimonios y perfiles cumplen fines demostrativos.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      // Orientador de síntomas en el Hero
+      const symptomChips = document.querySelectorAll('.symptom-chip');
+      const symptomOutput = document.getElementById('symptomOutput');
+      symptomChips.forEach(chip => {
+        chip.addEventListener('click', () => {
+          symptomChips.forEach(c => c.classList.remove('is-active'));
+          chip.classList.add('is-active');
+          symptomOutput.textContent = chip.dataset.symptom;
+        });
+      });
+
+      // Filtro de especialidades
+      const filterPills = document.querySelectorAll('.filter-pill');
+      const specCards = document.querySelectorAll('.spec-card');
+      filterPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          filterPills.forEach(p => p.classList.remove('is-active'));
+          pill.classList.add('is-active');
+          const mod = pill.dataset.mod;
+          specCards.forEach(card => {
+            card.style.display = (mod === 'all' || card.dataset.modality === mod) ? 'flex' : 'none';
+          });
+        });
+      });
+
+      // Consola Sensorial Soft UI
+      const lightSlider = document.getElementById('lightSlider');
+      const breathSlider = document.getElementById('breathSlider');
+      const lightReadout = document.getElementById('lightReadout');
+      const breathReadout = document.getElementById('breathReadout');
+      const sphereBpm = document.getElementById('sphereBpm');
+      const breathingSphere = document.getElementById('breathingSphere');
+      const toggleBtns = document.querySelectorAll('.toggle-btn');
+      const sensorySummary = document.getElementById('sensorySummary');
+
+      function updateSensory() {
+        const l = parseInt(lightSlider.value, 10);
+        const b = parseInt(breathSlider.value, 10);
+        const tone = l < 50 ? 'Penumbra Relajante' : l < 80 ? 'Luz Cálida Suave' : 'Luz Día Natural';
+        lightReadout.textContent = `${l}% · ${tone}`;
+        breathReadout.textContent = `${b} RPM · ${b <= 6 ? 'Calma Profunda' : 'Ritmo Natural'}`;
+        sphereBpm.textContent = `${b} RPM`;
+        const scale = 0.92 + (l / 500);
+        breathingSphere.style.transform = `scale(${scale.toFixed(2)})`;
+
+        const activeFeatures = Array.from(toggleBtns)
+          .filter(btn => btn.classList.contains('is-active'))
+          .map(btn => btn.dataset.feature);
+        sensorySummary.textContent = activeFeatures.length
+          ? 'Protocolos activos: ' + activeFeatures.join(' · ')
+          : 'Protocolos activos: Configuración Estándar Silenciosa';
+      }
+
+      lightSlider.addEventListener('input', updateSensory);
+      breathSlider.addEventListener('input', updateSensory);
+      toggleBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          btn.classList.toggle('is-active');
+          updateSensory();
+        });
+      });
+
+      // Lightbox Directorio
+      const lightbox = document.getElementById('lightbox');
+      const lbImg = document.getElementById('lightboxImg');
+      const lbTitle = document.getElementById('lightboxTitle');
+      const lbDesc = document.getElementById('lightboxDesc');
+      const closeLb = document.getElementById('closeLightbox');
+
+      document.querySelectorAll('.doctor-card').forEach(card => {
+        card.addEventListener('click', () => {
+          const img = card.querySelector('img');
+          lbImg.src = img.src;
+          lbImg.alt = img.alt;
+          lbTitle.textContent = card.dataset.title;
+          lbDesc.textContent = card.dataset.desc;
+          lightbox.classList.add('is-open');
+        });
+      });
+
+      closeLb.addEventListener('click', () => lightbox.classList.remove('is-open'));
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) lightbox.classList.remove('is-open');
+      });
+
+      // Reserva Interactiva
+      const form = document.getElementById('bookingForm');
+      const feedback = document.getElementById('bookingFeedback');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('patientName').value;
+        const spec = document.getElementById('patientSpec').value;
+        const ins = document.getElementById('patientInsurance').value;
+        feedback.style.display = 'block';
+        feedback.textContent = `✓ [Simulación de Demostración] Hola ${name}, hemos pre-agendado tu hora en ${spec} con cobertura ${ins} y tu perfil sensorial Soft UI adjunto.`;
+        form.reset();
+      });
+    })();
+  </script>
+  <script src="../../js/config/rubros.js"></script>
+  <script src="../../js/demo-viewer-bar.js"></script>
+</body>
+</html>

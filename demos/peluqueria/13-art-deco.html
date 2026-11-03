@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>LE GRAND PALAIS · Salón Art Déco & Peinados de Gala</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --emerald-deep: #0B2B26;
+      --emerald-mid: #163832;
+      --gold: #DAA520;
+      --gold-soft: rgba(218, 165, 32, 0.35);
+      --ivory: #F7F4EB;
+      --font-deco: 'Cinzel Decorative', Georgia, serif;
+      --font-sans: 'Jost', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--emerald-deep);
+      color: var(--ivory);
+      font-family: var(--font-sans);
+    }
+
+    body {
+      background-color: var(--emerald-deep);
+      background-image:
+        radial-gradient(circle at 50% 0%, rgba(218, 165, 32, 0.14), transparent 55%),
+        repeating-linear-gradient(45deg, rgba(218, 165, 32, 0.03) 0px, rgba(218, 165, 32, 0.03) 1px, transparent 1px, transparent 28px),
+        repeating-linear-gradient(-45deg, rgba(218, 165, 32, 0.03) 0px, rgba(218, 165, 32, 0.03) 1px, transparent 1px, transparent 28px);
+      color: var(--ivory);
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* Art Deco Double-Border Frame Container */
+    .palais-wrapper {
+      max-width: 1360px;
+      margin: 1.25rem auto;
+      padding: 0 1.25rem;
+    }
+
+    .deco-frame {
+      border: 2px solid var(--gold);
+      outline: 1px solid var(--gold-soft);
+      outline-offset: -8px;
+      background: rgba(11, 43, 38, 0.92);
+      position: relative;
+    }
+
+    /* Header */
+    .deco-header {
+      border-bottom: 1px solid var(--gold);
+      padding: 1.5rem 2rem;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(22, 56, 50, 0.95), rgba(11, 43, 38, 0.95));
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-crest {
+      font-size: 0.72rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.35rem;
+      display: block;
+    }
+
+    .header-logo {
+      font-family: var(--font-deco);
+      font-size: clamp(1.4rem, 2.6vw, 2.1rem);
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      color: var(--ivory);
+      display: inline-block;
+    }
+
+    .deco-nav {
+      margin-top: 1rem;
+      padding-top: 0.85rem;
+      border-top: 1px solid var(--gold-soft);
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2.25rem;
+      list-style: none;
+    }
+
+    .deco-nav a {
+      font-size: 0.78rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ivory);
+      transition: color 0.25s ease;
+    }
+
+    .deco-nav a:hover {
+      color: var(--gold);
+    }
+
+    /* Ornamental Divider */
+    .sunburst-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin: 1.25rem auto;
+      color: var(--gold);
+    }
+
+    .sunburst-line {
+      height: 1px;
+      width: 90px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .diamond-glyph {
+      font-size: 1rem;
+      letter-spacing: 0.3em;
+    }
+
+    /* Buttons */
+    .btn-deco {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      padding: 0.9rem 2rem;
+      background: var(--gold);
+      color: var(--emerald-deep);
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      border: 1px solid var(--gold);
+      cursor: pointer;
+      transition: all 0.25s ease;
+      clip-path: polygon(10px 0, calc(100% - 10px) 0, 100% 10px, 100% calc(100% - 10px), calc(100% - 10px) 100%, 10px 100%, 0 calc(100% - 10px), 0 10px);
+    }
+
+    .btn-deco:hover {
+      background: var(--ivory);
+      color: var(--emerald-deep);
+    }
+
+    .btn-deco-ghost {
+      background: transparent;
+      color: var(--gold);
+    }
+
+    .btn-deco-ghost:hover {
+      background: var(--gold);
+      color: var(--emerald-deep);
+    }
+
+    /* Hero */
+    .hero-palais {
+      padding: clamp(2.5rem, 5vw, 4.5rem) clamp(1.5rem, 4vw, 4rem);
+      display: grid;
+      grid-template-columns: 1fr 440px 1fr;
+      gap: 2.5rem;
+      align-items: center;
+      border-bottom: 1px solid var(--gold);
+    }
+
+    .hero-col-left {
+      text-align: right;
+    }
+
+    .hero-col-right {
+      text-align: left;
+    }
+
+    .deco-kicker {
+      color: var(--gold);
+      font-size: 0.75rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-main-title {
+      font-family: var(--font-deco);
+      font-size: clamp(2rem, 3.4vw, 3.1rem);
+      line-height: 1.18;
+      color: var(--ivory);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-arch-frame {
+      border: 2px solid var(--gold);
+      padding: 10px;
+      border-radius: 220px 220px 12px 12px;
+      background: var(--emerald-mid);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-arch-inner {
+      border-radius: 210px 210px 6px 6px;
+      overflow: hidden;
+      height: 520px;
+      border: 1px solid var(--gold-soft);
+      position: relative;
+    }
+
+    .hero-arch-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .arch-plaque {
+      position: absolute;
+      bottom: 0;
+      inset-inline: 0;
+      background: linear-gradient(transparent, rgba(11, 43, 38, 0.95));
+      padding: 2rem 1rem 1rem;
+      text-align: center;
+      font-family: var(--font-deco);
+      font-size: 0.8rem;
+      color: var(--gold);
+      letter-spacing: 0.14em;
+    }
+
+    /* Section Header */
+    .deco-section {
+      padding: clamp(3rem, 5vw, 5rem) clamp(1.5rem, 4vw, 4rem);
+      border-bottom: 1px solid var(--gold);
+    }
+
+    .deco-sec-head {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 3rem;
+    }
+
+    .deco-sec-title {
+      font-family: var(--font-deco);
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      color: var(--ivory);
+      margin-bottom: 0.5rem;
+    }
+
+    /* Interactive Services Menu: Le Menu de Gala */
+    .gala-tabs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .gala-tab-btn {
+      padding: 0.7rem 1.6rem;
+      background: var(--emerald-mid);
+      border: 1px solid var(--gold);
+      color: var(--ivory);
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .gala-tab-btn.active,
+    .gala-tab-btn:hover {
+      background: var(--gold);
+      color: var(--emerald-deep);
+      font-weight: 600;
+    }
+
+    .gala-menu-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.75rem;
+    }
+
+    .gala-menu-item {
+      background: var(--emerald-mid);
+      border: 1px solid var(--gold-soft);
+      padding: 1.75rem 2rem;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1rem;
+      transition: border-color 0.25s ease;
+    }
+
+    .gala-menu-item:hover {
+      border-color: var(--gold);
+    }
+
+    .gala-item-header {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+
+    .gala-item-title {
+      font-family: var(--font-deco);
+      font-size: 1.2rem;
+      color: var(--gold);
+    }
+
+    .gala-dots {
+      flex: 1;
+      border-bottom: 1px dotted var(--gold-soft);
+    }
+
+    .gala-item-price {
+      font-family: var(--font-deco);
+      font-size: 1.2rem;
+      color: var(--ivory);
+    }
+
+    /* Visual Interactive Experience: Soirée & Gala Coiffure Concierge */
+    .concierge-box {
+      background: var(--emerald-mid);
+      border: 2px solid var(--gold);
+      padding: clamp(1.75rem, 3.5vw, 3rem);
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .occasion-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      margin: 1.25rem 0;
+    }
+
+    .occasion-btn {
+      padding: 1rem 1.25rem;
+      background: var(--emerald-deep);
+      border: 1px solid var(--gold-soft);
+      color: var(--ivory);
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-sans);
+      font-size: 0.92rem;
+      transition: all 0.2s ease;
+    }
+
+    .occasion-btn.active,
+    .occasion-btn:hover {
+      border-color: var(--gold);
+      background: rgba(218, 165, 32, 0.15);
+    }
+
+    .concierge-card-display {
+      background: var(--emerald-deep);
+      border: 1px solid var(--gold);
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 1.75rem;
+      align-items: center;
+    }
+
+    .concierge-thumb {
+      height: 280px;
+      border: 1px solid var(--gold);
+      overflow: hidden;
+    }
+
+    .concierge-thumb img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .concierge-specs {
+      list-style: none;
+      margin: 1rem 0 1.5rem;
+      border-top: 1px solid var(--gold-soft);
+      padding-top: 1rem;
+    }
+
+    .concierge-specs li {
+      padding: 0.35rem 0;
+      font-size: 0.9rem;
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px dashed rgba(218, 165, 32, 0.2);
+    }
+
+    /* Lookbook Gallery */
+    .deco-gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+
+    .deco-portrait {
+      background: var(--emerald-mid);
+      border: 1px solid var(--gold);
+      padding: 0.75rem;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .deco-portrait:hover {
+      transform: translateY(-6px);
+    }
+
+    .deco-portrait-img {
+      aspect-ratio: 3 / 4;
+      border-radius: 110px 110px 0 0;
+      overflow: hidden;
+      border: 1px solid var(--gold-soft);
+    }
+
+    .deco-portrait-img img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .deco-portrait-caption {
+      text-align: center;
+      padding: 1rem 0.5rem 0.4rem;
+    }
+
+    .deco-portrait-caption h3 {
+      font-family: var(--font-deco);
+      font-size: 0.95rem;
+      color: var(--gold);
+      margin-bottom: 0.2rem;
+    }
+
+    /* Team / Maîtres Coiffeurs */
+    .maitres-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .maitre-card {
+      background: var(--emerald-mid);
+      border: 1px solid var(--gold-soft);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .maitre-photo {
+      width: 160px;
+      height: 200px;
+      margin: 0 auto 1.25rem;
+      border-radius: 80px 80px 0 0;
+      overflow: hidden;
+      border: 2px solid var(--gold);
+    }
+
+    /* Testimonials */
+    .deco-quotes {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+    }
+
+    .deco-quote-card {
+      background: var(--emerald-mid);
+      border: 1px solid var(--gold);
+      padding: 2rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.25rem;
+    }
+
+    .deco-demo-tag {
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--gold-soft);
+      padding: 0.25rem 0.6rem;
+      margin: 0 auto;
+    }
+
+    /* Booking Section */
+    .deco-booking-grid {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: 2.5rem;
+      background: var(--emerald-mid);
+      border: 1px solid var(--gold);
+      padding: clamp(1.75rem, 4vw, 3rem);
+    }
+
+    .deco-form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+
+    .deco-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .deco-field.full {
+      grid-column: 1 / -1;
+    }
+
+    .deco-field label {
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .deco-field input,
+    .deco-field select {
+      padding: 0.85rem 1rem;
+      background: var(--emerald-deep);
+      border: 1px solid var(--gold-soft);
+      color: var(--ivory);
+      font-family: var(--font-sans);
+    }
+
+    .deco-feedback {
+      margin-top: 1.25rem;
+      padding: 1.25rem;
+      border: 1px solid var(--gold);
+      background: var(--emerald-deep);
+      display: none;
+    }
+
+    /* Lightbox */
+    .deco-lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(11, 43, 38, 0.94);
+      z-index: 999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .deco-lightbox.open {
+      display: flex;
+    }
+
+    .deco-lb-card {
+      max-width: 760px;
+      width: 100%;
+      background: var(--emerald-mid);
+      border: 2px solid var(--gold);
+      padding: 1.25rem;
+    }
+
+    @media (max-width: 1024px) {
+      .hero-palais {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .hero-col-left,
+      .hero-col-right {
+        text-align: center;
+      }
+      .hero-arch-frame {
+        max-width: 420px;
+        margin: 0 auto;
+      }
+      .gala-menu-grid,
+      .concierge-box,
+      .concierge-card-display,
+      .maitres-grid,
+      .deco-quotes,
+      .deco-booking-grid {
+        grid-template-columns: 1fr;
+      }
+      .deco-gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .deco-nav {
+        gap: 1rem;
+      }
+      .deco-gallery,
+      .deco-form-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body data-rubro-id="peluqueria" data-style-id="art-deco">
+  <div class="palais-wrapper" id="top">
+    <div class="deco-frame">
+      <!-- Header -->
+      <header class="deco-header">
+        <span class="header-crest">✦ MAISON DE HAUTE COIFFURE · ESTILO #13 ART DÉCO ✦</span>
+        <a href="#top" class="header-logo">LE GRAND PALAIS</a>
+        <nav aria-label="Navegación principal">
+          <ul class="deco-nav">
+            <li><a href="#menu-gala">Carte d’Or</a></li>
+            <li><a href="#atelier-soiree">Concierge de Gala</a></li>
+            <li><a href="#galerie">Galerie 1928</a></li>
+            <li><a href="#maitres">Maîtres Coiffeurs</a></li>
+            <li><a href="#reservation">Réservation Privée</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <!-- Hero -->
+      <section class="hero-palais">
+        <div class="hero-col-left">
+          <span class="deco-kicker">L’Âge d’Or de la Beauté</span>
+          <h1 class="hero-main-title">El Esplendor de los Años Veinte en Cada Hebra</h1>
+          <p style="color:#E2DDD0; margin-bottom:1.75rem">
+            Ondas Marcel esculpidas al vapor, recogidos imperiales para ópera y alta nupcialidad, y coloraciones doradas dignas de los grandes salones parisinos de 1928.
+          </p>
+          <a href="#reservation" class="btn-deco">Solicitar Suite Privada</a>
+        </div>
+
+        <div class="hero-arch-frame">
+          <div class="hero-arch-inner">
+            <img
+              src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85"
+              alt="Salón Art Déco verde esmeralda y dorado con espejos arqueados"
+              onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg'">
+            <div class="arch-plaque">SALON IMPÉRIAL · ESMERALDA & ORO 24K</div>
+          </div>
+        </div>
+
+        <div class="hero-col-right">
+          <span class="deco-kicker">Rituel Champagne & Soie</span>
+          <h2 style="font-family:var(--font-deco); font-size:1.55rem; color:var(--gold); margin-bottom:1rem">
+            Artesanía de Alfombra Roja & Novias
+          </h2>
+          <p style="color:#E2DDD0; margin-bottom:1.75rem">
+            Cada cita incluye copa de bienvenida, diagnóstico morfológico de rostro y acabado con elixir de seda real y micropartículas de oro.
+          </p>
+          <a href="#atelier-soiree" class="btn-deco btn-deco-ghost">Diseñar Peinado de Gala</a>
+        </div>
+      </section>
+
+      <!-- Interactive Services Menu -->
+      <section id="menu-gala" class="deco-section">
+        <div class="deco-sec-head">
+          <span class="deco-kicker">I · La Carte d’Or</span>
+          <h2 class="deco-sec-title">Servicios de Alta Peluquería</h2>
+          <div class="sunburst-divider">
+            <span class="sunburst-line"></span>
+            <span class="diamond-glyph">❖ ❖ ❖</span>
+            <span class="sunburst-line"></span>
+          </div>
+          <p style="color:#D8D3C5">Selecciona un salón temático para explorar nuestras especialidades con tiempos y aranceles detallados.</p>
+        </div>
+
+        <div class="gala-tabs">
+          <button type="button" class="gala-tab-btn active" data-gala="all">Toda la Carta (6)</button>
+          <button type="button" class="gala-tab-btn" data-gala="peinado">Peinados de Gala & Novias</button>
+          <button type="button" class="gala-tab-btn" data-gala="color">Coloración Or & Champagne</button>
+          <button type="button" class="gala-tab-btn" data-gala="elixir">Rituales de Seda</button>
+        </div>
+
+        <div class="gala-menu-grid">
+          <article class="gala-menu-item" data-gala="peinado">
+            <div>
+              <div class="gala-item-header">
+                <h3 class="gala-item-title">Ondas al Agua & Escultura Marcel</h3>
+                <span class="gala-dots"></span>
+                <span class="gala-item-price">$68.000</span>
+              </div>
+              <p style="font-size:0.9rem; color:#D8D3C5; margin-top:0.5rem">Ondulación simétrica de época con fijación flexible de cristal líquido, ideal para galas y alfombra roja.</p>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; font-size:0.78rem; color:var(--gold)">
+              <span>Duración: 75 min · Suite Esmeralda</span>
+              <button type="button" class="select-deco-service" data-service="Ondas al Agua & Escultura Marcel" style="background:none; border:none; color:var(--gold); cursor:pointer; text-transform:uppercase; letter-spacing:0.14em; font-weight:600">Reservar ❖</button>
+            </div>
+          </article>
+
+          <article class="gala-menu-item" data-gala="peinado">
+            <div>
+              <div class="gala-item-header">
+                <h3 class="gala-item-title">Chignon Impérial & Tocados de Novia</h3>
+                <span class="gala-dots"></span>
+                <span class="gala-item-price">$145.000</span>
+              </div>
+              <p style="font-size:0.9rem; color:#D8D3C5; margin-top:0.5rem">Incluye prueba previa de 90 minutos, anclaje invisible de tiaras o peinetas Art Déco y estilismo el día del enlace.</p>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; font-size:0.78rem; color:var(--gold)">
+              <span>Duración: 150 min · Gabinete Nupcial</span>
+              <button type="button" class="select-deco-service" data-service="Chignon Impérial & Tocados de Novia" style="background:none; border:none; color:var(--gold); cursor:pointer; text-transform:uppercase; letter-spacing:0.14em; font-weight:600">Reservar ❖</button>
+            </div>
+          </article>
+
+          <article class="gala-menu-item" data-gala="color">
+            <div>
+              <div class="gala-item-header">
+                <h3 class="gala-item-title">Balayage Or Champagne 1925</h3>
+                <span class="gala-dots"></span>
+                <span class="gala-item-price">$110.000</span>
+              </div>
+              <p style="font-size:0.9rem; color:#D8D3C5; margin-top:0.5rem">Iluminación pincelada a mano alzada en matices champán dorado, miel imperial y platino perlado.</p>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; font-size:0.78rem; color:var(--gold)">
+              <span>Duración: 140 min · Con baño de seda</span>
+              <button type="button" class="select-deco-service" data-service="Balayage Or Champagne 1925" style="background:none; border:none; color:var(--gold); cursor:pointer; text-transform:uppercase; letter-spacing:0.14em; font-weight:600">Reservar ❖</button>
+            </div>
+          </article>
+
+          <article class="gala-menu-item" data-gala="color">
+            <div>
+              <div class="gala-item-header">
+                <h3 class="gala-item-title">Corte Bob Louise Brooks & Brillo Noir</h3>
+                <span class="gala-dots"></span>
+                <span class="gala-item-price">$64.000</span>
+              </div>
+              <p style="font-size:0.9rem; color:#D8D3C5; margin-top:0.5rem">El icónico corte paje de mandíbula afilada acompañado de baño de brillo profundo ébano o caoba.</p>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; font-size:0.78rem; color:var(--gold)">
+              <span>Duración: 70 min · Corte de Autor</span>
+              <button type="button" class="select-deco-service" data-service="Corte Bob Louise Brooks & Brillo Noir" style="background:none; border:none; color:var(--gold); cursor:pointer; text-transform:uppercase; letter-spacing:0.14em; font-weight:600">Reservar ❖</button>
+            </div>
+          </article>
+
+          <article class="gala-menu-item" data-gala="elixir">
+            <div>
+              <div class="gala-item-header">
+                <h3 class="gala-item-title">Elixir de Oro 24K & Caviar Capilar</h3>
+                <span class="gala-dots"></span>
+                <span class="gala-item-price">$75.000</span>
+              </div>
+              <p style="font-size:0.9rem; color:#D8D3C5; margin-top:0.5rem">Nutrición suntuosa con lípidos de caviar y velo de oro coloidal para cabellos que requieren luminosidad escénica.</p>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; font-size:0.78rem; color:var(--gold)">
+              <span>Duración: 65 min · Vapor Ozono</span>
+              <button type="button" class="select-deco-service" data-service="Elixir de Oro 24K & Caviar Capilar" style="background:none; border:none; color:var(--gold); cursor:pointer; text-transform:uppercase; letter-spacing:0.14em; font-weight:600">Reservar ❖</button>
+            </div>
+          </article>
+
+          <article class="gala-menu-item" data-gala="elixir">
+            <div>
+              <div class="gala-item-header">
+                <h3 class="gala-item-title">Brushing de Terciopelo & Perfume Capilar</h3>
+                <span class="gala-dots"></span>
+                <span class="gala-item-price">$42.000</span>
+              </div>
+              <p style="font-size:0.9rem; color:#D8D3C5; margin-top:0.5rem">Modelado con cepillos de jabalí natural y sellado aromático con notas de ámbar, iris y bergamota.</p>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; font-size:0.78rem; color:var(--gold)">
+              <span>Duración: 45 min · Express Soirée</span>
+              <button type="button" class="select-deco-service" data-service="Brushing de Terciopelo & Perfume Capilar" style="background:none; border:none; color:var(--gold); cursor:pointer; text-transform:uppercase; letter-spacing:0.14em; font-weight:600">Reservar ❖</button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Visual Interactive Experience: Concierge de Gala & Soirée -->
+      <section id="atelier-soiree" class="deco-section">
+        <div class="deco-sec-head">
+          <span class="deco-kicker">II · Experiencia Interactiva</span>
+          <h2 class="deco-sec-title">Concierge de Peinados de Gala & Joyería</h2>
+          <p style="color:#D8D3C5">Selecciona la ocasión de tu velada para descubrir la arquitectura capilar sugerida por nuestro director artístico.</p>
+        </div>
+
+        <div class="concierge-box">
+          <div>
+            <span class="deco-kicker">1. Elige tu Velada Social</span>
+            <div class="occasion-list">
+              <button type="button" class="occasion-btn active"
+                data-title="Gala en el Teatro Municipal / Ópera"
+                data-style="Chignon Escultural Bajo con Ondas Finger-Wave"
+                data-jewel="Peineta Geométrica en Latón Dorado y Perlas Cultivadas"
+                data-hold="Fijación Escénica 14 Horas (Resistente a Humedad)"
+                data-prep="80 minutos con ritual de brillo previo"
+                data-img="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85">
+                <span>❖ Gala de Ópera & Alfombra Roja</span>
+                <span style="color:var(--gold)">Ver Ficha →</span>
+              </button>
+
+              <button type="button" class="occasion-btn"
+                data-title="Enlace Nupcial de Época / Catedral"
+                data-style="Corona Trenzada Imperial con Velo Catedral Anclado"
+                data-jewel="Tiara Art Déco en Cristal de Roca & Oro Blanco"
+                data-hold="Estructura Invisible de Doble Anclaje (18 Horas)"
+                data-prep="120 minutos en Suite Privada con Champagne"
+                data-img="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=900&q=80">
+                <span>❖ Alta Nupcialidad & Tiara Real</span>
+                <span style="color:var(--gold)">Ver Ficha →</span>
+              </button>
+
+              <button type="button" class="occasion-btn"
+                data-title="Cocktail Nocturno & Jazz Speakeasy"
+                data-style="Faux-Bob Asimétrico Años 20 con Volumen Lateral"
+                data-jewel="Broche Solitario de Esmeralda y Pluma de Seda"
+                data-hold="Movimiento Sedoso con Memoria Elástica"
+                data-prep="60 minutos con perfume capilar de ámbar"
+                data-img="https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=900&q=80">
+                <span>❖ Cocktail Speakeasy & Velada Jazz</span>
+                <span style="color:var(--gold)">Ver Ficha →</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="concierge-card-display">
+            <div class="concierge-thumb">
+              <img
+                id="conciergeImg"
+                src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85"
+                alt="Recomendación del Concierge Art Déco"
+                onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg'">
+            </div>
+            <div>
+              <span class="deco-kicker" id="conciergeOccasion">Gala en el Teatro Municipal / Ópera</span>
+              <h3 id="conciergeStyle" style="font-family:var(--font-deco); font-size:1.35rem; color:var(--gold)">
+                Chignon Escultural Bajo con Ondas Finger-Wave
+              </h3>
+              <ul class="concierge-specs">
+                <li><span>Joyería Capilar:</span> <strong id="conciergeJewel">Peineta Geométrica Dorado & Perlas</strong></li>
+                <li><span>Fijación:</span> <strong id="conciergeHold">Escénica 14 Horas</strong></li>
+                <li><span>Tiempo en Suite:</span> <strong id="conciergePrep">80 minutos</strong></li>
+              </ul>
+              <button type="button" class="btn-deco" id="bookConciergeLook">Reservar Este Look de Gala</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Lookbook Gallery -->
+      <section id="galerie" class="deco-section">
+        <div class="deco-sec-head">
+          <span class="deco-kicker">III · Galerie d’Exposition</span>
+          <h2 class="deco-sec-title">Retratos de Nuestro Salón</h2>
+          <p style="color:#D8D3C5">Pulsa sobre cualquier retrato para contemplar la obra en gran formato.</p>
+        </div>
+
+        <div class="deco-gallery">
+          <article class="deco-portrait" tabindex="0" data-title="I · L’Émeraude Impériale" data-desc="Interior Art Déco con arcos dorados y sillones de terciopelo esmeralda" data-img="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85">
+            <div class="deco-portrait-img">
+              <img
+                src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85"
+                alt="Salón Le Grand Palais"
+                onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg'">
+            </div>
+            <div class="deco-portrait-caption">
+              <h3>L’Émeraude</h3>
+              <span style="font-size:0.75rem; color:#D8D3C5">Ampliar Retrato ❖</span>
+            </div>
+          </article>
+
+          <article class="deco-portrait" tabindex="0" data-title="II · Ondes Marcel 1928" data-desc="Escultura de ondas al agua con brillo espejo de seda" data-img="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1000&q=80">
+            <div class="deco-portrait-img">
+              <img
+                src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=900&q=80"
+                alt="Ondas Marcel doradas"
+                onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/hair-look-balayage.svg'">
+            </div>
+            <div class="deco-portrait-caption">
+              <h3>Ondes Marcel</h3>
+              <span style="font-size:0.75rem; color:#D8D3C5">Ampliar Retrato ❖</span>
+            </div>
+          </article>
+
+          <article class="deco-portrait" tabindex="0" data-title="III · Couronne de Mariée" data-desc="Recogido de alta costura con tocado de hojas bañadas en oro" data-img="https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=1000&q=80">
+            <div class="deco-portrait-img">
+              <img
+                src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85"
+                alt="Recogido de novia Art Déco"
+                onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg'">
+            </div>
+            <div class="deco-portrait-caption">
+              <h3>Couronne d’Or</h3>
+              <span style="font-size:0.75rem; color:#D8D3C5">Ampliar Retrato ❖</span>
+            </div>
+          </article>
+
+          <article class="deco-portrait" tabindex="0" data-title="IV · Le Carré Parisien" data-desc="Corte Bob simétrico a la altura del pómulo con flequillo tupido" data-img="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1000&q=80">
+            <div class="deco-portrait-img">
+              <img
+                src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=900&q=80"
+                alt="Corte Bob Parisino"
+                onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/hair-look-balayage.svg'">
+            </div>
+            <div class="deco-portrait-caption">
+              <h3>Carré Parisien</h3>
+              <span style="font-size:0.75rem; color:#D8D3C5">Ampliar Retrato ❖</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Team -->
+      <section id="maitres" class="deco-section">
+        <div class="deco-sec-head">
+          <span class="deco-kicker">IV · L’Équipe Artistique</span>
+          <h2 class="deco-sec-title">Nuestros Maîtres Coiffeurs</h2>
+        </div>
+
+        <div class="maitres-grid">
+          <article class="maitre-card">
+            <div class="maitre-photo">
+              <img
+                src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85"
+                alt="Céleste Moreau"
+                onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg'">
+            </div>
+            <span class="deco-kicker">Directrice de Gala</span>
+            <h3 style="font-family:var(--font-deco); font-size:1.3rem; color:var(--gold); margin-bottom:0.5rem">Céleste Moreau</h3>
+            <p style="font-size:0.9rem; color:#D8D3C5">Ex estilista de ópera en París. Maestra en ondas al agua, moños arquitectónicos y colocación de tiaras históricas.</p>
+          </article>
+
+          <article class="maitre-card">
+            <div class="maitre-photo">
+              <img
+                src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85"
+                alt="Henri De la Croix"
+                onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg'">
+            </div>
+            <span class="deco-kicker">Maître Coloriste</span>
+            <h3 style="font-family:var(--font-deco); font-size:1.3rem; color:var(--gold); margin-bottom:0.5rem">Henri De la Croix</h3>
+            <p style="font-size:0.9rem; color:#D8D3C5">Creador de nuestra paleta Champagne Impérial y cobrizos Tiziano de reflejo profundo bajo iluminación de candelabro.</p>
+          </article>
+
+          <article class="maitre-card">
+            <div class="maitre-photo">
+              <img
+                src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85"
+                alt="Margaux Delacroix"
+                onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg'">
+            </div>
+            <span class="deco-kicker">Alchimiste de la Soie</span>
+            <h3 style="font-family:var(--font-deco); font-size:1.3rem; color:var(--gold); margin-bottom:0.5rem">Margaux Laurent</h3>
+            <p style="font-size:0.9rem; color:#D8D3C5">Especialista en baños de oro coloidal 24K, proteínas de seda y masajes craneales con aceites esenciales de Grasse.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Testimonials -->
+      <section class="deco-section" aria-label="Testimonios">
+        <div class="deco-sec-head">
+          <span class="deco-kicker">V · Livre d’Or</span>
+          <h2 class="deco-sec-title">Elogios de Nuestra Clientela</h2>
+        </div>
+
+        <div class="deco-quotes">
+          <article class="deco-quote-card">
+            <span class="deco-demo-tag">[Testimonio Ficticio de Demostración]</span>
+            <p style="font-style:italic; font-size:1.05rem">“Para mi matrimonio prepararon la Suite Esmeralda con champaña y música de los años 20. Mi recogido permaneció impecable hasta el amanecer.”</p>
+            <strong style="color:var(--gold); font-size:0.8rem; letter-spacing:0.15em">— ISADORA MONTES · NOVIA DE GALA</strong>
+          </article>
+
+          <article class="deco-quote-card">
+            <span class="deco-demo-tag">[Testimonio Ficticio de Demostración]</span>
+            <p style="font-style:italic; font-size:1.05rem">“El corte Bob Louise Brooks de Céleste tiene una caída geométrica perfecta. Es como entrar a un palacio Art Déco en pleno centro.”</p>
+            <strong style="color:var(--gold); font-size:0.8rem; letter-spacing:0.15em">— BEATRIZ UNDURRAGA · VIOLONCHELISTA</strong>
+          </article>
+
+          <article class="deco-quote-card">
+            <span class="deco-demo-tag">[Testimonio Ficticio de Demostración]</span>
+            <p style="font-style:italic; font-size:1.05rem">“El ritual de Oro 24K y Caviar transformó mi cabello opaco antes de una premiación. El brillo bajo las luces del salón es incomparable.”</p>
+            <strong style="color:var(--gold); font-size:0.8rem; letter-spacing:0.15em">— VICTORIA FONTAINE · ACTRIZ</strong>
+          </article>
+        </div>
+      </section>
+
+      <!-- Booking Form -->
+      <section id="reservation" class="deco-section" style="border-bottom:none">
+        <div class="deco-booking-grid">
+          <div>
+            <span class="deco-kicker">VI · Réservation Privée</span>
+            <h2 class="deco-sec-title" style="text-align:left; margin-bottom:1rem">Agenda tu Velada en Le Grand Palais</h2>
+            <p style="color:#D8D3C5; margin-bottom:1.5rem">
+              <strong>Aviso de Demostración Interactiva:</strong> Este formulario permite probar el flujo de reserva en vivo del lado del cliente. Ningún dato personal es almacenado ni transmitido.
+            </p>
+            <div style="border-top:1px solid var(--gold-soft); padding-top:1rem; font-size:0.9rem; color:#E2DDD0">
+              <p><strong>Salón Principal:</strong> Paseo Las Palmas · Galería Beaux-Arts</p>
+              <p style="margin-top:0.4rem"><strong>Atención con Cita Previa:</strong> Martes a Sábado · 10:00 a 20:30 hrs</p>
+            </div>
+          </div>
+
+          <form id="decoBookingForm">
+            <div class="deco-form-grid">
+              <div class="deco-field">
+                <label for="dName">Nombre de Invitada/o</label>
+                <input type="text" id="dName" required placeholder="Ej. Madame Clara Del Río">
+              </div>
+              <div class="deco-field">
+                <label for="dPhone">Teléfono / WhatsApp Concierge</label>
+                <input type="text" id="dPhone" required placeholder="+56 9 0000 0000">
+              </div>
+              <div class="deco-field">
+                <label for="dService">Servicio de la Carte d’Or</label>
+                <select id="dService">
+                  <option value="Ondas al Agua & Escultura Marcel">Ondas al Agua & Escultura Marcel ($68.000)</option>
+                  <option value="Chignon Impérial & Tocados de Novia">Chignon Impérial & Tocados de Novia ($145.000)</option>
+                  <option value="Balayage Or Champagne 1925">Balayage Or Champagne 1925 ($110.000)</option>
+                  <option value="Corte Bob Louise Brooks & Brillo Noir">Corte Bob Louise Brooks & Brillo Noir ($64.000)</option>
+                  <option value="Elixir de Oro 24K & Caviar Capilar">Elixir de Oro 24K & Caviar Capilar ($75.000)</option>
+                  <option value="Brushing de Terciopelo & Perfume Capilar">Brushing de Terciopelo & Perfume Capilar ($42.000)</option>
+                </select>
+              </div>
+              <div class="deco-field">
+                <label for="dCourtesy">Cortesía de Suite</label>
+                <select id="dCourtesy">
+                  <option value="Copa de Champagne Brut">Copa de Champagne Brut</option>
+                  <option value="Té Imperial Darjeeling en Porcelana">Té Imperial Darjeeling en Porcelana</option>
+                  <option value="Espresso & Macaron de Pistacho">Espresso & Macaron de Pistacho</option>
+                </select>
+              </div>
+              <div class="deco-field">
+                <label for="dDate">Fecha de la Cita</label>
+                <input type="date" id="dDate" required>
+              </div>
+              <div class="deco-field">
+                <label for="dTime">Horario Preferido</label>
+                <select id="dTime">
+                  <option value="11:00 hrs · Matinée Royale">11:00 hrs · Matinée Royale</option>
+                  <option value="15:30 hrs · Après-Midi Doré">15:30 hrs · Après-Midi Doré</option>
+                  <option value="18:00 hrs · Préparation de Gala">18:00 hrs · Préparation de Gala</option>
+                </select>
+              </div>
+              <div class="deco-field full">
+                <button type="submit" class="btn-deco" style="width:100%">Confirmar Reserva de Demostración ❖</button>
+              </div>
+            </div>
+            <div class="deco-feedback" id="decoFeedback" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer style="border-top:1px solid var(--gold); padding:1.75rem 2rem; text-align:center; font-size:0.78rem; color:var(--gold); letter-spacing:0.14em; text-transform:uppercase">
+        ❖ LE GRAND PALAIS · Salón Art Déco & Peinados de Gala · Estilo #13 por KuyénDev ❖
+      </footer>
+    </div>
+  </div>
+
+  <!-- Lightbox Modal -->
+  <div class="deco-lightbox" id="decoLightbox" role="dialog" aria-modal="true" aria-label="Retrato ampliado">
+    <div class="deco-lb-card">
+      <div style="max-height:65vh; overflow:hidden; border:1px solid var(--gold)">
+        <img id="decoLbImg" src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85" alt="Retrato ampliado" style="width:100%; max-height:65vh; object-fit:cover;" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg'">
+      </div>
+      <div style="padding:1rem 0.5rem 0.25rem; display:flex; justify-content:space-between; align-items:center; gap:1rem">
+        <div>
+          <h3 id="decoLbTitle" style="font-family:var(--font-deco); color:var(--gold); font-size:1.2rem"></h3>
+          <p id="decoLbDesc" style="font-size:0.88rem; color:var(--ivory)"></p>
+        </div>
+        <button type="button" class="btn-deco" id="closeDecoLb" style="padding:0.55rem 1.2rem">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      // 1. Gala Menu Filter
+      const tabBtns = document.querySelectorAll('.gala-tab-btn');
+      const menuItems = document.querySelectorAll('.gala-menu-item');
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          tabBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const cat = btn.getAttribute('data-gala');
+          menuItems.forEach(item => {
+            item.style.display = (cat === 'all' || item.getAttribute('data-gala') === cat) ? 'flex' : 'none';
+          });
+        });
+      });
+
+      const dService = document.getElementById('dService');
+      document.querySelectorAll('.select-deco-service').forEach(btn => {
+        btn.addEventListener('click', () => {
+          dService.value = btn.getAttribute('data-service');
+          document.getElementById('reservation').scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+
+      // 2. Concierge Interactive Recommender
+      const occasionBtns = document.querySelectorAll('.occasion-btn');
+      const conciergeOccasion = document.getElementById('conciergeOccasion');
+      const conciergeStyle = document.getElementById('conciergeStyle');
+      const conciergeJewel = document.getElementById('conciergeJewel');
+      const conciergeHold = document.getElementById('conciergeHold');
+      const conciergePrep = document.getElementById('conciergePrep');
+      const conciergeImg = document.getElementById('conciergeImg');
+
+      occasionBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          occasionBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          conciergeOccasion.textContent = btn.getAttribute('data-title');
+          conciergeStyle.textContent = btn.getAttribute('data-style');
+          conciergeJewel.textContent = btn.getAttribute('data-jewel');
+          conciergeHold.textContent = btn.getAttribute('data-hold');
+          conciergePrep.textContent = btn.getAttribute('data-prep');
+          conciergeImg.src = btn.getAttribute('data-img');
+        });
+      });
+
+      document.getElementById('bookConciergeLook').addEventListener('click', () => {
+        dService.value = 'Ondas al Agua & Escultura Marcel';
+        document.getElementById('reservation').scrollIntoView({ behavior: 'smooth' });
+      });
+
+      // 3. Lightbox
+      const decoLightbox = document.getElementById('decoLightbox');
+      const decoLbImg = document.getElementById('decoLbImg');
+      const decoLbTitle = document.getElementById('decoLbTitle');
+      const decoLbDesc = document.getElementById('decoLbDesc');
+
+      document.querySelectorAll('.deco-portrait').forEach(card => {
+        const openLb = () => {
+          decoLbImg.src = card.getAttribute('data-img');
+          decoLbTitle.textContent = card.getAttribute('data-title');
+          decoLbDesc.textContent = card.getAttribute('data-desc');
+          decoLightbox.classList.add('open');
+        };
+        card.addEventListener('click', openLb);
+        card.addEventListener('keydown', e => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openLb();
+          }
+        });
+      });
+
+      document.getElementById('closeDecoLb').addEventListener('click', () => decoLightbox.classList.remove('open'));
+      decoLightbox.addEventListener('click', e => {
+        if (e.target === decoLightbox) decoLightbox.classList.remove('open');
+      });
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') decoLightbox.classList.remove('open');
+      });
+
+      // 4. Booking Form
+      const dDate = document.getElementById('dDate');
+      if (dDate) {
+        dDate.value = new Date(Date.now() + 86400000).toISOString().split('T')[0];
+      }
+      document.getElementById('decoBookingForm').addEventListener('submit', e => {
+        e.preventDefault();
+        const name = document.getElementById('dName').value.trim();
+        const serv = dService.value;
+        const court = document.getElementById('dCourtesy').value;
+        const date = dDate.value;
+        const time = document.getElementById('dTime').value;
+        const fb = document.getElementById('decoFeedback');
+        fb.style.display = 'block';
+        fb.innerHTML =
+          '<strong style="font-family:var(--font-deco); color:var(--gold)">❖ Invitación de Suite Confirmada (Demostración)</strong><br>' +
+          'Estimada/o <strong>' + name + '</strong>, hemos reservado en modo demostración tu sesión de <em>' + serv + '</em> para el <strong>' + date + '</strong> a las <strong>' + time + '</strong>, acompañada de <em>' + court + '</em>.';
+      });
+    })();
+  </script>
+  <script src="../../js/config/rubros.js"></script>
+  <script src="../../js/demo-viewer-bar.js"></script>
+</body>
+</html>

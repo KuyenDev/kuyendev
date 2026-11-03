@@ -1,0 +1,1597 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>ATELIER NÛDE · Salón Unisex de Autor | Minimalismo Elegante</title>
+  <meta name="description" content="Salón unisex de autor especializado en corte arquitectónico, balayage orgánico y rituales de salud capilar en un espacio silencioso y minimalista." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-primary: #FAF8F5;
+      --bg-secondary: #EFECE6;
+      --bg-card: #FFFFFF;
+      --text-primary: #222222;
+      --text-secondary: #68635B;
+      --accent-sand: #C5A880;
+      --accent-sand-dark: #A98B63;
+      --border-soft: #E2DDD5;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --radius-pill: 999px;
+      --transition: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.65;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    .container {
+      width: min(1280px, 90vw);
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.73rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-sand-dark);
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 22px;
+      height: 1px;
+      background-color: var(--accent-sand);
+    }
+
+    /* Header Minimalista */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250, 248, 245, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .nav-inner {
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .brand {
+      text-decoration: none;
+      color: var(--text-primary);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      line-height: 1.1;
+    }
+
+    .brand-subtitle {
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-top: 2px;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 2.25rem;
+      list-style: none;
+    }
+
+    .nav-menu a {
+      text-decoration: none;
+      color: var(--text-secondary);
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      transition: color 0.25s ease;
+    }
+
+    .nav-menu a:hover {
+      color: var(--text-primary);
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      background-color: var(--text-primary);
+      color: var(--bg-primary);
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.85rem 1.65rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--text-primary);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-sand);
+      border-color: var(--accent-sand);
+      color: var(--text-primary);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background-color: transparent;
+      color: var(--text-primary);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.85rem 1.55rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-soft);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent-sand);
+      background-color: var(--bg-secondary);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: transparent;
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-pill);
+      padding: 0.5rem 0.9rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      cursor: pointer;
+    }
+
+    /* Hero con Espacio Negativo Generoso */
+    .hero {
+      padding: 5.5rem 0 6rem;
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.5rem, 4.8vw, 4.35rem);
+      font-weight: 400;
+      line-height: 1.08;
+      letter-spacing: -0.01em;
+      margin: 1.25rem 0 1.5rem;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--accent-sand-dark);
+    }
+
+    .hero-lead {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      max-width: 48ch;
+      margin-bottom: 2.25rem;
+      font-weight: 300;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-soft);
+    }
+
+    .metric-val {
+      font-family: var(--font-serif);
+      font-size: 1.75rem;
+      color: var(--text-primary);
+      line-height: 1.1;
+    }
+
+    .metric-label {
+      font-size: 0.76rem;
+      color: var(--text-secondary);
+      margin-top: 0.25rem;
+    }
+
+    .hero-visual {
+      position: relative;
+    }
+
+    .hero-image-card {
+      background: var(--bg-secondary);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+      box-shadow: 0 24px 60px rgba(34, 34, 34, 0.06);
+    }
+
+    .hero-image-card img {
+      width: 100%;
+      height: 540px;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+      display: block;
+    }
+
+    .hero-floating-badge {
+      position: absolute;
+      bottom: -1.25rem;
+      left: -1.5rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-md);
+      padding: 1.1rem 1.35rem;
+      box-shadow: 0 18px 40px rgba(34, 34, 34, 0.08);
+      max-width: 260px;
+    }
+
+    .hero-floating-badge strong {
+      display: block;
+      font-family: var(--font-serif);
+      font-size: 0.98rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .hero-floating-badge span {
+      font-size: 0.76rem;
+      color: var(--text-secondary);
+    }
+
+    /* Secciones Generales */
+    .section {
+      padding: 6rem 0;
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .section-alt {
+      background-color: var(--bg-secondary);
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 2rem;
+      margin-bottom: 3.5rem;
+      flex-wrap: wrap;
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 3.4vw, 3rem);
+      font-weight: 400;
+      line-height: 1.15;
+      margin-top: 0.75rem;
+    }
+
+    .section-desc {
+      color: var(--text-secondary);
+      max-width: 44ch;
+      font-size: 0.96rem;
+    }
+
+    /* Carta de Servicios Interactiva con Selector de Largo y Categoría */
+    .controls-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+      background: var(--bg-secondary);
+      padding: 1rem 1.25rem;
+      border-radius: var(--radius-lg);
+    }
+
+    .category-pills, .length-selector {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .pill-btn {
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--text-secondary);
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.55rem 1.1rem;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .pill-btn.is-active {
+      background: var(--bg-card);
+      color: var(--text-primary);
+      border-color: var(--border-soft);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    }
+
+    .length-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-secondary);
+      margin-right: 0.35rem;
+      font-weight: 600;
+    }
+
+    .length-btn {
+      background: var(--bg-primary);
+      border: 1px solid var(--border-soft);
+      color: var(--text-secondary);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.45rem 0.9rem;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .length-btn.is-active {
+      background: var(--accent-sand);
+      border-color: var(--accent-sand);
+      color: var(--text-primary);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-lg);
+      padding: 1.85rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.25rem;
+      transition: var(--transition);
+    }
+
+    .service-card:hover {
+      border-color: var(--accent-sand);
+      transform: translateY(-3px);
+      box-shadow: 0 18px 40px rgba(34, 34, 34, 0.05);
+    }
+
+    .service-card.is-hidden {
+      display: none;
+    }
+
+    .service-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .service-name {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      font-weight: 500;
+    }
+
+    .service-price {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      white-space: nowrap;
+    }
+
+    .service-desc {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-top: 0.4rem;
+    }
+
+    .service-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 1rem;
+      border-top: 1px solid var(--bg-secondary);
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+    }
+
+    .service-tag {
+      background: var(--bg-primary);
+      padding: 0.3rem 0.75rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-soft);
+      font-weight: 500;
+    }
+
+    .service-book-link {
+      color: var(--text-primary);
+      font-weight: 600;
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-size: 0.74rem;
+    }
+
+    .service-book-link:hover {
+      color: var(--accent-sand-dark);
+    }
+
+    /* Diagnóstico Capilar Silencioso */
+    .diagnostic-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-lg);
+      padding: 2.75rem;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .diag-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .diag-group label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-secondary);
+      margin-bottom: 0.65rem;
+    }
+
+    .diag-options {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .diag-opt {
+      background: var(--bg-primary);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-pill);
+      padding: 0.55rem 1.1rem;
+      font-size: 0.82rem;
+      color: var(--text-primary);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .diag-opt.is-selected {
+      background: var(--text-primary);
+      color: var(--bg-primary);
+      border-color: var(--text-primary);
+    }
+
+    .diag-result {
+      background: var(--bg-primary);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+    }
+
+    .diag-result-title {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      margin: 0.5rem 0 0.75rem;
+    }
+
+    .diag-result-desc {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.25rem;
+    }
+
+    .diag-meta-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+      border-top: 1px solid var(--border-soft);
+      font-size: 0.84rem;
+    }
+
+    /* Lookbook / Galería */
+    .lookbook-filters {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .lookbook-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .look-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border-soft);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .look-card.is-hidden {
+      display: none;
+    }
+
+    .look-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent-sand);
+    }
+
+    .look-img-wrap {
+      overflow: hidden;
+      height: 360px;
+      background: var(--bg-secondary);
+    }
+
+    .look-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .look-card:hover .look-img-wrap img {
+      transform: scale(1.04);
+    }
+
+    .look-info {
+      padding: 1.25rem 1.4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .look-title {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+    }
+
+    .look-sub {
+      font-size: 0.76rem;
+      color: var(--text-secondary);
+    }
+
+    /* Equipo / Filosofía */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .team-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+    }
+
+    .team-card img {
+      width: 100%;
+      height: 310px;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+      margin-bottom: 1.15rem;
+    }
+
+    .team-name {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+    }
+
+    .team-role {
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent-sand-dark);
+      font-weight: 600;
+      margin: 0.2rem 0 0.65rem;
+    }
+
+    .team-bio {
+      font-size: 0.86rem;
+      color: var(--text-secondary);
+    }
+
+    /* Testimonios */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .testimonial-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.25rem;
+    }
+
+    .demo-badge {
+      display: inline-block;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent-sand-dark);
+      background: var(--bg-primary);
+      border: 1px solid var(--border-soft);
+      padding: 0.25rem 0.65rem;
+      border-radius: var(--radius-pill);
+      align-self: flex-start;
+    }
+
+    .testimonial-quote {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--text-primary);
+      line-height: 1.55;
+    }
+
+    .testimonial-author {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      font-weight: 600;
+    }
+
+    /* Reserva Interactiva */
+    .booking-wrap {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 3.5rem;
+      align-items: start;
+    }
+
+    .booking-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .form-field.full {
+      grid-column: 1 / -1;
+    }
+
+    .form-field label {
+      font-size: 0.76rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-secondary);
+    }
+
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      padding: 0.85rem 1rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-soft);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus {
+      border-color: var(--accent-sand);
+    }
+
+    .form-notice {
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      margin: 1rem 0 1.25rem;
+    }
+
+    .form-feedback {
+      margin-top: 1.25rem;
+      padding: 1rem 1.25rem;
+      border-radius: var(--radius-md);
+      background: var(--bg-secondary);
+      border-left: 3px solid var(--accent-sand);
+      font-size: 0.86rem;
+      display: none;
+    }
+
+    .form-feedback.is-visible {
+      display: block;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(34, 34, 34, 0.92);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .lightbox.is-open {
+      display: flex;
+    }
+
+    .lightbox-content {
+      background: var(--bg-primary);
+      border-radius: var(--radius-lg);
+      max-width: 820px;
+      width: 100%;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+    }
+
+    .lightbox-content img {
+      width: 100%;
+      max-height: 70vh;
+      object-fit: cover;
+      display: block;
+    }
+
+    .lightbox-bar {
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    /* Footer */
+    footer {
+      padding: 3.5rem 0 5rem;
+      background: var(--bg-primary);
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+    }
+
+    .footer-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid,
+      .diagnostic-box,
+      .booking-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .services-grid,
+      .lookbook-grid,
+      .team-grid,
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-floating-badge {
+        position: static;
+        margin-top: 1rem;
+        max-width: 100%;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+      }
+
+      .nav-menu {
+        display: none;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        background: var(--bg-primary);
+        border-bottom: 1px solid var(--border-soft);
+        flex-direction: column;
+        padding: 1.5rem;
+        gap: 1rem;
+      }
+
+      .nav-menu.is-open {
+        display: flex;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .form-grid,
+      .hero-metrics {
+        grid-template-columns: 1fr;
+      }
+      .hero-image-card img {
+        height: 360px;
+      }
+    }
+  </style>
+</head>
+<body data-rubro-id="peluqueria" data-style-id="minimalismo-elegante">
+
+  <header>
+    <div class="container nav-inner">
+      <a href="#" class="brand">
+        <span class="brand-title">ATELIER NÛDE</span>
+        <span class="brand-subtitle">Salón Unisex de Autor · Santiago</span>
+      </a>
+
+      <nav aria-label="Navegación principal">
+        <button type="button" class="menu-toggle" id="menuToggle" aria-expanded="false">Menú</button>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="#carta">Carta de Servicios</a></li>
+          <li><a href="#diagnostico">Diagnóstico Capilar</a></li>
+          <li><a href="#lookbook">Lookbook</a></li>
+          <li><a href="#equipo">Especialistas</a></li>
+          <li><a href="#testimonios">Experiencias</a></li>
+        </ul>
+      </nav>
+
+      <a href="#reserva" class="btn-primary">Reservar Cita</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Estilo #01 · Minimalismo Elegante</span>
+          <h1 class="hero-title">La belleza del corte puro y el color <em>sin artificios</em>.</h1>
+          <p class="hero-lead">
+            En Atelier Nûde concebimos el cabello desde la arquitectura natural de tu rostro. Un refugio silencioso de luz cálida, productos botánicos certificados y citas personalizadas sin prisas.
+          </p>
+          <div class="hero-actions">
+            <a href="#reserva" class="btn-primary">Agendar Diagnóstico</a>
+            <a href="#carta" class="btn-outline">Explorar Carta & Tarifas</a>
+          </div>
+          <div class="hero-metrics">
+            <div>
+              <div class="metric-val">90 min</div>
+              <div class="metric-label">Dedicación exclusiva por sesión de corte de autor</div>
+            </div>
+            <div>
+              <div class="metric-val">100%</div>
+              <div class="metric-label">Fórmulas veganas libres de amoníaco y siliconas</div>
+            </div>
+            <div>
+              <div class="metric-val">4.9 ★</div>
+              <div class="metric-label">Valoración media en atención privada uno a uno</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-image-card">
+            <img
+              src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85"
+              alt="Interior minimalista y luminoso de Atelier Nûde"
+              onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg';"/>
+          </div>
+          <div class="hero-floating-badge">
+            <strong>Luz Natural & Silencio Acústico</strong>
+            <span>Trabajamos con iluminación CRI 98+ para garantizar una lectura exacta del subtono de tu piel y cabello.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CARTA DE SERVICIOS INTERACTIVA -->
+    <section class="section" id="carta">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="eyebrow">Menú Transparente</span>
+            <h2 class="section-title">Carta de Servicios & Tarifas</h2>
+          </div>
+          <p class="section-desc">
+            Selecciona la longitud de tu cabello para visualizar los valores exactos y tiempos estimados de trabajo en sillón.
+          </p>
+        </div>
+
+        <div class="controls-row">
+          <div class="category-pills" role="tablist" aria-label="Filtrar categoría de servicio">
+            <button type="button" class="pill-btn is-active" data-cat="all">Todos (6)</button>
+            <button type="button" class="pill-btn" data-cat="corte">Corte de Autor</button>
+            <button type="button" class="pill-btn" data-cat="color">Coloración & Luz</button>
+            <button type="button" class="pill-btn" data-cat="ritual">Rituales & Salud</button>
+          </div>
+
+          <div class="length-selector" aria-label="Selector de largo de cabello">
+            <span class="length-label">Largo Capilar:</span>
+            <button type="button" class="length-btn" data-mult="1" data-length-name="Corto / Bob">Corto</button>
+            <button type="button" class="length-btn is-active" data-mult="1.2" data-length-name="Medio / Clavícula">Medio</button>
+            <button type="button" class="length-btn" data-mult="1.45" data-length-name="Largo / Escápula">Largo</button>
+          </div>
+        </div>
+
+        <div class="services-grid" id="servicesGrid">
+          <article class="service-card" data-category="corte" data-base-price="42000">
+            <div>
+              <div class="service-top">
+                <h3 class="service-name">Corte Arquitectónico Nûde</h3>
+                <span class="service-price">$50.400</span>
+              </div>
+              <p class="service-desc">Estudio morfológico craneal, lavado relajante con aromaterapia de bergamota, corte en húmedo y seco, y sellado natural.</p>
+            </div>
+            <div class="service-meta">
+              <span class="service-tag">75 min · Largo Medio</span>
+              <a href="#reserva" class="service-book-link" data-select-service="Corte Arquitectónico Nûde">Elegir servicio →</a>
+            </div>
+          </article>
+
+          <article class="service-card" data-category="corte" data-base-price="36000">
+            <div>
+              <div class="service-top">
+                <h3 class="service-name">Diseño en Seco & Textura</h3>
+                <span class="service-price">$43.200</span>
+              </div>
+              <p class="service-desc">Esculpido mecha a mecha sobre caída natural para ondas, rizos o capas invisibles de bajo mantenimiento diario.</p>
+            </div>
+            <div class="service-meta">
+              <span class="service-tag">60 min · Largo Medio</span>
+              <a href="#reserva" class="service-book-link" data-select-service="Diseño en Seco & Textura">Elegir servicio →</a>
+            </div>
+          </article>
+
+          <article class="service-card" data-category="color" data-base-price="95000">
+            <div>
+              <div class="service-top">
+                <h3 class="service-name">Balayage Orgánico Soft-Linen</h3>
+                <span class="service-price">$114.000</span>
+              </div>
+              <p class="service-desc">Iluminación a mano alzada sin marcas de crecimiento, matiz translúcido ácido y protector de enlaces moleculares.</p>
+            </div>
+            <div class="service-meta">
+              <span class="service-tag">180 min · Largo Medio</span>
+              <a href="#reserva" class="service-book-link" data-select-service="Balayage Orgánico Soft-Linen">Elegir servicio →</a>
+            </div>
+          </article>
+
+          <article class="service-card" data-category="color" data-base-price="64000">
+            <div>
+              <div class="service-top">
+                <h3 class="service-name">Baño de Luz & Gloss Botánico</h3>
+                <span class="service-price">$76.800</span>
+              </div>
+              <p class="service-desc">Coloración demipemanente sin amoníaco que neutraliza visos no deseados y aporta un acabado espejo de tacto sedoso.</p>
+            </div>
+            <div class="service-meta">
+              <span class="service-tag">90 min · Largo Medio</span>
+              <a href="#reserva" class="service-book-link" data-select-service="Baño de Luz & Gloss Botánico">Elegir servicio →</a>
+            </div>
+          </article>
+
+          <article class="service-card" data-category="ritual" data-base-price="52000">
+            <div>
+              <div class="service-top">
+                <h3 class="service-name">Ritual Reconstructor de Seda</h3>
+                <span class="service-price">$62.400</span>
+              </div>
+              <p class="service-desc">Infusión profunda de aminoácidos vegetales y vapor de ozono templado para restaurar la elasticidad de la fibra.</p>
+            </div>
+            <div class="service-meta">
+              <span class="service-tag">60 min · Largo Medio</span>
+              <a href="#reserva" class="service-book-link" data-select-service="Ritual Reconstructor de Seda">Elegir servicio →</a>
+            </div>
+          </article>
+
+          <article class="service-card" data-category="ritual" data-base-price="48000">
+            <div>
+              <div class="service-top">
+                <h3 class="service-name">Detox Escandinavo de Cuero Cabelludo</h3>
+                <span class="service-price">$57.600</span>
+              </div>
+              <p class="service-desc">Exfoliación suave con arcilla blanca, micro-nebulización calmante y masaje craneocervical de 25 minutos.</p>
+            </div>
+            <div class="service-meta">
+              <span class="service-tag">60 min · Largo Medio</span>
+              <a href="#reserva" class="service-book-link" data-select-service="Detox Escandinavo de Cuero Cabelludo">Elegir servicio →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIAGNÓSTICO CAPILAR INTERACTIVO -->
+    <section class="section section-alt" id="diagnostico">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="eyebrow">Asesoría Personalizada</span>
+            <h2 class="section-title">Diagnóstico Capilar Preliminar</h2>
+          </div>
+          <p class="section-desc">
+            Combina la textura actual de tu fibra y tu objetivo estético para conocer el protocolo sugerido por nuestros directores.
+          </p>
+        </div>
+
+        <div class="diagnostic-box">
+          <div class="diag-steps">
+            <div class="diag-group">
+              <label>1. Estado actual de tu fibra capilar</label>
+              <div class="diag-options" id="diagFiber">
+                <button type="button" class="diag-opt is-selected" data-fiber="natural">Natural / Virgen</button>
+                <button type="button" class="diag-opt" data-fiber="sensibilizado">Decolorado o Sensibilizado</button>
+                <button type="button" class="diag-opt" data-fiber="fino">Fino con Falta de Volumen</button>
+              </div>
+            </div>
+
+            <div class="diag-group">
+              <label>2. Resultado principal que buscas hoy</label>
+              <div class="diag-options" id="diagGoal">
+                <button type="button" class="diag-opt is-selected" data-goal="luz">Iluminación Sutil</button>
+                <button type="button" class="diag-opt" data-goal="estructura">Nuevo Corte & Caída</button>
+                <button type="button" class="diag-opt" data-goal="reparacion">Nutrición & Brillo Espejo</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="diag-result" aria-live="polite">
+            <span class="eyebrow">Protocolo Recomendado</span>
+            <h3 class="diag-result-title" id="diagTitle">Contouring Nûde + Baño de Brillo Ácido</h3>
+            <p class="diag-result-desc" id="diagDesc">
+              Al contar con una base natural, podemos trabajar micro-velos de luz alrededor del rostro manteniendo el 95% de tu salud estructural intacta.
+            </p>
+            <div class="diag-meta-row">
+              <span>Frecuencia de mantenimiento:</span>
+              <strong id="diagFreq">Cada 12 a 16 semanas</strong>
+            </div>
+            <div class="diag-meta-row" style="margin-bottom:1.25rem">
+              <span>Tiempo estimado en salón:</span>
+              <strong id="diagTime">2 horas 15 minutos</strong>
+            </div>
+            <a href="#reserva" class="btn-primary" id="diagApplyBtn" style="width:100%">Reservar este Protocolo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOOKBOOK / GALERÍA CON LIGHTBOX -->
+    <section class="section" id="lookbook">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="eyebrow">Archivo de Obra</span>
+            <h2 class="section-title">Lookbook de Temporada</h2>
+          </div>
+          <div class="lookbook-filters">
+            <button type="button" class="pill-btn is-active" data-look-filter="all">Todos</button>
+            <button type="button" class="pill-btn" data-look-filter="rubios">Rubios Arena</button>
+            <button type="button" class="pill-btn" data-look-filter="cortes">Cortes de Precisión</button>
+            <button type="button" class="pill-btn" data-look-filter="brillo">Morenos & Brillo</button>
+          </div>
+        </div>
+
+        <div class="lookbook-grid">
+          <article class="look-card" data-look-cat="rubios" data-title="01 · Beige Cachemira" data-detail="Balayage sin marcas + Gloss perlado · Por Clara Lind">
+            <div class="look-img-wrap">
+              <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=900&q=80" alt="Look Beige Cachemira" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/hair-look-balayage.svg';"/>
+            </div>
+            <div class="look-info">
+              <div>
+                <h3 class="look-title">Beige Cachemira</h3>
+                <span class="look-sub">Coloración Orgánica</span>
+              </div>
+              <span style="font-size:0.75rem;color:var(--accent-sand-dark)">Ampliar +</span>
+            </div>
+          </article>
+
+          <article class="look-card" data-look-cat="cortes" data-title="02 · Clavicut Arquitectónico" data-detail="Corte recto pulido a navaja japonesa · Por Mateo Rossi">
+            <div class="look-img-wrap">
+              <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=900&q=80" alt="Look Clavicut Arquitectónico" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/hair-look-balayage.svg';"/>
+            </div>
+            <div class="look-info">
+              <div>
+                <h3 class="look-title">Clavicut Arquitectónico</h3>
+                <span class="look-sub">Corte de Autor</span>
+              </div>
+              <span style="font-size:0.75rem;color:var(--accent-sand-dark)">Ampliar +</span>
+            </div>
+          </article>
+
+          <article class="look-card" data-look-cat="brillo" data-title="03 · Espresso Seda" data-detail="Ritual de aminoácidos y baño de luz frío · Por Sofía Morandé">
+            <div class="look-img-wrap">
+              <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=900&q=80" alt="Look Espresso Seda" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/hair-look-balayage.svg';"/>
+            </div>
+            <div class="look-info">
+              <div>
+                <h3 class="look-title">Espresso Seda</h3>
+                <span class="look-sub">Brillo & Tratamiento</span>
+              </div>
+              <span style="font-size:0.75rem;color:var(--accent-sand-dark)">Ampliar +</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EQUIPO -->
+    <section class="section section-alt" id="equipo">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="eyebrow">Dirección Creativa</span>
+            <h2 class="section-title">Maestros de Sillón</h2>
+          </div>
+          <p class="section-desc">Un equipo reducido de especialistas formados en Copenhague, Milán y Santiago.</p>
+        </div>
+
+        <div class="team-grid">
+          <article class="team-card">
+            <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=800&q=80" alt="Clara Lind" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/stylist-female-1.svg';"/>
+            <h3 class="team-name">Clara Lind</h3>
+            <div class="team-role">Fundadora & Master Colorist</div>
+            <p class="team-bio">12 años dedicada al diseño de rubios nórdicos translúcidos y transiciones hacia canas naturales con bajo impacto químico.</p>
+          </article>
+
+          <article class="team-card">
+            <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=800&q=80" alt="Mateo Rossi" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/stylist-male-1.svg';"/>
+            <h3 class="team-name">Mateo Rossi</h3>
+            <div class="team-role">Director de Corte Geométrico</div>
+            <p class="team-bio">Especialista en visagismo unisex y cortes de caída orgánica que mantienen su estructura intacta durante meses.</p>
+          </article>
+
+          <article class="team-card">
+            <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80" alt="Sofía Morandé" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/stylist-female-2.svg';"/>
+            <h3 class="team-name">Sofía Morandé</h3>
+            <div class="team-role">Tricóloga & Terapeuta Capilar</div>
+            <p class="team-bio">Encargada de los rituales botánicos de recuperación molecular y salud del microbioma del cuero cabelludo.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section class="section" id="testimonios">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="eyebrow">Voces de Clientes</span>
+            <h2 class="section-title">La experiencia de la calma</h2>
+          </div>
+        </div>
+
+        <div class="testimonials-grid">
+          <article class="testimonial-card">
+            <span class="demo-badge">[Testimonio Ficticio de Demostración]</span>
+            <p class="testimonial-quote">“Por primera vez salí de una peluquería sin sentir el cabello rígido ni sobreprocesado. El espacio silencioso y el café de especialidad hacen que las dos horas se sientan como un retiro.”</p>
+            <div class="testimonial-author">Isidora Matte · Arquitecta (Ejemplo Ficticio)</div>
+          </article>
+
+          <article class="testimonial-card">
+            <span class="demo-badge">[Testimonio Ficticio de Demostración]</span>
+            <p class="testimonial-quote">“Mateo entendió de inmediato que necesitaba un corte que funcionara sin secador cada mañana. Han pasado diez semanas y la caída sigue impecable.”</p>
+            <div class="testimonial-author">Tomás Undurraga · Diseñador Industrial (Ejemplo Ficticio)</div>
+          </article>
+
+          <article class="testimonial-card">
+            <span class="demo-badge">[Testimonio Ficticio de Demostración]</span>
+            <p class="testimonial-quote">“El balayage Soft-Linen logró exactamente el tono arena natural que buscaba hace años, cuidando cada hebra con aceites botánicos.”</p>
+            <div class="testimonial-author">Valentina Echeverría · Editora (Ejemplo Ficticio)</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESERVA DE CITAS -->
+    <section class="section section-alt" id="reserva" style="border-bottom:none">
+      <div class="container booking-wrap">
+        <div>
+          <span class="eyebrow">Agenda Privada</span>
+          <h2 class="section-title">Reserva tu sesión en Atelier Nûde</h2>
+          <p class="section-desc" style="margin:1.25rem 0 2rem">
+            Atendemos exclusivamente con cita previa para garantizar puntualidad absoluta y un sillón dedicado solo para ti.
+          </p>
+          <div style="display:flex;flex-direction:column;gap:0.75rem;font-size:0.88rem;color:var(--text-secondary)">
+            <div><strong style="color:var(--text-primary)">Dirección:</strong> Nueva Costanera 3900, Vitacura (Ubicación Ficticia)</div>
+            <div><strong style="color:var(--text-primary)">Horario:</strong> Martes a Sábado · 09:30 a 20:00 hrs</div>
+            <div><strong style="color:var(--text-primary)">Estacionamiento:</strong> Privado sin costo para clientes</div>
+          </div>
+        </div>
+
+        <div class="booking-card">
+          <form id="bookingForm">
+            <div class="form-grid">
+              <div class="form-field">
+                <label for="clientName">Nombre y Apellido</label>
+                <input type="text" id="clientName" required placeholder="Ej. Camila Hurtado" />
+              </div>
+              <div class="form-field">
+                <label for="clientPhone">WhatsApp de Contacto</label>
+                <input type="tel" id="clientPhone" required placeholder="+56 9 8888 7777" />
+              </div>
+              <div class="form-field">
+                <label for="serviceSelect">Servicio Principal</label>
+                <select id="serviceSelect">
+                  <option value="Corte Arquitectónico Nûde">Corte Arquitectónico Nûde</option>
+                  <option value="Diseño en Seco & Textura">Diseño en Seco & Textura</option>
+                  <option value="Balayage Orgánico Soft-Linen">Balayage Orgánico Soft-Linen</option>
+                  <option value="Baño de Luz & Gloss Botánico">Baño de Luz & Gloss Botánico</option>
+                  <option value="Ritual Reconstructor de Seda">Ritual Reconstructor de Seda</option>
+                  <option value="Detox Escandinavo de Cuero Cabelludo">Detox Escandinavo de Cuero Cabelludo</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="stylistSelect">Especialista Preferido</label>
+                <select id="stylistSelect">
+                  <option value="Clara Lind (Master Colorist)">Clara Lind (Master Colorist)</option>
+                  <option value="Mateo Rossi (Corte Geométrico)">Mateo Rossi (Corte Geométrico)</option>
+                  <option value="Sofía Morandé (Tricología & Spa)">Sofía Morandé (Tricología & Spa)</option>
+                </select>
+              </div>
+              <div class="form-field full">
+                <label for="bookingNotes">Fecha Preferida o Comentarios</label>
+                <textarea id="bookingNotes" rows="3" placeholder="Ej. Jueves por la mañana, cabello largo natural..."></textarea>
+              </div>
+            </div>
+            <p class="form-notice">
+              * Formulario interactivo de demostración del lado del cliente. No realiza cobros ni reservas reales.
+            </p>
+            <button type="submit" class="btn-primary" style="width:100%">Confirmar Solicitud de Cita (Demo)</button>
+            <div class="form-feedback" id="bookingFeedback" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Vista ampliada de Lookbook">
+    <div class="lightbox-content">
+      <img id="lbImg" src="" alt="" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg';"/>
+      <div class="lightbox-bar">
+        <div>
+          <strong id="lbTitle" style="font-family:var(--font-serif);font-size:1.1rem;display:block"></strong>
+          <span id="lbDetail" style="font-size:0.8rem;color:var(--text-secondary)"></span>
+        </div>
+        <button type="button" class="btn-outline" id="lbClose">Cerrar [ESC]</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container footer-flex">
+      <span>© 2026 ATELIER NÛDE · Demostración Interactiva Estilo #01 Minimalismo Elegante para KuyénDev</span>
+      <span>Paleta: #FAF8F5 · #EFECE6 · #222222 · #C5A880 | Plus Jakarta Sans & Playfair Display</span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      // Menú móvil
+      const menuToggle = document.getElementById('menuToggle');
+      const navMenu = document.getElementById('navMenu');
+      if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', () => {
+          const open = navMenu.classList.toggle('is-open');
+          menuToggle.setAttribute('aria-expanded', String(open));
+        });
+      }
+
+      // Filtro de servicios y calculadora por largo capilar
+      let currentCat = 'all';
+      let currentMult = 1.2;
+      let currentLengthName = 'Largo Medio';
+
+      const serviceCards = document.querySelectorAll('.service-card');
+      const catBtns = document.querySelectorAll('[data-cat]');
+      const lengthBtns = document.querySelectorAll('[data-mult]');
+
+      function renderServices() {
+        const fmt = new Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP', maximumFractionDigits: 0 });
+        serviceCards.forEach(card => {
+          const match = currentCat === 'all' || card.getAttribute('data-category') === currentCat;
+          card.classList.toggle('is-hidden', !match);
+          const base = Number(card.getAttribute('data-base-price'));
+          const priceEl = card.querySelector('.service-price');
+          const tagEl = card.querySelector('.service-tag');
+          if (priceEl) priceEl.textContent = fmt.format(Math.round(base * currentMult));
+          if (tagEl) {
+            const mins = tagEl.textContent.split('·')[0].trim();
+            tagEl.textContent = `${mins} · ${currentLengthName}`;
+          }
+        });
+      }
+
+      catBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          catBtns.forEach(b => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+          currentCat = btn.getAttribute('data-cat');
+          renderServices();
+        });
+      });
+
+      lengthBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          lengthBtns.forEach(b => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+          currentMult = Number(btn.getAttribute('data-mult'));
+          currentLengthName = btn.getAttribute('data-length-name');
+          renderServices();
+        });
+      });
+
+      // Seleccionar servicio hacia el formulario
+      const serviceSelect = document.getElementById('serviceSelect');
+      document.querySelectorAll('[data-select-service]').forEach(link => {
+        link.addEventListener('click', () => {
+          const val = link.getAttribute('data-select-service');
+          if (serviceSelect) serviceSelect.value = val;
+        });
+      });
+
+      // Diagnóstico Capilar Interactivo
+      let selFiber = 'natural';
+      let selGoal = 'luz';
+      const diagData = {
+        'natural-luz': {
+          title: 'Contouring Nûde + Baño de Brillo Ácido',
+          desc: 'Al contar con una base natural, trabajamos micro-velos de luz alrededor del rostro manteniendo el 95% de tu salud estructural intacta.',
+          freq: 'Cada 12 a 16 semanas',
+          time: '2 horas 15 minutos',
+          service: 'Balayage Orgánico Soft-Linen'
+        },
+        'natural-estructura': {
+          title: 'Corte Arquitectónico + Sellado de Cutícula',
+          desc: 'Diseñamos capas internas invisibles que aprovechan el peso natural de tu cabello virgen sin requerir estilizado térmico diario.',
+          freq: 'Cada 10 a 12 semanas',
+          time: '1 hora 15 minutos',
+          service: 'Corte Arquitectónico Nûde'
+        },
+        'natural-reparacion': {
+          title: 'Detox Escandinavo + Gloss Botánico Transparente',
+          desc: 'Oxigenamos el folículo piloso con arcilla blanca y aportamos un escudo reflectante de brillo puro sin alterar tu color.',
+          freq: 'Cada 6 a 8 semanas',
+          time: '1 hora 15 minutos',
+          service: 'Detox Escandinavo de Cuero Cabelludo'
+        },
+        'sensibilizado-luz': {
+          title: 'Babylights de Baja Alcalinidad + Reconstrucción',
+          desc: 'Iluminamos únicamente la zona superior con oxidantes suaves y plex botánico para proteger las puntas previamente procesadas.',
+          freq: 'Cada 14 semanas',
+          time: '3 horas',
+          service: 'Balayage Orgánico Soft-Linen'
+        },
+        'sensibilizado-estructura': {
+          title: 'Corte Terapéutico en Seco + Infusión de Seda',
+          desc: 'Eliminamos puntas porosas respetando el largo visual y sellamos la corteza capilar con aminoácidos vegetales.',
+          freq: 'Cada 8 semanas',
+          time: '1 hora 30 minutos',
+          service: 'Diseño en Seco & Textura'
+        },
+        'sensibilizado-reparacion': {
+          title: 'Ritual Reconstructor de Seda en 3 Fases',
+          desc: 'Reposición intensiva de lípidos y queratina biomimética bajo vapor de ozono templado para devolver elasticidad inmediata.',
+          freq: 'Cada 4 semanas (3 sesiones)',
+          time: '1 hora',
+          service: 'Ritual Reconstructor de Seda'
+        },
+        'fino-luz': {
+          title: 'Dimensión Arena 3D + Gloss Voluminizador',
+          desc: 'Alternamos micro-luces y sombras suaves para crear un efecto óptico de mayor densidad capilar sin debilitar la hebra fina.',
+          freq: 'Cada 12 semanas',
+          time: '2 horas 30 minutos',
+          service: 'Baño de Luz & Gloss Botánico'
+        },
+        'fino-estructura': {
+          title: 'Blunt Cut de Precisión + Texturizado Interno',
+          desc: 'Base geométrica compacta que multiplica el cuerpo en las puntas y aporta movimiento aéreo en la coronilla.',
+          freq: 'Cada 8 a 10 semanas',
+          time: '1 hora 15 minutos',
+          service: 'Corte Arquitectónico Nûde'
+        },
+        'fino-reparacion': {
+          title: 'Detox Folicular + Hidratación Ligera sin Peso',
+          desc: 'Limpieza profunda de residuos que apelmazan la raíz combinada con bruma de proteínas ultraligeras.',
+          freq: 'Cada 6 semanas',
+          time: '1 hora',
+          service: 'Detox Escandinavo de Cuero Cabelludo'
+        }
+      };
+
+      const diagTitle = document.getElementById('diagTitle');
+      const diagDesc = document.getElementById('diagDesc');
+      const diagFreq = document.getElementById('diagFreq');
+      const diagTime = document.getElementById('diagTime');
+      const diagApplyBtn = document.getElementById('diagApplyBtn');
+
+      function updateDiag() {
+        const item = diagData[`${selFiber}-${selGoal}`] || diagData['natural-luz'];
+        diagTitle.textContent = item.title;
+        diagDesc.textContent = item.desc;
+        diagFreq.textContent = item.freq;
+        diagTime.textContent = item.time;
+        diagApplyBtn.onclick = () => {
+          if (serviceSelect) serviceSelect.value = item.service;
+        };
+      }
+
+      document.querySelectorAll('#diagFiber .diag-opt').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('#diagFiber .diag-opt').forEach(b => b.classList.remove('is-selected'));
+          btn.classList.add('is-selected');
+          selFiber = btn.getAttribute('data-fiber');
+          updateDiag();
+        });
+      });
+
+      document.querySelectorAll('#diagGoal .diag-opt').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('#diagGoal .diag-opt').forEach(b => b.classList.remove('is-selected'));
+          btn.classList.add('is-selected');
+          selGoal = btn.getAttribute('data-goal');
+          updateDiag();
+        });
+      });
+
+      // Filtro Lookbook y Lightbox
+      const lookFilterBtns = document.querySelectorAll('[data-look-filter]');
+      const lookCards = document.querySelectorAll('.look-card');
+      lookFilterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          lookFilterBtns.forEach(b => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+          const cat = btn.getAttribute('data-look-filter');
+          lookCards.forEach(card => {
+            const show = cat === 'all' || card.getAttribute('data-look-cat') === cat;
+            card.classList.toggle('is-hidden', !show);
+          });
+        });
+      });
+
+      const lightbox = document.getElementById('lightbox');
+      const lbImg = document.getElementById('lbImg');
+      const lbTitle = document.getElementById('lbTitle');
+      const lbDetail = document.getElementById('lbDetail');
+      const lbClose = document.getElementById('lbClose');
+
+      lookCards.forEach(card => {
+        card.addEventListener('click', () => {
+          const img = card.querySelector('img');
+          lbImg.src = img.src;
+          lbImg.alt = img.alt;
+          lbTitle.textContent = card.getAttribute('data-title');
+          lbDetail.textContent = card.getAttribute('data-detail');
+          lightbox.classList.add('is-open');
+        });
+      });
+
+      const closeLb = () => lightbox.classList.remove('is-open');
+      lbClose.addEventListener('click', closeLb);
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLb();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeLb();
+      });
+
+      // Formulario de reserva demostrativo
+      const bookingForm = document.getElementById('bookingForm');
+      const bookingFeedback = document.getElementById('bookingFeedback');
+      bookingForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('clientName').value.trim();
+        const service = serviceSelect.value;
+        const stylist = document.getElementById('stylistSelect').value;
+        bookingFeedback.textContent = `[Demostración Interactiva KuyénDev] Gracias, ${name}. Hemos simulado la pre-reserva de "${service}" junto a ${stylist}. En la versión final de tu salón, esta cita puede conectarse directo a tu agenda o WhatsApp.`;
+        bookingFeedback.classList.add('is-visible');
+        bookingForm.reset();
+      });
+    })();
+  </script>
+
+  <script src="../../js/config/rubros.js"></script>
+  <script src="../../js/demo-viewer-bar.js"></script>
+</body>
+</html>

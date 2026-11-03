@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
+  <defs>
+    <linearGradient id="bgM2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EFF6FF"/>
+      <stop offset="50%" stop-color="#DBEAFE"/>
+      <stop offset="100%" stop-color="#BFDBFE"/>
+    </linearGradient>
+    <linearGradient id="scrubBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284C7"/>
+      <stop offset="100%" stop-color="#0369A1"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1000" fill="url(#bgM2)"/>
+  <circle cx="400" cy="420" r="260" fill="#FFFFFF" opacity="0.6"/>
+
+  <!-- Uniforme Quirúrgico / Scrubs Azul Real -->
+  <path d="M140 1000 C160 700, 220 620, 400 620 C580 620, 640 700, 660 1000 Z" fill="url(#scrubBlue)"/>
+  <!-- Cuello V de Scrub -->
+  <polygon points="340,620 400,740 460,620" fill="#FCE0CA"/>
+  <polygon points="350,620 400,720 450,620" fill="#E2E8F0" opacity="0.9"/>
+
+  <!-- Estetoscopio -->
+  <path d="M310 650 C310 790, 490 790, 490 650" fill="none" stroke="#0F172A" stroke-width="12" stroke-linecap="round"/>
+  <path d="M400 770 L400 830" fill="none" stroke="#0F172A" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="400" cy="850" r="22" fill="#94A3B8" stroke="#334155" stroke-width="4"/>
+  <circle cx="400" cy="850" r="12" fill="#38BDF8"/>
+
+  <!-- Credencial Médica -->
+  <rect x="490" y="780" width="80" height="110" rx="8" fill="#FFFFFF" stroke="#93C5FD" stroke-width="2"/>
+  <rect x="502" y="792" width="56" height="40" rx="4" fill="#DBEAFE"/>
+  <line x1="502" y1="846" x2="546" y2="846" stroke="#0284C7" stroke-width="4" stroke-linecap="round"/>
+  <line x1="502" y1="858" x2="558" y2="858" stroke="#64748B" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Cuello -->
+  <path d="M350 490 L450 490 L450 630 L350 630 Z" fill="#FBD3B6"/>
+
+  <!-- Rostro -->
+  <path d="M290 380 C290 530, 320 570, 400 570 C480 570, 510 530, 510 380 Z" fill="#FCE0CA"/>
+
+  <!-- Cabello -->
+  <path d="M275 370 C270 230, 530 230, 525 370 C525 410, 520 450, 510 460 L290 460 C280 450, 275 410, 275 370 Z" fill="#475569"/>
+  <path d="M275 330 C310 250, 490 250, 525 330 C480 300, 420 290, 400 300 C360 290, 320 300, 275 330 Z" fill="#334155"/>
+
+  <!-- Gafas modernas -->
+  <rect x="320" y="390" width="65" height="45" rx="10" fill="none" stroke="#0F172A" stroke-width="5"/>
+  <rect x="415" y="390" width="65" height="45" rx="10" fill="none" stroke="#0F172A" stroke-width="5"/>
+  <line x1="385" y1="412" x2="415" y2="412" stroke="#0F172A" stroke-width="5"/>
+  <line x1="290" y1="410" x2="320" y2="410" stroke="#0F172A" stroke-width="4"/>
+  <line x1="480" y1="410" x2="510" y2="410" stroke="#0F172A" stroke-width="4"/>
+
+  <!-- Ojos -->
+  <ellipse cx="352" cy="412" rx="8" ry="5" fill="#0F172A"/>
+  <ellipse cx="448" cy="412" rx="8" ry="5" fill="#0F172A"/>
+  <!-- Nariz -->
+  <path d="M400 425 L395 460 L408 460" fill="none" stroke="#E2A684" stroke-width="3.5" stroke-linecap="round"/>
+  <!-- Sonrisa afable -->
+  <path d="M365 490 Q400 520 435 490" fill="none" stroke="#991B1B" stroke-width="4" stroke-linecap="round"/>
+</svg>

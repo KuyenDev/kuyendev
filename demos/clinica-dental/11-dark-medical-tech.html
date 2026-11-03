@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>CARDIOCORE LABS · Telemetría Cardíaca, Resonancia Magnética & Neurociencias</title>
+  <meta name="description" content="Plataforma clínica de alta complejidad en telemetría cardíaca en tiempo real, resonancia magnética 3 Tesla y neurociencias computacionales.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-deep: #0B0F17;
+      --bg-panel: #1E293B;
+      --bg-panel-dark: #111827;
+      --cyan-main: #0EA5E9;
+      --cyan-bright: #38BDF8;
+      --cyan-dim: rgba(14, 165, 233, 0.14);
+      --border-tech: rgba(56, 189, 248, 0.24);
+      --border-muted: rgba(148, 163, 184, 0.15);
+      --text-primary: #F8FAFC;
+      --text-secondary: #94A3B8;
+      --status-ok: #10B981;
+      --status-warn: #F59E0B;
+      --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; color-scheme: dark; }
+    body {
+      background-color: var(--bg-deep);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      overflow-x: hidden;
+      background-image:
+        radial-gradient(circle at 15% 10%, rgba(14, 165, 233, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 85% 65%, rgba(56, 189, 248, 0.08) 0%, transparent 45%),
+        linear-gradient(rgba(30, 41, 59, 0.25) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(30, 41, 59, 0.25) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 36px 36px, 36px 36px;
+    }
+
+    .container {
+      width: min(1260px, 92%);
+      margin: 0 auto;
+    }
+
+    /* HUD Telemetry Ribbon */
+    .telemetry-ribbon {
+      background: #06090F;
+      border-bottom: 1px solid var(--border-tech);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      padding: 0.55rem 0;
+      color: var(--text-secondary);
+    }
+    .ribbon-grid {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .telemetry-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--cyan-bright);
+    }
+    .led-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--status-ok);
+      box-shadow: 0 0 10px var(--status-ok);
+      animation: pulseLed 2s infinite;
+    }
+    @keyframes pulseLed {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.45; transform: scale(0.85); }
+    }
+
+    /* Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 90;
+      background: rgba(11, 15, 23, 0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-muted);
+    }
+    .nav-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 76px;
+      gap: 1rem;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      text-decoration: none;
+      color: var(--text-primary);
+    }
+    .brand-icon {
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--cyan-bright);
+      background: rgba(14, 165, 233, 0.12);
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      color: var(--cyan-bright);
+      box-shadow: inset 0 0 12px rgba(56, 189, 248, 0.25);
+    }
+    .brand-title {
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      font-size: 1.05rem;
+      display: block;
+    }
+    .brand-sub {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--cyan-bright);
+      display: block;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.6rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--cyan-bright); }
+    .btn-tech {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.68rem 1.25rem;
+      background: linear-gradient(135deg, var(--cyan-main), #0284C7);
+      color: #fff;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 600;
+      border: 1px solid var(--cyan-bright);
+      border-radius: 6px;
+      text-decoration: none;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(14, 165, 233, 0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-tech:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 28px rgba(56, 189, 248, 0.55);
+    }
+    .btn-outline-tech {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.68rem 1.25rem;
+      background: rgba(30, 41, 59, 0.7);
+      color: var(--cyan-bright);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 600;
+      border: 1px solid var(--border-tech);
+      border-radius: 6px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .btn-outline-tech:hover {
+      background: rgba(14, 165, 233, 0.16);
+      border-color: var(--cyan-bright);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 4.5rem 0 4rem;
+      position: relative;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+    .sys-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.35rem 0.85rem;
+      border: 1px solid var(--border-tech);
+      background: var(--cyan-dim);
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--cyan-bright);
+      margin-bottom: 1.25rem;
+    }
+    .hero h1 {
+      font-size: clamp(2.1rem, 4.2vw, 3.55rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.2rem;
+    }
+    .hero h1 span {
+      color: var(--cyan-bright);
+      text-shadow: 0 0 24px rgba(56, 189, 248, 0.35);
+    }
+    .hero p {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      max-width: 58ch;
+      margin-bottom: 1.85rem;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2.2rem;
+    }
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      border-top: 1px solid var(--border-muted);
+      padding-top: 1.5rem;
+    }
+    .metric-card {
+      background: rgba(30, 41, 59, 0.45);
+      border: 1px solid var(--border-muted);
+      border-left: 3px solid var(--cyan-main);
+      padding: 0.85rem 1rem;
+      border-radius: 6px;
+    }
+    .metric-val {
+      font-family: var(--font-mono);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--cyan-bright);
+    }
+    .metric-lbl {
+      font-size: 0.76rem;
+      color: var(--text-secondary);
+    }
+
+    /* Hero Diagnostic HUD Visual */
+    .hud-frame {
+      background: var(--bg-panel-dark);
+      border: 1px solid var(--border-tech);
+      border-radius: 12px;
+      padding: 1rem;
+      position: relative;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65), 0 0 30px rgba(14, 165, 233, 0.14);
+    }
+    .hud-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--cyan-bright);
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border-muted);
+      margin-bottom: 0.75rem;
+    }
+    .hud-img-wrap {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      aspect-ratio: 16 / 11;
+      background: #05080f;
+    }
+    .hud-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: contrast(1.08) saturate(1.1);
+    }
+    .hud-overlay-telemetry {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(11,15,23,0.15) 0%, rgba(11,15,23,0.85) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1rem;
+    }
+    .ecg-svg {
+      width: 100%;
+      height: 54px;
+      stroke: var(--cyan-bright);
+      stroke-width: 2;
+      fill: none;
+      filter: drop-shadow(0 0 6px var(--cyan-main));
+    }
+    .hud-readout-row {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-primary);
+      margin-top: 0.4rem;
+    }
+
+    /* Section Headings */
+    section { padding: 4.5rem 0; }
+    .sec-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+    .sec-kicker {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--cyan-bright);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.4rem;
+    }
+    .sec-title {
+      font-size: clamp(1.65rem, 3vw, 2.35rem);
+      font-weight: 800;
+    }
+
+    /* Interactive Visual Experience: Telemetry & MRI Console */
+    .console-shell {
+      background: rgba(30, 41, 59, 0.55);
+      border: 1px solid var(--border-tech);
+      border-radius: 12px;
+      padding: 1.75rem;
+      display: grid;
+      grid-template-columns: 310px 1fr;
+      gap: 1.75rem;
+    }
+    .console-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      border-right: 1px solid var(--border-muted);
+      padding-right: 1.25rem;
+    }
+    .mode-btn {
+      text-align: left;
+      background: rgba(11, 15, 23, 0.75);
+      border: 1px solid var(--border-muted);
+      color: var(--text-primary);
+      padding: 0.9rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: var(--font-sans);
+      transition: all 0.2s;
+    }
+    .mode-btn.active, .mode-btn:hover {
+      border-color: var(--cyan-bright);
+      background: rgba(14, 165, 233, 0.16);
+      box-shadow: inset 3px 0 0 var(--cyan-bright);
+    }
+    .mode-btn-code {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--cyan-bright);
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+    .mode-btn-title {
+      font-weight: 700;
+      font-size: 0.92rem;
+    }
+    .console-screen {
+      background: #070A10;
+      border: 1px solid var(--border-muted);
+      border-radius: 10px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.25rem;
+    }
+    .console-top-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.85rem;
+    }
+    .stat-box {
+      background: rgba(30, 41, 59, 0.5);
+      border: 1px solid var(--border-muted);
+      padding: 0.75rem;
+      border-radius: 6px;
+      font-family: var(--font-mono);
+    }
+    .stat-box small {
+      color: var(--text-secondary);
+      font-size: 0.68rem;
+      display: block;
+    }
+    .stat-box strong {
+      color: var(--cyan-bright);
+      font-size: 1.15rem;
+    }
+    .wave-canvas-box {
+      position: relative;
+      background: radial-gradient(circle at center, rgba(14, 165, 233, 0.12), transparent 70%);
+      border: 1px dashed rgba(56, 189, 248, 0.3);
+      border-radius: 8px;
+      padding: 1.25rem;
+      min-height: 190px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .slider-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+    }
+    .slider-row input[type="range"] {
+      flex: 1;
+      accent-color: var(--cyan-bright);
+    }
+
+    /* Especialidades / Prestaciones */
+    .filter-tabs {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.75rem;
+    }
+    .tab-chip {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      border: 1px solid var(--border-muted);
+      background: var(--bg-panel);
+      color: var(--text-secondary);
+      cursor: pointer;
+    }
+    .tab-chip.active {
+      background: var(--cyan-main);
+      color: #fff;
+      border-color: var(--cyan-bright);
+    }
+    .specs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+    .spec-card {
+      background: rgba(30, 41, 59, 0.65);
+      border: 1px solid var(--border-muted);
+      border-radius: 10px;
+      padding: 1.5rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .spec-card:hover {
+      border-color: var(--cyan-bright);
+      transform: translateY(-3px);
+    }
+    .spec-code {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--cyan-bright);
+      background: var(--cyan-dim);
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 0.8rem;
+    }
+    .spec-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 0.55rem;
+    }
+    .spec-card p {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+    .spec-meta {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-primary);
+      border-top: 1px solid var(--border-muted);
+      padding-top: 0.75rem;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* Directorio Médico & Instalaciones (Lightbox) */
+    .facility-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1.25rem;
+    }
+    .facility-card {
+      background: var(--bg-panel);
+      border: 1px solid var(--border-muted);
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+    .facility-card:hover { border-color: var(--cyan-bright); }
+    .facility-thumb {
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      position: relative;
+      background: #06090f;
+    }
+    .facility-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.35s;
+    }
+    .facility-card:hover .facility-thumb img { transform: scale(1.04); }
+    .facility-body { padding: 1.15rem; }
+    .facility-role {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--cyan-bright);
+    }
+    .facility-body h3 { font-size: 1.05rem; margin: 0.25rem 0 0.4rem; }
+    .facility-body p { font-size: 0.85rem; color: var(--text-secondary); }
+
+    /* Lightbox Modal */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(6, 9, 15, 0.92);
+      backdrop-filter: blur(10px);
+      z-index: 250;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox-panel {
+      background: var(--bg-panel-dark);
+      border: 1px solid var(--cyan-bright);
+      border-radius: 12px;
+      max-width: 760px;
+      width: 100%;
+      overflow: hidden;
+    }
+    .lightbox-panel img {
+      width: 100%;
+      max-height: 420px;
+      object-fit: cover;
+    }
+    .lightbox-info {
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    /* Testimonios */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.25rem;
+    }
+    .testi-card {
+      background: rgba(30, 41, 59, 0.5);
+      border: 1px solid var(--border-muted);
+      border-radius: 10px;
+      padding: 1.5rem;
+    }
+    .demo-tag {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--status-warn);
+      background: rgba(245, 158, 11, 0.12);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 0.75rem;
+    }
+    .testi-card p {
+      font-size: 0.93rem;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+    }
+    .testi-author {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--cyan-bright);
+    }
+
+    /* Booking Form */
+    .booking-box {
+      background: linear-gradient(145deg, rgba(30, 41, 59, 0.8), rgba(11, 15, 23, 0.95));
+      border: 1px solid var(--border-tech);
+      border-radius: 12px;
+      padding: 2.25rem;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 2rem;
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+    .form-group.full { grid-column: 1 / -1; }
+    .form-group label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--cyan-bright);
+    }
+    .form-group input, .form-group select, .form-group textarea {
+      background: #070A10;
+      border: 1px solid var(--border-muted);
+      border-radius: 6px;
+      padding: 0.75rem;
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      outline: none;
+      border-color: var(--cyan-bright);
+    }
+    .form-feedback {
+      margin-top: 1rem;
+      padding: 0.9rem;
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid var(--status-ok);
+      color: #A7F3D0;
+      display: none;
+    }
+
+    footer {
+      border-top: 1px solid var(--border-muted);
+      padding: 2.5rem 0 5rem;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    @media (max-width: 920px) {
+      .hero-grid, .console-shell, .booking-box { grid-template-columns: 1fr; }
+      .console-controls { border-right: none; border-bottom: 1px solid var(--border-muted); padding-right: 0; padding-bottom: 1rem; }
+      .console-top-stats { grid-template-columns: repeat(2, 1fr); }
+      .nav-links { display: none; }
+    }
+    @media (max-width: 560px) {
+      .hero-metrics, .form-grid { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body data-rubro-id="salud" data-style-id="dark-medical-tech">
+
+  <div class="telemetry-ribbon">
+    <div class="container ribbon-grid">
+      <span class="telemetry-tag"><span class="led-dot"></span> NODO CLÍNICO ACTIVO · RESONANCIA 3.0T & TELEMETRÍA EN VIVO</span>
+      <span>LATENCIA IA DIAGNÓSTICA: 14.2 ms | ISO/IEC 27001 HEALTH DATA</span>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container nav-bar">
+      <a href="#" class="brand">
+        <div class="brand-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+          </svg>
+        </div>
+        <div>
+          <span class="brand-title">CARDIOCORE LABS</span>
+          <span class="brand-sub">TELEMETRY · MRI 3T · NEUROSCIENCE</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#consola">Consola Biométrica</a></li>
+        <li><a href="#unidades">Unidades de Alta Complejidad</a></li>
+        <li><a href="#instalaciones">Nodos & Especialistas</a></li>
+        <li><a href="#testimonios">Casos Clínicos</a></li>
+      </ul>
+      <a href="#reserva" class="btn-tech">AGENDAR ESCANEO [HUD]</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="sys-pill">SYS.VER 9.4 // MEDICINA COMPUTACIONAL & DIAGNÓSTICO</div>
+          <h1>Precisión algorítmica para el <span>corazón y el cerebro</span>.</h1>
+          <p>Integramos resonancia magnética funcional de 3 Tesla, mapeo electrofisiológico en tiempo real y análisis predictivo por inteligencia artificial para detectar patologías cardiovasculares y neurológicas antes de su manifestación clínica.</p>
+          <div class="hero-actions">
+            <a href="#reserva" class="btn-tech">SOLICITAR ESTUDIO DIAGNÓSTICO</a>
+            <a href="#consola" class="btn-outline-tech">EXPLORAR TELEMETRÍA INTERACTIVA</a>
+          </div>
+          <div class="hero-metrics">
+            <div class="metric-card">
+              <div class="metric-val">0.2 mm</div>
+              <div class="metric-lbl">Resolución Voxel Neuro-MRI</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-val">99.94%</div>
+              <div class="metric-lbl">Sensibilidad en Arritmias</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-val">&lt; 45 min</div>
+              <div class="metric-lbl">Informe Radiológico IA + Médico</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hud-frame">
+          <div class="hud-header">
+            <span>STREAM // CARDIO-NEURO-NODE-01</span>
+            <span id="liveClock">SYNC: ACTIVE</span>
+          </div>
+          <div class="hud-img-wrap">
+            <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1200&q=85"
+                 alt="Sala de control de neuroimagen y telemetría cardíaca CardioCore Labs"
+                 onerror="this.onerror=null;this.src='../../images/demos/assets/med/clinic-suite-vip.svg'">
+            <div class="hud-overlay-telemetry">
+              <svg class="ecg-svg" viewBox="0 0 500 60" preserveAspectRatio="none" aria-label="Trazado ECG en vivo">
+                <path d="M0,30 L60,30 L75,18 L85,42 L100,5 L115,55 L128,25 L145,30 L240,30 L255,18 L265,42 L280,5 L295,55 L308,25 L325,30 L420,30 L435,18 L445,42 L460,5 L475,55 L488,25 L500,30" />
+              </svg>
+              <div class="hud-readout-row">
+                <span>HR: 68 BPM [SINUSAL]</span>
+                <span>SpO2: 99%</span>
+                <span>B0 FIELD: 3.0 TESLA</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN DE EXPERIENCIA VISUAL INTERACTIVA: CONSOLA BIOMÉTRICA -->
+    <section id="consola">
+      <div class="container">
+        <div class="sec-header">
+          <div>
+            <div class="sec-kicker">// SIMULADOR DE DIAGNÓSTICO EN TIEMPO REAL</div>
+            <h2 class="sec-title">Consola Interactiva de Telemetría & Neuroimagen</h2>
+          </div>
+          <p style="color:var(--text-secondary);max-width:44ch;font-size:0.9rem">Alterna entre protocolos de escaneo para inspeccionar parámetros fisiológicos y resolución de corte tomográfico.</p>
+        </div>
+
+        <div class="console-shell">
+          <div class="console-controls" role="tablist" aria-label="Protocolos biométricos">
+            <button type="button" class="mode-btn active" data-mode="ecg" role="tab" aria-selected="true">
+              <span class="mode-btn-code">MOD-01 // CARDIO</span>
+              <span class="mode-btn-title">Mapeo Electrofisiológico 12D</span>
+            </button>
+            <button type="button" class="mode-btn" data-mode="mri" role="tab" aria-selected="false">
+              <span class="mode-btn-code">MOD-02 // STRUCTURAL</span>
+              <span class="mode-btn-title">Angio-Resonancia Coronaria 3T</span>
+            </button>
+            <button type="button" class="mode-btn" data-mode="neuro" role="tab" aria-selected="false">
+              <span class="mode-btn-code">MOD-03 // CONNECTOME</span>
+              <span class="mode-btn-title">Tractografía Cerebral DTI</span>
+            </button>
+          </div>
+
+          <div class="console-screen" aria-live="polite">
+            <div class="console-top-stats">
+              <div class="stat-box">
+                <small>FRECUENCIA / PULSO</small>
+                <strong id="statBpm">68 BPM</strong>
+              </div>
+              <div class="stat-box">
+                <small>RELACIÓN SEÑAL/RUIDO</small>
+                <strong id="statSnr">48.6 dB</strong>
+              </div>
+              <div class="stat-box">
+                <small>PROFUNDIDAD DE CORTE</small>
+                <strong id="statSlice">Corte #42 mm</strong>
+              </div>
+              <div class="stat-box">
+                <small>ESTADO IA</small>
+                <strong id="statAi" style="color:var(--status-ok)">SIN ANOMALÍA</strong>
+              </div>
+            </div>
+
+            <div class="wave-canvas-box">
+              <p id="consoleTitle" style="font-family:var(--font-mono);color:var(--cyan-bright);font-size:0.88rem;margin-bottom:0.5rem">
+                [PROTOCOLO ACTIVO]: Mapeo Electrofisiológico Ventricular de Alta Densidad
+              </p>
+              <p id="consoleDesc" style="color:var(--text-secondary);font-size:0.9rem;margin-bottom:1rem">
+                Adquisición simultánea de 256 canales endocárdicos no invasivos para localización milimétrica de focos arrítmicos.
+              </p>
+              <svg id="dynamicWave" class="ecg-svg" viewBox="0 0 600 70" preserveAspectRatio="none">
+                <path id="wavePath" d="M0,35 L80,35 L95,12 L110,58 L125,6 L140,64 L155,30 L180,35 L300,35 L315,12 L330,58 L345,6 L360,64 L375,30 L400,35 L600,35" />
+              </svg>
+            </div>
+
+            <div class="slider-row">
+              <label for="sliceSlider">PLANO AXIAL / CORTE TOMOGRÁFICO:</label>
+              <input type="range" id="sliceSlider" min="1" max="120" value="42">
+              <span id="sliceOutput">42 / 120 mm</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ESPECIALIDADES / PRESTACIONES -->
+    <section id="unidades">
+      <div class="container">
+        <div class="sec-header">
+          <div>
+            <div class="sec-kicker">// PRESTACIONES MÉDICAS</div>
+            <h2 class="sec-title">Unidades Clínicas de Alta Precisión</h2>
+          </div>
+        </div>
+
+        <div class="filter-tabs" role="group" aria-label="Filtrar especialidades">
+          <button type="button" class="tab-chip active" data-filter="all">TODAS LAS UNIDADES [6]</button>
+          <button type="button" class="tab-chip" data-filter="cardio">CARDIOLOGÍA & TELEMETRÍA</button>
+          <button type="button" class="tab-chip" data-filter="imagen">RESONANCIA 3T</button>
+          <button type="button" class="tab-chip" data-filter="neuro">NEUROCIENCIAS</button>
+        </div>
+
+        <div class="specs-grid" id="specsGrid">
+          <article class="spec-card" data-cat="cardio">
+            <span class="spec-code">UNIT-C01 // TELEMETRY</span>
+            <h3>Holter Subcutáneo & Telemetría 24/7</h3>
+            <p>Monitoreo continuo con transmisión satelital/celular encriptada a nuestra central de cardiólogos electrofisiólogos.</p>
+            <div class="spec-meta"><span>Duración: Ambulatorio</span><span>FONASA / ISAPRE</span></div>
+          </article>
+          <article class="spec-card" data-cat="imagen">
+            <span class="spec-code">UNIT-M02 // MRI 3.0T</span>
+            <h3>Cardio-Resonancia Morfofuncional</h3>
+            <p>Evaluación tisular de miocardio, perfusión en estrés farmacológico y cuantificación de fibrosis sin radiación ionizante.</p>
+            <div class="spec-meta"><span>Duración: 35 min</span><span>Entrega: 2 hrs</span></div>
+          </article>
+          <article class="spec-card" data-cat="neuro">
+            <span class="spec-code">UNIT-N03 // NEURO-AI</span>
+            <h3>Resonancia Funcional & Volumetría Cerebral</h3>
+            <p>Cuantificación automatizada de hipocampo y sustancia blanca para detección temprana de deterioro neurodegenerativo.</p>
+            <div class="spec-meta"><span>Resolución: 0.2mm</span><span>IA Asistida</span></div>
+          </article>
+          <article class="spec-card" data-cat="cardio">
+            <span class="spec-code">UNIT-C04 // STRESS-LAB</span>
+            <h3>Ergometría Computarizada con Gases</h3>
+            <p>Consumo máximo de oxígeno (VO2 máx) y umbral anaeróbico para deportistas de alto rendimiento y rehabilitación cardíaca.</p>
+            <div class="spec-meta"><span>Protocolo: Bruce/Rampa</span><span>Informe Inmediato</span></div>
+          </article>
+          <article class="spec-card" data-cat="neuro">
+            <span class="spec-code">UNIT-N05 // EEG-HD</span>
+            <h3>Video-Electroencefalografía de Alta Densidad</h3>
+            <p>Registro de 128 canales con mapeo espectral tridimensional para estudio del sueño y trastornos paroxísticos.</p>
+            <div class="spec-meta"><span>Canales: 128 HD</span><span>Cabina Faraday</span></div>
+          </article>
+          <article class="spec-card" data-cat="imagen">
+            <span class="spec-code">UNIT-M06 // ANGIO</span>
+            <h3>Angio-RM de Vasos Supraaórticos y Polígono</h3>
+            <p>Reconstrucción vascular 3D sin medio de contraste (Time-of-Flight) para prevención de accidente cerebrovascular.</p>
+            <div class="spec-meta"><span>Sin Contraste</span><span>3D DICOM</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIRECTORIO MÉDICO E INSTALACIONES CON LIGHTBOX -->
+    <section id="instalaciones">
+      <div class="container">
+        <div class="sec-header">
+          <div>
+            <div class="sec-kicker">// INFRAESTRUCTURA & COMITÉ CLÍNICO</div>
+            <h2 class="sec-title">Nodos Tecnológicos y Especialistas Jefes</h2>
+          </div>
+          <p style="color:var(--text-secondary);font-size:0.88rem">Haz clic en cualquier tarjeta para inspeccionar ficha técnica e imagen ampliada.</p>
+        </div>
+
+        <div class="facility-grid">
+          <article class="facility-card" tabindex="0"
+                   data-title="Gantry de Resonancia Magnética 3.0 Tesla — Sala Blindada RF"
+                   data-sub="Gradientes de 80 mT/m con reducción acústica del 82% e iluminación circadiana."
+                   data-img="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1200&q=85">
+            <div class="facility-thumb">
+              <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1200&q=85" alt="Gantry Resonancia Magnética 3 Tesla"
+                   onerror="this.onerror=null;this.src='../../images/demos/assets/med/clinic-suite-vip.svg'">
+            </div>
+            <div class="facility-body">
+              <span class="facility-role">INFRAESTRUCTURA // NODO 01</span>
+              <h3>Cámara de Resonancia 3.0T</h3>
+              <p>Dr. Sebastián Krauss · Jefe de Neurorradiología (U. de Chile / Fellowship Zurich).</p>
+            </div>
+          </article>
+
+          <article class="facility-card" tabindex="0"
+                   data-title="Centro de Comando de Telemetría Cardíaca Continua"
+                   data-sub="Supervisión algorítmica 24/7 de pacientes ambulatorios con alertas tempranas de fibrilación."
+                   data-img="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1200&q=85">
+            <div class="facility-thumb">
+              <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1200&q=85" alt="Centro de Comando de Telemetría"
+                   onerror="this.onerror=null;this.src='../../images/demos/assets/med/clinic-reception.svg'">
+            </div>
+            <div class="facility-body">
+              <span class="facility-role">ELECTROFISIOLOGÍA // NODO 02</span>
+              <h3>Unidad de Arritmias & Telemetría</h3>
+              <p>Dra. Valeria Montt · Cardióloga Electrofisióloga (PUC / Mayo Clinic Alumni).</p>
+            </div>
+          </article>
+
+          <article class="facility-card" tabindex="0"
+                   data-title="Laboratorio de Conectómica y Neurofisiología Computacional"
+                   data-sub="Cabina electromagnéticamente aislada para potenciales evocados y mapeo cortical."
+                   data-img="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=85">
+            <div class="facility-thumb">
+              <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=85" alt="Laboratorio de Neurofisiología"
+                   onerror="this.onerror=null;this.src='../../images/demos/assets/med/clinic-box-dental.svg'">
+            </div>
+            <div class="facility-body">
+              <span class="facility-role">NEUROCIENCIAS // NODO 03</span>
+              <h3>Laboratorio de Conectómica</h3>
+              <p>Dr. Martín Arancibia · Neurólogo Vascular & Doctor en Ciencias Médicas.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section id="testimonios">
+      <div class="container">
+        <div class="sec-header">
+          <div>
+            <div class="sec-kicker">// AUDITORÍA DE EXPERIENCIA PACIENTE</div>
+            <h2 class="sec-title">Reportes de Pacientes & Derivaciones</h2>
+          </div>
+        </div>
+        <div class="testimonials-grid">
+          <div class="testi-card">
+            <span class="demo-tag">[Testimonio Ficticio de Demostración]</span>
+            <p>"El parche de telemetría detectó una taquicardia paroxística nocturna que tres Holter convencionales habían pasado por alto. Recibí la alerta en la app y mi cardióloga ajustó el tratamiento el mismo día."</p>
+            <div class="testi-author">PACIENTE ID #8841 · Ing. Civil, 52 años · Protocolo Holter 14 Días</div>
+          </div>
+          <div class="testi-card">
+            <span class="demo-tag">[Testimonio Ficticio de Demostración]</span>
+            <p>"Sufría claustrofobia severa en resonadores antiguos. El túnel amplio de 3 Tesla con proyección inmersiva y secuencia ultrarrápida terminó mi estudio cerebral en apenas 18 minutos."</p>
+            <div class="testi-author">PACIENTE ID #9104 · Arquitecta, 41 años · Neuro-RM Funcional</div>
+          </div>
+          <div class="testi-card">
+            <span class="demo-tag">[Testimonio Ficticio de Demostración]</span>
+            <p>"Como maratonista necesitaba descartar miocardiopatía hipertrófica. El informe integrado de Cardio-RM y ergometría de gases fue de un nivel técnico impresionante."</p>
+            <div class="testi-author">PACIENTE ID #9320 · Triatleta Amateur, 36 años · Evaluación Deportiva</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESERVA MÉDICA -->
+    <section id="reserva">
+      <div class="container">
+        <div class="booking-box">
+          <div>
+            <div class="sec-kicker">// AGENDAMIENTO DIRECTO</div>
+            <h2 style="font-size:1.85rem;margin-bottom:0.85rem">Reserva de Hora & Orden Médica Digital</h2>
+            <p style="color:var(--text-secondary);font-size:0.92rem;margin-bottom:1.25rem">
+              Selecciona la unidad diagnóstica y horario preferente. Nuestro sistema valida cobertura FONASA / ISAPRE y preparación previa al examen.
+            </p>
+            <div style="font-family:var(--font-mono);font-size:0.76rem;color:var(--cyan-bright);background:rgba(14,165,233,0.1);padding:0.9rem;border-radius:6px;border:1px solid var(--border-tech)">
+              NOTA DE DEMOSTRACIÓN: Este formulario es una simulación interactiva del lado del cliente y no almacena ni transmite datos médicos reales.
+            </div>
+          </div>
+
+          <form id="bookingForm">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="ptName">NOMBRE COMPLETO DEL PACIENTE</label>
+                <input type="text" id="ptName" required placeholder="Ej. Camila Rojas">
+              </div>
+              <div class="form-group">
+                <label for="ptRut">RUT / PASAPORTE</label>
+                <input type="text" id="ptRut" required placeholder="16.492.XXX-K">
+              </div>
+              <div class="form-group">
+                <label for="ptUnit">UNIDAD DIAGNÓSTICA</label>
+                <select id="ptUnit" required>
+                  <option value="Cardio-Resonancia 3.0T">Cardio-Resonancia 3.0 Tesla</option>
+                  <option value="Telemetría Cardíaca Continua">Telemetría Cardíaca Continua</option>
+                  <option value="Neuro-RM & Tractografía">Neuro-RM & Tractografía DTI</option>
+                  <option value="Consulta Electrofisiología">Consulta Electrofisiología</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="ptDate">FECHA PREFERENTE</label>
+                <input type="date" id="ptDate" required>
+              </div>
+              <div class="form-group full">
+                <label for="ptNotes">INDICACIÓN CLÍNICA / SÍNTOMAS (SIMULACIÓN)</label>
+                <textarea id="ptNotes" rows="2" placeholder="Orden médica por estudio de palpitaciones o control neurológico..."></textarea>
+              </div>
+              <div class="form-group full">
+                <button type="submit" class="btn-tech" style="justify-content:center;width:100%">CONFIRMAR SOLICITUD EN SIMULADOR CLÍNICO</button>
+              </div>
+            </div>
+            <div id="bookingFeedback" class="form-feedback" role="status"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visor de instalación médica">
+    <div class="lightbox-panel">
+      <img id="lbImg" src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=85" alt="Vista ampliada"
+           onerror="this.onerror=null;this.src='../../images/demos/assets/med/clinic-box-dental.svg'">
+      <div class="lightbox-info">
+        <div>
+          <h3 id="lbTitle" style="font-size:1.1rem"></h3>
+          <p id="lbSub" style="font-size:0.85rem;color:var(--text-secondary)"></p>
+        </div>
+        <button type="button" class="btn-outline-tech" id="lbClose">CERRAR [ESC]</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem">
+      <div><strong>CARDIOCORE LABS</strong> · Av. Kennedy 9410, Piso 14, Las Condes · Demo Interactiva KuyénDev</div>
+      <div style="font-family:var(--font-mono)">ESTILO #11 · DARK MEDICAL / TECH</div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      // Consola Interactiva de Telemetría
+      const modes = {
+        ecg: {
+          bpm: '68 BPM', snr: '48.6 dB', ai: 'SIN ANOMALÍA',
+          title: '[PROTOCOLO ACTIVO]: Mapeo Electrofisiológico Ventricular de Alta Densidad',
+          desc: 'Adquisición simultánea de 256 canales endocárdicos no invasivos para localización milimétrica de focos arrítmicos.',
+          path: 'M0,35 L80,35 L95,12 L110,58 L125,6 L140,64 L155,30 L180,35 L300,35 L315,12 L330,58 L345,6 L360,64 L375,30 L400,35 L600,35'
+        },
+        mri: {
+          bpm: '62 BPM (GATED)', snr: '64.2 dB', ai: 'PERFUSIÓN 99%',
+          title: '[PROTOCOLO ACTIVO]: Angio-Resonancia Coronaria 3.0 Tesla T1-Mapping',
+          desc: 'Sincronización cardíaca retrospectiva con reconstrucción isotrópica submilimétrica de arterias coronarias.',
+          path: 'M0,45 Q75,5 150,45 T300,45 T450,45 T600,45'
+        },
+        neuro: {
+          bpm: '10.4 Hz ALPHA', snr: '59.0 dB', ai: 'TRACTO ÍNTEGRO',
+          title: '[PROTOCOLO ACTIVO]: Tractografía por Tensor de Difusión (DTI 64 Direcciones)',
+          desc: 'Reconstrucción tridimensional de fascículos corticoespinales y cuerpo calloso mediante anisotropía fraccional.',
+          path: 'M0,35 C50,10 100,60 150,35 C200,10 250,60 300,35 C350,10 400,60 450,35 C500,10 550,60 600,35'
+        }
+      };
+
+      const modeBtns = document.querySelectorAll('.mode-btn');
+      const statBpm = document.getElementById('statBpm');
+      const statSnr = document.getElementById('statSnr');
+      const statAi = document.getElementById('statAi');
+      const consoleTitle = document.getElementById('consoleTitle');
+      const consoleDesc = document.getElementById('consoleDesc');
+      const wavePath = document.getElementById('wavePath');
+
+      modeBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          modeBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
+          btn.classList.add('active');
+          btn.setAttribute('aria-selected', 'true');
+          const m = modes[btn.dataset.mode];
+          if (m) {
+            statBpm.textContent = m.bpm;
+            statSnr.textContent = m.snr;
+            statAi.textContent = m.ai;
+            consoleTitle.textContent = m.title;
+            consoleDesc.textContent = m.desc;
+            wavePath.setAttribute('d', m.path);
+          }
+        });
+      });
+
+      const sliceSlider = document.getElementById('sliceSlider');
+      const sliceOutput = document.getElementById('sliceOutput');
+      const statSlice = document.getElementById('statSlice');
+      sliceSlider.addEventListener('input', () => {
+        sliceOutput.textContent = sliceSlider.value + ' / 120 mm';
+        statSlice.textContent = 'Corte #' + sliceSlider.value + ' mm';
+      });
+
+      // Filtro de especialidades
+      const chips = document.querySelectorAll('.tab-chip');
+      const cards = document.querySelectorAll('.spec-card');
+      chips.forEach(chip => {
+        chip.addEventListener('click', () => {
+          chips.forEach(c => c.classList.remove('active'));
+          chip.classList.add('active');
+          const f = chip.dataset.filter;
+          cards.forEach(card => {
+            card.style.display = (f === 'all' || card.dataset.cat === f) ? 'block' : 'none';
+          });
+        });
+      });
+
+      // Lightbox
+      const lb = document.getElementById('lightbox');
+      const lbImg = document.getElementById('lbImg');
+      const lbTitle = document.getElementById('lbTitle');
+      const lbSub = document.getElementById('lbSub');
+      const lbClose = document.getElementById('lbClose');
+
+      document.querySelectorAll('.facility-card').forEach(card => {
+        const openLb = () => {
+          lbImg.src = card.dataset.img;
+          lbTitle.textContent = card.dataset.title;
+          lbSub.textContent = card.dataset.sub;
+          lb.classList.add('open');
+        };
+        card.addEventListener('click', openLb);
+        card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLb(); } });
+      });
+      lbClose.addEventListener('click', () => lb.classList.remove('open'));
+      lb.addEventListener('click', e => { if (e.target === lb) lb.classList.remove('open'); });
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') lb.classList.remove('open'); });
+
+      // Formulario de reserva
+      const form = document.getElementById('bookingForm');
+      const feedback = document.getElementById('bookingFeedback');
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        const name = document.getElementById('ptName').value;
+        const unit = document.getElementById('ptUnit').value;
+        const date = document.getElementById('ptDate').value;
+        feedback.style.display = 'block';
+        feedback.textContent = '[DEMO INTERACTIVA] Solicitud simulada registrada para ' + name + ' en ' + unit + ' (' + date + '). Código de telemetría asignado: #CC-' + Math.floor(1000 + Math.random() * 9000);
+        form.reset();
+      });
+    })();
+  </script>
+  <script src="../../js/config/rubros.js"></script>
+  <script src="../../js/demo-viewer-bar.js"></script>
+</body>
+</html>

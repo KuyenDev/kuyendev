@@ -1,0 +1,1693 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>CLÍNICA CLARIDAD · Medicina General & Especialidades Odontológicas | Estilo #01 Medical Minimalism</title>
+  <meta name="description" content="Demostración interactiva Estilo #01 Medical Minimalism para KuyénDev: Clínica Claridad, centro de medicina general y especialidades odontológicas con diseño clínico puro y minimalista." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-pure: #FFFFFF;
+      --bg-soft: #F8FAFC;
+      --bg-ice: #E0F2FE;
+      --bg-mint: #F0FDF4;
+      --primary: #0284C7;
+      --primary-hover: #0369A1;
+      --primary-light: #38BDF8;
+      --text-main: #0F172A;
+      --text-muted: #64748B;
+      --border-light: #E2E8F0;
+      --success: #16A34A;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --shadow-subtle: 0 4px 20px -2px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.03);
+      --shadow-card: 0 12px 32px -4px rgba(2, 132, 199, 0.07), 0 2px 6px rgba(15, 23, 42, 0.03);
+      --font-heading: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-pure);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background-color: var(--bg-pure);
+      overflow-x: hidden;
+    }
+
+    /* Barra superior informativa minimalista */
+    .top-clinical-bar {
+      background-color: var(--bg-soft);
+      border-bottom: 1px solid var(--border-light);
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      padding: 8px 24px;
+    }
+
+    .top-clinical-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 500;
+      color: var(--text-main);
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--success);
+      box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.18);
+    }
+
+    .top-meta-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .top-meta-links span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Header Minimalista Puro */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .header-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-main);
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: var(--bg-ice);
+      border: 1px solid rgba(2, 132, 199, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+    }
+
+    .brand-text-wrap {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+
+    .brand-subtitle {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .main-nav a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .main-nav a:hover {
+      color: var(--primary);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 20px;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-heading);
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: #FFFFFF;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(2, 132, 199, 0.22);
+    }
+
+    .btn-outline {
+      background-color: var(--bg-pure);
+      color: var(--text-main);
+      border-color: var(--border-light);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      background-color: var(--bg-soft);
+    }
+
+    .mobile-menu-toggle {
+      display: none;
+      background: transparent;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      padding: 8px;
+      color: var(--text-main);
+      cursor: pointer;
+    }
+
+    /* Hero Minimalista con Espacio Negativo Amplio */
+    .hero-section {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 72px 24px 88px;
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--bg-ice);
+      color: var(--primary);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 24px;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2.25rem, 4vw, 3.5rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.12;
+      color: var(--text-main);
+      margin-bottom: 24px;
+    }
+
+    .hero-title span {
+      color: var(--primary);
+    }
+
+    .hero-lead {
+      font-size: 1.08rem;
+      color: var(--text-muted);
+      max-width: 540px;
+      margin-bottom: 36px;
+      font-weight: 400;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 48px;
+    }
+
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .metric-item strong {
+      display: block;
+      font-family: var(--font-heading);
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: var(--text-main);
+      letter-spacing: -0.02em;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .metric-item span {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .hero-visual-card {
+      position: relative;
+      background: var(--bg-soft);
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-card);
+    }
+
+    .hero-image-wrap {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      aspect-ratio: 4 / 3.2;
+      background-color: var(--bg-ice);
+      position: relative;
+    }
+
+    .hero-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-floating-badge {
+      position: absolute;
+      bottom: 32px;
+      left: 32px;
+      right: 32px;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .badge-slot-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .badge-slot-info small {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .badge-slot-info strong {
+      font-size: 0.92rem;
+      color: var(--text-main);
+    }
+
+    /* Secciones Generales */
+    .section-wrap {
+      padding: 88px 24px;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .section-wrap.bg-soft {
+      background-color: var(--bg-soft);
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 32px;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: clamp(1.75rem, 2.8vw, 2.35rem);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      color: var(--text-main);
+      line-height: 1.2;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      max-width: 520px;
+      font-size: 0.98rem;
+    }
+
+    /* Especialidades con Pestañas Limpias */
+    .specialty-tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+      border-bottom: 1px solid var(--border-light);
+      padding-bottom: 16px;
+    }
+
+    .spec-tab-btn {
+      background: var(--bg-pure);
+      border: 1px solid var(--border-light);
+      color: var(--text-muted);
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-family: var(--font-heading);
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .spec-tab-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .spec-tab-btn.is-active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #FFFFFF;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .service-card {
+      background: var(--bg-pure);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .service-card:hover {
+      border-color: var(--primary-light);
+      box-shadow: var(--shadow-card);
+    }
+
+    .service-code {
+      font-size: 0.75rem;
+      font-family: ui-monospace, SFMono-Regular, monospace;
+      color: var(--primary);
+      background: var(--bg-ice);
+      padding: 3px 8px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 14px;
+    }
+
+    .service-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      margin-bottom: 10px;
+      color: var(--text-main);
+    }
+
+    .service-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 22px;
+    }
+
+    .service-footer {
+      padding-top: 16px;
+      border-top: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .service-price {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--text-main);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .service-price small {
+      display: block;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    /* Simulador Interactivo de Copago & Aranceles */
+    .copay-calculator {
+      background: var(--bg-pure);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .calc-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 8px;
+    }
+
+    .clean-select,
+    .clean-input {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      color: var(--text-main);
+      background-color: var(--bg-pure);
+      transition: border-color 0.2s ease;
+    }
+
+    .clean-select:focus,
+    .clean-input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.12);
+    }
+
+    .prevision-pills {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .prev-pill {
+      padding: 11px 12px;
+      border: 1px solid var(--border-light);
+      background: var(--bg-soft);
+      border-radius: var(--radius-sm);
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.2s ease;
+    }
+
+    .prev-pill.is-active {
+      background: var(--bg-ice);
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .calc-result-box {
+      background: var(--bg-soft);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .result-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border-light);
+      font-size: 0.9rem;
+    }
+
+    .result-row.total {
+      border-bottom: none;
+      padding-top: 18px;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    /* Directorio Médico y Galería de Pabellones con Lightbox */
+    .doctors-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 24px;
+      margin-bottom: 56px;
+    }
+
+    .doctor-card {
+      background: var(--bg-pure);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .doctor-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-card);
+    }
+
+    .doctor-photo {
+      aspect-ratio: 4 / 3.4;
+      background: var(--bg-ice);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .doctor-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .doctor-reg {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(255, 255, 255, 0.94);
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--text-main);
+      border: 1px solid var(--border-light);
+    }
+
+    .doctor-info {
+      padding: 22px;
+    }
+
+    .doctor-specialty {
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--primary);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .doctor-name {
+      font-family: var(--font-heading);
+      font-size: 1.12rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .doctor-bio {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    /* Galería de Instalaciones con Lightbox */
+    .facility-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .facility-item {
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: var(--bg-pure);
+      cursor: pointer;
+      group: true;
+      text-align: left;
+      padding: 0;
+      transition: border-color 0.2s ease;
+    }
+
+    .facility-item:hover {
+      border-color: var(--primary);
+    }
+
+    .facility-thumb {
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      background: var(--bg-soft);
+    }
+
+    .facility-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.35s ease;
+    }
+
+    .facility-item:hover .facility-thumb img {
+      transform: scale(1.03);
+    }
+
+    .facility-caption {
+      padding: 14px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    /* Testimonios Ficticios Claros */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .testimonial-card {
+      background: var(--bg-pure);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 28px;
+    }
+
+    .demo-badge-note {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: var(--bg-soft);
+      border: 1px solid var(--border-light);
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-bottom: 14px;
+    }
+
+    .testimonial-quote {
+      font-size: 0.94rem;
+      color: var(--text-main);
+      margin-bottom: 18px;
+    }
+
+    .testimonial-author {
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .testimonial-author span {
+      display: block;
+      font-weight: 400;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+    }
+
+    /* Reserva Médica Interactiva */
+    .booking-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    .booking-card {
+      background: var(--bg-pure);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .form-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .time-slots-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .slot-pill {
+      padding: 8px;
+      border: 1px solid var(--border-light);
+      background: var(--bg-soft);
+      border-radius: 6px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+      color: var(--text-main);
+    }
+
+    .slot-pill.is-selected {
+      background: var(--primary);
+      color: #FFFFFF;
+      border-color: var(--primary);
+    }
+
+    .booking-feedback {
+      margin-top: 20px;
+      padding: 18px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-mint);
+      border: 1px solid rgba(22, 163, 74, 0.3);
+      color: #14532D;
+      font-size: 0.88rem;
+      display: none;
+    }
+
+    .booking-feedback.is-visible {
+      display: block;
+    }
+
+    /* Lightbox Modal */
+    .lightbox-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.82);
+      backdrop-filter: blur(8px);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .lightbox-modal.is-open {
+      display: flex;
+    }
+
+    .lightbox-box {
+      background: var(--bg-pure);
+      border-radius: var(--radius-lg);
+      max-width: 820px;
+      width: 100%;
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+    }
+
+    .lightbox-img-wrap {
+      aspect-ratio: 16 / 9;
+      background: var(--bg-soft);
+    }
+
+    .lightbox-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .lightbox-meta {
+      padding: 20px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    /* Footer */
+    .site-footer {
+      background: var(--bg-soft);
+      border-top: 1px solid var(--border-light);
+      padding: 64px 24px 48px;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    .footer-grid {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-col h4 {
+      font-family: var(--font-heading);
+      color: var(--text-main);
+      font-size: 0.92rem;
+      margin-bottom: 14px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer-col a {
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    .footer-col a:hover {
+      color: var(--primary);
+    }
+
+    .footer-bottom {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-light);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 960px) {
+      .hero-section,
+      .copay-calculator,
+      .booking-layout {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+      .facility-gallery {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .main-nav {
+        display: none;
+      }
+      .main-nav.is-open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--bg-pure);
+        padding: 20px 24px;
+        border-bottom: 1px solid var(--border-light);
+        gap: 16px;
+      }
+      .mobile-menu-toggle {
+        display: inline-flex;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .form-grid-2,
+      .hero-metrics,
+      .prevision-pills,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .time-slots-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .hero-floating-badge {
+        position: static;
+        margin-top: 12px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body data-rubro-id="salud" data-style-id="medical-minimalism">
+
+  <!-- Barra Clínica Superior -->
+  <div class="top-clinical-bar">
+    <div class="top-clinical-inner">
+      <div class="status-pill">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span>Atención Ambulatoria y Dental Activa · Boxes Esterilizados ISO-9001</span>
+      </div>
+      <div class="top-meta-links">
+        <span>Av. Alonso de Córdova 4120, Las Condes</span>
+        <span>Lun–Sáb 08:00 a 20:00 hrs</span>
+        <span>Mesa Central: <strong>+56 2 2840 9100</strong></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header Minimalista -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#" class="brand-logo">
+        <div class="brand-mark" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M12 2v20M2 12h20" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="brand-text-wrap">
+          <span class="brand-title">CLÍNICA CLARIDAD</span>
+          <span class="brand-subtitle">Medicina General & Odontología</span>
+        </div>
+      </a>
+
+      <nav class="main-nav" id="mainNav" aria-label="Navegación principal">
+        <a href="#especialidades">Especialidades</a>
+        <a href="#aranceles">Simulador Copago</a>
+        <a href="#equipo">Cuerpo Médico</a>
+        <a href="#instalaciones">Pabellones</a>
+        <a href="#testimonios">Pacientes</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="#reserva" class="btn btn-primary">Agendar Hora Médica</a>
+        <button type="button" class="mobile-menu-toggle" id="mobileMenuBtn" aria-label="Abrir menú">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Minimalista -->
+    <section class="hero-section">
+      <div class="hero-copy">
+        <div class="hero-eyebrow">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>ESTILO #01 · MEDICAL MINIMALISM · ACREDITACIÓN CLÍNICA</span>
+        </div>
+        <h1 class="hero-title">
+          Medicina precisa y odontología sin <span>ruido visual</span>.
+        </h1>
+        <p class="hero-lead">
+          En Clínica Claridad eliminamos la incertidumbre médica: diagnósticos digitales explicados con transparencia, tiempos puntuales de 45 minutos por paciente y aranceles claros antes de cada procedimiento.
+        </p>
+        <div class="hero-cta-row">
+          <a href="#reserva" class="btn btn-primary">Reservar Consulta en Línea</a>
+          <a href="#aranceles" class="btn btn-outline">Calcular Copago Fonasa / Isapre</a>
+        </div>
+        <div class="hero-metrics">
+          <div class="metric-item">
+            <strong>99.4%</strong>
+            <span>Puntualidad en agenda médica</span>
+          </div>
+          <div class="metric-item">
+            <strong>18+</strong>
+            <span>Especialistas acreditados SIS</span>
+          </div>
+          <div class="metric-item">
+            <strong>0 min</strong>
+            <span>Bono electrónico I-Med en recepción</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual-card">
+        <div class="hero-image-wrap">
+          <img
+            src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=85"
+            alt="Box clínico minimalista e iluminado de Clínica Claridad"
+            onerror="this.onerror=null;this.src='../../images/demos/assets/med/clinic-box-dental.svg';"/>
+        </div>
+        <div class="hero-floating-badge">
+          <div class="badge-slot-info">
+            <small>Próximo cupo disponible hoy</small>
+            <strong id="heroLiveSlot">16:30 hrs · Evaluación Odontológica Digital</strong>
+          </div>
+          <a href="#reserva" class="btn btn-primary" style="padding: 8px 14px; font-size: 0.8rem">Tomar Cupo</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Especialidades y Prestaciones con Filtro -->
+    <section class="section-wrap bg-soft" id="especialidades">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-tag">Cartera de Prestaciones Clínicas</span>
+            <h2 class="section-title">Especialidades con arancel transparente</h2>
+          </div>
+          <p class="section-desc">
+            Selecciona un área clínica para explorar los procedimientos más solicitados, su código de prestación y tiempos estimados en box.
+          </p>
+        </div>
+
+        <div class="specialty-tabs" role="tablist" aria-label="Filtrar especialidades médicas">
+          <button type="button" class="spec-tab-btn is-active" data-spec="dental" role="tab" aria-selected="true">Odontología & Estética</button>
+          <button type="button" class="spec-tab-btn" data-spec="medicina" role="tab" aria-selected="false">Medicina General & Preventiva</button>
+          <button type="button" class="spec-tab-btn" data-spec="ortodoncia" role="tab" aria-selected="false">Ortodoncia & Implantología</button>
+        </div>
+
+        <div class="services-grid" id="servicesGrid">
+          <!-- Renderizado dinámico por JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Simulador Interactivo de Copago -->
+    <section class="section-wrap" id="aranceles">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-tag">Claridad Financiera antes de tu Consulta</span>
+            <h2 class="section-title">Simulador de Cobertura y Copago</h2>
+          </div>
+          <p class="section-desc">
+            Calcula al instante el valor estimado de tu consulta o tratamiento dental según tu previsión de salud. Sin cobros ocultos.
+          </p>
+        </div>
+
+        <div class="copay-calculator">
+          <div class="calc-controls">
+            <div class="form-group">
+              <label for="calcServiceSelect">1. Selecciona la prestación clínica</label>
+              <select id="calcServiceSelect" class="clean-select">
+                <option value="0">Diagnóstico Dental + Radiografía Bitewing Digital ($35.000)</option>
+                <option value="1">Higiene Ultrasónica + Profilaxis AirFlow ($58.000)</option>
+                <option value="2">Consulta Medicina General Adulto 45 min ($42.000)</option>
+                <option value="3">Blanqueamiento Clínico LED Philips Zoom ($165.000)</option>
+                <option value="4">Corona Libre de Metal Zirconio CAD/CAM ($320.000)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>2. Selecciona tu sistema previsional</label>
+              <div class="prevision-pills" id="previsionPills">
+                <button type="button" class="prev-pill is-active" data-prev="isapre">Isapre (Convenio 70%)</button>
+                <button type="button" class="prev-pill" data-prev="fonasa">Fonasa Libre Elección</button>
+                <button type="button" class="prev-pill" data-prev="particular">Particular Preferente</button>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="calcSeguroCheck" style="display:flex;align-items:center;gap:10px;cursor:pointer;font-weight:500">
+                <input type="checkbox" id="calcSeguroCheck" style="width:18px;height:18px;accent-color:var(--primary);" />
+                <span>Cuento con Seguro Complementario de Salud (Reembolso automático 50% del copago)</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="calc-result-box" aria-live="polite">
+            <div>
+              <span class="section-tag">Desglose Estimado en Línea</span>
+              <h3 id="calcTitleOut" style="font-family:var(--font-heading);font-size:1.15rem;margin-bottom:16px">Diagnóstico Dental + Radiografía Bitewing Digital</h3>
+              <div class="result-row">
+                <span>Arancel Base Clínica Claridad</span>
+                <strong id="calcBaseOut">$35.000</strong>
+              </div>
+              <div class="result-row">
+                <span>Bonificación Previsional Estimada</span>
+                <strong id="calcBonusOut" style="color:var(--success)">-$24.500</strong>
+              </div>
+              <div class="result-row">
+                <span>Reembolso Seguro Complementario</span>
+                <strong id="calcInsOut">$0</strong>
+              </div>
+              <div class="result-row total">
+                <span>Copago Final Paciente</span>
+                <strong id="calcFinalOut">$10.500</strong>
+              </div>
+            </div>
+            <div style="margin-top:20px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+              <small style="color:var(--text-muted);font-size:0.76rem">* Valores referenciales en pesos chilenos (CLP) para demostración.</small>
+              <a href="#reserva" class="btn btn-primary" id="calcBookBtn">Agendar esta Prestación</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cuerpo Médico e Instalaciones con Lightbox -->
+    <section class="section-wrap bg-soft" id="equipo">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-tag">Registro Nacional de Prestadores Individuales</span>
+            <h2 class="section-title">Cuerpo Médico & Especialistas</h2>
+          </div>
+          <p class="section-desc">
+            Profesionales titulados con postgrado universitario y dedicación exclusiva a una atención serena y explicativa.
+          </p>
+        </div>
+
+        <div class="doctors-grid">
+          <article class="doctor-card">
+            <div class="doctor-photo">
+              <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80" alt="Dra. Elena Valdés · Especialista Odontológico" onerror="this.onerror=null;this.src='../../images/demos/assets/med/doctor-female-1.svg';"/>
+              <span class="doctor-reg">SIS #48291-K</span>
+            </div>
+            <div class="doctor-info">
+              <div class="doctor-specialty">Rehabilitación Oral & Estética</div>
+              <h3 class="doctor-name">Dra. Elena Valdés Morandé</h3>
+              <p class="doctor-bio">Cirujano Dentista PUC. Especialista en flujo digital CAD/CAM y odontología mínimamente invasiva.</p>
+              <button type="button" class="btn btn-outline" style="width:100%;" onclick="selectDoctorForBooking('Dra. Elena Valdés · Rehabilitación Oral')">Reservar con Dra. Valdés</button>
+            </div>
+          </article>
+
+          <article class="doctor-card">
+            <div class="doctor-photo">
+              <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800&q=80" alt="Dr. Martín Arriagada · Especialista Odontológico" onerror="this.onerror=null;this.src='../../images/demos/assets/med/doctor-male-1.svg';"/>
+              <span class="doctor-reg">SIS #39104-2</span>
+            </div>
+            <div class="doctor-info">
+              <div class="doctor-specialty">Medicina Interna & Preventiva</div>
+              <h3 class="doctor-name">Dr. Martín Arriagada Soto</h3>
+              <p class="doctor-bio">Médico Cirujano U. de Chile. Enfoque en chequeos preventivos ejecutivos, riesgo cardiovascular y metabolismo.</p>
+              <button type="button" class="btn btn-outline" style="width:100%;" onclick="selectDoctorForBooking('Dr. Martín Arriagada · Medicina Interna')">Reservar con Dr. Arriagada</button>
+            </div>
+          </article>
+
+          <article class="doctor-card">
+            <div class="doctor-photo">
+              <img src="https://images.unsplash.com/photo-1594824813627-89146dfa9960?auto=format&fit=crop&w=800&q=80" alt="Dra. Sofía Nordenflycht · Especialista Odontológico" onerror="this.onerror=null;this.src='../../images/demos/assets/med/doctor-female-2.svg';"/>
+              <span class="doctor-reg">SIS #51920-7</span>
+            </div>
+            <div class="doctor-info">
+              <div class="doctor-specialty">Ortodoncia Digital & Alineadores</div>
+              <h3 class="doctor-name">Dra. Sofía Nordenflycht</h3>
+              <p class="doctor-bio">Especialista en ortodoncia invisible planificada con escáner intraoral 3D sin moldes de pasta.</p>
+              <button type="button" class="btn btn-outline" style="width:100%;" onclick="selectDoctorForBooking('Dra. Sofía Nordenflycht · Ortodoncia')">Reservar con Dra. Nordenflycht</button>
+            </div>
+          </article>
+        </div>
+
+        <div id="instalaciones">
+          <div class="section-header" style="margin-bottom:28px">
+            <div>
+              <span class="section-tag">Infraestructura Clínica Aséptica</span>
+              <h3 class="section-title" style="font-size:1.5rem">Explora nuestros boxes y central de esterilización (Clic para ampliar)</h3>
+            </div>
+          </div>
+
+          <div class="facility-gallery">
+            <button type="button" class="facility-item" data-lightbox-src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=85" data-lightbox-title="Box Odontológico Luz Día · Silla ergonómica con microscopía óptica">
+              <div class="facility-thumb">
+                <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=85" alt="Box Odontológico Luz Día" onerror="this.onerror=null;this.src='../../images/demos/assets/med/clinic-box-dental.svg';"/>
+              </div>
+              <div class="facility-caption">
+                <span>01. Box Odontológico Luz Natural</span>
+                <span style="color:var(--primary)">Ampliar +</span>
+              </div>
+            </button>
+
+            <button type="button" class="facility-item" data-lightbox-src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1200&q=85" data-lightbox-title="Recepción Minimalista Silenciosa · Cero tiempo de espera en sala">
+              <div class="facility-thumb">
+                <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1200&q=85" alt="Recepción Minimalista Silenciosa" onerror="this.onerror=null;this.src='../../images/demos/assets/med/clinic-reception.svg';"/>
+              </div>
+              <div class="facility-caption">
+                <span>02. Recepción & Admisión Digital</span>
+                <span style="color:var(--primary)">Ampliar +</span>
+              </div>
+            </button>
+
+            <button type="button" class="facility-item" data-lightbox-src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1200&q=85" data-lightbox-title="Sala de Radiología 3D Cone Beam · Dosis ultra-baja certificada">
+              <div class="facility-thumb">
+                <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1200&q=85" alt="Sala de Radiología 3D Cone Beam" onerror="this.onerror=null;this.src='../../images/demos/assets/med/clinic-suite-vip.svg';"/>
+              </div>
+              <div class="facility-caption">
+                <span>03. Unidad de Imagenología 3D</span>
+                <span style="color:var(--primary)">Ampliar +</span>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonios Ficticios Etiquetados -->
+    <section class="section-wrap" id="testimonios">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-tag">Experiencia del Paciente</span>
+            <h2 class="section-title">Claridad y calma en cada etapa</h2>
+          </div>
+        </div>
+
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <span class="demo-badge-note">[Testimonio Ficticio de Demostración]</span>
+            <p class="testimonial-quote">
+              "Por primera vez fui al dentista sin ansiedad. El box parece una galería escandinava, me mostraron en pantalla cada detalle de mi radiografía y el presupuesto se respetó al peso."
+            </p>
+            <div class="testimonial-author">
+              Camila R. · Paciente de Rehabilitación Oral
+              <span>Atendida con convenio Isapre en Las Condes</span>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <span class="demo-badge-note">[Testimonio Ficticio de Demostración]</span>
+            <p class="testimonial-quote">
+              "Agendé mi chequeo preventivo anual en menos de un minuto desde el celular. Entré exactamente a las 09:00 hrs sin esperar en sala."
+            </p>
+            <div class="testimonial-author">
+              Rodrigo M. · Paciente de Medicina Interna
+              <span>Chequeo Ejecutivo Preventivo</span>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <span class="demo-badge-note">[Testimonio Ficticio de Demostración]</span>
+            <p class="testimonial-quote">
+              "El escáner 3D reemplazó los moldes incómodos. Pude ver la simulación de mi sonrisa y pagar con bono electrónico al instante."
+            </p>
+            <div class="testimonial-author">
+              Francisca L. · Paciente de Ortodoncia Digital
+              <span>Tratamiento con Alineadores Invisibles</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reserva Médica Interactiva -->
+    <section class="section-wrap bg-soft" id="reserva">
+      <div class="container">
+        <div class="booking-layout">
+          <div>
+            <span class="section-tag">Agenda Médica en Tiempo Real</span>
+            <h2 class="section-title" style="margin-bottom:16px">Reserva tu hora sin llamadas</h2>
+            <p class="section-desc" style="margin-bottom:28px">
+              Completa tus datos para bloquear tu bloque horario o enviar tu solicitud directamente a recepción por WhatsApp.
+            </p>
+            <div style="background:var(--bg-pure);border:1px solid var(--border-light);border-radius:var(--radius-md);padding:24px">
+              <h3 style="font-size:0.95rem;font-family:var(--font-heading);margin-bottom:10px">Compromiso de Atención Clínica Claridad</h3>
+              <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;font-size:0.86rem;color:var(--text-muted)">
+                <li>✓ Confirmación inmediata y recordatorio por WhatsApp 24h antes.</li>
+                <li>✓ Emisión de Bono Fonasa e Isapres vía huella digital I-Med.</li>
+                <li>✓ Estacionamiento subterráneo liberado para pacientes (Nivel -1).</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="booking-card">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">
+              <h3 style="font-family:var(--font-heading);font-size:1.2rem">Formulario de Reserva</h3>
+              <span class="demo-badge-note" style="margin:0">[Demostración Interactiva]</span>
+            </div>
+
+            <form id="clinicalBookingForm">
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label for="patientName">Nombre y Apellido *</label>
+                  <input type="text" id="patientName" class="clean-input" placeholder="Ej: Andrea Morales" required />
+                </div>
+                <div class="form-group">
+                  <label for="patientRut">RUT o Pasaporte *</label>
+                  <input type="text" id="patientRut" class="clean-input" placeholder="Ej: 16.482.910-K" required />
+                </div>
+              </div>
+
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label for="patientDoctor">Especialista / Unidad *</label>
+                  <select id="patientDoctor" class="clean-select" required>
+                    <option value="Dra. Elena Valdés · Rehabilitación Oral">Dra. Elena Valdés · Rehabilitación Oral</option>
+                    <option value="Dr. Martín Arriagada · Medicina Interna">Dr. Martín Arriagada · Medicina Interna</option>
+                    <option value="Dra. Sofía Nordenflycht · Ortodoncia">Dra. Sofía Nordenflycht · Ortodoncia</option>
+                    <option value="Evaluación Dental General">Evaluación Dental Integral + Rayos X</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="patientPrevision">Previsión</label>
+                  <select id="patientPrevision" class="clean-select">
+                    <option value="Isapre">Isapre (I-Med)</option>
+                    <option value="Fonasa">Fonasa Libre Elección</option>
+                    <option value="Particular">Particular</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group" style="margin-bottom:20px">
+                <label>Bloque horario preferido (Mañana / Tarde)</label>
+                <div class="time-slots-grid" id="bookingSlots">
+                  <button type="button" class="slot-pill is-selected" data-slot="09:15 hrs">09:15 hrs</button>
+                  <button type="button" class="slot-pill" data-slot="11:00 hrs">11:00 hrs</button>
+                  <button type="button" class="slot-pill" data-slot="16:30 hrs">16:30 hrs</button>
+                  <button type="button" class="slot-pill" data-slot="18:15 hrs">18:15 hrs</button>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width:100%;padding:14px">
+                Confirmar Reserva de Demostración
+              </button>
+            </form>
+
+            <div class="booking-feedback" id="bookingFeedback" role="status"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Lightbox Modal Funcional -->
+  <div class="lightbox-modal" id="facilityLightbox" role="dialog" aria-modal="true" aria-label="Visor de instalaciones clínicas">
+    <div class="lightbox-box">
+      <div class="lightbox-img-wrap">
+        <img id="lightboxImg" src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=85" alt="Vista ampliada de instalación clínica" / onerror="this.onerror=null;this.src='../../images/demos/assets/med/clinic-box-dental.svg'">
+      </div>
+      <div class="lightbox-meta">
+        <strong id="lightboxCaption" style="font-size:0.95rem">Box Odontológico Luz Día</strong>
+        <button type="button" class="btn btn-outline" id="closeLightboxBtn" style="padding:7px 14px">Cerrar (Esc)</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>CLÍNICA CLARIDAD</h4>
+        <p style="margin-bottom:12px">
+          Medicina General & Especialidades Odontológicas bajo arquitectura de diseño Medical Minimalism (#01).
+        </p>
+        <p>Resolución Sanitaria SEREMI RM N° 049281 · Demostración interactiva desarrollada por KuyénDev.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Especialidades</h4>
+        <ul>
+          <li><a href="#especialidades">Rehabilitación Oral CAD/CAM</a></li>
+          <li><a href="#especialidades">Ortodoncia Invisible 3D</a></li>
+          <li><a href="#especialidades">Medicina Interna & Chequeos</a></li>
+          <li><a href="#especialidades">Higiene & Periodoncia</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Pacientes</h4>
+        <ul>
+          <li><a href="#aranceles">Simulador de Copago</a></li>
+          <li><a href="#equipo">Cuerpo Médico</a></li>
+          <li><a href="#instalaciones">Pabellones y Rayos X</a></li>
+          <li><a href="#reserva">Reserva en Línea</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Ubicación y Horarios</h4>
+        <ul>
+          <li>Av. Alonso de Córdova 4120, Piso 4</li>
+          <li>Las Condes, Santiago</li>
+          <li>Lun a Vie: 08:00 – 20:00 hrs</li>
+          <li>Sábados: 09:00 – 14:00 hrs</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Clínica Claridad (Marca Ficticia de Demostración KuyénDev · Estilo #01 Medical Minimalism).</span>
+      <span>Todos los testimonios y reservas en esta página son interactivos y de carácter demostrativo.</span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+
+      // Menú móvil
+      const mobileBtn = document.getElementById('mobileMenuBtn');
+      const mainNav = document.getElementById('mainNav');
+      if (mobileBtn && mainNav) {
+        mobileBtn.addEventListener('click', () => {
+          mainNav.classList.toggle('is-open');
+        });
+      }
+
+      // Datos de prestaciones por especialidad
+      const specialtiesData = {
+        dental: [
+          { code: 'COD-0101', name: 'Diagnóstico Dental Digital + Rayos X', desc: 'Evaluación integral con cámara intraoral HD y radiografías Bitewing bilaterales.', price: '$35.000', tag: 'Convenio Isapre / Fonasa' },
+          { code: 'COD-0104', name: 'Higiene Ultrasónica + Profilaxis AirFlow', desc: 'Eliminación indolora de biofilm y manchas con tecnología suiza de agua tibia.', price: '$58.000', tag: '45 minutos en box' },
+          { code: 'COD-0109', name: 'Blanqueamiento Clínico LED Philips Zoom', desc: 'Aclaramiento seguro en una sesión con barrera gingival fotopolimerizable.', price: '$165.000', tag: 'Esmalte protegido' }
+        ],
+        medicina: [
+          { code: 'MED-0201', name: 'Consulta Medicina Interna & Preventiva', desc: 'Anamnesis completa de 45 minutos, examen físico y solicitud de perfil bioquímico.', price: '$42.000', tag: 'Bono I-Med inmediato' },
+          { code: 'MED-0205', name: 'Chequeo Cardiovascular & Electrocardiograma', desc: 'Evaluación preventiva de presión arterial, ECG de 12 derivaciones e informe médico.', price: '$54.000', tag: 'Entrega en el día' },
+          { code: 'MED-0209', name: 'Consulta Nutrición Clínica & Metabolismo', desc: 'Bioimpedanciometría segmentaria InBody y pauta clínica personalizada.', price: '$38.000', tag: 'Reembolsable Isapres' }
+        ],
+        ortodoncia: [
+          { code: 'ORT-0301', name: 'Escaneo Intraoral 3D + Simulación Sonrisa', desc: 'Modelo digital tridimensional sin pasta para planificar alineadores invisibles.', price: '$45.000', tag: 'Tecnología iTero 5D' },
+          { code: 'ORT-0308', name: 'Implante de Titanio Guiado por Computador', desc: 'Cirugía mínimamente invasiva sin colgajo planificada mediante tomografía Cone Beam.', price: '$420.000', tag: 'Pabellón menor acreditado' },
+          { code: 'ORT-0312', name: 'Corona Monolítica de Zirconio CAD/CAM', desc: 'Restauración cerámica libre de metal diseñada y fresada digitalmente.', price: '$320.000', tag: 'Garantía clínica 5 años' }
+        ]
+      };
+
+      const servicesGrid = document.getElementById('servicesGrid');
+      const tabBtns = document.querySelectorAll('.spec-tab-btn');
+
+      function renderServices(cat) {
+        if (!servicesGrid) return;
+        const items = specialtiesData[cat] || specialtiesData.dental;
+        servicesGrid.innerHTML = items.map(item => `
+          <article class="service-card">
+            <div>
+              <span class="service-code">${item.code} · ${item.tag}</span>
+              <h3>${item.name}</h3>
+              <p>${item.desc}</p>
+            </div>
+            <div class="service-footer">
+              <div class="service-price">
+                ${item.price}
+                <small>Arancel Base Transparente</small>
+              </div>
+              <a href="#reserva" class="btn btn-outline" style="padding:8px 14px;font-size:0.8rem;" onclick="selectDoctorForBooking('${item.name}')">Agendar</a>
+            </div>
+          </article>
+        `).join('');
+      }
+
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          tabBtns.forEach(b => {
+            b.classList.toggle('is-active', b === btn);
+            b.setAttribute('aria-selected', b === btn ? 'true' : 'false');
+          });
+          renderServices(btn.getAttribute('data-spec'));
+        });
+      });
+
+      renderServices('dental');
+
+      // Simulador de Copago
+      const calcItems = [
+        { title: 'Diagnóstico Dental + Radiografía Bitewing Digital', base: 35000 },
+        { title: 'Higiene Ultrasónica + Profilaxis AirFlow', base: 58000 },
+        { title: 'Consulta Medicina General Adulto 45 min', base: 42000 },
+        { title: 'Blanqueamiento Clínico LED Philips Zoom', base: 165000 },
+        { title: 'Corona Libre de Metal Zirconio CAD/CAM', base: 320000 }
+      ];
+
+      let activePrev = 'isapre';
+      const calcSelect = document.getElementById('calcServiceSelect');
+      const prevBtns = document.querySelectorAll('.prev-pill');
+      const insCheck = document.getElementById('calcSeguroCheck');
+
+      function formatCLP(num) {
+        return '$' + Math.round(num).toLocaleString('es-CL');
+      }
+
+      function updateCalculator() {
+        const idx = parseInt(calcSelect.value, 10) || 0;
+        const item = calcItems[idx];
+        let coverageRate = 0.7;
+        if (activePrev === 'fonasa') coverageRate = 0.45;
+        if (activePrev === 'particular') coverageRate = 0.15; // Descuento convenio directo
+
+        const bonus = item.base * coverageRate;
+        const afterBonus = item.base - bonus;
+        const insDiscount = (insCheck && insCheck.checked) ? afterBonus * 0.5 : 0;
+        const finalCopay = afterBonus - insDiscount;
+
+        document.getElementById('calcTitleOut').textContent = item.title;
+        document.getElementById('calcBaseOut').textContent = formatCLP(item.base);
+        document.getElementById('calcBonusOut').textContent = '-' + formatCLP(bonus);
+        document.getElementById('calcInsOut').textContent = insDiscount > 0 ? '-' + formatCLP(insDiscount) : '$0';
+        document.getElementById('calcFinalOut').textContent = formatCLP(finalCopay);
+      }
+
+      if (calcSelect) calcSelect.addEventListener('change', updateCalculator);
+      if (insCheck) insCheck.addEventListener('change', updateCalculator);
+      prevBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          prevBtns.forEach(b => b.classList.toggle('is-active', b === btn));
+          activePrev = btn.getAttribute('data-prev');
+          updateCalculator();
+        });
+      });
+
+      // Selección rápida hacia formulario de reserva
+      window.selectDoctorForBooking = function (label) {
+        const select = document.getElementById('patientDoctor');
+        if (select) {
+          let found = false;
+          for (let i = 0; i < select.options.length; i++) {
+            if (select.options[i].value === label) {
+              select.selectedIndex = i;
+              found = true;
+              break;
+            }
+          }
+          if (!found) {
+            const opt = document.createElement('option');
+            opt.value = label;
+            opt.textContent = label;
+            select.appendChild(opt);
+            select.value = label;
+          }
+        }
+        const reservaEl = document.getElementById('reserva');
+        if (reservaEl) reservaEl.scrollIntoView({ behavior: 'smooth' });
+      };
+
+      // Selección de horario y envío de reserva
+      let selectedSlot = '09:15 hrs';
+      const slotPills = document.querySelectorAll('.slot-pill');
+      slotPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          slotPills.forEach(p => p.classList.toggle('is-selected', p === pill));
+          selectedSlot = pill.getAttribute('data-slot');
+        });
+      });
+
+      const bookingForm = document.getElementById('clinicalBookingForm');
+      const bookingFeedback = document.getElementById('bookingFeedback');
+      if (bookingForm && bookingFeedback) {
+        bookingForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const name = document.getElementById('patientName').value.trim();
+          const doc = document.getElementById('patientDoctor').value;
+          const prev = document.getElementById('patientPrevision').value;
+          bookingFeedback.classList.add('is-visible');
+          bookingFeedback.innerHTML = `
+            <strong>✓ Solicitud de Reserva Registrada (Modo Demostración)</strong><br/>
+            Paciente: <strong>${name}</strong> · Especialidad: <strong>${doc}</strong><br/>
+            Bloque seleccionado: <strong>${selectedSlot}</strong> (${prev}). En un sitio en producción, esta reserva bloquea automáticamente la agenda médica y envía confirmación por WhatsApp.
+          `;
+        });
+      }
+
+      // Lightbox funcional
+      const lightbox = document.getElementById('facilityLightbox');
+      const lightboxImg = document.getElementById('lightboxImg');
+      const lightboxCaption = document.getElementById('lightboxCaption');
+      const closeLightboxBtn = document.getElementById('closeLightboxBtn');
+
+      document.querySelectorAll('[data-lightbox-src]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const src = btn.getAttribute('data-lightbox-src');
+          const title = btn.getAttribute('data-lightbox-title');
+          lightboxImg.src = src;
+          lightboxCaption.textContent = title;
+          lightbox.classList.add('is-open');
+        });
+      });
+
+      function closeLightbox() {
+        if (lightbox) lightbox.classList.remove('is-open');
+      }
+
+      if (closeLightboxBtn) closeLightboxBtn.addEventListener('click', closeLightbox);
+      if (lightbox) {
+        lightbox.addEventListener('click', (e) => {
+          if (e.target === lightbox) closeLightbox();
+        });
+      }
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeLightbox();
+      });
+    })();
+  </script>
+
+  <script src="../../js/config/rubros.js"></script>
+  <script src="../../js/demo-viewer-bar.js"></script>
+</body>
+</html>

@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>KINETIC SALON · Transformación Capilar & Experiencia Inmersiva</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;500;600&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-abyss: #0A0E17;
+      --bg-slate: #1E293B;
+      --sky-kinetic: #38BDF8;
+      --sky-glow: rgba(56, 189, 248, 0.25);
+      --ice-white: #F1F5F9;
+      --muted-slate: #94A3B8;
+      --font-heading: 'Sora', sans-serif;
+      --font-body: 'Epilogue', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-abyss);
+      color: var(--ice-white);
+      font-family: var(--font-body);
+      line-height: 1.6;
+    }
+
+    body {
+      background-color: var(--bg-abyss);
+      color: var(--ice-white);
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* Scroll Progress Bar */
+    .scroll-progress-track {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: rgba(30, 41, 59, 0.7);
+      z-index: 200;
+    }
+
+    .scroll-progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #38BDF8, #818CF8);
+      box-shadow: 0 0 12px var(--sky-kinetic);
+      transition: width 0.1s linear;
+    }
+
+    /* Header */
+    .kinetic-header {
+      position: fixed;
+      top: 0;
+      inset-inline: 0;
+      z-index: 150;
+      background: rgba(10, 14, 23, 0.78);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(241, 245, 249, 0.08);
+    }
+
+    .header-wrap {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .kinetic-logo {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .pulse-ring {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--sky-kinetic);
+      box-shadow: 0 0 12px var(--sky-kinetic);
+    }
+
+    .kinetic-nav {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .kinetic-nav a {
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted-slate);
+      transition: color 0.25s ease;
+    }
+
+    .kinetic-nav a:hover {
+      color: var(--sky-kinetic);
+    }
+
+    .btn-kinetic {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      padding: 0.8rem 1.65rem;
+      border-radius: 999px;
+      background: var(--sky-kinetic);
+      color: var(--bg-abyss);
+      font-family: var(--font-heading);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: 1px solid var(--sky-kinetic);
+      cursor: pointer;
+      transition: all 0.25s ease;
+      box-shadow: 0 0 24px rgba(56, 189, 248, 0.35);
+    }
+
+    .btn-kinetic:hover {
+      background: transparent;
+      color: var(--sky-kinetic);
+    }
+
+    .btn-kinetic-ghost {
+      background: rgba(30, 41, 59, 0.65);
+      color: var(--ice-white);
+      border-color: rgba(241, 245, 249, 0.2);
+      box-shadow: none;
+    }
+
+    .btn-kinetic-ghost:hover {
+      border-color: var(--sky-kinetic);
+      color: var(--sky-kinetic);
+    }
+
+    /* Fullscreen Parallax Hero */
+    .hero-immersive {
+      min-height: 100vh;
+      padding: 7.5rem 1.5rem 4rem;
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 75% 25%, rgba(56, 189, 248, 0.18), transparent 45%),
+        radial-gradient(circle at 20% 80%, rgba(30, 41, 59, 0.9), transparent 55%);
+    }
+
+    .hero-parallax-grid {
+      max-width: 1360px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .chapter-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.38rem 1rem;
+      border-radius: 999px;
+      background: rgba(30, 41, 59, 0.85);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      color: var(--sky-kinetic);
+      font-family: var(--font-heading);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-kinetic-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2.4rem, 5vw, 4.4rem);
+      font-weight: 800;
+      line-height: 1.06;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-kinetic-title span {
+      color: var(--sky-kinetic);
+    }
+
+    .hero-kinetic-lead {
+      font-size: 1.08rem;
+      color: var(--muted-slate);
+      max-width: 540px;
+      margin-bottom: 2.25rem;
+    }
+
+    .parallax-stage {
+      position: relative;
+      height: 540px;
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.65);
+    }
+
+    .parallax-stage img {
+      width: 100%;
+      height: 112%;
+      object-fit: cover;
+      transform: translateY(var(--parallax-y, 0px));
+      transition: transform 0.15s ease-out;
+    }
+
+    .floating-telemetry {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 1.5rem;
+      right: 1.5rem;
+      background: rgba(10, 14, 23, 0.86);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      border-radius: 18px;
+      padding: 1rem 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+    }
+
+    /* Section Containers & Progressive Reveal */
+    .kinetic-section {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 5.5rem 1.5rem;
+      border-top: 1px solid rgba(241, 245, 249, 0.08);
+    }
+
+    .reveal-on-scroll {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .sec-header-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .sec-title {
+      font-family: var(--font-heading);
+      font-size: clamp(1.9rem, 3.4vw, 2.85rem);
+      font-weight: 700;
+    }
+
+    /* Visual Interactive Experience: Before / After Transformation Scrubber & 4-Phase Journey */
+    .transformation-engine {
+      display: grid;
+      grid-template-columns: 7fr 5fr;
+      gap: 2.5rem;
+      background: var(--bg-slate);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: 28px;
+      padding: clamp(1.5rem, 3.5vw, 2.75rem);
+    }
+
+    .comparison-viewport {
+      position: relative;
+      height: 440px;
+      border-radius: 20px;
+      overflow: hidden;
+      user-select: none;
+      border: 1px solid rgba(241, 245, 249, 0.15);
+    }
+
+    .comp-layer {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .comp-layer img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Before layer desaturated & warm oxidized */
+    .comp-before img {
+      filter: sepia(0.45) saturate(0.65) brightness(0.82) contrast(0.9);
+    }
+
+    /* After layer clipped dynamically by slider */
+    .comp-after {
+      clip-path: inset(0 0 0 50%);
+    }
+
+    .comp-after img {
+      filter: saturate(1.2) contrast(1.08) brightness(1.05);
+    }
+
+    .comp-divider-line {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 3px;
+      background: var(--sky-kinetic);
+      box-shadow: 0 0 15px var(--sky-kinetic);
+      pointer-events: none;
+    }
+
+    .comp-badge {
+      position: absolute;
+      top: 1rem;
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      background: rgba(10, 14, 23, 0.85);
+      font-family: var(--font-heading);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .comp-badge.left {
+      left: 1rem;
+    }
+
+    .comp-badge.right {
+      right: 1rem;
+      color: var(--sky-kinetic);
+      border: 1px solid var(--sky-kinetic);
+    }
+
+    .phase-stepper {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.25rem;
+    }
+
+    .phase-buttons {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+    }
+
+    .phase-btn {
+      padding: 0.85rem 1rem;
+      border-radius: 14px;
+      background: rgba(10, 14, 23, 0.65);
+      border: 1px solid rgba(241, 245, 249, 0.12);
+      color: var(--ice-white);
+      text-align: left;
+      cursor: pointer;
+      font-family: var(--font-heading);
+      font-size: 0.78rem;
+      transition: all 0.2s ease;
+    }
+
+    .phase-btn.active,
+    .phase-btn:hover {
+      border-color: var(--sky-kinetic);
+      background: rgba(56, 189, 248, 0.15);
+    }
+
+    /* Interactive Services Menu */
+    .kinetic-filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 2.25rem;
+    }
+
+    .k-filter-btn {
+      padding: 0.65rem 1.35rem;
+      border-radius: 999px;
+      background: var(--bg-slate);
+      border: 1px solid rgba(241, 245, 249, 0.12);
+      color: var(--ice-white);
+      font-family: var(--font-heading);
+      font-size: 0.78rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .k-filter-btn.active,
+    .k-filter-btn:hover {
+      background: var(--sky-kinetic);
+      color: var(--bg-abyss);
+      border-color: var(--sky-kinetic);
+      font-weight: 700;
+    }
+
+    .kinetic-services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .k-service-card {
+      background: linear-gradient(180deg, rgba(30, 41, 59, 0.75), rgba(10, 14, 23, 0.9));
+      border: 1px solid rgba(241, 245, 249, 0.1);
+      border-radius: 22px;
+      padding: 1.85rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.25rem;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .k-service-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--sky-kinetic);
+    }
+
+    /* Lookbook Gallery */
+    .kinetic-gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+
+    .k-look-item {
+      border-radius: 20px;
+      overflow: hidden;
+      background: var(--bg-slate);
+      border: 1px solid rgba(241, 245, 249, 0.12);
+      cursor: pointer;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .k-look-item:hover {
+      transform: translateY(-6px);
+      border-color: var(--sky-kinetic);
+    }
+
+    .k-look-thumb {
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+    }
+
+    .k-look-thumb img {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.5s ease;
+    }
+
+    .k-look-item:hover .k-look-thumb img {
+      transform: scale(1.06);
+    }
+
+    .k-look-caption {
+      padding: 1rem 1.2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-heading);
+      font-size: 0.82rem;
+    }
+
+    /* Team */
+    .kinetic-team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+    }
+
+    .k-specialist {
+      background: var(--bg-slate);
+      border: 1px solid rgba(241, 245, 249, 0.1);
+      border-radius: 22px;
+      padding: 1.75rem;
+    }
+
+    .k-specialist-img {
+      aspect-ratio: 4 / 3;
+      border-radius: 14px;
+      overflow: hidden;
+      margin-bottom: 1.25rem;
+    }
+
+    /* Testimonials */
+    .kinetic-reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .k-review-card {
+      background: rgba(30, 41, 59, 0.6);
+      border: 1px solid rgba(56, 189, 248, 0.22);
+      border-radius: 20px;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.25rem;
+    }
+
+    .k-demo-pill {
+      font-size: 0.66rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--sky-kinetic);
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      padding: 0.25rem 0.65rem;
+      border-radius: 6px;
+      width: fit-content;
+    }
+
+    /* Booking Section */
+    .kinetic-booking-wrap {
+      background: linear-gradient(145deg, var(--bg-slate), var(--bg-abyss));
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      border-radius: 28px;
+      padding: clamp(1.75rem, 4vw, 3.25rem);
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: 2.5rem;
+    }
+
+    .k-form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.15rem;
+    }
+
+    .k-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .k-field.full {
+      grid-column: 1 / -1;
+    }
+
+    .k-field label {
+      font-family: var(--font-heading);
+      font-size: 0.74rem;
+      color: var(--sky-kinetic);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .k-field input,
+    .k-field select {
+      padding: 0.85rem 1rem;
+      border-radius: 12px;
+      background: rgba(10, 14, 23, 0.85);
+      border: 1px solid rgba(241, 245, 249, 0.18);
+      color: var(--ice-white);
+      font-family: var(--font-body);
+    }
+
+    .k-feedback {
+      margin-top: 1.25rem;
+      padding: 1.15rem;
+      border-radius: 14px;
+      background: rgba(56, 189, 248, 0.14);
+      border: 1px solid var(--sky-kinetic);
+      display: none;
+    }
+
+    /* Lightbox */
+    .kinetic-lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 14, 23, 0.92);
+      backdrop-filter: blur(12px);
+      z-index: 999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .kinetic-lightbox.open {
+      display: flex;
+    }
+
+    .k-lb-card {
+      max-width: 780px;
+      width: 100%;
+      background: var(--bg-slate);
+      border: 1px solid var(--sky-kinetic);
+      border-radius: 22px;
+      overflow: hidden;
+    }
+
+    @media (max-width: 1024px) {
+      .hero-parallax-grid,
+      .transformation-engine,
+      .kinetic-services-grid,
+      .kinetic-team-grid,
+      .kinetic-reviews-grid,
+      .kinetic-booking-wrap {
+        grid-template-columns: 1fr;
+      }
+      .kinetic-gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .kinetic-nav {
+        display: none;
+      }
+      .kinetic-gallery,
+      .k-form-grid,
+      .phase-buttons {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .parallax-stage img {
+        transform: none !important;
+      }
+    }
+  </style>
+</head>
+<body data-rubro-id="peluqueria" data-style-id="immersive-motion">
+  <!-- Progress Bar -->
+  <div class="scroll-progress-track" aria-hidden="true">
+    <div class="scroll-progress-bar" id="scrollProgressBar"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="kinetic-header">
+    <div class="header-wrap">
+      <a href="#top" class="kinetic-logo">
+        <span class="pulse-ring"></span>
+        <span>KINETIC SALON</span>
+      </a>
+      <nav aria-label="Navegación principal">
+        <ul class="kinetic-nav">
+          <li><a href="#transformacion">Simulador Antes/Después</a></li>
+          <li><a href="#servicios">Secuencias</a></li>
+          <li><a href="#lookbook">Portafolio En Movimiento</a></li>
+          <li><a href="#equipo">Directores</a></li>
+          <li><a href="#reserva">Reservar</a></li>
+        </ul>
+      </nav>
+      <a href="#reserva" class="btn-kinetic">Iniciar Cambio</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero-immersive">
+      <div class="hero-parallax-grid">
+        <div>
+          <span class="chapter-pill">● Estilo #15 · Immersive Motion / Parallax</span>
+          <h1 class="hero-kinetic-title">
+            La Transformación Capilar Como <span>Narrativa Visual.</span>
+          </h1>
+          <p class="hero-kinetic-lead">
+            En <strong>KINETIC SALON</strong> diseñamos cada corte y corrección de color teniendo en cuenta cómo se mueve tu cabello al caminar, girar y recibir la luz en 360 grados.
+          </p>
+          <div style="display:flex; flex-wrap:wrap; gap:1rem">
+            <a href="#transformacion" class="btn-kinetic">Explorar Transformación Interactiva</a>
+            <a href="#servicios" class="btn-kinetic btn-kinetic-ghost">Ver Carta de Servicios</a>
+          </div>
+        </div>
+
+        <div class="parallax-stage">
+          <img
+            id="heroParallaxImg"
+            src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85"
+            alt="Transformación capilar en movimiento"
+            onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg'">
+          <div class="floating-telemetry">
+            <div>
+              <span style="color:var(--sky-kinetic); font-family:var(--font-heading); font-size:0.7rem; display:block">DINÁMICA DE FIBRA</span>
+              <strong>Corte Cinético 360° & Brillo Óptico</strong>
+            </div>
+            <span style="color:var(--muted-slate)">60 FPS FLUIDITY</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Visual Interactive Experience: Before / After Transformation Scrubber -->
+    <section id="transformacion" class="kinetic-section reveal-on-scroll">
+      <div class="sec-header-row">
+        <div>
+          <span class="chapter-pill">01 · Experiencia Interactiva de Transformación</span>
+          <h2 class="sec-title">Escáner de Evolución Antes / Después</h2>
+        </div>
+        <p style="max-width:440px; color:var(--muted-slate)">
+          Desliza el comparador óptico o selecciona cada etapa del proceso para descubrir cómo restauramos el tono, la estructura y el movimiento.
+        </p>
+      </div>
+
+      <div class="transformation-engine">
+        <div>
+          <div class="comparison-viewport" id="compViewport">
+            <div class="comp-layer comp-before">
+              <img
+                src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=900&q=80"
+                alt="Estado inicial antes de corrección de color"
+                onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/hair-look-balayage.svg'">
+            </div>
+            <div class="comp-layer comp-after" id="compAfterLayer">
+              <img
+                src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85"
+                alt="Resultado final con iluminación dimensional y brillo espejo"
+                onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg'">
+            </div>
+            <div class="comp-divider-line" id="compDivider"></div>
+            <span class="comp-badge left">ANTES · Oxidado / Sin Forma</span>
+            <span class="comp-badge right">DESPUÉS · Kinetic Balayage</span>
+          </div>
+
+          <div style="margin-top:1.1rem">
+            <label for="scrubberRange" style="display:flex; justify-content:space-between; font-family:var(--font-heading); font-size:0.78rem; color:var(--sky-kinetic); margin-bottom:0.4rem">
+              <span>DESLIZA EL COMPARADOR DE TRANSFORMACIÓN</span>
+              <span id="scrubberReadout">50% Revelado</span>
+            </label>
+            <input type="range" id="scrubberRange" min="5" max="95" value="50" style="width:100%; accent-color:var(--sky-kinetic); cursor:pointer">
+          </div>
+        </div>
+
+        <div class="phase-stepper">
+          <div>
+            <span style="font-family:var(--font-heading); font-size:0.75rem; color:var(--sky-kinetic); text-transform:uppercase; letter-spacing:0.12em">
+              Etapas de la Narrativa Capilar
+            </span>
+            <h3 id="phaseHeading" style="font-family:var(--font-heading); font-size:1.45rem; margin:0.4rem 0 0.75rem">
+              Fase 02 · Mapeo de Luz Tridimensional
+            </h3>
+            <p id="phaseDesc" style="color:var(--muted-slate); font-size:0.95rem">
+              Diseñamos velos diagonales que acompañan el giro natural del cuello, evitando líneas rígidas cuando el cabello está en movimiento.
+            </p>
+          </div>
+
+          <div class="phase-buttons">
+            <button type="button" class="phase-btn" data-pct="15" data-title="Fase 01 · Diagnóstico Tricológico Digital" data-desc="Evaluamos porosidad, elasticidad y subtono con cámara microscópica antes de tocar una sola hebra.">
+              01 · Diagnóstico (15%)
+            </button>
+            <button type="button" class="phase-btn active" data-pct="50" data-title="Fase 02 · Mapeo de Luz Tridimensional" data-desc="Diseñamos velos diagonales que acompañan el giro natural del cuello, evitando líneas rígidas en movimiento.">
+              02 · Mapeo 3D (50%)
+            </button>
+            <button type="button" class="phase-btn" data-pct="75" data-title="Fase 03 · Corte en Movimiento & Caída" data-desc="Texturizado interno invisible para aligerar peso sin perder densidad en el perímetro.">
+              03 · Corte Cinético (75%)
+            </button>
+            <button type="button" class="phase-btn" data-pct="95" data-title="Fase 04 · Sellado Óptico & Revelación" data-desc="Sellado ácido criogénico que refleja hasta un 94% de la luz ambiental con caída fluida.">
+              04 · Resultado Final (95%)
+            </button>
+          </div>
+
+          <a href="#reserva" class="btn-kinetic" style="width:100%">Agendar Mi Transformación Completa</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Services Menu -->
+    <section id="servicios" class="kinetic-section reveal-on-scroll">
+      <div class="sec-header-row">
+        <div>
+          <span class="chapter-pill">02 · Carta de Secuencias</span>
+          <h2 class="sec-title">Programas de Transformación</h2>
+        </div>
+        <div class="kinetic-filter-row" style="margin-bottom:0">
+          <button type="button" class="k-filter-btn active" data-kcat="all">Todos (6)</button>
+          <button type="button" class="k-filter-btn" data-kcat="color">Dimensional Color</button>
+          <button type="button" class="k-filter-btn" data-kcat="corte">Corte Cinético</button>
+          <button type="button" class="k-filter-btn" data-kcat="crio">Terapia Criogénica</button>
+        </div>
+      </div>
+
+      <div class="kinetic-services-grid">
+        <article class="k-service-card" data-kcat="color">
+          <div>
+            <span style="color:var(--sky-kinetic); font-size:0.75rem; font-family:var(--font-heading)">SECUENCIA 01 · 180 MIN</span>
+            <h3 style="font-family:var(--font-heading); font-size:1.25rem; margin:0.5rem 0">Kinetic Dimensional Balayage</h3>
+            <p style="color:var(--muted-slate); font-size:0.9rem">Degradado de alto impacto con difuminado de raíz sin costuras y matiz reflectante personalizado.</p>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(255,255,255,0.08); padding-top:1rem">
+            <strong style="font-family:var(--font-heading); font-size:1.3rem">$108.000</strong>
+            <button type="button" class="btn-kinetic pick-k-service" data-service="Kinetic Dimensional Balayage" style="padding:0.5rem 1.1rem; font-size:0.72rem">Seleccionar</button>
+          </div>
+        </article>
+
+        <article class="k-service-card" data-kcat="color">
+          <div>
+            <span style="color:var(--sky-kinetic); font-size:0.75rem; font-family:var(--font-heading)">SECUENCIA 02 · 210 MIN</span>
+            <h3 style="font-family:var(--font-heading); font-size:1.25rem; margin:0.5rem 0">Corrección de Color de Autor</h3>
+            <p style="color:var(--muted-slate); font-size:0.9rem">Neutralización de bandas naranjas o manchas previas con reconstrucción de puentes disulfuro incluida.</p>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(255,255,255,0.08); padding-top:1rem">
+            <strong style="font-family:var(--font-heading); font-size:1.3rem">$135.000</strong>
+            <button type="button" class="btn-kinetic pick-k-service" data-service="Corrección de Color de Autor" style="padding:0.5rem 1.1rem; font-size:0.72rem">Seleccionar</button>
+          </div>
+        </article>
+
+        <article class="k-service-card" data-kcat="corte">
+          <div>
+            <span style="color:var(--sky-kinetic); font-size:0.75rem; font-family:var(--font-heading)">SECUENCIA 03 · 65 MIN</span>
+            <h3 style="font-family:var(--font-heading); font-size:1.25rem; margin:0.5rem 0">Corte Cinético en Capas Fluidas</h3>
+            <p style="color:var(--muted-slate); font-size:0.9rem">Técnica de esculpido dinámico que aporta movimiento continuo y rebote elástico al caminar.</p>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(255,255,255,0.08); padding-top:1rem">
+            <strong style="font-family:var(--font-heading); font-size:1.3rem">$46.000</strong>
+            <button type="button" class="btn-kinetic pick-k-service" data-service="Corte Cinético en Capas Fluidas" style="padding:0.5rem 1.1rem; font-size:0.72rem">Seleccionar</button>
+          </div>
+        </article>
+
+        <article class="k-service-card" data-kcat="corte">
+          <div>
+            <span style="color:var(--sky-kinetic); font-size:0.75rem; font-family:var(--font-heading)">SECUENCIA 04 · 60 MIN</span>
+            <h3 style="font-family:var(--font-heading); font-size:1.25rem; margin:0.5rem 0">Contouring Facial & Butterfly Cut</h3>
+            <p style="color:var(--muted-slate); font-size:0.9rem">Capas enmarcadoras a la altura de pómulos y clavícula diseñadas para elevar el perfil facial.</p>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(255,255,255,0.08); padding-top:1rem">
+            <strong style="font-family:var(--font-heading); font-size:1.3rem">$44.000</strong>
+            <button type="button" class="btn-kinetic pick-k-service" data-service="Contouring Facial & Butterfly Cut" style="padding:0.5rem 1.1rem; font-size:0.72rem">Seleccionar</button>
+          </div>
+        </article>
+
+        <article class="k-service-card" data-kcat="crio">
+          <div>
+            <span style="color:var(--sky-kinetic); font-size:0.75rem; font-family:var(--font-heading)">SECUENCIA 05 · 75 MIN</span>
+            <h3 style="font-family:var(--font-heading); font-size:1.25rem; margin:0.5rem 0">Crioterapia Capilar Bajo Cero</h3>
+            <p style="color:var(--muted-slate); font-size:0.9rem">Sellado con plancha fría a -16°C que bloquea nutrientes y ácido hialurónico dentro de la corteza capilar.</p>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(255,255,255,0.08); padding-top:1rem">
+            <strong style="font-family:var(--font-heading); font-size:1.3rem">$62.000</strong>
+            <button type="button" class="btn-kinetic pick-k-service" data-service="Crioterapia Capilar Bajo Cero" style="padding:0.5rem 1.1rem; font-size:0.72rem">Seleccionar</button>
+          </div>
+        </article>
+
+        <article class="k-service-card" data-kcat="crio">
+          <div>
+            <span style="color:var(--sky-kinetic); font-size:0.75rem; font-family:var(--font-heading)">SECUENCIA 06 · 50 MIN</span>
+            <h3 style="font-family:var(--font-heading); font-size:1.25rem; margin:0.5rem 0">Ultrasonido & Fototerapia LED</h3>
+            <p style="color:var(--muted-slate); font-size:0.9rem">Penetración de keratina hidrolizada mediante ondas ultrasónicas en frío y estimulación folicular LED.</p>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(255,255,255,0.08); padding-top:1rem">
+            <strong style="font-family:var(--font-heading); font-size:1.3rem">$54.000</strong>
+            <button type="button" class="btn-kinetic pick-k-service" data-service="Ultrasonido & Fototerapia LED" style="padding:0.5rem 1.1rem; font-size:0.72rem">Seleccionar</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Lookbook Gallery -->
+    <section id="lookbook" class="kinetic-section reveal-on-scroll">
+      <div class="sec-header-row">
+        <div>
+          <span class="chapter-pill">03 · Archivo de Movimiento</span>
+          <h2 class="sec-title">Lookbook Inmersivo</h2>
+        </div>
+        <p style="color:var(--muted-slate)">Haz clic sobre cualquier captura para abrir el visor cinematográfico.</p>
+      </div>
+
+      <div class="kinetic-gallery">
+        <article class="k-look-item" tabindex="0" data-title="SECUENCIA #01 · FLUID SILK BALAYAGE" data-desc="Transición fría perlada con sellado criogénico a -16°C" data-img="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85">
+          <div class="k-look-thumb">
+            <img
+              src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=900&q=80"
+              alt="Fluid Silk Balayage"
+              onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/hair-look-balayage.svg'">
+          </div>
+          <div class="k-look-caption">
+            <span>Fluid Silk</span>
+            <span style="color:var(--sky-kinetic)">Ampliar +</span>
+          </div>
+        </article>
+
+        <article class="k-look-item" tabindex="0" data-title="SECUENCIA #02 · BUTTERFLY MOTION LAYERS" data-desc="Capas largas aireadas con secado rotativo de volumen" data-img="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1000&q=80">
+          <div class="k-look-thumb">
+            <img
+              src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85"
+              alt="Butterfly Motion Layers"
+              onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg'">
+          </div>
+          <div class="k-look-caption">
+            <span>Butterfly Layers</span>
+            <span style="color:var(--sky-kinetic)">Ampliar +</span>
+          </div>
+        </article>
+
+        <article class="k-look-item" tabindex="0" data-title="SECUENCIA #03 · ESPRESSO GLOSS MIRROR" data-desc="Moreno iluminado con baño de brillo ácido reflectante" data-img="https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=1000&q=80">
+          <div class="k-look-thumb">
+            <img
+              src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85"
+              alt="Espresso Gloss Mirror"
+              onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg'">
+          </div>
+          <div class="k-look-caption">
+            <span>Espresso Mirror</span>
+            <span style="color:var(--sky-kinetic)">Ampliar +</span>
+          </div>
+        </article>
+
+        <article class="k-look-item" tabindex="0" data-title="SECUENCIA #04 · KINETIC STUDIO LAB" data-desc="Iluminación perimetral calibrada para diagnóstico de color" data-img="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1000&q=80">
+          <div class="k-look-thumb">
+            <img
+              src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85"
+              alt="Kinetic Studio Lab"
+              onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg'">
+          </div>
+          <div class="k-look-caption">
+            <span>Kinetic Lab</span>
+            <span style="color:var(--sky-kinetic)">Ampliar +</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Team -->
+    <section id="equipo" class="kinetic-section reveal-on-scroll">
+      <div class="sec-header-row">
+        <div>
+          <span class="chapter-pill">04 · Dirección Técnica</span>
+          <h2 class="sec-title">Especialistas en Movimiento & Fibra</h2>
+        </div>
+      </div>
+
+      <div class="kinetic-team-grid">
+        <article class="k-specialist">
+          <div class="k-specialist-img">
+            <img
+              src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=800&q=80"
+              alt="Elena Vance"
+              onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/stylist-female-1.svg'">
+          </div>
+          <span style="color:var(--sky-kinetic); font-size:0.75rem; font-family:var(--font-heading)">FOUNDER & MOTION CUT DIRECTOR</span>
+          <h3 style="font-family:var(--font-heading); font-size:1.3rem; margin:0.35rem 0">Elena Vance</h3>
+          <p style="color:var(--muted-slate); font-size:0.9rem">Pionera en corte dinámico tridimensional para editoriales de moda y cine publicitario.</p>
+        </article>
+
+        <article class="k-specialist">
+          <div class="k-specialist-img">
+            <img
+              src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85"
+              alt="Lucas Arancibia"
+              onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg'">
+          </div>
+          <span style="color:var(--sky-kinetic); font-size:0.75rem; font-family:var(--font-heading)">MASTER COLOR CORRECTIONIST</span>
+          <h3 style="font-family:var(--font-heading); font-size:1.3rem; margin:0.35rem 0">Lucas Arancibia</h3>
+          <p style="color:var(--muted-slate); font-size:0.9rem">Especialista en transiciones invisibles AirTouch y recuperación de rubios sensibilizados.</p>
+        </article>
+
+        <article class="k-specialist">
+          <div class="k-specialist-img">
+            <img
+              src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85"
+              alt="Mía Soler"
+              onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg'">
+          </div>
+          <span style="color:var(--sky-kinetic); font-size:0.75rem; font-family:var(--font-heading)">CRYO & ULTRASOUND THERAPIST</span>
+          <h3 style="font-family:var(--font-heading); font-size:1.3rem; margin:0.35rem 0">Mía Soler</h3>
+          <p style="color:var(--muted-slate); font-size:0.9rem">Lidera los protocolos de sellado bajo cero y fototerapia LED para densidad folicular.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="kinetic-section reveal-on-scroll" aria-label="Testimonios">
+      <div class="sec-header-row">
+        <div>
+          <span class="chapter-pill">05 · Historias de Transformación</span>
+          <h2 class="sec-title">Experiencias Verificadas de Estudio</h2>
+        </div>
+      </div>
+
+      <div class="kinetic-reviews-grid">
+        <article class="k-review-card">
+          <span class="k-demo-pill">[Testimonio Ficticio de Demostración]</span>
+          <p>“Llegué con tres tonos distintos por una decoloración anterior mal hecha. En cuatro horas lograron un rubio dimensional uniforme y sedoso.”</p>
+          <strong style="font-family:var(--font-heading); font-size:0.82rem; color:var(--sky-kinetic)">— Antonia Rivas · Directora de Arte</strong>
+        </article>
+
+        <article class="k-review-card">
+          <span class="k-demo-pill">[Testimonio Ficticio de Demostración]</span>
+          <p>“La crioterapia a -16°C después del balayage dejó mi cabello con un peso y caída que no sentía desde hace años.”</p>
+          <strong style="font-family:var(--font-heading); font-size:0.82rem; color:var(--sky-kinetic)">— Javiera Krögh · Productora Audiovisual</strong>
+        </article>
+
+        <article class="k-review-card">
+          <span class="k-demo-pill">[Testimonio Ficticio de Demostración]</span>
+          <p>“El Butterfly Cut de Elena tiene tanto movimiento que ni siquiera necesito usar tenaza en la semana.”</p>
+          <strong style="font-family:var(--font-heading); font-size:0.82rem; color:var(--sky-kinetic)">— Magdalena Cruz · Consultora</strong>
+        </article>
+      </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="reserva" class="kinetic-section reveal-on-scroll">
+      <div class="kinetic-booking-wrap">
+        <div>
+          <span class="chapter-pill">06 · Reserva Interactiva</span>
+          <h2 class="sec-title" style="margin-bottom:1rem">Programa Tu Transformación</h2>
+          <p style="color:var(--muted-slate); margin-bottom:1.5rem">
+            <strong>Demostración Interactiva del Lado del Cliente:</strong> Este módulo simula la confirmación inmediata de una cita para exhibir la funcionalidad de la página sin enviar datos personales.
+          </p>
+          <div style="border-top:1px solid rgba(255,255,255,0.1); padding-top:1rem; font-size:0.9rem; color:var(--muted-slate)">
+            <p><strong style="color:var(--ice-white)">Ubicación:</strong> Av. Alonso de Córdova · Nivel Terraza</p>
+            <p style="margin-top:0.35rem"><strong style="color:var(--ice-white)">Horario:</strong> Martes a Sábado · 10:00 a 20:30 hrs</p>
+          </div>
+        </div>
+
+        <form id="kineticBookingForm">
+          <div class="k-form-grid">
+            <div class="k-field">
+              <label for="kName">Nombre Completo</label>
+              <input type="text" id="kName" required placeholder="Ej. Valentina Mora">
+            </div>
+            <div class="k-field">
+              <label for="kContact">WhatsApp o Correo</label>
+              <input type="text" id="kContact" required placeholder="+56 9 0000 0000">
+            </div>
+            <div class="k-field">
+              <label for="kService">Secuencia Seleccionada</label>
+              <select id="kService">
+                <option value="Kinetic Dimensional Balayage">Kinetic Dimensional Balayage ($108.000)</option>
+                <option value="Corrección de Color de Autor">Corrección de Color de Autor ($135.000)</option>
+                <option value="Corte Cinético en Capas Fluidas">Corte Cinético en Capas Fluidas ($46.000)</option>
+                <option value="Contouring Facial & Butterfly Cut">Contouring Facial & Butterfly Cut ($44.000)</option>
+                <option value="Crioterapia Capilar Bajo Cero">Crioterapia Capilar Bajo Cero ($62.000)</option>
+                <option value="Ultrasonido & Fototerapia LED">Ultrasonido & Fototerapia LED ($54.000)</option>
+              </select>
+            </div>
+            <div class="k-field">
+              <label for="kDirector">Especialista Preferido</label>
+              <select id="kDirector">
+                <option value="Elena Vance (Corte Cinético)">Elena Vance · Corte Cinético</option>
+                <option value="Lucas Arancibia (Color & Corrección)">Lucas Arancibia · Color & Corrección</option>
+                <option value="Mía Soler (Crioterapia & LED)">Mía Soler · Crioterapia & LED</option>
+              </select>
+            </div>
+            <div class="k-field">
+              <label for="kDate">Fecha Deseada</label>
+              <input type="date" id="kDate" required>
+            </div>
+            <div class="k-field">
+              <label for="kTime">Bloque Horario</label>
+              <select id="kTime">
+                <option value="10:00 AM (Transformación Completa)">10:00 AM · Transformación Completa</option>
+                <option value="14:30 PM (Sesión Dimensional)">14:30 PM · Sesión Dimensional</option>
+                <option value="17:30 PM (Corte & Crioterapia)">17:30 PM · Corte & Crioterapia</option>
+              </select>
+            </div>
+            <div class="k-field full">
+              <button type="submit" class="btn-kinetic" style="width:100%; padding:1rem">
+                Confirmar Simulación de Reserva →
+              </button>
+            </div>
+          </div>
+          <div class="k-feedback" id="kFeedback" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer style="border-top:1px solid rgba(255,255,255,0.08); padding:2.25rem 1.5rem; text-align:center; font-size:0.82rem; color:var(--muted-slate)">
+    KINETIC SALON · Transformación Capilar & Experiencia Inmersiva · Estilo #15 por KuyénDev
+  </footer>
+
+  <!-- Lightbox Modal -->
+  <div class="kinetic-lightbox" id="kineticLightbox" role="dialog" aria-modal="true" aria-label="Visor de imagen">
+    <div class="k-lb-card">
+      <div style="max-height:65vh; overflow:hidden">
+        <img id="kLbImg" src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85" alt="Transformación ampliada" style="width:100%; max-height:65vh; object-fit:cover;" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg'">
+      </div>
+      <div style="padding:1.25rem 1.5rem; display:flex; justify-content:space-between; align-items:center; gap:1rem">
+        <div>
+          <h3 id="kLbTitle" style="font-family:var(--font-heading); font-size:1.15rem; color:var(--sky-kinetic)"></h3>
+          <p id="kLbDesc" style="font-size:0.88rem; color:var(--muted-slate)"></p>
+        </div>
+        <button type="button" class="btn-kinetic" id="closeKLb" style="padding:0.5rem 1.15rem">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      // 1. Scroll Progress & Subtle Parallax
+      const progressBar = document.getElementById('scrollProgressBar');
+      const heroParallaxImg = document.getElementById('heroParallaxImg');
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        if (progressBar) {
+          progressBar.style.width = pct.toFixed(1) + '%';
+        }
+        if (!reducedMotion && heroParallaxImg && scrollTop < 900) {
+          heroParallaxImg.style.setProperty('--parallax-y', (scrollTop * -0.08).toFixed(1) + 'px');
+        }
+      }, { passive: true });
+
+      // 2. Before / After Scrubber & Phase Stepper
+      const scrubberRange = document.getElementById('scrubberRange');
+      const compAfterLayer = document.getElementById('compAfterLayer');
+      const compDivider = document.getElementById('compDivider');
+      const scrubberReadout = document.getElementById('scrubberReadout');
+      const phaseBtns = document.querySelectorAll('.phase-btn');
+      const phaseHeading = document.getElementById('phaseHeading');
+      const phaseDesc = document.getElementById('phaseDesc');
+
+      function updateScrubber(val) {
+        const leftInset = 100 - val;
+        compAfterLayer.style.clipPath = 'inset(0 0 0 ' + leftInset + '%)';
+        compDivider.style.left = leftInset + '%';
+        scrubberReadout.textContent = val + '% Revelado';
+      }
+
+      scrubberRange.addEventListener('input', () => {
+        updateScrubber(parseInt(scrubberRange.value, 10));
+      });
+
+      phaseBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          phaseBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const pct = parseInt(btn.getAttribute('data-pct'), 10);
+          scrubberRange.value = pct;
+          phaseHeading.textContent = btn.getAttribute('data-title');
+          phaseDesc.textContent = btn.getAttribute('data-desc');
+          updateScrubber(pct);
+        });
+      });
+
+      // 3. Services Filter
+      const filterBtns = document.querySelectorAll('.k-filter-btn');
+      const serviceCards = document.querySelectorAll('.k-service-card');
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const cat = btn.getAttribute('data-kcat');
+          serviceCards.forEach(card => {
+            card.style.display = (cat === 'all' || card.getAttribute('data-kcat') === cat) ? 'flex' : 'none';
+          });
+        });
+      });
+
+      const kService = document.getElementById('kService');
+      document.querySelectorAll('.pick-k-service').forEach(btn => {
+        btn.addEventListener('click', () => {
+          kService.value = btn.getAttribute('data-service');
+          document.getElementById('reserva').scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+
+      // 4. Lightbox
+      const kineticLightbox = document.getElementById('kineticLightbox');
+      const kLbImg = document.getElementById('kLbImg');
+      const kLbTitle = document.getElementById('kLbTitle');
+      const kLbDesc = document.getElementById('kLbDesc');
+
+      document.querySelectorAll('.k-look-item').forEach(item => {
+        const openLb = () => {
+          kLbImg.src = item.getAttribute('data-img');
+          kLbTitle.textContent = item.getAttribute('data-title');
+          kLbDesc.textContent = item.getAttribute('data-desc');
+          kineticLightbox.classList.add('open');
+        };
+        item.addEventListener('click', openLb);
+        item.addEventListener('keydown', e => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openLb();
+          }
+        });
+      });
+
+      document.getElementById('closeKLb').addEventListener('click', () => kineticLightbox.classList.remove('open'));
+      kineticLightbox.addEventListener('click', e => {
+        if (e.target === kineticLightbox) kineticLightbox.classList.remove('open');
+      });
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') kineticLightbox.classList.remove('open');
+      });
+
+      // 5. Booking Form
+      const kDate = document.getElementById('kDate');
+      if (kDate) {
+        kDate.value = new Date(Date.now() + 86400000).toISOString().split('T')[0];
+      }
+      document.getElementById('kineticBookingForm').addEventListener('submit', e => {
+        e.preventDefault();
+        const name = document.getElementById('kName').value.trim();
+        const serv = kService.value;
+        const dir = document.getElementById('kDirector').value;
+        const date = kDate.value;
+        const time = document.getElementById('kTime').value;
+        const fb = document.getElementById('kFeedback');
+        fb.style.display = 'block';
+        fb.innerHTML =
+          '<strong style="font-family:var(--font-heading); color:var(--sky-kinetic)">● Secuencia de Reserva Confirmada (Demostración)</strong><br>' +
+          'Gracias <strong>' + name + '</strong>. Hemos simulado tu cita para <em>' + serv + '</em> junto a <strong>' + dir + '</strong> el día <strong>' + date + ' (' + time + ')</strong>.';
+      });
+    })();
+  </script>
+  <script src="../../js/config/rubros.js"></script>
+  <script src="../../js/demo-viewer-bar.js"></script>
+</body>
+</html>

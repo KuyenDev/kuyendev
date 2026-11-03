@@ -12,15 +12,30 @@
   const params = new URLSearchParams(window.location.search);
   const isIframePreview = params.get('preview') === '1' || window.self !== window.top;
 
-  // Si estamos dentro de la miniatura en vivo del catálogo o en el simulador de dispositivo interno, no mostrar la barra
-  if (isIframePreview) {
+  // Asegurar que los motores de búsqueda no indexen demostraciones con contenido ficticio
+  if (!document.querySelector('meta[name="robots"]')) {
+    const metaRobots = document.createElement('meta');
+    metaRobots.name = 'robots';
+    metaRobots.content = 'noindex, nofollow';
+    document.head.appendChild(metaRobots);
+  }
+
+  // Si estamos dentro de la miniatura en vivo del catálogo, ocultar barra y pausar animaciones costosas
+  if (isIframePreview && params.get('sim') !== '1') {
     document.documentElement.classList.add('kd-is-preview-embed');
     const style = document.createElement('style');
     style.textContent = `
       html.kd-is-preview-embed::-webkit-scrollbar { display: none !important; }
-      html.kd-is-preview-embed { scrollbar-width: none !important; pointer-events: none; user-select: none; }
+      html.kd-is-preview-embed { scrollbar-width: none !important; pointer-events: none; user-select: none; overflow: hidden !important; }
+      html.kd-is-preview-embed *, html.kd-is-preview-embed *::before, html.kd-is-preview-embed *::after {
+        animation-play-state: paused !important;
+        transition-duration: 0s !important;
+      }
     `;
     document.head.appendChild(style);
+    return;
+  }
+  if (params.get('sim') === '1') {
     return;
   }
 
@@ -362,14 +377,16 @@
     `).join('');
 
     const swatchesHtml = (currentStyle.palette || []).map(c => `
-      <span class="kd-demo-swatch">
+      <button type="button" class="kd-demo-swatch" data-copy-hex="${c}" title="Clic para copiar color ${c}">
         <span class="kd-demo-swatch-dot" style="background:${c}"></span>
-        ${c}
-      </span>
+        <span class="kd-demo-swatch-lbl">${c}</span>
+      </button>
     `).join('');
 
+    const contactFormHref = `../../pages/contacto.html?rubro=${encodeURIComponent(currentRubro.id)}&estilo=${encodeURIComponent(`${currentStyle.number}. ${currentStyle.name}`)}`;
+
     barRoot.innerHTML = `
-      <div class="kd-demo-palette-popover" id="kdDemoPalettePopover">
+      <div class="kd-demo-palette-popover" id="kdDemoPalettePopover" role="dialog" aria-label="Paleta cromática y detalles del estilo">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
           <span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#65E0DD;">
             Estilo #${currentStyle.number} · ${currentStyle.categoryLabel || ''}
@@ -378,18 +395,23 @@
         </div>
         <div style="font-size:14px;font-weight:800;color:#fff;margin-bottom:4px;">${currentStyle.name}</div>
         <p style="font-size:12px;color:#A9BACB;line-height:1.45;margin:0 0 8px 0;">${currentStyle.description}</p>
-        <div style="font-size:11px;font-weight:700;color:#94A3B8;text-transform:uppercase;letter-spacing:0.05em;">Paleta de Colores:</div>
+        <div style="font-size:11px;font-weight:700;color:#94A3B8;text-transform:uppercase;letter-spacing:0.05em;">Paleta de Colores (clic para copiar):</div>
         <div class="kd-demo-swatches">${swatchesHtml}</div>
         <div style="font-size:11px;color:#A9BACB;margin-bottom:10px;">
           <strong style="color:#65E0DD;">Tipografías:</strong> ${currentStyle.fonts || 'Personalizadas'}
         </div>
-        <a href="${waLink}" target="_blank" rel="noopener noreferrer" class="kd-demo-btn kd-demo-btn-cta" style="width:100%;justify-content:center;padding:9px 14px;">
-          Cotizar mi Sitio Web con este Estilo
-        </a>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+          <a href="${waLink}" target="_blank" rel="noopener noreferrer" class="kd-demo-btn kd-demo-btn-cta" style="justify-content:center;padding:9px 10px;">
+            Cotizar por WhatsApp
+          </a>
+          <a href="${contactFormHref}" class="kd-demo-btn" style="justify-content:center;padding:9px 10px;">
+            Formulario Guiado
+          </a>
+        </div>
       </div>
 
       <div class="kd-demo-dock">
-        <a href="../../index.html#portafolio-rubros" class="kd-demo-btn" title="Volver al catálogo de 20 estilos">
+        <a href="../../index.html#portafolio-rubros" class="kd-demo-btn" id="kdDemoBackBtn" title="Volver al catálogo de estilos">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
           <span>Catálogo</span>
         </a>
@@ -401,28 +423,28 @@
           </select>
         </div>
 
-        <a href="${resolveDemoHref(prevStyle)}" class="kd-demo-btn" title="Estilo anterior: ${prevStyle.name}">
+        <a href="${resolveDemoHref(prevStyle)}" class="kd-demo-btn" title="Estilo anterior: ${prevStyle.name}" aria-label="Estilo anterior: ${prevStyle.name}">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="15 18 9 12 15 6"/></svg>
         </a>
-        <a href="${resolveDemoHref(nextStyle)}" class="kd-demo-btn" title="Siguiente estilo: ${nextStyle.name}">
+        <a href="${resolveDemoHref(nextStyle)}" class="kd-demo-btn" title="Siguiente estilo: ${nextStyle.name}" aria-label="Siguiente estilo: ${nextStyle.name}">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"/></svg>
         </a>
 
-        <div class="kd-demo-viewport-group" role="group" aria-label="Vista de dispositivo">
+        <div class="kd-demo-viewport-group" role="group" aria-label="Simulador de vista de dispositivo">
           <button type="button" class="kd-demo-vp-btn is-active" data-vp="desktop" title="Vista Escritorio">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
             <span class="kd-demo-hide-sm">PC</span>
           </button>
-          <button type="button" class="kd-demo-vp-btn" data-vp="tablet" title="Vista Tablet (768px)">
+          <button type="button" class="kd-demo-vp-btn" data-vp="tablet" title="Vista Tablet Interactiva (768px)">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
           </button>
-          <button type="button" class="kd-demo-vp-btn" data-vp="mobile" title="Vista Celular (390px)">
+          <button type="button" class="kd-demo-vp-btn" data-vp="mobile" title="Vista Celular Interactiva (390px)">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
             <span class="kd-demo-hide-sm">Móvil</span>
           </button>
         </div>
 
-        <button type="button" class="kd-demo-btn" id="kdDemoPaletteBtn" title="Ver paleta de colores y tipografías">
+        <button type="button" class="kd-demo-btn" id="kdDemoPaletteBtn" aria-expanded="false" aria-controls="kdDemoPalettePopover" title="Ver paleta de colores y tipografías">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
           <span class="kd-demo-hide-sm">Paleta</span>
         </button>
@@ -431,7 +453,7 @@
           <span>Cotizar</span>
         </a>
 
-        <button type="button" class="kd-demo-btn" id="kdDemoMinimizeBtn" title="Ocultar barra para ver sin distracciones">
+        <button type="button" class="kd-demo-btn" id="kdDemoMinimizeBtn" title="Ocultar barra para ver el diseño sin distracciones" aria-label="Ocultar barra de demostración">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
       </div>
@@ -443,8 +465,27 @@
     `;
 
     document.body.appendChild(barRoot);
+    document.body.style.paddingBottom = '74px';
 
-    // Simulador de viewport (Tablet / Móvil)
+    // Copiar código HEX al hacer clic en cualquier muestra de color
+    barRoot.querySelectorAll('[data-copy-hex]').forEach(btn => {
+      btn.style.cursor = 'pointer';
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const hex = btn.getAttribute('data-copy-hex');
+        const lbl = btn.querySelector('.kd-demo-swatch-lbl');
+        if (navigator.clipboard && hex) {
+          navigator.clipboard.writeText(hex).catch(() => {});
+        }
+        if (lbl) {
+          const prev = lbl.textContent;
+          lbl.textContent = '¡Copiado!';
+          setTimeout(() => { lbl.textContent = prev; }, 1200);
+        }
+      });
+    });
+
+    // Simulador de viewport (Tablet / Móvil) interactivo (usa sim=1 para permitir scroll e interacción completa)
     let simOverlay = null;
     let simIframe = null;
     const ensureSimulator = () => {
@@ -452,14 +493,18 @@
       simOverlay = document.createElement('div');
       simOverlay.className = 'kd-viewport-simulator-overlay';
       simOverlay.innerHTML = `
+        <div style="color:#94A3B8;font-size:12px;margin-bottom:10px;display:flex;align-items:center;gap:12px;">
+          <span id="kdSimDeviceLabel" style="color:#65E0DD;font-weight:700;">Vista Móvil Interactiva (390px)</span>
+          <span>· Puedes desplazarte e interactuar con el menú y botones dentro de la pantalla</span>
+        </div>
         <div class="kd-viewport-frame-wrap">
-          <iframe class="kd-viewport-iframe" title="Vista previa responsive"></iframe>
+          <iframe class="kd-viewport-iframe" title="Vista previa responsive interactiva"></iframe>
         </div>
       `;
       document.body.appendChild(simOverlay);
       simIframe = simOverlay.querySelector('iframe');
       const url = new URL(window.location.href);
-      url.searchParams.set('preview', '1');
+      url.searchParams.set('sim', '1');
       simIframe.src = url.toString();
     };
 
@@ -475,6 +520,10 @@
           ensureSimulator();
           simOverlay.classList.add('is-active');
           simIframe.style.width = mode === 'mobile' ? '390px' : '768px';
+          const lbl = document.getElementById('kdSimDeviceLabel');
+          if (lbl) {
+            lbl.textContent = mode === 'mobile' ? 'Vista Celular Interactiva (390px)' : 'Vista Tablet Interactiva (768px)';
+          }
           document.body.style.overflow = 'hidden';
         }
       });
@@ -488,19 +537,34 @@
       });
     }
 
-    // Popover de paleta
+    // Popover de paleta y tecla Escape
     const paletteBtn = document.getElementById('kdDemoPaletteBtn');
     const palettePopover = document.getElementById('kdDemoPalettePopover');
     if (paletteBtn && palettePopover) {
       paletteBtn.addEventListener('click', (e) => {
         e.stopPropagation();
-        palettePopover.classList.toggle('is-open');
-        paletteBtn.classList.toggle('is-active', palettePopover.classList.contains('is-open'));
+        const isOpen = palettePopover.classList.toggle('is-open');
+        paletteBtn.classList.toggle('is-active', isOpen);
+        paletteBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
       });
       document.addEventListener('click', (e) => {
         if (!palettePopover.contains(e.target) && e.target !== paletteBtn) {
           palettePopover.classList.remove('is-open');
           paletteBtn.classList.remove('is-active');
+          paletteBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          if (palettePopover.classList.contains('is-open')) {
+            palettePopover.classList.remove('is-open');
+            paletteBtn.classList.remove('is-active');
+            paletteBtn.setAttribute('aria-expanded', 'false');
+          } else if (simOverlay && simOverlay.classList.contains('is-active')) {
+            simOverlay.classList.remove('is-active');
+            document.body.style.overflow = '';
+            vpBtns.forEach(b => b.classList.toggle('is-active', b.getAttribute('data-vp') === 'desktop'));
+          }
         }
       });
     }
@@ -509,8 +573,14 @@
     const minBtn = document.getElementById('kdDemoMinimizeBtn');
     const restoreBtn = document.getElementById('kdDemoRestoreBtn');
     if (minBtn && restoreBtn) {
-      minBtn.addEventListener('click', () => barRoot.classList.add('is-minimized'));
-      restoreBtn.addEventListener('click', () => barRoot.classList.remove('is-minimized'));
+      minBtn.addEventListener('click', () => {
+        barRoot.classList.add('is-minimized');
+        document.body.style.paddingBottom = '';
+      });
+      restoreBtn.addEventListener('click', () => {
+        barRoot.classList.remove('is-minimized');
+        document.body.style.paddingBottom = '74px';
+      });
     }
   }
 

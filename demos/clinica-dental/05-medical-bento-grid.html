@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>POLICLÍNICO NEXUS · Red Médica Multiespecialidad & Laboratorio | Estilo #05 Medical Bento Grid</title>
+  <meta name="description"
+    content="Demostración interactiva Estilo #05 Medical Bento Grid para KuyénDev: Policlínico Nexus, red médica multiespecialidad, clínica dental y laboratorio clínico organizado en arquitectura modular Bento." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --bg-canvas: #F1F5F9;
+      --card-white: #FFFFFF;
+      --card-dark: #0F172A;
+      --sky-blue: #0EA5E9;
+      --sky-soft: #E0F2FE;
+      --emerald: #10B981;
+      --emerald-soft: #D1FAE5;
+      --text-dark: #0F172A;
+      --text-slate: #475569;
+      --border-bento: #E2E8F0;
+      --radius-bento: 24px;
+      --radius-inner: 14px;
+      --shadow-bento: 0 10px 25px -5px rgba(15, 23, 42, 0.05), 0 2px 6px rgba(15, 23, 42, 0.03);
+      --font-display: 'Outfit', sans-serif;
+      --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-canvas);
+      color: var(--text-dark);
+      font-family: var(--font-body);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background-color: var(--bg-canvas);
+      overflow-x: hidden;
+    }
+
+    .bento-shell {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 20px 20px 64px;
+    }
+
+    /* Header Estilo Bento Píldora */
+    .bento-header {
+      position: sticky;
+      top: 14px;
+      z-index: 120;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-bento);
+      border-radius: 20px;
+      padding: 14px 22px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-bento);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .nexus-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-dark);
+    }
+
+    .nexus-grid-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--sky-blue), var(--emerald));
+      color: #FFFFFF;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3px;
+      padding: 9px;
+    }
+
+    .nexus-grid-icon span {
+      background: #FFFFFF;
+      border-radius: 3px;
+    }
+
+    .nexus-brand-title {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
+      display: block;
+      line-height: 1.1;
+    }
+
+    .nexus-brand-sub {
+      font-size: 0.72rem;
+      color: var(--text-slate);
+      font-weight: 600;
+    }
+
+    .bento-nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-canvas);
+      padding: 5px;
+      border-radius: 14px;
+    }
+
+    .bento-nav a {
+      text-decoration: none;
+      color: var(--text-slate);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 7px 14px;
+      border-radius: 10px;
+      transition: all 0.2s ease;
+    }
+
+    .bento-nav a:hover {
+      background: var(--card-white);
+      color: var(--sky-blue);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .btn-bento {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 20px;
+      border-radius: 12px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.88rem;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid transparent;
+      background: var(--sky-blue);
+      color: #FFFFFF;
+      transition: all 0.2s ease;
+    }
+
+    .btn-bento:hover {
+      background: #0284C7;
+      transform: translateY(-1px);
+    }
+
+    .btn-bento-emerald {
+      background: var(--emerald);
+      color: #FFFFFF;
+    }
+
+    .btn-bento-outline {
+      background: var(--bg-canvas);
+      color: var(--text-dark);
+      border-color: var(--border-bento);
+    }
+
+    .btn-bento-outline:hover {
+      border-color: var(--sky-blue);
+      color: var(--sky-blue);
+    }
+
+    .bento-mob-toggle {
+      display: none;
+      background: var(--bg-canvas);
+      border: 1px solid var(--border-bento);
+      border-radius: 10px;
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+
+    /* Sistema de Grilla Bento 12 Columnas */
+    .bento-grid-12 {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+
+    .bento-card {
+      background: var(--card-white);
+      border: 1px solid var(--border-bento);
+      border-radius: var(--radius-bento);
+      padding: 28px;
+      box-shadow: var(--shadow-bento);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .bento-card.dark-cell {
+      background: var(--card-dark);
+      color: #FFFFFF;
+      border-color: #1E293B;
+    }
+
+    .bento-card.sky-cell {
+      background: linear-gradient(135deg, #E0F2FE 0%, #F0F9FF 100%);
+      border-color: #BAE6FD;
+    }
+
+    .bento-card.emerald-cell {
+      background: linear-gradient(135deg, #D1FAE5 0%, #ECFDF5 100%);
+      border-color: #A7F3D0;
+    }
+
+    .span-12 {
+      grid-column: span 12;
+    }
+
+    .span-8 {
+      grid-column: span 8;
+    }
+
+    .span-7 {
+      grid-column: span 7;
+    }
+
+    .span-6 {
+      grid-column: span 6;
+    }
+
+    .span-5 {
+      grid-column: span 5;
+    }
+
+    .span-4 {
+      grid-column: span 4;
+    }
+
+    .span-3 {
+      grid-column: span 3;
+    }
+
+    .bento-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      background: var(--sky-soft);
+      color: var(--sky-blue);
+      align-self: flex-start;
+      margin-bottom: 14px;
+    }
+
+    .bento-badge.live-green {
+      background: var(--emerald-soft);
+      color: #047857;
+    }
+
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--emerald);
+    }
+
+    .bento-hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3.6vw, 3.1rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .bento-hero-title span {
+      color: var(--sky-blue);
+    }
+
+    /* Monitor de Tiempos de Espera en Vivo */
+    .wait-time-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .wait-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 11px 14px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.86rem;
+    }
+
+    .wait-time-pill {
+      background: rgba(16, 185, 129, 0.2);
+      color: #34D399;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.78rem;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Imagen Hero dentro de Celda Bento */
+    .bento-photo-cell {
+      padding: 12px;
+      min-height: 310px;
+    }
+
+    .bento-photo-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .bento-photo-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .bento-photo-overlay {
+      position: absolute;
+      bottom: 14px;
+      left: 14px;
+      right: 14px;
+      background: rgba(15, 23, 42, 0.86);
+      backdrop-filter: blur(10px);
+      color: #FFFFFF;
+      padding: 14px 18px;
+      border-radius: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Buscador Modular de Horarios por Sede */
+    .filter-bar-bento {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .pill-group {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .filter-pill {
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--border-bento);
+      background: var(--card-white);
+      color: var(--text-slate);
+      font-weight: 700;
+      font-size: 0.82rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .filter-pill.is-active {
+      background: var(--sky-blue);
+      border-color: var(--sky-blue);
+      color: #FFFFFF;
+    }
+
+    .slot-chip-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .slot-chip {
+      padding: 6px 12px;
+      border-radius: 8px;
+      background: var(--bg-canvas);
+      border: 1px solid var(--border-bento);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .slot-chip:hover {
+      background: var(--emerald);
+      border-color: var(--emerald);
+      color: #FFFFFF;
+    }
+
+    /* Evaluador Rápido de Síntomas Bento */
+    .symptom-btns {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin: 14px 0;
+    }
+
+    .sym-btn {
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border-bento);
+      background: var(--bg-canvas);
+      text-align: left;
+      font-family: var(--font-body);
+      font-size: 0.84rem;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--text-dark);
+    }
+
+    .sym-btn.is-active {
+      background: var(--sky-soft);
+      border-color: var(--sky-blue);
+      color: #0369A1;
+    }
+
+    /* Galería Bento con Lightbox */
+    .bento-gallery-thumb {
+      border-radius: 14px;
+      overflow: hidden;
+      aspect-ratio: 16 / 10;
+      margin-bottom: 12px;
+    }
+
+    .bento-gallery-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Formulario Modular Bento */
+    .bento-input,
+    .bento-select {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border-bento);
+      background: var(--bg-canvas);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      margin-top: 6px;
+    }
+
+    .bento-feedback {
+      margin-top: 14px;
+      padding: 14px;
+      border-radius: 12px;
+      background: var(--emerald-soft);
+      color: #065F46;
+      font-size: 0.86rem;
+      font-weight: 600;
+      display: none;
+    }
+
+    .bento-feedback.is-visible {
+      display: block;
+    }
+
+    /* Lightbox */
+    .bento-lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .bento-lightbox.is-open {
+      display: flex;
+    }
+
+    .bento-lightbox-card {
+      max-width: 820px;
+      width: 100%;
+      background: var(--card-white);
+      border-radius: var(--radius-bento);
+      padding: 20px;
+    }
+
+    @media (max-width: 1024px) {
+
+      .span-8,
+      .span-7,
+      .span-6,
+      .span-5,
+      .span-4,
+      .span-3 {
+        grid-column: span 12;
+      }
+
+      .bento-nav {
+        display: none;
+      }
+
+      .bento-nav.is-open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        right: 0;
+        background: var(--card-white);
+        padding: 16px;
+        border: 1px solid var(--border-bento);
+        border-radius: 16px;
+      }
+
+      .bento-mob-toggle {
+        display: inline-flex;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .symptom-btns {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body data-rubro-id="salud" data-style-id="medical-bento-grid">
+
+  <div class="bento-shell">
+    <!-- Header Bento -->
+    <header class="bento-header">
+      <a href="#" class="nexus-brand">
+        <div class="nexus-grid-icon" aria-hidden="true">
+          <span></span><span></span><span></span><span></span>
+        </div>
+        <div>
+          <span class="nexus-brand-title">POLICLÍNICO NEXUS</span>
+          <span class="nexus-brand-sub">Red Multiespecialidad · Dental & Laboratorio</span>
+        </div>
+      </a>
+
+      <nav class="bento-nav" id="bentoNav" aria-label="Navegación modular">
+        <a href="#horarios-bento">Buscador de Horas</a>
+        <a href="#derivador">Orientador de Síntomas</a>
+        <a href="#sucursales">Centros & Pabellones</a>
+        <a href="#testimonios">Pacientes</a>
+      </nav>
+
+      <div style="display:flex;align-items:center;gap:10px">
+        <a href="#reserva-bento" class="btn-bento">Reserva Express</a>
+        <button type="button" class="bento-mob-toggle" id="bentoMobBtn">☰</button>
+      </div>
+    </header>
+
+    <main>
+      <!-- BLOQUE BENTO 1: HERO MODULAR & TELEMETRÍA DE ATENCIÓN -->
+      <section class="bento-grid-12" aria-label="Panel principal de Policlínico Nexus">
+        <!-- Celda Principal Hero (7 cols) -->
+        <div class="bento-card span-7">
+          <div>
+            <span class="bento-badge">
+              <span>🍱 ESTILO #05 · MEDICAL BENTO GRID</span>
+            </span>
+            <h1 class="bento-hero-title">
+              Toda tu salud organizada en <span>módulos inteligentes</span>.
+            </h1>
+            <p style="color:var(--text-slate);font-size:1rem;margin-bottom:24px;max-width:560px">
+              Odontología digital, consultas de especialidad, toma de muestras de laboratorio e imagenología en un solo
+              lugar con tiempos de espera verificados en vivo.
+            </p>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+            <a href="#horarios-bento" class="btn-bento">Explorar Horas Disponibles Hoy</a>
+            <a href="#derivador" class="btn-bento btn-bento-outline">¿No sabes qué especialista elegir?</a>
+          </div>
+        </div>
+
+        <!-- Celda Imagen Principal (5 cols) -->
+        <div class="bento-card bento-photo-cell span-5">
+          <div class="bento-photo-inner">
+            <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=85"
+              alt="Instalaciones modernas de Policlínico Nexus"
+              onerror="this.onerror=null;this.src='../../images/demos/assets/med/clinic-box-dental.svg';" />
+            <div class="bento-photo-overlay">
+              <div>
+                <small style="color:#38BDF8;font-weight:700;display:block;font-size:0.72rem">RED METROPOLITANA
+                  NEXUS</small>
+                <strong style="font-size:0.9rem">3 Sedes Conectadas con Ficha Única</strong>
+              </div>
+              <span class="wait-time-pill">Abierto Ahora</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Celda Monitor de Espera en Vivo (4 cols) -->
+        <div class="bento-card dark-cell span-4">
+          <div>
+            <span class="bento-badge live-green">
+              <span class="live-dot"></span>
+              <span>TIEMPO DE ESPERA EN SALA</span>
+            </span>
+            <h2 style="font-family:var(--font-display);font-size:1.25rem">Estado de Unidades Hoy</h2>
+            <div class="wait-time-list">
+              <div class="wait-item">
+                <span>Urgencia Dental & Dolor</span>
+                <span class="wait-time-pill">06 min</span>
+              </div>
+              <div class="wait-item">
+                <span>Laboratorio Clínico (Ayuno)</span>
+                <span class="wait-time-pill">04 min</span>
+              </div>
+              <div class="wait-item">
+                <span>Medicina General Adulto</span>
+                <span class="wait-time-pill">09 min</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Celda Estadísticas Verificables (4 cols) -->
+        <div class="bento-card sky-cell span-4">
+          <div>
+            <span class="bento-badge">Cobertura Integral</span>
+            <h2 style="font-family:var(--font-display);font-size:2.3rem;color:#0369A1;line-height:1">42+ Especialidades
+            </h2>
+            <p style="font-size:0.88rem;color:var(--text-slate);margin-top:8px">
+              Integramos clínica dental completa, centro médico ambulatorio, rayos X digital y kinesioterapia bajo el
+              mismo techo.
+            </p>
+          </div>
+          <div style="margin-top:16px;font-size:0.82rem;font-weight:700;color:#0284C7">
+            ✓ Bono Electrónico Fonasa Nivel 2 e Isapres
+          </div>
+        </div>
+
+        <!-- Celda Resultados Laboratorio Rápido (4 cols) -->
+        <div class="bento-card emerald-cell span-4">
+          <div>
+            <span class="bento-badge live-green">Laboratorio Automatizado</span>
+            <h2 style="font-family:var(--font-display);font-size:1.35rem;color:#065F46">Exámenes en el mismo día</h2>
+            <p style="font-size:0.88rem;color:#047857;margin-top:6px">
+              Toma de muestras desde las 07:15 hrs. Descarga tu perfil bioquímico y radiografías dentales en PDF con
+              código QR.
+            </p>
+          </div>
+          <div style="margin-top:16px">
+            <a href="#reserva-bento" class="btn-bento btn-bento-emerald" style="width:100%;padding:9px;"
+              onclick="selectBentoSlot('Toma de Muestras Laboratorio · 07:45 hrs')">Reservar Toma de Muestra</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- BLOQUE BENTO 2: BUSCADOR INTERACTIVO DE HORARIOS POR SEDE -->
+      <section id="horarios-bento" style="margin-bottom:24px">
+        <div class="bento-card span-12">
+          <div class="filter-bar-bento">
+            <div>
+              <span class="bento-badge" style="margin-bottom:6px">Agenda Modular Instantánea</span>
+              <h2 style="font-family:var(--font-display);font-size:1.65rem">Cupos Disponibles Hoy · Haz clic en un
+                bloque horario</h2>
+            </div>
+            <div class="pill-group" role="tablist" aria-label="Filtrar por área médica">
+              <button type="button" class="filter-pill is-active" data-bento-cat="all">Todas las Unidades (6)</button>
+              <button type="button" class="filter-pill" data-bento-cat="dental">Clínica Dental (3)</button>
+              <button type="button" class="filter-pill" data-bento-cat="medica">Consultas Médicas & Lab (3)</button>
+            </div>
+          </div>
+
+          <div class="bento-grid-12" id="bentoScheduleGrid" style="margin-bottom:0">
+            <!-- Renderizado dinámico por JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- BLOQUE BENTO 3: ORIENTADOR DE SÍNTOMAS + FORMULARIO MODULAR -->
+      <section class="bento-grid-12" id="derivador">
+        <!-- Orientador Interactivo de Síntomas (6 cols) -->
+        <div class="bento-card span-6">
+          <div>
+            <span class="bento-badge">Asistente de Triaje Clínico</span>
+            <h2 style="font-family:var(--font-display);font-size:1.5rem;margin-bottom:6px">Orientador Inteligente de
+              Especialidad</h2>
+            <p style="font-size:0.88rem;color:var(--text-slate)">
+              Selecciona tu motivo de consulta principal y te indicaremos exactamente qué unidad y especialista agendar:
+            </p>
+
+            <div class="symptom-btns">
+              <button type="button" class="sym-btn is-active" data-sym="dolor-molar">
+                🦷 Dolor agudo o sensibilidad dental al frío/calor
+              </button>
+              <button type="button" class="sym-btn" data-sym="alineacion">
+                ✨ Quiero alinear mis dientes o mejorar estética
+              </button>
+              <button type="button" class="sym-btn" data-sym="chequeo">
+                🩸 Chequeo general preventivo y exámenes de sangre
+              </button>
+              <button type="button" class="sym-btn" data-sym="muscular">
+                🏃 Dolor articular, lumbar o rehabilitación física
+              </button>
+            </div>
+
+            <div id="triageRecommendation"
+              style="background:var(--sky-soft);border:1px solid #BAE6FD;border-radius:16px;padding:18px;margin-top:12px;"
+              aria-live="polite">
+              <small style="font-weight:700;color:#0284C7;text-transform:uppercase">Derivación Sugerida por
+                Nexus:</small>
+              <h3 id="triageUnitTitle" style="font-family:var(--font-display);font-size:1.15rem;margin:4px 0">Unidad de
+                Endodoncia & Urgencia Dental Digital</h3>
+              <p id="triageUnitDesc" style="font-size:0.85rem;color:var(--text-slate);margin-bottom:12px">
+                Incluye radiografía retroalveolar digital inmediata y alivio del dolor en la primera sesión con el Dr.
+                Camilo Ríos.
+              </p>
+              <button type="button" class="btn-bento" id="triageApplyBtn" style="padding:8px 16px;font-size:0.82rem">
+                Cargar esta Derivación en mi Reserva →
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Formulario de Reserva Bento (6 cols) -->
+        <div class="bento-card span-6" id="reserva-bento">
+          <div>
+            <div
+              style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-wrap:wrap;gap:8px">
+              <span class="bento-badge live-green" style="margin:0">Confirmación Instantánea</span>
+              <span class="bento-badge"
+                style="background:var(--bg-canvas);color:var(--text-slate);margin:0">[Demostración Interactiva]</span>
+            </div>
+            <h2 style="font-family:var(--font-display);font-size:1.5rem;margin-bottom:14px">Reserva Modular de Hora</h2>
+
+            <form id="nexusBentoForm">
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
+                <div>
+                  <label for="nxName" style="font-size:0.8rem;font-weight:700">Nombre del Paciente *</label>
+                  <input type="text" id="nxName" class="bento-input" placeholder="Ej: Nicolás Fuenzalida" required />
+                </div>
+                <div>
+                  <label for="nxRut" style="font-size:0.8rem;font-weight:700">RUT / Teléfono *</label>
+                  <input type="text" id="nxRut" class="bento-input" placeholder="+56 9 6500 1122" required />
+                </div>
+              </div>
+
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px">
+                <div>
+                  <label for="nxBranch" style="font-size:0.8rem;font-weight:700">Sede Policlínico</label>
+                  <select id="nxBranch" class="bento-select">
+                    <option value="Sede Providencia (Metro Los Leones)">Sede Providencia (Los Leones)</option>
+                    <option value="Sede Las Condes (Manquehue)">Sede Las Condes (Manquehue)</option>
+                    <option value="Sede Maipú (Plaza Mayor)">Sede Maipú (Plaza Mayor)</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="nxSlotInput" style="font-size:0.8rem;font-weight:700">Prestación y Bloque Elegido
+                    *</label>
+                  <input type="text" id="nxSlotInput" class="bento-input" value="Urgencia Dental & Rayos X · 10:30 hrs"
+                    required />
+                </div>
+              </div>
+
+              <button type="submit" class="btn-bento" style="width:100%;padding:13px">
+                Bloquear Cupo Médico (Demostración)
+              </button>
+            </form>
+
+            <div class="bento-feedback" id="nexusFeedback" role="status"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BLOQUE BENTO 4: GALERÍA DE CENTROS CON LIGHTBOX + TESTIMONIOS -->
+      <section class="bento-grid-12" id="sucursales">
+        <div class="bento-card span-4" style="cursor:pointer;"
+          data-bento-lb="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1200&q=85"
+          data-bento-title="Sede Providencia · 14 Boxes Odontológicos, Tomografía 3D y Toma de Muestras en Piso 1">
+          <div class="bento-gallery-thumb">
+            <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1200&q=85"
+              alt="Sede Providencia Policlínico Nexus"
+              onerror="this.onerror=null;this.src='../../images/demos/assets/med/clinic-reception.svg';" />
+          </div>
+          <div>
+            <span class="bento-badge">Centro Médico & Dental</span>
+            <h3 style="font-family:var(--font-display);font-size:1.15rem">Sede Providencia · Los Leones</h3>
+            <p style="font-size:0.82rem;color:var(--text-slate);margin-top:4px">Clic para abrir en visor Lightbox +</p>
+          </div>
+        </div>
+
+        <div class="bento-card span-4" style="cursor:pointer;"
+          data-bento-lb="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=1200&q=85"
+          data-bento-title="Laboratorio Clínico Robotizado · Procesamiento rápido de hematología, hormonas y microbiología">
+          <div class="bento-gallery-thumb">
+            <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1200&q=85"
+              alt="Laboratorio Clínico Robotizado"
+              onerror="this.onerror=null;this.src='../../images/demos/assets/med/clinic-suite-vip.svg';" />
+          </div>
+          <div>
+            <span class="bento-badge live-green">Certificación ISO 15189</span>
+            <h3 style="font-family:var(--font-display);font-size:1.15rem">Unidad de Laboratorio Automatizado</h3>
+            <p style="font-size:0.82rem;color:var(--text-slate);margin-top:4px">Clic para abrir en visor Lightbox +</p>
+          </div>
+        </div>
+
+        <!-- Celdas de Testimonios Ficticios (4 cols) -->
+        <div class="bento-card span-4" id="testimonios">
+          <div>
+            <span class="bento-badge" style="background:var(--bg-canvas);color:var(--text-slate)">
+              [Testimonio Ficticio de Demostración]
+            </span>
+            <p style="font-size:0.9rem;color:var(--text-dark);margin-bottom:14px">
+              "En una sola mañana me tomé los exámenes de sangre en el primer piso y subí al segundo piso a mi limpieza
+              dental. Todo sincronizado en la misma ficha."
+            </p>
+            <strong style="font-size:0.84rem;display:block">Daniela P. · Sede Providencia</strong>
+            <hr style="border:none;border-top:1px solid var(--border-bento);margin:14px 0;" />
+            <span class="bento-badge" style="background:var(--bg-canvas);color:var(--text-slate)">
+              [Testimonio Ficticio de Demostración]
+            </span>
+            <p style="font-size:0.88rem;color:var(--text-dark);margin-bottom:8px">
+              "El buscador de bloques horarios muestra los cupos reales de cada doctor sin tener que llamar al call
+              center."
+            </p>
+            <strong style="font-size:0.84rem;display:block">Matías H. · Sede Las Condes</strong>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer Bento -->
+    <footer class="bento-card span-12"
+      style="flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;font-size:0.84rem;color:var(--text-slate)">
+      <div>
+        <strong style="color:var(--text-dark);font-family:var(--font-display)">POLICLÍNICO NEXUS · RED MULTIESPECIALIDAD
+          & DENTAL</strong>
+        <p>Demostración interactiva KuyénDev · Estilo #05 Medical Bento Grid.</p>
+      </div>
+      <div>
+        <span>© 2026 Contenido, métricas y testimonios ficticios de carácter demostrativo.</span>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Lightbox Modal -->
+  <div class="bento-lightbox" id="bentoLightbox" role="dialog" aria-modal="true" aria-label="Visor de instalaciones">
+    <div class="bento-lightbox-card">
+      <div style="border-radius:16px;overflow:hidden;aspect-ratio:16/9;margin-bottom:14px">
+        <img id="bentoLbImg"
+          src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800&q=80"
+          alt="Instalación médica" style="width:100%;height:100%;object-fit:cover;" /
+          onerror="this.onerror=null;this.src='../../images/demos/assets/med/doctor-male-1.svg'">
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <strong id="bentoLbCaption" style="font-size:0.95rem">Sede Providencia</strong>
+        <button type="button" class="btn-bento" id="bentoLbClose" style="padding:8px 16px">Cerrar (Esc)</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      'use strict';
+
+      const mobBtn = document.getElementById('bentoMobBtn');
+      const nav = document.getElementById('bentoNav');
+      if (mobBtn && nav) {
+        mobBtn.addEventListener('click', () => nav.classList.toggle('is-open'));
+      }
+
+      // Datos de tarjetas de horarios Bento
+      const scheduleCards = [
+        { cat: 'dental', unit: 'Odontología General & Urgencia', doc: 'Dr. Camilo Ríos (SIS #44120)', branch: 'Providencia', copay: '$12.900 Copago Bono', slots: ['10:30 hrs', '12:15 hrs', '16:00 hrs'] },
+        { cat: 'dental', unit: 'Ortodoncia Digital & Alineadores', doc: 'Dra. Valentina Prado (SIS #50912)', branch: 'Las Condes', copay: '$18.500 Evaluación 3D', slots: ['11:00 hrs', '15:30 hrs', '17:45 hrs'] },
+        { cat: 'dental', unit: 'Implantología & Cirugía Maxilofacial', doc: 'Dr. Sebastián Lira (SIS #38211)', branch: 'Providencia', copay: 'Con Convenio Isapre/Fonasa', slots: ['09:45 hrs', '14:30 hrs', '18:00 hrs'] },
+        { cat: 'medica', unit: 'Medicina General & Chequeo Anual', doc: 'Dra. Carolina Vega (SIS #41008)', branch: 'Las Condes', copay: '$9.800 Bono Fonasa/Isapre', slots: ['09:30 hrs', '11:45 hrs', '16:15 hrs'] },
+        { cat: 'medica', unit: 'Toma de Muestras Laboratorio', doc: 'Unidad Bioquímica Automatizada', branch: 'Todas las Sedes', copay: 'Orden Médica Digital', slots: ['07:30 hrs', '08:15 hrs', '09:00 hrs'] },
+        { cat: 'medica', unit: 'Kinesiología & Rehabilitación', doc: 'Klgo. Tomás Aravena (SIS #49201)', branch: 'Maipú / Providencia', copay: 'Reembolso Inmediato I-Med', slots: ['10:00 hrs', '13:00 hrs', '17:00 hrs'] }
+      ];
+
+      const scheduleGrid = document.getElementById('bentoScheduleGrid');
+      const filterPills = document.querySelectorAll('.filter-pill');
+
+      function renderScheduleBento(cat) {
+        if (!scheduleGrid) return;
+        const list = cat === 'all' ? scheduleCards : scheduleCards.filter(c => c.cat === cat);
+        scheduleGrid.innerHTML = list.map(item => `
+          <div class="bento-card span-4" style="padding:20px;background:var(--bg-canvas)">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+                <span style="font-size:0.72rem;font-weight:700;color:var(--sky-blue);text-transform:uppercase">${item.branch}</span>
+                <span style="font-size:0.72rem;background:#FFFFFF;padding:3px 8px;border-radius:999px;border:1px solid var(--border-bento);font-weight:600">${item.copay}</span>
+              </div>
+              <h3 style="font-family:var(--font-display);font-size:1.1rem;margin-bottom:4px">${item.unit}</h3>
+              <p style="font-size:0.82rem;color:var(--text-slate)">${item.doc}</p>
+            </div>
+            <div class="slot-chip-row">
+              ${item.slots.map(s => `
+                <button type="button" class="slot-chip" style="background:#FFFFFF;" onclick="selectBentoSlot('${item.unit} · ${s}')">
+                  ${s}
+                </button>
+              `).join('')}
+            </div>
+          </div>
+        `).join('');
+      }
+
+      filterPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          filterPills.forEach(p => p.classList.toggle('is-active', p === pill));
+          renderScheduleBento(pill.getAttribute('data-bento-cat'));
+        });
+      });
+
+      renderScheduleBento('all');
+
+      window.selectBentoSlot = function (label) {
+        const input = document.getElementById('nxSlotInput');
+        if (input) input.value = label;
+        const target = document.getElementById('reserva-bento');
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      };
+
+      // Orientador de Síntomas
+      const triageData = {
+        'dolor-molar': {
+          title: 'Unidad de Endodoncia & Urgencia Dental Digital',
+          desc: 'Incluye radiografía retroalveolar digital inmediata y alivio del dolor en la primera sesión con el Dr. Camilo Ríos.',
+          slot: 'Urgencia Dental & Rayos X · 10:30 hrs'
+        },
+        'alineacion': {
+          title: 'Unidad de Ortodoncia Digital & Estética Dental',
+          desc: 'Escaneo intraoral 3D y planificación de alineadores invisibles o blanqueamiento clínico con la Dra. Valentina Prado.',
+          slot: 'Ortodoncia Digital 3D · 11:00 hrs'
+        },
+        'chequeo': {
+          title: 'Medicina Preventiva + Perfil Bioquímico Completo',
+          desc: 'Consulta médica integral + orden inmediata para toma de muestras en nuestro laboratorio del Piso 1.',
+          slot: 'Chequeo Médico + Laboratorio · 08:15 hrs'
+        },
+        'muscular': {
+          title: 'Unidad de Kinesiología Motora & Rehabilitación',
+          desc: 'Evaluación funcional biomecánica y fisioterapia avanzada en gimnasio clínico equipado.',
+          slot: 'Evaluación Kinesiológica · 13:00 hrs'
+        }
+      };
+
+      let currentTriageSlot = triageData['dolor-molar'].slot;
+      const symBtns = document.querySelectorAll('.sym-btn');
+      symBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          symBtns.forEach(b => b.classList.toggle('is-active', b === btn));
+          const key = btn.getAttribute('data-sym');
+          const info = triageData[key];
+          document.getElementById('triageUnitTitle').textContent = info.title;
+          document.getElementById('triageUnitDesc').textContent = info.desc;
+          currentTriageSlot = info.slot;
+        });
+      });
+
+      const applyBtn = document.getElementById('triageApplyBtn');
+      if (applyBtn) {
+        applyBtn.addEventListener('click', () => {
+          window.selectBentoSlot(currentTriageSlot);
+        });
+      }
+
+      // Envío de Formulario Bento
+      const form = document.getElementById('nexusBentoForm');
+      const feedback = document.getElementById('nexusFeedback');
+      if (form && feedback) {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const name = document.getElementById('nxName').value.trim();
+          const branch = document.getElementById('nxBranch').value;
+          const slot = document.getElementById('nxSlotInput').value;
+          feedback.classList.add('is-visible');
+          feedback.innerHTML = `
+            ✓ <strong>Cupo Modular Bloqueado [Demostración Interactiva]</strong><br/>
+            Paciente: <strong>${name}</strong> · ${branch}<br/>
+            Reserva: <strong>${slot}</strong>. Código QR de recepción generado.
+          `;
+        });
+      }
+
+      // Lightbox
+      const lb = document.getElementById('bentoLightbox');
+      const lbImg = document.getElementById('bentoLbImg');
+      const lbCap = document.getElementById('bentoLbCaption');
+      const lbClose = document.getElementById('bentoLbClose');
+
+      document.querySelectorAll('[data-bento-lb]').forEach(card => {
+        card.addEventListener('click', () => {
+          lbImg.src = card.getAttribute('data-bento-lb');
+          lbCap.textContent = card.getAttribute('data-bento-title');
+          lb.classList.add('is-open');
+        });
+      });
+
+      const closeLb = () => lb && lb.classList.remove('is-open');
+      if (lbClose) lbClose.addEventListener('click', closeLb);
+      if (lb) lb.addEventListener('click', (e) => { if (e.target === lb) closeLb(); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLb(); });
+    })();
+  </script>
+
+  <script src="../../js/config/rubros.js"></script>
+  <script src="../../js/demo-viewer-bar.js"></script>
+</body>
+
+</html>

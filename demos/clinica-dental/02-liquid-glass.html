@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>AETHER MED · Telemedicina & Odontología Digital 3D | Estilo #02 Liquid Glass</title>
+  <meta name="description" content="Demostración interactiva Estilo #02 Liquid Glass / Medical Glassmorphism para KuyénDev: Aether Med, plataforma de telemedicina HD y odontología digital 3D." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-deep: #0A192F;
+      --bg-darker: #061020;
+      --cyan-glow: #38BDF8;
+      --teal-glow: #2DD4BF;
+      --ice-text: #E0F2FE;
+      --text-white: #F8FAFC;
+      --text-dim: #94A3B8;
+      --glass-surface: rgba(255, 255, 255, 0.08);
+      --glass-surface-strong: rgba(255, 255, 255, 0.12);
+      --glass-border: rgba(224, 242, 254, 0.22);
+      --glass-highlight: rgba(56, 189, 248, 0.45);
+      --radius-pill: 999px;
+      --radius-glass: 24px;
+      --radius-md: 16px;
+      --font-display: 'Syne', sans-serif;
+      --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-deep);
+      color: var(--text-white);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 15% 15%, rgba(56, 189, 248, 0.22) 0%, transparent 42%),
+        radial-gradient(circle at 85% 28%, rgba(45, 212, 191, 0.18) 0%, transparent 45%),
+        radial-gradient(circle at 50% 80%, rgba(14, 165, 233, 0.16) 0%, transparent 50%),
+        linear-gradient(180deg, #061020 0%, #0A192F 50%, #071326 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Orbes de luz ambiental detrás del vidrio */
+    .ambient-orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(90px);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.45;
+    }
+
+    .orb-1 {
+      width: 420px;
+      height: 420px;
+      background: #38BDF8;
+      top: -110px;
+      left: -90px;
+    }
+
+    .orb-2 {
+      width: 360px;
+      height: 360px;
+      background: #2DD4BF;
+      top: 42%;
+      right: -120px;
+    }
+
+    /* Cápsula de Navegación Flotante Liquid Glass */
+    .glass-nav-wrap {
+      position: sticky;
+      top: 18px;
+      z-index: 120;
+      padding: 0 20px;
+    }
+
+    .glass-navbar {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 12px 22px;
+      background: rgba(10, 25, 47, 0.65);
+      backdrop-filter: blur(22px) saturate(160%);
+      -webkit-backdrop-filter: blur(22px) saturate(160%);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-pill);
+      box-shadow: 0 18px 42px rgba(2, 8, 20, 0.55), inset 0 1px 1px rgba(255, 255, 255, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .aether-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-white);
+    }
+
+    .aether-crystal {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.4), rgba(45, 212, 191, 0.15));
+      border: 1px solid rgba(224, 242, 254, 0.45);
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ice-text);
+    }
+
+    .aether-brand-title {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.05rem;
+      letter-spacing: 0.04em;
+    }
+
+    .aether-brand-sub {
+      display: block;
+      font-size: 0.68rem;
+      color: var(--cyan-glow);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+    }
+
+    .nav-links a {
+      color: var(--ice-text);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      opacity: 0.85;
+      transition: opacity 0.2s ease, color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+      color: var(--cyan-glow);
+    }
+
+    .btn-glass {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 22px;
+      border-radius: var(--radius-pill);
+      font-family: var(--font-sans);
+      font-size: 0.86rem;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid rgba(224, 242, 254, 0.35);
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.28) 0%, rgba(45, 212, 191, 0.18) 100%);
+      color: var(--text-white);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 8px 24px rgba(56, 189, 248, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.35);
+      transition: all 0.25s ease;
+    }
+
+    .btn-glass:hover {
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.48) 0%, rgba(45, 212, 191, 0.32) 100%);
+      border-color: var(--cyan-glow);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(56, 189, 248, 0.35);
+    }
+
+    .btn-glass-secondary {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(255, 255, 255, 0.18);
+      box-shadow: none;
+    }
+
+    .mobile-toggle {
+      display: none;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--glass-border);
+      color: var(--ice-text);
+      padding: 8px 12px;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+
+    /* Superficie Maestra Liquid Glass */
+    .glass-panel {
+      background: var(--glass-surface);
+      backdrop-filter: blur(22px) saturate(150%);
+      -webkit-backdrop-filter: blur(22px) saturate(150%);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-glass);
+      box-shadow: 0 24px 60px rgba(2, 8, 22, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.22);
+    }
+
+    main {
+      position: relative;
+      z-index: 1;
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Hero Liquid Glass */
+    .hero-glass {
+      padding: 64px 0 84px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 44px;
+      align-items: center;
+    }
+
+    .telemetry-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 16px;
+      border-radius: var(--radius-pill);
+      background: rgba(56, 189, 248, 0.14);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      color: var(--ice-text);
+      font-size: 0.78rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    .pulse-ring {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--teal-glow);
+      box-shadow: 0 0 12px var(--teal-glow);
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.3rem, 4.3vw, 3.7rem);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      margin-bottom: 22px;
+    }
+
+    .hero-title .text-glow {
+      background: linear-gradient(90deg, #E0F2FE 0%, #38BDF8 50%, #2DD4BF 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-lead {
+      color: var(--ice-text);
+      opacity: 0.85;
+      font-size: 1.05rem;
+      margin-bottom: 34px;
+      max-width: 540px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 40px;
+    }
+
+    .hero-hud-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .hud-stat-card {
+      padding: 16px;
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(224, 242, 254, 0.16);
+    }
+
+    .hud-stat-card strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      color: var(--cyan-glow);
+    }
+
+    .hud-stat-card span {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+    }
+
+    /* Cápsula Visual 3D en el Hero */
+    .hero-showcase-capsule {
+      padding: 18px;
+      position: relative;
+    }
+
+    .showcase-img-box {
+      border-radius: 18px;
+      overflow: hidden;
+      aspect-ratio: 4 / 3.3;
+      position: relative;
+      border: 1px solid rgba(224, 242, 254, 0.22);
+    }
+
+    .showcase-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hud-floating-overlay {
+      position: absolute;
+      top: 32px;
+      left: 32px;
+      padding: 10px 16px;
+      border-radius: var(--radius-pill);
+      background: rgba(6, 16, 32, 0.72);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(56, 189, 248, 0.45);
+      font-size: 0.76rem;
+      color: var(--ice-text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hud-bottom-panel {
+      margin-top: 14px;
+      padding: 16px 20px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(224, 242, 254, 0.18);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* Secciones */
+    .section-block {
+      padding: 76px 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 24px;
+      margin-bottom: 42px;
+      flex-wrap: wrap;
+    }
+
+    .eyebrow-cyan {
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--cyan-glow);
+      font-weight: 700;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    /* Simulador Interactivo de Escaneo Dental 3D & Telemetría */
+    .scanner-console {
+      padding: 36px;
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .layer-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .layer-btn {
+      text-align: left;
+      padding: 16px 20px;
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(224, 242, 254, 0.15);
+      color: var(--text-white);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .layer-btn:hover,
+    .layer-btn.is-active {
+      background: rgba(56, 189, 248, 0.18);
+      border-color: var(--cyan-glow);
+      box-shadow: 0 0 24px rgba(56, 189, 248, 0.2);
+    }
+
+    .layer-btn strong {
+      display: block;
+      font-size: 0.96rem;
+      margin-bottom: 4px;
+      color: var(--ice-text);
+    }
+
+    .layer-btn span {
+      font-size: 0.82rem;
+      color: var(--text-dim);
+    }
+
+    .scanner-viewport {
+      padding: 28px;
+      border-radius: 20px;
+      background: rgba(6, 16, 32, 0.78);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      position: relative;
+    }
+
+    .scan-grid-svg {
+      width: 100%;
+      height: 220px;
+      background:
+        linear-gradient(rgba(56, 189, 248, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(56, 189, 248, 0.08) 1px, transparent 1px);
+      background-size: 24px 24px;
+      border-radius: 14px;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slider-control-wrap {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(224, 242, 254, 0.14);
+    }
+
+    .slider-control-wrap input[type="range"] {
+      width: 100%;
+      accent-color: var(--cyan-glow);
+      margin-top: 8px;
+      cursor: pointer;
+    }
+
+    /* Tarjetas de Especialidades en Vidrio Esmerilado */
+    .glass-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .specialty-glass-card {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .specialty-glass-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--cyan-glow);
+    }
+
+    .spec-chip {
+      align-self: flex-start;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+      background: rgba(45, 212, 191, 0.16);
+      border: 1px solid rgba(45, 212, 191, 0.4);
+      color: var(--teal-glow);
+      margin-bottom: 16px;
+    }
+
+    .specialty-glass-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.22rem;
+      margin-bottom: 10px;
+    }
+
+    .specialty-glass-card p {
+      font-size: 0.9rem;
+      color: var(--text-dim);
+      margin-bottom: 20px;
+    }
+
+    /* Galería & Especialistas con Lightbox */
+    .gallery-glass-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .gallery-glass-item {
+      padding: 14px;
+      cursor: pointer;
+      text-align: left;
+      color: var(--text-white);
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .gallery-glass-item:hover {
+      border-color: var(--cyan-glow);
+      transform: translateY(-3px);
+    }
+
+    .gallery-glass-thumb {
+      border-radius: 14px;
+      overflow: hidden;
+      aspect-ratio: 16 / 10;
+      margin-bottom: 12px;
+    }
+
+    .gallery-glass-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Testimonios Ficticios */
+    .demo-tag-pill {
+      display: inline-block;
+      font-size: 0.7rem;
+      padding: 3px 10px;
+      border-radius: var(--radius-pill);
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(224, 242, 254, 0.25);
+      color: var(--ice-text);
+      margin-bottom: 12px;
+    }
+
+    /* Reserva Telemedicina & Presencial 3D */
+    .booking-glass-wrap {
+      padding: 40px;
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 44px;
+      align-items: center;
+    }
+
+    .glass-input,
+    .glass-select {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 12px;
+      background: rgba(6, 16, 32, 0.65);
+      border: 1px solid rgba(224, 242, 254, 0.24);
+      color: var(--text-white);
+      font-family: var(--font-sans);
+      font-size: 0.92rem;
+    }
+
+    .glass-input:focus,
+    .glass-select:focus {
+      outline: none;
+      border-color: var(--cyan-glow);
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.22);
+    }
+
+    .glass-select option {
+      background: #0A192F;
+      color: #FFFFFF;
+    }
+
+    .mode-switch {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .mode-btn {
+      padding: 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(224, 242, 254, 0.2);
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--ice-text);
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+
+    .mode-btn.is-active {
+      background: rgba(56, 189, 248, 0.25);
+      border-color: var(--cyan-glow);
+      color: #FFFFFF;
+    }
+
+    .feedback-glass {
+      margin-top: 18px;
+      padding: 16px;
+      border-radius: 14px;
+      background: rgba(45, 212, 191, 0.16);
+      border: 1px solid var(--teal-glow);
+      color: var(--ice-text);
+      font-size: 0.88rem;
+      display: none;
+    }
+
+    .feedback-glass.is-visible {
+      display: block;
+    }
+
+    /* Lightbox */
+    .glass-lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(6, 16, 32, 0.86);
+      backdrop-filter: blur(18px);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .glass-lightbox.is-open {
+      display: flex;
+    }
+
+    .glass-lightbox-card {
+      max-width: 820px;
+      width: 100%;
+      padding: 20px;
+    }
+
+    .site-footer {
+      border-top: 1px solid rgba(224, 242, 254, 0.14);
+      padding: 56px 0 40px;
+      color: var(--text-dim);
+      font-size: 0.86rem;
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid,
+      .scanner-console,
+      .booking-glass-wrap,
+      .gallery-glass-grid {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        display: none;
+      }
+      .nav-links.is-open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 20px;
+        right: 20px;
+        background: rgba(10, 25, 47, 0.95);
+        backdrop-filter: blur(24px);
+        padding: 20px;
+        border-radius: 20px;
+        border: 1px solid var(--glass-border);
+      }
+      .mobile-toggle {
+        display: inline-flex;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero-hud-stats,
+      .mode-switch {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body data-rubro-id="salud" data-style-id="liquid-glass">
+
+  <div class="ambient-orb orb-1" aria-hidden="true"></div>
+  <div class="ambient-orb orb-2" aria-hidden="true"></div>
+
+  <!-- Navegación Flotante Liquid Glass -->
+  <div class="glass-nav-wrap">
+    <header class="glass-navbar">
+      <a href="#" class="aether-brand">
+        <div class="aether-crystal" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"/>
+            <line x1="12" y1="22" x2="12" y2="15.5"/>
+            <polyline points="22 8.5 12 15.5 2 8.5"/>
+          </svg>
+        </div>
+        <div>
+          <span class="aether-brand-title">AETHER MED</span>
+          <span class="aether-brand-sub">Telemedicina & Odontología 3D</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" id="aetherNav" aria-label="Navegación principal">
+        <a href="#visor-3d">Escáner 3D en Vivo</a>
+        <a href="#unidades">Unidades Digitales</a>
+        <a href="#laboratorio">Laboratorio CAD/CAM</a>
+        <a href="#testimonios">Pacientes</a>
+      </nav>
+
+      <div style="display:flex;align-items:center;gap:10px">
+        <a href="#portal-reserva" class="btn-glass">Iniciar Cita Digital</a>
+        <button type="button" class="mobile-toggle" id="aetherMobileBtn" aria-label="Menú">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+        </button>
+      </div>
+    </header>
+  </div>
+
+  <main>
+    <!-- Hero Liquid Glass -->
+    <section class="hero-glass">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <div class="telemetry-badge">
+              <span class="pulse-ring" aria-hidden="true"></span>
+              <span>ESTILO #02 · LIQUID GLASS · NODO BIOMÉTRICO EN LÍNEA</span>
+            </div>
+            <h1 class="hero-title">
+              Odontología <span class="text-glow">Holográfica 3D</span> y Telemedicina sin Fronteras.
+            </h1>
+            <p class="hero-lead">
+              Aether Med fusiona escaneo intraoral láser, diseño de sonrisa asistido por IA y videoconsultas médicas encriptadas en paneles de vidrio translúcido de máxima claridad diagnóstica.
+            </p>
+            <div class="hero-actions">
+              <a href="#portal-reserva" class="btn-glass">Agendar Escaneo 3D / Telemedicina</a>
+              <a href="#visor-3d" class="btn-glass btn-glass-secondary">Probar Simulador 3D</a>
+            </div>
+            <div class="hero-hud-stats">
+              <div class="hud-stat-card">
+                <strong>18 µm</strong>
+                <span>Precisión óptica de escaneo láser</span>
+              </div>
+              <div class="hud-stat-card">
+                <strong>&lt; 2 min</strong>
+                <span>Conexión con médico en guardia HD</span>
+              </div>
+              <div class="hud-stat-card">
+                <strong>100%</strong>
+                <span>Receta electrónica y orden digital</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-panel hero-showcase-capsule">
+            <div class="showcase-img-box">
+              <img
+                src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=85"
+                alt="Interfaz translúcida y clínica futurista de Aether Med"
+                onerror="this.onerror=null;this.src='../../images/demos/assets/med/clinic-box-dental.svg';"/>
+              <div class="hud-floating-overlay">
+                <span class="pulse-ring"></span>
+                <span>ARCH-SCAN 3D · Malla Oclusal Renderizada (99.8%)</span>
+              </div>
+            </div>
+            <div class="hud-bottom-panel">
+              <div>
+                <small style="color:var(--cyan-glow);display:block;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em">Telemetría Clínica Activa</small>
+                <strong style="font-size:0.92rem">Servidor HL7 / FHIR Encriptado · 4 Especialistas en Guardia</strong>
+              </div>
+              <a href="#portal-reserva" class="btn-glass" style="padding:8px 16px;font-size:0.8rem">Conectar Ahora</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Simulador Interactivo de Diagnóstico 3D & Capas Translúcidas -->
+    <section class="section-block" id="visor-3d">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow-cyan">Interacción Biométrica en Vivo</span>
+            <h2 class="section-title">Visor de Capas Clínicas & Proyección 3D</h2>
+          </div>
+          <p style="color:var(--text-dim);max-width:480px;font-size:0.95rem">
+            Alterna entre las capas diagnósticas del paciente y desliza el control temporal para simular la alineación dental o profundidad tomográfica.
+          </p>
+        </div>
+
+        <div class="glass-panel scanner-console">
+          <div>
+            <div class="layer-buttons" role="tablist">
+              <button type="button" class="layer-btn is-active" data-layer="intraoral">
+                <strong>01 · Escaneo Intraoral Láser Color</strong>
+                <span>Mapeo topográfico de esmalte y encías sin radiación ni moldes de pasta.</span>
+              </button>
+              <button type="button" class="layer-btn" data-layer="aligner">
+                <strong>02 · Simulación Cinemática de Alineadores IA</strong>
+                <span>Predicción milimétrica de movimiento radicular y coronal en 6 meses.</span>
+              </button>
+              <button type="button" class="layer-btn" data-layer="cbct">
+                <strong>03 · Tomografía Volumétrica Cone Beam (CBCT)</strong>
+                <span>Evaluación de densidad ósea maxilar para implantes guiados por computador.</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="scanner-viewport" aria-live="polite">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:0.8rem;color:var(--ice-text)">
+              <span id="hudModeLabel">CAPA ACTIVA: ESCANEO INTRAORAL LÁSER 3D</span>
+              <span id="hudMetricBadge" style="color:var(--teal-glow);font-weight:700">Progreso Simulación: Mes 4 / 6 (82% Alineado)</span>
+            </div>
+
+            <div class="scan-grid-svg">
+              <svg width="320" height="160" viewBox="0 0 320 160" fill="none" xmlns="http://www.w3.org/2000/svg" id="dentalArchSvg">
+                <path id="archOuter" d="M40 130 C45 35, 275 35, 280 130" stroke="#38BDF8" stroke-width="3" stroke-dasharray="6 4" fill="none"/>
+                <path id="archInner" d="M68 125 C75 58, 245 58, 252 125" stroke="#2DD4BF" stroke-width="2.5" fill="rgba(56,189,248,0.12)"/>
+                <circle cx="160" cy="48" r="8" fill="#E0F2FE"/>
+                <circle cx="125" cy="56" r="7" fill="#38BDF8"/>
+                <circle cx="195" cy="56" r="7" fill="#38BDF8"/>
+                <circle cx="95" cy="76" r="7" fill="#2DD4BF"/>
+                <circle cx="225" cy="76" r="7" fill="#2DD4BF"/>
+                <circle cx="75" cy="105" r="8" fill="#38BDF8"/>
+                <circle cx="245" cy="105" r="8" fill="#38BDF8"/>
+              </svg>
+            </div>
+
+            <p id="hudDescription" style="font-size:0.88rem;color:var(--ice-text);margin-bottom:10px">
+              Nube de 1.4 millones de puntos ópticos capturada en 45 segundos. Detecta microfisuras interproximales y desgaste bruxista temprano.
+            </p>
+
+            <div class="slider-control-wrap">
+              <label for="scanProgressRange" style="font-size:0.82rem;color:var(--text-dim);display:flex;justify-content:space-between">
+                <span>Deslizador de Proyección Temporal / Corte Axial</span>
+                <strong id="rangeValueOut" style="color:var(--cyan-glow)">Etapa 4 de 6 (Mes 4)</strong>
+              </label>
+              <input type="range" id="scanProgressRange" min="1" max="6" value="4" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Unidades Digitales en Paneles Frosted Glass -->
+    <section class="section-block" id="unidades">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow-cyan">Protocolos Clínicos de Nueva Generación</span>
+            <h2 class="section-title">Especialidades en Ecosistema Digital</h2>
+          </div>
+        </div>
+
+        <div class="glass-cards-grid">
+          <article class="glass-panel specialty-glass-card">
+            <div>
+              <span class="spec-chip">Fresado En-Clínica 90 min</span>
+              <h3>Rehabilitación CEREC & Carillas CAD/CAM</h3>
+              <p>Diseñamos y tallamos restauraciones cerámicas de disilicato de litio en una sola sesión presencial mediante brazos robóticos de precisión.</p>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding-top:16px;border-top:1px solid rgba(224,242,254,0.14)">
+              <strong style="color:var(--ice-text)">$290.000 CLP</strong>
+              <a href="#portal-reserva" class="btn-glass" style="padding:8px 16px;font-size:0.8rem;" onclick="setAetherService('Rehabilitación CEREC CAD/CAM')">Reservar</a>
+            </div>
+          </article>
+
+          <article class="glass-panel specialty-glass-card">
+            <div>
+              <span class="spec-chip">Conexión Encriptada 4K</span>
+              <h3>Telemedicina General & Segunda Opinión</h3>
+              <p>Consulta médica por videollamada con revisión en vivo de exámenes de laboratorio, tomografías y emisión inmediata de receta electrónica.</p>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding-top:16px;border-top:1px solid rgba(224,242,254,0.14)">
+              <strong style="color:var(--ice-text)">$28.000 CLP</strong>
+              <a href="#portal-reserva" class="btn-glass" style="padding:8px 16px;font-size:0.8rem;" onclick="setAetherService('Telemedicina General & Receta Digital')">Reservar</a>
+            </div>
+          </article>
+
+          <article class="glass-panel specialty-glass-card">
+            <div>
+              <span class="spec-chip">Impresión 3D Biocompatible</span>
+              <h3>Alineadores Transparentes AetherAlign</h3>
+              <p>Ortodoncia sin brackets metálicos con seguimiento quincenal desde tu smartphone mediante capturas ópticas guiadas por IA.</p>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding-top:16px;border-top:1px solid rgba(224,242,254,0.14)">
+              <strong style="color:var(--ice-text)">$890.000 CLP</strong>
+              <a href="#portal-reserva" class="btn-glass" style="padding:8px 16px;font-size:0.8rem;" onclick="setAetherService('Evaluación Alineadores 3D AetherAlign')">Reservar</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Laboratorio & Suites Digitales con Lightbox -->
+    <section class="section-block" id="laboratorio">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow-cyan">Infraestructura & Especialistas</span>
+            <h2 class="section-title">Suites de Escaneo 3D & Laboratorio Robótico</h2>
+          </div>
+        </div>
+
+        <div class="gallery-glass-grid">
+          <button type="button" class="glass-panel gallery-glass-item" data-lb-img="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1200&q=85" data-lb-caption="Suite Holográfica Aether 01 · Pantallas curvas de diagnóstico tomográfico para el paciente">
+            <div class="gallery-glass-thumb">
+              <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1200&q=85" alt="Suite Holográfica Aether 01" onerror="this.onerror=null;this.src='../../images/demos/assets/med/clinic-suite-vip.svg';"/>
+            </div>
+            <strong style="display:block;font-size:0.95rem">Suite de Diagnóstico 3D · Dr. Lucas Vivaldi</strong>
+            <span style="font-size:0.8rem;color:var(--cyan-glow)">Ver en Lightbox Translúcido →</span>
+          </button>
+
+          <button type="button" class="glass-panel gallery-glass-item" data-lb-img="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=85" data-lb-caption="Laboratorio de Fresado Robótico 5 Ejes · Producción de coronas de porcelana en 40 minutos">
+            <div class="gallery-glass-thumb">
+              <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=85" alt="Laboratorio Robótico CAD/CAM" onerror="this.onerror=null;this.src='../../images/demos/assets/med/clinic-suite-vip.svg';"/>
+            </div>
+            <strong style="display:block;font-size:0.95rem">Unidad Robótica CAD/CAM · Dra. Mónica Sato</strong>
+            <span style="font-size:0.8rem;color:var(--cyan-glow)">Ver en Lightbox Translúcido →</span>
+          </button>
+
+          <button type="button" class="glass-panel gallery-glass-item" data-lb-img="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1200&q=85" data-lb-caption="Cabina de Telemedicina Encriptada · Conectividad directa con especialistas y bio-sensores">
+            <div class="gallery-glass-thumb">
+              <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1200&q=85" alt="Cabina de Telemedicina Encriptada" onerror="this.onerror=null;this.src='../../images/demos/assets/med/clinic-box-dental.svg';"/>
+            </div>
+            <strong style="display:block;font-size:0.95rem">Central Telemedicina 4K · Dr. Diego Koster</strong>
+            <span style="font-size:0.8rem;color:var(--cyan-glow)">Ver en Lightbox Translúcido →</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonios Ficticios -->
+    <section class="section-block" id="testimonios">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow-cyan">Experiencias Verificadas de Demostración</span>
+            <h2 class="section-title">Salud conectada y transparente</h2>
+          </div>
+        </div>
+
+        <div class="glass-cards-grid">
+          <div class="glass-panel specialty-glass-card">
+            <div>
+              <span class="demo-tag-pill">[Testimonio Ficticio de Demostración]</span>
+              <p style="color:var(--ice-text);font-size:0.95rem">
+                "Me escanearon en 3D al mediodía y a las 14:00 hrs ya tenía mi incrustación de porcelana cementada y lista. Ver el diseño en el panel de cristal frente al sillón es impresionante."
+              </p>
+            </div>
+            <div style="font-size:0.84rem;color:var(--cyan-glow);font-weight:600">
+              Sebastián K. · Diseño CAD/CAM en 1 Sesión
+            </div>
+          </div>
+
+          <div class="glass-panel specialty-glass-card">
+            <div>
+              <span class="demo-tag-pill">[Testimonio Ficticio de Demostración]</span>
+              <p style="color:var(--ice-text);font-size:0.95rem">
+                "Realicé mi consulta médica de control desde Puerto Varas por videollamada encriptada. El médico revisó mis órdenes en pantalla compartida y recibí el bono y receta al instante."
+              </p>
+            </div>
+            <div style="font-size:0.84rem;color:var(--cyan-glow);font-weight:600">
+              Valentina O. · Paciente Telemedicina HD
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portal de Reserva Telemedicina / Presencial -->
+    <section class="section-block" id="portal-reserva">
+      <div class="container">
+        <div class="glass-panel booking-glass-wrap">
+          <div>
+            <span class="eyebrow-cyan">Portal de Agendamiento Híbrido</span>
+            <h2 class="section-title" style="margin-bottom:16px">Agenda tu Teleconsulta o Escaneo 3D</h2>
+            <p style="color:var(--text-dim);margin-bottom:24px">
+              Elige atención remota inmediata por videollamada o acude a nuestro centro tecnológico en Nueva Las Condes.
+            </p>
+            <div style="padding:18px;border-radius:16px;background:rgba(56,189,248,0.1);border:1px solid rgba(56,189,248,0.3);font-size:0.86rem;color:var(--ice-text)">
+              <strong>Acceso Biométrico al Portal del Paciente:</strong> Recibirás un enlace seguro con tu ficha odontológica 3D interactiva tras la consulta.
+            </div>
+          </div>
+
+          <form id="aetherBookingForm">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
+              <strong style="font-family:var(--font-display);font-size:1.1rem">Configurar Sesión Clínica</strong>
+              <span class="demo-tag-pill" style="margin:0">[Demostración Interactiva]</span>
+            </div>
+
+            <div class="mode-switch" role="group" aria-label="Modalidad de cita">
+              <button type="button" class="mode-btn is-active" data-mode="Escaneo 3D Presencial">Escaneo 3D Presencial</button>
+              <button type="button" class="mode-btn" data-mode="Videoconsulta Encriptada 4K">Videoconsulta Encriptada 4K</button>
+            </div>
+
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
+              <div>
+                <label for="aeName" style="font-size:0.8rem;color:var(--ice-text);display:block;margin-bottom:6px">Nombre del Paciente *</label>
+                <input type="text" id="aeName" class="glass-input" placeholder="Ej: Tomás Echeverría" required />
+              </div>
+              <div>
+                <label for="aeEmail" style="font-size:0.8rem;color:var(--ice-text);display:block;margin-bottom:6px">Correo / WhatsApp *</label>
+                <input type="text" id="aeEmail" class="glass-input" placeholder="+56 9 8821 0000" required />
+              </div>
+            </div>
+
+            <div style="margin-bottom:16px">
+              <label for="aeService" style="font-size:0.8rem;color:var(--ice-text);display:block;margin-bottom:6px">Unidad Digital *</label>
+              <select id="aeService" class="glass-select">
+                <option value="Evaluación Alineadores 3D AetherAlign">Evaluación Alineadores 3D AetherAlign</option>
+                <option value="Rehabilitación CEREC CAD/CAM">Rehabilitación CEREC CAD/CAM (1 Sesión)</option>
+                <option value="Telemedicina General & Receta Digital">Telemedicina General & Receta Digital</option>
+                <option value="Implante Guiado por Tomografía 3D">Implante Guiado por Tomografía 3D</option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn-glass" style="width:100%;padding:14px">
+              Confirmar Sesión Digital (Demostración)
+            </button>
+
+            <div class="feedback-glass" id="aetherFeedback" role="status"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Lightbox Liquid Glass -->
+  <div class="glass-lightbox" id="aetherLightbox" role="dialog" aria-modal="true" aria-label="Visor de alta resolución">
+    <div class="glass-panel glass-lightbox-card">
+      <div style="border-radius:14px;overflow:hidden;aspect-ratio:16/9;margin-bottom:16px">
+        <img id="aeLbImg" src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=85" alt="Vista ampliada" style="width:100%;height:100%;object-fit:cover;" / onerror="this.onerror=null;this.src='../../images/demos/assets/med/clinic-box-dental.svg'">
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap">
+        <strong id="aeLbText" style="color:var(--ice-text);font-size:0.95rem">Suite Holográfica Aether</strong>
+        <button type="button" class="btn-glass btn-glass-secondary" id="aeLbClose" style="padding:8px 18px">Cerrar (Esc)</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px">
+      <div>
+        <strong style="color:var(--text-white);font-family:var(--font-display)">AETHER MED · TELEMEDICINA & ODONTOLOGÍA 3D</strong>
+        <p>Av. Apoquindo 5950, Piso 18, Las Condes · Estilo #02 Liquid Glass / Medical Glassmorphism.</p>
+      </div>
+      <div>
+        <p>© 2026 Demostración Interactiva KuyénDev · Todos los datos clínicos y testimonios son ficticios.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+
+      const mobBtn = document.getElementById('aetherMobileBtn');
+      const nav = document.getElementById('aetherNav');
+      if (mobBtn && nav) {
+        mobBtn.addEventListener('click', () => nav.classList.toggle('is-open'));
+      }
+
+      // Simulador de Capas 3D
+      const layerConfig = {
+        intraoral: {
+          title: 'CAPA ACTIVA: ESCANEO INTRAORAL LÁSER 3D',
+          desc: 'Nube de 1.4 millones de puntos ópticos capturada en 45 segundos. Detecta microfisuras interproximales y desgaste bruxista temprano.',
+          strokeOuter: '#38BDF8',
+          strokeInner: '#2DD4BF'
+        },
+        aligner: {
+          title: 'CAPA ACTIVA: SIMULACIÓN DE ALINEADORES INVISIBLES IA',
+          desc: 'Vectorización biomecánica de fuerzas suaves. Visualiza la corrección del arco dental mes a mes antes de imprimir tus férulas.',
+          strokeOuter: '#A78BFA',
+          strokeInner: '#38BDF8'
+        },
+        cbct: {
+          title: 'CAPA ACTIVA: TOMOGRAFÍA CONE BEAM & DENSIDAD ÓSEA',
+          desc: 'Reconstrucción volumétrica submilimétrica para inserción de implantes de titanio sin incisiones ni suturas.',
+          strokeOuter: '#2DD4BF',
+          strokeInner: '#E0F2FE'
+        }
+      };
+
+      const layerBtns = document.querySelectorAll('.layer-btn');
+      const rangeInput = document.getElementById('scanProgressRange');
+      let currentLayer = 'intraoral';
+
+      function updateHudView() {
+        const cfg = layerConfig[currentLayer];
+        const step = rangeInput ? parseInt(rangeInput.value, 10) : 4;
+        const pct = Math.min(100, Math.round((step / 6) * 100));
+
+        document.getElementById('hudModeLabel').textContent = cfg.title;
+        document.getElementById('hudDescription').textContent = cfg.desc;
+        document.getElementById('hudMetricBadge').textContent = `Progreso Simulación: Etapa ${step} / 6 (${pct}% Completado)`;
+        document.getElementById('rangeValueOut').textContent = `Etapa ${step} de 6 (${pct}%)`;
+
+        const outer = document.getElementById('archOuter');
+        const inner = document.getElementById('archInner');
+        if (outer && inner) {
+          outer.setAttribute('stroke', cfg.strokeOuter);
+          inner.setAttribute('stroke', cfg.strokeInner);
+          const curveOffset = 35 + (6 - step) * 5;
+          outer.setAttribute('d', `M40 130 C45 ${curveOffset}, 275 ${curveOffset}, 280 130`);
+        }
+      }
+
+      layerBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          layerBtns.forEach(b => b.classList.toggle('is-active', b === btn));
+          currentLayer = btn.getAttribute('data-layer');
+          updateHudView();
+        });
+      });
+
+      if (rangeInput) {
+        rangeInput.addEventListener('input', updateHudView);
+      }
+
+      // Reserva Digital
+      let activeMode = 'Escaneo 3D Presencial';
+      const modeBtns = document.querySelectorAll('.mode-btn');
+      modeBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          modeBtns.forEach(b => b.classList.toggle('is-active', b === btn));
+          activeMode = btn.getAttribute('data-mode');
+        });
+      });
+
+      window.setAetherService = function (val) {
+        const sel = document.getElementById('aeService');
+        if (sel) sel.value = val;
+      };
+
+      const form = document.getElementById('aetherBookingForm');
+      const feedback = document.getElementById('aetherFeedback');
+      if (form && feedback) {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const name = document.getElementById('aeName').value.trim();
+          const srv = document.getElementById('aeService').value;
+          feedback.classList.add('is-visible');
+          feedback.innerHTML = `
+            <strong>✓ Sesión Digital Confirmada [Modo Demostración]</strong><br/>
+            Paciente: <strong>${name}</strong> · Modalidad: <strong>${activeMode}</strong><br/>
+            Prestación: <strong>${srv}</strong>. Token de acceso biométrico generado correctamente.
+          `;
+        });
+      }
+
+      // Lightbox
+      const lb = document.getElementById('aetherLightbox');
+      const lbImg = document.getElementById('aeLbImg');
+      const lbText = document.getElementById('aeLbText');
+      const lbClose = document.getElementById('aeLbClose');
+
+      document.querySelectorAll('[data-lb-img]').forEach(item => {
+        item.addEventListener('click', () => {
+          lbImg.src = item.getAttribute('data-lb-img');
+          lbText.textContent = item.getAttribute('data-lb-caption');
+          lb.classList.add('is-open');
+        });
+      });
+
+      const closeLb = () => lb && lb.classList.remove('is-open');
+      if (lbClose) lbClose.addEventListener('click', closeLb);
+      if (lb) lb.addEventListener('click', (e) => { if (e.target === lb) closeLb(); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLb(); });
+    })();
+  </script>
+
+  <script src="../../js/config/rubros.js"></script>
+  <script src="../../js/demo-viewer-bar.js"></script>
+</body>
+</html>

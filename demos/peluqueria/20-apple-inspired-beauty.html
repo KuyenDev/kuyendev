@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>LUMEN HAIR PRO · Diagnóstico Capilar Óptico & Color de Precisión</title>
+  <meta name="description" content="Laboratorio de tricología óptica 200x, colorimetría asistida por espectrofotómetro y diseño Apple-Inspired Beauty. Demostración interactiva por KuyénDev." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-pure: #FFFFFF;
+      --bg-secondary: #F5F5F7;
+      --text-primary: #1D1D1F;
+      --text-secondary: #6E6E73;
+      --accent-blue: #0071E3;
+      --accent-blue-hover: #0077ED;
+      --border-hairline: rgba(29, 29, 31, 0.08);
+      --radius-card: 28px;
+      --radius-inner: 20px;
+      --radius-pill: 980px;
+      --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-pure);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      line-height: 1.58;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      padding-bottom: 96px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(1180px, 90%);
+      margin: 0 auto;
+    }
+
+    /* Botones Estilo Cupertino */
+    .apple-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: var(--radius-pill);
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      border: 1px solid var(--border-hairline);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.22s ease;
+    }
+
+    .apple-btn:hover,
+    .apple-btn.is-active {
+      background: var(--text-primary);
+      color: var(--bg-pure);
+    }
+
+    .apple-btn-blue {
+      background: var(--accent-blue);
+      color: #FFFFFF;
+      border-color: var(--accent-blue);
+    }
+
+    .apple-btn-blue:hover {
+      background: var(--accent-blue-hover);
+      color: #FFFFFF;
+    }
+
+    /* Header Translúcido Frosted Glass */
+    .global-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    .nav-content {
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.02rem;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .brand-pro {
+      padding: 2px 7px;
+      border-radius: 6px;
+      background: var(--text-primary);
+      color: var(--bg-pure);
+      font-size: 0.66rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+    }
+
+    .nav-links a:hover {
+      color: var(--text-primary);
+    }
+
+    /* Hero Keynote Centrado */
+    .hero {
+      padding: 72px 0 64px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent-blue);
+      margin-bottom: 14px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5.2vw, 4.5rem);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1.05;
+      max-width: 18ch;
+      margin: 0 auto 20px;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      max-width: 58ch;
+      margin: 0 auto 30px;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 48px;
+    }
+
+    .hero-stage {
+      background: var(--bg-secondary);
+      border-radius: var(--radius-card);
+      padding: 28px;
+      border: 1px solid var(--border-hairline);
+    }
+
+    .hero-stage img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      border-radius: var(--radius-inner);
+    }
+
+    .stage-metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+      text-align: left;
+    }
+
+    .metric-tile {
+      background: var(--bg-pure);
+      padding: 20px;
+      border-radius: var(--radius-inner);
+      border: 1px solid var(--border-hairline);
+    }
+
+    .metric-tile strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.65rem;
+      letter-spacing: -0.03em;
+      color: var(--text-primary);
+    }
+
+    .metric-tile span {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    /* Secciones */
+    section {
+      padding: 76px 0;
+    }
+
+    .section-title-block {
+      margin-bottom: 44px;
+    }
+
+    .section-title-block h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3.6vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.08;
+      margin-bottom: 12px;
+    }
+
+    .section-title-block p {
+      color: var(--text-secondary);
+      font-size: 1.02rem;
+      max-width: 56ch;
+    }
+
+    /* EXPERIENCIA INTERACTIVA: ESCÁNER ÓPTICO LUMEN 200X */
+    .scanner-section {
+      background: var(--bg-secondary);
+      border-radius: 36px;
+      padding: 52px;
+      border: 1px solid var(--border-hairline);
+    }
+
+    .scanner-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 36px;
+      align-items: stretch;
+    }
+
+    .scanner-controls {
+      background: var(--bg-pure);
+      border-radius: var(--radius-card);
+      padding: 32px;
+      border: 1px solid var(--border-hairline);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    .segmented-control {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      background: var(--bg-secondary);
+      padding: 4px;
+      border-radius: var(--radius-pill);
+      gap: 4px;
+    }
+
+    .seg-btn {
+      padding: 10px 12px;
+      border: none;
+      border-radius: var(--radius-pill);
+      background: transparent;
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .seg-btn.is-active {
+      background: var(--bg-pure);
+      color: var(--text-primary);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .control-row label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .control-row label span:last-child {
+      color: var(--accent-blue);
+    }
+
+    input[type="range"].apple-range {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 6px;
+      border-radius: 99px;
+      background: #D2D2D7;
+      outline: none;
+    }
+
+    input[type="range"].apple-range::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #FFFFFF;
+      border: 2px solid var(--accent-blue);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.18);
+      cursor: pointer;
+    }
+
+    .scanner-readout {
+      background: #1D1D1F;
+      color: #F5F5F7;
+      border-radius: var(--radius-card);
+      padding: 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .readout-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+      padding-bottom: 16px;
+    }
+
+    .live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 12px;
+      border-radius: var(--radius-pill);
+      background: rgba(0, 113, 227, 0.24);
+      color: #47A1FF;
+      font-size: 0.74rem;
+      font-weight: 600;
+    }
+
+    .telemetry-bars {
+      display: grid;
+      gap: 16px;
+    }
+
+    .bar-item {
+      display: grid;
+      gap: 6px;
+    }
+
+    .bar-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.82rem;
+      color: #A1A1A6;
+    }
+
+    .bar-track {
+      height: 8px;
+      background: rgba(255,255,255,0.12);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #0071E3, #47A1FF);
+      border-radius: 99px;
+      transition: width 0.3s ease;
+    }
+
+    .rx-box {
+      padding: 18px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* Carta de Servicios Bento */
+    .filter-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 32px;
+    }
+
+    .bento-services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .bento-card {
+      background: var(--bg-secondary);
+      border-radius: var(--radius-card);
+      padding: 30px;
+      border: 1px solid var(--border-hairline);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 20px;
+      transition: transform 0.25s ease;
+    }
+
+    .bento-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .bento-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .chip-blue {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent-blue);
+    }
+
+    .bento-price {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.25rem;
+    }
+
+    .bento-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      margin: 10px 0 8px;
+      letter-spacing: -0.02em;
+    }
+
+    .bento-card p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    .bento-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-hairline);
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    /* Lookbook P3 Wide Color */
+    .p3-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .p3-card {
+      background: var(--bg-secondary);
+      border-radius: var(--radius-card);
+      padding: 18px;
+      border: 1px solid var(--border-hairline);
+      cursor: pointer;
+    }
+
+    .p3-card img {
+      width: 100%;
+      height: 290px;
+      object-fit: cover;
+      border-radius: var(--radius-inner);
+      margin-bottom: 16px;
+    }
+
+    .p3-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 6px;
+    }
+
+    .p3-meta h3 {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+    }
+
+    .p3-meta span {
+      font-size: 0.82rem;
+      color: var(--accent-blue);
+      font-weight: 600;
+    }
+
+    /* Especialistas */
+    .specialists-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .spec-person {
+      background: var(--bg-secondary);
+      border-radius: var(--radius-card);
+      padding: 28px;
+      border: 1px solid var(--border-hairline);
+    }
+
+    .spec-person img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      border-radius: var(--radius-inner);
+      margin-bottom: 18px;
+    }
+
+    .spec-person h3 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+    }
+
+    .spec-person .role {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent-blue);
+      margin: 4px 0 10px;
+    }
+
+    /* Testimonios */
+    .reviews-bento {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .review-tile {
+      background: var(--bg-secondary);
+      border-radius: var(--radius-card);
+      padding: 28px;
+      border: 1px solid var(--border-hairline);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .demo-pill {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--accent-blue);
+    }
+
+    /* Reserva */
+    .booking-card {
+      background: var(--bg-secondary);
+      border-radius: 36px;
+      padding: 48px;
+      border: 1px solid var(--border-hairline);
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 36px;
+    }
+
+    .apple-form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .apple-field {
+      margin-bottom: 16px;
+    }
+
+    .apple-field label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .apple-input {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(29, 29, 31, 0.14);
+      background: var(--bg-pure);
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      color: var(--text-primary);
+      outline: none;
+    }
+
+    .apple-input:focus {
+      border-color: var(--accent-blue);
+      box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.15);
+    }
+
+    .demo-banner {
+      padding: 12px 16px;
+      border-radius: 14px;
+      background: var(--bg-pure);
+      border: 1px solid var(--border-hairline);
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
+
+    .apple-feedback {
+      display: none;
+      margin-top: 16px;
+      padding: 16px;
+      border-radius: 14px;
+      background: rgba(0, 113, 227, 0.1);
+      color: var(--accent-blue);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(29, 29, 31, 0.78);
+      backdrop-filter: blur(18px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      padding: 24px;
+    }
+
+    .lightbox.is-open {
+      display: flex;
+    }
+
+    .lightbox-modal {
+      max-width: 780px;
+      width: 100%;
+      background: var(--bg-pure);
+      border-radius: var(--radius-card);
+      padding: 26px;
+    }
+
+    .lightbox-modal img {
+      width: 100%;
+      max-height: 62vh;
+      object-fit: cover;
+      border-radius: var(--radius-inner);
+      margin-bottom: 16px;
+    }
+
+    .site-footer {
+      padding: 40px 0;
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      border-top: 1px solid var(--border-hairline);
+    }
+
+    @media (max-width: 960px) {
+      .stage-metrics,
+      .scanner-grid,
+      .bento-services,
+      .p3-grid,
+      .specialists-grid,
+      .reviews-bento,
+      .booking-card,
+      .apple-form-row {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        display: none;
+      }
+      .scanner-section,
+      .booking-card {
+        padding: 26px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body data-rubro-id="peluqueria" data-style-id="apple-inspired-beauty">
+
+  <header class="global-nav">
+    <div class="container nav-content">
+      <a href="#" class="brand">
+        <span>LUMEN HAIR</span>
+        <span class="brand-pro">PRO</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#escaner">Escáner Óptico 200x</a></li>
+        <li><a href="#servicios">Protocolos Pro</a></li>
+        <li><a href="#galeria">Colorimetría P3</a></li>
+        <li><a href="#equipo">Ingeniería Capilar</a></li>
+        <li><a href="#reserva">Agendar</a></li>
+      </ul>
+      <a href="#reserva" class="apple-btn apple-btn-blue" style="padding: 8px 18px; font-size: 0.8rem">Reservar Diagnóstico</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <span class="eyebrow">ESTILO #20 · APPLE-INSPIRED BEAUTY DESIGN</span>
+      <h1>Coloración y Salud Capilar con Precisión Óptica.</h1>
+      <p>
+        <strong>LUMEN HAIR PRO</strong> integra microscopía polarizada 200x, dosificación de pigmento asistida por espectrofotómetro y reconstrucción molecular de enlaces para resultados exactos, medibles y repetibles.
+      </p>
+      <div class="hero-cta-group">
+        <a href="#escaner" class="apple-btn apple-btn-blue">Ejecutar Diagnóstico Interactivo</a>
+        <a href="#servicios" class="apple-btn">Explorar Protocolos</a>
+      </div>
+
+      <div class="hero-stage">
+        <img
+          src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85"
+          alt="Estación de diagnóstico óptico Lumen Hair Pro"
+          onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg';"/>
+        <div class="stage-metrics">
+          <div class="metric-tile">
+            <strong>200x</strong>
+            <span>Microscopía Folicular Polarizada</span>
+          </div>
+          <div class="metric-tile">
+            <strong>±0.1 g</strong>
+            <span>Dosificación Digital de Pigmento</span>
+          </div>
+          <div class="metric-tile">
+            <strong>99.2%</strong>
+            <span>Integridad de Puentes Disulfuro</span>
+          </div>
+          <div class="metric-tile">
+            <strong>CRI 98</strong>
+            <span>Iluminación Espectral de Día</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCIA INTERACTIVA: ESCÁNER ÓPTICO LUMEN 200X -->
+    <section id="escaner">
+      <div class="section-title-block">
+        <span class="eyebrow">Lumen Optical Engine</span>
+        <h2>Simulador de Diagnóstico Capilar 200x</h2>
+        <p>Ingresa el historial químico y térmico de tu fibra para calcular en vivo la prescripción molecular y el protocolo de colorimetría seguro.</p>
+      </div>
+
+      <div class="scanner-section">
+        <div class="scanner-grid">
+          <div class="scanner-controls">
+            <div>
+              <label style="display:block; font-size:0.82rem; font-weight:600; margin-bottom:10px">1. Historial Químico de la Hebra</label>
+              <div class="segmented-control" id="chemGroup">
+                <button type="button" class="seg-btn" data-chem="virgen">Fibra Virgen</button>
+                <button type="button" class="seg-btn is-active" data-chem="tintura">Color / Balayage</button>
+                <button type="button" class="seg-btn" data-chem="decolorado">Decoloración Alta</button>
+              </div>
+            </div>
+
+            <div class="control-row">
+              <label for="porosityRange">
+                <span>2. Nivel de Porosidad Cuticular</span>
+                <span id="porosityVal">Media · 48%</span>
+              </label>
+              <input type="range" id="porosityRange" class="apple-range" min="15" max="90" value="48" />
+            </div>
+
+            <div class="control-row">
+              <label for="thermalRange">
+                <span>3. Exposición a Plancha / Calor Semanal</span>
+                <span id="thermalVal">3 veces / sem</span>
+              </label>
+              <input type="range" id="thermalRange" class="apple-range" min="0" max="7" value="3" />
+            </div>
+
+            <button type="button" class="apple-btn apple-btn-blue" id="sendScanToForm">Sincronizar Diagnóstico con mi Cita</button>
+          </div>
+
+          <div class="scanner-readout">
+            <div class="readout-header">
+              <div>
+                <span style="font-size:0.75rem; color:#A1A1A6; text-transform:uppercase; letter-spacing:0.08em">Reporte Espectrofotómetro</span>
+                <h3 id="scanTitle" style="font-family:var(--font-display); font-size:1.4rem; margin-top:4px">Índice de Elasticidad: 82 / 100</h3>
+              </div>
+              <span class="live-badge">● ÓPTICA ACTIVA</span>
+            </div>
+
+            <div class="telemetry-bars">
+              <div class="bar-item">
+                <div class="bar-labels">
+                  <span>Retención Lipídica Interna</span>
+                  <span id="lipidLabel">76%</span>
+                </div>
+                <div class="bar-track">
+                  <div class="bar-fill" id="lipidBar" style="width: 76%"></div>
+                </div>
+              </div>
+
+              <div class="bar-item">
+                <div class="bar-labels">
+                  <span>Reflectancia Óptica de Cutícula</span>
+                  <span id="reflectLabel">84%</span>
+                </div>
+                <div class="bar-track">
+                  <div class="bar-fill" id="reflectBar" style="width: 84%"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="rx-box">
+              <span style="font-size:0.72rem; text-transform:uppercase; letter-spacing:0.08em; color:#47A1FF; display:block; margin-bottom:4px">PrescripciónAlgorítmica Recomendada</span>
+              <strong id="rxRecommendation" style="font-family:var(--font-display); font-size:1.05rem">Protocolo Péptido K-18 + Color Espectral Ácido</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CARTA DE SERVICIOS -->
+    <section id="servicios">
+      <div class="section-title-block">
+        <span class="eyebrow">Ingeniería Aplicada</span>
+        <h2>Protocolos Clínicos &amp; Colorimetría Digital</h2>
+        <p>Selecciona un protocolo para precargarlo junto con tu telemetría capilar.</p>
+      </div>
+
+      <div class="filter-pills">
+        <button type="button" class="apple-btn is-active" data-p-filter="all">Todos los Sistemas</button>
+        <button type="button" class="apple-btn" data-p-filter="diag">Diagnóstico &amp; Péptidos</button>
+        <button type="button" class="apple-btn" data-p-filter="color">Color Espectral</button>
+        <button type="button" class="apple-btn" data-p-filter="corte">Corte Láser CAD</button>
+      </div>
+
+      <div class="bento-services">
+        <article class="bento-card" data-p-cat="diag">
+          <div>
+            <div class="bento-top">
+              <span class="chip-blue">Tricología 200x</span>
+              <span class="bento-price">$48.000</span>
+            </div>
+            <h3>Escaneo Folicular 200x &amp; Infusión Peptídica</h3>
+            <p>Mapeo digital de densidad por cm², limpieza ultrasónica de folículo y sellado con cadenas biomiméticas de queratina.</p>
+          </div>
+          <div class="bento-bottom">
+            <span>60 min · Informe PDF Incluido</span>
+            <button type="button" class="apple-btn pick-pro-btn" data-name="Escaneo Folicular 200x & Infusión Peptídica">Elegir</button>
+          </div>
+        </article>
+
+        <article class="bento-card" data-p-cat="color">
+          <div>
+            <div class="bento-top">
+              <span class="chip-blue">Espectrofotómetro</span>
+              <span class="bento-price">$118.000</span>
+            </div>
+            <h3>Balayage de Precisión Óptica CRI 98</h3>
+            <p>Lectura digital del pigmento subyacente de tu hebra para formular el matiz exacto sin margen de error humano.</p>
+          </div>
+          <div class="bento-bottom">
+            <span>140 min · Protección de Enlaces</span>
+            <button type="button" class="apple-btn pick-pro-btn" data-name="Balayage de Precisión Óptica CRI 98">Elegir</button>
+          </div>
+        </article>
+
+        <article class="bento-card" data-p-cat="corte">
+          <div>
+            <div class="bento-top">
+              <span class="chip-blue">Arquitectura 3D</span>
+              <span class="bento-price">$52.000</span>
+            </div>
+            <h3>Corte de Balance Volumétrico &amp; Luz</h3>
+            <p>Diseño de estructura capilar calibrado bajo iluminación de estudio de 5600K para caída simétrica perfecta.</p>
+          </div>
+          <div class="bento-bottom">
+            <span>55 min · Secado Supersónico Iónico</span>
+            <button type="button" class="apple-btn pick-pro-btn" data-name="Corte de Balance Volumétrico & Luz">Elegir</button>
+          </div>
+        </article>
+
+        <article class="bento-card" data-p-cat="diag">
+          <div>
+            <div class="bento-top">
+              <span class="chip-blue">Bio-Ingeniería</span>
+              <span class="bento-price">$74.000</span>
+            </div>
+            <h3>Reconstrucción Molecular de Enlaces Pro</h3>
+            <p>Reparación de cadenas polipeptídicas rotas mediante fototerapia LED roja de 650nm y nano-nebulización.</p>
+          </div>
+          <div class="bento-bottom">
+            <span>75 min · Fototerapia LED</span>
+            <button type="button" class="apple-btn pick-pro-btn" data-name="Reconstrucción Molecular de Enlaces Pro">Elegir</button>
+          </div>
+        </article>
+
+        <article class="bento-card" data-p-cat="color">
+          <div>
+            <div class="bento-top">
+              <span class="chip-blue">Gloss Digital</span>
+              <span class="bento-price">$62.000</span>
+            </div>
+            <h3>Glaze Translúcido Alta Reflectancia</h3>
+            <p>Polímero de brillo cristalino de pH controlado que incrementa la refracción de luz en un 42% en una sesión.</p>
+          </div>
+          <div class="bento-bottom">
+            <span>50 min · Cero Daño</span>
+            <button type="button" class="apple-btn pick-pro-btn" data-name="Glaze Translúcido Alta Reflectancia">Elegir</button>
+          </div>
+        </article>
+
+        <article class="bento-card" data-p-cat="corte">
+          <div>
+            <div class="bento-top">
+              <span class="chip-blue">Termo-Control</span>
+              <span class="bento-price">$42.000</span>
+            </div>
+            <h3>Brushing Inteligente con Sensor Térmico</h3>
+            <p>Estilizado con herramientas que miden la temperatura 40 veces por segundo para no superar nunca los 150°C.</p>
+          </div>
+          <div class="bento-bottom">
+            <span>45 min · Protección Térmica</span>
+            <button type="button" class="apple-btn pick-pro-btn" data-name="Brushing Inteligente con Sensor Térmico">Elegir</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- LOOKBOOK CON LIGHTBOX -->
+    <section id="galeria">
+      <div class="section-title-block">
+        <span class="eyebrow">Resultados Verificados</span>
+        <h2>Galería de Reflectancia &amp; Precisión</h2>
+        <p>Haz clic en cada tarjeta para revisar los datos ópticos antes y después del protocolo.</p>
+      </div>
+
+      <div class="p3-grid">
+        <article class="p3-card" data-title="Espectro Perla Frío · CRI 98" data-desc="Lectura previa: nivel 7 cálido. Resultado: neutralización exacta con +44% de reflectancia especular.">
+          <img
+            src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85"
+            alt="Espectro Perla Frío"
+            onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg';"/>
+          <div class="p3-meta">
+            <h3>Espectro Perla Frío</h3>
+            <span>Ver Telemetría +</span>
+          </div>
+        </article>
+
+        <article class="p3-card" data-title="Sellado Cuticular Nano-Peptídico" data-desc="Reducción del coeficiente de fricción capilar en un 68% tras una sesión de fototerapia 650nm.">
+          <img
+            src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85"
+            alt="Sellado Cuticular Nano-Peptídico"
+            onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg';"/>
+          <div class="p3-meta">
+            <h3>Sellado Nano-Peptídico</h3>
+            <span>Ver Telemetría +</span>
+          </div>
+        </article>
+
+        <article class="p3-card" data-title="Brunette Espejo de Alta Densidad" data-desc="Glaze ácido sin amoníaco formulado al miligramo mediante balanza conectada.">
+          <img
+            src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85"
+            alt="Brunette Espejo de Alta Densidad"
+            onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg';"/>
+          <div class="p3-meta">
+            <h3>Brunette Espejo Pro</h3>
+            <span>Ver Telemetría +</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- EQUIPO -->
+    <section id="equipo">
+      <div class="section-title-block">
+        <span class="eyebrow">Especialistas Certificados</span>
+        <h2>Ingeniería Capilar &amp; Dirección Creativa</h2>
+      </div>
+
+      <div class="specialists-grid">
+        <article class="spec-person">
+          <img
+            src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85"
+            alt="Dr. Nicolás Meyer"
+            onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg';"/>
+          <h3>Nicolás Meyer</h3>
+          <span class="role">Director de Tricología Óptica</span>
+          <p style="font-size:0.88rem; color:var(--text-secondary)">Especialista en diagnóstico microscópico polarizado y recuperación de enlaces disulfuro.</p>
+        </article>
+
+        <article class="spec-person">
+          <img
+            src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85"
+            alt="Elena Viveros"
+            onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg';"/>
+          <h3>Elena Viveros</h3>
+          <span class="role">Lead Colorist Espectrofotometría</span>
+          <p style="font-size:0.88rem; color:var(--text-secondary)">Certificada en formulación cromática digital asistida por sensores ópticos.</p>
+        </article>
+
+        <article class="spec-person">
+          <img
+            src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85"
+            alt="Julián Koster"
+            onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg';"/>
+          <h3>Julián Koster</h3>
+          <span class="role">Arquitecto de Corte &amp; Termo-Control</span>
+          <p style="font-size:0.88rem; color:var(--text-secondary)">Diseña cortes de precisión milimétrica sin estrés térmico sobre la cutícula.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section id="testimonios">
+      <div class="section-title-block">
+        <span class="eyebrow">Reseñas Verificadas</span>
+        <h2>Precisión que se Nota cada Día</h2>
+      </div>
+
+      <div class="reviews-bento">
+        <article class="review-tile">
+          <span class="demo-pill">[Testimonio Ficticio de Demostración]</span>
+          <blockquote style="font-size: 0.94rem">
+            “Ver mi hebra aumentada 200 veces en pantalla antes y después del tratamiento peptídico fue impresionante. Mi pelo recuperó su elasticidad real.”
+          </blockquote>
+          <div>
+            <strong style="font-family: var(--font-display)">Camila Chadwick</strong>
+            <span style="display:block; font-size:0.8rem; color:var(--text-secondary)">Escaneo 200x + Reconstrucción Molecular</span>
+          </div>
+        </article>
+
+        <article class="review-tile">
+          <span class="demo-pill">[Testimonio Ficticio de Demostración]</span>
+          <blockquote style="font-size: 0.94rem">
+            “Como guardan la fórmula al décimo de gramo y miden el tono con escáner, mi rubio queda exactamente igual cada vez que vengo.”
+          </blockquote>
+          <div>
+            <strong style="font-family: var(--font-display)">Bernardita Lira</strong>
+            <span style="display:block; font-size:0.8rem; color:var(--text-secondary)">Balayage de Precisión Óptica</span>
+          </div>
+        </article>
+
+        <article class="review-tile">
+          <span class="demo-pill">[Testimonio Ficticio de Demostración]</span>
+          <blockquote style="font-size: 0.94rem">
+            “La iluminación del estudio y el orden impecable parecen una tienda de Cupertino. Salí con un corte limpio y una guía exacta para cuidar mi cuero cabelludo.”
+          </blockquote>
+          <div>
+            <strong style="font-family: var(--font-display)">Rodrigo Somerville</strong>
+            <span style="display:block; font-size:0.8rem; color:var(--text-secondary)">Corte de Balance Volumétrico</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- RESERVA -->
+    <section id="reserva">
+      <div class="booking-card">
+        <div>
+          <span class="eyebrow">Lumen Cloud Booking</span>
+          <h2 style="font-family: var(--font-display); font-size: 2.2rem; letter-spacing: -0.03em; margin-bottom: 14px">Agenda tu Estación de Diagnóstico</h2>
+          <p style="color: var(--text-secondary); margin-bottom: 24px">
+            Tu perfil óptico simulado se adjunta automáticamente a la cita para preparar los péptidos y pigmentos antes de tu llegada.
+          </p>
+          <div style="background: var(--bg-pure); padding: 20px; border-radius: 18px; border: 1px solid var(--border-hairline); font-size: 0.86rem; color: var(--text-secondary)">
+            <strong style="color: var(--text-primary); display:block; margin-bottom: 6px">LUMEN HAIR PRO LAB</strong>
+            Av. Isidora Goyenechea 3160, Nivel Calle · Las Condes<br />
+            Lunes a Sábado · 09:00 a 20:30 hrs.
+          </div>
+        </div>
+
+        <form id="appleForm">
+          <div class="demo-banner">
+            <strong>Demostración Interactiva:</strong> Reserva simulada localmente en el navegador para el catálogo de estilos de KuyénDev.
+          </div>
+
+          <div class="apple-form-row">
+            <div>
+              <label for="pName">Nombre Completo</label>
+              <input type="text" id="pName" class="apple-input" placeholder="Ej.Javiera Mackenna" required />
+            </div>
+            <div>
+              <label for="pEmail">Correo o WhatsApp</label>
+              <input type="text" id="pEmail" class="apple-input" placeholder="+56 9 9123 4567" required />
+            </div>
+          </div>
+
+          <div class="apple-form-row">
+            <div>
+              <label for="pService">Protocolo Seleccionado</label>
+              <select id="pService" class="apple-input" required>
+                <option value="Escaneo Folicular 200x & Infusión Peptídica">Escaneo Folicular 200x &amp; Infusión Peptídica ($48.000)</option>
+                <option value="Balayage de Precisión Óptica CRI 98">Balayage de Precisión Óptica CRI 98 ($118.000)</option>
+                <option value="Corte de Balance Volumétrico & Luz">Corte de Balance Volumétrico &amp; Luz ($52.000)</option>
+                <option value="Reconstrucción Molecular de Enlaces Pro">Reconstrucción Molecular de Enlaces Pro ($74.000)</option>
+                <option value="Glaze Translúcido Alta Reflectancia">Glaze Translúcido Alta Reflectancia ($62.000)</option>
+              </select>
+            </div>
+            <div>
+              <label for="pTelemetry">Prescripción del Escáner</label>
+              <input type="text" id="pTelemetry" class="apple-input" value="Protocolo Péptido K-18 + Color Espectral Ácido" />
+            </div>
+          </div>
+
+          <div class="apple-field">
+            <label for="pDate">Fecha de Cita</label>
+            <input type="date" id="pDate" class="apple-input" required />
+          </div>
+
+          <button type="submit" class="apple-btn apple-btn-blue" style="width: 100%; padding: 15px; font-weight: 600">
+            Confirmar Estación Lumen Pro
+          </button>
+
+          <div class="apple-feedback" id="appleFeedback" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Telemetría de imagen">
+    <div class="lightbox-modal">
+      <img id="lbImg" src="" alt="/>
+      <h3 id="lbTitle" style="font-family: var(--font-display); margin-bottom: 6px"></h3>
+      <p id="lbDesc" style="color: var(--text-secondary); font-size: 0.92rem; margin-bottom: 18px"></p>
+      <button type="button" class="apple-btn" id="closeLightbox">Cerrar Vista</button>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p><strong>LUMEN HAIR PRO</strong> · Diagnóstico Capilar Óptico &amp; Color de Precisión · Demostración Estilo #20 Apple-Inspired Beauty por KuyénDev.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      // Escáner Óptico 200x
+      let chemState = 'tintura';
+      const chemBtns = document.querySelectorAll('[data-chem]');
+      const porosityRange = document.getElementById('porosityRange');
+      const thermalRange = document.getElementById('thermalRange');
+      const porosityVal = document.getElementById('porosityVal');
+      const thermalVal = document.getElementById('thermalVal');
+      const scanTitle = document.getElementById('scanTitle');
+      const lipidLabel = document.getElementById('lipidLabel');
+      const lipidBar = document.getElementById('lipidBar');
+      const reflectLabel = document.getElementById('reflectLabel');
+      const reflectBar = document.getElementById('reflectBar');
+      const rxRecommendation = document.getElementById('rxRecommendation');
+      const pTelemetry = document.getElementById('pTelemetry');
+
+      function updateScanner() {
+        const por = parseInt(porosityRange.value, 10);
+        const therm = parseInt(thermalRange.value, 10);
+
+        let porLevel = por < 35 ? 'Baja' : (por < 65 ? 'Media' : 'Alta');
+        porosityVal.textContent = `${porLevel} · ${por}%`;
+        thermalVal.textContent = `${therm} veces / sem`;
+
+        let penalty = (chemState === 'decolorado' ? 18 : (chemState === 'tintura' ? 8 : 0)) + Math.round(por * 0.22) + (therm * 2);
+        let elasticity = Math.max(48, Math.min(98, 105 - penalty));
+        let lipid = Math.max(42, Math.min(96, 100 - Math.round(por * 0.5)));
+        let reflect = Math.max(50, Math.min(99, 102 - Math.round(por * 0.35) - (therm * 2)));
+
+        scanTitle.textContent = `Índice de Elasticidad: ${elasticity} / 100`;
+        lipidLabel.textContent = lipid + '%';
+        lipidBar.style.width = lipid + '%';
+        reflectLabel.textContent = reflect + '%';
+        reflectBar.style.width = reflect + '%';
+
+        let rx = '';
+        if (elasticity < 70) {
+          rx = 'Reconstrucción Molecular Intensiva + Fototerapia 650nm';
+        } else if (chemState === 'virgen') {
+          rx = 'Glaze Translúcido CRI 98 + Hidratación Iónica';
+        } else {
+          rx = 'Protocolo Péptido K-18 + Color Espectral Ácido';
+        }
+
+        rxRecommendation.textContent = rx;
+        pTelemetry.value = `${rx} (Elasticidad ${elasticity}/100)`;
+      }
+
+      chemBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          chemBtns.forEach(b => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+          chemState = btn.dataset.chem;
+          updateScanner();
+        });
+      });
+
+      [porosityRange, thermalRange].forEach(el => el.addEventListener('input', updateScanner));
+
+      document.getElementById('sendScanToForm').addEventListener('click', () => {
+        document.getElementById('reserva').scrollIntoView({ behavior: 'smooth' });
+      });
+
+      // Filtro de Servicios
+      const filterBtns = document.querySelectorAll('[data-p-filter]');
+      const cards = document.querySelectorAll('.bento-card');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+          const cat = btn.dataset.pFilter;
+          cards.forEach(card => {
+            card.style.display = (cat === 'all' || card.dataset.pCat === cat) ? 'flex' : 'none';
+          });
+        });
+      });
+
+      const pService = document.getElementById('pService');
+      document.querySelectorAll('.pick-pro-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const name = btn.dataset.name;
+          for (let i = 0; i < pService.options.length; i++) {
+            if (pService.options[i].value === name) {
+              pService.selectedIndex = i;
+              break;
+            }
+          }
+          document.getElementById('reserva').scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+
+      // Lightbox
+      const lightbox = document.getElementById('lightbox');
+      const lbImg = document.getElementById('lbImg');
+      const lbTitle = document.getElementById('lbTitle');
+      const lbDesc = document.getElementById('lbDesc');
+      const closeLightbox = document.getElementById('closeLightbox');
+
+      document.querySelectorAll('.p3-card').forEach(card => {
+        card.addEventListener('click', () => {
+          const img = card.querySelector('img');
+          lbImg.src = img.src;
+          lbImg.alt = img.alt;
+          lbTitle.textContent = card.dataset.title;
+          lbDesc.textContent = card.dataset.desc;
+          lightbox.classList.add('is-open');
+        });
+      });
+
+      closeLightbox.addEventListener('click', () => lightbox.classList.remove('is-open'));
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) lightbox.classList.remove('is-open');
+      });
+
+      // Formulario
+      const form = document.getElementById('appleForm');
+      const feedback = document.getElementById('appleFeedback');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('pName').value;
+        feedback.style.display = 'block';
+        feedback.textContent = `✓ [Demostración] Estación Lumen Pro asignada a ${name}: "${pService.value}" con perfil óptico "${pTelemetry.value}".`;
+        form.reset();
+        updateScanner();
+      });
+    })();
+  </script>
+  <script src="../../js/config/rubros.js"></script>
+  <script src="../../js/demo-viewer-bar.js"></script>
+</body>
+</html>

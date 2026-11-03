@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>MONOGRAM CUT · Geometría Capilar & Barbería Monocromática</title>
+  <meta name="description" content="Estudio de corte arquitectónico y barbería de precisión geométrica en blanco, negro y escala de grises. Demostración Estilo #19 Monochrome Beauty por KuyénDev." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-black: #000000;
+      --bg-dark: #171717;
+      --fg-white: #FFFFFF;
+      --fg-gray: #737373;
+      --fg-light-gray: #A3A3A3;
+      --border-mono: #2E2E2E;
+      --border-strong: #FFFFFF;
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    body.is-inverted {
+      --bg-black: #FFFFFF;
+      --bg-dark: #F2F2F2;
+      --fg-white: #000000;
+      --fg-gray: #525252;
+      --fg-light-gray: #404040;
+      --border-mono: #D4D4D4;
+      --border-strong: #000000;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-black);
+      color: var(--fg-white);
+      font-family: var(--font-body);
+      line-height: 1.55;
+      overflow-x: hidden;
+      padding-bottom: 96px;
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      filter: grayscale(100%) contrast(1.18);
+    }
+
+    .container {
+      width: min(1360px, 94%);
+      margin: 0 auto;
+    }
+
+    /* Botones Monocromáticos */
+    .mono-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 24px;
+      background: transparent;
+      color: var(--fg-white);
+      border: 1px solid var(--fg-white);
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .mono-btn:hover,
+    .mono-btn.is-active {
+      background: var(--fg-white);
+      color: var(--bg-black);
+    }
+
+    .mono-btn-solid {
+      background: var(--fg-white);
+      color: var(--bg-black);
+    }
+
+    .mono-btn-solid:hover {
+      background: transparent;
+      color: var(--fg-white);
+    }
+
+    /* Header Cuadrícula Técnica */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg-black);
+      border-bottom: 1px solid var(--border-mono);
+    }
+
+    .header-grid {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: stretch;
+    }
+
+    .brand-cell {
+      padding: 18px 24px 18px 0;
+      border-right: 1px solid var(--border-mono);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: 0.1em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-sq {
+      width: 14px;
+      height: 14px;
+      background: var(--fg-white);
+      display: inline-block;
+    }
+
+    .nav-cell {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      padding: 0 28px;
+      list-style: none;
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--fg-light-gray);
+    }
+
+    .nav-cell a:hover {
+      color: var(--fg-white);
+    }
+
+    .actions-cell {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 0 12px 20px;
+      border-left: 1px solid var(--border-mono);
+    }
+
+    /* Hero Brutalista / Geométrico */
+    .hero {
+      border-bottom: 1px solid var(--border-mono);
+    }
+
+    .hero-matrix {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+    }
+
+    .hero-left {
+      padding: 64px 48px 64px 0;
+      border-right: 1px solid var(--border-mono);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .tech-index {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--fg-gray);
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-mono);
+      margin-bottom: 32px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 5.6vw, 5.2rem);
+      font-weight: 700;
+      line-height: 0.96;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+      margin-bottom: 26px;
+    }
+
+    .hero p {
+      font-size: 1rem;
+      color: var(--fg-light-gray);
+      max-width: 52ch;
+      margin-bottom: 36px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 44px;
+    }
+
+    .spec-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--border-mono);
+      padding-top: 24px;
+      gap: 16px;
+    }
+
+    .spec-strip strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .spec-strip span {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--fg-gray);
+    }
+
+    .hero-right {
+      padding: 40px 0 40px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .mono-frame {
+      border: 1px solid var(--border-mono);
+      padding: 16px;
+      background: var(--bg-dark);
+      position: relative;
+    }
+
+    .mono-frame img {
+      width: 100%;
+      height: 510px;
+      object-fit: cover;
+    }
+
+    .crosshair-bar {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 14px;
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      color: var(--fg-gray);
+      text-transform: uppercase;
+    }
+
+    /* Secciones */
+    section {
+      padding: 76px 0;
+      border-bottom: 1px solid var(--border-mono);
+    }
+
+    .section-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 20px;
+      margin-bottom: 44px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border-mono);
+    }
+
+    .section-bar .code {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 0.74rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--fg-gray);
+      margin-bottom: 8px;
+    }
+
+    .section-bar h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3.6vw, 3.2rem);
+      text-transform: uppercase;
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+
+    .section-bar p {
+      max-width: 46ch;
+      color: var(--fg-light-gray);
+      font-size: 0.92rem;
+    }
+
+    /* EXPERIENCIA INTERACTIVA: MATRIZ GEOMÉTRICA DE ÁNGULO DE CORTE */
+    .geometry-lab {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border: 1px solid var(--border-mono);
+      background: var(--bg-dark);
+    }
+
+    .geo-controls {
+      padding: 40px;
+      border-right: 1px solid var(--border-mono);
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .geo-group label {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .angle-btns {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+
+    input[type="range"].mono-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 4px;
+      background: var(--border-mono);
+      outline: none;
+    }
+
+    input[type="range"].mono-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      background: var(--fg-white);
+      cursor: pointer;
+    }
+
+    .geo-blueprint {
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .vector-box {
+      height: 220px;
+      border: 1px solid var(--border-mono);
+      background: var(--bg-black);
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .vector-line {
+      width: 160px;
+      height: 2px;
+      background: var(--fg-white);
+      transition: transform 0.25s ease;
+    }
+
+    .vector-circle {
+      width: 110px;
+      height: 110px;
+      border: 1px dashed var(--fg-gray);
+      border-radius: 50%;
+      position: absolute;
+    }
+
+    .blueprint-specs {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .bp-cell {
+      padding: 14px;
+      border: 1px solid var(--border-mono);
+      background: var(--bg-black);
+    }
+
+    .bp-cell span {
+      display: block;
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--fg-gray);
+      margin-bottom: 4px;
+    }
+
+    .bp-cell strong {
+      font-family: var(--font-display);
+      font-size: 1rem;
+    }
+
+    /* Carta de Servicios Técnica */
+    .filter-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .mono-table {
+      border-top: 1px solid var(--border-mono);
+    }
+
+    .mono-row {
+      display: grid;
+      grid-template-columns: 90px 1.2fr 1.2fr auto;
+      gap: 20px;
+      align-items: center;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border-mono);
+    }
+
+    .mono-code {
+      font-family: var(--font-display);
+      font-size: 0.84rem;
+      color: var(--fg-gray);
+      letter-spacing: 0.12em;
+    }
+
+    .mono-row h3 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      text-transform: uppercase;
+    }
+
+    .mono-row p {
+      font-size: 0.88rem;
+      color: var(--fg-light-gray);
+    }
+
+    .mono-action {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .mono-price {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    /* Lookbook Monocromo */
+    .contact-sheet {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--border-mono);
+      border-left: 1px solid var(--border-mono);
+    }
+
+    .sheet-cell {
+      padding: 24px;
+      border-right: 1px solid var(--border-mono);
+      border-bottom: 1px solid var(--border-mono);
+      cursor: pointer;
+      background: var(--bg-black);
+    }
+
+    .sheet-cell img {
+      width: 100%;
+      height: 310px;
+      object-fit: cover;
+      margin-bottom: 16px;
+    }
+
+    .sheet-meta {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+    }
+
+    /* Equipo */
+    .architects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .arch-card {
+      border: 1px solid var(--border-mono);
+      padding: 24px;
+      background: var(--bg-dark);
+    }
+
+    .arch-card img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      margin-bottom: 16px;
+    }
+
+    .arch-card h3 {
+      font-family: var(--font-display);
+      text-transform: uppercase;
+      font-size: 1.15rem;
+    }
+
+    .arch-role {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--fg-gray);
+      margin: 4px 0 10px;
+    }
+
+    /* Testimonios */
+    .testi-matrix {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .testi-box {
+      border: 1px solid var(--border-mono);
+      padding: 28px;
+      background: var(--bg-dark);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .mono-tag {
+      font-family: var(--font-display);
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--fg-gray);
+    }
+
+    /* Reserva */
+    .booking-matrix {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      border: 1px solid var(--border-mono);
+      background: var(--bg-dark);
+    }
+
+    .booking-left {
+      padding: 40px;
+      border-right: 1px solid var(--border-mono);
+    }
+
+    .booking-right {
+      padding: 40px;
+    }
+
+    .mono-field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .mono-field {
+      margin-bottom: 16px;
+    }
+
+    .mono-field label {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .mono-input {
+      width: 100%;
+      padding: 13px 14px;
+      background: var(--bg-black);
+      border: 1px solid var(--border-mono);
+      color: var(--fg-white);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      outline: none;
+    }
+
+    .mono-input:focus {
+      border-color: var(--fg-white);
+    }
+
+    .demo-alert {
+      padding: 12px 14px;
+      border: 1px solid var(--border-mono);
+      background: var(--bg-black);
+      font-size: 0.78rem;
+      color: var(--fg-light-gray);
+      margin-bottom: 18px;
+    }
+
+    .mono-feedback {
+      display: none;
+      margin-top: 16px;
+      padding: 15px;
+      border: 1px solid var(--fg-white);
+      background: var(--bg-black);
+      font-family: var(--font-display);
+      font-size: 0.84rem;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.94);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      padding: 24px;
+    }
+
+    .lightbox.is-open {
+      display: flex;
+    }
+
+    .lightbox-frame {
+      max-width: 800px;
+      width: 100%;
+      border: 1px solid #FFFFFF;
+      background: #000000;
+      color: #FFFFFF;
+      padding: 24px;
+    }
+
+    .lightbox-frame img {
+      width: 100%;
+      max-height: 62vh;
+      object-fit: cover;
+      margin-bottom: 16px;
+    }
+
+    .site-footer {
+      padding: 40px 0;
+      text-align: center;
+      font-family: var(--font-display);
+      font-size: 0.76rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--fg-gray);
+    }
+
+    @media (max-width: 960px) {
+      .header-grid,
+      .hero-matrix,
+      .geometry-lab,
+      .mono-row,
+      .contact-sheet,
+      .architects-grid,
+      .testi-matrix,
+      .booking-matrix,
+      .mono-field-row {
+        grid-template-columns: 1fr;
+      }
+      .nav-cell {
+        display: none;
+      }
+      .hero-left,
+      .geo-controls,
+      .booking-left {
+        border-right: none;
+        padding-right: 0;
+      }
+      .hero-right {
+        padding-left: 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body data-rubro-id="peluqueria" data-style-id="monochrome-beauty">
+
+  <header class="site-header">
+    <div class="container header-grid">
+      <a href="#" class="brand-cell">
+        <span class="brand-sq" aria-hidden="true"></span>
+        <span>MONOGRAM CUT [B&amp;W]</span>
+      </a>
+      <ul class="nav-cell">
+        <li><a href="#geometria">Matriz Geométrica</a></li>
+        <li><a href="#protocolos">Especificaciones</a></li>
+        <li><a href="#archivo">Hoja de Contacto</a></li>
+        <li><a href="#arquitectos">Arquitectos</a></li>
+      </ul>
+      <div class="actions-cell">
+        <button type="button" class="mono-btn" id="invertModeBtn" title="Alternar cuarto oscuro / papel">Invertir B/W</button>
+        <a href="#reserva" class="mono-btn mono-btn-solid">Agendar</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-matrix">
+        <div class="hero-left">
+          <div>
+            <div class="tech-index">
+              <span>ESTILO #19 · MONOCHROME BEAUTY</span>
+              <span>ESCALA DE GRISES PURA · 0% SATURACIÓN</span>
+            </div>
+            <h1>Geometría Capilar &amp; Corte de Precisión Milimétrica.</h1>
+            <p>
+              En <strong>MONOGRAM CUT</strong> eliminamos toda distracción cromática para concentrarnos en la estructura ósea, el ángulo de elevación de cada sección y el contraste puro entre volumen y contorno.
+            </p>
+            <div class="hero-buttons">
+              <a href="#geometria" class="mono-btn mono-btn-solid">Calibrar Ángulo de Corte</a>
+              <a href="#protocolos" class="mono-btn">Ver Ficha de Cortes</a>
+            </div>
+          </div>
+
+          <div class="spec-strip">
+            <div>
+              <strong>0.0 mm</strong>
+              <span>Skin Fade Quirúrgico</span>
+            </div>
+            <div>
+              <strong>45° / 90°</strong>
+              <span>Seccionado Bauhaus</span>
+            </div>
+            <div>
+              <strong>B&amp;W</strong>
+              <span>Diagnóstico de Sombra</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="mono-frame">
+            <img
+              src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=900&q=80"
+              alt="Corte geométrico monocromático en Monogram Cut"
+              onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/hair-look-balayage.svg';"/>
+            <div class="crosshair-bar">
+              <span>FIG 19.A · ELEVACIÓN 45° GRADUADA</span>
+              <span>ISO 400 · GRANO ÓPTICO</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCIA INTERACTIVA: MATRIZ GEOMÉTRICA DE CORTE -->
+    <section id="geometria">
+      <div class="section-bar">
+        <div>
+          <span class="code">MÓDULO INTERACTIVO N°01 · ARQUITECTURA CRANEAL</span>
+          <h2>Calibrador de Geometría &amp; Ángulo</h2>
+        </div>
+        <p>Selecciona el ángulo de proyección de la hebra y el nivel de contraste en perímetro para generar tu especificación técnica de corte.</p>
+      </div>
+
+      <div class="geometry-lab">
+        <div class="geo-controls">
+          <div class="geo-group">
+            <label>
+              <span>1. Ángulo de Elevación de Tijera</span>
+              <span id="angleReadout">45° Graduación</span>
+            </label>
+            <div class="angle-btns">
+              <button type="button" class="mono-btn" data-angle="0">0° Sólido</button>
+              <button type="button" class="mono-btn is-active" data-angle="45">45° cuña</button>
+              <button type="button" class="mono-btn" data-angle="90">90° Capas</button>
+              <button type="button" class="mono-btn" data-angle="135">135° Aire</button>
+            </div>
+          </div>
+
+          <div class="geo-group">
+            <label for="fadeSlider">
+              <span>2. Contraste Perimetral (Taper / Contorno)</span>
+              <span id="fadeVal">75% Alto Contraste</span>
+            </label>
+            <input type="range" id="fadeSlider" class="mono-slider" min="10" max="100" value="75" />
+          </div>
+
+          <div class="geo-group">
+            <label for="textureSlider">
+              <span>3. Desfilado Interno de Textura</span>
+              <span id="textureVal">40% Navaja Japonesa</span>
+            </label>
+            <input type="range" id="textureSlider" class="mono-slider" min="0" max="100" value="40" />
+          </div>
+
+          <button type="button" class="mono-btn mono-btn-solid" id="applyGeoBtn">Cargar Especificación en Reserva</button>
+        </div>
+
+        <div class="geo-blueprint">
+          <div class="vector-box">
+            <div class="vector-circle"></div>
+            <div class="vector-line" id="vectorLine" style="transform: rotate(-45deg)"></div>
+          </div>
+
+          <div class="blueprint-specs">
+            <div class="bp-cell">
+              <span>Estructura Resultante</span>
+              <strong id="bpStructure">Bob / Crop Triangular 45°</strong>
+            </div>
+            <div class="bp-cell">
+              <span>Herramienta Principal</span>
+              <strong id="bpTool">Acero Cobalto 6.0" + Navaja</strong>
+            </div>
+            <div class="bp-cell">
+              <span>Acabado Superficial</span>
+              <strong id="bpFinish">Mate Natural Sin Fijación</strong>
+            </div>
+            <div class="bp-cell">
+              <span>Ciclo de Re-Corte</span>
+              <strong>Cada 5 Semanas</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CARTA DE SERVICIOS -->
+    <section id="protocolos">
+      <div class="section-bar">
+        <div>
+          <span class="code">ÍNDICE TÉCNICO N°02</span>
+          <h2>Protocolos de Corte &amp; Barbería</h2>
+        </div>
+        <p>Filtra por especialidad estructural y vincula el código técnico a tu sesión.</p>
+      </div>
+
+      <div class="filter-strip">
+        <button type="button" class="mono-btn is-active" data-mono-filter="all">Todos [05]</button>
+        <button type="button" class="mono-btn" data-mono-filter="geo">Geometría &amp; Bob</button>
+        <button type="button" class="mono-btn" data-mono-filter="barber">Barbería Quirúrgica</button>
+        <button type="button" class="mono-btn" data-mono-filter="silver">Platinos &amp; Grises</button>
+      </div>
+
+      <div class="mono-table">
+        <article class="mono-row" data-mono-cat="geo">
+          <span class="mono-code">MC—01</span>
+          <h3>Corte Geométrico de Precisión (0° / 45°)</h3>
+          <p>Líneas arquitectónicas inspiradas en la escuela Bauhaus: bobs gráficos, micro-flequillos y contornos láser.</p>
+          <div class="mono-action">
+            <span class="mono-price">$48.000</span>
+            <button type="button" class="mono-btn pick-mono-btn" data-service="MC—01 Corte Geométrico de Precisión">Seleccionar</button>
+          </div>
+        </article>
+
+        <article class="mono-row" data-mono-cat="barber">
+          <span class="mono-code">MC—02</span>
+          <h3>Scissor Over Comb &amp; Skin Fade 0.0</h3>
+          <p>Degradado monocromático de transición invisible trabajado íntegramente a peine y tijera japonesa.</p>
+          <div class="mono-action">
+            <span class="mono-price">$36.000</span>
+            <button type="button" class="mono-btn pick-mono-btn" data-service="MC—02 Scissor Over Comb & Skin Fade 0.0">Seleccionar</button>
+          </div>
+        </article>
+
+        <article class="mono-row" data-mono-cat="barber">
+          <span class="mono-code">MC—03</span>
+          <h3>Esculpido de Barba &amp; Toalla Negra</h3>
+          <p>Perfilado con navaja libre, vapor detox de carbón activado y bálsamo mate sin brillo graso.</p>
+          <div class="mono-action">
+            <span class="mono-price">$28.000</span>
+            <button type="button" class="mono-btn pick-mono-btn" data-service="MC—03 Esculpido de Barba & Toalla Negra">Seleccionar</button>
+          </div>
+        </article>
+
+        <article class="mono-row" data-mono-cat="silver">
+          <span class="mono-code">MC—04</span>
+          <h3>Grey Blending &amp; Transición Plata</h3>
+          <p>Integración artística de canas naturales mediante micro-secciones frías de grafito y titanio.</p>
+          <div class="mono-action">
+            <span class="mono-price">$84.000</span>
+            <button type="button" class="mono-btn pick-mono-btn" data-service="MC—04 Grey Blending & Transición Plata">Seleccionar</button>
+          </div>
+        </article>
+
+        <article class="mono-row" data-mono-cat="silver">
+          <span class="mono-code">MC—05</span>
+          <h3>Decoloración Global Blanco Hielo</h3>
+          <p>Platino absoluto en escala de grises con protector de enlaces y matizador grafito cero amarillos.</p>
+          <div class="mono-action">
+            <span class="mono-price">$115.000</span>
+            <button type="button" class="mono-btn pick-mono-btn" data-service="MC—05 Decoloración Global Blanco Hielo">Seleccionar</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- LOOKBOOK / HOJA DE CONTACTO -->
+    <section id="archivo">
+      <div class="section-bar">
+        <div>
+          <span class="code">ARCHIVO FOTOGRÁFICO B&amp;W</span>
+          <h2>Hoja de Contacto 35mm</h2>
+        </div>
+        <p>Haz clic en cada fotograma para abrir el negativo ampliado en el visor.</p>
+      </div>
+
+      <div class="contact-sheet">
+        <article class="sheet-cell" data-title="NEG 01 · Bob Gráfico Línea Cero" data-desc="Corte en seco a 0° de elevación con terminación espejo en negro natural.">
+          <img
+            src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=900&q=80"
+            alt="Bob Gráfico Línea Cero"
+            onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/hair-look-balayage.svg';"/>
+          <div class="sheet-meta">
+            <span>NEG 01 · BOB LÍNEA CERO</span>
+            <span>[AMPLIAR]</span>
+          </div>
+        </article>
+
+        <article class="sheet-cell" data-title="NEG 02 · Crop Texturizado & Fade" data-desc="Sección superior desconectada a navaja con degradado lateral comprimido.">
+          <img
+            src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=900&q=80"
+            alt="Crop Texturizado & Fade"
+            onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/hair-look-balayage.svg';"/>
+          <div class="sheet-meta">
+            <span>NEG 02 · CROP &amp; FADE</span>
+            <span>[AMPLIAR]</span>
+          </div>
+        </article>
+
+        <article class="sheet-cell" data-title="NEG 03 · Transición Plata & Grafito" data-desc="Integración de cana natural con matiz ceniza humo de alto contraste.">
+          <img
+            src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85"
+            alt="Transición Plata & Grafito"
+            onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg';"/>
+          <div class="sheet-meta">
+            <span>NEG 03 · PLATA GRAFITO</span>
+            <span>[AMPLIAR]</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- EQUIPO -->
+    <section id="arquitectos">
+      <div class="section-bar">
+        <div>
+          <span class="code">DIRECTORIO DE CORTADORES</span>
+          <h2>Arquitectos de Línea</h2>
+        </div>
+      </div>
+
+      <div class="architects-grid">
+        <article class="arch-card">
+          <img
+            src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85"
+            alt="Bruno Kästner"
+            onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg';"/>
+          <h3>Bruno Kästner</h3>
+          <span class="arch-role">Director de Geometría · Berlín / Santiago</span>
+          <p style="font-size: 0.88rem; color: var(--fg-light-gray)">Especialista en corte técnico graduado y estructuras angulares de inspiración Bauhaus.</p>
+        </article>
+
+        <article class="arch-card">
+          <img
+            src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85"
+            alt="Dante Moraleda"
+            onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg';"/>
+          <h3>Dante Moraleda</h3>
+          <span class="arch-role">Master Barber &amp; Navaja Libre</span>
+          <p style="font-size: 0.88rem; color: var(--fg-light-gray)">12 años perfeccionando transiciones en escala de grises y simetría facial masculina.</p>
+        </article>
+
+        <article class="arch-card">
+          <img
+            src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85"
+            alt="Alma Kovač"
+            onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg';"/>
+          <h3>Alma Kovač</h3>
+          <span class="arch-role">Especialista en Platinos &amp; Grey Blending</span>
+          <p style="font-size: 0.88rem; color: var(--fg-light-gray)">Domina la neutralización de subtonos cálidos para lograr blancos puros y platas metálicos.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section id="testimonios">
+      <div class="section-bar">
+        <div>
+          <span class="code">REGISTRO DE CLIENTES</span>
+          <h2>Evaluaciones de Precisión</h2>
+        </div>
+      </div>
+
+      <div class="testi-matrix">
+        <article class="testi-box">
+          <span class="mono-tag">[Testimonio Ficticio de Demostración]</span>
+          <blockquote style="font-size: 0.94rem">
+            “Nunca habían medido los ángulos de mi cráneo antes de cortar. El bob geométrico crece manteniendo la línea exacta durante casi dos meses.”
+          </blockquote>
+          <div>
+            <strong style="font-family: var(--font-display)">CATALINA HOFFMANN</strong>
+            <span style="display:block; font-size:0.76rem; color:var(--fg-gray)">MC—01 Corte Geométrico</span>
+          </div>
+        </article>
+
+        <article class="testi-box">
+          <span class="mono-tag">[Testimonio Ficticio de Demostración]</span>
+          <blockquote style="font-size: 0.94rem">
+            “El trabajo de tijera sobre peine de Dante logra un degradado limpio y natural sin marcas duras de máquina. Estética impecable.”
+          </blockquote>
+          <div>
+            <strong style="font-family: var(--font-display)">CRISTÓBAL ILLANES</strong>
+            <span style="display:block; font-size:0.76rem; color:var(--fg-gray)">MC—02 Scissor Over Comb</span>
+          </div>
+        </article>
+
+        <article class="testi-box">
+          <span class="mono-tag">[Testimonio Ficticio de Demostración]</span>
+          <blockquote style="font-size: 0.94rem">
+            “Dejé de teñirme oscuro gracias al protocolo Grey Blending de Alma. Integró mis canas con un tono grafito moderno y sofisticado.”
+          </blockquote>
+          <div>
+            <strong style="font-family: var(--font-display)">PAULA ALDUNATE</strong>
+            <span style="display:block; font-size:0.76rem; color:var(--fg-gray)">MC—04 Grey Blending</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- RESERVA -->
+    <section id="reserva">
+      <div class="booking-matrix">
+        <div class="booking-left">
+          <span class="code" style="display:block; font-family:var(--font-display); font-size:0.74rem; color:var(--fg-gray); letter-spacing:0.18em; margin-bottom:10px">ORDEN DE TRABAJO</span>
+          <h2 style="font-family: var(--font-display); font-size: 2.2rem; text-transform: uppercase; margin-bottom: 16px">Reservar Sillón Técnico</h2>
+          <p style="color: var(--fg-light-gray); font-size: 0.92rem; margin-bottom: 24px">
+            Tu especificación de ángulo y textura queda registrada en tu ficha antes de iniciar el lavado con carbón activado.
+          </p>
+          <div style="border-top: 1px solid var(--border-mono); padding-top: 18px; font-size: 0.84rem; color: var(--fg-gray)">
+            <strong style="color: var(--fg-white); font-family: var(--font-display); display:block; margin-bottom: 6px">ESTUDIO MONOGRAM CUT</strong>
+            Merced 348, Galería Brutalista Local 4 · Barrio Lastarria<br />
+            Lunes a Sábado · 10:00 a 21:00 hrs.
+          </div>
+        </div>
+
+        <form class="booking-right" id="monoForm">
+          <div class="demo-alert">
+            <strong>[DEMOSTRACIÓN INTERACTIVA]</strong> Simulación local del sistema de agendamiento para el catálogo KuyénDev.
+          </div>
+
+          <div class="mono-field-row">
+            <div>
+              <label for="mName">Nombre &amp; Apellido</label>
+              <input type="text" id="mName" class="mono-input" placeholder="Ej. Gaspar Matta" required />
+            </div>
+            <div>
+              <label for="mPhone">Teléfono Móvil</label>
+              <input type="tel" id="mPhone" class="mono-input" placeholder="+56 9 8888 7777" required />
+            </div>
+          </div>
+
+          <div class="mono-field-row">
+            <div>
+              <label for="mService">Código de Protocolo</label>
+              <select id="mService" class="mono-input" required>
+                <option value="MC—01 Corte Geométrico de Precisión">MC—01 Corte Geométrico de Precisión ($48.000)</option>
+                <option value="MC—02 Scissor Over Comb & Skin Fade 0.0">MC—02 Scissor Over Comb &amp; Skin Fade 0.0 ($36.000)</option>
+                <option value="MC—03 Esculpido de Barba & Toalla Negra">MC—03 Esculpido de Barba &amp; Toalla Negra ($28.000)</option>
+                <option value="MC—04 Grey Blending & Transición Plata">MC—04 Grey Blending &amp; Transición Plata ($84.000)</option>
+                <option value="MC—05 Decoloración Global Blanco Hielo">MC—05 Decoloración Global Blanco Hielo ($115.000)</option>
+              </select>
+            </div>
+            <div>
+              <label for="mSpec">Parámetro Geométrico</label>
+              <input type="text" id="mSpec" class="mono-input" value="Elevación 45° · Contraste 75%" />
+            </div>
+          </div>
+
+          <div class="mono-field">
+            <label for="mDate">Fecha de Sesión</label>
+            <input type="date" id="mDate" class="mono-input" required />
+          </div>
+
+          <button type="submit" class="mono-btn mono-btn-solid" style="width: 100%; padding: 15px">
+            Emitir Orden de Reserva [B&amp;W]
+          </button>
+
+          <div class="mono-feedback" id="monoFeedback" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Negativo ampliado">
+    <div class="lightbox-frame">
+      <img id="lbImg" src="" alt="/>
+      <h3 id="lbTitle" style="font-family: var(--font-display); text-transform: uppercase; margin-bottom: 6px"></h3>
+      <p id="lbDesc" style="color: #A3A3A3; font-size: 0.9rem; margin-bottom: 18px"></p>
+      <button type="button" class="mono-btn" id="closeLightbox">Cerrar Visor [ESC]</button>
+    </div>
+  </div>
+
+  <footer class="site-footer container">
+    <p>MONOGRAM CUT · Geometría Capilar &amp; Barbería Monocromática · Demostración Estilo #19 Monochrome Beauty por KuyénDev.</p>
+  </footer>
+
+  <script>
+    (function () {
+      // Invertir Polaridad B/W
+      const invertBtn = document.getElementById('invertModeBtn');
+      invertBtn.addEventListener('click', () => {
+        document.body.classList.toggle('is-inverted');
+      });
+
+      // Calibrador Geométrico
+      const angleBtns = document.querySelectorAll('[data-angle]');
+      const angleReadout = document.getElementById('angleReadout');
+      const fadeSlider = document.getElementById('fadeSlider');
+      const textureSlider = document.getElementById('textureSlider');
+      const fadeVal = document.getElementById('fadeVal');
+      const textureVal = document.getElementById('textureVal');
+      const vectorLine = document.getElementById('vectorLine');
+      const bpStructure = document.getElementById('bpStructure');
+      const bpTool = document.getElementById('bpTool');
+      const mSpec = document.getElementById('mSpec');
+
+      let currentAngle = 45;
+
+      const angleStructures = {
+        0: 'Línea Sólida Perimetral 0°',
+        45: 'Bob / Crop Triangular 45°',
+        90: 'Capas Uniformes 90°',
+        135: 'Capas Largas Proyectadas 135°'
+      };
+
+      function updateGeometry() {
+        const f = fadeSlider.value;
+        const t = textureSlider.value;
+        fadeVal.textContent = f + '% Contraste';
+        textureVal.textContent = t + '% Desfilado';
+        angleReadout.textContent = currentAngle + '° Elevación';
+        vectorLine.style.transform = `rotate(-${currentAngle}deg)`;
+        bpStructure.textContent = angleStructures[currentAngle];
+        bpTool.textContent = t > 50 ? 'Navaja Pluma + Tijera Entresacadora' : 'Acero Cobalto 6.0" Filo Dulce';
+        mSpec.value = `Elevación ${currentAngle}° · Contraste ${f}% · Textura ${t}%`;
+      }
+
+      angleBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          angleBtns.forEach(b => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+          currentAngle = parseInt(btn.dataset.angle, 10);
+          updateGeometry();
+        });
+      });
+
+      [fadeSlider, textureSlider].forEach(el => el.addEventListener('input', updateGeometry));
+
+      document.getElementById('applyGeoBtn').addEventListener('click', () => {
+        document.getElementById('reserva').scrollIntoView({ behavior: 'smooth' });
+      });
+
+      // Filtro de Protocolos
+      const filterBtns = document.querySelectorAll('[data-mono-filter]');
+      const rows = document.querySelectorAll('.mono-row');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+          const cat = btn.dataset.monoFilter;
+          rows.forEach(row => {
+            row.style.display = (cat === 'all' || row.dataset.monoCat === cat) ? 'grid' : 'none';
+          });
+        });
+      });
+
+      const mService = document.getElementById('mService');
+      document.querySelectorAll('.pick-mono-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const s = btn.dataset.service;
+          for (let i = 0; i < mService.options.length; i++) {
+            if (mService.options[i].value === s) {
+              mService.selectedIndex = i;
+              break;
+            }
+          }
+          document.getElementById('reserva').scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+
+      // Lightbox
+      const lightbox = document.getElementById('lightbox');
+      const lbImg = document.getElementById('lbImg');
+      const lbTitle = document.getElementById('lbTitle');
+      const lbDesc = document.getElementById('lbDesc');
+      const closeLightbox = document.getElementById('closeLightbox');
+
+      document.querySelectorAll('.sheet-cell').forEach(cell => {
+        cell.addEventListener('click', () => {
+          const img = cell.querySelector('img');
+          lbImg.src = img.src;
+          lbImg.alt = img.alt;
+          lbTitle.textContent = cell.dataset.title;
+          lbDesc.textContent = cell.dataset.desc;
+          lightbox.classList.add('is-open');
+        });
+      });
+
+      closeLightbox.addEventListener('click', () => lightbox.classList.remove('is-open'));
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) lightbox.classList.remove('is-open');
+      });
+
+      // Formulario
+      const form = document.getElementById('monoForm');
+      const feedback = document.getElementById('monoFeedback');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('mName').value;
+        feedback.style.display = 'block';
+        feedback.textContent = `[ORDEN CONFIRMADA · DEMO] Cliente: ${name.toUpperCase()} | Protocolo: ${mService.value} | Parámetros: ${mSpec.value}`;
+        form.reset();
+        updateGeometry();
+      });
+    })();
+  </script>
+  <script src="../../js/config/rubros.js"></script>
+  <script src="../../js/demo-viewer-bar.js"></script>
+</body>
+</html>

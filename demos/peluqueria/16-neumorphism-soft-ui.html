@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>VELVET TOUCH · Salón Táctil & Bienestar Capilar Soft UI</title>
+  <meta name="description" content="Salón de bienestar capilar, hidroterapia silenciosa y coloración hipoalergénica diseñado con estética Neumorphism / Soft UI. Demostración interactiva por KuyénDev." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-surface: #E6ECF5;
+      --bg-highlight: #F8FAFC;
+      --shadow-dark: #D0D9E6;
+      --shadow-deep: #BCC8DA;
+      --text-main: #1E293B;
+      --text-muted: #52637A;
+      --accent: #3B82F6;
+      --accent-soft: #60A5FA;
+      --teal-led: #10B981;
+      --neu-outset: 10px 10px 20px var(--shadow-dark), -10px -10px 20px var(--bg-highlight);
+      --neu-outset-sm: 5px 5px 11px var(--shadow-dark), -5px -5px 11px var(--bg-highlight);
+      --neu-inset: inset 5px 5px 10px var(--shadow-dark), inset -5px -5px 10px var(--bg-highlight);
+      --neu-inset-deep: inset 8px 8px 16px var(--shadow-deep), inset -8px -8px 16px var(--bg-highlight);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --radius-pill: 999px;
+      --font-display: 'Plus Jakarta Sans', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-surface);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      overflow-x: hidden;
+      padding-bottom: 96px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(1240px, 92%);
+      margin: 0 auto;
+    }
+
+    /* Superficies Neumórficas */
+    .neu-card {
+      background: var(--bg-surface);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--neu-outset);
+      border: 1px solid rgba(248, 250, 252, 0.75);
+    }
+
+    .neu-well {
+      background: var(--bg-surface);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--neu-inset);
+      border: 1px solid rgba(248, 250, 252, 0.4);
+    }
+
+    .neu-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--bg-surface);
+      color: var(--text-main);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.92rem;
+      padding: 13px 24px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(248, 250, 252, 0.8);
+      box-shadow: var(--neu-outset-sm);
+      cursor: pointer;
+      transition: all 0.22s ease;
+      user-select: none;
+    }
+
+    .neu-btn:hover {
+      color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .neu-btn:active,
+    .neu-btn.is-active {
+      box-shadow: var(--neu-inset);
+      color: var(--accent);
+      transform: translateY(0);
+    }
+
+    .neu-btn-primary {
+      background: linear-gradient(145deg, #2563EB, #1E40AF);
+      color: #F8FAFC;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 6px 6px 14px var(--shadow-deep), -6px -6px 14px var(--bg-highlight);
+    }
+
+    .neu-btn-primary:hover {
+      color: #FFFFFF;
+      filter: brightness(1.06);
+    }
+
+    /* Header Flotante Táctil */
+    .site-header {
+      position: sticky;
+      top: 18px;
+      z-index: 100;
+      padding: 0 4%;
+      margin-bottom: 36px;
+    }
+
+    .navbar {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 14px 26px;
+      border-radius: var(--radius-pill);
+      background: rgba(230, 236, 245, 0.9);
+      backdrop-filter: blur(12px);
+      box-shadow: var(--neu-outset);
+      border: 1px solid rgba(248, 250, 252, 0.85);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.08rem;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-orb {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--bg-surface);
+      box-shadow: var(--neu-inset);
+      display: grid;
+      place-items: center;
+    }
+
+    .brand-orb::after {
+      content: '';
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 10px rgba(59, 130, 246, 0.7);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      padding: 9px 16px;
+      border-radius: var(--radius-pill);
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      transition: all 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-main);
+      box-shadow: var(--neu-inset);
+    }
+
+    /* Hero Soft UI */
+    .hero {
+      padding: 18px 0 64px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 18px;
+      border-radius: var(--radius-pill);
+      box-shadow: var(--neu-inset);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 22px;
+    }
+
+    .hero-pill .led {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--teal-led);
+      box-shadow: 0 0 8px var(--teal-led);
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.25rem, 4.4vw, 3.7rem);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 56ch;
+      margin-bottom: 30px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+
+    .hero-dials {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .dial-box {
+      padding: 18px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--neu-outset-sm);
+      border: 1px solid rgba(248, 250, 252, 0.7);
+      text-align: center;
+    }
+
+    .dial-ring {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 10px;
+      border-radius: 50%;
+      box-shadow: var(--neu-inset);
+      display: grid;
+      place-items: center;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 0.92rem;
+      color: var(--accent);
+    }
+
+    .dial-box span {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .hero-showcase {
+      padding: 24px;
+      position: relative;
+    }
+
+    .hero-frame {
+      padding: 14px;
+      border-radius: 26px;
+      box-shadow: var(--neu-inset-deep);
+      overflow: hidden;
+    }
+
+    .hero-frame img {
+      width: 100%;
+      height: 450px;
+      object-fit: cover;
+      border-radius: 18px;
+    }
+
+    .hero-status-bar {
+      margin-top: 18px;
+      padding: 14px 20px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--neu-outset-sm);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.84rem;
+      font-weight: 600;
+    }
+
+    /* Títulos de Sección */
+    section {
+      padding: 58px 0;
+    }
+
+    .section-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 36px;
+    }
+
+    .section-kicker {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      box-shadow: var(--neu-inset);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .section-head h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .section-head p {
+      color: var(--text-muted);
+      max-width: 50ch;
+      font-size: 0.96rem;
+    }
+
+    /* Consola Sensorial Capilar Soft UI (Sección Interactiva) */
+    .console-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 32px;
+      padding: 32px;
+    }
+
+    .console-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .preset-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .slider-card {
+      padding: 18px 20px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--neu-outset-sm);
+    }
+
+    .slider-top {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.88rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .slider-top span:last-child {
+      color: var(--accent);
+      font-family: var(--font-display);
+    }
+
+    input[type="range"].neu-range {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 12px;
+      border-radius: var(--radius-pill);
+      background: var(--bg-surface);
+      box-shadow: var(--neu-inset);
+      outline: none;
+    }
+
+    input[type="range"].neu-range::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--bg-highlight);
+      box-shadow: 3px 3px 7px var(--shadow-deep), -2px -2px 6px #ffffff;
+      border: 3px solid var(--accent);
+      cursor: pointer;
+    }
+
+    .console-monitor {
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .orb-visualizer {
+      width: 150px;
+      height: 150px;
+      margin: 12px auto;
+      border-radius: 50%;
+      box-shadow: var(--neu-outset);
+      display: grid;
+      place-items: center;
+      position: relative;
+    }
+
+    .orb-core {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      box-shadow: var(--neu-inset-deep);
+      display: grid;
+      place-items: center;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: var(--accent);
+      transition: all 0.3s ease;
+    }
+
+    .console-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .metric-chip {
+      padding: 12px 14px;
+      border-radius: 14px;
+      box-shadow: var(--neu-outset-sm);
+      font-size: 0.82rem;
+    }
+
+    .metric-chip strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 0.98rem;
+      color: var(--text-main);
+    }
+
+    /* Carta de Servicios Interactiva */
+    .filter-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .service-card {
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+      transition: transform 0.22s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .service-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .service-badge {
+      padding: 6px 12px;
+      border-radius: var(--radius-pill);
+      box-shadow: var(--neu-inset);
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .service-price {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.2rem;
+      color: var(--text-main);
+    }
+
+    .service-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.18rem;
+      margin: 12px 0 8px;
+    }
+
+    .service-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .service-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 14px;
+      border-top: 1px solid rgba(208, 217, 230, 0.6);
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    /* Lookbook & Lightbox */
+    .lookbook-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .look-card {
+      padding: 18px;
+      cursor: pointer;
+      transition: transform 0.25s ease;
+    }
+
+    .look-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .look-thumb {
+      padding: 10px;
+      border-radius: 20px;
+      box-shadow: var(--neu-inset);
+      margin-bottom: 14px;
+      overflow: hidden;
+    }
+
+    .look-thumb img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 14px;
+      transition: transform 0.35s ease;
+    }
+
+    .look-card:hover .look-thumb img {
+      transform: scale(1.03);
+    }
+
+    .look-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .look-meta h3 {
+      font-family: var(--font-display);
+      font-size: 1.02rem;
+    }
+
+    .look-meta span {
+      font-size: 0.8rem;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* Equipo & Filosofía */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .team-card {
+      padding: 26px;
+      text-align: center;
+    }
+
+    .team-avatar {
+      width: 96px;
+      height: 96px;
+      margin: 0 auto 16px;
+      padding: 8px;
+      border-radius: 50%;
+      box-shadow: var(--neu-inset);
+    }
+
+    .team-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .team-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      margin-bottom: 4px;
+    }
+
+    .team-role {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .team-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    /* Testimonios */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .testi-card {
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .demo-tag {
+      display: inline-block;
+      padding: 5px 11px;
+      border-radius: var(--radius-pill);
+      box-shadow: var(--neu-inset);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    .testi-card blockquote {
+      font-size: 0.93rem;
+      color: var(--text-main);
+      font-style: italic;
+    }
+
+    .testi-author strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+    }
+
+    .testi-author span {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Reserva Soft UI */
+    .booking-wrap {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 32px;
+      padding: 34px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text-main);
+    }
+
+    .neu-input {
+      width: 100%;
+      padding: 14px 18px;
+      border-radius: 16px;
+      border: 1px solid rgba(248, 250, 252, 0.65);
+      background: var(--bg-surface);
+      box-shadow: var(--neu-inset);
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      color: var(--text-main);
+      outline: none;
+    }
+
+    .neu-input:focus {
+      border-color: var(--accent);
+    }
+
+    .demo-notice {
+      padding: 12px 16px;
+      border-radius: 14px;
+      box-shadow: var(--neu-inset);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .booking-feedback {
+      display: none;
+      margin-top: 16px;
+      padding: 16px;
+      border-radius: 16px;
+      box-shadow: var(--neu-inset);
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(230, 236, 245, 0.88);
+      backdrop-filter: blur(14px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      padding: 24px;
+    }
+
+    .lightbox.is-open {
+      display: flex;
+    }
+
+    .lightbox-box {
+      max-width: 780px;
+      width: 100%;
+      padding: 24px;
+    }
+
+    .lightbox-box img {
+      width: 100%;
+      max-height: 62vh;
+      object-fit: cover;
+      border-radius: 18px;
+      margin-bottom: 16px;
+    }
+
+    .site-footer {
+      padding: 36px 0;
+      text-align: center;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid,
+      .console-grid,
+      .services-grid,
+      .lookbook-grid,
+      .team-grid,
+      .testimonials-grid,
+      .booking-wrap,
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body data-rubro-id="peluqueria" data-style-id="neumorphism-soft-ui">
+
+  <header class="site-header">
+    <nav class="navbar" aria-label="Navegación principal">
+      <a href="#" class="brand">
+        <span class="brand-orb" aria-hidden="true"></span>
+        <span>VELVET TOUCH</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#consola">Cabina Sensorial</a></li>
+        <li><a href="#servicios">Carta Táctil</a></li>
+        <li><a href="#lookbook">Lookbook</a></li>
+        <li><a href="#equipo">Especialistas</a></li>
+        <li><a href="#reserva">Reserva Soft UI</a></li>
+      </ul>
+      <a href="#reserva" class="neu-btn neu-btn-primary">Agendar Cabina</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <div class="hero-pill">
+            <span class="led" aria-hidden="true"></span>
+            SALÓN TÁCTIL &amp; BIENESTAR CAPILAR · ESTILO #16 SOFT UI
+          </div>
+          <h1>Cuidado Capilar de <span>Baja Fricción</span> y Calma Acústica.</h1>
+          <p>
+            En <strong>VELVET TOUCH</strong> reemplazamos el ruido de los salones tradicionales por cabinas insonorizadas, sillones neumáticos de gravedad cero, agua purificada a temperatura controlada y coloración orgánica libre de amoníaco.
+          </p>
+          <div class="hero-actions">
+            <a href="#consola" class="neu-btn neu-btn-primary">Configurar Cabina Sensorial</a>
+            <a href="#servicios" class="neu-btn">Explorar Rituales</a>
+          </div>
+          <div class="hero-dials">
+            <div class="dial-box">
+              <div class="dial-ring">37°C</div>
+              <span>Hidroterapia Termal</span>
+            </div>
+            <div class="dial-box">
+              <div class="dial-ring">24 dB</div>
+              <span>Cabina Silenciosa</span>
+            </div>
+            <div class="dial-box">
+              <div class="dial-ring">0%</div>
+              <span>Amoníaco &amp; Sulfatos</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="neu-card hero-showcase">
+          <div class="hero-frame">
+            <img
+              src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85"
+              alt="Cabina de bienestar capilar Velvet Touch con estética Soft UI"
+              onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg';"/>
+          </div>
+          <div class="hero-status-bar">
+            <span>Estado de Cabina 01: Climatización Lista</span>
+            <span style="color: var(--accent)">Humidificación 68%</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCIA VISUAL INTERACTIVA: CONSOLA SENSORIAL -->
+    <section id="consola">
+      <div class="section-head">
+        <div>
+          <span class="section-kicker">Interacción Táctil Neumórfica</span>
+          <h2>Consola de Clima &amp; Hidroterapia Capilar</h2>
+        </div>
+        <p>Ajusta los controles tridimensionales de tu sillón antes de llegar al salón: regula presión craneal, micro-niebla tibia y cancelación acústica.</p>
+      </div>
+
+      <div class="neu-card console-grid">
+        <div class="console-controls">
+          <div class="preset-row">
+            <button type="button" class="neu-btn is-active" data-cabin-preset="detox">Modo Detox Oxigenante</button>
+            <button type="button" class="neu-btn" data-cabin-preset="silk">Seda &amp; Cierre Cuticular</button>
+            <button type="button" class="neu-btn" data-cabin-preset="sleep">Sueño Profundo 0 dB</button>
+          </div>
+
+          <div class="slider-card">
+            <div class="slider-top">
+              <label for="tempRange">Temperatura de Micro-Niebla Ozonizada</label>
+              <span id="tempVal">38°C</span>
+            </div>
+            <input type="range" id="tempRange" class="neu-range" min="32" max="44" value="38" />
+          </div>
+
+          <div class="slider-card">
+            <div class="slider-top">
+              <label for="pressureRange">Presión de Masaje Craneal Neumático</label>
+              <span id="pressureVal">65%</span>
+            </div>
+            <input type="range" id="pressureRange" class="neu-range" min="20" max="100" value="65" />
+          </div>
+
+          <div class="slider-card">
+            <div class="slider-top">
+              <label for="soundRange">Aislamiento Acústico &amp; Frecuencia Binaural</label>
+              <span id="soundVal">85%</span>
+            </div>
+            <input type="range" id="soundRange" class="neu-range" min="30" max="100" value="85" />
+          </div>
+        </div>
+
+        <div class="neu-well console-monitor">
+          <div>
+            <span class="section-kicker">Telemetría de Bienestar en Vivo</span>
+            <h3 id="consoleModeTitle" style="font-family: var(--font-display); font-size: 1.35rem; margin-top: 6px">Programa: Detox Oxigenante</h3>
+          </div>
+
+          <div class="orb-visualizer">
+            <div class="orb-core" id="orbReadout">38°C</div>
+          </div>
+
+          <div class="console-metrics">
+            <div class="metric-chip">
+              <span>Apertura Cuticular</span>
+              <strong id="cuticleState">Óptima · Nivel 4</strong>
+            </div>
+            <div class="metric-chip">
+              <span>Aroma Difusor</span>
+              <strong id="aromaState">Lavanda Blanca &amp; Cedro</strong>
+            </div>
+            <div class="metric-chip">
+              <span>Flujo Hídrico</span>
+              <strong id="waterState">Agua Osmotizada pH 5.2</strong>
+            </div>
+            <div class="metric-chip">
+              <span>Tiempo Sugerido</span>
+              <strong id="timeState">55 minutos</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CARTA DE SERVICIOS INTERACTIVA -->
+    <section id="servicios">
+      <div class="section-head">
+        <div>
+          <span class="section-kicker">Menú Clínico &amp; Estilismo</span>
+          <h2>Carta de Servicios Soft Care</h2>
+        </div>
+        <p>Filtra por categoría y selecciona cualquier tratamiento para precargarlo automáticamente en tu solicitud de reserva.</p>
+      </div>
+
+      <div class="filter-tabs" role="tablist">
+        <button type="button" class="neu-btn is-active" data-service-filter="all">Todos los Rituales</button>
+        <button type="button" class="neu-btn" data-service-filter="hidro">Hidroterapia &amp; Spa</button>
+        <button type="button" class="neu-btn" data-service-filter="corte">Corte Silencioso</button>
+        <button type="button" class="neu-btn" data-service-filter="color">Color Hipoalergénico</button>
+      </div>
+
+      <div class="services-grid">
+        <article class="neu-card service-card" data-service-cat="hidro">
+          <div>
+            <div class="service-top">
+              <span class="service-badge">Hidroterapia</span>
+              <span class="service-price">$54.000</span>
+            </div>
+            <h3>Inmersión Vapor Ozonizado Velvet</h3>
+            <p>Limpieza folicular ultrasónica con micro-niebla a 38°C, infusión de ceramidas vegetales y drenaje craneal neumático.</p>
+          </div>
+          <div class="service-footer">
+            <span>60 min · Cabina Aislada</span>
+            <button type="button" class="neu-btn select-service-btn" data-service-name="Inmersión Vapor Ozonizado Velvet">Elegir</button>
+          </div>
+        </article>
+
+        <article class="neu-card service-card" data-service-cat="corte">
+          <div>
+            <div class="service-top">
+              <span class="service-badge">Corte Táctil</span>
+              <span class="service-price">$42.000</span>
+            </div>
+            <h3>Corte de Caída Natural en Seco</h3>
+            <p>Esculpido respetando el remolino y movimiento orgánico del cabello. Opción de sesión 100% silenciosa sin conversación forzada.</p>
+          </div>
+          <div class="service-footer">
+            <span>50 min · Cero Estrés</span>
+            <button type="button" class="neu-btn select-service-btn" data-service-name="Corte de Caída Natural en Seco">Elegir</button>
+          </div>
+        </article>
+
+        <article class="neu-card service-card" data-service-cat="color">
+          <div>
+            <div class="service-top">
+              <span class="service-badge">Color Bio</span>
+              <span class="service-price">$88.000</span>
+            </div>
+            <h3>Balayage Óleo-Mineral Sin Amoníaco</h3>
+            <p>Iluminación suave trabajada con pigmentos en base a aceites prensados en frío que protegen la barrera lipídica del cuero cabelludo.</p>
+          </div>
+          <div class="service-footer">
+            <span>130 min · Brillo Espejo</span>
+            <button type="button" class="neu-btn select-service-btn" data-service-name="Balayage Óleo-Mineral Sin Amoníaco">Elegir</button>
+          </div>
+        </article>
+
+        <article class="neu-card service-card" data-service-cat="hidro">
+          <div>
+            <div class="service-top">
+              <span class="service-badge">Hidroterapia</span>
+              <span class="service-price">$64.000</span>
+            </div>
+            <h3>Terapia Sellado de Cutícula Amino-Silk</h3>
+            <p>Reconstrucción de puentes capilares mediante presión negativa suave y suero de aminoácidos de seda pura.</p>
+          </div>
+          <div class="service-footer">
+            <span>75 min · Cabina 02</span>
+            <button type="button" class="neu-btn select-service-btn" data-service-name="Terapia Sellado de Cutícula Amino-Silk">Elegir</button>
+          </div>
+        </article>
+
+        <article class="neu-card service-card" data-service-cat="color">
+          <div>
+            <div class="service-top">
+              <span class="service-badge">Color Bio</span>
+              <span class="service-price">$52.000</span>
+            </div>
+            <h3>Baño de Luz Perlado Acidificante</h3>
+            <p>Matizado translúcido de pH ácido que neutraliza visos cálidos y devuelve una textura aterciopelada al tacto.</p>
+          </div>
+          <div class="service-footer">
+            <span>45 min · pH 4.5</span>
+            <button type="button" class="neu-btn select-service-btn" data-service-name="Baño de Luz Perlado Acidificante">Elegir</button>
+          </div>
+        </article>
+
+        <article class="neu-card service-card" data-service-cat="corte">
+          <div>
+            <div class="service-top">
+              <span class="service-badge">Corte Táctil</span>
+              <span class="service-price">$49.000</span>
+            </div>
+            <h3>Diseño de Contorno &amp; Flequillo Soft</h3>
+            <p>Diagnóstico facial tridimensional + corte de capas de aire ultrasuaves con cepillado iónico a baja temperatura.</p>
+          </div>
+          <div class="service-footer">
+            <span>55 min · Secado Iónico</span>
+            <button type="button" class="neu-btn select-service-btn" data-service-name="Diseño de Contorno & Flequillo Soft">Elegir</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- LOOKBOOK / GALERÍA CON LIGHTBOX -->
+    <section id="lookbook">
+      <div class="section-head">
+        <div>
+          <span class="section-kicker">Resultados Texturales</span>
+          <h2>Lookbook de Texturas Aterciopeladas</h2>
+        </div>
+        <p>Haz clic en cada ficha para inspeccionar el acabado capilar y los parámetros de hidratación aplicados.</p>
+      </div>
+
+      <div class="lookbook-grid">
+        <article class="neu-card look-card" data-title="Seda Perlada · Brillo Frío" data-desc="Baño ácido pH 4.5 + micro-niebla a 37°C durante 20 minutos para sellado cuticular espejo.">
+          <div class="look-thumb">
+            <img
+              src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85"
+              alt="Textura capilar Seda Perlada"
+              onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg';"/>
+          </div>
+          <div class="look-meta">
+            <h3>Seda Perlada · Brillo Frío</h3>
+            <span>Ver Ficha +</span>
+          </div>
+        </article>
+
+        <article class="neu-card look-card" data-title="Ondas de Aire Sin Calor Extremo" data-desc="Moldeado iónico a 110°C con infusión previa de proteínas de avena nórdica.">
+          <div class="look-thumb">
+            <img
+              src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=900&q=80"
+              alt="Ondas suaves de baja temperatura"
+              onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/hair-look-balayage.svg';"/>
+          </div>
+          <div class="look-meta">
+            <h3>Ondas de Aire Baja Temp</h3>
+            <span>Ver Ficha +</span>
+          </div>
+        </article>
+
+        <article class="neu-card look-card" data-title="Rubio Vainilla Hipoalergénico" data-desc="Decoloración en base a arcilla blanca y óleos calmantes sin irritación dérmica.">
+          <div class="look-thumb">
+            <img
+              src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=900&q=80"
+              alt="Rubio vainilla hipoalergénico"
+              onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/hair-look-balayage.svg';"/>
+          </div>
+          <div class="look-meta">
+            <h3>Rubio Vainilla Óleo-Mineral</h3>
+            <span>Ver Ficha +</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- EQUIPO -->
+    <section id="equipo">
+      <div class="section-head">
+        <div>
+          <span class="section-kicker">Arquitectos del Bienestar</span>
+          <h2>Especialistas en Tricología &amp; Soft Styling</h2>
+        </div>
+        <p>Un equipo formado en dermocosmética capilar, coloración no invasiva y ergonomía sensorial.</p>
+      </div>
+
+      <div class="team-grid">
+        <article class="neu-card team-card">
+          <div class="team-avatar">
+            <img
+              src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=800&q=80"
+              alt="Clara Lindqvist"
+              onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/stylist-female-1.svg';"/>
+          </div>
+          <h3>Clara Lindqvist</h3>
+          <span class="team-role">Directora de Hidroterapia &amp; Tricología</span>
+          <p>Especialista en equilibrio del microbioma del cuero cabelludo y protocolos de vapor ozonizado.</p>
+        </article>
+
+        <article class="neu-card team-card">
+          <div class="team-avatar">
+            <img
+              src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=800&q=80"
+              alt="Mateo Valdés"
+              onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/stylist-male-1.svg';"/>
+          </div>
+          <h3>Mateo Valdés</h3>
+          <span class="team-role">Colorista Hipoalergénico Senior</span>
+          <p>Creador de fórmulas translúcidas sin amoníaco ni PPD para pieles altamente sensibles.</p>
+        </article>
+
+        <article class="neu-card team-card">
+          <div class="team-avatar">
+            <img
+              src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80"
+              alt="Sofía Aránguiz"
+              onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/stylist-female-2.svg';"/>
+          </div>
+          <h3>Sofía Aránguiz</h3>
+          <span class="team-role">Escultora de Corte en Seco</span>
+          <p>Diseña cortes de bajo mantenimiento diario que acompañan la textura real de cada hebra.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section id="testimonios">
+      <div class="section-head">
+        <div>
+          <span class="section-kicker">Experiencias Auditadas</span>
+          <h2>Sensaciones de Nuestros Clientes</h2>
+        </div>
+      </div>
+
+      <div class="testimonials-grid">
+        <article class="neu-card testi-card">
+          <span class="demo-tag">[Testimonio Ficticio de Demostración]</span>
+          <blockquote>
+            “Pedí la modalidad de corte silencioso con micro-niebla a 38°C. Salí con el cabello increíblemente suave y descansada como si hubiera dormido una siesta profunda.”
+          </blockquote>
+          <div class="testi-author">
+            <strong>Isidora Montes</strong>
+            <span>Ritual Vapor Velvet + Corte en Seco</span>
+          </div>
+        </article>
+
+        <article class="neu-card testi-card">
+          <span class="demo-tag">[Testimonio Ficticio de Demostración]</span>
+          <blockquote>
+            “Tengo cuero cabelludo reactivo y por primera vez pude hacerme iluminación sin picor ni enrojecimiento gracias a los óleos minerales sin amoníaco.”
+          </blockquote>
+          <div class="testi-author">
+            <strong>Fernanda Riquelme</strong>
+            <span>Balayage Óleo-Mineral</span>
+          </div>
+        </article>
+
+        <article class="neu-card testi-card">
+          <span class="demo-tag">[Testimonio Ficticio de Demostración]</span>
+          <blockquote>
+            “La cabina insonorizada y el sillón neumático cambian por completo la visita a la peluquería. Todo se siente suave, limpio y pensado al milímetro.”
+          </blockquote>
+          <div class="testi-author">
+            <strong>Tomás Echaurren</strong>
+            <span>Detox Oxigenante 60 min</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- RESERVA INTERACTIVA -->
+    <section id="reserva">
+      <div class="neu-card booking-wrap">
+        <div>
+          <span class="section-kicker">Agenda Digital sin Estrés</span>
+          <h2 style="font-family: var(--font-display); font-size: 2rem; margin: 10px 0 14px">Reserva tu Cabina Soft Touch</h2>
+          <p style="color: var(--text-muted); margin-bottom: 22px">
+            Personaliza tu sesión eligiendo incluso si prefieres conversación cero, música ambiental binaural o aromaterapia neutra.
+          </p>
+          <div class="neu-well" style="padding: 20px">
+            <strong style="display:block; font-family: var(--font-display); margin-bottom: 8px">Dirección &amp; Horarios</strong>
+            <p style="font-size: 0.88rem; color: var(--text-muted)">
+              Av. Alonso de Córdova 4120, Suite 302 · Vitacura<br />
+              Martes a Sábado · 09:30 a 20:00 hrs<br />
+              Estacionamiento subterráneo climatizado.
+            </p>
+          </div>
+        </div>
+
+        <form id="bookingForm">
+          <div class="demo-notice">
+            <strong>Aviso de Demostración Interactiva:</strong> Este formulario simula una reserva en tiempo real del lado del cliente para el catálogo de KuyénDev; no envía datos a servidores externos.
+          </div>
+
+          <div class="form-row">
+            <div>
+              <label for="clientName">Nombre Completo</label>
+              <input type="text" id="clientName" class="neu-input" placeholder="Ej. Valentina Hurtado" required />
+            </div>
+            <div>
+              <label for="clientPhone">WhatsApp / Teléfono</label>
+              <input type="tel" id="clientPhone" class="neu-input" placeholder="+56 9 8765 4321" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div>
+              <label for="serviceSelect">Ritual Seleccionado</label>
+              <select id="serviceSelect" class="neu-input" required>
+                <option value="Inmersión Vapor Ozonizado Velvet">Inmersión Vapor Ozonizado Velvet ($54.000)</option>
+                <option value="Corte de Caída Natural en Seco">Corte de Caída Natural en Seco ($42.000)</option>
+                <option value="Balayage Óleo-Mineral Sin Amoníaco">Balayage Óleo-Mineral Sin Amoníaco ($88.000)</option>
+                <option value="Terapia Sellado de Cutícula Amino-Silk">Terapia Sellado de Cutícula Amino-Silk ($64.000)</option>
+                <option value="Baño de Luz Perlado Acidificante">Baño de Luz Perlado Acidificante ($52.000)</option>
+              </select>
+            </div>
+            <div>
+              <label for="cabinPref">Preferencia Acústica</label>
+              <select id="cabinPref" class="neu-input">
+                <option value="Sesión Silenciosa (Sin charla)">Sesión Silenciosa (Sin charla)</option>
+                <option value="Sonido Lluvia & Cuencos Suaves">Sonido Lluvia &amp; Cuencos Suaves</option>
+                <option value="Asesoría Conversacional Normal">Asesoría Conversacional Normal</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="bookingDate">Fecha Preferida</label>
+            <input type="date" id="bookingDate" class="neu-input" required />
+          </div>
+
+          <button type="submit" class="neu-btn neu-btn-primary" style="width: 100%; padding: 15px">
+            Confirmar Reserva en Cabina Soft UI
+          </button>
+
+          <div class="booking-feedback" id="bookingFeedback" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Detalle del look">
+    <div class="neu-card lightbox-box">
+      <img id="lbImg" src="" alt="/>
+      <h3 id="lbTitle" style="font-family: var(--font-display); margin-bottom: 6px"></h3>
+      <p id="lbDesc" style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 18px"></p>
+      <button type="button" class="neu-btn" id="closeLightbox">Cerrar Vista</button>
+    </div>
+  </div>
+
+  <footer class="site-footer container">
+    <p><strong>VELVET TOUCH</strong> · Salón Táctil &amp; Bienestar Capilar · Demostración Estilo #16 Neumorphism / Soft UI creada por KuyénDev.</p>
+  </footer>
+
+  <script>
+    (function () {
+      // Consola Sensorial Soft UI
+      const tempRange = document.getElementById('tempRange');
+      const pressureRange = document.getElementById('pressureRange');
+      const soundRange = document.getElementById('soundRange');
+      const tempVal = document.getElementById('tempVal');
+      const pressureVal = document.getElementById('pressureVal');
+      const soundVal = document.getElementById('soundVal');
+      const orbReadout = document.getElementById('orbReadout');
+      const cuticleState = document.getElementById('cuticleState');
+      const aromaState = document.getElementById('aromaState');
+      const consoleModeTitle = document.getElementById('consoleModeTitle');
+      const presetBtns = document.querySelectorAll('[data-cabin-preset]');
+
+      function updateConsole() {
+        const t = parseInt(tempRange.value, 10);
+        const p = parseInt(pressureRange.value, 10);
+        const s = parseInt(soundRange.value, 10);
+        tempVal.textContent = t + '°C';
+        pressureVal.textContent = p + '%';
+        soundVal.textContent = s + '%';
+        orbReadout.textContent = t + '°C';
+
+        if (t >= 40) {
+          cuticleState.textContent = 'Apertura Profunda · Nivel 5';
+        } else if (t <= 35) {
+          cuticleState.textContent = 'Sellado Frío · Brillo Espejo';
+        } else {
+          cuticleState.textContent = 'Óptima · Nivel 4';
+        }
+      }
+
+      [tempRange, pressureRange, soundRange].forEach(el => {
+        el.addEventListener('input', updateConsole);
+      });
+
+      const presets = {
+        detox: { title: 'Programa: Detox Oxigenante', t: 38, p: 65, s: 85, aroma: 'Lavanda Blanca & Cedro' },
+        silk: { title: 'Programa: Seda & Cierre Cuticular', t: 34, p: 50, s: 75, aroma: 'Camelia Japonesa & Avena' },
+        sleep: { title: 'Programa: Sueño Profundo 0 dB', t: 39, p: 82, s: 100, aroma: 'Manzanilla Romana & Sándalo' }
+      };
+
+      presetBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          presetBtns.forEach(b => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+          const p = presets[btn.dataset.cabinPreset];
+          if (p) {
+            tempRange.value = p.t;
+            pressureRange.value = p.p;
+            soundRange.value = p.s;
+            consoleModeTitle.textContent = p.title;
+            aromaState.textContent = p.aroma;
+            updateConsole();
+          }
+        });
+      });
+
+      // Filtro de Servicios
+      const filterBtns = document.querySelectorAll('[data-service-filter]');
+      const serviceCards = document.querySelectorAll('.service-card');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+          const cat = btn.dataset.serviceFilter;
+          serviceCards.forEach(card => {
+            card.style.display = (cat === 'all' || card.dataset.serviceCat === cat) ? 'flex' : 'none';
+          });
+        });
+      });
+
+      // Seleccionar servicio hacia el formulario
+      const serviceSelect = document.getElementById('serviceSelect');
+      document.querySelectorAll('.select-service-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const name = btn.dataset.serviceName;
+          for (let i = 0; i < serviceSelect.options.length; i++) {
+            if (serviceSelect.options[i].value === name) {
+              serviceSelect.selectedIndex = i;
+              break;
+            }
+          }
+          document.getElementById('reserva').scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+
+      // Lightbox
+      const lightbox = document.getElementById('lightbox');
+      const lbImg = document.getElementById('lbImg');
+      const lbTitle = document.getElementById('lbTitle');
+      const lbDesc = document.getElementById('lbDesc');
+      const closeLightbox = document.getElementById('closeLightbox');
+
+      document.querySelectorAll('.look-card').forEach(card => {
+        card.addEventListener('click', () => {
+          const img = card.querySelector('img');
+          lbImg.src = img.src;
+          lbImg.alt = img.alt;
+          lbTitle.textContent = card.dataset.title;
+          lbDesc.textContent = card.dataset.desc;
+          lightbox.classList.add('is-open');
+        });
+      });
+
+      closeLightbox.addEventListener('click', () => lightbox.classList.remove('is-open'));
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) lightbox.classList.remove('is-open');
+      });
+
+      // Formulario
+      const form = document.getElementById('bookingForm');
+      const feedback = document.getElementById('bookingFeedback');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('clientName').value;
+        const serv = serviceSelect.value;
+        const pref = document.getElementById('cabinPref').value;
+        feedback.style.display = 'block';
+        feedback.textContent = `✓ [Demostración] Cabina configurada para ${name}: "${serv}" con preferencia "${pref}" y micro-niebla a ${tempRange.value}°C.`;
+        form.reset();
+      });
+    })();
+  </script>
+  <script src="../../js/config/rubros.js"></script>
+  <script src="../../js/demo-viewer-bar.js"></script>
+</body>
+</html>

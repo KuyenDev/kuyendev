@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>GREMIO 1954 · Barbería Clásica, Navaja Libre & Toalla Caliente | Demo Vintage Barber</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Rye&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --leather: #2B1B17;
+      --leather-deep: #1E120F;
+      --gold: #C29B38;
+      --cream: #EEDC82;
+      --parchment: #F6EEDB;
+      --bottle: #1B382B;
+      --font-display: 'Rye', serif;
+      --font-serif: 'Playfair Display', Georgia, serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--leather);
+      color: var(--parchment);
+      font-family: var(--font-serif);
+      line-height: 1.6;
+      background-image:
+        radial-gradient(circle at 50% 0%, rgba(194, 155, 56, 0.14), transparent 65%),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.015) 0px, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 18px);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 0 22px;
+    }
+
+    /* BARBER POLE RIBBON */
+    .vintage-ribbon {
+      height: 8px;
+      background: repeating-linear-gradient(
+        45deg,
+        #8B1E1E 0px,
+        #8B1E1E 16px,
+        #F6EEDB 16px,
+        #F6EEDB 32px,
+        #1B382B 32px,
+        #1B382B 48px,
+        #F6EEDB 48px,
+        #F6EEDB 64px
+      );
+      border-bottom: 2px solid var(--gold);
+    }
+
+    /* HEADER */
+    .site-header {
+      background: rgba(30, 18, 15, 0.96);
+      border-bottom: 3px double var(--gold);
+      position: sticky;
+      top: 0;
+      z-index: 90;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .crest-logo {
+      display: flex;
+       flex-direction: column;
+    }
+
+    .crest-logo__main {
+      font-family: var(--font-display);
+      font-size: clamp(1.35rem, 2.4vw, 1.9rem);
+      color: var(--cream);
+      letter-spacing: 0.05em;
+    }
+
+    .crest-logo__sub {
+      font-size: 0.75rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .vintage-nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    .vintage-nav a {
+      font-size: 0.92rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--parchment);
+      padding-bottom: 4px;
+      border-bottom: 1px solid transparent;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .vintage-nav a:hover {
+      color: var(--cream);
+      border-color: var(--gold);
+    }
+
+    .btn-brass {
+      display: inline-block;
+      padding: 12px 24px;
+      background: var(--gold);
+      color: var(--leather-deep);
+      font-family: var(--font-display);
+      font-size: 0.88rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border: 2px solid var(--cream);
+      outline: 2px solid var(--gold);
+      outline-offset: 2px;
+      cursor: pointer;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn-brass:hover {
+      background: var(--cream);
+      transform: translateY(-2px);
+    }
+
+    .btn-brass--outline {
+      background: transparent;
+      color: var(--cream);
+      border-color: var(--gold);
+    }
+
+    .btn-brass--outline:hover {
+      background: var(--bottle);
+      color: var(--cream);
+    }
+
+    /* ORNAMENTAL FRAME */
+    .ornate-frame {
+      border: 2px solid var(--gold);
+      outline: 1px solid rgba(238, 220, 130, 0.45);
+      outline-offset: -8px;
+      background: var(--leather-deep);
+      padding: clamp(24px, 3.5vw, 44px);
+      position: relative;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 64px 0 80px;
+      border-bottom: 3px double var(--gold);
+    }
+
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .seal-badge {
+      display: inline-block;
+      background: var(--bottle);
+      color: var(--cream);
+      border: 1px solid var(--gold);
+      padding: 6px 16px;
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.1rem, 4.4vw, 3.6rem);
+      color: var(--cream);
+      line-height: 1.12;
+      margin-bottom: 18px;
+      text-shadow: 2px 3px 0 #120A08;
+    }
+
+    .hero-desc {
+      font-size: 1.12rem;
+      color: rgba(246, 238, 219, 0.9);
+      margin-bottom: 28px;
+      font-style: italic;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-bottom: 32px;
+    }
+
+    .heritage-pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      border-top: 1px solid rgba(194, 155, 56, 0.4);
+      padding-top: 20px;
+    }
+
+    .pillar-item strong {
+      display: block;
+      font-family: var(--font-display);
+      color: var(--gold);
+      font-size: 1.1rem;
+    }
+
+    .pillar-item span {
+      font-size: 0.85rem;
+      color: var(--cream);
+    }
+
+    .hero-portrait {
+      background: var(--bottle);
+      border: 3px double var(--gold);
+      padding: 16px;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.55);
+    }
+
+    .hero-portrait img {
+      width: 100%;
+      height: 460px;
+      object-fit: cover;
+      border: 1px solid var(--gold);
+      filter: sepia(0.22) contrast(1.08);
+    }
+
+    .portrait-caption {
+      text-align: center;
+      padding-top: 12px;
+      font-size: 0.85rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--cream);
+    }
+
+    /* SECTIONS */
+    .section-vintage {
+      padding: 76px 0;
+      border-bottom: 3px double var(--gold);
+    }
+
+    .section-vintage--green {
+      background-color: var(--bottle);
+    }
+
+    .section-vintage--parchment {
+      background-color: var(--parchment);
+      color: var(--leather);
+    }
+
+    .heading-center {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 44px;
+    }
+
+    .heading-ornament {
+      font-size: 0.8rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .section-vintage--parchment .heading-ornament {
+      color: var(--bottle);
+    }
+
+    .heading-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3.4vw, 2.7rem);
+      color: var(--cream);
+      margin-bottom: 12px;
+    }
+
+    .section-vintage--parchment .heading-title {
+      color: var(--leather);
+    }
+
+    /* LEDGER MENU TABS */
+    .ledger-tabs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+
+    .ledger-tab {
+      padding: 10px 22px;
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      background: var(--leather);
+      color: var(--cream);
+      border: 2px solid var(--gold);
+      cursor: pointer;
+      letter-spacing: 0.06em;
+    }
+
+    .ledger-tab.active {
+      background: var(--gold);
+      color: var(--leather-deep);
+    }
+
+    .ledger-board {
+      max-width: 960px;
+      margin: 0 auto;
+      background: #EFE4C8;
+      color: var(--leather);
+      border: 4px double var(--leather);
+      padding: clamp(20px, 4vw, 44px);
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.35);
+    }
+
+    .ledger-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      padding: 18px 0;
+      border-bottom: 1px dashed rgba(43, 27, 23, 0.4);
+    }
+
+    .ledger-row:last-child {
+      border-bottom: none;
+    }
+
+    .ledger-row h3 {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      color: var(--leather);
+      margin-bottom: 4px;
+    }
+
+    .ledger-row p {
+      font-size: 0.95rem;
+      color: #46302A;
+    }
+
+    .ledger-price-col {
+      text-align: right;
+      min-width: 135px;
+    }
+
+    .ledger-price {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      color: var(--bottle);
+      display: block;
+    }
+
+    .ledger-select-btn {
+      margin-top: 6px;
+      display: inline-block;
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 700;
+      color: var(--leather);
+      border-bottom: 1px solid var(--leather);
+      cursor: pointer;
+      background: none;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      font-family: var(--font-serif);
+    }
+
+    /* VISUAL EXPERIENCE: RITUAL DE TOALLA CALIENTE & BOTICA */
+    .ritual-showcase {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: stretch;
+    }
+
+    .ritual-steps {
+      display: grid;
+      gap: 12px;
+    }
+
+    .ritual-step-btn {
+      text-align: left;
+      padding: 16px 20px;
+      background: rgba(20, 12, 10, 0.65);
+      color: var(--parchment);
+      border: 1px solid rgba(194, 155, 56, 0.45);
+      cursor: pointer;
+      font-family: var(--font-serif);
+      transition: background-color 0.2s ease;
+    }
+
+    .ritual-step-btn.active {
+      background: var(--gold);
+      color: var(--leather-deep);
+      border-color: var(--cream);
+    }
+
+    .ritual-step-btn strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+
+    .ritual-display {
+      border: 3px double var(--gold);
+      background: var(--leather-deep);
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .tonic-pills {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .tonic-pill {
+      padding: 8px 14px;
+      border: 1px solid var(--gold);
+      background: transparent;
+      color: var(--cream);
+      font-family: var(--font-serif);
+      cursor: pointer;
+      font-size: 0.85rem;
+    }
+
+    .tonic-pill.active {
+      background: var(--cream);
+      color: var(--leather-deep);
+      font-weight: 700;
+    }
+
+    /* GALLERY */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .vintage-photo-card {
+      background: var(--leather-deep);
+      border: 2px solid var(--gold);
+      padding: 12px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .vintage-photo-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .vintage-photo-card img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      border: 1px solid rgba(194, 155, 56, 0.5);
+      filter: sepia(0.25) contrast(1.06);
+      margin-bottom: 12px;
+    }
+
+    .vintage-photo-card h3 {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      color: var(--cream);
+      margin-bottom: 4px;
+    }
+
+    .vintage-photo-card span {
+      font-size: 0.8rem;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    /* MASTERS */
+    .masters-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+    }
+
+    .master-card {
+      background: var(--leather-deep);
+      border: 2px solid var(--gold);
+      padding: 22px;
+      text-align: center;
+    }
+
+    .master-card img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      border: 2px solid var(--gold);
+      margin-bottom: 16px;
+      filter: sepia(0.2);
+    }
+
+    .master-card h3 {
+      font-family: var(--font-display);
+      color: var(--cream);
+      font-size: 1.2rem;
+    }
+
+    .master-card .tenure {
+      color: var(--gold);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      display: block;
+      margin: 6px 0 10px;
+    }
+
+    /* TESTIMONIALS */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 24px;
+    }
+
+    .quote-parchment {
+      background: var(--leather);
+      color: var(--parchment);
+      border: 2px solid var(--gold);
+      padding: 24px;
+    }
+
+    .fictional-badge {
+      display: inline-block;
+      background: var(--bottle);
+      color: var(--cream);
+      border: 1px solid var(--gold);
+      padding: 3px 10px;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    /* BOOKING */
+    .booking-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 32px;
+    }
+
+    .field-group {
+      margin-bottom: 16px;
+    }
+
+    .field-group label {
+      display: block;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--cream);
+      margin-bottom: 6px;
+    }
+
+    .field-group input,
+    .field-group select {
+      width: 100%;
+      padding: 12px 14px;
+      background: #140B09;
+      color: var(--parchment);
+      border: 1px solid var(--gold);
+      font-family: var(--font-serif);
+      font-size: 0.96rem;
+    }
+
+    .form-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .booking-notice {
+      display: none;
+      margin-top: 18px;
+      padding: 16px;
+      background: var(--bottle);
+      border: 2px solid var(--gold);
+      color: var(--cream);
+    }
+
+    /* LIGHTBOX */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 9, 7, 0.92);
+      z-index: 999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .lightbox.open {
+      display: flex;
+    }
+
+    .lightbox-box {
+      max-width: 740px;
+      width: 100%;
+      background: var(--leather-deep);
+      border: 3px double var(--gold);
+      padding: 22px;
+    }
+
+    .lightbox-box img {
+      width: 100%;
+      max-height: 460px;
+      object-fit: cover;
+      border: 1px solid var(--gold);
+      margin-bottom: 14px;
+    }
+
+    .site-footer {
+      background: #120A08;
+      padding: 44px 0;
+      text-align: center;
+      color: var(--cream);
+    }
+
+    @media (max-width: 900px) {
+      .hero-layout,
+      .ritual-showcase,
+      .booking-grid,
+      .form-2col,
+      .heritage-pillars {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body data-rubro-id="peluqueria" data-style-id="vintage-barber">
+
+  <div class="vintage-ribbon" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#top" class="crest-logo">
+        <span class="crest-logo__main">GREMIO 1954</span>
+        <span class="crest-logo__sub">Barbería de Oficio & Botica Clásica</span>
+      </a>
+      <nav class="vintage-nav" aria-label="Navegación principal">
+        <a href="#libro-servicios">Libro de Tarifas</a>
+        <a href="#ritual">Ritual de Vapor</a>
+        <a href="#archivo">Archivo Fotográfico</a>
+        <a href="#maestros">Maestros</a>
+        <a href="#cita" class="btn-brass">Reservar Sillón</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-layout">
+        <div class="ornate-frame">
+          <span class="seal-badge">FUNDADA EN 1954 · SILLONES KOKEN ORIGINALES</span>
+          <h1>ARTE CLÁSICO DE TIJERA, NAVAJA LIBRE & TOALLA CALIENTE</h1>
+          <p class="hero-desc">
+            Tres generaciones custodiando el oficio del caballero: asentadores de cuero ruso, espuma batida en tazón de bronce, lociones herbales de botica y cortes que envejecen con dignidad.
+          </p>
+          <div class="hero-cta-group">
+            <a href="#cita" class="btn-brass">Anotarse en el Libro de Citas</a>
+            <a href="#ritual" class="btn-brass btn-brass--outline">Explorar Ritual de Afeitado</a>
+          </div>
+          <div class="heritage-pillars">
+            <div class="pillar-item">
+              <strong>70 Años</strong>
+              <span>Tradición Ininterrumpida</span>
+            </div>
+            <div class="pillar-item">
+              <strong>Acero Solingen</strong>
+              <span>Navajas Templadas a Mano</span>
+            </div>
+            <div class="pillar-item">
+              <strong>Cortesía</strong>
+              <span>Café Turco o Bourbon</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-portrait">
+          <img
+            src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=900&q=80"
+            alt="Interior clásico de Gremio 1954 con sillones de cuero y herramientas de barbería tradicional"
+            onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/stylist-male-1.svg';"/>
+          <div class="portrait-caption">Sillón N.º 1 · Restaurado en Bronce y Cuero de Silla (1954)</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CARTA DE SERVICIOS TIPO LIBRO MAYOR -->
+    <section id="libro-servicios" class="section-vintage section-vintage--parchment">
+      <div class="container">
+        <div class="heading-center">
+          <span class="heading-ornament">✦ ARANCEL DE OFICIO ✦</span>
+          <h2 class="heading-title">LIBRO DE SERVICIOS & BOTICA</h2>
+          <p>Cada servicio incluye lavado con tónico capilar mentolado, masaje craneal vigorizante y peinado con pomada tradicional.</p>
+        </div>
+
+        <div class="ledger-tabs" role="tablist" aria-label="Especialidades de la barbería">
+          <button type="button" class="ledger-tab active" data-cat="all" role="tab" aria-selected="true">Todo el Arancel</button>
+          <button type="button" class="ledger-tab" data-cat="corte" role="tab" aria-selected="false">Cortes de Tijera & Peine</button>
+          <button type="button" class="ledger-tab" data-cat="navaja" role="tab" aria-selected="false">Afeitado Real & Barba</button>
+          <button type="button" class="ledger-tab" data-cat="rituales" role="tab" aria-selected="false">Rituales del Gremio</button>
+        </div>
+
+        <div class="ledger-board" id="ledgerList">
+          <div class="ledger-row" data-cat="corte">
+            <div>
+              <h3>Corte Clásico de Salón (Executive Contour)</h3>
+              <p>Trabajado íntegramente a peine y tijera o máquina clásica, terminación de nuca a navaja con espuma tibia.</p>
+            </div>
+            <div class="ledger-price-col">
+              <span class="ledger-price">$19.000</span>
+              <button type="button" class="ledger-select-btn" data-service="Corte Clásico de Salón ($19.000)">Anotar en cita →</button>
+            </div>
+          </div>
+
+          <div class="ledger-row" data-cat="corte">
+            <div>
+              <h3>Pompadour / Scumbag Boogie & Brillo Clásico</h3>
+              <p>Arquitectura años 50 con alzada frontal estructurada, degradado cónico suave y fijación con pomada base agua o cera de abeja.</p>
+            </div>
+            <div class="ledger-price-col">
+              <span class="ledger-price">$21.000</span>
+              <button type="button" class="ledger-select-btn" data-service="Pompadour Clásico 1954 ($21.000)">Anotar en cita →</button>
+            </div>
+          </div>
+
+          <div class="ledger-row" data-cat="navaja">
+            <div>
+              <h3>Afeitado Real a Navaja Libre (Dos Pasadas)</h3>
+              <p>Ritual de tres toallas al vapor con eucalipto, espuma caliente de tejón, doble pasada a favor y contrapelo, piedra de alumbre.</p>
+            </div>
+            <div class="ledger-price-col">
+              <span class="ledger-price">$18.500</span>
+              <button type="button" class="ledger-select-btn" data-service="Afeitado Real a Navaja Libre ($18.500)">Anotar en cita →</button>
+            </div>
+          </div>
+
+          <div class="ledger-row" data-cat="navaja">
+            <div>
+              <h3>Esculpido de Barba Imperial & Bigote Manillar</h3>
+              <p>Diseño geométrico según facciones, recorte a tijera, compresa aromática de cedro y bálsamo nutritivo de bergamota.</p>
+            </div>
+            <div class="ledger-price-col">
+              <span class="ledger-price">$16.500</span>
+              <button type="button" class="ledger-select-btn" data-service="Esculpido de Barba Imperial ($16.500)">Anotar en cita →</button>
+            </div>
+          </div>
+
+          <div class="ledger-row" data-cat="rituales">
+            <div>
+              <h3>Gran Ritual Gremio 1954 (Cabello + Barba + Facial Vapor)</h3>
+              <p>Nuestra experiencia insignia de 80 minutos: corte maestro, afeitado o perfilado a navaja, exfoliación con arcilla verde y copa de cortesía.</p>
+            </div>
+            <div class="ledger-price-col">
+              <span class="ledger-price">$34.000</span>
+              <button type="button" class="ledger-select-btn" data-service="Gran Ritual Gremio 1954 ($34.000)">Anotar en cita →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCIA VISUAL INTERACTIVA: EL RITUAL DE LA TOALLA CALIENTE -->
+    <section id="ritual" class="section-vintage section-vintage--green">
+      <div class="container">
+        <div class="heading-center">
+          <span class="heading-ornament">✦ EXPERIENCIA INTERACTIVA DE OFICIO ✦</span>
+          <h2 class="heading-title">EL PROTOCOLO DE LAS 4 COMPRESAS</h2>
+          <p>Inspecciona cada fase de nuestro afeitado tradicional de 1954 y elige el tónico de botica con el que sellaremos tu piel.</p>
+        </div>
+
+        <div class="ritual-showcase">
+          <div class="ritual-steps">
+            <button type="button" class="ritual-step-btn active" data-title="FASE I · APERTURA TÉRMICA CON EUCALIPTO" data-temp="68 °C Vapor Húmedo" data-detail="Aplicamos dos lienzos de algodón egipcio infusionados en vapor de hojas de eucalipto y aceite de almendras dulces para ablandar el folículo y relajar la musculatura facial.">
+              <strong>I. Compresa Caliente de Eucalipto (10 min)</strong>
+              <span>Preparación térmica del poro y aceite pre-shave tibio.</span>
+            </button>
+
+            <button type="button" class="ritual-step-btn" data-title="FASE II · BATIDO EN TAZÓN DE BRONCE & BROCHA TEJÓN" data-temp="42 °C Espuma Densa" data-detail="Emulsionamos jabón de sebo vegetal y glicerina en tazón de bronce caliente, levantando el vello con movimientos circulares para un deslizamiento sin fricción.">
+              <strong>II. Espuma Batida en Tazón de Bronce (8 min)</strong>
+              <span>Jabón artesanal montado a mano con brocha clásica.</span>
+            </button>
+
+            <button type="button" class="ritual-step-btn" data-title="FASE III · NAVAJA LIBRE ASENTADA EN CUERO RUSO" data-temp="Filo Quirúrgico 15°" data-detail="Primera pasada a favor del grano y segunda pasada oblicua tras re-espumar, logrando un apurado sedoso sin irritación.">
+              <strong>III. Deslizamiento a Navaja Libre (15 min)</strong>
+              <span>Doble pasada precisa con estiramiento manual experto.</span>
+            </button>
+
+            <button type="button" class="ritual-step-btn" data-title="FASE IV · CHOQUE FRÍO & PIEDRA DE ALUMBRE" data-temp="8 °C Compresa Helada" data-detail="Cerramos los poros con una toalla helada al agua de rosas, bloque de mineral de alumbre natural y pulverizador de bulbo con nuestra colonia de botica.">
+              <strong>IV. Toalla Helada & Piedra de Alumbre (7 min)</strong>
+              <span>Sellado tonificante y pulverización con atomizador clásico.</span>
+            </button>
+          </div>
+
+          <div class="ritual-display">
+            <div>
+              <span class="seal-badge" id="ritualTempBadge">68 °C Vapor Húmedo</span>
+              <h3 id="ritualStepTitle" style="font-family: var(--font-display); font-size: 1.5rem; color: var(--cream); margin-bottom: 14px">
+                FASE I · APERTURA TÉRMICA CON EUCALIPTO
+              </h3>
+              <p id="ritualStepDetail" style="font-size: 1.05rem; margin-bottom: 24px">
+                Aplicamos dos lienzos de algodón egipcio infusionados en vapor de hojas de eucalipto y aceite de almendras dulces para ablandar el folículo y relajar la musculatura facial.
+              </p>
+            </div>
+
+            <div style="border-top: 1px solid rgba(194, 155, 56, 0.45); padding-top: 18px">
+              <strong style="font-family: var(--font-display); font-size: 0.9rem; color: var(--gold); display: block; margin-bottom: 6px">
+                ELIGE TU LOCIÓN DE BOTICA FINAL:
+              </strong>
+              <div class="tonic-pills" id="tonicSelector">
+                <button type="button" class="tonic-pill active" data-notes="Clavo de olor, ron especiado de las Antillas y hoja de laurel.">Bay Rum 1954</button>
+                <button type="button" class="tonic-pill" data-notes="Madera de sándalo envejecida, cuero suave y humo de tabaco rubio.">Sándalo Imperial</button>
+                <button type="button" class="tonic-pill" data-notes="Cáscara de bergamota calabresa, cedro verde y mentol cristalino.">Bergamota & Mentol</button>
+              </div>
+              <p id="tonicNotes" style="margin-top: 12px; font-style: italic; color: var(--cream); font-size: 0.92rem">
+                Notas olfativas: Clavo de olor, ron especiado de las Antillas y hoja de laurel.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERÍA ARCHIVO CON LIGHTBOX -->
+    <section id="archivo" class="section-vintage">
+      <div class="container">
+        <div class="heading-center">
+          <span class="heading-ornament">✦ REGISTRO DE ESTILO ✦</span>
+          <h2 class="heading-title">ARCHIVO DE CORTES & OFICIO</h2>
+          <p>Pulsa sobre cualquier fotografía para abrir la placa ampliada con su descripción técnica.</p>
+        </div>
+
+        <div class="gallery-grid">
+          <article class="vintage-photo-card" tabindex="0" role="button" data-title="SIDE PART EJECUTIVO CON RAYA NATURAL" data-desc="Corte íntegramente a tijera con raya lateral marcada y acabado satinado clásico." data-img="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85">
+            <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85" alt="Side part ejecutivo en Gremio 1954" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg';"/>
+            <h3>SIDE PART DE CABALLERO</h3>
+            <span>PLACA N.º 01 · AMPLIAR</span>
+          </article>
+
+          <article class="vintage-photo-card" tabindex="0" role="button" data-title="AFEITADO REAL AL VAPOR" data-desc="Aplicación de compresas calientes y navaja alemana de acero al carbono." data-img="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=900&q=80">
+            <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=900&q=80" alt="Afeitado tradicional a navaja" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/stylist-male-1.svg';"/>
+            <h3>NAVAJA LIBRE & ALUMBRE</h3>
+            <span>PLACA N.º 02 · AMPLIAR</span>
+          </article>
+
+          <article class="vintage-photo-card" tabindex="0" role="button" data-title="BARBA DE AUTOR & BIGOTE HANDLEBAR" data-desc="Perfilado simétrico con tijera de seis pulgadas y cera modeladora artesanal." data-img="https://images.unsplash.com/photo-1621607512214-68297480165e?auto=format&fit=crop&w=900&q=80">
+            <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85" alt="Barba esculpida en Gremio 1954" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg';"/>
+            <h3>BARBA IMPERIAL & CERA</h3>
+            <span>PLACA N.º 03 · AMPLIAR</span>
+          </article>
+
+          <article class="vintage-photo-card" tabindex="0" role="button" data-title="POMPADOUR CLÁSICO DE MEDIADOS DE SIGLO" data-desc="Volumen estructurado con secador y peine ancho, sellado con pomada de brillo medio." data-img="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=900&q=80">
+            <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85" alt="Pompadour clásico" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg';"/>
+            <h3>POMPADOUR AÑOS 50</h3>
+            <span>PLACA N.º 04 · AMPLIAR</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAESTros BARBEROS -->
+    <section id="maestros" class="section-vintage section-vintage--green">
+      <div class="container">
+        <div class="heading-center">
+          <span class="heading-ornament">✦ COFRADÍA DEL PEINE Y LA NAVAJA ✦</span>
+          <h2 class="heading-title">NUESTROS MAESTROS DE SILLÓN</h2>
+        </div>
+
+        <div class="masters-grid">
+          <article class="master-card">
+            <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=800&q=80" alt="Don Anselmo Montenegro - Maestro Mayor" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/stylist-male-1.svg';"/>
+            <h3>DON ANSELMO MONTENEGRO</h3>
+            <span class="tenure">MAESTRO MAYOR · 38 AÑOS DE OFICIO</span>
+            <p>Heredero del salón original de 1954. Especialista en corte clásico a tijera pura y afeitado al vapor.</p>
+          </article>
+
+          <article class="master-card">
+            <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=800&q=80" alt="Julián Valdés - Sastre de Barbas" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/stylist-male-2.svg';"/>
+            <h3>JULIÁN VALDÉS</h3>
+            <span class="tenure">PRIMER OFICIAL · 14 AÑOS DE OFICIO</span>
+            <p>Maestro en visagismo de barbas densas, perfilado de bigote clásico y formulador de nuestros tónicos herbales.</p>
+          </article>
+
+          <article class="master-card">
+            <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=800&q=80" alt="Gaspar Alarcón - Especialista en Pompadour y Taper" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/stylist-male-1.svg';"/>
+            <h3>GASPAR ALARCÓN</h3>
+            <span class="tenure">BARBERO DE SALÓN · 10 AÑOS DE OFICIO</span>
+            <p>Dedicado a los cortes rockabilly, executive contours, tapers limpios de nuca y peinados de época.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section class="section-vintage section-vintage--parchment">
+      <div class="container">
+        <div class="heading-center">
+          <span class="heading-ornament">✦ LIBRO DE HONOR ✦</span>
+          <h2 class="heading-title">PALABRA DE NUESTROS PARROQUIANOS</h2>
+        </div>
+
+        <div class="testimonials-grid">
+          <article class="quote-parchment">
+            <span class="fictional-badge">[Testimonio Ficticio de Demostración]</span>
+            <p>“Entrar a Gremio 1954 es detener el reloj. El afeitado con toallas calientes de eucalipto y el olor a Bay Rum hacen que uno salga renovado como en ninguna otra parte.”</p>
+            <strong style="display: block; margin-top: 12px; color: var(--gold)">— HERNÁN ERRÁZURIZ · ABOGADO</strong>
+          </article>
+
+          <article class="quote-parchment">
+            <span class="fictional-badge">[Testimonio Ficticio de Demostración]</span>
+            <p>“Don Anselmo corta íntegramente a tijera, por lo que el cabello crece manteniendo su forma perfecta durante más de un mes. Un verdadero oficio.”</p>
+            <strong style="display: block; margin-top: 12px; color: var(--gold)">— CRISTÓBAL LARRAÍN · ARQUITECTO</strong>
+          </article>
+
+          <article class="quote-parchment">
+            <span class="fictional-badge">[Testimonio Ficticio de Demostración]</span>
+            <p>“La atención con café turco recién hecho, jazz clásico de fondo y los sillones de cuero originales de los años cincuenta son una experiencia inigualable.”</p>
+            <strong style="display: block; margin-top: 12px; color: var(--gold)">— EDUARDO MOLINA · RELOJERO</strong>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESERVA -->
+    <section id="cita" class="section-vintage">
+      <div class="container">
+        <div class="heading-center">
+          <span class="heading-ornament">✦ REGISTRO DE CITAS ✦</span>
+          <h2 class="heading-title">RESERVAR SILLÓN NUMERADO</h2>
+          <span class="fictional-badge">[Formulario de Demostración Interactiva · Simulación Local]</span>
+        </div>
+
+        <div class="booking-grid">
+          <form class="ornate-frame" id="vintageBookingForm">
+            <div class="form-2col">
+              <div class="field-group">
+                <label for="vName">Nombre del Caballero</label>
+                <input type="text" id="vName" required placeholder="Ej: Sr. Federico Montes" />
+              </div>
+              <div class="field-group">
+                <label for="vPhone">Teléfono / WhatsApp</label>
+                <input type="tel" id="vPhone" required placeholder="+56 9 7654 3210" />
+              </div>
+            </div>
+
+            <div class="form-2col">
+              <div class="field-group">
+                <label for="vService">Servicio del Arancel</label>
+                <select id="vService" required>
+                  <option value="Gran Ritual Gremio 1954 ($34.000)">Gran Ritual Gremio 1954 ($34.000)</option>
+                  <option value="Corte Clásico de Salón ($19.000)">Corte Clásico de Salón ($19.000)</option>
+                  <option value="Pompadour Clásico 1954 ($21.000)">Pompadour Clásico 1954 ($21.000)</option>
+                  <option value="Afeitado Real a Navaja Libre ($18.500)">Afeitado Real a Navaja Libre ($18.500)</option>
+                  <option value="Esculpido de Barba Imperial ($16.500)">Esculpido de Barba Imperial ($16.500)</option>
+                </select>
+              </div>
+              <div class="field-group">
+                <label for="vMaster">Maestro de Sillón</label>
+                <select id="vMaster">
+                  <option value="Don Anselmo Montenegro (Sillón N.º 1)">Don Anselmo Montenegro (Sillón N.º 1)</option>
+                  <option value="Julián Valdés (Sillón N.º 2)">Julián Valdés (Sillón N.º 2)</option>
+                  <option value="Gaspar Alarcón (Sillón N.º 3)">Gaspar Alarcón (Sillón N.º 3)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-2col">
+              <div class="field-group">
+                <label for="vDate">Día de Visita</label>
+                <input type="date" id="vDate" required />
+              </div>
+              <div class="field-group">
+                <label for="vDrink">Cortesía de Bienvenida</label>
+                <select id="vDrink">
+                  <option value="Café Turco en Cobre">Café Turco en Cobre</option>
+                  <option value="Bourbon Añejado (1 Medida)">Bourbon Añejado (1 Medida)</option>
+                  <option value="Agua Tónica con Botánicos">Agua Tónica con Botánicos</option>
+                </select>
+              </div>
+            </div>
+
+            <button type="submit" class="btn-brass" style="width: 100%; margin-top: 8px">Asentar Cita en el Libro (Demo)</button>
+            <div class="booking-notice" id="vintageBookingOutput" role="status" aria-live="polite"></div>
+          </form>
+
+          <aside class="ornate-frame" style="background: var(--bottle)">
+            <span class="seal-badge">CASA MATRIZ · DESDE 1954</span>
+            <h3 style="font-family: var(--font-display); font-size: 1.5rem; color: var(--cream); margin-bottom: 14px">
+              GALERÍA REAL, LOCAL 12
+            </h3>
+            <p style="margin-bottom: 18px">
+              A pasos del Teatro Municipal. Conservamos nuestra fachada original en madera de caoba y poste tricolor giratorio de porcelana.
+            </p>
+            <ul style="list-style: none; border-top: 1px solid var(--gold); padding-top: 14px; display: grid; gap: 10px">
+              <li><strong>Lunes a Viernes:</strong> 09:30 a 20:00 hrs</li>
+              <li><strong>Sábados Clásicos:</strong> 09:30 a 17:00 hrs</li>
+              <li><strong>Domingos y Festivos:</strong> Cerrado por descanso</li>
+            </ul>
+            <p style="margin-top: 22px; font-size: 0.85rem; color: var(--cream); opacity: 0.9">
+              * Esta página es una demostración interactiva creada por KuyénDev para ilustrar el Estilo #07 Vintage Barber / Retro.
+            </p>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="vLightbox" role="dialog" aria-modal="true" aria-labelledby="vLightTitle">
+    <div class="lightbox-box">
+      <img id="vLightImg" src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85" alt="Fotografía de archivo ampliada" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg';"/>
+      <h3 id="vLightTitle" style="font-family: var(--font-display); color: var(--cream); margin-bottom: 6px">PLACA</h3>
+      <p id="vLightDesc" style="margin-bottom: 16px"></p>
+      <button type="button" class="btn-brass" id="vLightClose">Cerrar Placa</button>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p style="font-family: var(--font-display); font-size: 1.2rem; color: var(--gold); margin-bottom: 6px">GREMIO 1954 · BARBERÍA TRADICIONAL</p>
+      <p style="font-size: 0.85rem">Estilo #07 Vintage Barber / Retro · Catálogo Interactivo KuyénDev.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      // Filtro Libro Mayor
+      const tabs = document.querySelectorAll('.ledger-tab');
+      const rows = document.querySelectorAll('.ledger-row');
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          tabs.forEach(t => {
+            t.classList.remove('active');
+            t.setAttribute('aria-selected', 'false');
+          });
+          tab.classList.add('active');
+          tab.setAttribute('aria-selected', 'true');
+          const cat = tab.dataset.cat;
+          rows.forEach(r => {
+            r.style.display = (cat === 'all' || r.dataset.cat === cat) ? 'flex' : 'none';
+          });
+        });
+      });
+
+      // Seleccionar servicio hacia el formulario
+      const vService = document.getElementById('vService');
+      document.querySelectorAll('.ledger-select-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          vService.value = btn.dataset.service;
+          document.getElementById('cita').scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+
+      // Ritual Interactivo
+      const stepBtns = document.querySelectorAll('.ritual-step-btn');
+      stepBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          stepBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          document.getElementById('ritualStepTitle').textContent = btn.dataset.title;
+          document.getElementById('ritualTempBadge').textContent = btn.dataset.temp;
+          document.getElementById('ritualStepDetail').textContent = btn.dataset.detail;
+        });
+      });
+
+      const tonicPills = document.querySelectorAll('.tonic-pill');
+      tonicPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          tonicPills.forEach(p => p.classList.remove('active'));
+          pill.classList.add('active');
+          document.getElementById('tonicNotes').textContent = 'Notas olfativas: ' + pill.dataset.notes;
+        });
+      });
+
+      // Lightbox
+      const vLightbox = document.getElementById('vLightbox');
+      document.querySelectorAll('.vintage-photo-card').forEach(card => {
+        const openModal = () => {
+          document.getElementById('vLightImg').src = card.dataset.img;
+          document.getElementById('vLightTitle').textContent = card.dataset.title;
+          document.getElementById('vLightDesc').textContent = card.dataset.desc;
+          vLightbox.classList.add('open');
+        };
+        card.addEventListener('click', openModal);
+        card.addEventListener('keydown', e => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openModal();
+          }
+        });
+      });
+      document.getElementById('vLightClose').addEventListener('click', () => vLightbox.classList.remove('open'));
+      vLightbox.addEventListener('click', e => {
+        if (e.target === vLightbox) vLightbox.classList.remove('open');
+      });
+
+      // Booking Form
+      document.getElementById('vintageBookingForm').addEventListener('submit', e => {
+        e.preventDefault();
+        const name = document.getElementById('vName').value.trim();
+        const service = vService.value;
+        const master = document.getElementById('vMaster').value;
+        const date = document.getElementById('vDate').value;
+        const drink = document.getElementById('vDrink').value;
+        const out = document.getElementById('vintageBookingOutput');
+        out.style.display = 'block';
+        out.innerHTML = `✦ <strong>[ASIENTO DE DEMOSTRACIÓN CONFIRMADO]</strong><br>Estimado ${name}, hemos registrado su reserva simulada para <strong>${service}</strong> junto a <strong>${master}</strong> el día <strong>${date}</strong>. Lo aguardaremos con su <strong>${drink}</strong>.`;
+      });
+    })();
+  </script>
+  <script src="../../js/config/rubros.js"></script>
+  <script src="../../js/demo-viewer-bar.js"></script>
+</body>
+</html>

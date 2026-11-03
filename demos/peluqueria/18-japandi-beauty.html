@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>KOMOREBI HEAD SPA · Spa Capilar Japonés & Estilismo Nórdico</title>
+  <meta name="description" content="Santuario de spa capilar japonés (Head Spa), Shiatsu craneal y diseño escandinavo orgánico. Demostración Estilo #18 Japandi Beauty por KuyénDev." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&family=Zen+Old+Mincho:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-linen: #F7F4EE;
+      --bg-sand: #ECE5D8;
+      --clay-oak: #D8C3A5;
+      --olive-moss: #656D4A;
+      --olive-dark: #4B5236;
+      --ink-stone: #2B2C28;
+      --stone-muted: #5C5E56;
+      --line-organic: rgba(101, 109, 74, 0.22);
+      --font-mincho: 'Zen Old Mincho', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-linen);
+      color: var(--ink-stone);
+      font-family: var(--font-sans);
+      line-height: 1.7;
+      overflow-x: hidden;
+      padding-bottom: 96px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(1240px, 91%);
+      margin: 0 auto;
+    }
+
+    /* Botones Japandi */
+    .japandi-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 26px;
+      border-radius: 999px;
+      border: 1px solid var(--olive-moss);
+      background: transparent;
+      color: var(--ink-stone);
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .japandi-btn:hover,
+    .japandi-btn.is-active {
+      background: var(--olive-moss);
+      color: var(--bg-linen);
+    }
+
+    .japandi-btn-solid {
+      background: var(--olive-moss);
+      color: var(--bg-linen);
+    }
+
+    .japandi-btn-solid:hover {
+      background: var(--olive-dark);
+      border-color: var(--olive-dark);
+    }
+
+    /* Header Shoji Minimal */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(247, 244, 238, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line-organic);
+    }
+
+    .nav-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-seal {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: var(--olive-moss);
+      color: var(--bg-linen);
+      font-family: var(--font-mincho);
+      font-size: 1.15rem;
+      display: grid;
+      place-items: center;
+    }
+
+    .brand-text strong {
+      display: block;
+      font-family: var(--font-mincho);
+      font-size: 1.2rem;
+      letter-spacing: 0.08em;
+      line-height: 1.1;
+    }
+
+    .brand-text span {
+      font-size: 0.7rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--olive-moss);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      font-size: 0.86rem;
+      color: var(--stone-muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--olive-moss);
+    }
+
+    /* Hero Asimétrico con Sello Vertical */
+    .hero {
+      padding: 56px 0 76px;
+      border-bottom: 1px solid var(--line-organic);
+    }
+
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 52px 1.05fr 0.95fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .vertical-kanji {
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      font-family: var(--font-mincho);
+      font-size: 0.85rem;
+      letter-spacing: 0.35em;
+      color: var(--olive-moss);
+      border-left: 1px solid var(--line-organic);
+      padding-left: 14px;
+      height: 320px;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      padding: 5px 14px;
+      border-radius: 999px;
+      background: var(--bg-sand);
+      border: 1px solid var(--clay-oak);
+      font-size: 0.74rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--olive-dark);
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-mincho);
+      font-size: clamp(2.3rem, 4.4vw, 3.8rem);
+      font-weight: 600;
+      line-height: 1.14;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 span {
+      color: var(--olive-moss);
+    }
+
+    .hero p {
+      font-size: 1.02rem;
+      color: var(--stone-muted);
+      max-width: 52ch;
+      margin-bottom: 32px;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 40px;
+    }
+
+    .hero-pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line-organic);
+    }
+
+    .hero-pillars strong {
+      display: block;
+      font-family: var(--font-mincho);
+      font-size: 1.35rem;
+      color: var(--olive-moss);
+    }
+
+    .hero-pillars span {
+      font-size: 0.8rem;
+      color: var(--stone-muted);
+    }
+
+    .hero-visual {
+      background: var(--bg-sand);
+      padding: 22px;
+      border-radius: 28px 8px 28px 8px;
+      border: 1px solid var(--clay-oak);
+    }
+
+    .hero-visual img {
+      width: 100%;
+      height: 470px;
+      object-fit: cover;
+      border-radius: 18px 4px 18px 4px;
+    }
+
+    .visual-note {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 14px;
+      font-size: 0.78rem;
+      color: var(--stone-muted);
+    }
+
+    /* Secciones */
+    section {
+      padding: 76px 0;
+      border-bottom: 1px solid var(--line-organic);
+    }
+
+    .section-intro {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 20px;
+      margin-bottom: 44px;
+    }
+
+    .section-kicker {
+      display: block;
+      font-size: 0.74rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--olive-moss);
+      margin-bottom: 8px;
+    }
+
+    .section-intro h2 {
+      font-family: var(--font-mincho);
+      font-size: clamp(1.9rem, 3.3vw, 2.8rem);
+      font-weight: 600;
+      line-height: 1.15;
+    }
+
+    .section-intro p {
+      max-width: 48ch;
+      color: var(--stone-muted);
+      font-size: 0.95rem;
+    }
+
+    /* EXPERIENCIA INTERACTIVA: COMPOSITOR DE INFUSIÓN BOTÁNICA & SHIATSU */
+    .ritual-composer {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 32px;
+      background: var(--bg-sand);
+      border: 1px solid var(--clay-oak);
+      border-radius: 24px;
+      padding: 36px;
+    }
+
+    .step-group {
+      margin-bottom: 26px;
+    }
+
+    .step-group h3 {
+      font-family: var(--font-mincho);
+      font-size: 1.15rem;
+      margin-bottom: 12px;
+    }
+
+    .option-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .ritual-card-output {
+      background: var(--bg-linen);
+      border: 1px solid var(--clay-oak);
+      border-radius: 20px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .ritual-specs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .ritual-spec-item {
+      padding: 14px;
+      border-radius: 12px;
+      background: var(--bg-sand);
+      font-size: 0.84rem;
+    }
+
+    .ritual-spec-item span {
+      display: block;
+      color: var(--stone-muted);
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .ritual-spec-item strong {
+      font-family: var(--font-mincho);
+      font-size: 1.05rem;
+      color: var(--ink-stone);
+    }
+
+    /* Carta de Servicios Japandi */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 32px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .service-tile {
+      background: var(--bg-sand);
+      border: 1px solid var(--clay-oak);
+      border-radius: 20px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+      transition: transform 0.25s ease;
+    }
+
+    .service-tile:hover {
+      transform: translateY(-4px);
+    }
+
+    .tile-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .tile-tag {
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--olive-moss);
+      font-weight: 600;
+    }
+
+    .tile-price {
+      font-family: var(--font-mincho);
+      font-size: 1.35rem;
+      font-weight: 700;
+    }
+
+    .service-tile h3 {
+      font-family: var(--font-mincho);
+      font-size: 1.3rem;
+      margin: 10px 0 8px;
+    }
+
+    .service-tile p {
+      font-size: 0.9rem;
+      color: var(--stone-muted);
+    }
+
+    .tile-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 14px;
+      border-top: 1px solid var(--line-organic);
+      font-size: 0.82rem;
+      color: var(--stone-muted);
+    }
+
+    /* Lookbook & Galería */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .gallery-item {
+      background: var(--bg-sand);
+      border: 1px solid var(--clay-oak);
+      border-radius: 20px;
+      padding: 16px;
+      cursor: pointer;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 290px;
+      object-fit: cover;
+      border-radius: 14px;
+      margin-bottom: 14px;
+    }
+
+    .gallery-item h3 {
+      font-family: var(--font-mincho);
+      font-size: 1.15rem;
+    }
+
+    .gallery-item span {
+      font-size: 0.8rem;
+      color: var(--olive-moss);
+    }
+
+    /* Artesanos / Equipo */
+    .masters-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .master-card {
+      background: var(--bg-sand);
+      border: 1px solid var(--clay-oak);
+      border-radius: 20px;
+      padding: 26px;
+    }
+
+    .master-card img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 14px;
+      margin-bottom: 16px;
+    }
+
+    .master-card h3 {
+      font-family: var(--font-mincho);
+      font-size: 1.28rem;
+    }
+
+    .master-role {
+      display: block;
+      font-size: 0.78rem;
+      color: var(--olive-moss);
+      font-weight: 600;
+      margin: 4px 0 10px;
+    }
+
+    /* Testimonios */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .review-card {
+      background: var(--bg-sand);
+      border: 1px solid var(--clay-oak);
+      border-radius: 20px;
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .demo-label {
+      font-size: 0.72rem;
+      color: var(--olive-moss);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+    }
+
+    .review-card blockquote {
+      font-family: var(--font-mincho);
+      font-size: 1.05rem;
+      color: var(--ink-stone);
+    }
+
+    /* Reserva */
+    .booking-panel {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 32px;
+      background: var(--bg-sand);
+      border: 1px solid var(--clay-oak);
+      border-radius: 24px;
+      padding: 36px;
+    }
+
+    .input-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .input-block {
+      margin-bottom: 16px;
+    }
+
+    .input-block label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .japandi-input {
+      width: 100%;
+      padding: 13px 16px;
+      border-radius: 12px;
+      border: 1px solid var(--clay-oak);
+      background: var(--bg-linen);
+      font-family: var(--font-sans);
+      font-size: 0.92rem;
+      color: var(--ink-stone);
+      outline: none;
+    }
+
+    .japandi-input:focus {
+      border-color: var(--olive-moss);
+    }
+
+    .booking-note {
+      padding: 12px 16px;
+      border-radius: 12px;
+      background: var(--bg-linen);
+      border: 1px solid var(--clay-oak);
+      font-size: 0.8rem;
+      color: var(--stone-muted);
+      margin-bottom: 16px;
+    }
+
+    .booking-msg {
+      display: none;
+      margin-top: 16px;
+      padding: 15px;
+      border-radius: 12px;
+      background: var(--bg-linen);
+      border: 1px solid var(--olive-moss);
+      color: var(--olive-dark);
+      font-weight: 600;
+      font-size: 0.88rem;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(43, 44, 40, 0.86);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      padding: 24px;
+    }
+
+    .lightbox.is-open {
+      display: flex;
+    }
+
+    .lightbox-card {
+      max-width: 780px;
+      width: 100%;
+      background: var(--bg-linen);
+      border: 1px solid var(--clay-oak);
+      border-radius: 22px;
+      padding: 26px;
+    }
+
+    .lightbox-card img {
+      width: 100%;
+      max-height: 62vh;
+      object-fit: cover;
+      border-radius: 14px;
+      margin-bottom: 16px;
+    }
+
+    .site-footer {
+      padding: 40px 0;
+      text-align: center;
+      font-size: 0.84rem;
+      color: var(--stone-muted);
+    }
+
+    @media (max-width: 960px) {
+      .hero-layout,
+      .ritual-composer,
+      .services-grid,
+      .gallery-grid,
+      .masters-grid,
+      .reviews-grid,
+      .booking-panel,
+      .input-row {
+        grid-template-columns: 1fr;
+      }
+      .vertical-kanji,
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body data-rubro-id="peluqueria" data-style-id="japandi-beauty">
+
+  <header class="site-header">
+    <div class="container nav-bar">
+      <a href="#" class="brand">
+        <span class="brand-seal" aria-hidden="true">木</span>
+        <div class="brand-text">
+          <strong>KOMOREBI</strong>
+          <span>HEAD SPA &amp; NORDIC HAIR</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#ritual">Alquimia Botánica</a></li>
+        <li><a href="#servicios">Rituales Kanso</a></li>
+        <li><a href="#galeria">Espacio &amp; Texturas</a></li>
+        <li><a href="#maestros">Terapeutas</a></li>
+        <li><a href="#reserva">Reserva</a></li>
+      </ul>
+      <a href="#reserva" class="japandi-btn japandi-btn-solid">Reservar Ceremonia</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-layout">
+        <div class="vertical-kanji" aria-hidden="true">木漏れ日 · 頭皮スパ · 北欧の静寂</div>
+
+        <div>
+          <span class="hero-tag">ESTILO #18 · JAPANDI BEAUTY · KIOTO × ESTOCOLMO</span>
+          <h1>Donde el Ritual <span>Head Spa Japonés</span> abraza la Calma Nórdica.</h1>
+          <p>
+            En <strong>KOMOREBI HEAD SPA</strong> fusionamos la digitopuntura craneal Shiatsu, cascadas circulares de agua termal Hinoki y cortes orgánicos de diseño escandinavo en un espacio revestido en roble crudo, lino y piedra.
+          </p>
+          <div class="hero-cta">
+            <a href="#ritual" class="japandi-btn japandi-btn-solid">Diseñar mi Infusión Botánica</a>
+            <a href="#servicios" class="japandi-btn">Explorar Rituales</a>
+          </div>
+          <div class="hero-pillars">
+            <div>
+              <strong>90 min</strong>
+              <span>Ceremonia Cascada Termal</span>
+            </div>
+            <div>
+              <strong>100%</strong>
+              <span>Botánica Silvestre &amp; Matcha</span>
+            </div>
+            <div>
+              <strong>Shiatsu</strong>
+              <span>Desbloqueo de Meridianos</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <img
+            src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85"
+            alt="Ceremonia Komorebi Head Spa Japonés"
+            onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg';"/>
+          <div class="visual-note">
+            <span>Sala Tatami &amp; Roble Nórdico N°03</span>
+            <span>Agua filtrada en carbón Binchotan</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCIA INTERACTIVA: COMPOSITOR DE RITUAL BOTÁNICO & SHIATSU -->
+    <section id="ritual">
+      <div class="section-intro">
+        <div>
+          <span class="section-kicker">Personalización Holística</span>
+          <h2>Compositor de Infusión &amp; Meridianos</h2>
+        </div>
+        <p>Configura los tres elementos de tu ceremonia Head Spa para descubrir la decocción botánica exacta que prepararemos tibia antes de tu llegada.</p>
+      </div>
+
+      <div class="ritual-composer">
+        <div>
+          <div class="step-group">
+            <h3>1. Estado actual de tu cuero cabelludo</h3>
+            <div class="option-pills" id="scalpGroup">
+              <button type="button" class="japandi-btn is-active" data-scalp="tension">Tensión Cervical &amp; Estrés</button>
+              <button type="button" class="japandi-btn" data-scalp="detox">Exceso Sebáceo &amp; Detox</button>
+              <button type="button" class="japandi-btn" data-scalp="dry">Sequedad &amp; Fibra Frágil</button>
+            </div>
+          </div>
+
+          <div class="step-group">
+            <h3>2. Esencia botánica japonesa-nórdica</h3>
+            <div class="option-pills" id="botanicalGroup">
+              <button type="button" class="japandi-btn is-active" data-botanical="hinoki">Ciprés Hinoki &amp; Abedul</button>
+              <button type="button" class="japandi-btn" data-botanical="matcha">Té Matcha Uji &amp; Romero</button>
+              <button type="button" class="japandi-btn" data-botanical="camellia">Aceite Tsubaki &amp; Avena</button>
+            </div>
+          </div>
+
+          <div class="step-group">
+            <h3>3. Intensidad de digitopuntura Shiatsu</h3>
+            <div class="option-pills" id="pressureGroup">
+              <button type="button" class="japandi-btn" data-shiatsu="suave">Flujo Lento Meditativo</button>
+              <button type="button" class="japandi-btn is-active" data-shiatsu="medio">Desbloqueo Craneal Equilibrado</button>
+              <button type="button" class="japandi-btn" data-shiatsu="profundo">Presión Profunda Suboccipital</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="ritual-card-output">
+          <div>
+            <span class="section-kicker">Receta Preparada en Mortero</span>
+            <h3 id="recipeTitle" style="font-family: var(--font-mincho); font-size: 1.65rem; margin: 6px 0 10px">Ceremonia Hinoki &amp; Liberación Cervical</h3>
+            <p id="recipeDesc" style="color: var(--stone-muted); font-size: 0.92rem">
+              Cascada circular a 38.5°C con hidrolato de ciprés japonés Hinoki y savia de abedul nórdico, enfocada en descomprimir la fascia craneal y mejorar la irrigación folicular.
+            </p>
+          </div>
+
+          <div class="ritual-specs">
+            <div class="ritual-spec-item">
+              <span>Infusión Base</span>
+              <strong id="specBotanical">Ciprés Hinoki &amp; Abedul</strong>
+            </div>
+            <div class="ritual-spec-item">
+              <span>Técnica Manual</span>
+              <strong id="specShiatsu">Desbloqueo Equilibrado</strong>
+            </div>
+            <div class="ritual-spec-item">
+              <span>Té de Cortesía</span>
+              <strong id="specTea">Genmaicha Tostado Orgánico</strong>
+            </div>
+            <div class="ritual-spec-item">
+              <span>Duración Total</span>
+              <strong>85 Minutos</strong>
+            </div>
+          </div>
+
+          <button type="button" class="japandi-btn japandi-btn-solid" id="sendRitualToBooking">Llevar esta Receta a mi Reserva</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CARTA DE SERVICIOS -->
+    <section id="servicios">
+      <div class="section-intro">
+        <div>
+          <span class="section-kicker">Menú de Santuario</span>
+          <h2>Rituales de Agua, Corte &amp; Barro Botánico</h2>
+        </div>
+        <p>Filtra nuestras especialidades y selecciona tu ceremonia preferida.</p>
+      </div>
+
+      <div class="filter-bar">
+        <button type="button" class="japandi-btn is-active" data-j-filter="all">Todos</button>
+        <button type="button" class="japandi-btn" data-j-filter="headspa">Japanese Head Spa</button>
+        <button type="button" class="japandi-btn" data-j-filter="nordic">Corte Escandinavo</button>
+        <button type="button" class="japandi-btn" data-j-filter="botanico">Coloración Herbal</button>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-tile" data-j-cat="headspa">
+          <div>
+            <div class="tile-header">
+              <span class="tile-tag">Head Spa</span>
+              <span class="tile-price">$68.000</span>
+            </div>
+            <h3>Ceremonia Komorebi Cascada Termal</h3>
+            <p>Diagnóstico con microcámara, exfoliación con arcilla volcánica japonesa, halo de agua tibia continua y 35 min de Shiatsu craneal y cervical.</p>
+          </div>
+          <div class="tile-footer">
+            <span>90 min · Camilla Tatami</span>
+            <button type="button" class="japandi-btn pick-j-service" data-name="Ceremonia Komorebi Cascada Termal">Elegir</button>
+          </div>
+        </article>
+
+        <article class="service-tile" data-j-cat="nordic">
+          <div>
+            <div class="tile-header">
+              <span class="tile-tag">Estilismo Nórdico</span>
+              <span class="tile-price">$46.000</span>
+            </div>
+            <h3>Corte Minimalista Kanso &amp; Baño de Vapor</h3>
+            <p>Líneas puras y funcionales inspiradas en el diseño de Copenhague y Estocolmo que se acomodan solas al secar al aire.</p>
+          </div>
+          <div class="tile-footer">
+            <span>60 min · Peine de Madera Tsuge</span>
+            <button type="button" class="japandi-btn pick-j-service" data-name="Corte Minimalista Kanso & Baño de Vapor">Elegir</button>
+          </div>
+        </article>
+
+        <article class="service-tile" data-j-cat="botanico">
+          <div>
+            <div class="tile-header">
+              <span class="tile-tag">Fito-Color</span>
+              <span class="tile-price">$74.000</span>
+            </div>
+            <h3>Barros Botánicos &amp; Infusión de Té Negro</h3>
+            <p>Coloración 100% vegetal a base de índigo, cassia obovata y extractos de corteza nórdica que engrosan la fibra capilar.</p>
+          </div>
+          <div class="tile-footer">
+            <span>110 min · 100% Orgánico</span>
+            <button type="button" class="japandi-btn pick-j-service" data-name="Barros Botánicos & Infusión de Té Negro">Elegir</button>
+          </div>
+        </article>
+
+        <article class="service-tile" data-j-cat="headspa">
+          <div>
+            <div class="tile-header">
+              <span class="tile-tag">Head Spa</span>
+              <span class="tile-price">$58.000</span>
+            </div>
+            <h3>Nutrición Profunda Aceite Tsubaki de Oshima</h3>
+            <p>Envoltura en toallas calientes Oshibori con aceite puro de camelia japonesa prensado en frío y masaje con peines de jade.</p>
+          </div>
+          <div class="tile-footer">
+            <span>70 min · Brillo Natural</span>
+            <button type="button" class="japandi-btn pick-j-service" data-name="Nutrición Profunda Aceite Tsubaki de Oshima">Elegir</button>
+          </div>
+        </article>
+
+        <article class="service-tile" data-j-cat="nordic">
+          <div>
+            <div class="tile-header">
+              <span class="tile-tag">Estilismo Nórdico</span>
+              <span class="tile-price">$82.000</span>
+            </div>
+            <h3>Iluminación Escandinava Sun-Kissed</h3>
+            <p>Reflejos sutiles de bajo mantenimiento con arcilla aclarante sin persulfatos agresivos y sellado de proteína de avena.</p>
+          </div>
+          <div class="tile-footer">
+            <span>125 min · Efecto Natural</span>
+            <button type="button" class="japandi-btn pick-j-service" data-name="Iluminación Escandinava Sun-Kissed">Elegir</button>
+          </div>
+        </article>
+
+        <article class="service-tile" data-j-cat="headspa">
+          <div>
+            <div class="tile-header">
+              <span class="tile-tag">Head Spa</span>
+              <span class="tile-price">$76.000</span>
+            </div>
+            <h3>Ritual Nocturno Inducción del Sueño</h3>
+            <p>Sesión vespertina con luz tenue de papel Washi, decocción de lavanda silvestre y cuencos tibetanos para combatir el insomnio.</p>
+          </div>
+          <div class="tile-footer">
+            <span>85 min · Último Turno</span>
+            <button type="button" class="japandi-btn pick-j-service" data-name="Ritual Nocturno Inducción del Sueño">Elegir</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- GALERÍA CON LIGHTBOX -->
+    <section id="galeria">
+      <div class="section-intro">
+        <div>
+          <span class="section-kicker">Estética Wabi-Sabi &amp; Hygge</span>
+          <h2>Atmósfera &amp; Resultados Capilares</h2>
+        </div>
+        <p>Toca cualquier postal para abrir la ficha detallada en pantalla completa.</p>
+      </div>
+
+      <div class="gallery-grid">
+        <article class="gallery-item" data-title="Halo Termal Hinoki" data-desc="Arco dorado de hidroterapia japonesa que mantiene una cortina constante de agua herbal a 38.5°C sobre la línea capilar.">
+          <img
+            src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85"
+            alt="Halo Termal Hinoki"
+            onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg';"/>
+          <h3>Halo Termal Hinoki</h3>
+          <span>Ver Detalle Ritual +</span>
+        </article>
+
+        <article class="gallery-item" data-title="Textura Orgánica Tsubaki" data-desc="Cabello tratado exclusivamente con aceite de camelia japonesa y secado suave respetando su onda natural.">
+          <img
+            src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85"
+            alt="Textura Orgánica Tsubaki"
+            onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg';"/>
+          <h3>Textura Orgánica Tsubaki</h3>
+          <span>Ver Detalle Ritual +</span>
+        </article>
+
+        <article class="gallery-item" data-title="Corte Escandinavo de Lino" data-desc="Líneas limpias nórdicas con movimiento ligero y reflejos rubio ceniza natural.">
+          <img
+            src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=900&q=80"
+            alt="Corte Escandinavo de Lino"
+            onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/hair-look-balayage.svg';"/>
+          <h3>Corte Escandinavo de Lino</h3>
+          <span>Ver Detalle Ritual +</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- EQUIPO -->
+    <section id="maestros">
+      <div class="section-intro">
+        <div>
+          <span class="section-kicker">Artesanos del Cuidado</span>
+          <h2>Nuestros Maestros Terapeutas</h2>
+        </div>
+      </div>
+
+      <div class="masters-grid">
+        <article class="master-card">
+          <img
+            src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=800&q=80"
+            alt="Haruka Takahashi"
+            onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/stylist-female-1.svg';"/>
+          <h3>Haruka Takahashi</h3>
+          <span class="master-role">Maestra de Head Spa &amp; Shiatsu Craneal</span>
+          <p style="font-size: 0.88rem; color: var(--stone-muted)">Formada en Kioto en anatomía de meridianos craneales y fitoterapia capilar tradicional.</p>
+        </article>
+
+        <article class="master-card">
+          <img
+            src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80"
+            alt="Soren Lindholm"
+            onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/stylist-female-2.svg';"/>
+          <h3>Søren Lindholm</h3>
+          <span class="master-role">Director de Corte Nórdico</span>
+          <p style="font-size: 0.88rem; color: var(--stone-muted)">Especialista danés en arquitectura capilar minimalista de caída orgánica sin uso de fijadores sintéticos.</p>
+        </article>
+
+        <article class="master-card">
+          <img
+            src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=800&q=80"
+            alt="Amalia Tagle"
+            onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/stylist-female-1.svg';"/>
+          <h3>Amalia Tagle</h3>
+          <span class="master-role">Botánica &amp; Colorista Herbal</span>
+          <p style="font-size: 0.88rem; color: var(--stone-muted)">Formula pigmentos vegetales personalizados en base a tés, cortezas y arcillas minerales.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section id="testimonios">
+      <div class="section-intro">
+        <div>
+          <span class="section-kicker">Bitácora de Calma</span>
+          <h2>Voces de Nuestro Santuario</h2>
+        </div>
+      </div>
+
+      <div class="reviews-grid">
+        <article class="review-card">
+          <span class="demo-label">[Testimonio Ficticio de Demostración]</span>
+          <blockquote>
+            “El sonido del arco de agua tibia y las toallas calientes con aroma a ciprés Hinoki me quitaron semanas de tensión cervical en una sola tarde.”
+          </blockquote>
+          <div>
+            <strong>Macarena Zegers</strong>
+            <span style="display:block; font-size:0.8rem; color:var(--stone-muted)">Ceremonia Komorebi Cascada Termal</span>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <span class="demo-label">[Testimonio Ficticio de Demostración]</span>
+          <blockquote>
+            “El corte de Søren tiene esa simplicidad escandinava perfecta: me lavo el pelo, se seca al aire y cae exactamente en su lugar.”
+          </blockquote>
+          <div>
+            <strong>Ignacia Donoso</strong>
+            <span style="display:block; font-size:0.8rem; color:var(--stone-muted)">Corte Minimalista Kanso</span>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <span class="demo-label">[Testimonio Ficticio de Demostración]</span>
+          <blockquote>
+            “Los barros botánicos cubrieron mis primeras canas con reflejos cálidos translúcidos y dejaron mi cuero cabelludo completamente sano.”
+          </blockquote>
+          <div>
+            <strong>Trinidad Correa</strong>
+            <span style="display:block; font-size:0.8rem; color:var(--stone-muted)">Barros Botánicos &amp; Té Negro</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- RESERVA -->
+    <section id="reserva">
+      <div class="booking-panel">
+        <div>
+          <span class="section-kicker">Ceremonia Bajo Reserva</span>
+          <h2 style="font-family: var(--font-mincho); font-size: 2.1rem; margin: 8px 0 14px">Agenda tu Tiempo de Silencio</h2>
+          <p style="color: var(--stone-muted); margin-bottom: 22px">
+            Te recibimos descalzo sobre madera tibia de roble con una infusión recién preparada según la receta seleccionada en nuestro compositor.
+          </p>
+          <div style="padding: 18px; border-radius: 14px; background: var(--bg-linen); border: 1px solid var(--clay-oak); font-size: 0.88rem; color: var(--stone-muted)">
+            <strong style="color: var(--ink-stone); display:block; font-family: var(--font-mincho); margin-bottom: 6px">Casa Komorebi</strong>
+            Las Hualtatas 5490, Casa Interior con Jardín de Musgo · Vitacura<br />
+            Martes a Domingo · 10:00 a 20:30 hrs.
+          </div>
+        </div>
+
+        <form id="japandiForm">
+          <div class="booking-note">
+            <strong>Demostración Interactiva:</strong> Formulario de prueba funcional en el navegador diseñado para el catálogo KuyénDev.
+          </div>
+
+          <div class="input-row">
+            <div>
+              <label for="jName">Tu Nombre</label>
+              <input type="text" id="jName" class="japandi-input" placeholder="Ej. Elisa Nordenflycht" required />
+            </div>
+            <div>
+              <label for="jPhone">Teléfono / WhatsApp</label>
+              <input type="tel" id="jPhone" class="japandi-input" placeholder="+56 9 7654 3210" required />
+            </div>
+          </div>
+
+          <div class="input-row">
+            <div>
+              <label for="jService">Ritual Principal</label>
+              <select id="jService" class="japandi-input" required>
+                <option value="Ceremonia Komorebi Cascada Termal">Ceremonia Komorebi Cascada Termal ($68.000)</option>
+                <option value="Corte Minimalista Kanso & Baño de Vapor">Corte Minimalista Kanso &amp; Baño de Vapor ($46.000)</option>
+                <option value="Barros Botánicos & Infusión de Té Negro">Barros Botánicos &amp; Infusión de Té Negro ($74.000)</option>
+                <option value="Nutrición Profunda Aceite Tsubaki de Oshima">Nutrición Profunda Aceite Tsubaki de Oshima ($58.000)</option>
+                <option value="Iluminación Escandinava Sun-Kissed">Iluminación Escandinava Sun-Kissed ($82.000)</option>
+                <option value="Ritual Nocturno Inducción del Sueño">Ritual Nocturno Inducción del Sueño ($76.000)</option>
+              </select>
+            </div>
+            <div>
+              <label for="jRecipe">Infusión Botánica Personalizada</label>
+              <input type="text" id="jRecipe" class="japandi-input" value="Ciprés Hinoki & Abedul · Desbloqueo Equilibrado" />
+            </div>
+          </div>
+
+          <div class="input-block">
+            <label for="jDate">Fecha Deseada</label>
+            <input type="date" id="jDate" class="japandi-input" required />
+          </div>
+
+          <button type="submit" class="japandi-btn japandi-btn-solid" style="width: 100%; padding: 15px">
+            Confirmar Ceremonia en Komorebi
+          </button>
+
+          <div class="booking-msg" id="bookingMsg" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Vista detallada">
+    <div class="lightbox-card">
+      <img id="lbImg" src="" alt="/>
+      <h3 id="lbTitle" style="font-family: var(--font-mincho); font-size: 1.45rem; margin-bottom: 6px"></h3>
+      <p id="lbDesc" style="color: var(--stone-muted); font-size: 0.92rem; margin-bottom: 18px"></p>
+      <button type="button" class="japandi-btn" id="closeLightbox">Volver al Santuario</button>
+    </div>
+  </div>
+
+  <footer class="site-footer container">
+    <p><strong>KOMOREBI HEAD SPA</strong> · Spa Capilar Japonés &amp; Estilismo Nórdico · Demostración Estilo #18 Japandi Beauty por KuyénDev.</p>
+  </footer>
+
+  <script>
+    (function () {
+      // Compositor de Infusión Botánica
+      let state = {
+        scalp: 'tension',
+        botanical: 'hinoki',
+        shiatsu: 'medio'
+      };
+
+      const scalpNames = {
+        tension: 'Liberación Cervical',
+        detox: 'Purificación Folicular',
+        dry: 'Nutrición Hidro-Lipídica'
+      };
+
+      const botanicalData = {
+        hinoki: { name: 'Ciprés Hinoki & Abedul', tea: 'Genmaicha Tostado Orgánico', desc: 'Cascada circular a 38.5°C con hidrolato de ciprés japonés Hinoki y savia de abedul nórdico para oxigenar el bulbo capilar.' },
+        matcha: { name: 'Té Matcha Uji & Romero', tea: 'Matcha Ceremonial de Kioto', desc: 'Infusión rica en catequinas antioxidantes que desintoxica el cuero cabelludo y estimula la microcirculación.' },
+        camellia: { name: 'Aceite Tsubaki & Avena', tea: 'Infusión de Cebada Tostada Mugicha', desc: 'Emulsión tibia de camelia japonesa de la isla Oshima y leche de avena escandinava para sellar hebras porosas.' }
+      };
+
+      const shiatsuNames = {
+        suave: 'Flujo Lento Meditativo',
+        medio: 'Desbloqueo Equilibrado',
+        profundo: 'Presión Profunda Suboccipital'
+      };
+
+      const recipeTitle = document.getElementById('recipeTitle');
+      const recipeDesc = document.getElementById('recipeDesc');
+      const specBotanical = document.getElementById('specBotanical');
+      const specShiatsu = document.getElementById('specShiatsu');
+      const specTea = document.getElementById('specTea');
+      const jRecipeInput = document.getElementById('jRecipe');
+
+      function renderComposer() {
+        const b = botanicalData[state.botanical];
+        const sName = scalpNames[state.scalp];
+        const shName = shiatsuNames[state.shiatsu];
+        recipeTitle.textContent = `Ceremonia ${b.name.split('&')[0].trim()} & ${sName}`;
+        recipeDesc.textContent = b.desc;
+        specBotanical.textContent = b.name;
+        specShiatsu.textContent = shName;
+        specTea.textContent = b.tea;
+        jRecipeInput.value = `${b.name} · ${shName}`;
+      }
+
+      function bindPillGroup(containerId, attrName, stateKey) {
+        const container = document.getElementById(containerId);
+        const btns = container.querySelectorAll('button');
+        btns.forEach(btn => {
+          btn.addEventListener('click', () => {
+            btns.forEach(b => b.classList.remove('is-active'));
+            btn.classList.add('is-active');
+            state[stateKey] = btn.getAttribute(attrName);
+            renderComposer();
+          });
+        });
+      }
+
+      bindPillGroup('scalpGroup', 'data-scalp', 'scalp');
+      bindPillGroup('botanicalGroup', 'data-botanical', 'botanical');
+      bindPillGroup('pressureGroup', 'data-shiatsu', 'shiatsu');
+
+      document.getElementById('sendRitualToBooking').addEventListener('click', () => {
+        document.getElementById('reserva').scrollIntoView({ behavior: 'smooth' });
+      });
+
+      // Filtro de Servicios
+      const filterBtns = document.querySelectorAll('[data-j-filter]');
+      const tiles = document.querySelectorAll('.service-tile');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+          const cat = btn.dataset.jFilter;
+          tiles.forEach(tile => {
+            tile.style.display = (cat === 'all' || tile.dataset.jCat === cat) ? 'flex' : 'none';
+          });
+        });
+      });
+
+      const jService = document.getElementById('jService');
+      document.querySelectorAll('.pick-j-service').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const target = btn.dataset.name;
+          for (let i = 0; i < jService.options.length; i++) {
+            if (jService.options[i].value === target) {
+              jService.selectedIndex = i;
+              break;
+            }
+          }
+          document.getElementById('reserva').scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+
+      // Lightbox
+      const lightbox = document.getElementById('lightbox');
+      const lbImg = document.getElementById('lbImg');
+      const lbTitle = document.getElementById('lbTitle');
+      const lbDesc = document.getElementById('lbDesc');
+      const closeLightbox = document.getElementById('closeLightbox');
+
+      document.querySelectorAll('.gallery-item').forEach(item => {
+        item.addEventListener('click', () => {
+          const img = item.querySelector('img');
+          lbImg.src = img.src;
+          lbImg.alt = img.alt;
+          lbTitle.textContent = item.dataset.title;
+          lbDesc.textContent = item.dataset.desc;
+          lightbox.classList.add('is-open');
+        });
+      });
+
+      closeLightbox.addEventListener('click', () => lightbox.classList.remove('is-open'));
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) lightbox.classList.remove('is-open');
+      });
+
+      // Formulario
+      const form = document.getElementById('japandiForm');
+      const msg = document.getElementById('bookingMsg');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('jName').value;
+        msg.style.display = 'block';
+        msg.textContent = `✓ [Demostración] Sala Tatami reservada para ${name}: "${jService.value}" con infusión tibia de ${jRecipeInput.value}.`;
+        form.reset();
+        renderComposer();
+      });
+    })();
+  </script>
+  <script src="../../js/config/rubros.js"></script>
+  <script src="../../js/demo-viewer-bar.js"></script>
+</body>
+</html>

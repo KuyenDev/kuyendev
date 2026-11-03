@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>NUBE SONRISAS · Odontopediatría, Pediatría & Estimulación Temprana | Demo KuyénDev</title>
+  <meta name="description" content="Demostración interactiva estilo #10 Soft Pastel Healthcare para clínicas de odontopediatría, pediatría integrativa, fonoaudiología y estimulación temprana cero miedo." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --pastel-sky: #E0F2FE;
+      --pastel-mint: #D1FAE5;
+      --pastel-butter: #FEF3C7;
+      --pastel-pink: #FCE7F3;
+      --cloud-bg: #FAFDFEFF;
+      --navy-friendly: #1E3A5F;
+      --slate-soft: #4B6584;
+      --sky-strong: #0284C7;
+      --mint-strong: #059669;
+      --pink-strong: #DB2777;
+      --amber-strong: #D97706;
+      --font-display: 'Outfit', sans-serif;
+      --font-round: 'Quicksand', sans-serif;
+      --radius-cloud: 34px;
+      --radius-bubble: 24px;
+      --radius-pill: 999px;
+      --shadow-cloud: 0 18px 42px rgba(30, 58, 95, 0.07);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #F7FBFF;
+      color: var(--navy-friendly);
+      font-family: var(--font-round);
+      font-weight: 600;
+      line-height: 1.65;
+      overflow-x: hidden;
+      background-image:
+        radial-gradient(circle at 8% 12%, var(--pastel-sky) 0%, transparent 32%),
+        radial-gradient(circle at 92% 18%, var(--pastel-pink) 0%, transparent 28%),
+        radial-gradient(circle at 50% 65%, var(--pastel-butter) 0%, transparent 38%);
+    }
+
+    /* Cinta Familiar Superior */
+    .family-ribbon {
+      background: linear-gradient(90deg, var(--pastel-sky), var(--pastel-mint), var(--pastel-butter), var(--pastel-pink));
+      padding: 10px 24px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--navy-friendly);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    /* Header Nube Flotante */
+    .cloud-header {
+      max-width: 1300px;
+      margin: 18px auto 0;
+      padding: 14px 26px;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(14px);
+      border: 2px solid var(--pastel-sky);
+      border-radius: var(--radius-pill);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      position: sticky;
+      top: 14px;
+      z-index: 95;
+      box-shadow: var(--shadow-cloud);
+    }
+
+    .nube-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--navy-friendly);
+    }
+
+    .nube-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, var(--pastel-sky), var(--pastel-pink));
+      display: grid;
+      place-items: center;
+      font-size: 1.4rem;
+      box-shadow: 0 6px 16px rgba(2, 132, 199, 0.14);
+    }
+
+    .nube-title {
+      font-family: var(--font-display);
+      font-size: 1.32rem;
+      font-weight: 800;
+      display: block;
+      line-height: 1.05;
+    }
+
+    .nube-sub {
+      font-size: 0.72rem;
+      color: var(--slate-soft);
+      font-weight: 700;
+    }
+
+    .nube-nav {
+      display: flex;
+      gap: 22px;
+      list-style: none;
+    }
+
+    .nube-nav a {
+      text-decoration: none;
+      color: var(--navy-friendly);
+      font-size: 0.9rem;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: var(--radius-pill);
+      transition: background 0.2s ease;
+    }
+
+    .nube-nav a:hover {
+      background: var(--pastel-sky);
+    }
+
+    .btn-cloud {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--navy-friendly);
+      color: #FFFFFF;
+      padding: 12px 24px;
+      border-radius: var(--radius-pill);
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 10px 24px rgba(30, 58, 95, 0.18);
+      transition: transform 0.25s ease, background 0.25s ease;
+    }
+
+    .btn-cloud:hover {
+      transform: translateY(-2px) scale(1.01);
+      background: var(--sky-strong);
+    }
+
+    .btn-cloud-pastel {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--pastel-butter);
+      color: var(--navy-friendly);
+      padding: 12px 24px;
+      border-radius: var(--radius-pill);
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-decoration: none;
+      border: 2px solid #FDE68A;
+      cursor: pointer;
+      transition: transform 0.25s ease;
+    }
+
+    .btn-cloud-pastel:hover {
+      transform: translateY(-2px);
+    }
+
+    .container {
+      max-width: 1260px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Hero Pediátrico */
+    .hero-pastel {
+      padding: 56px 0 76px;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 44px;
+      align-items: center;
+    }
+
+    .badge-zero-fear {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      background: var(--pastel-mint);
+      color: var(--mint-strong);
+      border-radius: var(--radius-pill);
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .hero-pastel-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.25rem, 4.3vw, 3.7rem);
+      font-weight: 800;
+      line-height: 1.12;
+      margin-bottom: 18px;
+    }
+
+    .hero-pastel-title span {
+      background: linear-gradient(90deg, var(--sky-strong), var(--pink-strong));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-pastel-lead {
+      font-size: 1.05rem;
+      color: var(--slate-soft);
+      margin-bottom: 28px;
+      max-width: 560px;
+    }
+
+    .pastel-badges-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .mini-pastel-card {
+      padding: 16px;
+      border-radius: 22px;
+      background: #FFFFFF;
+      border: 2px solid var(--pastel-sky);
+      box-shadow: var(--shadow-cloud);
+    }
+
+    .mini-pastel-card strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      margin-bottom: 2px;
+    }
+
+    .mini-pastel-card span {
+      font-size: 0.78rem;
+      color: var(--slate-soft);
+    }
+
+    .cloud-photo-frame {
+      background: #FFFFFF;
+      padding: 16px;
+      border-radius: 40px;
+      border: 4px solid var(--pastel-pink);
+      box-shadow: var(--shadow-cloud);
+      position: relative;
+    }
+
+    .cloud-photo-frame img {
+      width: 100%;
+      aspect-ratio: 4 / 3.4;
+      object-fit: cover;
+      border-radius: 28px;
+      display: block;
+    }
+
+    .sticker-badge {
+      position: absolute;
+      bottom: -16px;
+      right: 24px;
+      background: var(--pastel-butter);
+      border: 3px solid #FFFFFF;
+      padding: 12px 20px;
+      border-radius: 22px;
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 700;
+      box-shadow: var(--shadow-cloud);
+    }
+
+    /* Sección Interactiva Propia: Pasaporte de Primera Visita Cero Miedo por Etapa Infantil */
+    .stage-explorer {
+      background: #FFFFFF;
+      border: 3px solid var(--pastel-sky);
+      border-radius: var(--radius-cloud);
+      padding: 48px;
+      margin-bottom: 80px;
+      box-shadow: var(--shadow-cloud);
+    }
+
+    .stage-buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin: 26px 0 32px;
+    }
+
+    .stage-btn {
+      border: 2px solid var(--pastel-sky);
+      background: #F8FAFC;
+      border-radius: 22px;
+      padding: 18px 14px;
+      cursor: pointer;
+      text-align: center;
+      font-family: var(--font-display);
+      color: var(--navy-friendly);
+      transition: all 0.25s ease;
+    }
+
+    .stage-btn span {
+      display: block;
+      font-size: 1.65rem;
+      margin-bottom: 6px;
+    }
+
+    .stage-btn strong {
+      display: block;
+      font-size: 0.96rem;
+    }
+
+    .stage-btn small {
+      font-family: var(--font-round);
+      font-size: 0.76rem;
+      color: var(--slate-soft);
+    }
+
+    .stage-btn.active {
+      background: var(--pastel-sky);
+      border-color: var(--sky-strong);
+      transform: translateY(-4px);
+    }
+
+    .stage-display {
+      background: linear-gradient(135deg, var(--pastel-sky) 0%, var(--pastel-mint) 100%);
+      border-radius: 26px;
+      padding: 34px;
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .stage-checklist {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 20px;
+      padding: 22px;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 0.86rem;
+    }
+
+    /* Especialidades Pediátricas */
+    .pastel-sec-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 34px;
+    }
+
+    .pastel-sec-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 800;
+    }
+
+    .pastel-filter-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .pastel-tab {
+      border: 2px solid var(--pastel-sky);
+      background: #FFFFFF;
+      color: var(--navy-friendly);
+      padding: 8px 18px;
+      border-radius: var(--radius-pill);
+      font-family: var(--font-display);
+      font-size: 0.84rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .pastel-tab.active {
+      background: var(--navy-friendly);
+      color: #FFFFFF;
+      border-color: var(--navy-friendly);
+    }
+
+    .kids-services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 22px;
+      margin-bottom: 80px;
+    }
+
+    .kid-card {
+      background: #FFFFFF;
+      border-radius: var(--radius-bubble);
+      padding: 28px;
+      border: 2px solid var(--pastel-sky);
+      box-shadow: var(--shadow-cloud);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.25s ease;
+    }
+
+    .kid-card.hidden {
+      display: none;
+    }
+
+    .kid-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .kid-card[data-tone="mint"] { border-color: var(--pastel-mint); }
+    .kid-card[data-tone="butter"] { border-color: var(--pastel-butter); }
+    .kid-card[data-tone="pink"] { border-color: var(--pastel-pink); }
+
+    .kid-pill {
+      display: inline-block;
+      padding: 5px 12px;
+      border-radius: var(--radius-pill);
+      font-family: var(--font-display);
+      font-size: 0.74rem;
+      font-weight: 700;
+      background: var(--pastel-sky);
+      color: var(--sky-strong);
+      width: fit-content;
+      margin-bottom: 12px;
+    }
+
+    .kid-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      margin-bottom: 10px;
+    }
+
+    .kid-card p {
+      font-size: 0.9rem;
+      color: var(--slate-soft);
+      margin-bottom: 18px;
+    }
+
+    .kid-card-foot {
+      padding-top: 14px;
+      border-top: 2px dashed var(--pastel-sky);
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    /* Equipo & Rincón de Juegos con Lightbox */
+    .play-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-bottom: 80px;
+    }
+
+    .play-card {
+      background: #FFFFFF;
+      border: 3px solid var(--pastel-sky);
+      border-radius: 26px;
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: var(--shadow-cloud);
+      transition: transform 0.25s ease;
+    }
+
+    .play-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--pastel-pink);
+    }
+
+    .play-card img {
+      width: 100%;
+      aspect-ratio: 4 / 3.2;
+      object-fit: cover;
+      display: block;
+    }
+
+    .play-card-body {
+      padding: 18px;
+    }
+
+    .play-card-body small {
+      color: var(--pink-strong);
+      font-family: var(--font-display);
+      font-size: 0.74rem;
+      font-weight: 700;
+    }
+
+    .play-card-body h4 {
+      font-family: var(--font-display);
+      font-size: 1.08rem;
+      margin: 4px 0 6px;
+    }
+
+    .play-card-body p {
+      font-size: 0.82rem;
+      color: var(--slate-soft);
+    }
+
+    /* Testimonios de Familias */
+    .parents-section {
+      background: linear-gradient(135deg, var(--pastel-butter) 0%, var(--pastel-pink) 100%);
+      border-radius: var(--radius-cloud);
+      padding: 52px 44px;
+      margin-bottom: 80px;
+    }
+
+    .parents-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 28px;
+    }
+
+    .parent-card {
+      background: rgba(255, 255, 255, 0.94);
+      border-radius: 24px;
+      padding: 26px;
+      box-shadow: var(--shadow-cloud);
+    }
+
+    .parent-demo-pill {
+      display: inline-block;
+      background: var(--pastel-sky);
+      color: var(--sky-strong);
+      font-family: var(--font-display);
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      margin-bottom: 12px;
+    }
+
+    /* Formulario Familiar de Reserva */
+    .family-booking {
+      background: #FFFFFF;
+      border: 3px solid var(--pastel-mint);
+      border-radius: var(--radius-cloud);
+      padding: 48px;
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 42px;
+      margin-bottom: 72px;
+      box-shadow: var(--shadow-cloud);
+    }
+
+    .kid-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .kid-full {
+      grid-column: 1 / -1;
+    }
+
+    .kid-label {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .kid-input,
+    .kid-select,
+    .kid-textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 16px;
+      border: 2px solid var(--pastel-sky);
+      background: #F8FAFC;
+      font-family: var(--font-round);
+      font-weight: 600;
+      font-size: 0.92rem;
+      color: var(--navy-friendly);
+    }
+
+    .kid-input:focus,
+    .kid-select:focus,
+    .kid-textarea:focus {
+      outline: none;
+      border-color: var(--sky-strong);
+      background: #FFFFFF;
+    }
+
+    .kid-feedback {
+      grid-column: 1 / -1;
+      display: none;
+      padding: 16px 20px;
+      border-radius: 18px;
+      background: var(--pastel-mint);
+      color: var(--navy-friendly);
+      font-size: 0.9rem;
+      border: 2px solid #6EE7B7;
+    }
+
+    /* Lightbox */
+    .pastel-lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(30, 58, 95, 0.82);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      padding: 24px;
+    }
+
+    .pastel-lightbox.open {
+      display: flex;
+    }
+
+    .pastel-lb-box {
+      background: #FFFFFF;
+      border: 4px solid var(--pastel-sky);
+      border-radius: 32px;
+      max-width: 800px;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .pastel-lb-box img {
+      width: 100%;
+      max-height: 450px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .pastel-footer {
+      border-top: 2px solid var(--pastel-sky);
+      padding: 36px 0 96px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.84rem;
+      color: var(--slate-soft);
+    }
+
+    @media (max-width: 1024px) {
+      .hero-pastel,
+      .stage-display,
+      .family-booking {
+        grid-template-columns: 1fr;
+      }
+      .stage-buttons,
+      .play-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .parents-grid {
+        grid-template-columns: 1fr;
+      }
+      .nube-nav {
+        display: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .stage-buttons,
+      .play-grid,
+      .kid-form,
+      .pastel-badges-row {
+        grid-template-columns: 1fr;
+      }
+      .stage-explorer,
+      .parents-section,
+      .family-booking {
+        padding: 28px 20px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body data-rubro-id="salud" data-style-id="soft-pastel-healthcare">
+
+  <!-- Cinta Familiar -->
+  <div class="family-ribbon">
+    <span>☁️ Clínica Infantil Certificada «Cero Miedo» · Boxes Temáticos, Cuentos y Adaptación Sensorial</span>
+    <span>👶 Lactario Privado · Estacionamiento de Coches · Ñuñoa & Vitacura</span>
+  </div>
+
+  <!-- Header Nube -->
+  <header class="cloud-header">
+    <a href="#" class="nube-logo">
+      <div class="nube-icon" aria-hidden="true">☁️</div>
+      <div>
+        <span class="nube-title">NUBE SONRISAS</span>
+        <span class="nube-sub">Odontopediatría · Pediatría · Estimulación Temprana</span>
+      </div>
+    </a>
+
+    <ul class="nube-nav">
+      <li><a href="#etapas">Guía por Edades</a></li>
+      <li><a href="#especialidades">Especialidades</a></li>
+      <li><a href="#espacios">Rincón & Doctores</a></li>
+      <li><a href="#familias">Familias Felices</a></li>
+      <li><a href="#reserva">Primera Visita</a></li>
+    </ul>
+
+    <a href="#reserva" class="btn-cloud">Agendar Visita Jugando</a>
+  </header>
+
+  <main class="container">
+    <!-- Hero Pediátrico -->
+    <section class="hero-pastel">
+      <div>
+        <div class="badge-zero-fear">
+          <span>★</span> Atención Respetuosa · Neuroafirmativa · Sin Delantales Blancos Fríos
+        </div>
+        <h1 class="hero-pastel-title">
+          Donde ir al dentista y al pediatra se siente como <span>entrar a un cuento</span>.
+        </h1>
+        <p class="hero-pastel-lead">
+          En <strong>Nube Sonrisas</strong> transformamos la salud infantil: nuestros especialistas atienden al ritmo de cada niño, usando magia, pantallas en el techo, anestesia computarizada sin aguja visible y acompañamiento para padres.
+        </p>
+        <div style="display: flex; flex-wrap: wrap; gap: 14px">
+          <a href="#reserva" class="btn-cloud">Reservar Hora de Adaptación</a>
+          <a href="#etapas" class="btn-cloud-pastel">Descubrir Guía según la Edad</a>
+        </div>
+
+        <div class="pastel-badges-row">
+          <div class="mini-pastel-card">
+            <strong>+4.200</strong>
+            <span>Niños y niñas que hoy aman cuidar sus dientes</span>
+          </div>
+          <div class="mini-pastel-card">
+            <strong>100% Juego</strong>
+            <span>Primera sesión enfocada en confianza y adaptación</span>
+          </div>
+          <div class="mini-pastel-card">
+            <strong>TEA Friendly</strong>
+            <span>Protocolo sensorial con pictogramas anticipatorios</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cloud-photo-frame">
+        <img
+          src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=85"
+          alt="Clínica pediátrica y odontopediátrica en tonos pastel amigables con niños sonriendo"
+          onerror="this.onerror=null;this.src='../../images/demos/assets/med/clinic-box-dental.svg';"/>
+        <div class="sticker-badge">
+          🎈 ¡Diploma de Valentía en cada visita!
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección Interactiva Propia: Pasaporte de Crecimiento & Visita Cero Miedo -->
+    <section id="etapas" class="stage-explorer" aria-labelledby="stageHeading">
+      <div class="badge-zero-fear" style="background: var(--pastel-sky); color: var(--sky-strong)">
+        PASAPORTE INTERACTIVO PARA PADRES
+      </div>
+      <h2 id="stageHeading" class="pastel-sec-title">¿Qué edad o necesidad tiene tu pequeño/a?</h2>
+      <p style="color: var(--slate-soft); font-size: 0.95rem; margin-top: 4px">
+        Selecciona la etapa de tu hijo o hija para ver cómo preparamos su experiencia sin lágrimas:
+      </p>
+
+      <div class="stage-buttons" role="tablist">
+        <button type="button" class="stage-btn active" data-stage="bebes">
+          <span>🍼</span>
+          <strong>Bebés (0 a 2 años)</strong>
+          <small>Primer diente & lactancia</small>
+        </button>
+        <button type="button" class="stage-btn" data-stage="exploradores">
+          <span>🧸</span>
+          <strong>Exploradores (3 a 6 años)</strong>
+          <small>Odontopediatría jugando</small>
+        </button>
+        <button type="button" class="stage-btn" data-stage="escolares">
+          <span>🚀</span>
+          <strong>Escolares (7 a 12 años)</strong>
+          <small>Ortopedia & recambio dental</small>
+        </button>
+        <button type="button" class="stage-btn" data-stage="sensorial">
+          <span>🌈</span>
+          <strong>Atención Sensorial / TEA</strong>
+          <small>Pictogramas & calma acústica</small>
+        </button>
+      </div>
+
+      <div class="stage-display" aria-live="polite">
+        <div>
+          <span id="stTag" style="font-family: var(--font-display); font-size: 0.78rem; font-weight: 800; color: var(--sky-strong); text-transform: uppercase">
+            PROGRAMA CLÍNICO · BEBÉS Y LACTANTES
+          </span>
+          <h3 id="stTitle" style="font-family: var(--font-display); font-size: 1.65rem; margin: 6px 0 12px">
+            Clínica del Bebé: Revisión en Brazos de Mamá o Papá
+          </h3>
+          <p id="stDesc" style="color: var(--navy-friendly); font-size: 0.95rem">
+            Evaluamos frenillo lingual para una lactancia sin dolor, erupción de los primeros dientes de leche, transición a alimentación complementaria (BLW) y cepillado respetuoso en una colchoneta tibia junto a sus padres.
+          </p>
+        </div>
+
+        <ul class="stage-checklist" id="stList">
+          <li>✅ Evaluación de frenillo sublingual y acople de lactancia</li>
+          <li>✅ Guía práctica de higiene desde el primer diente</li>
+          <li>✅ Control de niño sano con pediatra integrativa</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Especialidades Infantiles Interactivas -->
+    <section id="especialidades">
+      <div class="pastel-sec-header">
+        <div>
+          <div class="badge-zero-fear" style="background: var(--pastel-pink); color: var(--pink-strong)">CUIDADO INTEGRAL INFANTIL</div>
+          <h2 class="pastel-sec-title">Especialidades bajo un mismo techo</h2>
+        </div>
+        <div class="pastel-filter-row" role="tablist">
+          <button type="button" class="pastel-tab active" data-filter="all">Todas (6)</button>
+          <button type="button" class="pastel-tab" data-filter="dental">Odontopediatría & Ortopedia</button>
+          <button type="button" class="pastel-tab" data-filter="pediatria">Pediatría & Crecimiento</button>
+          <button type="button" class="pastel-tab" data-filter="desarrollo">Fonoaudiología & Terapia Ocupacional</button>
+        </div>
+      </div>
+
+      <div class="kids-services-grid">
+        <article class="kid-card" data-cat="dental" data-tone="sky">
+          <div>
+            <span class="kid-pill">Odontopediatría Cero Miedo</span>
+            <h3>Primera Visita de Adaptación & Prevención Lúdica</h3>
+            <p>Contamos los dientes con espejo mágico, aplicamos barniz de flúor con sabor a frutilla o melón y enseñamos técnicas de cepillado mediante juegos.</p>
+          </div>
+          <div class="kid-card-foot">
+            <span>45 min de paciencia</span>
+            <span>Fonasa / Isapres</span>
+          </div>
+        </article>
+
+        <article class="kid-card" data-cat="dental" data-tone="butter">
+          <div>
+            <span class="kid-pill" style="background: var(--pastel-butter); color: var(--amber-strong)">Ortopedia Maxilar</span>
+            <h3>Ortodoncia Interceptiva & Respiración Bucal</h3>
+            <p>Guía temprana del crecimiento del paladar y mandíbula desde los 5 años con aparatos coloridos o alineadores infantiles invisibles.</p>
+          </div>
+          <div class="kid-card-foot">
+            <span>Escáner 3D sin pastas</span>
+            <span>Evaluación de Sueño</span>
+          </div>
+        </article>
+
+        <article class="kid-card" data-cat="pediatria" data-tone="mint">
+          <div>
+            <span class="kid-pill" style="background: var(--pastel-mint); color: var(--mint-strong)">Pediatría Integrativa</span>
+            <h3>Control de Niño Sano & Crianza Respetuosa</h3>
+            <p>Consultas pediátricas de 45 minutos donde respondemos todas las dudas de la familia sobre nutrición, sueño infantil, vacunas y desarrollo.</p>
+          </div>
+          <div class="kid-card-foot">
+            <span>Contacto WhatsApp directo</span>
+            <span>Reembolso Isapre</span>
+          </div>
+        </article>
+
+        <article class="kid-card" data-cat="desarrollo" data-tone="pink">
+          <div>
+            <span class="kid-pill" style="background: var(--pastel-pink); color: var(--pink-strong)">Fonoaudiología Infantil</span>
+            <h3>Estimulación del Lenguaje, Habla & Deglución</h3>
+            <p>Terapia basada en el juego para niños con retraso del lenguaje, respiración oral, deglución atípica o selectividad alimentaria.</p>
+          </div>
+          <div class="kid-card-foot">
+            <span>Trabajo junto a Odontopediatra</span>
+            <span>Sesiones 45 min</span>
+          </div>
+        </article>
+
+        <article class="kid-card" data-cat="desarrollo" data-tone="mint">
+          <div>
+            <span class="kid-pill" style="background: var(--pastel-mint); color: var(--mint-strong)">Terapia Ocupacional</span>
+            <h3>Gimnasio de Integración Sensorial & Motricidad</h3>
+            <p>Salas con columpios terapéuticos, piscinas de texturas y apoyo especializado para niños neurodivergentes o con desafíos sensoriales.</p>
+          </div>
+          <div class="kid-card-foot">
+            <span>Certificación Ayres Sensory</span>
+            <span>Informes para Colegios</span>
+          </div>
+        </article>
+
+        <article class="kid-card" data-cat="dental" data-tone="sky">
+          <div>
+            <span class="kid-pill">Rehabilitación Mínima Invasiva</span>
+            <h3>Tratamiento de Caries sin Turbina (Técnica SMART)</h3>
+            <p>Detenemos y restauramos lesiones de caries incipientes con materiales bioactivos remineralizantes, evitando el ruido y las agujas siempre que es posible.</p>
+          </div>
+          <div class="kid-card-foot">
+            <span>Sedación Consciente Disponible</span>
+            <span>Cero Trauma</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Equipo e Instalaciones con Lightbox -->
+    <section id="espacios">
+      <div class="pastel-sec-header">
+        <div>
+          <div class="badge-zero-fear">ESPECIALISTAS EN INFANCIA</div>
+          <h2 class="pastel-sec-title">Nuestro Equipo & Boxes Temáticos</h2>
+        </div>
+        <p style="font-size: 0.88rem; color: var(--slate-soft)">Haz clic sobre cada tarjeta para ver en grande nuestras salas y especialistas.</p>
+      </div>
+
+      <div class="play-grid">
+        <article
+          class="play-card"
+          tabindex="0"
+          data-img="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80"
+          data-title="Dra. Josefina · Especialista Odontológico"
+          data-desc="Cirujano Dentista especialista en Odontopediatría (U. de Chile), diplomada en Atención Odontológica de Pacientes Neurodivergentes y Bebés."
+        >
+          <img
+            src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80"
+            alt="Dra. Josefina · Especialista Odontológico"
+            onerror="this.onerror=null;this.src='../../images/demos/assets/med/doctor-female-1.svg';"/>
+          <div class="play-card-body">
+            <small>Odontopediatra · Bebés y TEA</small>
+            <h4>Dra. Josefina «Pepa» Contador</h4>
+            <p>12 años transformando el miedo al dentista en sonrisas.</p>
+          </div>
+        </article>
+
+        <article
+          class="play-card"
+          tabindex="0"
+          data-img="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800&q=80"
+          data-title="Dr. Lucas Echenique · Especialista Odontológico"
+          data-desc="Médico Pediatra e IBCLC (Consultor Internacional de Lactancia Materna), enfocado en crianza respetuosa y medicina preventiva familiar."
+        >
+          <img
+            src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800&q=80"
+            alt="Dr. Lucas Echenique · Especialista Odontológico"
+            onerror="this.onerror=null;this.src='../../images/demos/assets/med/doctor-male-1.svg';"/>
+          <div class="play-card-body">
+            <small>Pediatra & Consultor Lactancia</small>
+            <h4>Dr. Lucas Echenique</h4>
+            <p>Controles pediátricos sin apuro y apoyo integral a padres.</p>
+          </div>
+        </article>
+
+        <article
+          class="play-card"
+          tabindex="0"
+          data-img="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=85"
+          data-title="Flga. Maite Arancibia — Fonoaudiología & Motricidad Orofacial"
+          data-desc="Especialista en terapia miofuncional, frenillo lingual alterado y selectividad alimentaria en primera infancia."
+        >
+          <img
+            src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=85"
+            alt="Fonoaudióloga infantil"
+            onerror="this.onerror=null;this.src='../../images/demos/assets/med/clinic-box-dental.svg';"/>
+          <div class="play-card-body">
+            <small>Fonoaudióloga Infantil</small>
+            <h4>Flga. Maite Arancibia</h4>
+            <p>Motricidad orofacial, habla y alimentación respetuosa.</p>
+          </div>
+        </article>
+
+        <article
+          class="play-card"
+          tabindex="0"
+          data-img="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=85"
+          data-title="Sala de Espera «Bosque de Nubes» & Gimnasio Sensorial"
+          data-desc="Rincón de lectura infantil, casita de madera libre de pantallas estridentes, mudador climatizado y sala de lactancia silenciosa."
+        >
+          <img
+            src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=85"
+            alt="Sala de juegos e integración sensorial"
+            onerror="this.onerror=null;this.src='../../images/demos/assets/med/clinic-box-dental.svg';"/>
+          <div class="play-card-body">
+            <small>Instalaciones Seguras</small>
+            <h4>Sala «Bosque de Nubes»</h4>
+            <p>Juegos de madera noble, rincón de cuentos y lactario.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Testimonios de Padres -->
+    <section id="familias" class="parents-section">
+      <div class="badge-zero-fear" style="background: #FFFFFF; color: var(--pink-strong)">MAMÁS Y PAPÁS TRANQUILOS</div>
+      <h2 class="pastel-sec-title">Lo que cuentan las familias de Nube Sonrisas</h2>
+
+      <div class="parents-grid">
+        <article class="parent-card">
+          <span class="parent-demo-pill">[Testimonio Ficticio de Demostración]</span>
+          <p style="font-size: 0.92rem; margin-bottom: 14px">
+            «Mi hijo de 4 años tenía pánico después de una mala experiencia en urgencias. La Dra. Pepa le mostró cada instrumento como si fueran juguetes espaciales y terminó pidiendo volver la otra semana.»
+          </p>
+          <strong style="font-size: 0.82rem; color: var(--slate-soft)">Daniela & Gaspar (4 años) · Odontopediatría</strong>
+        </article>
+
+        <article class="parent-card">
+          <span class="parent-demo-pill">[Testimonio Ficticio de Demostración]</span>
+          <p style="font-size: 0.92rem; margin-bottom: 14px">
+            «Antes de ir nos enviaron por WhatsApp un cuento con fotos reales del box y de la doctora para anticipar a nuestra hija que es autista. Fue la primera consulta médica feliz de nuestra vida.»
+          </p>
+          <strong style="font-size: 0.82rem; color: var(--slate-soft)">Loreto & Julieta (6 años) · Programa Sensorial TEA</strong>
+        </article>
+
+        <article class="parent-card">
+          <span class="parent-demo-pill">[Testimonio Ficticio de Demostración]</span>
+          <p style="font-size: 0.92rem; margin-bottom: 14px">
+            «Tener al pediatra, la fonoaudióloga y la odontopediatra coordinados en el mismo lugar nos ayudó a resolver el problema de lactancia de nuestro bebé en una sola mañana.»
+          </p>
+          <strong style="font-size: 0.82rem; color: var(--slate-soft)">Felipe, Macarena & León (5 meses) · Clínica del Bebé</strong>
+        </article>
+      </div>
+    </section>
+
+    <!-- Formulario de Reserva Familiar -->
+    <section id="reserva" class="family-booking">
+      <div>
+        <div class="badge-zero-fear">AGENDA FAMILIAR AMIGABLE</div>
+        <h2 class="pastel-sec-title" style="margin-bottom: 14px">Reserva la hora de tu pequeño/a</h2>
+        <p style="font-size: 0.95rem; color: var(--slate-soft); margin-bottom: 22px">
+          Al agendar, te enviamos gratis nuestro <strong>Cuento Digital de Anticipación</strong> con el nombre de tu hijo/a para que conozca su box antes de llegar.
+        </p>
+        <div style="background: var(--pastel-sky); border-radius: 20px; padding: 18px; font-size: 0.85rem">
+          <p style="margin-bottom: 6px"><strong>📍 Sede Casa Ñuñoa:</strong> Av. Simón Bolívar 3120 (a pasos de Metro Chile España)</p>
+          <p style="margin-bottom: 6px"><strong>🎈 Sorpresa personalizada:</strong> Preguntamos su dibujo o animal favorito para ponerlo en la pantalla del techo</p>
+          <p><strong>🧸 Garantía de Adaptación:</strong> Si tu pequeño necesita más tiempo, no apuramos ningún procedimiento</p>
+        </div>
+      </div>
+
+      <form class="kid-form" id="kidForm">
+        <div>
+          <label class="kid-label" for="kfParent">Nombre de Mamá / Papá / Tutor</label>
+          <input class="kid-input" type="text" id="kfParent" placeholder="Ej. Francisca Morales" required />
+        </div>
+        <div>
+          <label class="kid-label" for="kfChild">Nombre y Edad del Niño/a</label>
+          <input class="kid-input" type="text" id="kfChild" placeholder="Ej. Mateo (4 años)" required />
+        </div>
+        <div>
+          <label class="kid-label" for="kfPhone">WhatsApp de Contacto</label>
+          <input class="kid-input" type="tel" id="kfPhone" placeholder="+56 9 8765 1234" required />
+        </div>
+        <div>
+          <label class="kid-label" for="kfSpec">Especialidad Requerida</label>
+          <select class="kid-select" id="kfSpec" required>
+            <option value="Odontopediatría · Primera Visita Jugando">Odontopediatría · Primera Visita Jugando</option>
+            <option value="Clínica del Bebé (0 a 2 años) & Lactancia">Clínica del Bebé (0 a 2 años) & Lactancia</option>
+            <option value="Pediatría Integrativa · Control Niño Sano">Pediatría Integrativa · Control Niño Sano</option>
+            <option value="Fonoaudiología / Terapia Ocupacional">Fonoaudiología / Terapia Ocupacional</option>
+          </select>
+        </div>
+        <div class="kid-full">
+          <label class="kid-label" for="kfFav">¿Cuál es su personaje, canción o animal favorito? (Para prepararle el box)</label>
+          <textarea class="kid-textarea" id="kfFav" rows="2" placeholder="Ej. Le encantan los dinosaurios y Bluey. Es su primera vez en el dentista..."></textarea>
+        </div>
+        <div class="kid-full">
+          <button type="submit" class="btn-cloud" style="width: 100%; justify-content: center">
+            Solicitar Hora + Cuento de Bienvenida (Demostración Interactiva)
+          </button>
+        </div>
+        <div class="kid-feedback" id="kidFeedback" role="status" aria-live="polite"></div>
+      </form>
+    </section>
+
+    <footer class="pastel-footer">
+      <div>
+        <strong style="color: var(--navy-friendly)">NUBE SONRISAS · Odontopediatría, Pediatría & Estimulación Temprana</strong><br />
+        Demostración Interactiva Estilo #10 (Soft Pastel Healthcare) · KuyénDev Catálogo Salud.
+      </div>
+      <div>
+        <span>Demostración interactiva de portafolio · Datos y testimonios ficticios.</span>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Lightbox Modal -->
+  <div class="pastel-lightbox" id="pastelLightbox" role="dialog" aria-modal="true" aria-labelledby="pastelLbTitle">
+    <div class="pastel-lb-box">
+      <img src="" alt="" id="pastelLbImg" onerror="this.onerror=null;this.src='../../images/demos/assets/med/clinic-box-dental.svg';"/>
+      <div style="padding: 22px 26px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap">
+        <div style="max-width: 540px">
+          <h3 id="pastelLbTitle" style="font-family: var(--font-display); font-size: 1.25rem; margin-bottom: 4px"></h3>
+          <p id="pastelLbDesc" style="font-size: 0.88rem; color: var(--slate-soft)"></p>
+        </div>
+        <button type="button" class="btn-cloud-pastel" id="pastelLbClose">Cerrar Ventana [ESC]</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      // 1. Selector de Etapas Infantiles
+      const stages = {
+        bebes: {
+          tag: 'PROGRAMA CLÍNICO · BEBÉS Y LACTANTES (0–2 AÑOS)',
+          title: 'Clínica del Bebé: Revisión en Brazos de Mamá o Papá',
+          desc: 'Evaluamos frenillo lingual para una lactancia sin dolor, erupción de los primeros dientes de leche, transición a alimentación complementaria (BLW) y cepillado respetuoso en una colchoneta tibia junto a sus padres.',
+          list: [
+            '✅ Evaluación de frenillo sublingual y acople de lactancia',
+            '✅ Guía práctica de higiene desde el primer diente',
+            '✅ Control de niño sano con pediatra integrativa'
+          ]
+        },
+        exploradores: {
+          tag: 'PROGRAMA CLÍNICO · EXPLORADORES (3–6 AÑOS)',
+          title: 'Magia, Cuentos y Prevención Cero Miedo',
+          desc: 'Mediante la técnica «Decir-Mostrar-Hacer», los niños tocan y conocen cada instrumento con nombres divertidos, eligen su serie favorita en el techo y reciben barniz protector sin dolor.',
+          list: [
+            '✅ Sillón con pantalla en el techo y audífonos suaves',
+            '✅ Profilaxis con pasta de sabores y gafas de superhéroe',
+            '✅ Detección temprana de hábitos (chupete, succión digital)'
+          ]
+        },
+        escolares: {
+          tag: 'PROGRAMA CLÍNICO · ESCOLARES (7–12 AÑOS)',
+          title: 'Recambio Dental, Sellantes & Ortopedia Guiada',
+          desc: 'Acompañamos la salida de los dientes definitivos con sellantes protectores de fosas y fisuras, escaneo 3D sin moldes incómodos y ortopedia interceptiva para guiar una mordida sana.',
+          list: [
+            '✅ Escaneo intraoral 3D interactivo en pantalla',
+            '✅ Sellantes preventivos indoloros en molares definitivos',
+            '✅ Evaluación de respiración, postura y ortodoncia temprana'
+          ]
+        },
+        sensorial: {
+          tag: 'PROGRAMA CLÍNICO · NEURODIVERSIDAD & CALMA SENSORIAL',
+          title: 'Protocolo Adaptado con Pictogramas y Luz Atenuada',
+          desc: 'Diseñado junto a terapeutas ocupacionales para niños en el espectro autista (TEA) o con hipersensibilidad sensorial: enviamos historia social previa, bloqueamos ruidos y adaptamos los tiempos.',
+          list: [
+            '✅ Envío previo de cuento con fotos reales e historia social',
+            '✅ Iluminación regulable, manta de peso opcional y cero olores fuertes',
+            '✅ Sesiones de vinculación progresiva al ritmo del niño/a'
+          ]
+        }
+      };
+
+      const stageBtns = document.querySelectorAll('.stage-btn');
+      const stTag = document.getElementById('stTag');
+      const stTitle = document.getElementById('stTitle');
+      const stDesc = document.getElementById('stDesc');
+      const stList = document.getElementById('stList');
+
+      stageBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          stageBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const d = stages[btn.getAttribute('data-stage')];
+          if (d) {
+            stTag.textContent = d.tag;
+            stTitle.textContent = d.title;
+            stDesc.textContent = d.desc;
+            stList.innerHTML = d.list.map(item => `<li>${item}</li>`).join('');
+          }
+        });
+      });
+
+      // 2. Filtro de Especialidades
+      const tabs = document.querySelectorAll('.pastel-tab');
+      const cards = document.querySelectorAll('.kid-card');
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          tabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          const f = tab.getAttribute('data-filter');
+          cards.forEach(c => {
+            if (f === 'all' || c.getAttribute('data-cat') === f) {
+              c.classList.remove('hidden');
+            } else {
+              c.classList.add('hidden');
+            }
+          });
+        });
+      });
+
+      // 3. Lightbox
+      const lb = document.getElementById('pastelLightbox');
+      const lbImg = document.getElementById('pastelLbImg');
+      const lbTitle = document.getElementById('pastelLbTitle');
+      const lbDesc = document.getElementById('pastelLbDesc');
+      const lbClose = document.getElementById('pastelLbClose');
+
+      document.querySelectorAll('.play-card').forEach(card => {
+        const open = () => {
+          lbImg.src = card.getAttribute('data-img');
+          lbImg.alt = card.getAttribute('data-title');
+          lbTitle.textContent = card.getAttribute('data-title');
+          lbDesc.textContent = card.getAttribute('data-desc');
+          lb.classList.add('open');
+        };
+        card.addEventListener('click', open);
+        card.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            open();
+          }
+        });
+      });
+
+      const closeLb = () => lb.classList.remove('open');
+      lbClose.addEventListener('click', closeLb);
+      lb.addEventListener('click', (e) => { if (e.target === lb) closeLb(); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLb(); });
+
+      // 4. Formulario Familiar
+      const form = document.getElementById('kidForm');
+      const feedback = document.getElementById('kidFeedback');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const parent = document.getElementById('kfParent').value;
+        const child = document.getElementById('kfChild').value;
+        const spec = document.getElementById('kfSpec').value;
+        feedback.style.display = 'block';
+        feedback.innerHTML = `☁️ <strong>[Demostración Interactiva]</strong> ¡Gracias, <strong>${parent}</strong>! Ya estamos preparando el box para recibir a <strong>${child}</strong> en <em>${spec}</em>. En un sitio real, recibirías ahora mismo por WhatsApp el Cuento Digital de Bienvenida y la confirmación de tu hora.`;
+        form.reset();
+      });
+    })();
+  </script>
+  <script src="../../js/config/rubros.js"></script>
+  <script src="../../js/demo-viewer-bar.js"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1200" width="1000" height="1200">
+  <defs>
+    <linearGradient id="pBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#18181B"/>
+      <stop offset="100%" stop-color="#09090B"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="1200" fill="url(#pBg)"/>
+  <!-- Iluminación de estudio dramática tipo claroscuro -->
+  <circle cx="500" cy="520" r="340" fill="#27272A" filter="drop-shadow(0 0 40px rgba(39,199,212,0.15))"/>
+  <!-- Silueta elegante de retrato de autor -->
+  <path d="M280 1200 C300 850, 360 760, 500 760 C640 760, 700 850, 720 1200 Z" fill="#18181B" stroke="#3F3F46" stroke-width="2"/>
+  <ellipse cx="500" cy="500" rx="140" ry="180" fill="#27272A" stroke="#52525B" stroke-width="2"/>
+  <path d="M380 400 C420 300, 580 300, 620 400 C580 350, 520 340, 500 350 C480 340, 420 350, 380 400 Z" fill="#09090B"/>
+  <!-- Marco de cámara / líneas de enfoque -->
+  <path d="M80 80 L140 80 M80 80 L80 140" stroke="#27C7D4" stroke-width="4"/>
+  <path d="M920 80 L860 80 M920 80 L920 140" stroke="#27C7D4" stroke-width="4"/>
+  <path d="M80 1120 L140 1120 M80 1120 L80 1060" stroke="#27C7D4" stroke-width="4"/>
+  <path d="M920 1120 L860 1120 M920 1120 L920 1060" stroke="#27C7D4" stroke-width="4"/>
+  <!-- Punto de enfoque central -->
+  <circle cx="500" cy="500" r="12" fill="none" stroke="#27C7D4" stroke-width="2"/>
+  
+  <rect x="220" y="1080" width="560" height="60" rx="30" fill="rgba(9,9,11,0.95)" stroke="#27C7D4" stroke-width="1"/>
+  <text x="500" y="1116" text-anchor="middle" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="18" font-weight="700" fill="#FFFFFF">Fotografía Editorial &amp; Retrato de Autor · 85mm f/1.4</text>
+</svg>

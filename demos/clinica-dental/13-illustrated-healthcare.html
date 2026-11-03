@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>SALUD CLARA · Centro de Medicina Preventiva & Educación al Paciente</title>
+  <meta name="description" content="Medicina preventiva familiar, odontología amigable sin miedo y chequeos integrales explicados con claridad visual.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #FDF8EE;
+      --cream-card: #FFFDF8;
+      --blue: #2563EB;
+      --blue-soft: #DBEAFE;
+      --green: #10B981;
+      --green-soft: #D1FAE5;
+      --coral: #F43F5E;
+      --coral-soft: #FFE4E6;
+      --ink: #1E293B;
+      --ink-muted: #475569;
+      --stroke: #1E293B;
+      --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: var(--cream);
+      color: var(--ink);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: min(1220px, 92%);
+      margin: 0 auto;
+    }
+
+    /* Editorial Illustrated Header */
+    .illo-header {
+      position: sticky;
+      top: 0;
+      z-index: 95;
+      background: rgba(253, 248, 238, 0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 2px solid var(--stroke);
+    }
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 78px;
+      gap: 1rem;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--ink);
+    }
+    .brand-sticker {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: var(--blue);
+      border: 2px solid var(--stroke);
+      box-shadow: 3px 3px 0 var(--stroke);
+      display: grid;
+      place-items: center;
+      color: #fff;
+    }
+    .brand-name {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+      font-weight: 600;
+      font-size: 0.92rem;
+    }
+    .nav-links a {
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .nav-links a:hover { color: var(--blue); }
+
+    .btn-illo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--coral);
+      color: #fff;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 0.72rem 1.35rem;
+      border-radius: 999px;
+      border: 2px solid var(--stroke);
+      box-shadow: 4px 4px 0 var(--stroke);
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .btn-illo:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0 var(--stroke);
+    }
+    .btn-illo-blue {
+      background: var(--blue);
+    }
+    .btn-illo-green {
+      background: var(--green);
+      color: #06281E;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 4rem 0 4.5rem;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+    .pill-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--green-soft);
+      border: 2px solid var(--stroke);
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.8rem;
+      margin-bottom: 1.2rem;
+      box-shadow: 3px 3px 0 var(--stroke);
+    }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 4.1vw, 3.5rem);
+      line-height: 1.1;
+      margin-bottom: 1.2rem;
+      letter-spacing: -0.02em;
+    }
+    .hero h1 .underline-coral {
+      background: linear-gradient(180deg, transparent 62%, var(--coral-soft) 62%);
+      color: var(--blue);
+    }
+    .hero p {
+      font-size: 1.06rem;
+      color: var(--ink-muted);
+      margin-bottom: 1.8rem;
+      max-width: 54ch;
+    }
+    .hero-illustration-frame {
+      background: var(--cream-card);
+      border: 3px solid var(--stroke);
+      border-radius: 26px;
+      padding: 1.15rem;
+      box-shadow: 8px 8px 0 var(--blue);
+      position: relative;
+    }
+    .hero-illustration-frame img {
+      width: 100%;
+      border-radius: 18px;
+      border: 2px solid var(--stroke);
+      aspect-ratio: 16 / 11;
+      object-fit: cover;
+      display: block;
+    }
+    .floating-sticker {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--blue-soft);
+      border: 2px solid var(--stroke);
+      border-radius: 14px;
+      padding: 0.75rem 1rem;
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+
+    /* Section Headings */
+    section { padding: 4.25rem 0; }
+    .sec-head {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 2.5rem;
+    }
+    .sec-head h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 3.2vw, 2.45rem);
+      margin-bottom: 0.6rem;
+    }
+
+    /* Interactive Visual Experience: Illustrated Body & Prevention Guide */
+    .guide-board {
+      background: var(--cream-card);
+      border: 3px solid var(--stroke);
+      border-radius: 26px;
+      padding: 2rem;
+      box-shadow: 8px 8px 0 var(--green);
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+    .organ-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    .organ-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      padding: 0.9rem 1.1rem;
+      border-radius: 16px;
+      border: 2px solid var(--stroke);
+      background: var(--cream);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: var(--ink);
+      cursor: pointer;
+      text-align: left;
+      transition: transform 0.15s, background 0.15s;
+    }
+    .organ-btn.active {
+      background: var(--blue);
+      color: #fff;
+      box-shadow: 4px 4px 0 var(--stroke);
+      transform: translate(-2px, -2px);
+    }
+    .organ-canvas {
+      background: var(--cream);
+      border: 2px solid var(--stroke);
+      border-radius: 20px;
+      padding: 1.75rem;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 1.5rem;
+      align-items: center;
+    }
+    .svg-badge-wrap {
+      width: 180px;
+      height: 180px;
+      background: var(--cream-card);
+      border: 2px solid var(--stroke);
+      border-radius: 22px;
+      display: grid;
+      place-items: center;
+      margin: 0 auto;
+      box-shadow: 4px 4px 0 var(--coral);
+    }
+    .checklist-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+    .checklist-pills span {
+      background: var(--green-soft);
+      border: 1.5px solid var(--stroke);
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    /* Especialidades / Prestaciones */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1.5rem;
+    }
+    .illo-card {
+      background: var(--cream-card);
+      border: 2.5px solid var(--stroke);
+      border-radius: 22px;
+      padding: 1.6rem;
+      box-shadow: 5px 5px 0 var(--stroke);
+      transition: transform 0.2s;
+    }
+    .illo-card:hover { transform: translateY(-4px); }
+    .illo-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 16px;
+      border: 2px solid var(--stroke);
+      display: grid;
+      place-items: center;
+      margin-bottom: 1rem;
+    }
+    .illo-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Directorio Médico & Espacios con Lightbox */
+    .doc-illo-card {
+      background: var(--cream-card);
+      border: 2.5px solid var(--stroke);
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 5px 5px 0 var(--blue);
+      cursor: pointer;
+    }
+    .doc-illo-card img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      border-bottom: 2.5px solid var(--stroke);
+    }
+    .doc-illo-body { padding: 1.25rem; }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(30, 41, 59, 0.82);
+      z-index: 250;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox-card {
+      background: var(--cream-card);
+      border: 3px solid var(--stroke);
+      border-radius: 24px;
+      box-shadow: 8px 8px 0 var(--coral);
+      max-width: 720px;
+      width: 100%;
+      overflow: hidden;
+    }
+    .lightbox-card img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-bottom: 2px solid var(--stroke);
+    }
+
+    /* Testimonios */
+    .testi-illo {
+      background: var(--cream-card);
+      border: 2.5px solid var(--stroke);
+      border-radius: 20px;
+      padding: 1.5rem;
+      box-shadow: 5px 5px 0 var(--coral);
+    }
+    .demo-pill {
+      display: inline-block;
+      background: var(--coral-soft);
+      border: 1.5px solid var(--stroke);
+      padding: 0.2rem 0.65rem;
+      border-radius: 999px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    /* Formulario */
+    .booking-illo {
+      background: var(--blue-soft);
+      border: 3px solid var(--stroke);
+      border-radius: 28px;
+      padding: 2.5rem;
+      box-shadow: 8px 8px 0 var(--stroke);
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 2rem;
+    }
+    .form-box {
+      background: var(--cream-card);
+      border: 2px solid var(--stroke);
+      border-radius: 20px;
+      padding: 1.5rem;
+    }
+    .f-group { margin-bottom: 1rem; }
+    .f-group label {
+      display: block;
+      font-weight: 700;
+      font-size: 0.84rem;
+      margin-bottom: 0.3rem;
+    }
+    .f-group input, .f-group select {
+      width: 100%;
+      padding: 0.75rem 0.9rem;
+      border: 2px solid var(--stroke);
+      border-radius: 12px;
+      background: var(--cream);
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+    }
+    .feedback-msg {
+      display: none;
+      margin-top: 1rem;
+      padding: 0.9rem;
+      background: var(--green-soft);
+      border: 2px solid var(--stroke);
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 0.86rem;
+    }
+
+    footer {
+      border-top: 2px solid var(--stroke);
+      padding: 2.5rem 0 5rem;
+      font-size: 0.88rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid, .guide-board, .organ-canvas, .booking-illo { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body data-rubro-id="salud" data-style-id="illustrated-healthcare">
+
+  <header class="illo-header">
+    <div class="container nav-inner">
+      <a href="#" class="brand">
+        <div class="brand-sticker" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M12 21s-7-4.35-7-10a4 4 0 0 1 7-2.65A4 4 0 0 1 19 11c0 5.65-7 10-7 10z"/>
+          </svg>
+        </div>
+        <span class="brand-name">SALUD CLARA</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#mapa-preventivo">Mapa Preventivo Ilustrado</a></li>
+        <li><a href="#programas">Programas Familiares</a></li>
+        <li><a href="#equipo">Equipo & Espacios</a></li>
+        <li><a href="#testimonios">Historias</a></li>
+      </ul>
+      <a href="#reserva" class="btn-illo">Agendar Chequeo Feliz</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="pill-tag">MEDICINA PREVENTIVA & ODONTOLOGÍA SIN MIEDO</div>
+          <h1>Entender tu cuerpo es el primer paso para <span class="underline-coral">sanar sin ansiedad</span>.</h1>
+          <p>En Salud Clara reemplazamos el lenguaje médico críptico por guías visuales ilustradas, consultas de 45 minutos sin prisa y prevención odontológica y médica pensada para niños, adultos y personas mayores.</p>
+          <div style="display:flex;gap:1rem;flex-wrap:wrap">
+            <a href="#mapa-preventivo" class="btn-illo btn-illo-blue">Explorar Guía Interactiva</a>
+            <a href="#reserva" class="btn-illo btn-illo-green">Reservar Hora Preventiva</a>
+          </div>
+        </div>
+
+        <div class="hero-illustration-frame">
+          <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80"
+               alt="Ilustración cálida de educación médica y cuidado preventivo en Salud Clara"
+               onerror="this.onerror=null;this.src='../../images/demos/assets/med/doctor-female-1.svg'">
+          <div class="floating-sticker">
+            <span>100% Libre de Jerga Confusa</span>
+            <span style="color:var(--blue)">Recetas Visuales Paso a Paso</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCIA VISUAL INTERACTIVA: ATLAS ILUSTRADO DEL PACIENTE -->
+    <section id="mapa-preventivo">
+      <div class="container">
+        <div class="sec-head">
+          <div class="pill-tag" style="background:var(--coral-soft)">ATLAS INTERACTIVO PARA PACIENTES</div>
+          <h2>¿Qué incluye tu Chequeo Anual Ilustrado?</h2>
+          <p style="color:var(--ink-muted)">Haz clic en cada sistema para descubrir qué evaluamos, por qué importa y cómo te entregamos los resultados en una infografía personalizada.</p>
+        </div>
+
+        <div class="guide-board">
+          <div class="organ-buttons" role="tablist" aria-label="Sistemas de salud preventiva">
+            <button type="button" class="organ-btn active" data-sys="dental" role="tab" aria-selected="true">
+              <span>🦷</span> Sonrisa & Microbioma Oral
+            </button>
+            <button type="button" class="organ-btn" data-sys="cardio" role="tab" aria-selected="false">
+              <span>❤️</span> Corazón & Presión Arterial
+            </button>
+            <button type="button" class="organ-btn" data-sys="metabolico" role="tab" aria-selected="false">
+              <span>🌱</span> Energía, Sueño & Nutrición
+            </button>
+            <button type="button" class="organ-btn" data-sys="infantil" role="tab" aria-selected="false">
+              <span>🧸</span> Crecimiento & Odontopediatría
+            </button>
+          </div>
+
+          <div class="organ-canvas" aria-live="polite">
+            <div class="svg-badge-wrap" id="illoSvgBox">
+              <!-- SVG Ilustrado Dinámico -->
+              <svg width="110" height="110" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="44" fill="#DBEAFE" stroke="#1E293B" stroke-width="3"/>
+                <path d="M34 36C34 27 44 25 50 31C56 25 66 27 66 36C66 47 62 56 59 68C57 74 53 74 51 65C50 61 50 61 49 65C47 74 43 74 41 68C38 56 34 47 34 36Z" fill="#FFFDF8" stroke="#1E293B" stroke-width="3"/>
+                <path d="M43 42C46 46 54 46 57 42" stroke="#2563EB" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <span id="sysTag" style="font-weight:800;font-size:0.78rem;color:var(--blue);text-transform:uppercase">PREVENCIÓN ODONTOLÓGICA SIN DOLOR</span>
+              <h3 id="sysTitle" style="font-family:var(--font-display);font-size:1.5rem;margin:0.25rem 0 0.6rem">Mapa de Caries Temprana & Salud de Encías</h3>
+              <p id="sysDesc" style="color:var(--ink-muted);font-size:0.95rem">Usamos cámaras intraorales con luz fluorescente (sin radiación) para mostrarte en pantalla dónde reforzar el cepillado y realizamos profilaxis con ultrasonido tibio.</p>
+              <div class="checklist-pills" id="sysPills">
+                <span>Cámara Fluorescente</span>
+                <span>Ultrasonido con Agua Tibia</span>
+                <span>Barniz de Flúor Protector</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ESPECIALIDADES -->
+    <section id="programas">
+      <div class="container">
+        <div class="sec-head">
+          <h2>Programas de Cuidado Integral</h2>
+          <p style="color:var(--ink-muted)">Diseñados para acompañar a toda la familia con precios transparentes y explicaciones amigables.</p>
+        </div>
+
+        <div class="cards-grid">
+          <article class="illo-card">
+            <div class="illo-icon" style="background:var(--blue-soft)">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1E293B" stroke-width="2.2"><path d="M12 2v20M2 12h20"/></svg>
+            </div>
+            <h3>Odontopediatría Lúdica</h3>
+            <p style="color:var(--ink-muted);font-size:0.92rem">Primera visita adaptativa con cuentos ilustrados, gafas de dibujos animados y sellantes preventivos sin turbina ruidosa.</p>
+          </article>
+
+          <article class="illo-card">
+            <div class="illo-icon" style="background:var(--green-soft)">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1E293B" stroke-width="2.2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>
+            </div>
+            <h3>Chequeo Preventivo en 1 Mañana</h3>
+            <p style="color:var(--ink-muted);font-size:0.92rem">Laboratorio sanguíneo, electrocardiograma, ecografía abdominal y entrega de tu Libreta Visual de Salud.</p>
+          </article>
+
+          <article class="illo-card">
+            <div class="illo-icon" style="background:var(--coral-soft)">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1E293B" stroke-width="2.2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <h3>Manejo de Fobia Dental & Médica</h3>
+            <p style="color:var(--ink-muted);font-size:0.92rem">Protocolo pausado con pausa acordada por señal de mano, aromaterapia clínica y sedación inhalatoria suave.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EQUIPO E INSTALACIONES CON LIGHTBOX -->
+    <section id="equipo">
+      <div class="container">
+        <div class="sec-head">
+          <h2>Nuestro Equipo & Consultorios Ilustrados</h2>
+          <p style="color:var(--ink-muted)">Haz clic en cualquier tarjeta para ampliar la vista del espacio y conocer a nuestros profesionales.</p>
+        </div>
+
+        <div class="cards-grid">
+          <article class="doc-illo-card" tabindex="0"
+                   data-title="Box de Educación Visual al Paciente"
+                   data-sub="Pizarras interactivas y modelos anatómicos para explicar cada diagnóstico con calma."
+                   data-img="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=85">
+            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80" alt="Dra. Clara Henríquez · Especialista Odontológico"
+                 onerror="this.onerror=null;this.src='../../images/demos/assets/med/doctor-female-1.svg'">
+            <div class="doc-illo-body">
+              <strong style="color:var(--blue);font-size:0.78rem">MEDICINA FAMILIAR</strong>
+              <h3 style="font-family:var(--font-display);margin:0.2rem 0">Dra. Clara Henríquez</h3>
+              <p style="font-size:0.88rem;color:var(--ink-muted)">Especialista en Medicina Familiar y Comunicación Clínica Ilustrada.</p>
+            </div>
+          </article>
+
+          <article class="doc-illo-card" tabindex="0"
+                   data-title="Dr. Tomás Pizarro · Especialista Odontológico"
+                   data-sub="Diseñado con colores cálidos e ilustraciones murales para que los niños disfruten cuidar sus dientes."
+                   data-img="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800&q=80">
+            <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800&q=80" alt="Dr. Tomás Pizarro · Especialista Odontológico"
+                 onerror="this.onerror=null;this.src='../../images/demos/assets/med/doctor-male-1.svg'">
+            <div class="doc-illo-body">
+              <strong style="color:var(--coral);font-size:0.78rem">ODONTOPEDIATRÍA</strong>
+              <h3 style="font-family:var(--font-display);margin:0.2rem 0">Dr. Tomás Pizarro</h3>
+              <p style="font-size:0.88rem;color:var(--ink-muted)">Odontopediatra certificado en adaptación conductual positiva.</p>
+            </div>
+          </article>
+
+          <article class="doc-illo-card" tabindex="0"
+                   data-title="Taller de Nutrición & Hábitos Preventivos"
+                   data-sub="Sesiones prácticas con material gráfico para aprender a leer etiquetas y cuidar la microbiota."
+                   data-img="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=85">
+            <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=85" alt="Taller de Nutrición"
+                 onerror="this.onerror=null;this.src='../../images/demos/assets/med/clinic-box-dental.svg'">
+            <div class="doc-illo-body">
+              <strong style="color:var(--green);font-size:0.78rem">NUTRICIÓN CLÍNICA</strong>
+              <h3 style="font-family:var(--font-display);margin:0.2rem 0">Lic. Sofía Lagos</h3>
+              <p style="font-size:0.88rem;color:var(--ink-muted)">Nutricionista Integrativa & Educadora en Diabetes y Salud Digestiva.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section id="testimonios">
+      <div class="container">
+        <div class="sec-head">
+          <h2>Lo que cuentan nuestras familias</h2>
+        </div>
+        <div class="cards-grid">
+          <div class="testi-illo">
+            <span class="demo-pill">[Testimonio Ficticio de Demostración]</span>
+            <p>"Mi hijo de 5 años le tenía terror al dentista. En Salud Clara le explicaron todo con dibujos interactivos antes de abrir la boca y salió feliz con su diploma."</p>
+            <strong style="display:block;margin-top:0.8rem;font-size:0.85rem;color:var(--blue)">Carolina V. · Mamá de Gaspar, Ñuñoa</strong>
+          </div>
+          <div class="testi-illo">
+            <span class="demo-pill">[Testimonio Ficticio de Demostración]</span>
+            <p>"Por primera vez entendí mis exámenes de colesterol y tiroides gracias al resumen ilustrado que me enviaron al correo. Cero susto y metas súper claras."</p>
+            <strong style="display:block;margin-top:0.8rem;font-size:0.85rem;color:var(--blue)">Jorge L., 58 años · Profesor Universitario</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESERVA -->
+    <section id="reserva">
+      <div class="container">
+        <div class="booking-illo">
+          <div>
+            <span class="pill-tag" style="background:var(--cream-card)">AGENDA AMIGABLE</span>
+            <h2 style="font-family:var(--font-display);font-size:2rem;margin-bottom:0.8rem">Reserva tu Consulta sin Prisa</h2>
+            <p style="color:var(--ink-muted);margin-bottom:1rem">Todas nuestras consultas preventivas duran 45 minutos e incluyen infografía resumen para llevar a casa.</p>
+            <p style="font-size:0.82rem;background:var(--cream-card);padding:0.8rem;border-radius:12px;border:2px solid var(--stroke)">
+              <strong>Nota de Demostración:</strong> Este formulario es una simulación interactiva del lado del cliente y no envía datos reales.
+            </p>
+          </div>
+
+          <form class="form-box" id="illoForm">
+            <div class="f-group">
+              <label for="ilName">Tu Nombre</label>
+              <input type="text" id="ilName" required placeholder="Ej. Mariana Soto">
+            </div>
+            <div class="f-group">
+              <label for="ilProg">Programa Preventivo</label>
+              <select id="ilProg" required>
+                <option value="Chequeo Preventivo Ilustrado">Chequeo Preventivo Anual Ilustrado</option>
+                <option value="Odontología Sin Miedo Adulto">Odontología Preventiva Sin Miedo</option>
+                <option value="Odontopediatría Lúdica">Primera Visita Odontopediatría Lúdica</option>
+              </select>
+            </div>
+            <div class="f-group">
+              <label for="ilDate">Fecha Preferida</label>
+              <input type="date" id="ilDate" required>
+            </div>
+            <button type="submit" class="btn-illo" style="width:100%;justify-content:center">Confirmar Hora en Demo</button>
+            <div class="feedback-msg" id="illoFeedback" role="status"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visor de espacio ilustrado">
+    <div class="lightbox-card">
+      <img id="lbImg" src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=85" alt="Vista ampliada"
+           onerror="this.onerror=null;this.src='../../images/demos/assets/med/clinic-box-dental.svg'">
+      <div style="padding:1.25rem 1.5rem;display:flex;justify-content:space-between;align-items:center;gap:1rem">
+        <div>
+          <h3 id="lbTitle" style="font-family:var(--font-display)"></h3>
+          <p id="lbSub" style="font-size:0.88rem;color:var(--ink-muted)"></p>
+        </div>
+        <button type="button" class="btn-illo btn-illo-blue" id="lbClose">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem">
+      <div><strong>SALUD CLARA</strong> · Av. Italia 1420, Providencia · Demostración Interactiva KuyénDev</div>
+      <div><strong>ESTILO #13 · ILLUSTRATED HEALTHCARE</strong></div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const systems = {
+        dental: {
+          tag: 'PREVENCIÓN ODONTOLÓGICA SIN DOLOR',
+          title: 'Mapa de Caries Temprana & Salud de Encías',
+          desc: 'Usamos cámaras intraorales con luz fluorescente (sin radiación) para mostrarte en pantalla dónde reforzar el cepillado y realizamos profilaxis con ultrasonido tibio.',
+          pills: ['Cámara Fluorescente', 'Ultrasonido con Agua Tibia', 'Barniz de Flúor Protector'],
+          svg: '<svg width="110" height="110" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="44" fill="#DBEAFE" stroke="#1E293B" stroke-width="3"/><path d="M34 36C34 27 44 25 50 31C56 25 66 27 66 36C66 47 62 56 59 68C57 74 53 74 51 65C50 61 50 61 49 65C47 74 43 74 41 68C38 56 34 47 34 36Z" fill="#FFFDF8" stroke="#1E293B" stroke-width="3"/></svg>'
+        },
+        cardio: {
+          tag: 'SALUD CARDIOVASCULAR EXPLICADA',
+          title: 'Mapa de Elasticidad Arterial & Ritmo Cardíaco',
+          desc: 'Medimos tu presión central, perfil lipídico avanzado y variabilidad de frecuencia cardíaca, traduciendo cada número en semáforos visuales fáciles de seguir.',
+          pills: ['ECG de Reposo', 'Perfil Lipídico Visual', 'Plan de Movimiento Diario'],
+          svg: '<svg width="110" height="110" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="44" fill="#FFE4E6" stroke="#1E293B" stroke-width="3"/><path d="M50 74C50 74 26 58 26 39C26 30 33 24 41 24C46 24 50 28 50 31C50 28 54 24 59 24C67 24 74 30 74 39C74 58 50 74 50 74Z" fill="#F43F5E" stroke="#1E293B" stroke-width="3"/></svg>'
+        },
+        metabolico: {
+          tag: 'ENERGÍA, TIROIDES & DESCANSO',
+          title: 'Balance Metabólico, Vitamina D y Microbiota',
+          desc: 'Evaluamos reservas de hierro, función tiroidea, resistencia a la insulina e higiene del sueño con una guía ilustrada de alimentación cotidiana.',
+          pills: ['Panel Tiroideo & Vitamina D', 'Guía de Platos Ilustrada', 'Higiene del Sueño'],
+          svg: '<svg width="110" height="110" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="44" fill="#D1FAE5" stroke="#1E293B" stroke-width="3"/><path d="M50 24C65 24 72 38 66 56C60 72 40 76 32 62C25 50 35 24 50 24Z" fill="#10B981" stroke="#1E293B" stroke-width="3"/></svg>'
+        },
+        infantil: {
+          tag: 'PEDIATRÍA & ODONTOPEDIATRÍA AMIGABLE',
+          title: 'Club de Exploradores de la Salud (0 a 14 años)',
+          desc: 'Seguimiento de crecimiento, desarrollo psicomotor, visión, audición y cuidado de dientes de leche mediante juegos y pasaporte de pegatinas.',
+          pills: ['Pasaporte de Pegatinas', 'Sellantes Sin Taladro', 'Evaluación Postural'],
+          svg: '<svg width="110" height="110" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="44" fill="#FEF3C7" stroke="#1E293B" stroke-width="3"/><circle cx="50" cy="52" r="22" fill="#FFFDF8" stroke="#1E293B" stroke-width="3"/><circle cx="43" cy="48" r="3" fill="#1E293B"/><circle cx="57" cy="48" r="3" fill="#1E293B"/><path d="M42 58C46 63 54 63 58 58" stroke="#F43F5E" stroke-width="3" stroke-linecap="round"/></svg>'
+        }
+      };
+
+      const btns = document.querySelectorAll('.organ-btn');
+      const svgBox = document.getElementById('illoSvgBox');
+      const sysTag = document.getElementById('sysTag');
+      const sysTitle = document.getElementById('sysTitle');
+      const sysDesc = document.getElementById('sysDesc');
+      const sysPills = document.getElementById('sysPills');
+
+      btns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          btns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
+          btn.classList.add('active');
+          btn.setAttribute('aria-selected', 'true');
+          const d = systems[btn.dataset.sys];
+          if (d) {
+            svgBox.innerHTML = d.svg;
+            sysTag.textContent = d.tag;
+            sysTitle.textContent = d.title;
+            sysDesc.textContent = d.desc;
+            sysPills.innerHTML = d.pills.map(p => '<span>' + p + '</span>').join('');
+          }
+        });
+      });
+
+      // Lightbox
+      const lb = document.getElementById('lightbox');
+      const lbImg = document.getElementById('lbImg');
+      const lbTitle = document.getElementById('lbTitle');
+      const lbSub = document.getElementById('lbSub');
+      const lbClose = document.getElementById('lbClose');
+      document.querySelectorAll('.doc-illo-card').forEach(card => {
+        const open = () => {
+          lbImg.src = card.dataset.img;
+          lbTitle.textContent = card.dataset.title;
+          lbSub.textContent = card.dataset.sub;
+          lb.classList.add('open');
+        };
+        card.addEventListener('click', open);
+        card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
+      });
+      lbClose.addEventListener('click', () => lb.classList.remove('open'));
+      lb.addEventListener('click', e => { if (e.target === lb) lb.classList.remove('open'); });
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') lb.classList.remove('open'); });
+
+      // Form
+      const form = document.getElementById('illoForm');
+      const feedback = document.getElementById('illoFeedback');
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        const name = document.getElementById('ilName').value;
+        const prog = document.getElementById('ilProg').value;
+        feedback.style.display = 'block';
+        feedback.textContent = '¡Hora simulada lista para ' + name + ' en ' + prog + '! (Demostración interactiva del lado del cliente).';
+        form.reset();
+      });
+    })();
+  </script>
+  <script src="../../js/config/rubros.js"></script>
+  <script src="../../js/demo-viewer-bar.js"></script>
+</body>
+</html>

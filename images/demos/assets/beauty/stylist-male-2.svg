@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
+  <defs>
+    <linearGradient id="bgM2B" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FEF3C7"/>
+      <stop offset="50%" stop-color="#FFFBEB"/>
+      <stop offset="100%" stop-color="#FDE68A"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1000" fill="url(#bgM2B)"/>
+  <circle cx="400" cy="420" r="260" fill="#FFFFFF" opacity="0.8"/>
+
+  <!-- Chaleco y camisa de barbero vintage -->
+  <path d="M140 1000 C160 700, 220 620, 400 620 C580 620, 640 700, 660 1000 Z" fill="#78350F"/>
+  <polygon points="340,620 400,750 460,620" fill="#FFFFFF"/>
+  <polygon points="390,640 410,640 415,740 400,770 385,740" fill="#B45309"/>
+
+  <!-- Cuello -->
+  <path d="M350 490 L450 490 L450 630 L350 630 Z" fill="#FBD3B6"/>
+
+  <!-- Rostro con barba perfilada -->
+  <path d="M290 380 C290 530, 320 570, 400 570 C480 570, 510 530, 510 380 Z" fill="#FCE0CA"/>
+  <!-- Barba -->
+  <path d="M295 440 C300 560, 330 580, 400 580 C470 580, 500 560, 505 440 C490 460, 470 480, 400 480 C330 480, 310 460, 295 440 Z" fill="#292524"/>
+
+  <!-- Cabello Fade peinado hacia atrás -->
+  <path d="M275 370 C270 230, 530 230, 525 370 C525 410, 520 450, 510 460 L290 460 C280 450, 275 410, 275 370 Z" fill="#1C1917"/>
+
+  <!-- Ojos -->
+  <ellipse cx="355" cy="415" rx="8" ry="5.5" fill="#1C1917"/>
+  <ellipse cx="445" cy="415" rx="8" ry="5.5" fill="#1C1917"/>
+
+  <!-- Placa -->
+  <rect x="180" y="910" width="440" height="60" rx="30" fill="#FFFFFF" stroke="#D97706" stroke-width="2"/>
+  <text x="400" y="940" text-anchor="middle" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="20" font-weight="800" fill="#1C1917">Master Barber &amp; Fade Specialist</text>
+  <text x="400" y="958" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#D97706">ESPECIALISTA EN CORTE CLÁSICO &amp; BARBA</text>
+</svg>

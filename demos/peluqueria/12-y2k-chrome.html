@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>CYBERCHROME HAIR · Tinturas Fantasía & Cortes Futuristas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800;900&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-void: #120824;
+      --bg-panel: #1B0D33;
+      --pink-neon: #FF2A85;
+      --cyan-neon: #00F0FF;
+      --silver: #E2E8F0;
+      --chrome-grad: linear-gradient(135deg, #FFFFFF 0%, #94A3B8 25%, #F8FAFC 50%, #475569 75%, #E2E8F0 100%);
+      --holo-grad: linear-gradient(120deg, #FF2A85 0%, #9333EA 45%, #00F0FF 100%);
+      --font-display: 'Orbitron', sans-serif;
+      --font-body: 'Syne', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-void);
+      color: var(--silver);
+      font-family: var(--font-body);
+    }
+
+    body {
+      background-color: var(--bg-void);
+      background-image:
+        radial-gradient(circle at 15% 15%, rgba(255, 42, 133, 0.22), transparent 40%),
+        radial-gradient(circle at 85% 25%, rgba(0, 240, 255, 0.2), transparent 40%),
+        linear-gradient(rgba(0, 240, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 42, 133, 0.05) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 44px 44px, 44px 44px;
+      color: var(--silver);
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* Y2K Ticker Bar */
+    .cyber-ticker {
+      background: var(--holo-grad);
+      color: #090314;
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 0.45rem 1rem;
+      text-align: center;
+      border-bottom: 2px solid var(--silver);
+    }
+
+    /* Metallic Floating Header */
+    .y2k-header {
+      position: sticky;
+      top: 0.75rem;
+      z-index: 100;
+      max-width: 1320px;
+      margin: 0.75rem auto 0;
+      padding: 0 1rem;
+    }
+
+    .y2k-nav-bar {
+      background: rgba(18, 8, 36, 0.86);
+      backdrop-filter: blur(14px);
+      border: 2px solid var(--cyan-neon);
+      border-radius: 999px;
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 0 25px rgba(0, 240, 255, 0.28), inset 0 0 12px rgba(255, 42, 133, 0.25);
+    }
+
+    .y2k-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1.05rem;
+      letter-spacing: 0.1em;
+      background: var(--chrome-grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .star-sparkle {
+      color: var(--pink-neon);
+      -webkit-text-fill-color: var(--pink-neon);
+      font-size: 1.2rem;
+      text-shadow: 0 0 10px var(--pink-neon);
+    }
+
+    .y2k-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .y2k-links a {
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--silver);
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      transition: all 0.2s ease;
+    }
+
+    .y2k-links a:hover {
+      background: var(--pink-neon);
+      color: #fff;
+      box-shadow: 0 0 15px var(--pink-neon);
+    }
+
+    .btn-chrome {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: 999px;
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: var(--chrome-grad);
+      color: #120824;
+      border: 2px solid #FFFFFF;
+      box-shadow: 0 0 18px rgba(0, 240, 255, 0.55);
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-chrome:hover {
+      transform: scale(1.04);
+      box-shadow: 0 0 26px rgba(255, 42, 133, 0.85);
+    }
+
+    .btn-neon-pink {
+      background: var(--pink-neon);
+      color: #FFFFFF;
+      border-color: var(--cyan-neon);
+      box-shadow: 0 0 18px rgba(255, 42, 133, 0.65);
+    }
+
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    /* Hero Y2K Chrome */
+    .hero-y2k {
+      padding: 3.5rem 0 4.5rem;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .y2k-pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      border: 1px solid var(--cyan-neon);
+      background: rgba(0, 240, 255, 0.1);
+      color: var(--cyan-neon);
+      font-family: var(--font-display);
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.3rem, 5vw, 4.3rem);
+      font-weight: 900;
+      line-height: 1.05;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(90deg, #FFFFFF, #00F0FF, #FF2A85, #E2E8F0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 18px rgba(255, 42, 133, 0.35));
+    }
+
+    .hero-desc {
+      font-size: 1.08rem;
+      color: #CBD5E1;
+      max-width: 540px;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .cyber-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .stat-window {
+      background: rgba(27, 13, 51, 0.85);
+      border: 1px solid rgba(0, 240, 255, 0.4);
+      border-radius: 16px;
+      padding: 1rem;
+      box-shadow: inset 0 0 15px rgba(255, 42, 133, 0.15);
+    }
+
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--cyan-neon);
+      display: block;
+    }
+
+    .stat-lbl {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--silver);
+    }
+
+    /* Y2K OS Window Hero Frame */
+    .os-window {
+      background: var(--bg-panel);
+      border: 2px solid var(--silver);
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 0 40px rgba(255, 42, 133, 0.35), 0 0 15px rgba(0, 240, 255, 0.35);
+    }
+
+    .os-titlebar {
+      background: var(--chrome-grad);
+      color: #120824;
+      padding: 0.6rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+    }
+
+    .os-dots {
+      display: flex;
+      gap: 0.4rem;
+    }
+
+    .os-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      border: 1px solid #120824;
+    }
+
+    .os-body {
+      position: relative;
+      height: 450px;
+      overflow: hidden;
+    }
+
+    .os-body img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .os-hud-overlay {
+      position: absolute;
+      bottom: 1rem;
+      left: 1rem;
+      right: 1rem;
+      background: rgba(18, 8, 36, 0.85);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--pink-neon);
+      border-radius: 14px;
+      padding: 0.85rem 1.1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+    }
+
+    /* Section Headings */
+    .section-head {
+      text-align: center;
+      margin-bottom: 2.75rem;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.6rem;
+    }
+
+    .section-sub {
+      color: #CBD5E1;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Interactive Section: Holo-Pigment Synthesizer (Y2K Lab) */
+    .synth-section {
+      padding: 4.5rem 0;
+    }
+
+    .synth-console {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      background: rgba(27, 13, 51, 0.9);
+      border: 2px solid var(--cyan-neon);
+      border-radius: 28px;
+      padding: clamp(1.5rem, 3.5vw, 3rem);
+      box-shadow: 0 0 35px rgba(0, 240, 255, 0.2);
+    }
+
+    .preset-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.85rem;
+      margin: 1.25rem 0 1.75rem;
+    }
+
+    .preset-btn {
+      padding: 0.9rem 1rem;
+      border-radius: 16px;
+      border: 1px solid rgba(226, 232, 240, 0.3);
+      background: rgba(18, 8, 36, 0.9);
+      color: var(--silver);
+      font-family: var(--font-display);
+      font-size: 0.74rem;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .preset-btn.active,
+    .preset-btn:hover {
+      border-color: var(--pink-neon);
+      box-shadow: 0 0 16px rgba(255, 42, 133, 0.45);
+      transform: translateY(-2px);
+    }
+
+    .orb-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .cyber-slider-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .cyber-slider-group label {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      margin-bottom: 0.5rem;
+      color: var(--cyan-neon);
+    }
+
+    input[type="range"].cyber-range {
+      width: 100%;
+      accent-color: var(--pink-neon);
+      cursor: pointer;
+    }
+
+    .synth-visualizer {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 2px solid var(--pink-neon);
+      min-height: 360px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .synth-visualizer img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: filter 0.3s ease;
+    }
+
+    .synth-color-glaze {
+      position: absolute;
+      inset: 0;
+      mix-blend-mode: color;
+      opacity: 0.55;
+      pointer-events: none;
+      transition: background 0.3s ease, opacity 0.3s ease;
+    }
+
+    .synth-spec-card {
+      position: relative;
+      z-index: 2;
+      margin: 1rem;
+      padding: 1rem 1.25rem;
+      background: rgba(18, 8, 36, 0.9);
+      border: 1px solid var(--cyan-neon);
+      border-radius: 14px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      font-size: 0.8rem;
+    }
+
+    /* Interactive Services Matrix */
+    .services-section {
+      padding: 4rem 0;
+    }
+
+    .cyber-tabs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 2.25rem;
+    }
+
+    .cyber-tab {
+      padding: 0.65rem 1.35rem;
+      border-radius: 999px;
+      border: 1px solid var(--cyan-neon);
+      background: transparent;
+      color: var(--silver);
+      font-family: var(--font-display);
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .cyber-tab.active,
+    .cyber-tab:hover {
+      background: var(--cyan-neon);
+      color: #120824;
+      font-weight: 800;
+      box-shadow: 0 0 18px rgba(0, 240, 255, 0.6);
+    }
+
+    .cyber-services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .cyber-card {
+      background: linear-gradient(160deg, rgba(27, 13, 51, 0.95), rgba(18, 8, 36, 0.95));
+      border: 1px solid rgba(226, 232, 240, 0.25);
+      border-radius: 22px;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.25rem;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .cyber-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--pink-neon);
+      box-shadow: 0 0 25px rgba(255, 42, 133, 0.3);
+    }
+
+    .cyber-card-lvl {
+      font-family: var(--font-display);
+      font-size: 0.68rem;
+      color: var(--cyan-neon);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .cyber-card-title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      margin: 0.4rem 0 0.65rem;
+      color: #fff;
+    }
+
+    .cyber-card-price {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--pink-neon);
+    }
+
+    /* Lookbook Gallery */
+    .lookbook-section {
+      padding: 4rem 0;
+    }
+
+    .chrome-gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+    }
+
+    .chrome-shot {
+      border: 2px solid var(--silver);
+      border-radius: 20px;
+      overflow: hidden;
+      background: var(--bg-panel);
+      cursor: pointer;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .chrome-shot:hover {
+      transform: scale(1.02);
+      border-color: var(--cyan-neon);
+    }
+
+    .chrome-shot-img {
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+    }
+
+    .chrome-shot-img img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .chrome-shot-meta {
+      padding: 0.9rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+    }
+
+    /* Team Crew */
+    .crew-section {
+      padding: 4rem 0;
+    }
+
+    .crew-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .crew-card {
+      background: var(--bg-panel);
+      border: 1px solid rgba(0, 240, 255, 0.35);
+      border-radius: 22px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .crew-avatar {
+      width: 130px;
+      height: 130px;
+      margin: 0 auto 1rem;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid var(--pink-neon);
+      box-shadow: 0 0 20px rgba(255, 42, 133, 0.5);
+    }
+
+    /* Testimonials */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      padding: 2rem 0 4rem;
+    }
+
+    .review-pod {
+      background: rgba(27, 13, 51, 0.8);
+      border: 1px solid var(--pink-neon);
+      border-radius: 20px;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .fictional-badge {
+      font-family: var(--font-display);
+      font-size: 0.62rem;
+      padding: 0.3rem 0.6rem;
+      border-radius: 6px;
+      background: rgba(0, 240, 255, 0.15);
+      color: var(--cyan-neon);
+      border: 1px solid var(--cyan-neon);
+      width: fit-content;
+    }
+
+    /* Booking Terminal */
+    .booking-terminal {
+      margin: 2rem 0 5rem;
+      background: var(--bg-panel);
+      border: 2px solid var(--silver);
+      border-radius: 26px;
+      overflow: hidden;
+      box-shadow: 0 0 40px rgba(0, 240, 255, 0.22);
+    }
+
+    .terminal-body {
+      padding: clamp(1.5rem, 4vw, 3rem);
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: 2.5rem;
+    }
+
+    .cyber-input-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .cyber-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .cyber-field.full {
+      grid-column: 1 / -1;
+    }
+
+    .cyber-field label {
+      font-family: var(--font-display);
+      font-size: 0.7rem;
+      color: var(--cyan-neon);
+      text-transform: uppercase;
+    }
+
+    .cyber-field input,
+    .cyber-field select {
+      padding: 0.85rem 1rem;
+      border-radius: 12px;
+      border: 1px solid rgba(226, 232, 240, 0.35);
+      background: #120824;
+      color: #fff;
+      font-family: var(--font-body);
+    }
+
+    .cyber-feedback {
+      margin-top: 1.25rem;
+      padding: 1rem 1.25rem;
+      border-radius: 12px;
+      border: 1px solid var(--cyan-neon);
+      background: rgba(0, 240, 255, 0.12);
+      display: none;
+    }
+
+    /* Lightbox */
+    .cyber-lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(18, 8, 36, 0.92);
+      backdrop-filter: blur(10px);
+      z-index: 999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .cyber-lightbox.open {
+      display: flex;
+    }
+
+    .cyber-lightbox-win {
+      max-width: 780px;
+      width: 100%;
+    }
+
+    @media (max-width: 1024px) {
+      .hero-y2k,
+      .synth-console,
+      .terminal-body {
+        grid-template-columns: 1fr;
+      }
+      .cyber-services-grid,
+      .crew-grid,
+      .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+      .chrome-gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .y2k-links {
+        display: none;
+      }
+      .cyber-input-grid,
+      .chrome-gallery,
+      .preset-grid,
+      .cyber-stats {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body data-rubro-id="peluqueria" data-style-id="y2k-chrome">
+  <div class="cyber-ticker">
+    ✦ CYBERCHROME HAIR LAB 2099 ✦ TINTURAS HOLOGRÁFICAS · CORTES JELLYFISH & HIME · CROMADO CAPILAR VEGANO ✦
+  </div>
+
+  <!-- Header -->
+  <header class="y2k-header">
+    <nav class="y2k-nav-bar" aria-label="Navegación principal">
+      <a href="#top" class="y2k-brand">
+        <span class="star-sparkle">✦</span> CYBERCHROME HAIR
+      </a>
+      <ul class="y2k-links">
+        <li><a href="#sintetizador">Holo-Synth</a></li>
+        <li><a href="#servicios">Matrix Precios</a></li>
+        <li><a href="#lookbook">Cyber-Looks</a></li>
+        <li><a href="#crew">Artistas</a></li>
+        <li><a href="#reserva">Booking</a></li>
+      </ul>
+      <a href="#reserva" class="btn-chrome">Agendar Turno</a>
+    </nav>
+  </header>
+
+  <main class="container" id="top">
+    <!-- Hero -->
+    <section class="hero-y2k">
+      <div>
+        <span class="y2k-pill-badge">★ Estilo #12 · Y2K / Chrome Aesthetic</span>
+        <h1 class="hero-title">Tinturas Fantasía & Cortes del Año 3000</h1>
+        <p class="hero-desc">
+          Bienvenido a <strong>CYBERCHROME HAIR</strong>. Fusionamos pigmentos neón reactivos a luz UV, mechas bloque Y2K, cortes Hime/Wolf de pasarela japonesa y reconstrucción de plex líquido con brillo espejo cromado.
+        </p>
+        <div class="hero-cta-group">
+          <a href="#reserva" class="btn-chrome btn-neon-pink">Reservar Transformación ✦</a>
+          <a href="#sintetizador" class="btn-chrome">Mezclar Tinte Virtual</a>
+        </div>
+        <div class="cyber-stats">
+          <div class="stat-window">
+            <span class="stat-num">48+</span>
+            <span class="stat-lbl">Pigmentos Neón & Pastel</span>
+          </div>
+          <div class="stat-window">
+            <span class="stat-num">100%</span>
+            <span class="stat-lbl">Fórmula Bond-Shield</span>
+          </div>
+          <div class="stat-window">
+            <span class="stat-num">UV-GLOW</span>
+            <span class="stat-lbl">Cabina Foto Reactiva</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="os-window">
+        <div class="os-titlebar">
+          <span>CYBERCHROME_STUDIO_V2.0.EXE</span>
+          <div class="os-dots">
+            <span class="os-dot" style="background:#FF2A85"></span>
+            <span class="os-dot" style="background:#00F0FF"></span>
+            <span class="os-dot" style="background:#E2E8F0"></span>
+          </div>
+        </div>
+        <div class="os-body">
+          <img
+            src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=900&q=80"
+            alt="Coloración fantasía Y2K con reflejos cromados y luces neón"
+            onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/hair-look-balayage.svg'">
+          <div class="os-hud-overlay">
+            <span>LOOK: HOLOGRAPHIC CYBER PINK</span>
+            <span style="color: var(--cyan-neon)">SHINE: 99.8% CHROME</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Visual Interactive Experience: Holo-Pigment Synthesizer -->
+    <section id="sintetizador" class="synth-section">
+      <div class="section-head">
+        <span class="y2k-pill-badge">✦ Experiencia Visual Interactiva</span>
+        <h2 class="section-title">Sintetizador de Pigmento Holográfico</h2>
+        <p class="section-sub">Combina presets Y2K y ajusta la frecuencia de matiz e intensidad metálica en tiempo real antes de pasar al sillón de decoloración segura.</p>
+      </div>
+
+      <div class="synth-console">
+        <div>
+          <h3 style="font-family: var(--font-display); font-size: 1rem; margin-bottom: 0.5rem">1. ELIGE TU FÓRMULA BASE Y2K</h3>
+          <div class="preset-grid" id="presetGrid">
+            <button type="button" class="preset-btn active" data-name="Cyber Pink Matrix" data-hue="0" data-color="linear-gradient(135deg, #FF2A85, #7928CA)" data-bleach="Nivel 9-10">
+              <span class="orb-dot" style="background: #FF2A85"></span>
+              <span>Cyber Pink Matrix</span>
+            </button>
+            <button type="button" class="preset-btn" data-name="Liquid Cyan 2000" data-hue="160" data-color="linear-gradient(135deg, #00F0FF, #2563EB)" data-bleach="Nivel 10 Platino">
+              <span class="orb-dot" style="background: #00F0FF"></span>
+              <span>Liquid Cyan 2000</span>
+            </button>
+            <button type="button" class="preset-btn" data-name="Ultraviolet Vapor" data-hue="260" data-color="linear-gradient(135deg, #A855F7, #EC4899)" data-bleach="Nivel 8-9">
+              <span class="orb-dot" style="background: #A855F7"></span>
+              <span>Ultraviolet Vapor</span>
+            </button>
+            <button type="button" class="preset-btn" data-name="Titanium Silver Chrome" data-hue="195" data-color="linear-gradient(135deg, #E2E8F0, #64748B)" data-bleach="Nivel 10 Blanco">
+              <span class="orb-dot" style="background: #E2E8F0"></span>
+              <span>Titanium Silver</span>
+            </button>
+          </div>
+
+          <div class="cyber-slider-group">
+            <label for="hueSlider">
+              <span>DESPLAZAMIENTO ESPECTRAL (HUE)</span>
+              <span id="hueReadout">0° DEG</span>
+            </label>
+            <input type="range" id="hueSlider" class="cyber-range" min="0" max="360" value="0">
+          </div>
+
+          <div class="cyber-slider-group">
+            <label for="chromeSlider">
+              <span>GLASEADO METÁLICO ESPEJO</span>
+              <span id="chromeReadout">85%</span>
+            </label>
+            <input type="range" id="chromeSlider" class="cyber-range" min="40" max="100" value="85">
+          </div>
+
+          <button type="button" class="btn-chrome btn-neon-pink" id="applySynthToBooking" style="width: 100%">
+            Cargar Esta Fórmula en Mi Reserva →
+          </button>
+        </div>
+
+        <div class="synth-visualizer">
+          <img
+            id="synthImage"
+            src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=900&q=80"
+            alt="Simulación de color fantasía Y2K"
+            onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/hair-look-balayage.svg'">
+          <div class="synth-color-glaze" id="synthGlaze" style="background: linear-gradient(135deg, #FF2A85, #7928CA)"></div>
+          <div class="synth-spec-card">
+            <div>
+              <span style="font-size:0.68rem; color:var(--cyan-neon); display:block">PIGMENTO</span>
+              <strong id="specName">Cyber Pink Matrix</strong>
+            </div>
+            <div>
+              <span style="font-size:0.68rem; color:var(--cyan-neon); display:block">BASE REQUERIDA</span>
+              <strong id="specBleach">Nivel 9-10</strong>
+            </div>
+            <div>
+              <span style="font-size:0.68rem; color:var(--cyan-neon); display:block">DURACIÓN</span>
+              <strong>30 Lavados UV</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Services Menu -->
+    <section id="servicios" class="services-section">
+      <div class="section-head">
+        <span class="y2k-pill-badge">✦ Carta de Servicios Futurista</span>
+        <h2 class="section-title">Matrix de Cortes & Color Fantasía</h2>
+        <p class="section-sub">Filtra por especialidad técnica. Todos los procesos de decoloración incluyen nuestro escudo molecular Bond-Plex.</p>
+      </div>
+
+      <div class="cyber-tabs">
+        <button type="button" class="cyber-tab active" data-cat="all">Todos los Módulos (6)</button>
+        <button type="button" class="cyber-tab" data-cat="fantasia">Color Fantasía & Split</button>
+        <button type="button" class="cyber-tab" data-cat="corte">Cortes Y2K / Vanguardia</button>
+        <button type="button" class="cyber-tab" data-cat="chrome">Tratamientos Espejo</button>
+      </div>
+
+      <div class="cyber-services-grid" id="cyberServicesGrid">
+        <article class="cyber-card" data-cat="fantasia">
+          <div>
+            <span class="cyber-card-lvl">MÓDULO 01 · FULL FANTASY</span>
+            <h3 class="cyber-card-title">Holographic Melt & Neón</h3>
+            <p style="font-size: 0.9rem; color: #CBD5E1">Decoloración global controlada + transición multidimensional de hasta 3 tonos neón, pastel o metálicos.</p>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(255,255,255,0.15); padding-top:1rem">
+            <span class="cyber-card-price">$115.000</span>
+            <button type="button" class="btn-chrome pick-cyber-service" data-service="Holographic Melt & Neón" style="padding:0.45rem 0.95rem; font-size:0.68rem">Agendar</button>
+          </div>
+        </article>
+
+        <article class="cyber-card" data-cat="fantasia">
+          <div>
+            <span class="cyber-card-lvl">MÓDULO 02 · Y2K CONTRAST</span>
+            <h3 class="cyber-card-title">Chunky Highlights & Peekaboo</h3>
+            <p style="font-size: 0.9rem; color: #CBD5E1">Cortinas ocultas de alto contraste (rosa eléctrico, cian o platino) combinadas con base oscura profunda.</p>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(255,255,255,0.15); padding-top:1rem">
+            <span class="cyber-card-price">$78.000</span>
+            <button type="button" class="btn-chrome pick-cyber-service" data-service="Chunky Highlights & Peekaboo" style="padding:0.45rem 0.95rem; font-size:0.68rem">Agendar</button>
+          </div>
+        </article>
+
+        <article class="cyber-card" data-cat="corte">
+          <div>
+            <span class="cyber-card-lvl">MÓDULO 03 · NEO-CUT</span>
+            <h3 class="cyber-card-title">Hime Cut / Jellyfish & Wolf Cut</h3>
+            <p style="font-size: 0.9rem; color: #CBD5E1">Geometría japonesa de patillas rectas o capas desconectadas con estilizado liso espejo o texturizado punk.</p>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(255,255,255,0.15); padding-top:1rem">
+            <span class="cyber-card-price">$44.000</span>
+            <button type="button" class="btn-chrome pick-cyber-service" data-service="Hime Cut / Jellyfish & Wolf Cut" style="padding:0.45rem 0.95rem; font-size:0.68rem">Agendar</button>
+          </div>
+        </article>
+
+        <article class="cyber-card" data-cat="fantasia">
+          <div>
+            <span class="cyber-card-lvl">MÓDULO 04 · BIPOINT</span>
+            <h3 class="cyber-card-title">Split Dye Bicolor Simétrico</h3>
+            <p style="font-size: 0.9rem; color: #CBD5E1">División central milimétrica con dos colores opuestos del círculo cromático y sellado anti-transferencia en lavado.</p>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(255,255,255,0.15); padding-top:1rem">
+            <span class="cyber-card-price">$96.000</span>
+            <button type="button" class="btn-chrome pick-cyber-service" data-service="Split Dye Bicolor Simétrico" style="padding:0.45rem 0.95rem; font-size:0.68rem">Agendar</button>
+          </div>
+        </article>
+
+        <article class="cyber-card" data-cat="chrome">
+          <div>
+            <span class="cyber-card-lvl">MÓDULO 05 · LIQUID SHINE</span>
+            <h3 class="cyber-card-title">Laminado Capilar Liquid Chrome</h3>
+            <p style="font-size: 0.9rem; color: #CBD5E1">Sellado termoativo de cutícula que genera efecto cabello de cristal reflectante sin alterar tu estructura rizada o lisa.</p>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(255,255,255,0.15); padding-top:1rem">
+            <span class="cyber-card-price">$55.000</span>
+            <button type="button" class="btn-chrome pick-cyber-service" data-service="Laminado Capilar Liquid Chrome" style="padding:0.45rem 0.95rem; font-size:0.68rem">Agendar</button>
+          </div>
+        </article>
+
+        <article class="cyber-card" data-cat="chrome">
+          <div>
+            <span class="cyber-card-lvl">MÓDULO 06 · PLEX SHIELD</span>
+            <h3 class="cyber-card-title">Terapia Molecular Post-Bleach</h3>
+            <p style="font-size: 0.9rem; color: #CBD5E1">Recarga de enlaces disulfuro y péptidos biomiméticos para cabellos decolorados a alturas 9 y 10.</p>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(255,255,255,0.15); padding-top:1rem">
+            <span class="cyber-card-price">$49.000</span>
+            <button type="button" class="btn-chrome pick-cyber-service" data-service="Terapia Molecular Post-Bleach" style="padding:0.45rem 0.95rem; font-size:0.68rem">Agendar</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Lookbook Gallery -->
+    <section id="lookbook" class="lookbook-section">
+      <div class="section-head">
+        <span class="y2k-pill-badge">✦ Archivo Holográfico</span>
+        <h2 class="section-title">Lookbook Cyber-Y2K</h2>
+        <p class="section-sub">Haz clic en cualquier tarjeta para abrir el visor de alta resolución con la receta técnica empleada.</p>
+      </div>
+
+      <div class="chrome-gallery">
+        <article class="chrome-shot" tabindex="0" data-title="LOOK #01 · NEON MAGENTA & CYBER STRANDS" data-spec="Decoloración Plex Nivel 10 + Pigmento UV Pink" data-img="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85">
+          <div class="chrome-shot-img">
+            <img
+              src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=900&q=80"
+              alt="Look Y2K Magenta y Cromo"
+              onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/hair-look-balayage.svg'">
+          </div>
+          <div class="chrome-shot-meta">
+            <span>NEON MAGENTA</span>
+            <span style="color:var(--cyan-neon)">[ZOOM +]</span>
+          </div>
+        </article>
+
+        <article class="chrome-shot" tabindex="0" data-title="LOOK #02 · HIME CUT PLATINO ESPEJO" data-spec="Corte Hime geométrico + Laminado Liquid Silver" data-img="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=1000&q=80">
+          <div class="chrome-shot-img">
+            <img
+              src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=900&q=80"
+              alt="Corte Hime y tintura fantasía"
+              onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/hair-look-balayage.svg'">
+          </div>
+          <div class="chrome-shot-meta">
+            <span>HIME PLATINUM</span>
+            <span style="color:var(--cyan-neon)">[ZOOM +]</span>
+          </div>
+        </article>
+
+        <article class="chrome-shot" tabindex="0" data-title="LOOK #03 · CHUNKY RINGS 2001" data-spec="Mechas anilladas frontales en azul cian y negro azulado" data-img="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1000&q=80">
+          <div class="chrome-shot-img">
+            <img
+              src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85"
+              alt="Mechas Y2K contrastadas"
+              onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg'">
+          </div>
+          <div class="chrome-shot-meta">
+            <span>CHUNKY RINGS</span>
+            <span style="color:var(--cyan-neon)">[ZOOM +]</span>
+          </div>
+        </article>
+
+        <article class="chrome-shot" tabindex="0" data-title="LOOK #04 · ULTRAVIOLET WOLF CUT" data-spec="Capas shaggy desfiladas con navaja + Violeta iridiscente" data-img="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1000&q=80">
+          <div class="chrome-shot-img">
+            <img
+              src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85"
+              alt="Wolf cut ultravioleta"
+              onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg'">
+          </div>
+          <div class="chrome-shot-meta">
+            <span>VAPOR WOLF</span>
+            <span style="color:var(--cyan-neon)">[ZOOM +]</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Crew / Artists -->
+    <section id="crew" class="crew-section">
+      <div class="section-head">
+        <span class="y2k-pill-badge">✦ Escuadrón Creativo</span>
+        <h2 class="section-title">Alquimistas del Color & Tijera</h2>
+      </div>
+
+      <div class="crew-grid">
+        <article class="crew-card">
+          <div class="crew-avatar">
+            <img
+              src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=900&q=80"
+              alt="Nyx Vane - Directora de Color Fantasía"
+              onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/stylist-female-1.svg'">
+          </div>
+          <span class="cyber-card-lvl">LEAD COLOR SYNTHESIZER</span>
+          <h3 class="cyber-card-title">Nyx Vane</h3>
+          <p style="font-size:0.88rem; color:#CBD5E1">Especialista en decoloraciones globales de alto nivel sin daño estructural y diseño de píxeles/anillos en cabello.</p>
+        </article>
+
+        <article class="crew-card">
+          <div class="crew-avatar">
+            <img
+              src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=900&q=80"
+              alt="Kael Zero - Arquitecto de Corte"
+              onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/hair-look-balayage.svg'">
+          </div>
+          <span class="cyber-card-lvl">FUTURIST CUT DIRECTOR</span>
+          <h3 class="cyber-card-title">Kael Zero</h3>
+          <p style="font-size:0.88rem; color:#CBD5E1">Formado en Tokio y Londres. Creador de siluetas Jellyfish, Mullets modernos y flequillos micro-geométricos.</p>
+        </article>
+
+        <article class="crew-card">
+          <div class="crew-avatar">
+            <img
+              src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85"
+              alt="Vega Chrome - Especialista en Brillo"
+              onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/salon-interior.svg'">
+          </div>
+          <span class="cyber-card-lvl">BOND & CHROME CHEMIST</span>
+          <h3 class="cyber-card-title">Vega Chrome</h3>
+          <p style="font-size:0.88rem; color:#CBD5E1">Experta en reconstrucción molecular post-decoloración y laminados espejo con protección térmica UV.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section aria-label="Testimonios">
+      <div class="section-head">
+        <h2 class="section-title">Transmisiones de Clientes</h2>
+      </div>
+      <div class="reviews-grid">
+        <article class="review-pod">
+          <span class="fictional-badge">[Testimonio Ficticio de Demostración]</span>
+          <p>“Pasé de castaño oscuro a un Split Dye fucsia y cian en una sola sesión cuidando cada hebra con plex. El brillo parece de filtro digital.”</p>
+          <strong style="font-family:var(--font-display); font-size:0.78rem; color:var(--cyan-neon)">@VALERIA_GLITCH · DJ & Productora</strong>
+        </article>
+
+        <article class="review-pod">
+          <span class="fictional-badge">[Testimonio Ficticio de Demostración]</span>
+          <p>“Kael entendió exactamente el Jellyfish Cut que quería. Además tienen playlist Y2K, consolas retro y luces UV para ver cómo brilla tu pelo.”</p>
+          <strong style="font-family:var(--font-display); font-size:0.78rem; color:var(--cyan-neon)">@TOMAS_CYBER · Ilustrador 3D</strong>
+        </article>
+
+        <article class="review-pod">
+          <span class="fictional-badge">[Testimonio Ficticio de Demostración]</span>
+          <p>“El laminado Liquid Chrome dejó mi pelo plateado como metal líquido. Después de un mes el pigmento sigue intacto.”</p>
+          <strong style="font-family:var(--font-display); font-size:0.78rem; color:var(--cyan-neon)">@MAIA_2099 · Creadora Digital</strong>
+        </article>
+      </div>
+    </section>
+
+    <!-- Interactive Booking Terminal -->
+    <section id="reserva" class="booking-terminal">
+      <div class="os-titlebar">
+        <span>BOOKING_TERMINAL_Y2K.SYS · DEMOSTRACIÓN INTERACTIVA</span>
+        <span>STATUS: ONLINE</span>
+      </div>
+      <div class="terminal-body">
+        <div>
+          <span class="y2k-pill-badge">✦ Reserva de Sillón</span>
+          <h2 class="section-title" style="font-size: 2rem; text-align:left">Inicia Tu Secuencia de Cambio</h2>
+          <p style="color:#CBD5E1; margin-bottom:1.5rem">
+            Este formulario es una <strong>demostración interactiva del lado del cliente</strong> diseñada por KuyénDev. Simula al instante tu reserva sin enviar datos a servidores externos.
+          </p>
+          <div class="stat-window">
+            <span class="stat-num" style="font-size:1rem">HORARIO DE LABORATORIO</span>
+            <p style="font-size:0.85rem; margin-top:0.4rem">Martes a Sábado · 11:00 a 21:00 hrs<br>Barrio Bellas Artes · Sector Neón</p>
+          </div>
+        </div>
+
+        <form id="cyberBookingForm">
+          <div class="cyber-input-grid">
+            <div class="cyber-field">
+              <label for="cName">Alias / Nombre</label>
+              <input type="text" id="cName" required placeholder="Ej. Kira Nova">
+            </div>
+            <div class="cyber-field">
+              <label for="cContact">Instagram o WhatsApp</label>
+              <input type="text" id="cContact" required placeholder="@tu_usuario / +569...">
+            </div>
+            <div class="cyber-field">
+              <label for="cService">Módulo de Servicio</label>
+              <select id="cService">
+                <option value="Holographic Melt & Neón">Holographic Melt & Neón ($115.000)</option>
+                <option value="Chunky Highlights & Peekaboo">Chunky Highlights & Peekaboo ($78.000)</option>
+                <option value="Hime Cut / Jellyfish & Wolf Cut">Hime Cut / Jellyfish & Wolf Cut ($44.000)</option>
+                <option value="Split Dye Bicolor Simétrico">Split Dye Bicolor Simétrico ($96.000)</option>
+                <option value="Laminado Capilar Liquid Chrome">Laminado Capilar Liquid Chrome ($55.000)</option>
+                <option value="Terapia Molecular Post-Bleach">Terapia Molecular Post-Bleach ($49.000)</option>
+              </select>
+            </div>
+            <div class="cyber-field">
+              <label for="cFormula">Fórmula Holo-Synth</label>
+              <input type="text" id="cFormula" value="Cyber Pink Matrix (0° Hue)" readonly>
+            </div>
+            <div class="cyber-field">
+              <label for="cDate">Fecha de Sesión</label>
+              <input type="date" id="cDate" required>
+            </div>
+            <div class="cyber-field">
+              <label for="cSlot">Turno</label>
+              <select id="cSlot">
+                <option value="11:30 AM (Sesión Larga Bleach)">11:30 AM · Sesión Larga Bleach</option>
+                <option value="15:30 PM (Corte & Glaze)">15:30 PM · Corte & Glaze</option>
+                <option value="18:00 PM (After-Hours Neon)">18:00 PM · After-Hours Neon</option>
+              </select>
+            </div>
+            <div class="cyber-field full">
+              <button type="submit" class="btn-chrome btn-neon-pink" style="width:100%; padding:1rem">
+                EJECUTAR RESERVA DEMO ✦
+              </button>
+            </div>
+          </div>
+          <div class="cyber-feedback" id="cyberFeedback" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer style="border-top: 1px solid rgba(0,240,255,0.3); padding: 2rem 1.25rem; text-align:center; font-family:var(--font-display); font-size:0.75rem; color:#94A3B8">
+    CYBERCHROME HAIR · Estilo #12 Y2K / Chrome Aesthetic · Demostración Interactiva KuyénDev
+  </footer>
+
+  <!-- Lightbox Modal -->
+  <div class="cyber-lightbox" id="cyberLightbox" role="dialog" aria-modal="true" aria-label="Visor de look Y2K">
+    <div class="os-window cyber-lightbox-win">
+      <div class="os-titlebar">
+        <span id="lbHeaderTitle">LOOK_VIEWER.EXE</span>
+        <button type="button" id="closeCyberLb" style="background:#FF2A85; color:#fff; border:none; padding:0.2rem 0.6rem; font-family:var(--font-display); cursor:pointer">X CERRAR</button>
+      </div>
+      <div style="max-height:65vh; overflow:hidden">
+        <img id="lbCyberImg" src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=900&q=80" alt="Look ampliado" style="width:100%; max-height:65vh; object-fit:cover;" onerror="this.onerror=null;this.src='../../images/demos/assets/beauty/hair-look-balayage.svg'">
+      </div>
+      <div style="padding:1rem 1.25rem; background:#120824; display:flex; justify-content:space-between; align-items:center">
+        <span id="lbCyberSpec" style="font-size:0.88rem; color:var(--cyan-neon)"></span>
+        <span style="font-family:var(--font-display); font-size:0.7rem">ESC PARA SALIR</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      // 1. Holo-Pigment Synthesizer
+      const presetBtns = document.querySelectorAll('.preset-btn');
+      const hueSlider = document.getElementById('hueSlider');
+      const chromeSlider = document.getElementById('chromeSlider');
+      const hueReadout = document.getElementById('hueReadout');
+      const chromeReadout = document.getElementById('chromeReadout');
+      const synthImage = document.getElementById('synthImage');
+      const synthGlaze = document.getElementById('synthGlaze');
+      const specName = document.getElementById('specName');
+      const specBleach = document.getElementById('specBleach');
+      const cFormula = document.getElementById('cFormula');
+      let currentPresetName = 'Cyber Pink Matrix';
+
+      function updateSynth() {
+        const hue = hueSlider.value;
+        const shine = chromeSlider.value;
+        hueReadout.textContent = hue + '° DEG';
+        chromeReadout.textContent = shine + '%';
+        const contrast = 1 + (shine - 40) / 150;
+        synthImage.style.filter = 'hue-rotate(' + hue + 'deg) contrast(' + contrast.toFixed(2) + ') saturate(1.35)';
+        synthGlaze.style.opacity = (shine / 145).toFixed(2);
+        if (cFormula) {
+          cFormula.value = currentPresetName + ' (' + hue + '° Hue · ' + shine + '% Chrome)';
+        }
+      }
+
+      presetBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          presetBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentPresetName = btn.getAttribute('data-name');
+          const hue = btn.getAttribute('data-hue');
+          const colorGrad = btn.getAttribute('data-color');
+          const bleach = btn.getAttribute('data-bleach');
+          hueSlider.value = hue;
+          synthGlaze.style.background = colorGrad;
+          specName.textContent = currentPresetName;
+          specBleach.textContent = bleach;
+          updateSynth();
+        });
+      });
+
+      hueSlider.addEventListener('input', updateSynth);
+      chromeSlider.addEventListener('input', updateSynth);
+
+      document.getElementById('applySynthToBooking').addEventListener('click', () => {
+        updateSynth();
+        document.getElementById('reserva').scrollIntoView({ behavior: 'smooth' });
+      });
+
+      // 2. Services Tabs Filter
+      const cyberTabs = document.querySelectorAll('.cyber-tab');
+      const cyberCards = document.querySelectorAll('.cyber-card');
+      cyberTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          cyberTabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          const cat = tab.getAttribute('data-cat');
+          cyberCards.forEach(card => {
+            card.style.display = (cat === 'all' || card.getAttribute('data-cat') === cat) ? 'flex' : 'none';
+          });
+        });
+      });
+
+      const cService = document.getElementById('cService');
+      document.querySelectorAll('.pick-cyber-service').forEach(btn => {
+        btn.addEventListener('click', () => {
+          cService.value = btn.getAttribute('data-service');
+          document.getElementById('reserva').scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+
+      // 3. Lightbox
+      const cyberLightbox = document.getElementById('cyberLightbox');
+      const lbCyberImg = document.getElementById('lbCyberImg');
+      const lbHeaderTitle = document.getElementById('lbHeaderTitle');
+      const lbCyberSpec = document.getElementById('lbCyberSpec');
+
+      document.querySelectorAll('.chrome-shot').forEach(shot => {
+        const openLb = () => {
+          lbCyberImg.src = shot.getAttribute('data-img');
+          lbHeaderTitle.textContent = shot.getAttribute('data-title');
+          lbCyberSpec.textContent = shot.getAttribute('data-spec');
+          cyberLightbox.classList.add('open');
+        };
+        shot.addEventListener('click', openLb);
+        shot.addEventListener('keydown', e => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openLb();
+          }
+        });
+      });
+
+      document.getElementById('closeCyberLb').addEventListener('click', () => cyberLightbox.classList.remove('open'));
+      cyberLightbox.addEventListener('click', e => {
+        if (e.target === cyberLightbox) cyberLightbox.classList.remove('open');
+      });
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') cyberLightbox.classList.remove('open');
+      });
+
+      // 4. Booking Form
+      const cDate = document.getElementById('cDate');
+      if (cDate) {
+        cDate.value = new Date(Date.now() + 86400000).toISOString().split('T')[0];
+      }
+      document.getElementById('cyberBookingForm').addEventListener('submit', e => {
+        e.preventDefault();
+        const name = document.getElementById('cName').value.trim();
+        const serv = cService.value;
+        const form = cFormula.value;
+        const date = cDate.value;
+        const slot = document.getElementById('cSlot').value;
+        const fb = document.getElementById('cyberFeedback');
+        fb.style.display = 'block';
+        fb.innerHTML =
+          '<strong style="font-family:var(--font-display); color:var(--cyan-neon)">✦ SECUENCIA CONFIRMADA [MODO DEMO]</strong><br>' +
+          'Hola <strong>' + name + '</strong>, tu turno para <em>' + serv + '</em> con fórmula <strong>' + form + '</strong> quedó simulado para el <strong>' + date + ' (' + slot + ')</strong>.';
+      });
+    })();
+  </script>
+  <script src="../../js/config/rubros.js"></script>
+  <script src="../../js/demo-viewer-bar.js"></script>
+</body>
+</html>

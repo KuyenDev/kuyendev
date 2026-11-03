@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>DERMA JOURNAL · Instituto de Dermatología Clínica & Cirugía Plástica | Demo KuyénDev</title>
+  <meta name="description" content="Demostración interactiva estilo #08 Editorial Healthcare para institutos de dermatología clínica, cirugía plástica reconstructiva y estética facial de autor." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --paper-ivory: #F5F2EB;
+      --paper-linen: #E6E1D8;
+      --ink-noir: #111111;
+      --ink-charcoal: #4A4742;
+      --bronze-taupe: #B8977E;
+      --bronze-dark: #8F6F56;
+      --rule-line: rgba(17, 17, 17, 0.16);
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body[data-edition="nocturne"] {
+      --paper-ivory: #141312;
+      --paper-linen: #1E1C1A;
+      --ink-noir: #F5F2EB;
+      --ink-charcoal: #B8B2A8;
+      --rule-line: rgba(245, 242, 235, 0.16);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--paper-ivory);
+      color: var(--ink-noir);
+      font-family: var(--font-sans);
+      line-height: 1.65;
+      overflow-x: hidden;
+      transition: background-color 0.45s ease, color 0.45s ease;
+    }
+
+    /* Masthead de Publicación Médica */
+    .editorial-issue-bar {
+      border-bottom: 1px solid var(--rule-line);
+      padding: 10px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-charcoal);
+    }
+
+    .edition-toggle {
+      background: transparent;
+      border: 1px solid var(--rule-line);
+      color: var(--ink-noir);
+      padding: 4px 12px;
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .editorial-header {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 28px 32px;
+      border-bottom: 1px solid var(--rule-line);
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .ed-nav-left,
+    .ed-nav-right {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      list-style: none;
+    }
+
+    .ed-nav-right {
+      justify-content: flex-end;
+    }
+
+    .ed-nav-left a,
+    .ed-nav-right a {
+      text-decoration: none;
+      color: var(--ink-noir);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .ed-brand-center {
+      text-align: center;
+      text-decoration: none;
+      color: var(--ink-noir);
+    }
+
+    .ed-brand-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.9rem, 3vw, 2.75rem);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      line-height: 1;
+      display: block;
+    }
+
+    .ed-brand-sub {
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--bronze-dark);
+      margin-top: 4px;
+      display: block;
+    }
+
+    .btn-editorial {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--ink-noir);
+      color: var(--paper-ivory);
+      padding: 13px 26px;
+      font-size: 0.76rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid var(--ink-noir);
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .btn-editorial:hover {
+      background: var(--bronze-taupe);
+      border-color: var(--bronze-taupe);
+      color: #111111;
+    }
+
+    .btn-editorial-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      color: var(--ink-noir);
+      padding: 13px 26px;
+      font-size: 0.76rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid var(--ink-noir);
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .btn-editorial-outline:hover {
+      background: var(--ink-noir);
+      color: var(--paper-ivory);
+    }
+
+    .container {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* Hero Editorial Asimétrico */
+    .hero-editorial {
+      display: grid;
+      grid-template-columns: 7fr 5fr;
+      border-bottom: 1px solid var(--rule-line);
+    }
+
+    .hero-col-text {
+      padding: 72px 56px 72px 0;
+      border-right: 1px solid var(--rule-line);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .chapter-num {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--bronze-dark);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .hero-ed-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.8rem, 5.4vw, 5.1rem);
+      font-weight: 400;
+      line-height: 0.98;
+      letter-spacing: -0.02em;
+      margin-bottom: 28px;
+    }
+
+    .hero-ed-title em {
+      font-style: italic;
+      color: var(--bronze-taupe);
+    }
+
+    .hero-ed-lead {
+      font-size: 1.04rem;
+      color: var(--ink-charcoal);
+      max-width: 540px;
+      margin-bottom: 36px;
+    }
+
+    .editorial-footnotes {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      padding-top: 32px;
+      border-top: 1px solid var(--rule-line);
+      margin-top: 40px;
+    }
+
+    .ed-note small {
+      display: block;
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--bronze-dark);
+      margin-bottom: 4px;
+    }
+
+    .ed-note strong {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 600;
+    }
+
+    .hero-col-visual {
+      padding: 48px 0 48px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .ed-portrait-frame {
+      position: relative;
+      aspect-ratio: 3 / 3.8;
+      overflow: hidden;
+      background: var(--paper-linen);
+    }
+
+    .ed-portrait-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: contrast(1.04) grayscale(18%);
+      transition: filter 0.6s ease, transform 0.8s ease;
+    }
+
+    .ed-portrait-frame:hover img {
+      filter: contrast(1.02) grayscale(0%);
+      transform: scale(1.03);
+    }
+
+    .ed-caption {
+      margin-top: 14px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: var(--ink-charcoal);
+      border-top: 1px solid var(--rule-line);
+      padding-top: 10px;
+    }
+
+    /* Sección Interactiva Propia: Atlas Monográfico de Capas Dérmicas y Armonía Facial */
+    .monograph-section {
+      padding: 84px 0;
+      border-bottom: 1px solid var(--rule-line);
+      display: grid;
+      grid-template-columns: 4fr 8fr;
+      gap: 56px;
+    }
+
+    .monograph-selector {
+      display: flex;
+      flex-direction: column;
+      border-top: 1px solid var(--rule-line);
+    }
+
+    .mono-btn {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--rule-line);
+      padding: 20px 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      text-align: left;
+      cursor: pointer;
+      color: var(--ink-charcoal);
+      transition: all 0.25s ease;
+    }
+
+    .mono-btn strong {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--ink-noir);
+    }
+
+    .mono-btn span {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .mono-btn.active {
+      padding-left: 18px;
+      background: var(--paper-linen);
+      border-left: 3px solid var(--bronze-taupe);
+    }
+
+    .monograph-article {
+      background: var(--paper-linen);
+      padding: 48px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .mono-kicker {
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--bronze-dark);
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .mono-title {
+      font-family: var(--font-serif);
+      font-size: 2.3rem;
+      font-weight: 500;
+      line-height: 1.12;
+      margin-bottom: 18px;
+    }
+
+    .mono-specs {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--rule-line);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      font-size: 0.82rem;
+    }
+
+    /* Índice Editorial de Procedimientos */
+    .index-section {
+      padding: 84px 0;
+      border-bottom: 1px solid var(--rule-line);
+    }
+
+    .index-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    .ed-filter-bar {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .ed-filter-btn {
+      background: transparent;
+      border: 1px solid var(--rule-line);
+      color: var(--ink-noir);
+      padding: 8px 18px;
+      font-size: 0.74rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .ed-filter-btn.active {
+      background: var(--ink-noir);
+      color: var(--paper-ivory);
+    }
+
+    .editorial-table {
+      border-top: 1px solid var(--ink-noir);
+    }
+
+    .ed-row {
+      display: grid;
+      grid-template-columns: 80px 2fr 3fr 1.2fr;
+      gap: 24px;
+      align-items: baseline;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--rule-line);
+      transition: background 0.25s ease, padding 0.25s ease;
+    }
+
+    .ed-row.hidden {
+      display: none;
+    }
+
+    .ed-row:hover {
+      background: var(--paper-linen);
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+
+    .ed-row-num {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--bronze-dark);
+    }
+
+    .ed-row-title {
+      font-family: var(--font-serif);
+      font-size: 1.55rem;
+      font-weight: 600;
+    }
+
+    .ed-row-desc {
+      font-size: 0.9rem;
+      color: var(--ink-charcoal);
+    }
+
+    .ed-row-meta {
+      text-align: right;
+      font-size: 0.76rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    /* Directorio de Autores Clínicos & Suites (Con Lightbox) */
+    .curators-section {
+      padding: 84px 0;
+      border-bottom: 1px solid var(--rule-line);
+    }
+
+    .curators-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+      margin-top: 42px;
+    }
+
+    .curator-card {
+      cursor: pointer;
+      border-bottom: 1px solid var(--rule-line);
+      padding-bottom: 20px;
+    }
+
+    .curator-img {
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+      background: var(--paper-linen);
+      margin-bottom: 16px;
+    }
+
+    .curator-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(35%);
+      transition: all 0.5s ease;
+    }
+
+    .curator-card:hover .curator-img img {
+      filter: grayscale(0%);
+      transform: scale(1.04);
+    }
+
+    .curator-card small {
+      display: block;
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--bronze-dark);
+      margin-bottom: 4px;
+    }
+
+    .curator-card h4 {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .curator-card p {
+      font-size: 0.84rem;
+      color: var(--ink-charcoal);
+    }
+
+    /* Crónicas de Pacientes (Testimonios) */
+    .editorial-quotes {
+      padding: 84px 0;
+      border-bottom: 1px solid var(--rule-line);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 36px;
+    }
+
+    .ed-quote-card {
+      border-left: 1px solid var(--ink-noir);
+      padding-left: 24px;
+    }
+
+    .ed-demo-badge {
+      display: inline-block;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: var(--paper-linen);
+      padding: 4px 10px;
+      margin-bottom: 14px;
+      color: var(--bronze-dark);
+      font-weight: 600;
+    }
+
+    .ed-quote-text {
+      font-family: var(--font-serif);
+      font-size: 1.32rem;
+      font-style: italic;
+      line-height: 1.45;
+      margin-bottom: 16px;
+    }
+
+    /* Formulario Concierge Privado */
+    .concierge-section {
+      padding: 84px 0;
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: 56px;
+    }
+
+    .ed-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      background: var(--paper-linen);
+      padding: 48px;
+    }
+
+    .ed-full {
+      grid-column: 1 / -1;
+    }
+
+    .ed-label {
+      display: block;
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      color: var(--ink-charcoal);
+    }
+
+    .ed-input,
+    .ed-select,
+    .ed-textarea {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--ink-noir);
+      padding: 10px 4px;
+      font-family: var(--font-sans);
+      font-size: 0.94rem;
+      color: var(--ink-noir);
+    }
+
+    .ed-input:focus,
+    .ed-select:focus,
+    .ed-textarea:focus {
+      outline: none;
+      border-bottom-color: var(--bronze-taupe);
+    }
+
+    .ed-feedback {
+      grid-column: 1 / -1;
+      display: none;
+      padding: 16px;
+      border: 1px solid var(--bronze-taupe);
+      background: var(--paper-ivory);
+      font-size: 0.88rem;
+    }
+
+    /* Lightbox Editorial */
+    .ed-lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(17, 17, 17, 0.92);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      padding: 24px;
+    }
+
+    .ed-lightbox.open {
+      display: flex;
+    }
+
+    .ed-lb-inner {
+      background: var(--paper-ivory);
+      color: var(--ink-noir);
+      max-width: 860px;
+      width: 100%;
+      border: 1px solid var(--bronze-taupe);
+    }
+
+    .ed-lb-inner img {
+      width: 100%;
+      max-height: 490px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .ed-footer {
+      border-top: 1px solid var(--rule-line);
+      padding: 40px 0 96px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.8rem;
+      color: var(--ink-charcoal);
+    }
+
+    @media (max-width: 1024px) {
+      .editorial-header {
+        grid-template-columns: 1fr auto;
+      }
+      .ed-nav-left,
+      .ed-nav-right {
+        display: none;
+      }
+      .hero-editorial,
+      .monograph-section,
+      .monograph-article,
+      .concierge-section {
+        grid-template-columns: 1fr;
+      }
+      .hero-col-text {
+        border-right: none;
+        padding-right: 0;
+      }
+      .hero-col-visual {
+        padding-left: 0;
+      }
+      .ed-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+      .ed-row-meta {
+        text-align: left;
+      }
+      .curators-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .editorial-quotes {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .curators-grid,
+      .ed-form,
+      .editorial-footnotes {
+        grid-template-columns: 1fr;
+      }
+      .monograph-article,
+      .ed-form {
+        padding: 28px 20px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body data-rubro-id="salud" data-style-id="editorial-healthcare">
+
+  <!-- Barra Editorial de Publicación -->
+  <div class="editorial-issue-bar">
+    <span>VOL. VIII · MONOGRAFÍA CLÍNICA DE DERMATOLOGÍA, LÁSER & ARQUITECTURA FACIAL</span>
+    <div>
+      <button type="button" class="edition-toggle" id="editionToggle">Alternar Modo Lectura Nocturna</button>
+    </div>
+  </div>
+
+  <!-- Masthead -->
+  <header class="editorial-header">
+    <ul class="ed-nav-left">
+      <li><a href="#monografia">01. Dossier Clínico</a></li>
+      <li><a href="#indice">02. Índice de Protocolos</a></li>
+      <li><a href="#comite">03. Comité Médico</a></li>
+    </ul>
+
+    <a href="#" class="ed-brand-center">
+      <span class="ed-brand-title">DERMA JOURNAL</span>
+      <span class="ed-brand-sub">Instituto de Dermatología Clínica & Cirugía Plástica</span>
+    </a>
+
+    <ul class="ed-nav-right">
+      <li><a href="#cronicas">04. Testimonios</a></li>
+      <li><a href="#concierge" class="btn-editorial">Consulta Privada</a></li>
+    </ul>
+  </header>
+
+  <main class="container">
+    <!-- Hero Editorial -->
+    <section class="hero-editorial">
+      <div class="hero-col-text">
+        <div>
+          <span class="chapter-num">Capítulo I — La Ciencia de la Proporción Natural</span>
+          <h1 class="hero-ed-title">
+            Rigor médico y <em>mesura estética</em> como obra de autor.
+          </h1>
+          <p class="hero-ed-lead">
+            Concebir la piel, la sonrisa y la estructura craneofacial como un tejido vivo indivisible. Nuestro instituto reúne a dermatólogos clínicos, cirujanos plásticos acreditados y rehabilitadores maxilofaciales bajo una filosofía de resultados imperceptibles y longevidad celular.
+          </p>
+          <div style="display: flex; flex-wrap: wrap; gap: 16px">
+            <a href="#concierge" class="btn-editorial">Solicitar Admisión Concierge</a>
+            <a href="#monografia" class="btn-editorial-outline">Leer Monografía Interactiva</a>
+          </div>
+        </div>
+
+        <div class="editorial-footnotes">
+          <div class="ed-note">
+            <small>Acreditación Científica</small>
+            <strong>CONACEM & SOCHIDERM</strong>
+          </div>
+          <div class="ed-note">
+            <small>Plataforma Lumínica</small>
+            <strong>Láser Picosegundos & CO2</strong>
+          </div>
+          <div class="ed-note">
+            <small>Privacidad Absoluta</small>
+            <strong>Acceso Independiente VIP</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-col-visual">
+        <div class="ed-portrait-frame">
+          <img
+            src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800&q=80"
+            alt="Retrato editorial clínico de dermatología de autor y estética médica"
+            onerror="this.onerror=null;this.src='../../images/demos/assets/med/doctor-male-1.svg';"/>
+        </div>
+        <div class="ed-caption">
+          <span>FIG. 01 — ESTUDIO DE DERMATOSCOPÍA DIGITAL & ARMONÍA FACIAL</span>
+          <span>SANTIAGO · ZÜRICH · MILÁN</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección Interactiva Propia: Atlas Monográfico de Capas Tisulares -->
+    <section id="monografia" class="monograph-section" aria-labelledby="monoHeading">
+      <div>
+        <span class="chapter-num">Capítulo II — Atlas Interactivo</span>
+        <h2 id="monoHeading" style="font-family: var(--font-serif); font-size: 2.5rem; font-weight: 500; line-height: 1.1; margin-bottom: 18px">
+          Arquitectura Tisular en Cuatro Planos
+        </h2>
+        <p style="font-size: 0.92rem; color: var(--ink-charcoal); margin-bottom: 28px">
+          Selecciona un plano anatómico para examinar el enfoque clínico publicado por nuestro comité médico:
+        </p>
+
+        <div class="monograph-selector" role="tablist">
+          <button type="button" class="mono-btn active" data-plane="epidermis">
+            <strong>I. Barrera Epidérmica & Pigmento</strong>
+            <span>Láser & Dermatología</span>
+          </button>
+          <button type="button" class="mono-btn" data-plane="dermis">
+            <strong>II. Matriz Dérmica & Colágeno Tipo I</strong>
+            <span>Bioestimulación</span>
+          </button>
+          <button type="button" class="mono-btn" data-plane="smas">
+            <strong>III. Plano Profundo SMAS & Contorno</strong>
+            <span>Cirugía Facial</span>
+          </button>
+          <button type="button" class="mono-btn" data-plane="perioral">
+            <strong>IV. Soporte Dento-Alveolar & Perioral</strong>
+            <span>Estética Maxilofacial</span>
+          </button>
+        </div>
+      </div>
+
+      <article class="monograph-article" aria-live="polite">
+        <div>
+          <span class="mono-kicker" id="monoKicker">ENSAYO CLÍNICO Nº 01 · FOTOMEDICINA AVANZADA</span>
+          <h3 class="mono-title" id="monoTitle">Restauración Lumínica de la Epidermis y Lesiones Vasculares</h3>
+          <p id="monoBody" style="font-size: 0.95rem; color: var(--ink-charcoal)">
+            Mediante pulsos acústicos de picosegundos y luz láser vascular de 595 nm tratamos melasma refractario, rosácea pápulo-pustulosa y daño actínico respetando íntegramente el tejido circundante, sin descamación agresiva ni baja social prolongada.
+          </p>
+          <div class="mono-specs">
+            <div>
+              <strong style="display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--bronze-dark)">Tiempo de Recuperación</strong>
+              <span id="monoDowntime">24 a 48 horas (Eritema leve)</span>
+            </div>
+            <div>
+              <strong style="display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--bronze-dark)">Dirección Médica</strong>
+              <span id="monoLead">Dra. Antonia Aldunate · Dermatóloga</span>
+            </div>
+          </div>
+        </div>
+        <div class="ed-portrait-frame" style="aspect-ratio: 4/5">
+          <img
+            id="monoImg"
+            src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1200&q=85"
+            alt="Monografía Clínica · Fotomedicina Facial y Estética"
+            onerror="this.onerror=null;this.src='../../images/demos/assets/med/dental-smile-1.svg';"/>
+        </div>
+      </article>
+    </section>
+
+    <!-- Índice Editorial de Especialidades -->
+    <section id="indice" class="index-section">
+      <div class="index-header">
+        <div>
+          <span class="chapter-num">Capítulo III — Repertorio Clínico</span>
+          <h2 style="font-family: var(--font-serif); font-size: 2.6rem; font-weight: 500">Índice de Tratamientos & Cirugía</h2>
+        </div>
+        <div class="ed-filter-bar" role="tablist">
+          <button type="button" class="ed-filter-btn active" data-filter="all">Índice Completo (6)</button>
+          <button type="button" class="ed-filter-btn" data-filter="derma">Dermatología Clínica & Láser</button>
+          <button type="button" class="ed-filter-btn" data-filter="cirugia">Cirugía Plástica</button>
+          <button type="button" class="ed-filter-btn" data-filter="maxilo">Armonía Dento-Facial</button>
+        </div>
+      </div>
+
+      <div class="editorial-table">
+        <div class="ed-row" data-cat="derma">
+          <span class="ed-row-num">Nº 01</span>
+          <h3 class="ed-row-title">Mapeo Corporal Total FotoFinder & Oncodermatología</h3>
+          <p class="ed-row-desc">Videodermatoscopía digital polarizada con inteligencia comparativa para detección precoz de melanoma y cirugía micrográfica de Mohs.</p>
+          <span class="ed-row-meta">Reembolsable Isapre</span>
+        </div>
+
+        <div class="ed-row" data-cat="derma">
+          <span class="ed-row-num">Nº 02</span>
+          <h3 class="ed-row-title">Plataforma Láser Híbrida (CO2 Fraccionado + Erbium)</h3>
+          <p class="ed-row-desc">Remodelación profunda de cicatrices quirúrgicas, secuelas de acné y rejuvenecimiento periocular bajo anestesia tópica de alta potencia.</p>
+          <span class="ed-row-meta">Pabellón Láser</span>
+        </div>
+
+        <div class="ed-row" data-cat="cirugia">
+          <span class="ed-row-num">Nº 03</span>
+          <h3 class="ed-row-title">Blefaroplastia & Lifting Facial Deep-Plane</h3>
+          <p class="ed-row-desc">Reposicionamiento anatómico de los ligamentos profundos del rostro y cuello sin tensión cutánea superficial, preservando la expresión natural.</p>
+          <span class="ed-row-meta">Quirófano Acreditado</span>
+        </div>
+
+        <div class="ed-row" data-cat="cirugia">
+          <span class="ed-row-num">Nº 04</span>
+          <h3 class="ed-row-title">Rinoplastia Ultrasónica Funcional & Estructural</h3>
+          <p class="ed-row-desc">Escultura ósea piezoeléctrica de máxima precisión combinada con corrección funcional del tabique y válvulas nasales.</p>
+          <span class="ed-row-meta">Simulación 3D Previa</span>
+        </div>
+
+        <div class="ed-row" data-cat="maxilo">
+          <span class="ed-row-num">Nº 05</span>
+          <h3 class="ed-row-title">Diseño Micro-Estético de Sonrisa & Periodoncia Plástica</h3>
+          <p class="ed-row-desc">Lentes cerámicos ultrafinos hechos a mano por ceramista maestro y microcirugía gingival para armonizar el tercio inferior del rostro.</p>
+          <span class="ed-row-meta">Microscopía Óptica</span>
+        </div>
+
+        <div class="ed-row" data-cat="derma">
+          <span class="ed-row-num">Nº 06</span>
+          <h3 class="ed-row-title">Bioestimulación Regenerativa & Exosomas Autólogos</h3>
+          <p class="ed-row-desc">Inducción biológica de elastina y colágeno dérmico sin alterar los volúmenes ni rasgos fisonómicos propios del paciente.</p>
+          <span class="ed-row-meta">Protocolo Suizo</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Directorio Médico & Suites con Lightbox -->
+    <section id="comite" class="curators-section">
+      <span class="chapter-num">Capítulo IV — Cuerpo Médico & Arquitectura</span>
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px">
+        <h2 style="font-family: var(--font-serif); font-size: 2.6rem; font-weight: 500">Directores Clínicos & Suites Privadas</h2>
+        <p style="font-size: 0.85rem; color: var(--ink-charcoal)">Haz clic sobre cada retrato o espacio para abrir la lámina monográfica.</p>
+      </div>
+
+      <div class="curators-grid">
+        <article
+          class="curator-card"
+          tabindex="0"
+          data-img="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80"
+          data-title="Dra. Antonia Aldunate Chadwick · Especialista Odontológico"
+          data-desc="Especialista en Dermatología y Venereología (PUC), Fellowship en Láser Cutáneo y Oncodermatología en Hospital Saint-Louis, París."
+        >
+          <div class="curator-img">
+            <img
+              src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80"
+              alt="Dra. Antonia Aldunate Chadwick · Especialista Odontológico"
+              onerror="this.onerror=null;this.src='../../images/demos/assets/med/doctor-female-1.svg';"/>
+          </div>
+          <small>Jefa de Dermatología & Láser</small>
+          <h4>Dra. Antonia Aldunate</h4>
+          <p>Hospital Saint-Louis (París) · Miembro titular SOCHIDERM.</p>
+        </article>
+
+        <article
+          class="curator-card"
+          tabindex="0"
+          data-img="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800&q=80"
+          data-title="Dr. Clemente Zegers Vial · Especialista Odontológico"
+          data-desc="Cirujano Plástico acreditado por CONACEM, dedicado exclusivamente a cirugía facial de plano profundo y rinoplastia ultrasónica."
+        >
+          <div class="curator-img">
+            <img
+              src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800&q=80"
+              alt="Dr. Clemente Zegers Vial · Especialista Odontológico"
+              onerror="this.onerror=null;this.src='../../images/demos/assets/med/doctor-male-1.svg';"/>
+          </div>
+          <small>Cirugía Plástica Facial</small>
+          <h4>Dr. Clemente Zegers</h4>
+          <p>Especialista en Deep-Plane Facelift y Rinoplastia Estructural.</p>
+        </article>
+
+        <article
+          class="curator-card"
+          tabindex="0"
+          data-img="https://images.unsplash.com/photo-1594824813627-89146dfa9960?auto=format&fit=crop&w=800&q=80"
+          data-title="Dra. Isidora Matte · Especialista Odontológico"
+          data-desc="Especialista en integración entre soporte dental, labios y tercio facial inferior mediante cerámica feldespática artesanal."
+        >
+          <div class="curator-img">
+            <img
+              src="https://images.unsplash.com/photo-1594824813627-89146dfa9960?auto=format&fit=crop&w=800&q=80"
+              alt="Dra. Isidora Matte · Especialista Odontológico"
+              onerror="this.onerror=null;this.src='../../images/demos/assets/med/doctor-female-2.svg';"/>
+          </div>
+          <small>Arquitectura Dento-Facial</small>
+          <h4>Dra. Isidora Matte</h4>
+          <p>Microscopía estética gingival y rehabilitación mínimamente invasiva.</p>
+        </article>
+
+        <article
+          class="curator-card"
+          tabindex="0"
+          data-img="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=85"
+          data-title="Suite de Recuperación Privada & Galería El Golf"
+          data-desc="Salas individuales de reposo post-procedimiento revestidas en travertino natural y lino belga, con salida privada hacia estacionamiento subterráneo."
+        >
+          <div class="curator-img">
+            <img
+              src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1200&q=85"
+              alt="Suite privada de recuperación"
+              onerror="this.onerror=null;this.src='../../images/demos/assets/med/clinic-suite-vip.svg';"/>
+          </div>
+          <small>Infraestructura Privada</small>
+          <h4>Suites de Recuperación</h4>
+          <p>Privacidad integral y enfermería dedicada 1 a 1.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Testimonios con Etiqueta de Demostración -->
+    <section id="cronicas" class="editorial-quotes">
+      <article class="ed-quote-card">
+        <span class="ed-demo-badge">[Testimonio Ficticio de Demostración]</span>
+        <p class="ed-quote-text">
+          «Lo más valioso fue cuando el doctor me dijo qué procedimientos NO necesitaba hacerme. El resultado del láser es tan natural que todos creen que simplemente descansé.»
+        </p>
+        <small style="letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-charcoal)">
+          Magdalena Irarrázaval · Galerista de Arte (49 años)
+        </small>
+      </article>
+
+      <article class="ed-quote-card">
+        <span class="ed-demo-badge">[Testimonio Ficticio de Demostración]</span>
+        <p class="ed-quote-text">
+          «El control anual de lunares con mapeo digital y la coordinación entre dermatología y diseño dental hacen que todo tenga coherencia estética y rigor médico.»
+        </p>
+        <small style="letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-charcoal)">
+          Patricio Ochagavía · Abogado (54 años)
+        </small>
+      </article>
+
+      <article class="ed-quote-card">
+        <span class="ed-demo-badge">[Testimonio Ficticio de Demostración]</span>
+        <p class="ed-quote-text">
+          «La discreción de las suites y el seguimiento diario post-operatorio superaron cualquier clínica que haya visitado en el extranjero.»
+        </p>
+        <small style="letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-charcoal)">
+          Bernardita Cousiño · Editora (42 años)
+        </small>
+      </article>
+    </section>
+
+    <!-- Formulario Concierge Privado -->
+    <section id="concierge" class="concierge-section">
+      <div>
+        <span class="chapter-num">Capítulo V — Correspondencia & Citas</span>
+        <h2 style="font-family: var(--font-serif); font-size: 2.6rem; font-weight: 500; line-height: 1.1; margin-bottom: 18px">
+          Solicitar Consulta Diagnóstica Privada
+        </h2>
+        <p style="font-size: 0.94rem; color: var(--ink-charcoal); margin-bottom: 24px">
+          Nuestra coordinadora médica gestiona cada agenda de forma confidencial, asegurando tiempos extendidos de evaluación y acceso privado si el paciente lo requiere.
+        </p>
+        <div style="border-top: 1px solid var(--rule-line); padding-top: 20px; font-size: 0.85rem; color: var(--ink-charcoal)">
+          <p style="margin-bottom: 6px"><strong>Dirección:</strong> Calle Isidora Goyenechea 3160, Piso 9, El Golf, Las Condes</p>
+          <p style="margin-bottom: 6px"><strong>Concierge Directo:</strong> +56 2 2940 8800 · concierge@dermajournal.cl</p>
+          <p><strong>Convenios:</strong> Reembolso directo Isapres en prestaciones dermatológicas y reconstructivas.</p>
+        </div>
+      </div>
+
+      <form class="ed-form" id="edForm">
+        <div>
+          <label class="ed-label" for="efName">Nombre Completo</label>
+          <input class="ed-input" type="text" id="efName" placeholder="Ej. Constanza Valdivieso" required />
+        </div>
+        <div>
+          <label class="ed-label" for="efPhone">Teléfono o WhatsApp Privado</label>
+          <input class="ed-input" type="tel" id="efPhone" placeholder="+56 9 8234 5678" required />
+        </div>
+        <div>
+          <label class="ed-label" for="efDept">Unidad de Especialidad</label>
+          <select class="ed-select" id="efDept" required>
+            <option value="Dermatología Clínica & Mapeo Digital">Dermatología Clínica & Mapeo Digital</option>
+            <option value="Láser & Fotomedicina Avanzada">Láser & Fotomedicina Avanzada</option>
+            <option value="Cirugía Plástica & Reconstructiva Facial">Cirugía Plástica & Reconstructiva Facial</option>
+            <option value="Armonía Dento-Facial & Micro-Cerámica">Armonía Dento-Facial & Micro-Cerámica</option>
+          </select>
+        </div>
+        <div>
+          <label class="ed-label" for="efTime">Preferencia Horaria</label>
+          <select class="ed-select" id="efTime">
+            <option value="Mañana (09:00 – 13:00)">Mañana (09:00 – 13:00)</option>
+            <option value="Tarde (14:30 – 19:30)">Tarde (14:30 – 19:30)</option>
+            <option value="Agenda reservada acceso privado">Agenda reservada con acceso privado</option>
+          </select>
+        </div>
+        <div class="ed-full">
+          <label class="ed-label" for="efNotes">Nota Confidencial para el Especialista</label>
+          <textarea class="ed-textarea" id="efNotes" rows="2" placeholder="Describe brevemente el motivo de tu consulta..."></textarea>
+        </div>
+        <div class="ed-full">
+          <button type="submit" class="btn-editorial" style="width: 100%; justify-content: center">
+            Enviar Solicitud al Concierge Médico (Demostración Interactiva)
+          </button>
+        </div>
+        <div class="ed-feedback" id="edFeedback" role="status" aria-live="polite"></div>
+      </form>
+    </section>
+
+    <footer class="ed-footer">
+      <div>
+        <strong>DERMA JOURNAL · Instituto de Dermatología Clínica & Cirugía Plástica</strong><br />
+        Demostración Interactiva Estilo #08 (Editorial Healthcare) · KuyénDev Catálogo Salud.
+      </div>
+      <div>
+        <span>Edición demostrativa de portafolio · Contenidos y citas simuladas.</span>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Lightbox Editorial -->
+  <div class="ed-lightbox" id="edLightbox" role="dialog" aria-modal="true" aria-labelledby="edLbTitle">
+    <div class="ed-lb-inner">
+      <img src="" alt="" id="edLbImg" onerror="this.onerror=null;this.src='../../images/demos/assets/med/clinic-box-dental.svg';"/>
+      <div style="padding: 24px 28px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap">
+        <div style="max-width: 580px">
+          <h3 id="edLbTitle" style="font-family: var(--font-serif); font-size: 1.45rem; margin-bottom: 4px"></h3>
+          <p id="edLbDesc" style="font-size: 0.88rem; color: var(--ink-charcoal)"></p>
+        </div>
+        <button type="button" class="btn-editorial-outline" id="edLbClose">Cerrar Lámina [ESC]</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      // 1. Modo Lectura Nocturna Editorial
+      const editionToggle = document.getElementById('editionToggle');
+      editionToggle.addEventListener('click', () => {
+        const isDark = document.body.getAttribute('data-edition') === 'nocturne';
+        document.body.setAttribute('data-edition', isDark ? 'day' : 'nocturne');
+        editionToggle.textContent = isDark ? 'Alternar Modo Lectura Nocturna' : 'Volver a Papel Marfil Editorial';
+      });
+
+      // 2. Atlas Monográfico Interactivo
+      const planes = {
+        epidermis: {
+          kicker: 'ENSAYO CLÍNICO Nº 01 · FOTOMEDICINA AVANZADA',
+          title: 'Restauración Lumínica de la Epidermis y Lesiones Vasculares',
+          body: 'Mediante pulsos acústicos de picosegundos y luz láser vascular de 595 nm tratamos melasma refractario, rosácea pápulo-pustulosa y daño actínico respetando íntegramente el tejido circundante, sin descamación agresiva ni baja social prolongada.',
+          downtime: '24 a 48 horas (Eritema leve)',
+          lead: 'Dra. Antonia Aldunate · Dermatóloga',
+          img: 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1200&q=85'
+        },
+        dermis: {
+          kicker: 'ENSAYO CLÍNICO Nº 02 · BIOINGENIERÍA DÉRMICA',
+          title: 'Neocolagénesis Profunda & Redensificación Estructural',
+          body: 'Combinamos ultrasonido microfocalizado con visualización ecográfica en tiempo real y bioestimuladores de hidroxiapatita cálcica ultradiluida para devolver firmeza dérmica sin añadir volumen artificial.',
+          downtime: 'Inmediata reincorporación social',
+          lead: 'Dra. Antonia Aldunate · Dermatóloga',
+          img: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1200&q=85'
+        },
+        smas: {
+          kicker: 'ENSAYO CLÍNICO Nº 03 · CIRUGÍA DE PLANO PROFUNDO',
+          title: 'Reposicionamiento Anatómico SMAS Libre de Tensión',
+          body: 'La cirugía moderna de rejuvenecimiento facial actúa bajo la fascia muscular superficial (Deep-Plane), restaurando la posición juvenil de pómulos y línea mandibular sin estigmas quirúrgicos.',
+          downtime: '10 a 14 días de reposo guiado',
+          lead: 'Dr. Clemente Zegers · Cirujano Plástico',
+          img: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1200&q=85'
+        },
+        perioral: {
+          kicker: 'ENSAYO CLÍNICO Nº 04 · SOPORTE DENTO-FACIAL',
+          title: 'Rehabilitación de Dimensión Vertical & Sonrisa Natural',
+          body: 'El envejecimiento del tercio inferior suele originarse en el desgaste dental. Restauramos la altura oclusal y la textura translúcida del esmalte con micro-laminados cerámicos tallados bajo microscopio.',
+          downtime: '2 sesiones clínicas sin dolor',
+          lead: 'Dra. Isidora Matte · Rehabilitadora Oral',
+          img: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=85'
+        }
+      };
+
+      const monoBtns = document.querySelectorAll('.mono-btn');
+      const mKicker = document.getElementById('monoKicker');
+      const mTitle = document.getElementById('monoTitle');
+      const mBody = document.getElementById('monoBody');
+      const mDown = document.getElementById('monoDowntime');
+      const mLead = document.getElementById('monoLead');
+      const mImg = document.getElementById('monoImg');
+
+      monoBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          monoBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const d = planes[btn.getAttribute('data-plane')];
+          if (d) {
+            mKicker.textContent = d.kicker;
+            mTitle.textContent = d.title;
+            mBody.textContent = d.body;
+            mDown.textContent = d.downtime;
+            mLead.textContent = d.lead;
+            mImg.src = d.img;
+          }
+        });
+      });
+
+      // 3. Filtro del Índice Editorial
+      const filterBtns = document.querySelectorAll('.ed-filter-btn');
+      const rows = document.querySelectorAll('.ed-row');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const f = btn.getAttribute('data-filter');
+          rows.forEach(r => {
+            if (f === 'all' || r.getAttribute('data-cat') === f) {
+              r.classList.remove('hidden');
+            } else {
+              r.classList.add('hidden');
+            }
+          });
+        });
+      });
+
+      // 4. Lightbox
+      const lb = document.getElementById('edLightbox');
+      const lbImg = document.getElementById('edLbImg');
+      const lbTitle = document.getElementById('edLbTitle');
+      const lbDesc = document.getElementById('edLbDesc');
+      const lbClose = document.getElementById('edLbClose');
+
+      document.querySelectorAll('.curator-card').forEach(card => {
+        const open = () => {
+          lbImg.src = card.getAttribute('data-img');
+          lbImg.alt = card.getAttribute('data-title');
+          lbTitle.textContent = card.getAttribute('data-title');
+          lbDesc.textContent = card.getAttribute('data-desc');
+          lb.classList.add('open');
+        };
+        card.addEventListener('click', open);
+        card.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            open();
+          }
+        });
+      });
+
+      const closeLb = () => lb.classList.remove('open');
+      lbClose.addEventListener('click', closeLb);
+      lb.addEventListener('click', (e) => { if (e.target === lb) closeLb(); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLb(); });
+
+      // 5. Formulario Concierge
+      const form = document.getElementById('edForm');
+      const feedback = document.getElementById('edFeedback');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('efName').value;
+        const dept = document.getElementById('efDept').value;
+        feedback.style.display = 'block';
+        feedback.innerHTML = `✦ <strong>[Demostración Interactiva]</strong> Estimado/a <strong>${name}</strong>, su solicitud para <em>${dept}</em> ha sido recibida en nuestro escritorio Concierge. En un sitio real, nuestra coordinadora clínica se comunicaría de manera confidencial en menos de 2 horas.`;
+        form.reset();
+      });
+    })();
+  </script>
+  <script src="../../js/config/rubros.js"></script>
+  <script src="../../js/demo-viewer-bar.js"></script>
+</body>
+</html>

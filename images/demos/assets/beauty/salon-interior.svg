@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <defs>
+    <linearGradient id="sIntBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#18181B"/>
+      <stop offset="100%" stop-color="#09090B"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#sIntBg)"/>
+  <rect y="520" width="1200" height="280" fill="#27272A"/>
+  <!-- Espejo circular retroiluminado central -->
+  <circle cx="600" cy="320" r="180" fill="#27272A" stroke="#F59E0B" stroke-width="4" filter="drop-shadow(0 0 25px rgba(245,158,11,0.25))"/>
+  <circle cx="600" cy="320" r="160" fill="#18181B"/>
+  <!-- Tocador de mármol negro -->
+  <rect x="380" y="490" width="440" height="35" rx="6" fill="#09090B" stroke="#52525B" stroke-width="2"/>
+  
+  <!-- Sillón hidráulico de peluquería -->
+  <ellipse cx="600" cy="690" rx="110" ry="30" fill="#52525B"/>
+  <rect x="585" y="580" width="30" height="110" fill="#71717A"/>
+  <rect x="480" y="520" width="240" height="70" rx="16" fill="#18181B" stroke="#F59E0B" stroke-width="3"/>
+  <rect x="500" y="450" width="200" height="80" rx="12" fill="#18181B" stroke="#F59E0B" stroke-width="2"/>
+
+  <rect x="50" y="710" width="420" height="55" rx="10" fill="rgba(24,24,27,0.92)" stroke="#F59E0B" stroke-width="1"/>
+  <text x="75" y="744" fill="#F59E0B" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="16" font-weight="700">Estación de Estilismo Boutique &amp; Iluminación CRI 98</text>
+</svg>
