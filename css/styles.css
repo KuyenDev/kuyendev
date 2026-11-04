@@ -4669,3 +4669,138 @@ header.scrolled .nav-glass {
     align-items: stretch;
   }
 }
+
+/* ==========================================================================
+   PWA STANDALONE APP SPLASH SCREEN (EXCLUSIVO MODO APLICACIÓN)
+   IMPORTANTE: En navegación web normal (escritorio o móvil) permanece TOTALMENTE OCULTO (display: none).
+   Solo se activa si el script detecta 'standalone' (WebAPK / iOS Home Screen)
+   y añade la clase 'pwa-active' al elemento <html>.
+   ========================================================================== */
+.pwa-splash {
+  display: none !important;
+}
+
+html.pwa-active .pwa-splash {
+  display: flex !important;
+  position: fixed;
+  inset: 0;
+  z-index: 99999999;
+  background-color: var(--kd-bg-base, #080c14);
+  background-image: 
+    radial-gradient(circle at 50% 38%, rgba(79, 70, 229, 0.22) 0%, transparent 55%),
+    radial-gradient(circle at 50% 60%, rgba(6, 182, 212, 0.10) 0%, transparent 60%);
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.45s ease;
+  user-select: none;
+  -webkit-user-select: none;
+  pointer-events: all;
+}
+
+html.pwa-active .pwa-splash.is-hidden {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+.pwa-splash-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  animation: pwaSplashFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.pwa-splash-logo-wrap {
+  position: relative;
+  width: 88px;
+  height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.pwa-splash-logo {
+  width: 78px;
+  height: 78px;
+  object-fit: contain;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 0 20px rgba(79, 70, 229, 0.65));
+  animation: pwaLogoPulse 2.2s ease-in-out infinite alternate;
+}
+
+.pwa-splash-glow {
+  position: absolute;
+  inset: -14px;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.35) 0%, rgba(79, 70, 229, 0.2) 50%, transparent 70%);
+  border-radius: 50%;
+  z-index: 1;
+  filter: blur(14px);
+  animation: pwaGlowPulse 2.2s ease-in-out infinite alternate;
+}
+
+.pwa-splash-brand {
+  font-family: var(--kd-font-display, 'Plus Jakarta Sans', system-ui, sans-serif);
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.025em;
+  margin-bottom: 0.35rem;
+}
+
+.pwa-splash-tag {
+  font-family: var(--kd-font-body, 'Inter', system-ui, sans-serif);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--kd-cyan-light, #38bdf8);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 2.2rem;
+}
+
+.pwa-splash-loader {
+  width: 140px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+  overflow: hidden;
+  position: relative;
+}
+
+.pwa-splash-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 45%;
+  background: linear-gradient(90deg, #4f46e5, #06b6d4);
+  border-radius: 9999px;
+  animation: pwaBarIndeterminate 1.3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes pwaSplashFadeIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pwaLogoPulse {
+  0% { transform: scale(0.96); }
+  100% { transform: scale(1.04); }
+}
+
+@keyframes pwaGlowPulse {
+  0% { opacity: 0.45; transform: scale(0.85); }
+  100% { opacity: 0.85; transform: scale(1.2); }
+}
+
+@keyframes pwaBarIndeterminate {
+  0% { left: -50%; width: 25%; }
+  50% { left: 25%; width: 55%; }
+  100% { left: 100%; width: 25%; }
+}
