@@ -1,8 +1,8 @@
 {
   "id": "/?mode=pwa",
-  "name": "KuyénDev · Estudio Tecnológico",
+  "name": "KuyénDev",
   "short_name": "KuyénDev",
-  "description": "Desarrollo web a medida y soporte informático profesional en Osorno, Chile.",
+  "description": "KuyénDev · Estudio Tecnológico. Desarrollo web de alto rendimiento y soporte informático en Osorno, Chile.",
   "start_url": "/?mode=pwa",
   "scope": "/",
   "display": "standalone",

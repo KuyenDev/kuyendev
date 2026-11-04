@@ -131,8 +131,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }, {
         root: null,
-        rootMargin: '0px 0px -40px 0px',
-        threshold: 0.08
+        rootMargin: '50px 0px 50px 0px',
+        threshold: 0.01
       });
     }
 
@@ -507,65 +507,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (isPwaApp) {
     document.documentElement.classList.add('pwa-mode');
-
-    const splashAlreadyShown = sessionStorage.getItem('kd_pwa_splash_shown');
-    let splashEl = document.getElementById('pwaSplash');
-
-    if (!splashAlreadyShown) {
-      document.documentElement.classList.add('pwa-active');
-
-      // Si el elemento no existiera en el DOM, crearlo dinámicamente
-      if (!splashEl) {
-        splashEl = document.createElement('div');
-        splashEl.id = 'pwaSplash';
-        splashEl.className = 'pwa-splash';
-        splashEl.setAttribute('aria-hidden', 'true');
-
-        const isSubdir = window.location.pathname.includes('/pages/');
-        const logoPath = isSubdir ? '../images/logo-kuyendev-isotipo.webp' : 'images/logo-kuyendev-isotipo.webp';
-
-        splashEl.innerHTML = `
-          <div class="pwa-splash-content">
-            <div class="pwa-splash-logo-wrap">
-              <img src="${logoPath}" alt="KuyénDev" class="pwa-splash-logo" width="78" height="78">
-              <div class="pwa-splash-glow" aria-hidden="true"></div>
-            </div>
-            <div class="pwa-splash-brand">KuyénDev</div>
-            <div class="pwa-splash-tag">Estudio Tecnológico</div>
-            <div class="pwa-splash-loader" aria-hidden="true">
-              <div class="pwa-splash-bar"></div>
-            </div>
-          </div>
-        `;
-        document.body.prepend(splashEl);
-      }
-
-      // Ocultar la pantalla de carga con transición suave
-      const dismissSplash = () => {
-        if (!splashEl) return;
-        splashEl.classList.add('is-hidden');
-        sessionStorage.setItem('kd_pwa_splash_shown', 'true');
-        setTimeout(() => {
-          if (splashEl && splashEl.parentNode) {
-            splashEl.remove();
-          }
-          document.documentElement.classList.remove('pwa-active');
-        }, 500);
-      };
-
-      if (document.readyState === 'complete') {
-        setTimeout(dismissSplash, 650);
-      } else {
-        window.addEventListener('load', () => {
-          setTimeout(dismissSplash, 650);
-        });
-        setTimeout(dismissSplash, 1800);
-      }
-    } else if (splashEl) {
-      // Ya se mostró en esta sesión de la app: remover sin demora
-      splashEl.remove();
-      document.documentElement.classList.remove('pwa-active');
-    }
   }
 
   // 13. Registro del Service Worker para PWA

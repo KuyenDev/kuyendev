@@ -4,7 +4,7 @@
  * Provee funcionamiento offline, caché resiliente y soporte PWA nativo
  */
 
-const CACHE_NAME = 'kuyendev-pwa-v1.0.0';
+const CACHE_NAME = 'kuyendev-pwa-v1.0.1';
 
 // Recursos críticos para arranque instantáneo y navegación offline
 const PRECACHE_ASSETS = [
@@ -85,14 +85,14 @@ self.addEventListener('fetch', (event) => {
       })
       .catch(async () => {
         // En caso de corte de red u offline, responder desde la caché
-        const cachedResponse = await caches.match(event.request);
+        const cachedResponse = await caches.match(event.request, { ignoreSearch: true });
         if (cachedResponse) {
           return cachedResponse;
         }
 
         // Si la petición es para un documento HTML navegable y no hay caché exacta, servir index
         if (event.request.headers.get('accept')?.includes('text/html')) {
-          const fallback = await caches.match('/index.html');
+          const fallback = await caches.match('/index.html', { ignoreSearch: true });
           if (fallback) return fallback;
         }
       })

@@ -42,15 +42,15 @@
   <meta name="apple-mobile-web-app-title" content="KuyénDev">
   <meta name="application-name" content="KuyénDev">
 
-  <!-- Detección temprana de PWA (Evita parpadeos al abrir como App sin afectar la web) -->
+  <!-- Detección temprana de PWA -->
   <script>
     (function(){
       var isPwa = window.matchMedia('(display-mode: standalone)').matches ||
                   window.matchMedia('(display-mode: fullscreen)').matches ||
                   window.navigator.standalone === true ||
                   new URLSearchParams(window.location.search).get('mode') === 'pwa';
-      if (isPwa && !sessionStorage.getItem('kd_pwa_splash_shown')) {
-        document.documentElement.classList.add('pwa-active');
+      if (isPwa) {
+        document.documentElement.classList.add('pwa-mode');
       }
     })();
   </script>
@@ -102,24 +102,6 @@
   </script>
 </head>
 <body>
-
-  <!-- Pantalla de Carga Exclusiva para PWA (SOLO se muestra al abrir la app instalada en móvil, NUNCA en navegador web) -->
-  <div id="pwaSplash" class="pwa-splash" aria-hidden="true">
-    <div class="pwa-splash-content">
-      <div class="pwa-splash-logo-wrap">
-        <picture>
-          <source srcset="images/logo-kuyendev-isotipo.webp" type="image/webp">
-          <img src="images/logo-kuyendev-isotipo.png" alt="KuyénDev" class="pwa-splash-logo" width="78" height="78">
-        </picture>
-        <div class="pwa-splash-glow" aria-hidden="true"></div>
-      </div>
-      <div class="pwa-splash-brand">KuyénDev</div>
-      <div class="pwa-splash-tag">Estudio Tecnológico</div>
-      <div class="pwa-splash-loader" aria-hidden="true">
-        <div class="pwa-splash-bar"></div>
-      </div>
-    </div>
-  </div>
 
   <!-- Barra Superior de Progreso de Lectura -->
   <div id="scrollProgressBar" class="scroll-progress-bar" aria-hidden="true"></div>
@@ -628,7 +610,7 @@
         </div>
 
         <!-- SHOWCASE DE SITIOS WEB DE EJEMPLO ORGANIZADOS POR RUBRO -->
-        <div id="portafolio-rubros" class="reveal-fade">
+        <div id="portafolio-rubros">
           <div class="section-header text-center" style="margin-bottom: 2rem">
             <span class="section-tag tag-cyan mx-auto">Portafolio & Demostraciones por Rubro</span>
             <h2 class="section-title" style="font-size: clamp(1.8rem, 3.5vw, 2.5rem)">Explora Sitios Web de Ejemplo Creados por KuyénDev</h2>
@@ -638,7 +620,7 @@
           </div>
 
           <!-- CONTENEDOR DINÁMICO DE CARPETAS POR RUBRO -->
-          <div class="rubro-folder-explorer-target reveal-fade"></div>
+          <div class="rubro-folder-explorer-target"></div>
         </div>
 
         <div style="text-align: center; margin-top: 3.5rem">
