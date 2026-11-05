@@ -1,0 +1,59 @@
+/* ==========================================================================
+   KUYÉNDEV DESIGN SYSTEM · PESTAÑAS Y FILTROS INTERACTIVOS (TABS)
+   ========================================================================== */
+
+.filter-tabs {
+  display: flex;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.filter-btn,
+.filter-tab-btn {
+  padding: 0.6rem 1.25rem;
+  border-radius: var(--kd-radius-full);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--kd-text-secondary);
+  background: var(--kd-bg-surface-elevated);
+  border: 1px solid var(--kd-border-subtle);
+  transition: all var(--kd-ease-fast);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.filter-btn:hover,
+.filter-tab-btn:hover {
+  color: var(--kd-text-primary);
+  border-color: var(--kd-border-medium);
+}
+
+.filter-btn.is-active,
+.filter-tab-btn.is-active {
+  background: var(--kd-cyan);
+  color: #080F1C;
+  border-color: var(--kd-cyan);
+  box-shadow: 0 4px 14px var(--kd-cyan-glow);
+  font-weight: 700;
+}
+
+/* Optimización vertical para páginas editoriales y noticias */
+.page-hero-editorial {
+  padding-bottom: clamp(1rem, 1.8vw, 1.5rem);
+}
+
+.page-hero-editorial .filter-tabs {
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.news-section-editorial {
+  padding-top: 1rem;
+  padding-bottom: clamp(2.5rem, 4vw, 4rem);
+}
+

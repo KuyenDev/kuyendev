@@ -1,0 +1,54 @@
+/* ==========================================================================
+   KUYÉNDEV DESIGN SYSTEM · MODELO WEB COMO SERVICIO (WaaS)
+   ========================================================================== */
+
+.waas-model-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.waas-model-grid:last-child {
+  margin-bottom: 0;
+}
+
+.waas-feature-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin: 1.5rem 0;
+}
+
+.waas-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.925rem;
+  color: var(--kd-text-secondary);
+}
+
+.waas-feature-item svg {
+  width: 18px;
+  height: 18px;
+  color: var(--kd-emerald);
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+@media (max-width: 1024px) {
+  .waas-model-grid {
+    grid-template-columns: 1fr;
+    max-width: 580px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .waas-model-grid {
+    max-width: 100%;
+  }
+}
+

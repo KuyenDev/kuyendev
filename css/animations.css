@@ -1,0 +1,102 @@
+/* ==========================================================================
+   KUYÉNDEV DESIGN SYSTEM · ANIMACIONES Y MICROINTERACCIONES
+   ========================================================================== */
+
+/* Keyframes de Fondo e Iluminación */
+@keyframes aurora-drift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-18px, 12px, 0) scale(1.03);
+  }
+  100% {
+    transform: translate3d(14px, -14px, 0) scale(1.01);
+  }
+}
+
+/* Flotación suave para chips de contexto */
+@keyframes floatSlow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* Anillo de pulso para estado operativo */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.7);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+/* Spinner de precarga en vivo */
+@keyframes kd-live-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Sistema de Revelado Progresivo con Scroll */
+.reveal-fade {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s var(--kd-ease-smooth), transform 0.6s var(--kd-ease-smooth);
+}
+
+.reveal-fade.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.delay-100 {
+  transition-delay: 100ms;
+}
+
+.delay-150 {
+  transition-delay: 150ms;
+}
+
+.delay-200 {
+  transition-delay: 200ms;
+}
+
+.delay-300 {
+  transition-delay: 300ms;
+}
+
+/* Respeto estricto a preferencias de reducción de movimiento (A11y WCAG) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .mesh-bg,
+  .chip-top-right,
+  .chip-bottom-left,
+  .pulse-dot::after {
+    animation: none !important;
+  }
+
+  .reveal-fade,
+  .btn-kd,
+  .card-kd {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+

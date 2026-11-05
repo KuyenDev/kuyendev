@@ -1,0 +1,408 @@
+/* ==========================================================================
+   KUYÉNDEV DESIGN SYSTEM · NAVEGACIÓN PRINCIPAL (AURORA SPRING DOCK)
+   ========================================================================== */
+
+body > header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: var(--kd-z-header);
+  padding: 0.75rem 0;
+  transition: padding var(--kd-ease-normal);
+}
+
+.article-header {
+  position: static;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.nav-glass {
+  background: rgba(8, 15, 28, 0.78);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--kd-radius-full);
+  margin: 0 auto;
+  padding: 0.45rem 0.65rem 0.45rem 1.15rem;
+  width: 100%;
+  max-width: 1240px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), 0 0 32px rgba(39, 199, 212, 0.14);
+  position: relative;
+  transition: all var(--kd-ease-normal);
+}
+
+body > header.scrolled .nav-glass,
+header.scrolled .nav-glass {
+  background: rgba(8, 15, 28, 0.94);
+  border-color: rgba(39, 199, 212, 0.35);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.65), 0 0 36px rgba(39, 199, 212, 0.22);
+}
+
+/* Marca / Logo */
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--kd-font-display);
+  font-weight: 800;
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.nav-brand-logo {
+  height: 28px;
+  width: auto;
+  aspect-ratio: 640 / 200;
+  display: block;
+  transition: filter var(--kd-ease-fast), transform var(--kd-ease-fast);
+}
+
+.nav-brand:hover .nav-brand-logo {
+  filter: drop-shadow(0 0 12px rgba(39, 199, 212, 0.6));
+  transform: scale(1.02);
+}
+
+/* Dock Container Central (Aurora Spring Capsule Dock) */
+.nav-dock-container {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(14, 28, 44, 0.55);
+  padding: 0.25rem 0.35rem;
+  border-radius: var(--kd-radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.04);
+}
+
+/* Ítem del Dock con Animación Resorte */
+.nav-dock-item {
+  height: 40px;
+  min-width: 40px;
+  max-width: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 10px;
+  gap: 0.55rem;
+  border-radius: 999px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-decoration: none;
+  color: var(--kd-text-muted);
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  position: relative;
+  transition:
+    max-width 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    color 0.25s ease;
+}
+
+.nav-dock-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  stroke: currentColor;
+  stroke-width: 2;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), stroke 0.25s ease;
+}
+
+.nav-dock-label {
+  opacity: 0;
+  max-width: 0;
+  transform: translateX(-6px);
+  font-family: var(--kd-font-display);
+  font-size: 0.825rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: #f8fafc;
+  pointer-events: none;
+  margin: 0;
+  white-space: nowrap;
+  transition:
+    opacity 0.22s ease,
+    max-width 0.38s ease,
+    transform 0.3s ease;
+}
+
+/* Hover: Se expande con resorte suave y resplandor cian */
+.nav-dock-item:hover {
+  max-width: 200px;
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(39, 199, 212, 0.35);
+  box-shadow: 0 0 20px rgba(39, 199, 212, 0.2);
+  color: #ffffff;
+}
+
+.nav-dock-item:hover .nav-dock-icon {
+  transform: scale(1.1);
+  stroke: var(--kd-cyan-light);
+}
+
+.nav-dock-item:hover .nav-dock-label {
+  opacity: 1;
+  max-width: 140px;
+  transform: translateX(0);
+}
+
+/* Foco accesible por teclado */
+.nav-dock-item:focus-visible {
+  outline: 2px solid var(--kd-cyan);
+  outline-offset: 2px;
+  max-width: 200px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.nav-dock-item:focus-visible .nav-dock-label {
+  opacity: 1;
+  max-width: 140px;
+  transform: translateX(0);
+}
+
+/* Active State: Expandido con gradiente Aurora */
+.nav-dock-item.is-active {
+  max-width: 200px;
+  background: linear-gradient(135deg, rgba(39, 199, 212, 0.2) 0%, rgba(112, 88, 184, 0.16) 100%);
+  border-color: rgba(39, 199, 212, 0.45);
+  box-shadow: 0 0 20px rgba(39, 199, 212, 0.22);
+  color: #ffffff;
+}
+
+.nav-dock-item.is-active .nav-dock-icon {
+  stroke: var(--kd-cyan-light);
+  transform: scale(1.05);
+}
+
+.nav-dock-item.is-active .nav-dock-label {
+  opacity: 1;
+  max-width: 140px;
+  transform: translateX(0);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Escritorio (>= 1080px): Etiquetas visibles con resorte */
+@media (min-width: 1080px) {
+  .nav-dock-container {
+    gap: 0.25rem;
+    padding: 0.25rem 0.35rem;
+  }
+
+  .nav-dock-item {
+    height: 38px;
+    min-width: auto;
+    max-width: none;
+    padding: 0 11px;
+    gap: 0.45rem;
+  }
+
+  .nav-dock-label {
+    opacity: 0.88;
+    max-width: none;
+    transform: none;
+    display: inline-block;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--kd-text-secondary);
+  }
+
+  .nav-dock-item:hover {
+    max-width: none;
+    background: rgba(255, 255, 255, 0.09);
+    border-color: rgba(39, 199, 212, 0.3);
+    box-shadow: 0 0 16px rgba(39, 199, 212, 0.18);
+  }
+
+  .nav-dock-item:hover .nav-dock-label {
+    opacity: 1;
+    color: #ffffff;
+  }
+
+  .nav-dock-item.is-active {
+    max-width: none;
+  }
+
+  .nav-dock-item.is-active .nav-dock-label {
+    opacity: 1;
+    color: #ffffff;
+    font-weight: 600;
+  }
+}
+
+/* Acciones de Navegación Derecha */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Botón Circular Blanco Luminoso (Chat / Contacto) */
+.nav-action-chat-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #080f1c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 4px 18px rgba(255, 255, 255, 0.35), 0 0 20px rgba(39, 199, 212, 0.25);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease, background 0.2s ease;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.nav-action-chat-circle:hover {
+  transform: scale(1.1) translateY(-2px);
+  background: #f8fafc;
+  color: #080f1c;
+  box-shadow: 0 8px 28px rgba(255, 255, 255, 0.6), 0 0 32px rgba(39, 199, 212, 0.45);
+}
+
+.nav-action-chat-circle svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+  transition: transform 0.25s ease;
+}
+
+.nav-action-chat-circle:hover svg {
+  transform: scale(1.08);
+}
+
+/* Botón Hamburguesa Móvil */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 38px;
+  height: 38px;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--kd-border-subtle);
+  border-radius: var(--kd-radius-sm);
+  cursor: pointer;
+  z-index: var(--kd-z-drawer);
+  transition: background var(--kd-ease-fast);
+}
+
+.hamburger:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.hamburger span {
+  width: 100%;
+  height: 2px;
+  background-color: var(--kd-text-primary);
+  border-radius: 2px;
+  transition: transform var(--kd-ease-normal), opacity var(--kd-ease-normal);
+}
+
+.hamburger.is-active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.is-active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.is-active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Breakpoint para Móvil / Tablet */
+@media (max-width: 960px) {
+  body > header {
+    padding: 0.5rem 0;
+    padding-top: max(0.4rem, env(safe-area-inset-top, 0.4rem));
+  }
+
+  header .container {
+    padding-left: clamp(0.75rem, 3vw, 1.25rem);
+    padding-right: clamp(0.75rem, 3vw, 1.25rem);
+  }
+
+  .nav-glass {
+    padding: 0.35rem 0.65rem 0.35rem 0.85rem;
+    border-radius: var(--kd-radius-full);
+  }
+
+  .nav-brand-logo {
+    height: clamp(23px, 5.5vw, 26px);
+    max-width: 135px;
+  }
+
+  .nav-actions {
+    gap: 0.5rem;
+  }
+
+  .nav-action-chat-circle {
+    width: 38px;
+    height: 38px;
+  }
+
+  .nav-action-chat-circle svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .hamburger {
+    width: 38px;
+    height: 38px;
+    padding: 8px 7px;
+    display: flex;
+  }
+
+  .nav-dock-container,
+  .nav-actions .nav-cta-btn {
+    display: none;
+  }
+}
+
+@media (max-width: 360px) {
+  header .container {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  .nav-glass {
+    padding: 0.3rem 0.5rem 0.3rem 0.65rem;
+  }
+
+  .nav-brand-logo {
+    height: 22px;
+    max-width: 115px;
+  }
+
+  .nav-actions {
+    gap: 0.35rem;
+  }
+
+  .nav-action-chat-circle {
+    width: 35px;
+    height: 35px;
+  }
+
+  .nav-action-chat-circle svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .hamburger {
+    width: 35px;
+    height: 35px;
+    padding: 7px 6px;
+  }
+}
+

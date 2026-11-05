@@ -12,7 +12,7 @@ ERRORS=0
 
 # 1. Verificar archivos esenciales
 echo "📁 1. Archivos Core & Configuración:"
-for file in "index.html" "css/styles.css" "js/config/plans.js" "js/script.js" "sitemap.xml" "robots.txt" "CNAME" "icons/favicon.ico"; do
+for file in "index.html" "css/main.css" "css/styles.css" "js/config/plans.js" "js/script.js" "sitemap.xml" "robots.txt" "CNAME" "assets/icons/favicon.ico"; do
   if [ -f "$file" ]; then
     echo "   ✅ $file presente"
   else
@@ -63,8 +63,8 @@ for html in "index.html" \
             "pages/content/bertoldo_hofmann.html" \
             "pages/content/lanzamiento-desarrollo-web-planes-mensuales.html" \
             "pages/content/kuyendev-3-0-nueva-etapa-digital.html"; do
-  if grep -q "styles.css" "$html" && grep -q "script.js" "$html"; then
-    echo "   ✅ $html enlaza styles.css y script.js"
+  if (grep -q "main.css" "$html" || grep -q "styles.css" "$html") && grep -q "script.js" "$html"; then
+    echo "   ✅ $html enlaza CSS y script.js"
   else
     echo "   ⚠️ ALERTA: Verificar enlaces en $html"
     ERRORS=$((ERRORS + 1))

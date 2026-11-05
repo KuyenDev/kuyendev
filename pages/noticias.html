@@ -18,20 +18,20 @@
   <meta property="og:url" content="https://kuyendev.cl/pages/noticias.html">
   <meta property="og:title" content="Noticias & Publicaciones | KuyénDev">
   <meta property="og:description" content="Casos reales documentados, anuncios de servicios y novedades de KuyénDev en Osorno, Chile.">
-  <meta property="og:image" content="https://kuyendev.cl/images/kuyendev-og.jpg">
+  <meta property="og:image" content="https://kuyendev.cl/assets/images/site/kuyendev-og.jpg">
   <meta property="og:locale" content="es_CL">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Noticias & Publicaciones | KuyénDev">
   <meta name="twitter:description" content="Novedades, casos reales y anuncios oficiales de KuyénDev en Osorno.">
-  <meta name="twitter:image" content="https://kuyendev.cl/images/kuyendev-og.jpg">
+  <meta name="twitter:image" content="https://kuyendev.cl/assets/images/site/kuyendev-og.jpg">
 
   <!-- Favicons -->
-  <link rel="icon" type="image/x-icon" href="../icons/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="../icons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../icons/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../icons/apple-touch-icon.png">
+  <link rel="icon" type="image/x-icon" href="../assets/icons/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/icons/apple-touch-icon.png">
 
   <!-- Progressive Web App (PWA) & Manifest -->
   <link rel="manifest" href="../manifest.json">
@@ -48,7 +48,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Hoja de Estilos del Design System v4.0 -->
-  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/main.css">
 
   <!-- Schema.org Datos Estructurados JSON-LD -->
   <script type="application/ld+json">
@@ -96,15 +96,15 @@
       <nav id="mainNav" class="nav-glass">
         <a href="../index.html" class="nav-brand" aria-label="KuyénDev Inicio">
           <picture>
-            <source srcset="../images/logo-kuyendev-horizontal.webp" type="image/webp">
-            <img src="../images/logo-kuyendev-horizontal.png" alt="KuyénDev" class="nav-brand-logo" width="160" height="32">
+            <source srcset="../assets/logos/logo-kuyendev-horizontal.webp" type="image/webp">
+            <img src="../assets/logos/logo-kuyendev-horizontal.png" alt="KuyénDev" class="nav-brand-logo" width="160" height="50">
           </picture>
         </a>
 
         <!-- DOCK DE NAVEGACIÓN RESORTE (AURORA CAPSULE DOCK) -->
-        <div class="nav-dock-container" role="menubar" aria-label="Navegación principal">
+        <div class="nav-dock-container" aria-label="Secciones del sitio">
           <!-- 01. Inicio -->
-          <a href="../index.html" class="nav-dock-item" role="menuitem" title="Inicio">
+          <a href="../index.html" class="nav-dock-item" title="Inicio">
             <svg class="nav-dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/>
             </svg>
@@ -112,7 +112,7 @@
           </a>
 
           <!-- 02. Desarrollo Web -->
-          <a href="desarrollo-web.html" class="nav-dock-item" role="menuitem" title="Desarrollo Web Profesional">
+          <a href="desarrollo-web.html" class="nav-dock-item" title="Desarrollo Web Profesional">
             <svg class="nav-dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
             </svg>
@@ -120,7 +120,7 @@
           </a>
 
           <!-- 03. Planes Mensuales -->
-          <a href="planes-web.html" class="nav-dock-item" role="menuitem" title="Planes Mensuales">
+          <a href="planes-web.html" class="nav-dock-item" title="Planes Mensuales">
             <svg class="nav-dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
             </svg>
@@ -128,7 +128,7 @@
           </a>
 
           <!-- 04. Soporte PC & Sistemas -->
-          <a href="servicios-informaticos.html" class="nav-dock-item" role="menuitem" title="Servicios Informáticos">
+          <a href="servicios-informaticos.html" class="nav-dock-item" title="Servicios Informáticos">
             <svg class="nav-dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
             </svg>
@@ -136,7 +136,7 @@
           </a>
 
           <!-- 05. Empresas & Colegios -->
-          <a href="empresas.html" class="nav-dock-item" role="menuitem" title="Empresas & Colegios">
+          <a href="empresas.html" class="nav-dock-item" title="Empresas & Colegios">
             <svg class="nav-dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
             </svg>
@@ -144,7 +144,7 @@
           </a>
 
           <!-- 06. Noticias (Activo) -->
-          <a href="noticias.html" class="nav-dock-item is-active" role="menuitem" aria-current="page" title="Noticias & Artículos">
+          <a href="noticias.html" class="nav-dock-item is-active" aria-current="page" title="Noticias & Artículos">
             <svg class="nav-dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M19 20H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v1m2 13a2 2 0 0 1-2-2V7m2 13a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
             </svg>
@@ -152,7 +152,7 @@
           </a>
 
           <!-- 07. Nosotros -->
-          <a href="nosotros.html" class="nav-dock-item" role="menuitem" title="Sobre KuyénDev">
+          <a href="nosotros.html" class="nav-dock-item" title="Sobre KuyénDev">
             <svg class="nav-dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
             </svg>
@@ -302,9 +302,9 @@
           <article class="project-card project-card-item project-card-featured reveal-fade" data-category="novedades">
             <div class="project-card-thumb">
               <picture>
-                <source srcset="../images/noticias/pwa-web-apps-kuyendev.webp" type="image/webp">
-                <source srcset="../images/noticias/pwa-web-apps-kuyendev.svg" type="image/svg+xml">
-                <img src="../images/noticias/pwa-web-apps-kuyendev.png" alt="Tecnología PWA para sitios web de KuyénDev: web instalable como aplicación en celular" width="600" height="330" loading="eager" style="object-fit: cover; width: 100%; height: 100%;">
+                <source srcset="../assets/images/noticias/pwa-web-apps-kuyendev.webp" type="image/webp">
+                <source srcset="../assets/images/noticias/pwa-web-apps-kuyendev.svg" type="image/svg+xml">
+                <img src="../assets/images/noticias/pwa-web-apps-kuyendev.png" alt="Tecnología PWA para sitios web de KuyénDev: web instalable como aplicación en celular" width="600" height="330" loading="eager" style="object-fit: cover; width: 100%; height: 100%;">
               </picture>
               <div class="project-card-badge-wrap">
                 <span class="badge-kd badge-kd-indigo" style="box-shadow: 0 0 16px rgba(79,70,229,0.35)">
@@ -337,9 +337,9 @@
           <article class="project-card project-card-item reveal-fade delay-100" data-category="novedades">
             <div class="project-card-thumb">
               <picture>
-                <source srcset="../images/noticias/catalogo-demos-interactivas.webp" type="image/webp">
-                <source srcset="../images/noticias/catalogo-demos-interactivas.svg" type="image/svg+xml">
-                <img src="../images/noticias/catalogo-demos-interactivas.png" alt="Catálogo interactivo con 60 demostraciones web reales en código nativo de KuyénDev" width="600" height="330" loading="eager" style="object-fit: cover; width: 100%; height: 100%;">
+                <source srcset="../assets/images/noticias/catalogo-demos-interactivas.webp" type="image/webp">
+                <source srcset="../assets/images/noticias/catalogo-demos-interactivas.svg" type="image/svg+xml">
+                <img src="../assets/images/noticias/catalogo-demos-interactivas.png" alt="Catálogo interactivo con 60 demostraciones web reales en código nativo de KuyénDev" width="600" height="330" loading="eager" style="object-fit: cover; width: 100%; height: 100%;">
               </picture>
               <div class="project-card-badge-wrap">
                 <span class="badge-kd badge-kd-cyan" style="box-shadow: 0 0 16px rgba(39,199,212,0.35)">
@@ -372,8 +372,8 @@
           <article class="project-card project-card-item reveal-fade delay-100" data-category="novedades">
             <div class="project-card-thumb">
               <picture>
-                <source srcset="../images/noticias/kuyendev-3-0-lanzamiento.webp" type="image/webp">
-                <img src="../images/noticias/kuyendev-3-0-lanzamiento.jpg" alt="Lanzamiento oficial de KuyénDev 3.0: nueva web y desarrollo de páginas web profesionales" width="600" height="330" loading="eager">
+                <source srcset="../assets/images/noticias/kuyendev-3-0-lanzamiento.webp" type="image/webp">
+                <img src="../assets/images/noticias/kuyendev-3-0-lanzamiento.jpg" alt="Lanzamiento oficial de KuyénDev 3.0: nueva web y desarrollo de páginas web profesionales" width="600" height="330" loading="eager">
               </picture>
               <div class="project-card-badge-wrap">
                 <span class="badge-kd badge-kd-indigo">
@@ -405,8 +405,8 @@
           <article class="project-card project-card-item reveal-fade delay-100" data-category="novedades">
             <div class="project-card-thumb">
               <picture>
-                <source srcset="../images/noticias/lanzamiento-desarrollo-web.webp" type="image/webp">
-                <img src="../images/noticias/lanzamiento-desarrollo-web.jpg" alt="KuyénDev amplía sus servicios con desarrollo web y planes mensuales" width="600" height="330" loading="eager">
+                <source srcset="../assets/images/noticias/lanzamiento-desarrollo-web.webp" type="image/webp">
+                <img src="../assets/images/noticias/lanzamiento-desarrollo-web.jpg" alt="KuyénDev amplía sus servicios con desarrollo web y planes mensuales" width="600" height="330" loading="eager">
               </picture>
               <div class="project-card-badge-wrap">
                 <span class="badge-kd badge-kd-cyan">Novedad Oficial</span>
@@ -436,8 +436,8 @@
           <article class="project-card project-card-item reveal-fade delay-200" data-category="casos">
             <div class="project-card-thumb">
               <picture>
-                <source srcset="content/BertoldoHofmannKahler/BHKportada.webp" type="image/webp">
-                <img src="content/BertoldoHofmannKahler/BHKportada.png" alt="Colegio Bertoldo Hofmann Kahler optimizado por KuyénDev" width="600" height="330" loading="lazy">
+                <source srcset="../assets/images/casos/bertoldo-hofmann/BHKportada.webp" type="image/webp">
+                <img src="../assets/images/casos/bertoldo-hofmann/BHKportada.png" alt="Colegio Bertoldo Hofmann Kahler optimizado por KuyénDev" width="600" height="330" loading="lazy">
               </picture>
               <div class="project-card-badge-wrap">
                 <span class="badge-kd badge-kd-emerald">Caso Real Verificado</span>
@@ -521,8 +521,8 @@
       <div class="footer-grid">
         <div>
           <picture>
-            <source srcset="../images/logo-kuyendev-horizontal.webp" type="image/webp">
-            <img src="../images/logo-kuyendev-horizontal.png" alt="KuyénDev" width="160" height="32" loading="lazy">
+            <source srcset="../assets/logos/logo-kuyendev-horizontal.webp" type="image/webp">
+            <img src="../assets/logos/logo-kuyendev-horizontal.png" alt="KuyénDev" width="160" height="50" loading="lazy">
           </picture>
           <p class="footer-brand-desc">
             Estudio tecnológico especializado en desarrollo web profesional y soporte de sistemas en Osorno, Chile y asistencia digital remota.
@@ -533,7 +533,7 @@
         </div>
 
         <div>
-          <h4 class="footer-col-title">Desarrollo Web</h4>
+          <h3 class="footer-col-title">Desarrollo Web</h3>
           <ul class="footer-nav">
             <li><a href="desarrollo-web.html">Servicio de Páginas Web</a></li>
             <li><a href="planes-web.html">Planes Mensuales</a></li>
@@ -542,7 +542,7 @@
         </div>
 
         <div>
-          <h4 class="footer-col-title">Servicios Informáticos</h4>
+          <h3 class="footer-col-title">Servicios Informáticos</h3>
           <ul class="footer-nav">
             <li><a href="servicios-informaticos.html">Formateo & Sistemas</a></li>
             <li><a href="servicios-informaticos.html#asistente">¿Qué servicio necesito?</a></li>
@@ -552,7 +552,7 @@
         </div>
 
         <div>
-          <h4 class="footer-col-title">Estudio & Contacto</h4>
+          <h3 class="footer-col-title">Estudio & Contacto</h3>
           <ul class="footer-nav">
             <li><a href="nosotros.html">Sobre KuyénDev</a></li>
             <li><a href="noticias.html">Noticias & Publicaciones</a></li>

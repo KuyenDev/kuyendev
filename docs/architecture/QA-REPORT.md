@@ -37,9 +37,9 @@ Checked 407 internal links across 12 HTML files.
 Checked 79 images across 12 HTML files.
 ✅ Zero broken image references found! All images exist.
 ```
-- Se comprobaron todas las referencias a logotipos WebP y PNG (`images/logo-kuyendev-horizontal.webp`, `images/logo-kuyendev-isotipo.webp`).
+- Se comprobaron todas las referencias a logotipos WebP y PNG (`assets/logos/logo-kuyendev-horizontal.webp`, `assets/logos/logo-kuyendev-isotipo.webp`).
 - Se verificaron los favicons en `icons/` (32x32, 16x16, apple-touch-icon y `.ico`).
-- Se comprobaron las fotografías del caso institucional en `pages/content/BertoldoHofmannKahler/` (`BHKportada.webp`, `BHKcolegio.png`, `BHKscreenshot.png`).
+- Se comprobaron las fotografías del caso institucional en `assets/images/casos/bertoldo-hofmann/` (`BHKportada.webp`, `BHKcolegio.png`, `BHKscreenshot.png`).
 
 ---
 

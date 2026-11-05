@@ -1,0 +1,372 @@
+/* ==========================================================================
+   KUYÉNDEV DESIGN SYSTEM · STUDIO HERO & FRANJA DE BENEFICIOS (PORTADA)
+   ========================================================================== */
+
+.studio-hero {
+  position: relative;
+  padding-top: calc(76px + clamp(1rem, 2vw, 1.85rem));
+  padding-bottom: clamp(1.75rem, 2.8vw, 2.75rem);
+  overflow: visible;
+}
+
+.studio-hero-grid {
+  display: grid;
+  grid-template-columns: 1.08fr 1fr;
+  align-items: center;
+  gap: clamp(1.75rem, 3vw, 3.25rem);
+}
+
+.studio-hero-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  max-width: 580px;
+}
+
+.studio-hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--kd-radius-full);
+  background: rgba(39, 199, 212, 0.08);
+  color: var(--kd-cyan-light);
+  border: 1px solid rgba(39, 199, 212, 0.22);
+  box-shadow: 0 2px 12px rgba(39, 199, 212, 0.08);
+  margin-bottom: clamp(0.65rem, 1vw, 0.95rem);
+}
+
+.studio-hero-title {
+  font-family: var(--kd-font-display);
+  font-size: clamp(1.75rem, 2.75vw, 2.5rem);
+  line-height: 1.18;
+  letter-spacing: -0.028em;
+  font-weight: 800;
+  color: var(--kd-text-primary);
+  margin-bottom: clamp(0.7rem, 1.1vw, 1rem);
+  text-wrap: balance;
+  overflow-wrap: break-word;
+  word-break: normal;
+  max-width: 100%;
+}
+
+.studio-hero-desc {
+  font-size: clamp(0.95rem, 1.12vw, 1.06rem);
+  color: var(--kd-text-secondary);
+  line-height: 1.58;
+  max-width: 520px;
+  margin-bottom: clamp(1.15rem, 1.8vw, 1.5rem);
+  text-wrap: pretty;
+  overflow-wrap: break-word;
+}
+
+.studio-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+  margin-bottom: clamp(1.15rem, 1.8vw, 1.5rem);
+}
+
+.studio-hero-trust {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(0.75rem, 1.5vw, 1.25rem);
+  padding-top: clamp(0.85rem, 1.2vw, 1.15rem);
+  border-top: 1px solid var(--kd-border-subtle);
+  font-size: 0.82rem;
+  color: var(--kd-text-muted);
+  width: 100%;
+}
+
+.studio-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.studio-trust-item svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  stroke: var(--kd-cyan);
+}
+
+/* Columna Visual Cinematográfica */
+.studio-hero-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: var(--kd-radius-xl);
+  padding: 0.5rem 0.25rem;
+  box-sizing: border-box;
+}
+
+.studio-visual-frame {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  border-radius: var(--kd-radius-xl);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: var(--kd-bg-surface-elevated);
+  box-shadow:
+    0 20px 48px -10px rgba(0, 0, 0, 0.75),
+    0 0 32px -8px rgba(39, 199, 212, 0.16);
+  transition: transform var(--kd-ease-smooth), box-shadow var(--kd-ease-smooth);
+}
+
+.studio-visual-frame:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 28px 58px -10px rgba(0, 0, 0, 0.85),
+    0 0 42px -5px rgba(39, 199, 212, 0.22);
+}
+
+.studio-visual-img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+}
+
+.studio-visual-frame.aspect-4-3 .studio-visual-img {
+  aspect-ratio: 4 / 3;
+}
+
+/* Halo ambiental detrás de la imagen */
+.studio-ambient-glow {
+  position: absolute;
+  inset: 0;
+  max-width: 100%;
+  background: radial-gradient(circle at center, rgba(39, 199, 212, 0.18) 0%, rgba(79, 70, 229, 0.12) 45%, transparent 70%);
+  filter: blur(28px);
+  z-index: var(--kd-z-negative);
+  pointer-events: none;
+}
+
+/* Tarjetas Flotantes de Contexto (Glass Chips) */
+.studio-floating-chip {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.55rem 0.95rem;
+  border-radius: var(--kd-radius-lg);
+  background: rgba(14, 20, 34, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.55);
+  font-size: 0.825rem;
+  color: var(--kd-text-primary);
+  z-index: var(--kd-z-elevated);
+  transition: transform var(--kd-ease-normal);
+  max-width: 90%;
+}
+
+.studio-floating-chip:hover {
+  transform: translateY(-2px);
+  border-color: rgba(39, 199, 212, 0.4);
+}
+
+.chip-icon-box {
+  width: 26px;
+  height: 26px;
+  border-radius: var(--kd-radius-sm);
+  background: rgba(39, 199, 212, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--kd-cyan-light);
+}
+
+.chip-icon-box.icon-indigo {
+  background: rgba(79, 70, 229, 0.18);
+  color: var(--kd-indigo-light);
+}
+
+.chip-icon-box.icon-emerald {
+  background: rgba(16, 185, 129, 0.18);
+  color: var(--kd-emerald-light);
+}
+
+.chip-title {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.chip-sub {
+  font-size: 0.72rem;
+  color: var(--kd-text-secondary);
+  line-height: 1.2;
+}
+
+.chip-top-right {
+  top: 4px;
+  right: -8px;
+  animation: floatSlow 7s ease-in-out infinite;
+}
+
+.chip-bottom-left {
+  bottom: 8px;
+  left: -8px;
+  animation: floatSlow 7s ease-in-out infinite 3.5s;
+}
+
+/* Franja de Beneficios y Garantías Técnicas (Post-Hero) */
+.studio-strip {
+  border-top: 1px solid var(--kd-border-subtle);
+  border-bottom: 1px solid var(--kd-border-subtle);
+  background: var(--kd-bg-surface);
+  padding: 2.25rem 0;
+  position: relative;
+}
+
+.studio-strip-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.5rem, 3vw, 3rem);
+}
+
+.studio-strip-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.15rem;
+}
+
+.studio-strip-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--kd-radius-md);
+  background: rgba(39, 199, 212, 0.10);
+  border: 1px solid rgba(39, 199, 212, 0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--kd-cyan-light);
+}
+
+.studio-strip-icon.icon-emerald {
+  background: rgba(16, 185, 129, 0.10);
+  border-color: rgba(16, 185, 129, 0.25);
+  color: var(--kd-emerald-light);
+}
+
+.studio-strip-icon.icon-indigo {
+  background: rgba(79, 70, 229, 0.12);
+  border-color: rgba(79, 70, 229, 0.28);
+  color: var(--kd-indigo-light);
+}
+
+.studio-strip-title {
+  font-family: var(--kd-font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+  color: var(--kd-text-primary);
+}
+
+.studio-strip-desc {
+  font-size: 0.875rem;
+  color: var(--kd-text-secondary);
+  line-height: 1.55;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1200px) {
+  .chip-top-right {
+    right: 4px;
+    top: 4px;
+  }
+
+  .chip-bottom-left {
+    left: 4px;
+    bottom: 8px;
+  }
+}
+
+@media (max-width: 960px) {
+  .studio-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .studio-hero-copy {
+    align-items: center;
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .studio-hero-actions {
+    justify-content: center;
+  }
+
+  .studio-hero-trust {
+    justify-content: center;
+  }
+
+  .studio-floating-chip {
+    position: static;
+    margin-top: 0.75rem;
+  }
+
+  .chip-top-right,
+  .chip-bottom-left {
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    animation: none;
+  }
+
+  .studio-hero-visual {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .studio-strip-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .studio-hero-title {
+    font-size: clamp(1.6rem, 5.5vw, 2.15rem);
+    line-height: 1.2;
+  }
+
+  .studio-hero-actions {
+    flex-direction: column;
+    width: 100%;
+    align-items: stretch;
+  }
+
+  .studio-hero-actions .btn-kd {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .studio-hero-title {
+    font-size: clamp(1.45rem, 6.2vw, 1.85rem);
+    line-height: 1.22;
+  }
+}

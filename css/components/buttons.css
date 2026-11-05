@@ -1,0 +1,145 @@
+/* ==========================================================================
+   KUYÉNDEV DESIGN SYSTEM · SISTEMA DE BOTONES (BUTTON SYSTEM)
+   ========================================================================== */
+
+.btn-kd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--kd-font-body);
+  font-size: 0.925rem;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--kd-radius-full);
+  line-height: 1.35;
+  white-space: normal;
+  text-align: center;
+  max-width: 100%;
+  word-break: normal;
+  overflow-wrap: break-word;
+  box-sizing: border-box;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition:
+    transform var(--kd-ease-fast),
+    box-shadow var(--kd-ease-fast),
+    background var(--kd-ease-fast),
+    border-color var(--kd-ease-fast),
+    color var(--kd-ease-fast);
+}
+
+.btn-kd svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  transition: transform var(--kd-ease-fast);
+}
+
+.btn-kd:hover {
+  transform: translateY(-2px);
+}
+
+.btn-kd:hover svg {
+  transform: translateX(2px);
+}
+
+.btn-kd:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Variante Primaria (Cian Aurora Vibrante) */
+.btn-kd-primary {
+  background: linear-gradient(135deg, var(--kd-cyan) 0%, #1baec0 100%);
+  color: #080F1C;
+  font-weight: 700;
+  box-shadow: 0 4px 16px var(--kd-cyan-glow);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-kd-primary:hover {
+  background: linear-gradient(135deg, var(--kd-cyan-light) 0%, var(--kd-cyan) 100%);
+  color: #080F1C;
+  box-shadow: 0 8px 26px rgba(39, 199, 212, 0.48);
+}
+
+/* Variante Secundaria Glassmórfica */
+.btn-kd-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--kd-text-primary);
+  border: 1px solid var(--kd-border-subtle);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.btn-kd-secondary:hover {
+  background: rgba(255, 255, 255, 0.10);
+  border-color: rgba(39, 199, 212, 0.4);
+  color: #ffffff;
+  box-shadow: 0 4px 20px rgba(39, 199, 212, 0.14);
+}
+
+/* Modificadores de Borde */
+.btn-kd-wa-subtle {
+  border-color: rgba(39, 199, 212, 0.3);
+}
+
+.btn-kd-cyan-border {
+  border-color: rgba(39, 199, 212, 0.25);
+}
+
+/* Alias Cian */
+.btn-kd-cyan {
+  background: linear-gradient(135deg, var(--kd-cyan) 0%, #1baec0 100%);
+  color: #080F1C;
+  font-weight: 700;
+  box-shadow: 0 4px 16px var(--kd-cyan-glow);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-kd-cyan:hover {
+  background: linear-gradient(135deg, var(--kd-cyan-light) 0%, var(--kd-cyan) 100%);
+  color: #080F1C;
+  box-shadow: 0 8px 26px rgba(39, 199, 212, 0.48);
+}
+
+/* Variante WhatsApp */
+.btn-kd-whatsapp {
+  background: var(--kd-whatsapp);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.25);
+  font-weight: 600;
+}
+
+.btn-kd-whatsapp:hover {
+  background: var(--kd-whatsapp-hover);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
+  color: #ffffff;
+}
+
+/* Tamaños */
+.btn-kd-sm {
+  font-size: 0.825rem;
+  padding: 0.55rem 1.15rem;
+}
+
+.btn-kd-lg {
+  font-size: 1.05rem;
+  padding: 0.95rem 2rem;
+}
+
+@media (max-width: 480px) {
+  .btn-kd {
+    width: 100%;
+    padding: 0.75rem 1.15rem;
+    font-size: 0.885rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .btn-kd {
+    padding: 0.7rem 0.95rem;
+    font-size: 0.85rem;
+  }
+}

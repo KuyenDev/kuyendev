@@ -1,0 +1,74 @@
+/* ==========================================================================
+   KUYÉNDEV DESIGN SYSTEM · PROSA EDITORIAL Y LECTURA
+   ========================================================================== */
+
+.prose-kd {
+  font-size: 1.05rem;
+  color: var(--kd-text-secondary);
+  line-height: 1.8;
+}
+
+.prose-kd p {
+  margin-bottom: 1.5rem;
+}
+
+.prose-kd h2 {
+  font-family: var(--kd-font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--kd-text-primary);
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.prose-kd h3 {
+  font-family: var(--kd-font-display);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--kd-text-primary);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose-kd ul,
+.prose-kd ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.prose-kd li {
+  margin-bottom: 0.5rem;
+}
+
+.prose-kd blockquote {
+  border-left: 3px solid var(--kd-cyan);
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  font-style: italic;
+  color: var(--kd-text-primary);
+}
+
+/* Figuras e ilustraciones en prosa */
+.article-figure {
+  margin: 2.5rem 0;
+  border-radius: var(--kd-radius-md);
+  overflow: hidden;
+  border: 1px solid var(--kd-border-subtle);
+  box-shadow: var(--kd-shadow-md);
+}
+
+.article-figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.article-figure-caption {
+  padding: 0.75rem 1rem;
+  background: var(--kd-bg-surface);
+  font-size: 0.8rem;
+  color: var(--kd-text-dim);
+  text-align: center;
+  border-top: 1px solid var(--kd-border-subtle);
+}

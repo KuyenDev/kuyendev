@@ -4,27 +4,28 @@
  * Provee funcionamiento offline, caché resiliente y soporte PWA nativo
  */
 
-const CACHE_NAME = 'kuyendev-pwa-v1.0.1';
+const CACHE_NAME = 'kuyendev-pwa-v1.1.0';
 
 // Recursos críticos para arranque instantáneo y navegación offline
 const PRECACHE_ASSETS = [
   '/',
   '/index.html',
   '/manifest.json',
+  '/css/main.css',
   '/css/styles.css',
   '/js/script.js',
-  '/icons/favicon.ico',
-  '/icons/favicon-32x32.png',
-  '/icons/favicon-16x16.png',
-  '/icons/apple-touch-icon.png',
-  '/icons/icon-192.png',
-  '/icons/icon-512.png',
-  '/icons/icon-maskable-192.png',
-  '/icons/icon-maskable-512.png',
-  '/images/logo-kuyendev-horizontal.webp',
-  '/images/logo-kuyendev-horizontal.png',
-  '/images/logo-kuyendev-isotipo.webp',
-  '/images/logo-kuyendev-isotipo.png',
+  '/assets/icons/favicon.ico',
+  '/assets/icons/favicon-32x32.png',
+  '/assets/icons/favicon-16x16.png',
+  '/assets/icons/apple-touch-icon.png',
+  '/assets/icons/icon-192.png',
+  '/assets/icons/icon-512.png',
+  '/assets/icons/icon-maskable-192.png',
+  '/assets/icons/icon-maskable-512.png',
+  '/assets/logos/logo-kuyendev-horizontal.webp',
+  '/assets/logos/logo-kuyendev-horizontal.png',
+  '/assets/logos/logo-kuyendev-isotipo.webp',
+  '/assets/logos/logo-kuyendev-isotipo.png',
   '/pages/desarrollo-web.html',
   '/pages/planes-web.html',
   '/pages/servicios-informaticos.html',

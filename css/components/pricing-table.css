@@ -1,0 +1,79 @@
+/* ==========================================================================
+   KUYÉNDEV DESIGN SYSTEM · TABLA DE PRECIOS Y PLANES (PRICING MATRIX)
+   ========================================================================== */
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  align-items: stretch;
+}
+
+.plan-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.plan-price-box {
+  margin: 1.5rem 0;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--kd-border-subtle);
+}
+
+.plan-price-val {
+  font-family: var(--kd-font-display);
+  font-size: clamp(1.45rem, 2.2vw, 2rem);
+  font-weight: 800;
+  color: var(--kd-text-primary);
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.plan-features-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-bottom: 2rem;
+}
+
+.plan-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.9rem;
+  color: var(--kd-text-secondary);
+}
+
+.plan-feature-item svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  color: var(--kd-emerald);
+  margin-top: 2px;
+}
+
+@media (max-width: 1024px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    max-width: 580px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .pricing-grid {
+    max-width: 100%;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .pricing-grid {
+    gap: 1.25rem;
+  }
+}
+

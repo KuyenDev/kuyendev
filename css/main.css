@@ -1,0 +1,40 @@
+/* ==========================================================================
+   KUYÉNDEV · HOJA DE ESTILOS PRINCIPAL (DESIGN SYSTEM v4.0 MODULAR)
+   Estudio Tecnológico: Desarrollo Web & Soporte Informático
+   Osorno, Región de Los Lagos, Chile · https://kuyendev.cl
+   ========================================================================== */
+
+/* 1. Base & Tokens */
+@import url('base/variables.css');
+@import url('base/reset.css');
+@import url('base/typography.css');
+@import url('base/utilities.css');
+
+/* 2. Layouts Estructurales */
+@import url('layout/header-nav.css');
+@import url('layout/mobile-menu.css');
+@import url('layout/hero.css');
+@import url('layout/page-hero.css');
+@import url('layout/footer.css');
+
+/* 3. Componentes Específicos */
+@import url('components/buttons.css');
+@import url('components/cards.css');
+@import url('components/badges.css');
+@import url('components/forms.css');
+@import url('components/accordion.css');
+@import url('components/tabs.css');
+@import url('components/pricing-table.css');
+@import url('components/comparison-table.css');
+@import url('components/portfolio.css');
+@import url('components/editorial.css');
+@import url('components/support-assistant.css');
+@import url('components/legal.css');
+@import url('components/prose.css');
+@import url('components/waas.css');
+@import url('components/rubros-explorer.css');
+@import url('components/whatsapp-fab.css');
+
+/* 4. Animaciones, Microinteracciones y Accesibilidad */
+@import url('animations.css');
+

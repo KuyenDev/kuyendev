@@ -1,25 +1,26 @@
 <div align="center">
 
-  <img src="icons/KuyenDev_logo_cuadrado_transparente.ico" alt="KuyénDev Logo" width="100"/>
+  <img src="assets/logos/logo-kuyendev-isotipo.png" alt="KuyénDev Logo" width="100"/>
 
   <h1>KuyénDev</h1>
 
-  <p><em>Soporte Informático Profesional · Osorno, Chile</em></p>
+  <p><em>Estudio Tecnológico · Desarrollo Web & Soporte Informático Profesional · Osorno, Chile</em></p>
 
   <p>
     <a href="https://kuyendev.cl" target="_blank">
-      <img src="https://img.shields.io/badge/🌐_Sitio_Web-kuyendev.cl-6366f1?style=for-the-badge&labelColor=09090b" alt="Sitio Web"/>
+      <img src="https://img.shields.io/badge/🌐_Sitio_Web-kuyendev.cl-27c7d4?style=for-the-badge&labelColor=080f1c" alt="Sitio Web"/>
     </a>
     &nbsp;
-    <img src="https://img.shields.io/badge/Estado-Producción-22c55e?style=for-the-badge&labelColor=09090b" alt="Estado"/>
+    <img src="https://img.shields.io/badge/Estado-Producción-10b981?style=for-the-badge&labelColor=080f1c" alt="Estado"/>
     &nbsp;
-    <img src="https://img.shields.io/badge/Versión-2.0.0-6366f1?style=for-the-badge&labelColor=09090b" alt="Versión"/>
+    <img src="https://img.shields.io/badge/Versión-4.0.0-27c7d4?style=for-the-badge&labelColor=080f1c" alt="Versión"/>
   </p>
 
   <p>
     <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white" alt="HTML5"/>
-    <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white" alt="CSS3"/>
-    <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black" alt="JavaScript"/>
+    <img src="https://img.shields.io/badge/CSS3_Modular-1572B6?style=flat-square&logo=css3&logoColor=white" alt="CSS3 Modular"/>
+    <img src="https://img.shields.io/badge/JavaScript_ES6+-F7DF1E?style=flat-square&logo=javascript&logoColor=black" alt="JavaScript"/>
+    <img src="https://img.shields.io/badge/PWA_Ready-5A0FC8?style=flat-square&logo=pwa&logoColor=white" alt="PWA"/>
     <img src="https://img.shields.io/badge/GitHub_Pages-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub Pages"/>
   </p>
 
@@ -29,129 +30,105 @@
 
 ## 📖 Descripción General
 
-**KuyénDev** es la plataforma web oficial de servicios de soporte tecnológico fundada por **Franco Luna** en Osorno, Región de Los Lagos, Chile.
+**KuyénDev** es el estudio tecnológico y plataforma web oficial fundada por **Franco Luna** en Osorno, Región de Los Lagos, Chile.
 
-El sitio está construido con tecnologías web nativas (sin frameworks pesados), priorizando rendimiento, accesibilidad y tiempos de carga instantáneos. Cada decisión de diseño refleja la filosofía central del negocio:
+El proyecto está construido íntegramente sobre tecnologías web estándar nativas (HTML5 semántico, CSS3 modular vanilla y JavaScript ES6+ asíncrono sin dependencias externas ni frameworks pesados), garantizando máxima velocidad de carga (< 1s), accesibilidad universal (WCAG 2.2 AA) y resiliencia offline mediante Service Worker y PWA.
 
 > *"Recuperar y optimizar antes de reemplazar. Tu equipo posee más potencial del que crees."*
 
 ---
 
-## ✨ Características Técnicas
-
-| Característica | Descripción |
-|---|---|
-| 🎨 **Design System** | Variables CSS (tokens) con modo oscuro nativo, paleta Zinc + Indigo |
-| 📱 **Mobile-First** | Layout responsivo con breakpoints en 768px y 1024px |
-| ⚡ **Rendimiento** | Sin dependencias de JS externas, CSS optimizado sin frameworks |
-| 🎬 **Micro-animaciones** | Reveal Scroll con IntersectionObserver y efecto Spotlight en tarjetas |
-| 🔍 **SEO** | Metadatos completos, Open Graph, estructura semántica HTML5 |
-| 🔒 **Protección** | Imágenes con drag-protection y pointer-events deshabilitados |
-| 🧭 **Navegación** | Nav glassmorphism sticky + menú hamburguesa para móvil |
-| 📄 **Multi-página** | Sección "Casos de Éxito" con arquitectura estática modular |
-
----
-
-## 🛠️ Servicios que Representa
-
-KuyénDev abarca el espectro completo del soporte tecnológico corporativo y particular:
-
-- 💻 **Formateo Profesional** — Instalación limpia de Windows 10/11 con drivers y configuración base
-- ⚡ **Optimización Avanzada** — Ajustes a nivel de kernel, servicios y registro para máximo rendimiento
-- 🛡️ **Ciberseguridad** — Análisis forense, eliminación de malware/ransomware y hardening de políticas
-- 📦 **Licenciamiento Office** — Despliegue y activación permanente de la suite Microsoft Office
-- 🔧 **Mantención Preventiva** — Revisiones periódicas estructuradas y gestión de incidentes (SLA)
-- 🎓 **Sector Educativo** — Optimización de laboratorios, capacitación docente e IA aplicada al aula
-
----
-
-## 🗂️ Estructura del Proyecto
+## 🗂️ Arquitectura Modular del Repositorio
 
 ```
 kuyendev/
-├── index.html                      # Página principal
-├── css/
-│   └── styles.css                  # Design system completo (tokens, componentes, responsive)
-├── js/
-│   └── script.js                   # Lógica: animaciones, FAQ, nav scroll, hamburger
-├── pages/
-│   ├── noticias.html               # Hub de Casos de Éxito
-│   ├── terminos.html               # Términos y Condiciones
-│   └── content/
-│       └── bertoldo_hofmann.html   # Caso de estudio: Colegio Bertoldo Hofmann
-├── images/                         # Activos gráficos del sitio
-├── icons/                          # Favicon e íconos
-├── documents/                      # Archivos descargables
-└── CNAME                           # Dominio personalizado (GitHub Pages)
+├── index.html                      # Portada y catálogo general del estudio
+├── 404.html                        # Página de error 404 con radar animado
+├── manifest.json                   # Web App Manifest PWA con maskable icons
+├── sw.js                           # Service Worker con estrategia Network-First resiliente
+├── CNAME                           # Dominio de producción (kuyendev.cl)
+├── sitemap.xml & robots.txt        # SEO técnico y mapa de rastreo
+├── verificar_estructura.sh         # Script de verificación de integridad y rutas
+│
+├── assets/                         # Activos organizados sin duplicidad
+│   ├── logos/                      # Logos e isotipos oficiales optimizados
+│   │   └── source/                 # Archivos maestros en alta resolución
+│   ├── icons/                      # Favicons y app icons de 16px a 512px
+│   └── images/
+│       ├── site/                   # Fotografías de portada y cabeceras
+│       ├── noticias/               # Portadas de artículos y publicaciones
+│       ├── casos/bertoldo-hofmann/ # Evidencias del caso institucional
+│       ├── demos/                  # Previews y gráficos del catálogo
+│       └── instagram/              # Infografías técnicas
+│
+├── css/                            # Arquitectura CSS Modular (Design System v4.0)
+│   ├── main.css                    # Punto de entrada maestro (@import cascade)
+│   ├── styles.css                  # Alias de compatibilidad hacia main.css
+│   ├── animations.css              # Keyframes, transiciones y prefers-reduced-motion
+│   ├── base/                       # Variables, reset, tipografía y utilidades
+│   │   ├── variables.css           # Tokens de color, z-index y espaciado
+│   │   ├── reset.css               # Reset ergonómico, scrollbar y foco accesible
+│   │   ├── typography.css          # Jerarquía H1-H6 y gradientes de texto
+│   │   └── utilities.css           # Contenedores, grillas y métricas
+│   ├── layout/                     # Estructura visual de página
+│   │   ├── header-nav.css          # Nav glassmorphism y Aurora spring dock
+│   │   ├── mobile-menu.css         # Drawer lateral animado
+│   │   ├── hero.css                # Hero cinemático de dos columnas y franja
+│   │   ├── page-hero.css           # Hero centrado para páginas interiores
+│   │   └── footer.css              # Pie de página unificado
+│   └── components/                 # Componentes independientes
+│       ├── buttons.css             # Sistema de botones .btn-kd y microinteracciones
+│       ├── cards.css               # Tarjetas con efecto spotlight
+│       ├── badges.css              # Badges de estado y pulse-dot
+│       ├── forms.css               # Formularios inteligentes
+│       ├── accordion.css           # Acordeones accesibles (FAQ)
+│       ├── tabs.css                # Filtros interactivos de categoría
+│       ├── pricing-table.css       # Tarjetas de planes
+│       ├── comparison-table.css    # Matriz comparativa responsive
+│       ├── portfolio.css           # Tarjetas de artículos y proyectos
+│       ├── editorial.css           # Manifiesto y raíces de marca
+│       ├── support-assistant.css   # Diagnóstico y checklist interactiva
+│       ├── legal.css               # Tabla de contenido fija y cláusulas
+│       ├── prose.css               # Tipografía para artículos de lectura
+│       ├── waas.css                # Modelo Web como Servicio en 2 fases
+│       ├── rubros-explorer.css     # Sistema interactivo de carpetas y demos
+│       └── whatsapp-fab.css        # Botón flotante expandible
+│
+├── js/                             # Lógica y Configuración Frontend
+│   ├── script.js                   # Interacciones UI, scroll, dock y checklist
+│   ├── rubros-explorer.js          # Motor del explorador de rubros y estilos
+│   ├── demo-viewer-bar.js          # Barra superior de inspección de demos
+│   └── config/
+│       ├── plans.js                # Especificación declarativa de planes
+│       └── rubros.js               # Catálogo de rubros, paletas y estilos
+│
+├── pages/                          # Páginas interiores del sitio
+│   ├── desarrollo-web.html         # Servicio de desarrollo web
+│   ├── planes-web.html             # Catálogo de planes y WaaS
+│   ├── servicios-informaticos.html # Soporte a computadores y software
+│   ├── empresas.html               # Soluciones para empresas y colegios
+│   ├── noticias.html               # Hub de publicaciones técnicas
+│   ├── nosotros.html               # Manifiesto, raíces y fundador
+│   ├── contacto.html               # Formulario inteligente hacia WhatsApp
+│   ├── terminos.html               # 25 cláusulas y marco legal
+│   └── content/                    # Artículos técnicos y casos de éxito
+│
+├── demos/                          # 60 demostraciones web interactivas
+│   ├── clinica-dental/             # 20 estilos para Clínicas & Salud
+│   ├── fotografia/                 # 20 estilos para Fotógrafos
+│   └── peluqueria/                 # 20 estilos para Peluquerías & Estilismo
+│
+└── docs/                           # Documentación de ingeniería y arquitectura
+    ├── architecture/               # Especificaciones técnicas históricas
+    └── context-export/             # Registros de contexto y memoria
 ```
 
 ---
 
-## ⚙️ Stack Tecnológico
+## 🚀 Verificación de Calidad
 
-Este proyecto utiliza **tecnologías web nativas** sin dependencias de frameworks para garantizar un rendimiento óptimo:
+Para ejecutar la suite de comprobación de integridad de rutas, anclas y seguridad de marca:
 
-- **HTML5** — Estructura semántica, metadatos SEO y Open Graph
-- **CSS3** — Variables custom properties, Grid, Flexbox, `clamp()` para tipografía fluida, `@keyframes` y `backdrop-filter`
-- **JavaScript (Vanilla ES6+)** — IntersectionObserver, event delegation, DOM manipulation
-- **Google Fonts (Inter)** — Tipografía premium con `font-display: swap`
-- **GitHub Pages** — Hosting estático con dominio personalizado vía CNAME
-
----
-
-## 🚀 Metodología de Trabajo (Framework de 4 Fases)
-
-```
-┌──────────────┐    ┌──────────────┐    ┌──────────────┐    ┌──────────────┐
-│  01          │    │  02          │    │  03          │    │  04          │
-│  Diagnóstico │───▶│  Propuesta   │───▶│  Ejecución   │───▶│  Validación  │
-│              │    │              │    │              │    │              │
-│ Análisis     │    │ Alternativas │    │ Protocolos   │    │ Stress test  │
-│ forense H/S  │    │ y presupuesto│    │ de seguridad │    │ y auditoría  │
-└──────────────┘    └──────────────┘    └──────────────┘    └──────────────┘
-```
-
----
-
-## 🌐 Despliegue
-
-El sitio se aloja en **GitHub Pages** con dominio personalizado configurado mediante un archivo `CNAME`.
-
-### Despliegue local (desarrollo)
 ```bash
-# Clonar el repositorio
-git clone https://github.com/KuyenDev/kuyendev.git
-
-# Abrir con Live Server (VS Code) o cualquier servidor estático
-# No requiere instalación de dependencias — es HTML/CSS/JS puro
+bash ./verificar_estructura.sh
 ```
-
-### Publicar cambios
-```bash
-git add .
-git commit -m "feat: descripción del cambio"
-git push origin main
-# GitHub Pages publica automáticamente en kuyendev.cl
-```
-
----
-
-## 📬 Contacto
-
-<div align="center">
-
-| Canal | Detalle |
-|---|---|
-| 💬 **WhatsApp** | [+56 9 2223 1780](https://wa.me/56922231780) |
-| 📧 **Email** | [fa.lunangulo@outlook.com](mailto:fa.lunangulo@outlook.com) |
-| 📸 **Instagram** | [@kuyendev](https://instagram.com/kuyendev) |
-| 🌐 **Sitio Web** | [kuyendev.cl](https://kuyendev.cl) |
-| 📍 **Ubicación** | Osorno, Región de Los Lagos, Chile |
-
-</div>
-
----
-
-<div align="center">
-  <sub>© 2026 KuyénDev · Desarrollado con precisión por <strong>Franco Luna</strong> · Todos los derechos reservados.</sub>
-</div>

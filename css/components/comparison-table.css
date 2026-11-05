@@ -1,0 +1,61 @@
+/* ==========================================================================
+   KUYÉNDEV DESIGN SYSTEM · TABLA COMPARATIVA RESPONSIVE (COMPARISON MATRIX)
+   ========================================================================== */
+
+.comparison-table-wrapper {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--kd-border-subtle);
+  border-radius: var(--kd-radius-lg);
+  background: var(--kd-bg-surface);
+  margin-top: 2.5rem;
+  box-shadow: var(--kd-shadow-md);
+  -webkit-overflow-scrolling: touch;
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.9rem;
+  min-width: 680px;
+}
+
+.comparison-table th,
+.comparison-table td {
+  padding: 1.15rem 1.4rem;
+  border-bottom: 1px solid var(--kd-border-subtle);
+}
+
+.comparison-table th {
+  background: var(--kd-bg-surface-elevated);
+  font-family: var(--kd-font-display);
+  font-weight: 700;
+  color: var(--kd-text-primary);
+  font-size: 0.95rem;
+}
+
+.comparison-table th.highlight-col,
+.comparison-table td.highlight-col {
+  background: rgba(39, 199, 212, 0.08);
+}
+
+.comparison-table tr:last-child td {
+  border-bottom: none;
+}
+
+.comparison-table tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.comparison-table .feature-cat-row th {
+  background: rgba(14, 20, 34, 0.95);
+  color: var(--kd-cyan-light);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding-top: 1.5rem;
+  padding-bottom: 0.75rem;
+}
+

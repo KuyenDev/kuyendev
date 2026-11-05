@@ -1,0 +1,63 @@
+/* ==========================================================================
+   KUYÉNDEV DESIGN SYSTEM · ACORDEÓN ACCESIBLE (FAQ & CONTENIDO COLAPSABLE)
+   ========================================================================== */
+
+.accordion-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.accordion-item {
+  border-bottom: 1px solid var(--kd-border-subtle);
+}
+
+.accordion-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 0;
+  text-align: left;
+  font-family: var(--kd-font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--kd-text-primary);
+  transition: color var(--kd-ease-fast);
+}
+
+.accordion-trigger:hover {
+  color: var(--kd-cyan-light);
+}
+
+.accordion-chevron {
+  width: 20px;
+  height: 20px;
+  transition: transform var(--kd-ease-normal);
+  flex-shrink: 0;
+  stroke: currentColor;
+}
+
+.accordion-item.is-open .accordion-chevron {
+  transform: rotate(180deg);
+  stroke: var(--kd-cyan);
+}
+
+.accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--kd-ease-smooth), opacity var(--kd-ease-smooth);
+  opacity: 0;
+}
+
+.accordion-item.is-open .accordion-body {
+  max-height: 600px;
+  opacity: 1;
+  padding-bottom: 1.5rem;
+}
+
+.accordion-content {
+  font-size: 0.95rem;
+  color: var(--kd-text-secondary);
+  line-height: 1.75;
+}
+

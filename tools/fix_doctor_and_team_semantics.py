@@ -14,84 +14,84 @@ import re
 FEMALE_DOCTORS = [
     {
         "src": "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80",
-        "fallback": "../../images/demos/assets/med/doctor-female-1.svg"
+        "fallback": "../../assets/images/demos/assets/med/doctor-female-1.svg"
     },
     {
         "src": "https://images.unsplash.com/photo-1594824813627-89146dfa9960?auto=format&fit=crop&w=800&q=80",
-        "fallback": "../../images/demos/assets/med/doctor-female-2.svg"
+        "fallback": "../../assets/images/demos/assets/med/doctor-female-2.svg"
     },
     {
         "src": "https://images.unsplash.com/photo-1651008376811-b90baee60c1f?auto=format&fit=crop&w=800&q=80",
-        "fallback": "../../images/demos/assets/med/doctor-female-3.svg"
+        "fallback": "../../assets/images/demos/assets/med/doctor-female-3.svg"
     },
     {
         "src": "https://images.unsplash.com/photo-1527613426441-4da17471b66d?auto=format&fit=crop&w=800&q=80",
-        "fallback": "../../images/demos/assets/med/doctor-female-1.svg"
+        "fallback": "../../assets/images/demos/assets/med/doctor-female-1.svg"
     },
     {
         "src": "https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=800&q=80",
-        "fallback": "../../images/demos/assets/med/doctor-female-2.svg"
+        "fallback": "../../assets/images/demos/assets/med/doctor-female-2.svg"
     }
 ]
 
 MALE_DOCTORS = [
     {
         "src": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800&q=80",
-        "fallback": "../../images/demos/assets/med/doctor-male-1.svg"
+        "fallback": "../../assets/images/demos/assets/med/doctor-male-1.svg"
     },
     {
         "src": "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=800&q=80",
-        "fallback": "../../images/demos/assets/med/doctor-male-2.svg"
+        "fallback": "../../assets/images/demos/assets/med/doctor-male-2.svg"
     },
     {
         "src": "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=800&q=80",
-        "fallback": "../../images/demos/assets/med/doctor-male-1.svg"
+        "fallback": "../../assets/images/demos/assets/med/doctor-male-1.svg"
     },
     {
         "src": "https://images.unsplash.com/photo-1584467735871-8e85353a8413?auto=format&fit=crop&w=800&q=80",
-        "fallback": "../../images/demos/assets/med/doctor-male-2.svg"
+        "fallback": "../../assets/images/demos/assets/med/doctor-male-2.svg"
     },
     {
         "src": "https://images.unsplash.com/photo-1622253694242-abdfa4a2b258?auto=format&fit=crop&w=800&q=80",
-        "fallback": "../../images/demos/assets/med/doctor-male-1.svg"
+        "fallback": "../../assets/images/demos/assets/med/doctor-male-1.svg"
     }
 ]
 
 FEMALE_STYLISTS = [
     {
         "src": "https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=800&q=80",
-        "fallback": "../../images/demos/assets/beauty/stylist-female-1.svg"
+        "fallback": "../../assets/images/demos/assets/beauty/stylist-female-1.svg"
     },
     {
         "src": "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80",
-        "fallback": "../../images/demos/assets/beauty/stylist-female-2.svg"
+        "fallback": "../../assets/images/demos/assets/beauty/stylist-female-2.svg"
     },
     {
         "src": "https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=800&q=80",
-        "fallback": "../../images/demos/assets/beauty/stylist-female-1.svg"
+        "fallback": "../../assets/images/demos/assets/beauty/stylist-female-1.svg"
     },
     {
         "src": "https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=800&q=80",
-        "fallback": "../../images/demos/assets/beauty/stylist-female-2.svg"
+        "fallback": "../../assets/images/demos/assets/beauty/stylist-female-2.svg"
     }
 ]
 
 MALE_BARBERS = [
     {
         "src": "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=800&q=80",
-        "fallback": "../../images/demos/assets/beauty/stylist-male-1.svg"
+        "fallback": "../../assets/images/demos/assets/beauty/stylist-male-1.svg"
     },
     {
         "src": "https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=800&q=80",
-        "fallback": "../../images/demos/assets/beauty/stylist-male-2.svg"
+        "fallback": "../../assets/images/demos/assets/beauty/stylist-male-2.svg"
     },
     {
         "src": "https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=800&q=80",
-        "fallback": "../../images/demos/assets/beauty/stylist-male-1.svg"
+        "fallback": "../../assets/images/demos/assets/beauty/stylist-male-1.svg"
     },
     {
         "src": "https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&w=800&q=80",
-        "fallback": "../../images/demos/assets/beauty/stylist-male-2.svg"
+        "fallback": "../../assets/images/demos/assets/beauty/stylist-male-2.svg"
     }
 ]
 
@@ -182,7 +182,7 @@ def fix_clinica_dental():
 
         # Also replace any lingering catalog thumbnail references in data-img for any remaining cards
         content = re.sub(
-            r'data-img=["\'](?:\.\./\.\./)?images/demos/salud/([^"\']+)["\']',
+            r'data-img=["\'](?:\.\./\.\./)?assets/images/demos/salud/([^"\']+)["\']',
             r'data-img="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=85"',
             content
         )
@@ -261,7 +261,7 @@ def fix_peluqueria():
 
         # Also replace lingering catalog thumbnails in data-img
         content = re.sub(
-            r'data-img=["\'](?:\.\./\.\./)?images/demos/peluqueria/([^"\']+)["\']',
+            r'data-img=["\'](?:\.\./\.\./)?assets/images/demos/peluqueria/([^"\']+)["\']',
             r'data-img="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85"',
             content
         )
@@ -285,7 +285,7 @@ def fix_fotografia_data_img():
         orig = content
         # Replace lingering catalog thumbnail references in data-img
         content = re.sub(
-            r'data-img=["\'](?:\.\./\.\./)?images/demos/fotografia/([^"\']+)["\']',
+            r'data-img=["\'](?:\.\./\.\./)?assets/images/demos/fotografia/([^"\']+)["\']',
             r'data-img="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1200&q=85"',
             content
         )

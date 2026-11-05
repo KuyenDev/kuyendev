@@ -1,0 +1,131 @@
+/* ==========================================================================
+   KUYÉNDEV DESIGN SYSTEM · TARJETAS Y CONTENEDORES VISUALES (CARDS)
+   ========================================================================== */
+
+.card-kd {
+  background: var(--kd-bg-card);
+  border: 1px solid var(--kd-border-subtle);
+  border-radius: var(--kd-radius-lg);
+  padding: 2.25rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--kd-shadow-sm);
+  transition:
+    transform var(--kd-ease-normal),
+    border-color var(--kd-ease-normal),
+    box-shadow var(--kd-ease-normal);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.card-kd:hover {
+  border-color: rgba(39, 199, 212, 0.28);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55), 0 0 24px rgba(39, 199, 212, 0.12);
+  transform: translateY(-3px);
+}
+
+.card-kd-interactive:hover {
+  transform: translateY(-4px);
+  border-color: var(--kd-border-focus);
+}
+
+.card-kd-highlight {
+  border-color: rgba(39, 199, 212, 0.45);
+  background: linear-gradient(180deg, rgba(39, 199, 212, 0.12) 0%, rgba(16, 28, 45, 0.85) 100%);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55), 0 0 32px rgba(39, 199, 212, 0.18);
+}
+
+/* Variantes con acento de borde */
+.card-border-cyan {
+  border-top: 3px solid var(--kd-cyan);
+}
+
+.card-border-indigo {
+  border-top: 3px solid var(--kd-indigo-light);
+}
+
+.card-border-emerald {
+  border-top: 3px solid var(--kd-emerald-light);
+}
+
+/* Tarjeta Banner / Callout destacado */
+.card-banner-callout {
+  background: linear-gradient(135deg, rgba(21, 29, 48, 0.7) 0%, rgba(14, 20, 34, 0.9) 100%);
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  padding: clamp(1.5rem, 3.5vw, 2.5rem);
+  margin-bottom: 4rem;
+}
+
+/* Tarjeta Caso de Estudio */
+.card-case-study {
+  padding: clamp(1.5rem, 3.5vw, 3rem);
+  background: linear-gradient(135deg, rgba(21, 29, 48, 0.9) 0%, rgba(14, 20, 34, 0.95) 100%);
+}
+
+/* Tarjeta CTA de Cierre */
+.card-cta {
+  padding: clamp(2rem, 4vw, 4rem) clamp(1.25rem, 3vw, 2rem);
+  background: linear-gradient(180deg, rgba(79, 70, 229, 0.12) 0%, rgba(14, 20, 34, 0.95) 100%);
+  border-color: rgba(79, 70, 229, 0.35);
+}
+
+/* Tarjeta de Paso / Proceso */
+.card-step {
+  padding: 1.75rem;
+}
+
+.card-step-num {
+  font-family: var(--kd-font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+/* Tarjeta con Efecto Spotlight por Cursor (Desktop) */
+.card-spotlight {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-spotlight::before {
+  content: '';
+  position: absolute;
+  top: var(--mouse-y, -1000px);
+  left: var(--mouse-x, -1000px);
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(39, 199, 212, 0.14) 0%, rgba(112, 88, 184, 0.06) 40%, transparent 70%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: var(--kd-z-base);
+}
+
+.card-spotlight:hover::before {
+  opacity: 1;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .card-spotlight::before {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .card-kd {
+    padding: 1.75rem 1.35rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-kd {
+    padding: 1.35rem 1rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .card-kd {
+    padding: 1.15rem 0.85rem;
+  }
+}

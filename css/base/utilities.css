@@ -1,0 +1,408 @@
+/* ==========================================================================
+   KUYÉNDEV DESIGN SYSTEM · CONTENEDORES, GRILLAS Y UTILIDADES GLOBALES
+   ========================================================================== */
+
+/* Contenedores */
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(1rem, 3.5vw, 2.5rem);
+  padding-right: clamp(1rem, 3.5vw, 2.5rem);
+  box-sizing: border-box;
+}
+
+.container-narrow {
+  max-width: 860px;
+}
+
+/* Espaciado de Sección */
+.section-padding {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+.section-bg-alt {
+  background: rgba(14, 20, 34, 0.4);
+  border-top: 1px solid var(--kd-border-subtle);
+  border-bottom: 1px solid var(--kd-border-subtle);
+}
+
+.section-header {
+  margin-bottom: 3.5rem;
+}
+
+/* Tags de Sección */
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--kd-radius-full);
+  background: rgba(39, 199, 212, 0.12);
+  color: var(--kd-cyan-light);
+  border: 1px solid rgba(39, 199, 212, 0.25);
+  margin-bottom: 1.25rem;
+}
+
+.section-tag.tag-indigo {
+  background: rgba(79, 70, 229, 0.12);
+  color: var(--kd-indigo-light);
+  border-color: rgba(79, 70, 229, 0.25);
+}
+
+.section-tag.tag-amber {
+  background: rgba(245, 158, 11, 0.12);
+  color: #fbbf24;
+  border-color: rgba(245, 158, 11, 0.25);
+}
+
+.section-tag.tag-cyan {
+  background: rgba(6, 182, 212, 0.12);
+  color: var(--kd-cyan-light);
+  border-color: rgba(6, 182, 212, 0.25);
+}
+
+.section-tag.tag-emerald {
+  background: rgba(16, 185, 129, 0.12);
+  color: var(--kd-emerald-light);
+  border-color: rgba(16, 185, 129, 0.25);
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 2.85rem);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.section-subtitle,
+.section-desc {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: var(--kd-text-secondary);
+  line-height: 1.7;
+  max-width: 680px;
+}
+
+/* Grillas Base */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+/* Bloques de Estadísticas (Casos de Éxito & Métricas) */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.stat-box {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 1rem;
+  border-radius: var(--kd-radius-md);
+  text-align: center;
+  border: 1px solid var(--kd-border-subtle);
+}
+
+.stat-val {
+  font-family: var(--kd-font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--kd-cyan-light);
+  line-height: 1.1;
+  margin-bottom: 0.25rem;
+}
+
+.stat-val-emerald {
+  color: var(--kd-emerald-light);
+}
+
+.stat-val-indigo {
+  color: var(--kd-cyan-light);
+}
+
+.stat-lbl {
+  font-size: 0.75rem;
+  color: var(--kd-text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Listas con Icono */
+.icon-feature-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.icon-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.925rem;
+  color: var(--kd-text-secondary);
+}
+
+.icon-feature-item svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  stroke-width: 2.5;
+}
+
+/* Filas de Botones */
+.btn-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-row-center {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Alineaciones y Espaciados Utilitarios */
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.w-full {
+  width: 100%;
+}
+
+/* Flexbox Helpers */
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-col-between {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.flex-between-center {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.gap-2 { gap: 0.5rem; }
+.gap-4 { gap: 1rem; }
+.gap-6 { gap: 1.5rem; }
+.gap-8 { gap: 2rem; }
+
+/* Espaciados Margen */
+.m-0 { margin: 0; }
+.mb-0 { margin-bottom: 0; }
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-3 { margin-bottom: 0.75rem; }
+.mb-4 { margin-bottom: 1rem; }
+.mb-6 { margin-bottom: 1.5rem; }
+.mb-8 { margin-bottom: 2rem; }
+.mt-4 { margin-top: 1rem; }
+.mt-6 { margin-top: 1.5rem; }
+.mt-8 { margin-top: 2rem; }
+.mt-12 { margin-top: 3.5rem; }
+
+/* Cajas de Icono */
+.icon-box {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--kd-radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon-box svg {
+  width: 28px;
+  height: 28px;
+}
+
+.icon-box-cyan {
+  background: rgba(6, 182, 212, 0.12);
+  border: 1px solid var(--kd-cyan);
+  color: var(--kd-cyan-light);
+}
+
+.icon-box-indigo {
+  background: rgba(79, 70, 229, 0.12);
+  border: 1px solid var(--kd-indigo-light);
+  color: var(--kd-indigo-light);
+}
+
+.icon-box-emerald {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid var(--kd-emerald-light);
+  color: var(--kd-emerald-light);
+}
+
+/* Listas de Verificación con Check */
+.check-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--kd-text-muted);
+  margin-bottom: 1.5rem;
+  padding-left: 0;
+}
+
+.check-item {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+
+.check-item-icon {
+  color: var(--kd-emerald);
+  flex-shrink: 0;
+  font-weight: 700;
+}
+
+/* Iconos Emoji y Pasos */
+.card-icon-emoji {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  line-height: 1;
+}
+
+.step-num {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--kd-radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.step-num-indigo {
+  background: rgba(79, 70, 229, 0.15);
+  color: var(--kd-indigo-light);
+}
+
+.step-num-cyan {
+  background: rgba(6, 182, 212, 0.15);
+  color: var(--kd-cyan-light);
+}
+
+.step-num-emerald {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--kd-emerald-light);
+}
+
+/* Textos pequeños y descriptivos */
+.text-sm-muted {
+  font-size: 0.875rem;
+  color: var(--kd-text-muted);
+  line-height: 1.5;
+}
+
+.text-sm-secondary {
+  font-size: 0.875rem;
+  color: var(--kd-text-secondary);
+  line-height: 1.6;
+}
+
+@media (max-width: 1024px) {
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .grid-2,
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.5rem, 5.5vw, 1.85rem);
+  }
+}
+
+@media (max-width: 360px) {
+  .container {
+    padding-left: 0.85rem;
+    padding-right: 0.85rem;
+  }
+}

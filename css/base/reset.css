@@ -1,0 +1,155 @@
+/* ==========================================================================
+   KUYÉNDEV DESIGN SYSTEM · RESET ERGONÓMICO Y ACCESIBILIDAD
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+html.scroll-smooth {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  color-scheme: dark;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--kd-font-body);
+  background-color: var(--kd-bg-base);
+  color: var(--kd-text-primary);
+  line-height: 1.65;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+  overflow-wrap: break-word;
+  position: relative;
+  min-height: 100vh;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Permitir selección y edición en campos interactivos de formulario */
+input,
+textarea,
+[contenteditable="true"] {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--kd-ease-fast), border-color var(--kd-ease-fast);
+  -webkit-user-drag: none;
+  user-drag: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+  pointer-events: auto;
+}
+
+picture,
+svg {
+  -webkit-user-drag: none;
+  user-drag: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+
+/* Foco Accesible Teclado (WCAG 2.2 AA) */
+:focus-visible {
+  outline: 2px solid var(--kd-cyan);
+  outline-offset: 3px;
+  border-radius: var(--kd-radius-xs);
+}
+
+/* Scrollbar Minimalista */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--kd-bg-base);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--kd-bg-surface-elevated);
+  border-radius: var(--kd-radius-full);
+  border: 2px solid var(--kd-bg-base);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--kd-cyan);
+}
+
+/* Barra Superior de Progreso de Lectura */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2.5px;
+  width: 100%;
+  background: linear-gradient(90deg, var(--kd-cyan) 0%, var(--kd-indigo) 50%, var(--kd-emerald) 100%);
+  transform-origin: 0% 50%;
+  transform: scaleX(0);
+  z-index: var(--kd-z-progress);
+  pointer-events: none;
+  transition: transform 60ms linear;
+}
+
+/* Malla de Fondo Aurora UI (Ambient Aurora Organic Drift) */
+.mesh-bg {
+  position: fixed;
+  inset: -10%;
+  width: 120%;
+  height: 120%;
+  z-index: var(--kd-z-negative);
+  pointer-events: none;
+  background-color: var(--kd-bg-base);
+  background-image:
+    radial-gradient(ellipse 55% 42% at 18% 18%, rgba(39, 199, 212, 0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 38% at 82% 78%, rgba(40, 102, 186, 0.13) 0%, transparent 55%),
+    radial-gradient(ellipse 42% 34% at 68% 22%, rgba(112, 88, 184, 0.09) 0%, transparent 50%),
+    radial-gradient(ellipse 45% 35% at 28% 78%, rgba(101, 224, 221, 0.07) 0%, transparent 50%);
+  filter: blur(48px);
+  opacity: 0.95;
+  animation: aurora-drift 26s ease-in-out infinite alternate;
+}

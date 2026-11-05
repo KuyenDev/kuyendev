@@ -1,0 +1,45 @@
+/* ==========================================================================
+   KUYÉNDEV DESIGN SYSTEM · FORMULARIOS INTELIGENTES
+   ========================================================================== */
+
+.form-kd-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.form-kd-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--kd-text-primary);
+}
+
+.form-kd-input,
+.form-kd-textarea,
+.form-kd-select {
+  width: 100%;
+  background: rgba(14, 20, 34, 0.9);
+  border: 1px solid var(--kd-border-medium);
+  border-radius: var(--kd-radius-md);
+  padding: 0.85rem 1.15rem;
+  color: var(--kd-text-primary);
+  font-family: var(--kd-font-body);
+  font-size: 0.95rem;
+  transition: border-color var(--kd-ease-fast), box-shadow var(--kd-ease-fast);
+}
+
+.form-kd-input:focus,
+.form-kd-textarea:focus,
+.form-kd-select:focus {
+  outline: none;
+  border-color: var(--kd-cyan);
+  box-shadow: 0 0 0 3px var(--kd-cyan-glow);
+}
+
+.form-kd-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
