@@ -26,6 +26,15 @@
       <feGaussianBlur stdDeviation="8" result="blur"/>
       <feComposite in="SourceGraphic" in2="blur" operator="over"/>
     </filter>
+    <linearGradient id="prismTextGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="50%" stop-color="#65E0DD"/>
+      <stop offset="100%" stop-color="#C4B5FD"/>
+    </linearGradient>
+    <linearGradient id="prismAccentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#27C7D4"/>
+      <stop offset="100%" stop-color="#7058B8"/>
+    </linearGradient>
   </defs>
 
   <!-- Fondo Base con Degradado e Iluminación Atmosférica -->
@@ -82,52 +91,105 @@
     <!-- Barra URL de Demostración Real -->
     <rect x="140" y="8" width="360" height="22" rx="6" fill="#0B132B" stroke="rgba(39, 199, 212, 0.3)" stroke-width="1"/>
     <text x="320" y="23" text-anchor="middle" font-family="monospace" font-size="10.5" fill="#38BDF8">
-      kuyendev.cl/demos/clinica-dental/01-medical-minimalism.html
+      kuyendev.cl/demos/fotografia/02-liquid-glass.html
     </text>
     <!-- Badge "LIVE HTML" en verde -->
     <rect x="520" y="10" width="96" height="18" rx="4" fill="#065F46" stroke="#10B981" stroke-width="0.8"/>
     <text x="568" y="22" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="#A7F3D0">● LIVE DEMO</text>
 
-    <!-- Contenido Interior de la Demo Médica -->
-    <rect x="0" y="38" width="640" height="382" fill="#F8FAFC"/>
-    <!-- Header simulado de la demo -->
-    <rect x="0" y="38" width="640" height="42" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
-    <text x="32" y="64" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="13" font-weight="800" fill="#0F172A">CLÍNICA VALDÉS &amp; ASOC.</text>
-    <rect x="500" y="47" width="108" height="24" rx="4" fill="#0284C7"/>
-    <text x="554" y="63" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#FFFFFF">Agendar Cita</text>
+    <!-- Contenido Interior de la Demo: PRISMA LAB (Estilo #02 Liquid Glass) -->
+    <rect x="0" y="38" width="640" height="382" fill="#0D1117"/>
+    <circle cx="500" cy="180" r="160" fill="url(#cyanGlow)" opacity="0.5"/>
+    <circle cx="200" cy="280" r="130" fill="url(#purpleGlow)" opacity="0.4"/>
 
-    <!-- Hero de la Demo -->
-    <rect x="32" y="105" width="280" height="16" rx="4" fill="#E2E8F0"/>
-    <text x="32" y="150" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="22" font-weight="800" fill="#0F172A">Odontología de Precisión</text>
-    <text x="32" y="174" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="22" font-weight="800" fill="#0284C7">y Estética Guiada en 3D</text>
-    <text x="32" y="200" font-family="'Inter', system-ui, sans-serif" font-size="11" fill="#64748B">Tecnología intraoral CAD/CAM sin dolor ni esperas.</text>
-    <!-- Botón CTA en la demo -->
-    <rect x="32" y="220" width="130" height="30" rx="6" fill="#0284C7"/>
-    <text x="97" y="239" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#FFFFFF">Explorar Tratamientos</text>
+    <!-- Header Glassmorphic de PRISMA LAB -->
+    <rect x="0" y="38" width="640" height="42" fill="rgba(255, 255, 255, 0.04)" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1"/>
+    <!-- Glowing Prism Icon -->
+    <polygon points="36,49 47,68 25,68" fill="none" stroke="#27C7D4" stroke-width="2"/>
+    <polygon points="36,53 44,66 28,66" fill="#7058B8" opacity="0.6"/>
+    <!-- Brand Text -->
+    <text x="54" y="58" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="11.5" font-weight="800" fill="#F4F8FC" letter-spacing="1">PRISMA LAB</text>
+    <text x="54" y="67" font-family="'Inter', sans-serif" font-size="6.8" font-weight="600" fill="#9FB1C6" letter-spacing="0.5">DIRECCIÓN DE ARTE &amp; FOTOGRAFÍA</text>
+    <!-- Nav Links -->
+    <text x="245" y="63" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="500" fill="#9FB1C6">Portafolio</text>
+    <text x="322" y="63" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="500" fill="#9FB1C6">Simulador Óptico</text>
+    <text x="418" y="63" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="500" fill="#9FB1C6">Proceso</text>
+    <!-- Header Button -->
+    <rect x="510" y="47" width="106" height="24" rx="12" fill="rgba(39, 199, 212, 0.2)" stroke="#27C7D4" stroke-width="1"/>
+    <text x="563" y="63" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="700" fill="#7CE8F2">Reservar Set</text>
 
-    <!-- Tarjetas de Doctores en la Demo Simulada -->
-    <g transform="translate(340, 100)">
-      <rect x="0" y="0" width="268" height="150" rx="10" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
-      <rect x="12" y="12" width="70" height="85" rx="6" fill="#E0F2FE"/>
-      <!-- Doctor Icon -->
-      <circle cx="47" cy="42" r="16" fill="#38BDF8"/>
-      <path d="M27 82 C27 65, 67 65, 67 82 Z" fill="#0284C7"/>
-      <text x="94" y="32" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700" fill="#0F172A">Dra. Elena Valdés</text>
-      <text x="94" y="47" font-family="'Inter', sans-serif" font-size="9" font-weight="600" fill="#0284C7">Rehabilitación Oral</text>
-      <text x="94" y="65" font-family="'Inter', sans-serif" font-size="8.5" fill="#64748B">Master Harvard / PUC</text>
-      <rect x="94" y="76" width="90" height="18" rx="4" fill="#F0FDF4" stroke="#86EFAC" stroke-width="0.8"/>
-      <text x="139" y="88" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" font-weight="700" fill="#166534">Registro SIS Activo</text>
+    <!-- Eyebrow Real: Estilo #02 Liquid Glass -->
+    <g transform="translate(24, 94)">
+      <rect x="0" y="0" width="284" height="20" rx="10" fill="rgba(39, 199, 212, 0.12)" stroke="rgba(39, 199, 212, 0.35)" stroke-width="0.8"/>
+      <circle cx="10" cy="10" r="3" fill="#27C7D4"/>
+      <text x="18" y="13.5" font-family="'Plus Jakarta Sans', sans-serif" font-size="7.5" font-weight="700" fill="#7CE8F2" letter-spacing="0.6">ESTILO #02 · LIQUID GLASS &amp; REFRACCIÓN ÓPTICA</text>
     </g>
 
-    <!-- Barra de Herramientas KuyénDev Flotante en la Demo (Demo Viewer Bar) -->
+    <!-- Título Real de la Demo #02 -->
+    <text x="24" y="138" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="19" font-weight="800" fill="#FFFFFF" letter-spacing="-0.5">Fotografía que atraviesa</text>
+    <text x="24" y="160" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="19" font-weight="800" fill="url(#prismTextGrad)" letter-spacing="-0.5">el cristal y el espectro.</text>
+
+    <!-- Descripción Real -->
+    <text x="24" y="182" font-family="'Plus Jakarta Sans', sans-serif" font-size="9.5" fill="#9FB1C6">
+      <tspan x="24" dy="0">En PRISMA LAB fusionamos moda tecnológica, campañas</tspan>
+      <tspan x="24" dy="14">especulares y filtros de vidrio esmerilado con geles dicroicos.</tspan>
+    </text>
+
+    <!-- Botones de Acción Reales -->
+    <rect x="24" y="216" width="158" height="28" rx="14" fill="#27C7D4"/>
+    <text x="103" y="234" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="800" fill="#070A12">Explorar Galería Cristalina</text>
+    <rect x="190" y="216" width="138" height="28" rx="14" fill="rgba(255, 255, 255, 0.06)" stroke="rgba(255, 255, 255, 0.22)" stroke-width="1"/>
+    <text x="259" y="234" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="600" fill="#F4F8FC">Laboratorio de Luz</text>
+
+    <!-- Stats Reales de la Demo en Glass Cards -->
+    <g transform="translate(24, 258)">
+      <g transform="translate(0, 0)">
+        <rect width="94" height="44" rx="8" fill="rgba(255, 255, 255, 0.05)" stroke="rgba(255, 255, 255, 0.12)"/>
+        <text x="12" y="20" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="800" fill="#FFFFFF">8K RAW</text>
+        <text x="12" y="33" font-family="'Plus Jakarta Sans', sans-serif" font-size="7.5" fill="#9FB1C6">Fase Óptica</text>
+      </g>
+      <g transform="translate(104, 0)">
+        <rect width="94" height="44" rx="8" fill="rgba(255, 255, 255, 0.05)" stroke="rgba(255, 255, 255, 0.12)"/>
+        <text x="12" y="20" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="800" fill="#27C7D4">24px</text>
+        <text x="12" y="33" font-family="'Plus Jakarta Sans', sans-serif" font-size="7.5" fill="#9FB1C6">Capas Glass</text>
+      </g>
+      <g transform="translate(208, 0)">
+        <rect width="98" height="44" rx="8" fill="rgba(255, 255, 255, 0.05)" stroke="rgba(255, 255, 255, 0.12)"/>
+        <text x="12" y="20" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="800" fill="#C4B5FD">100%</text>
+        <text x="12" y="33" font-family="'Plus Jakarta Sans', sans-serif" font-size="7.5" fill="#9FB1C6">Luz Dicroica Set</text>
+      </g>
+    </g>
+
+    <!-- Panel Showcase Glassmorphic de Arte Futurista -->
+    <g transform="translate(340, 94)">
+      <rect x="0" y="0" width="272" height="208" rx="14" fill="rgba(255, 255, 255, 0.05)" stroke="rgba(39, 199, 212, 0.35)" stroke-width="1.2"/>
+      <!-- Marco artístico interior con iluminación neón refractada -->
+      <rect x="12" y="12" width="248" height="125" rx="10" fill="#131B2E" stroke="rgba(255, 255, 255, 0.1)"/>
+      <circle cx="136" cy="74" r="55" fill="url(#cyanGlow)" opacity="0.7"/>
+      <circle cx="105" cy="55" r="40" fill="url(#purpleGlow)" opacity="0.6"/>
+      <circle cx="136" cy="54" r="22" fill="rgba(244, 248, 252, 0.9)"/>
+      <path d="M102 110 C102 85, 170 85, 170 110 Z" fill="rgba(244, 248, 252, 0.75)"/>
+      <!-- Destellos de luz y líneas de prisma óptico -->
+      <line x1="25" y1="25" x2="235" y2="115" stroke="rgba(39, 199, 212, 0.45)" stroke-width="1.5" stroke-dasharray="6 4"/>
+      <line x1="45" y1="115" x2="225" y2="25" stroke="rgba(196, 181, 253, 0.35)" stroke-width="1.5"/>
+      <!-- Tarjeta Flotante Lens Card -->
+      <g transform="translate(12, 145)">
+        <rect width="248" height="52" rx="10" fill="rgba(13, 17, 23, 0.92)" stroke="rgba(255, 255, 255, 0.18)" stroke-width="0.8"/>
+        <text x="12" y="20" font-family="'Plus Jakarta Sans', sans-serif" font-size="9.5" font-weight="700" fill="#FFFFFF">Serie: Prisma Cian #04</text>
+        <text x="12" y="33" font-family="'Inter', sans-serif" font-size="7.5" fill="#9FB1C6">Lente Anamórfico 50mm · Filtro Cristal</text>
+        <rect x="165" y="12" width="72" height="18" rx="9" fill="rgba(39, 199, 212, 0.18)" stroke="#27C7D4" stroke-width="0.8"/>
+        <text x="201" y="24.5" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="7.5" font-weight="700" fill="#7CE8F2">Editorial 2026</text>
+      </g>
+    </g>
+<!-- Barra de Herramientas KuyénDev Flotante en la Demo (Demo Viewer Bar) -->
     <g transform="translate(40, 360)">
       <rect x="0" y="0" width="560" height="44" rx="22" fill="rgba(15, 23, 42, 0.94)" stroke="#38BDF8" stroke-width="1.2" filter="url(#shadowLg)"/>
       <text x="24" y="26" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700" fill="#38BDF8">← KuyénDev</text>
-      <text x="120" y="26" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700" fill="#F8FAFC">Estilo #01 · Minimalismo Médico</text>
+      <text x="120" y="26" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700" fill="#F8FAFC">Estilo #02 · Liquid Glass / Glassmorphism</text>
       <!-- Swatches de Color Interactivos -->
-      <circle cx="360" cy="22" r="7" fill="#0284C7" stroke="#FFF" stroke-width="1"/>
-      <circle cx="380" cy="22" r="7" fill="#0D9488" stroke="#FFF" stroke-width="1"/>
-      <circle cx="400" cy="22" r="7" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1"/>
+      <circle cx="360" cy="22" r="7" fill="#0D1117" stroke="#FFF" stroke-width="1"/>
+      <circle cx="380" cy="22" r="7" fill="#27C7D4" stroke="#FFF" stroke-width="1"/>
+      <circle cx="400" cy="22" r="7" fill="#7058B8" stroke="#FFF" stroke-width="1"/>
       <!-- Botón Cotizar este Diseño -->
       <rect x="430" y="8" width="116" height="28" rx="14" fill="#27C7D4"/>
       <text x="488" y="25" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="800" fill="#070A12">Cotizar Diseño</text>
@@ -143,18 +205,23 @@
     <circle cx="15" cy="16" r="4" fill="#EF4444"/>
     <circle cx="28" cy="16" r="4" fill="#F59E0B"/>
     <circle cx="41" cy="16" r="4" fill="#10B981"/>
-    <text x="145" y="20" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="9.5" font-weight="700" fill="#38BDF8">FOTOGRAFÍA &amp; CINE</text>
-    <!-- Preview interior Dark Cinematic -->
-    <rect x="12" y="44" width="236" height="160" rx="8" fill="#000000" stroke="#334155" stroke-width="1"/>
-    <circle cx="130" cy="100" r="28" fill="none" stroke="#27C7D4" stroke-width="2"/>
-    <polygon points="124,90 142,100 124,110" fill="#27C7D4"/>
-    <text x="130" y="145" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700" fill="#FFFFFF">DARK CINEMATIC · 4K</text>
-    <text x="130" y="160" text-anchor="middle" font-family="'Inter', sans-serif" font-size="8.5" fill="#94A3B8">Visor Fullscreen &amp; Transiciones</text>
+    <text x="145" y="20" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="9.5" font-weight="700" fill="#38BDF8">NORD STUDIO · MINIMAL</text>
+    <!-- Preview interior Minimalismo Puro #01 -->
+    <rect x="12" y="44" width="236" height="160" rx="8" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+    <rect x="22" y="54" width="40" height="14" rx="3" fill="#0F172A"/>
+    <text x="42" y="64" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="7" font-weight="700" fill="#FFFFFF">#01 MINIMAL</text>
+    <!-- Miniatura de arquitectura minimalista -->
+    <rect x="22" y="74" width="216" height="75" rx="6" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="0.8"/>
+    <text x="32" y="94" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="800" fill="#0F172A">La arquitectura del silencio</text>
+    <text x="32" y="106" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="800" fill="#64748B">antes del disparo.</text>
+    <text x="32" y="128" font-family="'Inter', sans-serif" font-size="7" fill="#94A3B8">demos/fotografia/01-minimalismo.html</text>
+    <text x="130" y="182" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="9.5" font-weight="700" fill="#0F172A">01. Minimalismo (Minimalist)</text>
+    <text x="130" y="194" text-anchor="middle" font-family="'Inter', sans-serif" font-size="7.5" fill="#64748B">Espacio negativo amplio &amp; tipografía pura</text>
     <!-- Datos Clave -->
-    <text x="16" y="235" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="800" fill="#F8FAFC">20 Estilos Exclusivos</text>
-    <text x="16" y="255" font-family="'Inter', sans-serif" font-size="9.5" fill="#94A3B8">Liquid Glass, Brutalismo, Minimal</text>
+    <text x="16" y="235" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="800" fill="#F8FAFC">Ideal: Retratos &amp; Arquitectura</text>
+    <text x="16" y="255" font-family="'Inter', sans-serif" font-size="9" fill="#94A3B8">Paleta: Blanco puro, gris y carbón</text>
     <rect x="16" y="275" width="228" height="32" rx="6" fill="rgba(39, 199, 212, 0.15)" stroke="#27C7D4" stroke-width="1"/>
-    <text x="130" y="295" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="10.5" font-weight="700" fill="#38BDF8">Navegar Demostraciones →</text>
+    <text x="130" y="295" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="10.5" font-weight="700" fill="#38BDF8">Navegar Estilo #01 →</text>
   </g>
 
   <!-- 3. Tarjeta Lateral Derecha: Rubro Peluquería, Belleza &amp; Barbería -->
@@ -166,18 +233,23 @@
     <circle cx="15" cy="16" r="4" fill="#EF4444"/>
     <circle cx="28" cy="16" r="4" fill="#F59E0B"/>
     <circle cx="41" cy="16" r="4" fill="#10B981"/>
-    <text x="145" y="20" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="9.5" font-weight="700" fill="#F59E0B">PELUQUERÍA &amp; BARBERÍA</text>
-    <!-- Preview interior Luxury Black &amp; Gold -->
-    <rect x="12" y="44" width="236" height="160" rx="8" fill="#18181B" stroke="#78350F" stroke-width="1"/>
-    <circle cx="130" cy="100" r="28" fill="none" stroke="#F59E0B" stroke-width="2"/>
-    <text x="130" y="105" text-anchor="middle" font-family="serif" font-size="20" fill="#F59E0B">✂</text>
-    <text x="130" y="145" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700" fill="#FDE68A">BLACK &amp; GOLD LUXURY</text>
-    <text x="130" y="160" text-anchor="middle" font-family="'Inter', sans-serif" font-size="8.5" fill="#A1A1AA">Agenda de Citas &amp; Slider Antes/Después</text>
+    <text x="145" y="20" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="9.5" font-weight="700" fill="#F59E0B">NOCTURNE CINEMA · DARK</text>
+    <!-- Preview interior Dark Cinematic #03 -->
+    <rect x="12" y="44" width="236" height="160" rx="8" fill="#0A0A0A" stroke="#E5A93C" stroke-width="1"/>
+    <rect x="22" y="54" width="55" height="14" rx="3" fill="rgba(229, 169, 60, 0.2)" stroke="#E5A93C" stroke-width="0.8"/>
+    <text x="50" y="64" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="7" font-weight="700" fill="#FDE68A">#03 CINEMA</text>
+    <circle cx="130" cy="96" r="22" fill="none" stroke="#E5A93C" stroke-width="1.5"/>
+    <polygon points="125,89 139,96 125,103" fill="#E5A93C"/>
+    <text x="130" y="132" text-anchor="middle" font-family="'Cinzel', serif" font-size="8.5" font-weight="700" fill="#FFFFFF" letter-spacing="0.5">CADA HISTORIA MERECE</text>
+    <text x="130" y="143" text-anchor="middle" font-family="'Cinzel', serif" font-size="8.5" font-weight="700" fill="#FDE68A" letter-spacing="0.5">UNA PELÍCULA DE AUTOR</text>
+    <text x="130" y="162" text-anchor="middle" font-family="'Inter', sans-serif" font-size="7.5" fill="#8E96A4">demos/fotografia/03-dark-cinematic.html</text>
+    <text x="130" y="182" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="9.5" font-weight="700" fill="#FDE68A">03. Dark Cinematic</text>
+    <text x="130" y="194" text-anchor="middle" font-family="'Inter', sans-serif" font-size="7.5" fill="#8E96A4">Fondos negros &amp; iluminación anamórfica</text>
     <!-- Datos Clave -->
-    <text x="16" y="235" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="800" fill="#F8FAFC">20 Estilos de Autor</text>
-    <text x="16" y="255" font-family="'Inter', sans-serif" font-size="9.5" fill="#94A3B8">Vintage Barber, Pop Art, Japandi</text>
+    <text x="16" y="235" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="800" fill="#F8FAFC">Ideal: Cineastas &amp; Bodas de Autor</text>
+    <text x="16" y="255" font-family="'Inter', sans-serif" font-size="9" fill="#94A3B8">Paleta: Carbón profundo y ámbar dorado</text>
     <rect x="16" y="275" width="228" height="32" rx="6" fill="rgba(245, 158, 11, 0.15)" stroke="#F59E0B" stroke-width="1"/>
-    <text x="130" y="295" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="10.5" font-weight="700" fill="#FDE68A">Explorar Barber &amp; Beauty →</text>
+    <text x="130" y="295" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="10.5" font-weight="700" fill="#FDE68A">Navegar Estilo #03 →</text>
   </g>
 
   <!-- Píldoras de Ventajas Tecnológicas al Pie -->
